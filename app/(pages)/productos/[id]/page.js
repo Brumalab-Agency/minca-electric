@@ -9,6 +9,7 @@ import { HotSpot } from "@/components/sigle-product/HotSpot";
 import { PuedeInteresarte } from "@/components/sigle-product/PuedeInteresarte";
 import { Footer } from "@/components/home/Footer";
 import { HeroVideoSingleProduct } from "@/components/reusable/HeroVideoSingleProduct";
+import { CarruselAccesorios } from "@/components/carruseles/accesorios/CarruselAccesorios";
 
 export const metadata = {
   title: "Productos",
@@ -31,6 +32,7 @@ const SingleProduct = async () => {
       <Section5/>
       <HotSpot/>
       <PuedeInteresarte/>
+      <CarruselAccesorios/>
       <Footer/>
     </>
   );

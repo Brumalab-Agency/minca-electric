@@ -34,7 +34,6 @@ const nextConfig = {
           // }
         ],
       },
-      distDir: 'netlify_output',
 };
 
 

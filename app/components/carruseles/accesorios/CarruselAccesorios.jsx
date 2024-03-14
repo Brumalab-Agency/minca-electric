@@ -51,7 +51,7 @@ export const CarruselAccesorios = () => {
           </Carousel>
         </div>
       </div>
-      <Separador />
+      <Separador clases="hidden"/>
     </div>
   );
 };

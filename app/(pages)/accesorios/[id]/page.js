@@ -5,6 +5,7 @@ import { MincaAccesoriosSinSeparador } from "@/components/reusable/MincaAccesori
 import { PuedeInteresarte } from "@/components/sigle-product/PuedeInteresarte"
 import { EspecificacionesAccesorios } from '@/components/especificaciones-component/EspecificacionesAccesorios'
 import { Hotspot } from '@/components/especificaciones-component/Hotspot'
+import { CarruselAccesorios } from '@/components/carruseles/accesorios/CarruselAccesorios'
 
 export const SingleAccesorio = () => {
   return (
@@ -15,7 +16,7 @@ export const SingleAccesorio = () => {
         <HeroVideoSingleProduct titulo="MINCA" tituloSecundarioNegrita="Lifestyle"/>
         <PuedeInteresarte/>
         <hr className="hidden lg:block lg:m-auto lg:w-[90%] border-1"></hr>
-        <MincaAccesoriosSinSeparador/>
+        <CarruselAccesorios/>
         <Footer/>
     </>
   )
