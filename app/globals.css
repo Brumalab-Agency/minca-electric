@@ -1,0 +1,408 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --backGroundBody: #111;
+}
+
+body {
+  background: rgb(var(--backGroundBody));
+  position: relative;
+  min-height: 100vh;
+  width: auto;
+}
+
+/* Pausar animacion del Marquee*/
+
+.pause-animations-on-children-on-hover:hover * {
+  animation-play-state: paused;
+}
+
+.marquee-banner:before {
+  position: absolute;
+  content: "00000";
+  color: transparent;
+  left: 0;
+  background: linear-gradient(to right, #000 0%, transparent 100%);
+  z-index: 1;
+}
+
+.marquee-banner:after {
+  position: absolute;
+  content: "00000";
+  color: transparent;
+  right: 0;
+  top: 0;
+  background: linear-gradient(to left, #000 0%, transparent 100%);
+}
+
+/* Menú */
+
+.menu nav.block.w-full.rounded-xl.shadow-md.backdrop-saturate-200.backdrop-blur-2xl.bg-opacity-80.border.border-white\/80.bg-white.text-white.mx-auto.max-w-screen-xl.px-4.py-2 {
+  border: none;
+  padding-left: 0;
+}
+
+nav.block.w-full.rounded-xl.shadow-md.backdrop-saturate-200.backdrop-blur-2xl.bg-opacity-80.border.border-white\/80.bg-white.text-white.mx-auto.max-w-screen-xl.px-4.py-2 {
+  padding: 0;
+  border: none;
+}
+
+div[role="menu"]{
+  left: 8% !important;
+}
+
+.w-full.p-3.rounded-lg.text-start.leading-tight.transition-all.hover\:bg-blue-gray-50.hover\:bg-opacity-80.focus\:bg-blue-gray-50.focus\:bg-opacity-80.active\:bg-blue-gray-50.active\:bg-opacity-80.hover\:text-blue-gray-900.focus\:text-blue-gray-900.active\:text-blue-gray-900.outline-none.flex.items-center.gap-2.py-2.pr-4.font-medium.text-gray-900, a.block.antialiased.font-sans.text-sm.leading-normal.text-\[\#111\].font-medium {
+  font-size: 16px !important;
+}
+
+
+/* Spinning Curved Text */
+
+.spinning-text-wrapper {
+  position: relative;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-size: 1rem;
+}
+
+.spinning-text {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  animation: spin 50s linear infinite;
+  text-transform: uppercase;
+  font-weight: 700;
+  stroke: black;
+  & svg {
+    stroke: black;
+    fill: black;
+  }
+}
+
+.spinning-text span {
+  position: absolute;
+  top: -44%;
+  left: 50%;
+  transform-origin: 0 75px;
+  scale: 50%;
+}
+
+
+/* Tarjetas especificaciones carrusel */
+
+.custom-shadow {
+  box-shadow: 0px 13.211px 26.422px 0px rgba(0, 0, 0, 0.06);
+}
+
+.custom-shadow-movil {
+  box-shadow: 0px 13.211px 26.422px 0px rgba(0, 0, 0, 0.06);
+}
+
+.scroll-none {
+  scrollbar-width: none;
+}
+
+.margin-custom {
+  margin-left: 21%;
+}
+
+input#UserEmail {
+  background: transparent;
+}
+
+::placeholder {
+  font-size: 1.2em;
+}
+
+/* Carrusel */
+
+.carrusel .absolute.bottom-4.left-2\/4.z-50.flex.-translate-x-2\/4.gap-2 {
+  left: 94.5%;
+  top: 7.4%;
+}
+
+.carrusel
+  .absolute.bottom-4.left-2\/4.z-50.flex.-translate-x-2\/4.gap-2
+  .bg-white\/50 {
+  background-color: #eeedee;
+  width: 0.5rem;
+  height: 0.5rem;
+}
+
+.carrusel
+  .absolute.bottom-4.left-2\/4.z-50.flex.-translate-x-2\/4.gap-2
+  .bg-white {
+  background-color: #111;
+  width: 0.5rem;
+  height: 0.5rem;
+}
+
+button.\!absolute.top-2\/4.left-4.-translate-y-2\/4.rounded-full.select-none.transition-all.disabled\:opacity-50.disabled\:shadow-none.disabled\:pointer-events-none.w-12.max-w-\[48px\].h-12.max-h-\[48px\].text-white.hover\:bg-white\/10.active\:bg-white\/30.grid.place-items-center {
+  background: #f2f2f2;
+  position: absolute;
+  top: 40.5%;
+  left: 35%;
+  z-index: 999;
+  width: 58px;
+  height: 58px;
+  border-radius: 4px;
+  display: grid;
+  place-items: center;
+
+  svg {
+    width: 30px;
+    height: 30px;
+    path {
+      stroke:#111;
+      stroke-width: 2px;
+    }
+  }
+}
+
+button.\!absolute.top-2\/4.right-4.-translate-y-2\/4.rounded-full.select-none.transition-all.disabled\:opacity-50.disabled\:shadow-none.disabled\:pointer-events-none.w-12.max-w-\[48px\].h-12.max-h-\[48px\].text-white.hover\:bg-white\/10.active\:bg-white\/30.grid.place-items-center {
+  background: #f2f2f2;
+  position: absolute;
+  top: 40.5%;
+  right: 3.5%;
+  z-index: 999;
+  width: 58px;
+  height: 58px;
+  border-radius: 4px;
+  display: grid;
+  place-items: center;
+
+  svg {
+    width: 30px;
+    height: 30px;
+    path {
+      stroke: #111;
+      stroke-width: 2px;
+    }
+  }
+}
+
+button.\!absolute.top-2\/4.left-4.-translate-y-2\/4.rounded-full.select-none.transition-all.disabled\:opacity-50.disabled\:shadow-none.disabled\:pointer-events-none.w-12.max-w-\[48px\].h-12.max-h-\[48px\].text-white.hover\:bg-white\/10.active\:bg-white\/30.grid.place-items-center:disabled {
+  opacity: .3;
+}
+
+button.\!absolute.top-2\/4.right-4.-translate-y-2\/4.rounded-full.select-none.transition-all.disabled\:opacity-50.disabled\:shadow-none.disabled\:pointer-events-none.w-12.max-w-\[48px\].h-12.max-h-\[48px\].text-white.hover\:bg-white\/10.active\:bg-white\/30.grid.place-items-center:disabled {
+  opacity: .3;
+}
+
+
+
+/*  Carrusle Single Product */
+
+.carrusel-sigle-product button.\!absolute.top-2\/4.left-4.-translate-y-2\/4.rounded-full.select-none.transition-all.disabled\:opacity-50.disabled\:shadow-none.disabled\:pointer-events-none.w-12.max-w-\[48px\].h-12.max-h-\[48px\].text-white.hover\:bg-white\/10.active\:bg-white\/30.grid.place-items-center {
+  background: #ffffff;
+  position: absolute;
+  top: 40.5%;
+  left: 0%;
+  z-index: 999;
+  width: 58px;
+  height: 58px;
+  border-radius: 4px;
+  display: grid;
+  place-items: center;
+
+  svg {
+    width: 30px;
+    height: 30px;
+    path {
+      stroke: #111;
+      stroke-width: 2px;
+    }
+  }
+}
+
+
+.carrusel-sigle-product button.\!absolute.top-2\/4.right-4.-translate-y-2\/4.rounded-full.select-none.transition-all.disabled\:opacity-50.disabled\:shadow-none.disabled\:pointer-events-none.w-12.max-w-\[48px\].h-12.max-h-\[48px\].text-white.hover\:bg-white\/10.active\:bg-white\/30.grid.place-items-center {
+  background: #ffffff;
+  position: absolute;
+  top: 40.5%;
+  right: 0%;
+  z-index: 999;
+  width: 58px;
+  height: 58px;
+  border-radius: 4px;
+  display: grid;
+  place-items: center;
+
+  svg {
+    width: 30px;
+    height: 30px;
+    path {
+      stroke:#111;
+      stroke-width: 2px;
+    }
+  }
+}
+
+/*  Carrusel ShowRoom Home */
+
+.carrusel-showRoom-home .ladoIzquierdo.grid.h-full.w-full.place-items-center{
+  background-image: url(/ShowRoom-pc.jpg);
+  background-position: right;
+  background-size: cover;
+}
+
+.carrusel-showRoom-home button.\!absolute.top-2\/4.left-4.-translate-y-2\/4.rounded-full.select-none.transition-all.disabled\:opacity-50.disabled\:shadow-none.disabled\:pointer-events-none.w-12.max-w-\[48px\].h-12.max-h-\[48px\].text-white.hover\:bg-white\/10.active\:bg-white\/30.grid.place-items-center {
+  background: #f2f2f2;
+  position: absolute;
+  top: 40.5%;
+  left: 3.5%;
+  z-index: 999;
+  width: 58px;
+  height: 58px;
+  border-radius: 4px;
+  display: grid;
+  place-items: center;
+}
+
+/* Carrusel Talleres */
+
+
+.carrusel-talleres button.\!absolute.top-2\/4.left-4.-translate-y-2\/4.rounded-full.select-none.transition-all.disabled\:opacity-50.disabled\:shadow-none.disabled\:pointer-events-none.w-12.max-w-\[48px\].h-12.max-h-\[48px\].text-white.hover\:bg-white\/10.active\:bg-white\/30.grid.place-items-center {
+  background: #ffffff;
+  position: absolute;
+  top: 40.5%;
+  left: 3.5%;
+  z-index: 999;
+  width: 58px;
+  height: 58px;
+  border-radius: 4px;
+  display: grid;
+  place-items: center;
+}
+
+.carrusel-talleres button.\!absolute.top-2\/4.right-4.-translate-y-2\/4.rounded-full.select-none.transition-all.disabled\:opacity-50.disabled\:shadow-none.disabled\:pointer-events-none.w-12.max-w-\[48px\].h-12.max-h-\[48px\].text-white.hover\:bg-white\/10.active\:bg-white\/30.grid.place-items-center {
+  background: #ffffff;
+  position: absolute;
+  top: 40.5%;
+  right: 3.5%;
+  z-index: 999;
+  width: 58px;
+  height: 58px;
+  border-radius: 4px;
+  display: grid;
+  place-items: center;
+}
+
+.carrusel-talleres .w-full.h-full.grid.place-items-center.ladoIzquierdo {
+  background-image: url(/servicioTecnico/img_talleres.jpg);
+  background-position: center;
+  background-size: cover;
+}
+
+
+/*  Carrusel ShowRoom Servicio*/
+
+.carrusel-showRoom button.\!absolute.top-2\/4.left-4.-translate-y-2\/4.rounded-full.select-none.transition-all.disabled\:opacity-50.disabled\:shadow-none.disabled\:pointer-events-none.w-12.max-w-\[48px\].h-12.max-h-\[48px\].text-white.hover\:bg-white\/10.active\:bg-white\/30.grid.place-items-center {
+  background: #ffffff;
+  position: absolute;
+  top: 40.5%;
+  left: 3.5%;
+  z-index: 999;
+  width: 58px;
+  height: 58px;
+  border-radius: 4px;
+  display: grid;
+  place-items: center;
+}
+
+.carrusel-showRoom button.\!absolute.top-2\/4.right-4.-translate-y-2\/4.rounded-full.select-none.transition-all.disabled\:opacity-50.disabled\:shadow-none.disabled\:pointer-events-none.w-12.max-w-\[48px\].h-12.max-h-\[48px\].text-white.hover\:bg-white\/10.active\:bg-white\/30.grid.place-items-center {
+  background: #ffffff;
+  position: absolute;
+  top: 40.5%;
+  right: 3.5%;
+  z-index: 999;
+  width: 58px;
+  height: 58px;
+  border-radius: 4px;
+  display: grid;
+  place-items: center;
+}
+
+.carrusel-showRoom  .w-full.h-full.grid.place-items-center.ladoIzquierdo {
+  background-image: url(/servicioTecnico/img_showroom.jpg);
+  background-position: center;
+  background-size: cover;
+}
+
+
+/* ************************************** */
+
+/* Prueba una MINCA */
+
+.background-gradient{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(75% 35% at 50% 95%, rgba(255, 255, 255, 0.6) 20%, rgba(212, 212, 216, 0) 90%), linear-gradient(rgba(224, 224, 224, 0) 0%, #ffffff 80%);
+  transform: rotate(90deg);
+  margin-left: -150px;
+  &:before {
+		content: "";
+		width: 100%;
+		height: 100%;
+		z-index: 1;
+		position: absolute;
+		top: 0;
+		left: 0;
+		bottom: 0;
+		right: 0;
+		background: radial-gradient(
+				50vw 60vw at 50% 70%,
+				rgba(255, 255, 255, 0.08) 0%,
+				rgba(255, 255, 255, 0) 60%
+			);
+		filter: blur(50px);
+	}
+
+}
+
+
+/*  Accesorios */
+
+.carrusel-accesorios.mt-\[72px\].flex.gap-2.lg\:gap-8.lg\:h-\[380px\].overflow-x-scroll {
+  scrollbar-width: none;
+}
+
+/*  Servicios */
+
+.spin-text-sedes .w-\[250px\].lg\:flex.justify-center.items-center.absolute.top-\[10px\].right-\[-36px\].hidden {
+  position: relative;
+  top: 50px;
+}
+
+/*  Algún shadow de un componente que no se ve */
+
+nav.block.w-full.rounded-xl.shadow-md.backdrop-saturate-200.backdrop-blur-2xl.bg-opacity-80.border.border-white\/80.bg-white.text-white.mx-auto.max-w-screen-xl.px-4.py-2 {
+  box-shadow: none;
+}
+
+  /* Testimonios */
+
+  .testimonioCard.lg\:my-\[74px\].flex.justify-between.items-center.gap-4.overflow-x-scroll {
+    scrollbar-width: none;
+}
+
+.overflow-hidden.overflow-visible::after {
+  background: linear-gradient(to left, #fff 0%, transparent 100%);
+  color: transparent;
+  content: "00000";
+  position: absolute;
+  right: 46%;
+  height: 40%;
+  width: 4%;
+  bottom: 0;
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(3px);
+}
+
