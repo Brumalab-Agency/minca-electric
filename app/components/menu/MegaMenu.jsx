@@ -21,37 +21,39 @@ import {
 } from "@heroicons/react/24/outline";
 import { BannerMenu } from "./BannerMenu";
 
-const navListMenuProductos = [
-  {
-    title: "Minca Scooters",
-    description1: "Minca 350W",
-    description2: "Minca 500W",
-    description3: "Minca 800W",
-    description4: "Minca 1600W",
-  },
-  {
-    title: "Minca E-bikes",
-    description1: "Minca Trip",
-    description2: "Minca City",
-  },
-];
-
-const navListMenuAccesorios = [
-  {
-    title: "Accesorios",
-    description1: "Casco",
-    description2: "Guantes",
-    description3: "Gafas",
-    description4: "Candado U",
-    description5: "Maleta",
-    description6: "Guaya",
-    description7: "Poncho",
-  },
-];
-
-/* PAra un yo del futuro "Los ListItem" al parecer esta generando problemas de hidratación lo que es posible que si algún problema se presenta a futuro investigar como reemplazarlo sin perder la estructura actual de la web */
+import { Scooters } from "@/lib/graphQLRequest";
 
 function NavListMenu() {
+    const navListMenuProductos = [
+    {
+      title: "Minca Scooters",
+      description1: "Minca 350W",
+      description2: "Minca 500W",
+      description3: "Minca 800W",
+      description4: "Minca 1600W",
+    },
+    {
+      title: "Minca E-bikes",
+      description1: "Minca Trip",
+      description2: "Minca City",
+    },
+  ];
+
+  const navListMenuAccesorios = [
+    {
+      title: "Accesorios",
+      description1: "Casco",
+      description2: "Guantes",
+      description3: "Gafas",
+      description4: "Candado U",
+      description5: "Maleta",
+      description6: "Guaya",
+      description7: "Poncho",
+    },
+  ];
+
+
+
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const renderProductos = navListMenuProductos.map(
@@ -161,11 +163,7 @@ function NavList() {
   return (
     <List className="mb-6 mt-4 p-0 lg:mb-0 lg:mt-0 lg:flex-row lg:p-1">
       <NavListMenu />
-      <Typography
-        variant="small"
-        color="[#111]"
-        className="font-medium"
-      >
+      <Typography variant="small" color="[#111]" className="font-medium">
         <Link
           className="flex items-center gap-2 py-2 pr-4 text-base text-[#111]"
           href="/servicios"

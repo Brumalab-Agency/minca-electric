@@ -3,10 +3,11 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "next dev  --turbo",
     "prebuild": "npm ls supports-color || npm install supports-color",
     "build": "next build",
     "start": "next start",
+    "trace": "node --trace-deprecation index.js",
     "lint": "next lint"
   },
   "dependencies": {
@@ -44,6 +45,7 @@
   "devDependencies": {
     "autoprefixer": "^10.4.18",
     "postcss": "^8",
+    "postcss-nesting": "^12.1.0",
     "prettier": "^3.2.5",
     "prettier-plugin-tailwindcss": "^0.5.12",
     "tailwindcss": "^3.4.1"

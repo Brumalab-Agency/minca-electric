@@ -1,5 +1,5 @@
 import { ubuntu } from "@/ui/fonts";
-import { compareAsc, format } from "date-fns";
+import { format } from "date-fns";
 
 export const CardBlog = ({data}) => {
   const parsedDate = new Date(data.dateGmt);

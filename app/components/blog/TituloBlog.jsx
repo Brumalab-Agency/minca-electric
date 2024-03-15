@@ -5,7 +5,6 @@ import { Entradas } from "@/lib/graphQLRequest";
 
 export const TituloBlog = async() => {
     const entradas = await Entradas();
-    console.log(entradas);
     const posts = entradas.posts.nodes;
 
   return (

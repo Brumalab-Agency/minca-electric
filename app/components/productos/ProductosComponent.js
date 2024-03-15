@@ -3,7 +3,7 @@ import AddToCart from "../cart/AddToCart";
 
 
 export const ProductosComponent = ({item, img}) => {
-  /* console.log(item); */
+
   const productType = item?.type ?? ""
   /* console.log(productType); */
   return (

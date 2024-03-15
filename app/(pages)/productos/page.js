@@ -2,12 +2,8 @@ import { HeroContext } from '@/components/reusable/HeroContext'
 
 
 
-export const ProductosPage = () => {
-  return (
-    <>
-        <HeroContext titulo="MINCA" tituloNegrita="SCOOTERS"/>
-    </>
-  )
+const ProductosPage = () => {
+  return null
 }
 
 export default ProductosPage

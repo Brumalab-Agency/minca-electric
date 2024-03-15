@@ -10,19 +10,17 @@ import { format } from "date-fns";
 
 const SIngleBlog = async ({ params }) => {
   const { id } = params;
+
   const data = await SinglePost(id);
-  console.log(data.posts.nodes[0].postId);
-  console.log(id);
 
   const posts = data.posts.nodes;
-  console.log(posts[0].dateGmt);
+  
 
   const parsedDate = new Date(posts[0].dateGmt);
-  console.log(parsedDate);
 
   // Formatea la fecha en el formato deseado (por ejemplo, "13 de marzo de 2024, 15:51")
   const formattedDate = format(parsedDate, "dd 'de' MMMM 'de' yyyy");
-  console.log(formattedDate);
+
   return (
     <>
       <HeroContext titulo="Blog" />

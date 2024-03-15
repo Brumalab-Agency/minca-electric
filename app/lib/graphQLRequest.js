@@ -8,8 +8,8 @@ export const fetchGraphQL = async (query) => {
       headers: {
         "Content-Type": "application/json",
       },
-      cache: "no-store",
-    }
+    },
+    { next: { revalidate: 300 } }
   );
 
   const { data } = await res.json();
@@ -28,7 +28,7 @@ const fetchScooters = async (query) => {
       headers: {
         "Content-Type": "application/json",
       },
-    
+/*       cache: "no-store", */
     }
   );
 
@@ -214,6 +214,7 @@ export const Scooters = async () => {
 
   try {
     const scooters = await fetchScooters(query);
+
     return scooters;
   } catch (error) {
     console.error("Error fetching scooters:", error);
@@ -221,38 +222,29 @@ export const Scooters = async () => {
   }
 };
 
-// Slider-carrusel productos secundario
+// Single de Productos
 
-export const Ebikes = async () => {
+export const SingleProductos = async (name) => {
   const query = `
-        query Scootersecs {
-          sliderProductsSec {
+        query SingleProductos {
+          sliderProducts(where: {name: "${name}"}) {
             edges {
               node {
                 sliderProductos {
-                  nombreProducto
                   ampere
                   bateria
                   description
                   descuento
                   distancia
                   fieldGroupName
-                  frenos
-                  frenosNulo
-                  imagen {
-                    altText
-                    id
-                    sourceUrl
-                  }
                   kg
-                  kgPesoScooter
                   km
                   kmh
                   llanta
                   motor
+                  nombreProducto
                   peso
                   pesoMaximo
-                  pesoSc
                   precioActual
                   precioRebajado
                   pulgadas
@@ -261,17 +253,118 @@ export const Ebikes = async () => {
                   tipo
                   tipoAutonomia
                   tipoBrushless
-                  tipoRodamiento
-                  tipofrenos
-                  tpeso
                   vatios
                   velocidadMaxima
                   velocidadNum
+                  frenos
+                  tipofrenos
+                  imagen {
+                    altText
+                    sourceUrl
+                    id
+                  }
+                  frenosNulo
+                  pesoSc
+                  tpeso
+                  kgPesoScooter
+                  tipoRodamiento
+                  foto1 {
+                    altText
+                    sourceUrl
+                  }
+                  foto2 {
+                    mediaItemUrl
+                    altText
+                  }
+                  foto3 {
+                    altText
+                    mediaItemUrl
+                  }
+                }
+                contentType {
+                  node {
+                    id
+                  }
                 }
               }
             }
           }
         }
+    `;
+
+  try {
+    const scooters = await  fetchScooters(query);
+
+    return scooters;
+  } catch (error) {
+    console.error("Error fetching singleProductos:", error);
+    
+  }
+};
+
+// Slider-carrusel productos secundario
+
+export const Ebikes = async () => {
+  const query = `
+  query Scootersecs {
+    sliderProductsSec {
+      edges {
+        node {
+          sliderProductos {
+            nombreProducto
+            ampere
+            bateria
+            description
+            descuento
+            distancia
+            fieldGroupName
+            frenos
+            frenosNulo
+            imagen {
+              altText
+              id
+              sourceUrl
+            }
+            kg
+            kgPesoScooter
+            km
+            kmh
+            llanta
+            motor
+            peso
+            pesoMaximo
+            pesoSc
+            precioActual
+            precioRebajado
+            pulgadas
+            slogan
+            subtitulo
+            tipo
+            tipoAutonomia
+            tipoBrushless
+            tipoRodamiento
+            tipofrenos
+            tpeso
+            vatios
+            velocidadMaxima
+            velocidadNum
+            foto1 {
+              altText
+              mediaItemUrl
+            }
+            foto2 {
+              altText
+              mediaItemUrl
+            }
+            foto3 {
+              altText
+              mediaItemUrl
+            }
+          }
+        }
+      }
+    }
+  }
     `;
 
   try {
@@ -314,7 +407,7 @@ export const TestimoniosQuery = async () => {
 
 /* Consulta de prueba de productos */
 
-export const ProductosPrueba = async () => {
+export const ProductosWoocommerce = async () => {
   const query = `
         query Productos {
           products {
@@ -421,7 +514,7 @@ export const SinglePost = async (id) => {
 
   try {
     const entradas = await fetchGraphQL(query);
-    console.log(entradas);
+  
     return entradas;
   } catch (error) {
     console.error("Error fetching Entradas:", error);
@@ -429,4 +522,3 @@ export const SinglePost = async (id) => {
   }
 };
 
-SinglePost(395)

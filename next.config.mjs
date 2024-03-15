@@ -2,6 +2,7 @@
 import withVideos from 'next-videos';
 
 const nextConfig = {
+  output: 'standalone',
     images: {
         remotePatterns: [
           {
@@ -34,6 +35,9 @@ const nextConfig = {
           // }
         ],
       },
+      experimental: {
+        esmExternals: 'loose'
+      }
 };
 
 

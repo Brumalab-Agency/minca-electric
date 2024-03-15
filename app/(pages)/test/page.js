@@ -1,11 +1,12 @@
 import { Header } from "@/components/home/Header";
 import { ProductosComponent } from "@/components/productos/ProductosComponent";
-import { ProductosPrueba } from "@/lib/graphQLRequest";
+import { ProductosWoocommerce } from "@/lib/graphQLRequest";
 
 
 export const TestProduct = async () => {
-  const dato = await ProductosPrueba();
+  const dato = await ProductosWoocommerce();
   const data = dato.products.nodes;
+
   return (
     <div>
       <Header/>

@@ -4,6 +4,7 @@ import { useContext, useState } from "react";
 import { AppContext } from "../context/Context";
 import Link from "next/link";
 import cx from "classnames";
+import { ubuntu } from "../../ui/fonts";
 
 export const AddToCart = ({ producto }) => {
   const [cart, setCart] = useContext(AppContext);
@@ -34,15 +35,14 @@ export const AddToCart = ({ producto }) => {
       >
         {loading ? "Agregando..." : "Agregar al carrito"}
       </button>
-      {isAddedToCart && !loading ? (
-        <Link
+        {/* <Link
           href="/productos"
           className="inline-block rounded border border-indigo-600 bg-indigo-600 px-12 py-3 text-sm font-medium text-white hover:bg-transparent hover:text-indigo-600 focus:outline-none focus:ring active:text-indigo-500"
           onClick={() => addToCart(producto.databaseId ?? 0)}
         >
           Ver carrito
-        </Link>
-      ) : null}
+        </Link> */}
+
     </>
   );
 };
