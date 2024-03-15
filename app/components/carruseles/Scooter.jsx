@@ -6,6 +6,7 @@ import Link from "next/link";
 
 const Scooter = ({ scooter }) => {
   const item = scooter.node.sliderProductos;
+  console.log(item);
   return (
     <div id="scooter" className="carrusel h-auto w-full">
       <div className="relative p-4 lg:px-12 lg:py-14">
