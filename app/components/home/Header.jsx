@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import Image from "next/image";
 import Link from "next/link";
 import { Menu } from "../menu/Menu";
@@ -25,7 +25,7 @@ export const Header = () => {
       <div className="hidden flex-grow lg:flex">
         <Menu />
       </div>
-      <div className="header-right items-center justify-between gap-4 lg:flex">
+      <div className="header-right items-center justify-between gap-4 flex">
         <Link
           href="/testdrive"
           className="hidden text-base font-semibold lg:flex"
@@ -35,27 +35,54 @@ export const Header = () => {
         <button className="mr-4 hidden h-[52px] w-[135px] rounded-[62px] bg-[#111] text-base text-white lg:block">
           <Link href="/contacto">Contacto</Link>
         </button>
-        <Image
-          placeholder="empty"
-          className="lg:hidden"
-          src="/icon_ecommerce.png"
-          width={96}
-          height={24}
-          alt="Imagen representativa de caracteristicas del producto"
-        />
-        <Image
-          placeholder="empty"
-          className="hidden lg:block" 
-          src="/MenuPC/icon_ecommerce_pc.png"
-          width={62}
-          height={24}
-          alt="Imagen representativa de caracteristicas del producto"
-        />
-        <Link href="/cart">
-          <span className="ml-1">
-            Bag{cart?.totalQty ? `(${cart?.totalQty})` : null}
+        {/* Carrito de compras */}
+
+        <Link href="/cart" className="carrito-pc relative lg:block hidden">
+          <Image
+            placeholder="empty"
+            className="imagen-carrito"
+            src="/carrito/carritomenu.svg" //<--- PC
+            width={24}
+            height={24}
+            alt="carrito de compras"
+          />
+          <span className="absolute  bg-red-500 rounded-[50%] py-1 px-1 lg:px-2 text-white text-[10px] bottom-[13px] left-[11px]">
+           {cart?.totalQty ? `${cart?.totalQty}` : null}
           </span>
         </Link>
+
+        <div className="">
+          <Link href="/cart" className="carrito-movil relative block lg:hidden">
+            <Image
+              placeholder="empty"
+              className="imagen-carrito"
+              src="/carrito/carritomenu.svg" //<--- Movil
+              width={24}
+              height={24}
+              alt="carrito de compras"
+            />
+             <span className="absolute  bg-red-500 rounded-[50%] py-1 px-2 text-white text-[10px] bottom-[13px] left-[11px]">
+              {cart?.totalQty ? `(${cart?.totalQty})` : null}
+            </span>
+          </Link>
+        </div>
+        {/* Avatar usuario */}
+        <Image
+          placeholder="empty"
+          className="hidden lg:block" //<--- PC
+          src="/carrito/usuariomenu.svg"
+          width={24}
+          height={24}
+          alt="Imagen representativa de caracteristicas del producto"
+        />
+        <Image
+          placeholder="empty"
+          className="block lg:hidden" //<--- Movil
+          src="/carrito/usuariomenu.svg"
+          width={24}
+          height={24}
+          alt="Imagen representativa de caracteristicas del producto"
+        />
       </div>
     </div>
   );

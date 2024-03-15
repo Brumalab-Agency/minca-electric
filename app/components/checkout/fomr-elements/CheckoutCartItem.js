@@ -16,9 +16,11 @@ const CheckoutCartItem = ( { item } ) => {
 						src={productImg?.src} // use normal <img> attributes as props
 					/>
 				</figure>
+				<td className="woo-next-cart-element lg:hidden text-[10px]">{ item?.data?.name ?? '' }</td>
 			</td>
-			<td className="woo-next-cart-element">{ item?.data?.name ?? '' }</td>
-			<td className="woo-next-cart-element">{item?.currency ?? ''}{item?.line_subtotal ?? ''}</td>
+			<td className="woo-next-cart-element hidden lg:table-cell">{ item?.data?.name ?? '' }</td>
+			<td className="woo-next-cart-element sub-total lg:text-left lg:hidden"></td>
+			<td className="woo-next-cart-element sub-total text-right">{item?.currency ?? ''}{item?.line_subtotal ?? ''}</td>
 		</tr>
 	)
 };

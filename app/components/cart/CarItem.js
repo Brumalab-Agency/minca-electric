@@ -78,11 +78,18 @@ const CartItem = ({ item, products, setCart }) => {
 
   return (
     <div>
-      <div className="cart-item-wrap mb-5 flex justify-between gap-4 ">
+      <div className="cart-item-wrap mb-5 flex justify-between gap-4 lg:flex-row flex-col">
+        {/* Remover productos Movil */}
+        <button
+                className="cart-remove-item text-22px leading-22px flex justify-end  bg-transparent px-4 py-2 lg:hidden"
+                onClick={(event) => handleRemoveProductClick(event, item?.key)}
+              >
+                <img className="max-w-none" src="/carrito/trash.svg" />
+              </button>
         <div className="cart-left-col">
           <figure>
             <Image
-              className="rounded-[8px]"
+              className="rounded-[8px] max-w-none w-full"
               width="124"
               height="124"
               alt={productImg.name}
@@ -92,15 +99,15 @@ const CartItem = ({ item, products, setCart }) => {
         </div>
 
         <div className="cart-right-col grow">
-          <div className="flex h-full flex-col justify-between">
-            <div className="cart-product-title-wrap relative flex w-full justify-between">
-              <div>
+          <div className="flex lg:h-full flex-col justify-between h-full">
+            <div className="cart-product-title-wrap relative flex lg:w-full justify-between">
+              <div className="aplicado-movil">
                 <h3
                   className={`${manrope.className} cart-product-title text-brand-orange text-base font-bold lg:text-[20px]`}
                 >
                   {item?.data?.name}
                 </h3>
-                <p className={`${ubuntu.className} w-[400px] text-[14px]`}>
+                <p className={`${ubuntu.className} lg:w-[400px] text-[14px]`}>
                   {item?.data?.description ? (
                     <p>{item?.data?.description}</p>
                   ) : (
@@ -108,16 +115,17 @@ const CartItem = ({ item, products, setCart }) => {
                   )}
                 </p>
               </div>
+              {/* Remover productos PC */}
               <button
-                className="cart-remove-item text-22px leading-22px flex  bg-transparent px-4 py-2 "
+                className="cart-remove-item text-22px leading-22px lg:flex  bg-transparent px-4 py-2 hidden"
                 onClick={(event) => handleRemoveProductClick(event, item?.key)}
               >
-                <img src="/carrito/trash.svg" />
+                <img className="max-w-none" src="/carrito/trash.svg" />
               </button>
             </div>
 
-            <footer className="cart-product-footer flex justify-between">
-              <div className="precio flex flex-col justify-end">
+            <footer className="cart-product-footer flex justify-between mt-8 lg:mt-0">
+              <div className="precio lg:flex flex-col justify-end ">
                 <span className="cart-total-price text-[24px] text-base font-bold uppercase">
                   {item?.currency}
                   {item?.line_subtotal}
@@ -137,7 +145,7 @@ const CartItem = ({ item, products, setCart }) => {
               <div style={{ display: "flex", alignItems: "center" }}>
                 {/* btn */}
 
-                <div className="btn-aumentarDisminuir flex  h-[44px] w-[100px] w-[126px] items-center gap-1 rounded-[62px] bg-[#F0F0F0] px-[20px] py-[12px]">
+                <div className="btn-aumentarDisminuir flex  h-[44px] w-[126px] items-center gap-1 rounded-[62px] bg-[#F0F0F0] px-[20px] py-[12px]">
                   <button
                     className="size-10 text-[25px] leading-10 text-gray-600 transition"
                     onClick={(event) =>

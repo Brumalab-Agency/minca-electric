@@ -24,7 +24,7 @@ import { BannerMenu } from "./BannerMenu";
 import { Scooters } from "@/lib/graphQLRequest";
 
 function NavListMenu() {
-    const navListMenuProductos = [
+  const navListMenuProductos = [
     {
       title: "Minca Scooters",
       description1: "Minca 350W",
@@ -52,8 +52,6 @@ function NavListMenu() {
     },
   ];
 
-
-
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const renderProductos = navListMenuProductos.map(
@@ -64,7 +62,7 @@ function NavListMenu() {
             <Typography
               variant="h6"
               color="[#111]"
-              className="flex items-center text-[16px] font-bold leading-[80px] lg:text-[18px]"
+              className="flex items-center text-[16px] font-bold leading-[80px] text-[18px] text-[#111]"
             >
               {title}
             </Typography>
@@ -90,7 +88,7 @@ function NavListMenu() {
             <Typography
               variant="h6"
               color="[#111]"
-              className="flex items-center text-[16px] font-bold leading-[80px] lg:text-[18px]"
+              className="flex items-center text-[16px] font-bold leading-[80px] text-[18px] text-[#111]"
             >
               {title}
             </Typography>

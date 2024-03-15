@@ -80,6 +80,7 @@ export const TestDriveComponent = () => {
               </div>
               <div className="mx-auto ml-[60px] mt-6">
                 <BotonRelativo
+                  sitio="/showroomchico"
                   param="Agendar Mantenimiento"
                   clases="border-2 border-[#111] bg-[#F0F1EB] lg:w-[342px] lg:h-[56px]"
                 />
@@ -156,6 +157,7 @@ export const TestDriveComponent = () => {
               </div>
               <div className="mx-auto ml-[60px] mt-6">
                 <BotonRelativo
+                  sitio="/showroomcedritos"
                   param="Agendar Mantenimiento"
                   clases="border-2 border-[#111] bg-[#F0F1EB] lg:w-[342px] lg:h-[56px]"
                 />
@@ -240,6 +242,7 @@ export const TestDriveComponent = () => {
               </div>
               <div className="mx-auto ml-[60px] mt-6">
                 <BotonRelativo
+                  sitio="/showroomjaveriana"
                   param="Agendar Mantenimiento"
                   clases="border-2 border-[#111] bg-[#F0F1EB] lg:w-[342px] lg:h-[56px]"
                 />

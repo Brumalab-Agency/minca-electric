@@ -2,8 +2,8 @@ import { NextResponse } from 'next/server';
 import { MercadoPagoConfig, Preference } from 'mercadopago';
 
 const client = new MercadoPagoConfig({
-  accessToken: "TEST-5996135847425303-031023-52b9a0676974a0ce2d51b845f8f9e66d-1722898408",
-});
+  accessToken: "TEST-3450730727437485-031023-acc26050bc5b6a47dca9a4cab02259e8-1722898408",
+} );
 
 export async function GET(request) {
   return NextResponse.json({ message: 'Soy el servidor' });
@@ -16,7 +16,7 @@ export async function POST(request) {
       items: [
         {
           title: body.title,
-          quantity: Number(body.quantity),
+          quantity: Number(body.quantity), 
           unit_price: Number(body.price),
           currency_id: 'COP',
         },
