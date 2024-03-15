@@ -6,7 +6,7 @@ import { ProductosWoocommerce } from "@/lib/graphQLRequest";
 export const TestProduct = async () => {
   const dato = await ProductosWoocommerce();
   const data = dato.products.nodes;
-
+  console.log(data);
   return (
     <div>
       <Header/>

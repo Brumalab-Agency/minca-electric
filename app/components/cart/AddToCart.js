@@ -7,6 +7,9 @@ import cx from "classnames";
 import { ubuntu } from "../../ui/fonts";
 
 export const AddToCart = ({ producto }) => {
+
+  console.log(producto);
+
   const [cart, setCart] = useContext(AppContext);
   const [isAddedToCart, setIsAddedToCart] = useState(false);
   const [loading, setLoading] = useState(false);
@@ -21,7 +24,7 @@ export const AddToCart = ({ producto }) => {
   return (
     <>
       <button
-        className={addToCartBtnClasses}
+        className="bg-[#111] text-white lg:w-full h-[52px] rounded-[62px]"
         onClick={() =>
           addToCart(
             producto?.databaseId ?? 0,
@@ -35,13 +38,7 @@ export const AddToCart = ({ producto }) => {
       >
         {loading ? "Agregando..." : "Agregar al carrito"}
       </button>
-        {/* <Link
-          href="/productos"
-          className="inline-block rounded border border-indigo-600 bg-indigo-600 px-12 py-3 text-sm font-medium text-white hover:bg-transparent hover:text-indigo-600 focus:outline-none focus:ring active:text-indigo-500"
-          onClick={() => addToCart(producto.databaseId ?? 0)}
-        >
-          Ver carrito
-        </Link> */}
+ 
 
     </>
   );

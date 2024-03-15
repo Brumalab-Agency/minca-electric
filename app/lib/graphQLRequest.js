@@ -8,8 +8,9 @@ export const fetchGraphQL = async (query) => {
       headers: {
         "Content-Type": "application/json",
       },
+      cache: "no-store",
     },
-    { next: { revalidate: 300 } }
+    /* { next: { revalidate: 300 } } */
   );
 
   const { data } = await res.json();
@@ -302,6 +303,85 @@ export const SingleProductos = async (name) => {
   }
 };
 
+// Single de Productos directo de Woocommerce
+
+export const SingleProductosWoocommerce = async (name) => {
+  const query = `
+        query SingleProductos {
+          productTypes {
+            nodes {
+              products(where: {search: "${name}"}) {
+                nodes {
+                  sliderProductos {
+                    nombreProducto
+                    ampere
+                    bateria
+                    description
+                    descuento
+                    distancia
+                    foto1 {
+                      altText
+                      mediaItemUrl
+                    }
+                    foto2 {
+                      altText
+                      mediaItemUrl
+                    }
+                    foto3 {
+                      altText
+                      mediaItemUrl
+                    }
+                    frenos
+                    frenosNulo
+                    imagen {
+                      altText
+                      mediaItemUrl
+                    }
+                    kg
+                    kgPesoScooter
+                    km
+                    kmh
+                    llanta
+                    motor
+                    peso
+                    pesoMaximo
+                    pesoSc
+                    precioActual
+                    precioRebajado
+                    pulgadas
+                    slogan
+                    subtitulo
+                    tipo
+                    tipoAutonomia
+                    tipoBrushless
+                    tipoRodamiento
+                    tipofrenos
+                    tpeso
+                    vatios
+                    velocidadMaxima
+                    velocidadNum
+                  }
+                  title
+                  productId
+                }
+              }
+            }
+          }
+        }
+    `;
+
+  try {
+    const scooters = await  fetchGraphQL(query);
+    console.log(scooters);
+    return scooters;
+  } catch (error) {
+    console.error("Error fetching singleProductos:", error);
+    
+  }
+};
+
+SingleProductosWoocommerce('Minca 800W')
+
 // Slider-carrusel productos secundario
 
 export const Ebikes = async () => {
@@ -419,7 +499,6 @@ export const ProductosWoocommerce = async () => {
               image {
                 mediaItemUrl
               }
-              
             }
           }
         }
@@ -427,7 +506,7 @@ export const ProductosWoocommerce = async () => {
 
   try {
     const productos = await fetchGraphQL(query);
-
+    console.log(productos);
     return productos
   } catch (error) {
     console.error("Error fetching productosPrueba:", error);

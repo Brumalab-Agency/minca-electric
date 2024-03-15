@@ -4,13 +4,17 @@ import { HeroContext } from "@/components/reusable/HeroContext"
 import { HeroVideoSingleProduct } from "@/components/reusable/HeroVideoSingleProduct"
 import { PuedeInteresarte } from "@/components/sigle-product/PuedeInteresarte"
 import { CarruselAccesorios } from "@/components/carruseles/accesorios/CarruselAccesorios"
-import { SingleProductos } from "@/lib/graphQLRequest"
+import { SingleProductos, SingleProductosWoocommerce } from "@/lib/graphQLRequest"
 
 
 const Especificaciones = async({params}) => {
   const { id } = params;
 
-  const scooters = await SingleProductos(decodeURIComponent(id));
+  const scooters = await SingleProductosWoocommerce(decodeURIComponent(id));
+
+  console.log(decodeURIComponent(id));
+
+ console.log(scooters);
 
   return (
     <div className="Especificaciones">

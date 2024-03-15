@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev  --turbo",
+    "dev": "next dev",
     "prebuild": "npm ls supports-color || npm install supports-color",
     "build": "next build",
     "start": "next start",

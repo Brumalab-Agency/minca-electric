@@ -1,4 +1,3 @@
-import { Header } from "@/components/home/Header";
 import CarItemsContainer from "@/components/cart/CarItemsContainer";
 import { HeroContext } from "@/components/reusable/HeroContext";
 import { Footer } from "@/components/home/Footer";
