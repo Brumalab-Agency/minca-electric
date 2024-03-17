@@ -16,6 +16,7 @@ const Sedes = () => {
         titulo="MINCA"
         tituloSecundarioNegrita="Servicios."
         clases="normal-case"
+        urlVideo="https://test.mincaelectric.com/wp-content/uploads/2024/03/sedes.mp4"
       />
       <CarruselTaller />
       <CarruselShowRoom />

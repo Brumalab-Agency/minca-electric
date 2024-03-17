@@ -25,7 +25,7 @@ export const HeroContext = async ({ titulo, tituloNegrita, ocultar }) => {
         <hr
           className={`border-0.5 mt-[52px] border border-solid border-[#42454A] ${ocultar}`}
         />
-        <NextBreadcrumb containerClasses="capitalize flex gap-2" listClasses="flex items-center"/>
+        <NextBreadcrumb containerClasses="capitalize flex gap-2 text-[18px]" listClasses="flex items-center"/>
       </div>
     </div>
   );

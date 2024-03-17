@@ -31,7 +31,7 @@ const SingleProduct = async ({ params }) => {
       <HeroVideoSingleProduct
         titulo="Last Mile"
         tituloSecundarioNegrita="mODE"
-        urlVideo="/video/videoplayback.mp4"
+        urlVideo={scooters.edges[0].node.sliderProductos.videoBannerArchivo.mediaItemUrl}
       />
       <CarruselSingleProduct />
       <Section3 />

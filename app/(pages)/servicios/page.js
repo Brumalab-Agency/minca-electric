@@ -16,11 +16,13 @@ export const metadata = {
   }
 };
 
+
+
 const Servicios = () => {
   return (
     <>
         <HeroContext titulo="Servicio" tituloNegrita="técnico" ocultar="hidden"/>
-        <HeroVideoSingleProduct titulo="MINCA" tituloSecundarioNegrita="Postventa" urlVideo=""/>
+        <HeroVideoSingleProduct titulo="MINCA" tituloSecundarioNegrita="Postventa" urlVideo="https://test.mincaelectric.com/wp-content/uploads/2024/03/Servicio-Tecnico-Minca-Electric.mp4"/>
         <CarruselTaller/>
         <CarruselShowRoom/>
         <Section5/>

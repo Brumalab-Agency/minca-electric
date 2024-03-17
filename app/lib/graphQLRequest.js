@@ -215,7 +215,6 @@ export const Scooters = async () => {
 
   try {
     const scooters = await fetchScooters(query);
-    console.log(scooters);
     return scooters;
   } catch (error) {
     console.error("Error fetching scooters:", error);
@@ -228,70 +227,73 @@ Scooters()
 
 export const SingleProductos = async (name) => {
   const query = `
-        query SingleProductos {
-          sliderProducts(where: {name: "${name}"}) {
-            edges {
-              node {
-                sliderProductos {
-                  ampere
-                  bateria
-                  description
-                  descuento
-                  distancia
-                  fieldGroupName
-                  kg
-                  km
-                  kmh
-                  llanta
-                  motor
-                  nombreProducto
-                  peso
-                  pesoMaximo
-                  precioActual
-                  precioRebajado
-                  pulgadas
-                  slogan
-                  subtitulo
-                  tipo
-                  tipoAutonomia
-                  tipoBrushless
-                  vatios
-                  velocidadMaxima
-                  velocidadNum
-                  frenos
-                  tipofrenos
-                  imagen {
-                    altText
-                    sourceUrl
-                    id
-                  }
-                  frenosNulo
-                  pesoSc
-                  tpeso
-                  kgPesoScooter
-                  tipoRodamiento
-                  foto1 {
-                    altText
-                    sourceUrl
-                  }
-                  foto2 {
-                    mediaItemUrl
-                    altText
-                  }
-                  foto3 {
-                    altText
-                    mediaItemUrl
-                  }
-                }
-                contentType {
-                  node {
-                    id
-                  }
-                }
-              }
+  query SingleProductos {
+    sliderProducts(where: {name: "${name}"}) {
+      edges {
+        node {
+          sliderProductos {
+            ampere
+            bateria
+            description
+            descuento
+            distancia
+            fieldGroupName
+            kg
+            km
+            kmh
+            llanta
+            motor
+            nombreProducto
+            peso
+            pesoMaximo
+            precioActual
+            precioRebajado
+            pulgadas
+            slogan
+            subtitulo
+            tipo
+            tipoAutonomia
+            tipoBrushless
+            vatios
+            velocidadMaxima
+            velocidadNum
+            frenos
+            tipofrenos
+            imagen {
+              altText
+              sourceUrl
+              id
+            }
+            frenosNulo
+            pesoSc
+            tpeso
+            kgPesoScooter
+            tipoRodamiento
+            foto1 {
+              altText
+              sourceUrl
+            }
+            foto2 {
+              mediaItemUrl
+              altText
+            }
+            foto3 {
+              altText
+              mediaItemUrl
+            }
+            videoBannerArchivo {
+              mediaItemUrl
+            }
+          }
+          contentType {
+            node {
+              id
             }
           }
         }
+      }
+    }
+  }
     `;
 
   try {
