@@ -5,12 +5,14 @@
 :root {
   --backGroundBody: #111;
 }
+/* Estilos para la barra de desplazamiento */
 
 body {
   background: rgb(var(--backGroundBody));
   position: relative;
   min-height: 100vh;
   width: auto;
+  scrollbar-color: black;
 }
 
 /* Pausar animacion del Marquee*/

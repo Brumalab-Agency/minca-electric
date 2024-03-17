@@ -1,9 +1,9 @@
 import { manrope, ubuntu } from "@/ui/fonts";
 
 export const TablaEspecificaciones = (scooters) => {
-  console.log(scooters.scooters.productTypes.nodes[0].products.nodes);
+  console.log(scooters.scooters.scooters.productTypes.nodes[0].products.nodes);
 
-  const items = scooters.scooters.scooters.edges;
+  const items = scooters.scooters.scooters.productTypes.nodes[0].products.nodes;
   console.log(items);
 
   return (
@@ -30,7 +30,7 @@ export const TablaEspecificaciones = (scooters) => {
                     Velocidad máxima
                   </td>
                   <td className="whitespace-nowrap py-2 pr-4 text-gray-700">
-                    {item.node.sliderProductos.velocidadNum} km/h
+                    {item.sliderProductos.velocidadNum} km/h
                   </td>
                 </tr>
 
@@ -39,7 +39,7 @@ export const TablaEspecificaciones = (scooters) => {
                     Distancia recorrida
                   </td>
                   <td className="whitespace-nowrap py-2 pr-4 text-gray-700">
-                    {item.node.sliderProductos.distancia} km/h
+                    {item.sliderProductos.distancia} km/h
                   </td>
                 </tr>
 
@@ -48,7 +48,7 @@ export const TablaEspecificaciones = (scooters) => {
                     Motor
                   </td>
                   <td className="whitespace-nowrap py-2 pr-4 text-gray-700">
-                    {item.node.sliderProductos.vatios}
+                    {item.sliderProductos.vatios}
                   </td>
                 </tr>
                 <tr className="h-16 odd:bg-gray-50">
@@ -56,7 +56,7 @@ export const TablaEspecificaciones = (scooters) => {
                     Tamaño de la rueda
                   </td>
                   <td className="whitespace-nowrap py-2 pr-4 text-gray-700">
-                    {item.node.sliderProductos.pulgadas} pulgadas
+                    {item.sliderProductos.pulgadas} pulgadas
                   </td>
                 </tr>
 
@@ -65,7 +65,7 @@ export const TablaEspecificaciones = (scooters) => {
                     Carga máxima
                   </td>
                   <td className="whitespace-nowrap py-2 pr-4 text-gray-700">
-                    {item.node.sliderProductos.peso} kg
+                    {item.sliderProductos.peso} kg
                   </td>
                 </tr>
                 <tr className="h-16 odd:bg-gray-50">
@@ -90,7 +90,7 @@ export const TablaEspecificaciones = (scooters) => {
                     Tipo de la bateria
                   </td>
                   <td className="whitespace-nowrap py-2 pr-4 text-gray-700">
-                    Litio {item.node.sliderProductos.bateria}V
+                    Litio {item.sliderProductos.bateria}V
                   </td>
                 </tr>
 
@@ -107,7 +107,7 @@ export const TablaEspecificaciones = (scooters) => {
                     Tipo de freno
                   </td>
                   <td className="whitespace-nowrap py-2 pr-4 text-gray-700">
-                    {item.node.sliderProductos.tipofrenos}
+                    {item.sliderProductos.tipofrenos}
                   </td>
                 </tr>
 

@@ -2,9 +2,9 @@
 import { addToCart } from "@/utils/cart/cartUtils";
 import { useContext, useState } from "react";
 import { AppContext } from "../context/Context";
-import Link from "next/link";
+
 import cx from "classnames";
-import { ubuntu } from "../../ui/fonts";
+
 
 export const AddToCart = ({ producto }) => {
 

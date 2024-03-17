@@ -3,6 +3,7 @@ import { manrope, ubuntu } from "../../ui/fonts";
 import { CardShowRoomMovil } from "./CardShowRoomMovil";
 import { BotonRelativo } from "../botones/BotonRelativo";
 import { Carousel } from "@material-tailwind/react";
+import Link from "next/link";
 
 export const ShowRoomComponent = () => {
   return (
@@ -17,7 +18,7 @@ export const ShowRoomComponent = () => {
           className="carrusel-showRoom-home relative hidden overflow-x-hidden bg-[#000000] lg:flex"
         >
           <section className="flex h-full w-full">
-          <div className="ladoIzquierdo grid h-full w-full place-items-center">
+            <div className="ladoIzquierdo grid h-full w-full place-items-center">
               {/* La imagen es un backGround */}
             </div>
             <div className="ladoDerecho hidden h-full w-full place-items-center bg-[#000000] text-white lg:grid ">
@@ -86,16 +87,18 @@ export const ShowRoomComponent = () => {
                   </div>
                 </div>
                 <div className="mx-auto ml-[60px] mt-6">
-                  <BotonRelativo
-                    param="Agendar Mantenimiento"
-                    clases="border-2 border-white text-white bg-[#000000] lg:w-[342px] lg:h-[56px]"
-                  />
+                  <Link
+                    href="/showrooms"
+                    className={`${ubuntu.className} border border-1 border-white my-3 grid  h-[52px] w-full place-items-center rounded-[62px] bg-[#111] text-[16px] text-white antialiased lg:w-[290px]`}
+                  >
+                    Agendar Mantenimiento
+                  </Link>
                 </div>
               </div>
             </div>
           </section>
           <section className="flex h-full w-full">
-          <div className="ladoIzquierdo grid h-full w-full place-items-center">
+            <div className="ladoIzquierdo grid h-full w-full place-items-center">
               {/* La imagen es un backGround */}
             </div>
             <div className="ladoDerecho hidden h-full w-full place-items-center bg-[#000000] text-white lg:grid ">
@@ -137,7 +140,7 @@ export const ShowRoomComponent = () => {
                       <h2
                         className={`${manrope.className} mb-[27px] text-left text-[26px] font-medium uppercase`}
                       >
-                        chicó
+                        Javeriana
                       </h2>
                     </div>
                     <div>
@@ -164,10 +167,12 @@ export const ShowRoomComponent = () => {
                   </div>
                 </div>
                 <div className="mx-auto ml-[60px] mt-6">
-                  <BotonRelativo
-                    param="Agendar Mantenimiento"
-                    clases="border-2 border-white text-white bg-[#000000] lg:w-[342px] lg:h-[56px]"
-                  />
+                  <Link
+                    href="/showrooms"
+                    className={`${ubuntu.className} border border-1 border-white my-3 grid  h-[52px] w-full place-items-center rounded-[62px] bg-[#111] text-[16px] text-white antialiased lg:w-[290px]`}
+                  >
+                    Agendar Mantenimiento
+                  </Link>
                 </div>
               </div>
             </div>
@@ -175,7 +180,11 @@ export const ShowRoomComponent = () => {
         </Carousel>
       </div>
       <CardShowRoomMovil btn="Agendar TestDrive" icono="/showroom_icon.png" />
-      <CardShowRoomMovil btn="Agendar TestDrive" icono="/showroom_icon.png" clase="bg-[#F0F1EB]" />
+      <CardShowRoomMovil
+        btn="Agendar TestDrive"
+        icono="/showroom_icon.png"
+        clase="bg-[#F0F1EB]"
+      />
       <CardShowRoomMovil btn="Agendar TestDrive" icono="/showroom_icon.png" />
     </>
   );

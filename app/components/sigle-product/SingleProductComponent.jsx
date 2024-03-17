@@ -7,14 +7,14 @@ import Link from "next/link";
 export const SingleProductComponent = ({ scooters }) => {
   const productosScooters = scooters;
 
-  const producto = productosScooters.edges.map((item) => {
+  /* const producto = productosScooters.edges.map((item) => {
     const nombreProducto = item.node.sliderProductos.nombreProducto;
     return nombreProducto;
   });
   const productoBuscado = scooters.edges.find(
     (edge) => edge.node?.sliderProductos.nombreProducto === producto,
   );
-
+ */
   const items = productosScooters.edges;
 
   return (

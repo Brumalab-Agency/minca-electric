@@ -21,7 +21,6 @@ import {
 } from "@heroicons/react/24/outline";
 import { BannerMenu } from "./BannerMenu";
 
-import { Scooters } from "@/lib/graphQLRequest";
 
 function NavListMenu() {
   const navListMenuProductos = [
@@ -62,7 +61,7 @@ function NavListMenu() {
             <Typography
               variant="h6"
               color="[#111]"
-              className="flex items-center text-[16px] font-bold leading-[80px] text-[18px] text-[#111]"
+              className="flex items-center font-bold leading-[80px] text-[18px] text-[#111]"
             >
               {title}
             </Typography>
@@ -88,7 +87,7 @@ function NavListMenu() {
             <Typography
               variant="h6"
               color="[#111]"
-              className="flex items-center text-[16px] font-bold leading-[80px] text-[18px] text-[#111]"
+              className="flex items-center font-bold leading-[80px] text-[18px] text-[#111]"
             >
               {title}
             </Typography>
@@ -118,7 +117,7 @@ function NavListMenu() {
         <MenuHandler>
           <Typography as="div" variant="small" className="font-medium">
             <ListItem
-              className="flex items-center gap-2 py-2 pr-4 text-base font-medium text-[#111]"
+              className="flex items-center gap-2 py-2 pr-4 text-[18px] font-medium text-[#111]"
               selected={isMenuOpen || isMobileMenuOpen}
               onClick={() => setIsMobileMenuOpen((cur) => !cur)}
             >
@@ -163,7 +162,7 @@ function NavList() {
       <NavListMenu />
       <Typography variant="small" color="[#111]" className="font-medium">
         <Link
-          className="flex items-center gap-2 py-2 pr-4 text-base text-[#111]"
+          className="flex items-center gap-2 py-2 pr-4 text-[18px] text-[#111]"
           href="/servicios"
         >
           Servicio técnico
@@ -172,14 +171,14 @@ function NavList() {
       <Typography variant="small" color="[#111]" className="font-medium">
         <Link
           href="/sedes"
-          className="flex items-center gap-2 py-2 pr-4 text-base text-[#111]"
+          className="flex items-center gap-2 py-2 pr-4 text-[18px] text-[#111]"
         >
           Sedes
         </Link>
       </Typography>
       <Typography variant="small" color="[#111]" className="font-medium">
         <Link
-          className="flex items-center gap-2 py-2 pr-4 text-base text-[#111]"
+          className="flex items-center gap-2 py-2 pr-4 text-[18px] text-[#111]"
           href="/recursos"
         >
           Recursos
@@ -187,7 +186,7 @@ function NavList() {
       </Typography>
       <Typography variant="small" color="[#111]" className="font-medium">
         <Link
-          className="flex items-center gap-2 py-2 pr-4 text-base text-[#111]"
+          className="flex items-center gap-2 py-2 pr-4 text-[18px] text-[#111]"
           href="/blog"
         >
           Blog

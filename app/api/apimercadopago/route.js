@@ -2,7 +2,7 @@ import { NextResponse } from 'next/server';
 import { MercadoPagoConfig, Preference } from 'mercadopago';
 
 const client = new MercadoPagoConfig({
-  accessToken: "TEST-3450730727437485-031023-acc26050bc5b6a47dca9a4cab02259e8-1722898408",
+  accessToken: "APP_USR-3450730727437485-031023-27bd2435f25d24bb38ff8881f70ae7ee-1722898408",
 } );
 
 export async function GET(request) {
@@ -22,9 +22,9 @@ export async function POST(request) {
         },
       ],
       back_urls: {
-        success: 'https://cms-headless-nextjs-wordpress.vercel.app/',
-        failure: 'https://cms-headless-nextjs-wordpress.vercel.app/',
-        pending: 'https://cms-headless-nextjs-wordpress.vercel.app/',
+        success: 'https://winter-sake-governments-activists.trycloudflare.com ',
+        failure: 'https://winter-sake-governments-activists.trycloudflare.com ',
+        pending: 'https://winter-sake-governments-activists.trycloudflare.com ',
       },
       auto_return: 'approved',
     };

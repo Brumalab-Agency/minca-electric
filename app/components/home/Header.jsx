@@ -25,7 +25,7 @@ export const Header = () => {
       <div className="hidden flex-grow lg:flex">
         <Menu />
       </div>
-      <div className="header-right items-center justify-between gap-4 flex">
+      <div className="header-right flex items-center justify-between gap-4">
         <Link
           href="/testdrive"
           className="hidden text-base font-semibold lg:flex"
@@ -37,18 +37,20 @@ export const Header = () => {
         </button>
         {/* Carrito de compras */}
 
-        <Link href="/cart" className="carrito-pc relative lg:block hidden">
+        <Link href="/cart" className="carrito-movil relative lg:block hidden">
           <Image
             placeholder="empty"
             className="imagen-carrito"
-            src="/carrito/carritomenu.svg" //<--- PC
+            src="/carrito/carritomenu.svg" //<--- Movil
             width={24}
             height={24}
             alt="carrito de compras"
           />
-          <span className="absolute  bg-red-500 rounded-[50%] py-1 px-1 lg:px-2 text-white text-[10px] bottom-[13px] left-[11px]">
-           {cart?.totalQty ? `${cart?.totalQty}` : null}
-          </span>
+          {cart?.totalQty > 0 && ( // Verifica si hay productos en el carrito
+            <span className="absolute bottom-[13px] left-[11px] rounded-[50%] bg-red-500 px-[8px] py-[3px] text-[10px] text-white">
+              {cart?.totalQty}
+            </span>
+          )}
         </Link>
 
         <div className="">
@@ -61,11 +63,14 @@ export const Header = () => {
               height={24}
               alt="carrito de compras"
             />
-             <span className="absolute  bg-red-500 rounded-[50%] py-1 px-2 text-white text-[10px] bottom-[13px] left-[11px]">
-              {cart?.totalQty ? `(${cart?.totalQty})` : null}
-            </span>
+            {cart?.totalQty > 0 && ( // Verifica si hay productos en el carrito
+              <span className="absolute bottom-[13px] left-[11px] rounded-[50%] bg-red-500 px-[8px] py-[3px] text-[10px] text-white">
+                {cart?.totalQty}
+              </span>
+            )}
           </Link>
         </div>
+
         {/* Avatar usuario */}
         <Image
           placeholder="empty"

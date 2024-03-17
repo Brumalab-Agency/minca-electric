@@ -12,7 +12,7 @@ const CarItemsContainer = () => {
   const { cartItems, totalPrice, totalQty } = cart || {};
   const [isClearCartProcessing, setClearCartProcessing] = useState(false);
 
-  console.log(cartItems);
+
 
   /* Calculo descuento  */
   let precioOriginal = totalQty;
@@ -172,10 +172,10 @@ const CarItemsContainer = () => {
         ) : (
           <div className="my-14">
             <h2>No hay articulos en el carrito</h2>
-            <Link href="/test">
+            <Link href="/">
               <button className="mb-2 mr-2 bg-black px-5 py-2.5 text-center text-sm font-medium text-white duration-500 hover:bg-black/70 rounded-[62px] h-[48px] mt-6">
                 <span className="woo-next-cart-checkout-txt">
-                  Volver al inicio...
+                  Volver al inicio
                 </span>
                 <i className="fas fa-long-arrow-alt-right" />
               </button>

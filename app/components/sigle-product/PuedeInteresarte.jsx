@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { manrope, ubuntu } from "../../ui/fonts";
 
 
@@ -10,7 +11,7 @@ export const PuedeInteresarte = () => {
         </h2>
       </section>
       <section className="flex h-full w-full items-center lg:justify-center gap-6 overflow-scroll lg:overflow-visible mt-[48px] lg:mt-0">
-        <div className="block lg:flex flex-col justify-center text-center h-auto w-[200px] lg:w-[295px]">
+        <Link href="/productos/Minca%20350W" className="block lg:flex flex-col justify-center text-center h-auto w-[200px] lg:w-[295px]">
           <img
             className="h-[200px] lg:w-[295px] max-w-[295px] lg:h-auto"
             src="/sigleProduct/minca-300-single-product.png"
@@ -40,8 +41,8 @@ export const PuedeInteresarte = () => {
               </span>
             </div>
           </div>
-        </div>
-        <div className="block lg:flex flex-col justify-center text-center h-auto w-[200px] lg:w-[295px]">
+        </Link>
+        <Link href="/productos/Minca%20500W" className="block lg:flex flex-col justify-center text-center h-auto w-[200px] lg:w-[295px]">
           <img
             className="h-[200px] lg:w-[295px] max-w-[295px] lg:h-auto"
             src="/sigleProduct/minca-500-single-product.png"
@@ -71,8 +72,8 @@ export const PuedeInteresarte = () => {
               </span>
             </div>
           </div>
-        </div>
-        <div className="block lg:flex flex-col justify-center text-center h-auto w-[200px] lg:w-[295px]">
+        </Link>
+        <Link href="/productos/Minca%20800W" className="block lg:flex flex-col justify-center text-center h-auto w-[200px] lg:w-[295px]">
           <img
             className="h-[200px] lg:w-[295px] max-w-[295px] lg:h-auto"
             src="/sigleProduct/minca-800-single-product.png"
@@ -101,8 +102,8 @@ export const PuedeInteresarte = () => {
               </span>
             </div>
           </div>
-        </div>
-        <div className="block lg:flex flex-col justify-center text-center h-auto w-[200px] lg:w-[295px]">
+        </Link>
+        <Link href="/productos/Minca%201600W" className="block lg:flex flex-col justify-center text-center h-auto w-[200px] lg:w-[295px]">
           <img
             className="h-[200px] lg:w-[295px] max-w-[295px] lg:h-auto"
             src="/sigleProduct/minca-1600-single-product.png"
@@ -132,7 +133,7 @@ export const PuedeInteresarte = () => {
               </span>
             </div>
           </div>
-        </div>
+        </Link>
       </section>
     </div>
   );

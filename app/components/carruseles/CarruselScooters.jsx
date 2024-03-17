@@ -78,8 +78,8 @@ export function CarruselScooters() {
         
         className="rounded-xl relative overflow-x-hidden carrusel-padre"
       >
-        {scooters.edges.map((scooter) => (
-          <div key={scooter.node.sliderProductos.imagen.id}>
+        {scooters.edges.map((scooter, index) => (
+          <div key={index}>
               <Scooter scooter={scooter} />
           </div>
         ))}

@@ -1,19 +1,23 @@
+"use client";
 import Image from "next/image";
 import { manrope, ubuntu } from "@/ui/fonts";
 import { TablaEspecificaciones } from "./TablaEspecificaciones";
 import { ProductosWoocommerce } from "@/lib/graphQLRequest";
 import AddToCart from "../cart/AddToCart";
 
+
 export const EspecificacionesMinca = async (scooters) => {
+
   const datosWoocommerce = await ProductosWoocommerce();
   const dataWoocommercer = datosWoocommerce.products.nodes;
   const item = scooters.scooters.productTypes.nodes[0].products.nodes[0];
-
- 
-
+  console.log(item);
   const productoEncontrado = datosWoocommerce.products.nodes.find(
     (producto) => producto.databaseId === item.productId,
-  );
+    );
+    console.log(datosWoocommerce);
+
+
   return (
     <>
       <div className="EspecificacionesMinca" key={1}>
@@ -79,7 +83,6 @@ export const EspecificacionesMinca = async (scooters) => {
                   className={`${manrope.className} mb-1 text-[24px] font-bold uppercase text-[#111111] antialiased lg:text-[42px] lg:leading-[28px]`}
                 >
                   {item.sliderProductos.nombreProducto}
-                  
                 </h2>
                 <p
                   className={`${manrope.className} mb-1 text-[16px] font-semibold uppercase text-[#111111] antialiased lg:mt-4 lg:text-[26px] lg:font-medium`}
@@ -122,6 +125,7 @@ export const EspecificacionesMinca = async (scooters) => {
                   {" "}
                   Quantity{" "}
                 </label>
+                {/*  */}
                 <div className="btn-aumentarDisminuir flex h-[44px] w-[100px] items-center gap-1 rounded-[62px] bg-[#F0F0F0]">
                   <button
                     type="button"
@@ -142,6 +146,7 @@ export const EspecificacionesMinca = async (scooters) => {
                     +
                   </button>
                 </div>
+                
               </div>
               <div className="w-full flex-col justify-center lg:flex">
                 {/*   <BotonRelativo
@@ -166,7 +171,7 @@ export const EspecificacionesMinca = async (scooters) => {
           </div>
         </div>
         {/* Tabla de especificaciones */}
-        {/* <TablaEspecificaciones scooters={scooters} /> */}
+        <TablaEspecificaciones scooters={scooters} />
       </div>
     </>
   );

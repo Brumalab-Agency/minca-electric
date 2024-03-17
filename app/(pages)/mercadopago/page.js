@@ -5,7 +5,7 @@ import { useState } from "react";
 
 export const Mercadopago = () => {
   const [preferenceId, setPreferenceId] = useState(null);
-  initMercadoPago("TEST-f06eabcb-7ef3-41ee-a379-e532b2658022", {
+  initMercadoPago("APP_USR-b5e5c8f0-8f0b-469f-81ad-525142372167", {
     locale: "es-CO",
   });
 

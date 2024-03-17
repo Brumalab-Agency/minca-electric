@@ -215,13 +215,14 @@ export const Scooters = async () => {
 
   try {
     const scooters = await fetchScooters(query);
-
+    console.log(scooters);
     return scooters;
   } catch (error) {
     console.error("Error fetching scooters:", error);
     throw new Error("Error fetching scooters");
   }
 };
+Scooters()
 
 // Single de Productos
 
@@ -372,7 +373,6 @@ export const SingleProductosWoocommerce = async (name) => {
 
   try {
     const scooters = await  fetchGraphQL(query);
-    console.log(scooters);
     return scooters;
   } catch (error) {
     console.error("Error fetching singleProductos:", error);
@@ -380,7 +380,6 @@ export const SingleProductosWoocommerce = async (name) => {
   }
 };
 
-SingleProductosWoocommerce('Minca 800W')
 
 // Slider-carrusel productos secundario
 
@@ -601,3 +600,70 @@ export const SinglePost = async (id) => {
   }
 };
 
+/* Accesorios */
+
+export const AccesoriosWoocommerce = async (name) => {
+  const query = `
+        query Accesorios {
+          products(where: {category: "accesorios", search: "${name}"}) {
+            nodes {
+              name
+              description(format: RAW)
+              ... on SimpleProduct {
+                name
+                productId
+                price(format: RAW)
+                image {
+                  altText
+                  mediaItemUrl
+                }
+              }
+            }
+          }
+        }
+    `;
+
+  try {
+    const accesorios = await fetchGraphQL(query);
+    console.log(accesorios);
+    return accesorios;
+  } catch (error) {
+    console.error("Error fetching accesorios:", error);
+    throw new Error("Error fetching accesorios");
+  }
+};
+AccesoriosWoocommerce("Casco")
+
+/* Accesorios Page*/
+
+export const AccesoriosPage = async () => {
+  const query = `
+  query Accesorios {
+    products(where: {category: "accesorios"}) {
+      nodes {
+        name
+        description(format: RAW)
+        ... on SimpleProduct {
+          id
+          name
+          price(format: RAW)
+          image {
+            altText
+            mediaItemUrl
+          }
+        }
+      }
+    }
+  }
+    `;
+
+  try {
+    const accesorios = await fetchGraphQL(query);
+    console.log(accesorios);
+    return accesorios;
+  } catch (error) {
+    console.error("Error fetching accesorios:", error);
+    throw new Error("Error fetching accesorios");
+  }
+};
+AccesoriosPage()

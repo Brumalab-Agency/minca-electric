@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { manrope, ubuntu } from "../../ui/fonts";
+import Newsletter from "../newsletter/Newsletter";
 
 export const Footer = () => {
   return (
@@ -262,26 +263,33 @@ export const Footer = () => {
             <p className="font-normal text-[14px] text-[#FFF]">
               Suscríbete para conocer nuestras novedades y descuentos
             </p>
-            <label
-              htmlFor="UserEmail"
-              className="hidden lg:block overflow-hidden border border-white rounded-[12px] px-3 shadow-sm focus-within:border-white-600 focus-within:ring-1 focus-within:ring-white-600 h-[56px] mt-1 relative"
-            >
-              <span className="text-xs font-normal text-[#FFF] text-[10px] uppercase">
-                {" "}
-                Your email{" "}
-              </span>
-              <img
-                className="absolute right-4 top-6"
-                src="/footer-pc/Vector.png"
-                alt="arrow-right"
-              />
-              <input
-                type="email"
-                id="UserEmail"
-                placeholder="@"
-                className="w-full border-none p-0 focus:border-transparent focus:outline-none focus:ring-0 sm:text-sm text-white"
-              />
-            </label>
+            {/* <form action="https://script.google.com/macros/s/AKfycby5QcWMaCXzwJ47ghVkUmDh6kOIXEuNN1-aTUNCUyYaHTLgw_ONwI7AdALaNlpGVE0A/exec" method="POST" autocomplete="off">
+              <label
+                htmlFor="Email"
+                className="hidden lg:block overflow-hidden border border-white rounded-[12px] px-3 shadow-sm focus-within:border-white-600 focus-within:ring-1 focus-within:ring-white-600 h-[56px] mt-1 relative"
+              >
+                <span className="text-xs font-normal text-[#FFF] text-[10px] uppercase">
+                  {" "}
+                  Your email{" "}
+                </span>
+                <button type="submit">
+                  <img
+                    className="absolute right-4 top-6"
+                    style={{filter: 'invert(98%) sepia(2%) saturate(718%) hue-rotate(340deg) brightness(122%) contrast(100%)'}}
+                    src="/footer-pc/Vector.png"
+                    alt="arrow-right"
+                  />
+                </button>
+                <input
+                  type="email"
+                  id="Email"
+                  name="Email"
+                  placeholder="@"
+                  className="w-full border-none p-0 focus:border-transparent focus:outline-none focus:ring-0 sm:text-sm text-white bg-[#111]"
+                />
+              </label>
+            </form> */}
+            <Newsletter/>
           </div>
         </div>
       </div>
