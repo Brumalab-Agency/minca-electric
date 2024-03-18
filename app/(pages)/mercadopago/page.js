@@ -1,4 +1,6 @@
 "use client";
+
+import PaymentBrick from "@/components/mercadopago/PaymentBrik";
 import { initMercadoPago, Wallet } from "@mercadopago/sdk-react";
 import axios from "axios";
 import { useState } from "react";
@@ -47,6 +49,9 @@ export const Mercadopago = () => {
       {preferenceId && (
         <Wallet initialization={{ preferenceId: preferenceId, redirectMode: 'blank' }} />
       )}
+
+      <h2>Checkout Briks</h2>
+      <PaymentBrick/>
     </div>
   );
 };
