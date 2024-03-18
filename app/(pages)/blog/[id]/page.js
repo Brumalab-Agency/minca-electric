@@ -7,6 +7,7 @@ import { BlogContent } from "@/components/blog/BlogContent";
 import { SkeletonBlog } from "@/components/blog/SkeletonBlog";
 import { SinglePost } from "@/lib/graphQLRequest";
 import { format } from "date-fns";
+import OtrosPost from "@/components/blog/OtrosPost";
 
 const SIngleBlog = async ({ params }) => {
   const { id } = params;
@@ -30,7 +31,7 @@ const SIngleBlog = async ({ params }) => {
             {/* PC */}
             <div className="card-blog hidden h-[273px] w-full rounded-[12px] bg-white lg:block  lg:h-[220px] lg:w-[598px]">
               <button
-                className={` ${ubuntu.className} h-[32px] w-[95px] rounded-[6px] bg-[#111] text-[14px] font-medium text-white`}
+                className={` ${ubuntu.className} h-[32px] w-auto px-4 rounded-[6px] bg-[#111] text-[14px] font-medium text-white`}
               >
                 {post.categories.edges[0].node.name}
               </button>
@@ -100,11 +101,8 @@ const SIngleBlog = async ({ params }) => {
             </div>
           </div>
           {/*  Skeleton */}
-          <div className="h-30px hidden bg-white pt-[220px] lg:block">
-            <SkeletonBlog />
-            <SkeletonBlog />
-            <SkeletonBlog />
-            <SkeletonBlog />
+          <div className="h-30pxlg:block">
+           <OtrosPost/>
           </div>
         </div>
       ))}
