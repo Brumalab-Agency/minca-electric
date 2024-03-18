@@ -12,7 +12,7 @@ export const Mercadopago = () => {
   const createPreference = async () => {
     try {
       const response = await axios.post(
-        "http://localhost:3000/api/apimercadopago",
+        "https://headless-woocommerce-nu.vercel.app/api/apimercadopago",
         {
           title: "Una Card",
           quantity: 1,
