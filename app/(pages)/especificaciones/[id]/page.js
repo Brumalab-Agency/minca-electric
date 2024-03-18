@@ -16,7 +16,7 @@ const Especificaciones = async({params}) => {
     <div className="Especificaciones">
         <HeroContext titulo="MINCA" tituloNegrita="SCOOTERS"/>
         <EspecificacionesMinca scooters={scooters}/>
-        <HeroVideoSingleProduct titulo="MINCA" tituloSecundarioNegrita="Scooters"/>
+        <HeroVideoSingleProduct titulo="MINCA" tituloSecundarioNegrita="Scooters" urlVideo="https://test.mincaelectric.com/wp-content/uploads/2024/03/Minca-Electric-Carro-o-Scooter_.mp4"/>
         <PuedeInteresarte/>
         <hr className="hidden lg:block lg:m-auto lg:w-[90%] border-1"></hr>
         <CarruselAccesorios />

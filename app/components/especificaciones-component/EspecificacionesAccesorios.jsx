@@ -2,9 +2,11 @@ import Image from "next/image";
 import { manrope, ubuntu } from "@/ui/fonts";
 import { ProductosWoocommerce } from "@/lib/graphQLRequest";
 import AddToCart from "../cart/AddToCart";
+import { BtnQty } from "./BtnQty";
 
 
-export const EspecificacionesAccesorios = async(accesorios) => {
+
+export const EspecificacionesAccesorios = async (accesorios) => {
   const accesoriosWoocommerce = accesorios;
   const items = accesoriosWoocommerce.accesorios.products.nodes;
   const datosWoocommerce = await ProductosWoocommerce();
@@ -29,8 +31,7 @@ export const EspecificacionesAccesorios = async(accesorios) => {
                 width={358}
                 height={290}
                 style={{ objectFit: "cover" }}
-                />
-               
+              />
             </div>
             <div className="mt-[13px] flex items-center justify-evenly lg:mt-0 lg:flex-col lg:justify-between">
               <div>
@@ -71,6 +72,7 @@ export const EspecificacionesAccesorios = async(accesorios) => {
               </div>
             </div>
           </div>
+
           <div className="lg:w-1/2">
             {/* Titulo y descripcion */}
             <div className="flex justify-between p-4 ">
@@ -90,7 +92,7 @@ export const EspecificacionesAccesorios = async(accesorios) => {
                 <p
                   className={`${ubuntu.className} text-[14px] font-normal leading-[15px] text-[#42454A] antialiased lg:mt-5 lg:w-[342px] lg:text-[16px] lg:leading-[25px]`}
                 >
-                 {item.description}
+                  {item.description}
                 </p>
                 <hr className="mt-5" />
                 {/* <div className="selector-color mt-2">
@@ -126,7 +128,7 @@ export const EspecificacionesAccesorios = async(accesorios) => {
             </div>
             {/* Btn y contador */}
             <div className="contador-btnAddCart flex w-full items-center gap-4 px-4 lg:w-[85%] 2xl:w-[60%]">
-              <div>
+              {/* <div>
                 <label for="Quantity" className="sr-only">
                   {" "}
                   Quantity{" "}
@@ -151,9 +153,10 @@ export const EspecificacionesAccesorios = async(accesorios) => {
                     +
                   </button>
                 </div>
-              </div>
+              </div> */}
+              <BtnQty/>
               <div className="w-full flex-col justify-center lg:flex">
-              {productoEncontrado ? (
+                {productoEncontrado ? (
                   <AddToCart
                     key={productoEncontrado.databaseId}
                     producto={productoEncontrado}

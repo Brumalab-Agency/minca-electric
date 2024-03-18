@@ -4,6 +4,7 @@ import { manrope, ubuntu } from "@/ui/fonts";
 import { TablaEspecificaciones } from "./TablaEspecificaciones";
 import { ProductosWoocommerce } from "@/lib/graphQLRequest";
 import AddToCart from "../cart/AddToCart";
+import { BtnQty } from "./BtnQty";
 
 
 export const EspecificacionesMinca = async (scooters) => {
@@ -120,12 +121,12 @@ export const EspecificacionesMinca = async (scooters) => {
             </div>
             {/* Btn y contador */}
             <div className="contador-btnAddCart flex w-full items-center gap-4 px-4 lg:w-[85%] 2xl:w-[60%]">
-              <div>
+              {/* <div>
                 <label for="Quantity" className="sr-only">
                   {" "}
                   Quantity{" "}
                 </label>
-                {/*  */}
+              
                 <div className="btn-aumentarDisminuir flex h-[44px] w-[100px] items-center gap-1 rounded-[62px] bg-[#F0F0F0]">
                   <button
                     type="button"
@@ -147,7 +148,8 @@ export const EspecificacionesMinca = async (scooters) => {
                   </button>
                 </div>
                 
-              </div>
+              </div> */}
+              <BtnQty/>
               <div className="w-full flex-col justify-center lg:flex">
                 {/*   <BotonRelativo
                 param="Agregar producto"

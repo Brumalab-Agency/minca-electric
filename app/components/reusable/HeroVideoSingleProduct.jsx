@@ -5,8 +5,8 @@ import { manrope } from "@/ui/fonts";
 export const HeroVideoSingleProduct = async ({titulo, tituloSecundarioNegrita, urlVideo, clases}) => {
   const banner = await getBanner();
   return (
-    <div className="heroVideo relative lg:mt-20">
-      <div className="mt-4">
+    <div className="heroVideo relative ">
+      <div className="">
         {/* PC */}
         <video className="hidden lg:block w-full h-[663px] object-cover  top-0" src={urlVideo} autoPlay muted loop />
 
