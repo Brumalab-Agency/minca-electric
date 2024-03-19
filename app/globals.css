@@ -150,7 +150,7 @@ button.\!absolute.top-2\/4.left-4.-translate-y-2\/4.rounded-full.select-none.tra
   position: absolute;
   top: 40.5%;
   left: 35%;
-  z-index: 999;
+  z-index: 9;
   width: 58px;
   height: 58px;
   border-radius: 4px;
@@ -172,7 +172,7 @@ button.\!absolute.top-2\/4.right-4.-translate-y-2\/4.rounded-full.select-none.tr
   position: absolute;
   top: 40.5%;
   right: 3.5%;
-  z-index: 999;
+  z-index: 9;
   width: 58px;
   height: 58px;
   border-radius: 4px;

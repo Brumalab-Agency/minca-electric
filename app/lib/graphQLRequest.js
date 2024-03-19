@@ -202,6 +202,7 @@ export const Scooters = async () => {
                   kgPesoScooter
                   tipoRodamiento
                   slugDinamicoTemporal
+                  url3d
                 }
                 contentType {
                   node {

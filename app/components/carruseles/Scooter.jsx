@@ -3,17 +3,17 @@ import Image from "next/image";
 import { manrope, ubuntu } from "@/ui/fonts";
 import { Boton } from "../botones/Boton";
 import Link from "next/link";
+import Modal3d from "../modal3d/Modal3d";
 
 const Scooter = ({ scooter }) => {
   const item = scooter.node.sliderProductos;
+  console.log(item.url3d);
   return (
     <div id="scooter" className="carrusel h-auto w-full">
       <div className="relative p-4 lg:px-[100px] lg:py-14">
         <div className="slogan-dots mb-4 flex items-center justify-between">
           <div>
-            <p
-              className={`${ubuntu.className} text-[14px] text-[#42454A] `}
-            >
+            <p className={`${ubuntu.className} text-[14px] text-[#42454A] `}>
               {item.slogan}
             </p>
           </div>
@@ -66,13 +66,13 @@ const Scooter = ({ scooter }) => {
                 </span>
               </div>
               {/* botones descuento y 3D PC*/}
-              <div className="relative h-auto max-w-[401]">
+              <Link href="#" className="relative text-[10px] flex bg-[#F0EEED] w-[355px] h-[44px] justify-center gap-1 items-center rounded-[5px] mt-4">
                 <Image
                   placeholder="empty"
-                  className="-ml-1 mt-[6px] hidden lg:block"
-                  src="/Scooter/addi.svg"
-                  width={70}
-                  height={32}
+                  className="logoCircular"
+                  src="/addicirculo.svg"
+                  width={33}
+                  height={33}
                   alt="publicidad"
                   style={{
                     maxWidth: "100%",
@@ -80,24 +80,13 @@ const Scooter = ({ scooter }) => {
                     objectFit: "contain",
                   }}
                 />
-              </div>
-              <div
-                className={`${ubuntu.className} lg:flex items-center justify-start gap-1 text-[11px] mt-2 hidden`}
-              >
-                <p>Paga a crédito con</p>
-                <img src="/Scooter/addi_pq.png" alt="Addi" />
-                <b>hasta 6 cuotas.</b>
-                <Link className="underline" href="#">
-                  Revisa si calificas
-                </Link>
-              </div>
-              <div className="max-w[210px] relative h-auto">
+                <p className="ml-2">Paga a crédito con</p>
                 <Image
                   placeholder="empty"
-                  className="-ml-1 mt-4 hidden lg:block"
-                  src="/Scooter/ver_3d.png"
-                  width={210}
-                  height={52}
+                  className="logoADDI"
+                  src="/addilogo.svg"
+                  width={23}
+                  height={9}
                   alt="publicidad"
                   style={{
                     maxWidth: "100%",
@@ -105,6 +94,11 @@ const Scooter = ({ scooter }) => {
                     objectFit: "contain",
                   }}
                 />
+                <p><strong>hasta 6 cuotas.</strong></p>
+                <p className="underline">Revisa si calificas</p>
+              </Link>
+              <div className="pt-8 hidden lg:block">
+                <Modal3d url_3d={item.url3d} />
               </div>
             </div>
             <Image
@@ -121,36 +115,14 @@ const Scooter = ({ scooter }) => {
             </div>
           </div>
           {/* botones descuento y 3D MOVIL */}
-          <Image
-            placeholder="empty"
-            alt="publicidad"
-            className="-ml-1 lg:hidden"
-            src="/Scooter/addi.svg"
-            width={70}
-            height={32}
-          />
-          <div
-            className={`${ubuntu.className} flex items-center justify-start gap-1 text-[11px] mt-1 lg:hidden`}
-          >
-            <p>Paga a crédito con</p>
-            <img src="/Scooter/addi_pq.png" alt="Addi" />
-            <b>hasta 6 cuotas.</b>
-            <Link className="underline" href="#">
-              Revisa si calificas
-            </Link>
+            {/* Btn ADDi compartido con PC/Movil */}
+          <div className="pt-8 lg:hidden">
+            <Modal3d url_3d={item.url3d} />
           </div>
-          <Image
-            placeholder="empty"
-            alt="publicidad"
-            className="-ml-1 mt-2 lg:hidden"
-            src="/Scooter/ver_3d.png"
-            width={156}
-            height={39}
-          />
         </div>
         {/* ********** */}
         <div className="contenedor-cards-arrows relative">
-          <div className="atributos-productos scroll-none relative z-10 mt-4 hidden h-[75px] items-center justify-center gap-2 overflow-y-hidden overflow-x-scroll px-4 lg:px-0 lg:flex lg:h-[150px] lg:justify-between lg:gap-6 lg:overflow-x-hidden">
+          <div className="atributos-productos scroll-none relative z-10 mt-4 hidden h-[75px] items-center justify-center gap-2 overflow-y-hidden overflow-x-scroll px-4 lg:flex lg:h-[150px] lg:justify-between lg:gap-6 lg:overflow-x-hidden lg:px-0">
             <CardEspecifications
               titulo={item.motor}
               subtitulo={item.vatios}

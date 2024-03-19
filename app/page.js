@@ -10,7 +10,7 @@ import { SolucionesComodidad } from "./components/home/SolucionesComodidad";
 import { Testimonios } from "./components/testimonio/Testimonios";
 import { ShowRoomComponent } from "./components/showroom/ShowRoomComponent";
 import { CarruselAccesorios } from "./components/carruseles/accesorios/CarruselAccesorios";
-import { SpeedInsights } from "@vercel/speed-insights/next"
+
 
 
 export default function Home() {
