@@ -3,6 +3,7 @@ import "@/globals.css";
 import "@/animation.css";
 import "@/mediaQueries.css";
 import { AppProvider } from "./components/context/Context";
+import { SpeedInsights } from "@vercel/speed-insights/next"
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -22,6 +23,7 @@ export default function RootLayout({ children }) {
         <body className={inter.className}>
 
           {children}
+          <SpeedInsights/>
           </body>
       </html>
     </AppProvider>
