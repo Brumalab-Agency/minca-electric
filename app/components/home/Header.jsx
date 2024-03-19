@@ -9,7 +9,7 @@ import { useContext, useState } from "react";
 export const Header = () => {
   const [cart, setCart] = useContext(AppContext);
   return (
-    <div className="flex items-center justify-between px-4 py-6 lg:justify-normal lg:gap-12 lg:px-12">
+    <div className="flex items-center justify-between px-4 py-6 lg:justify-normal lg:gap-12 lg:px-[100px]">
       <div className="header-left flex h-auto w-[158px] items-center justify-between lg:flex-grow-0">
         <Menumovil />
         <Link href="/">

@@ -201,6 +201,7 @@ export const Scooters = async () => {
                   tpeso
                   kgPesoScooter
                   tipoRodamiento
+                  slugDinamicoTemporal
                 }
                 contentType {
                   node {
@@ -619,6 +620,12 @@ export const AccesoriosWoocommerce = async (name) => {
                   altText
                   mediaItemUrl
                 }
+                galleryImages {
+                  nodes {
+                    altText
+                    mediaItemUrl
+                  }
+                }
               }
             }
           }
@@ -627,7 +634,6 @@ export const AccesoriosWoocommerce = async (name) => {
 
   try {
     const accesorios = await fetchGraphQL(query);
-    console.log(accesorios);
     return accesorios;
   } catch (error) {
     console.error("Error fetching accesorios:", error);

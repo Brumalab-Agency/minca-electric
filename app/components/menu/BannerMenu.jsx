@@ -4,7 +4,7 @@ export const BannerMenu = ({clases}) => {
   return (
     <div className={`divider-mega-menu bg-[#F4F5F0] lg:w-[40%] flex justify-start items-center flex-col lg:p-12 ${clases}`}>
             <p
-              className={`${ubuntu.className} antialiased lg:text-[18px] text-[16px] font-semibold leading-[80px] text-left w-full px-6`}
+              className={`${ubuntu.className}  lg:text-[18px] text-[16px] font-semibold leading-[80px] text-left w-full px-6`}
             >
               ¡Empieza a rodar hoy mismo!
             </p>

@@ -6,9 +6,9 @@ import { AppContext } from "../context/Context";
 import cx from "classnames";
 
 
-export const AddToCart = ({ producto }) => {
+export const AddToCart = ({ producto, clases }) => {
 
-  console.log(producto);
+
 
   const [cart, setCart] = useContext(AppContext);
   const [isAddedToCart, setIsAddedToCart] = useState(false);
@@ -24,7 +24,7 @@ export const AddToCart = ({ producto }) => {
   return (
     <>
       <button
-        className="bg-[#111] text-white lg:w-full h-[52px] rounded-[62px]"
+        className={`bg-[#111] text-white lg:w-[74%] 2xl:w-[79%] h-[52px] rounded-[62px] ${clases}`}
         onClick={() =>
           addToCart(
             producto?.databaseId ?? 0,

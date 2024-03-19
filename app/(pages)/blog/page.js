@@ -1,3 +1,4 @@
+"use client"
 import { TituloBlog } from '@/components/blog/TituloBlog'
 import { HeroBlog } from '@/components/blog/HeroBlog'
 import { HeroContext } from '@/components/reusable/HeroContext'

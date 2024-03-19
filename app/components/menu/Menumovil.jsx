@@ -20,7 +20,7 @@ export const Menumovil = () => {
       <button type="primary" onClick={showDrawer}>
         <img src="/icono_menu.png"/>
       </button>
-      <Drawer className={`${ubuntu.className} antialiased text-8`} title="Menú" onClose={onClose} open={open}>
+      <Drawer className={`${ubuntu.className}  text-8`} title="Menú" onClose={onClose} open={open}>
         <MegaMenu/>
         <div className='flex justify-between items-center mb-8'>
           <Link

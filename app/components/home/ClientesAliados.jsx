@@ -6,7 +6,7 @@ export const ClientesAliados = async () => {
   return (
     <div className="2xl:pt-[158px] 2xl:pb-[272px] lg:pt-[99px] lg:pb-[269px] px-4 pb-[85px] pt-0 lg:px-24 w-full h-auto ">
       <h1
-        className={`${manrope.className} text-[40px] font-light antialiased lg:text-[48px] lg:uppercase 2xl:text-[64px] lg:mb-[125px]`}
+        className={`${manrope.className} text-[40px] font-light  lg:text-[48px] lg:uppercase 2xl:text-[64px] lg:mb-[125px]`}
         style={{ lineHeight: "50px" }}
       >
         Clientes <br className="lg:hidden" /> &{" "}

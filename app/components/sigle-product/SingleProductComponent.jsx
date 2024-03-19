@@ -20,11 +20,11 @@ export const SingleProductComponent = ({ scooters }) => {
   return (
     <div className="carrusel h-auto w-full">
       {items.map((item) => (
-        <div className="relative p-4 lg:px-12 lg:py-14">
+        <div className="relative p-4 lg:px-[100px] lg:py-14">
           <div className="slogan-dots mb-4 flex items-center justify-between">
             <div>
               <p
-                className={`${ubuntu.className} text-[14px] text-[#42454A] antialiased`}
+                className={`${ubuntu.className} text-[14px] text-[#42454A] `}
               >
                 {item.node.sliderProductos.slogan}
               </p>
@@ -44,34 +44,34 @@ export const SingleProductComponent = ({ scooters }) => {
             <div className="flex justify-between">
               <div className="flex flex-col justify-center">
                 <h2
-                  className={`${manrope.className} mb-1 text-[16px] font-bold uppercase text-[#111111] antialiased lg:text-[42px] lg:leading-[35px]`}
+                  className={`${manrope.className} mb-1 text-[16px] font-bold uppercase text-[#111111]  lg:text-[42px] lg:leading-[35px]`}
                 >
                   {item.node.sliderProductos.nombreProducto}
                 </h2>
                 <p
-                  className={`${manrope.className} mb-1 text-[12px] font-normal uppercase text-[#111111] antialiased lg:mt-4 lg:text-[26px] lg:font-medium`}
+                  className={`${manrope.className} mb-1 text-[12px] font-normal uppercase text-[#111111]  lg:mt-4 lg:text-[26px] lg:font-medium`}
                 >
                   {item.node.sliderProductos.subtitulo}
                 </p>
                 <p
-                  className={`${ubuntu.className} text-[13px] font-normal leading-[15px] text-[#42454A] antialiased lg:mt-5 lg:w-[342px] lg:text-[16px] lg:leading-[25px]`}
+                  className={`${ubuntu.className} text-[13px] font-normal leading-[15px] text-[#42454A]  lg:mt-5 lg:w-[342px] lg:text-[16px] lg:leading-[25px]`}
                 >
                   {item.node.sliderProductos.description}
                 </p>
                 <div className="my-2 flex items-center gap-3 lg:mt-6 lg:gap-4">
                   <div
-                    className={`${manrope.className} text-[14px] font-bold text-[#111111] antialiased lg:text-[26px]`}
+                    className={`${manrope.className} text-[14px] font-bold text-[#111111]  lg:text-[26px]`}
                   >
                     {item.node.sliderProductos.precioActual}
                   </div>
-                  <div
-                    className={`${manrope.className} text-[14px] font-bold text-[#111111] antialiased opacity-50 lg:text-[26px]`}
+                  <del
+                    className={`${manrope.className} text-[14px] font-bold text-[#111111]  opacity-50 lg:text-[26px]`}
                   >
                     {item.node.sliderProductos.precioRebajado}
-                  </div>
+                  </del>
                   <span className="hidden items-center justify-center rounded-full bg-[#FF3333] bg-opacity-10 px-2.5 py-0.5 text-[#FF3333] lg:inline-flex lg:h-8 lg:px-[14px] lg:py-[6px]">
                     <p
-                      className={`${manrope.className} whitespace-nowrap text-sm antialiased `}
+                      className={`${manrope.className} whitespace-nowrap text-sm  `}
                     >
                       {item.node.sliderProductos.descuento}
                     </p>

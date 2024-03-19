@@ -27,7 +27,7 @@ export const ShoowRooms = () => {
           />
           <Link
             href="/showrooms/tallerChico"
-            className={`${ubuntu.className} my-3 h-[52px] w-full  rounded-[62px] bg-[#111] text-[16px] text-white antialiased lg:w-[210px] grid place-items-center`}
+            className={`${ubuntu.className} my-3 h-[52px] w-full  rounded-[62px] bg-[#111] text-[16px] text-white  lg:w-[210px] grid place-items-center`}
           >
             Agendar
           </Link>
@@ -44,7 +44,7 @@ export const ShoowRooms = () => {
           />
           <Link
             href="#"
-            className={`${ubuntu.className} my-3 h-[52px] w-full  rounded-[62px] bg-[#111] text-[16px] text-white antialiased lg:w-[210px] block grid place-items-center`}
+            className={`${ubuntu.className} my-3 h-[52px] w-full  rounded-[62px] bg-[#111] text-[16px] text-white  lg:w-[210px] block grid place-items-center`}
           >
             Próximamente!
           </Link>
@@ -61,7 +61,7 @@ export const ShoowRooms = () => {
           />
           <Link
             href="/showrooms/tallerJaveriana"
-            className={`${ubuntu.className} my-3 h-[52px] w-full  rounded-[62px] bg-[#111] text-[16px] text-white antialiased lg:w-[210px] block grid place-items-center`}
+            className={`${ubuntu.className} my-3 h-[52px] w-full  rounded-[62px] bg-[#111] text-[16px] text-white  lg:w-[210px] block grid place-items-center`}
           >
             Agendar
           </Link>

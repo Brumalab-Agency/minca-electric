@@ -8,11 +8,11 @@ const Ebike = ({ scooter }) => {
   const item = scooter.node.sliderProductos;
   return (
     <div id="ebike" className="carrusel h-auto w-full">
-      <div className="p-4 relative lg:px-12 lg:py-14">
+      <div className="p-4 relative lg:px-[100px] lg:py-14">
         <div className="slogan-dots flex justify-between items-center mb-4">
           <div>
             <p
-              className={`${ubuntu.className} antialiased text-[14px] text-[#42454A]`}
+              className={`${ubuntu.className}  text-[14px] text-[#42454A]`}
             >
               {item.slogan}
             </p>
@@ -32,34 +32,34 @@ const Ebike = ({ scooter }) => {
           <div className="flex justify-between">
             <div className="flex flex-col justify-center">
               <h2
-                className={`${manrope.className} antialiased text-[16px] font-bold text-[#111111] uppercase mb-1 lg:text-[42px] lg:leading-[35px]`}
+                className={`${manrope.className}  text-[16px] font-bold text-[#111111] uppercase mb-1 lg:text-[42px] lg:leading-[35px]`}
               >
                 {item.nombreProducto}
               </h2>
               <p
-                className={`${manrope.className} antialiased text-[12px] font-normal text-[#111111] uppercase mb-1 lg:mt-4 lg:font-medium lg:text-[26px]`}
+                className={`${manrope.className}  text-[12px] font-normal text-[#111111] uppercase mb-1 lg:mt-4 lg:font-medium lg:text-[26px]`}
               >
                 {item.subtitulo}
               </p>
               <p
-                className={`${ubuntu.className} antialiased text-[13px] font-normal text-[#42454A] leading-[15px] lg:mt-5 lg:text-[16px] lg:w-[342px] lg:leading-[25px]`}
+                className={`${ubuntu.className}  text-[13px] font-normal text-[#42454A] leading-[15px] lg:mt-5 lg:text-[16px] lg:w-[342px] lg:leading-[25px]`}
               >
                 {item.description}
               </p>
               <div className="flex items-center gap-3 my-2 lg:mt-6 lg:gap-4">
                 <div
-                  className={`${manrope.className} antialiased text-[14px] font-bold text-[#111111] lg:text-[26px]`}
+                  className={`${manrope.className}  text-[14px] font-bold text-[#111111] lg:text-[26px]`}
                 >
                   {item.precioActual}
                 </div>
                 <del
-                  className={`${manrope.className} antialiased text-[14px] font-bold text-[#111111] lg:text-[26px] opacity-50`}
+                  className={`${manrope.className}  text-[14px] font-bold text-[#111111] lg:text-[26px] opacity-50`}
                 >
                   {item.precioRebajado}
                 </del>
                 <span className="hidden lg:inline-flex items-center justify-center rounded-full bg-[#FF3333] bg-opacity-10 px-2.5 py-0.5 text-[#FF3333] lg:px-[14px] lg:py-[6px] lg:h-8">
                   <p
-                    className={`${manrope.className} antialiased whitespace-nowrap text-sm `}
+                    className={`${manrope.className}  whitespace-nowrap text-sm `}
                   >
                     {item.descuento}
                   </p>

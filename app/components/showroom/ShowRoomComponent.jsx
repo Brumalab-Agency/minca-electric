@@ -89,7 +89,7 @@ export const ShowRoomComponent = () => {
                 <div className="mx-auto ml-[60px] mt-6">
                   <Link
                     href="/showrooms"
-                    className={`${ubuntu.className} border border-1 border-white my-3 grid  h-[52px] w-full place-items-center rounded-[62px] bg-[#111] text-[16px] text-white antialiased lg:w-[290px]`}
+                    className={`${ubuntu.className} border border-1 border-white my-3 grid  h-[52px] w-full place-items-center rounded-[62px] bg-[#111] text-[16px] text-white  lg:w-[290px]`}
                   >
                     Agendar Mantenimiento
                   </Link>
@@ -169,7 +169,7 @@ export const ShowRoomComponent = () => {
                 <div className="mx-auto ml-[60px] mt-6">
                   <Link
                     href="/showrooms"
-                    className={`${ubuntu.className} border border-1 border-white my-3 grid  h-[52px] w-full place-items-center rounded-[62px] bg-[#111] text-[16px] text-white antialiased lg:w-[290px]`}
+                    className={`${ubuntu.className} border border-1 border-white my-3 grid  h-[52px] w-full place-items-center rounded-[62px] bg-[#111] text-[16px] text-white  lg:w-[290px]`}
                   >
                     Agendar Mantenimiento
                   </Link>

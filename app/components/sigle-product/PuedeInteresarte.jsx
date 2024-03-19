@@ -34,7 +34,7 @@ export const PuedeInteresarte = () => {
               </p>
               <span className="hidden h-[28px] w-[58px] items-center justify-center rounded-full bg-[#FF3333] bg-opacity-10 px-2.5 py-0.5 text-[#FF3333] lg:inline-flex lg:h-7 lg:px-[14px] lg:py-[0px]">
                 <p
-                  className={`${manrope.className} whitespace-nowrap text-[12px] font-semibold antialiased`}
+                  className={`${manrope.className} whitespace-nowrap text-[12px] font-semibold `}
                 >
                   -20%
                 </p>
@@ -65,7 +65,7 @@ export const PuedeInteresarte = () => {
               </p>
               <span className="hidden h-[28px] w-[58px] items-center justify-center rounded-full bg-[#FF3333] bg-opacity-10 px-2.5 py-0.5 text-[#FF3333] lg:inline-flex lg:h-7 lg:px-[14px] lg:py-[0px]">
                 <p
-                  className={`${manrope.className} whitespace-nowrap text-[12px] font-semibold antialiased`}
+                  className={`${manrope.className} whitespace-nowrap text-[12px] font-semibold `}
                 >
                   -20%
                 </p>
@@ -95,7 +95,7 @@ export const PuedeInteresarte = () => {
               </p>
               <span className="hidden h-[28px] w-[58px] items-center justify-center rounded-full bg-[#FF3333] bg-opacity-10 px-2.5 py-0.5 text-[#FF3333] lg:inline-flex lg:h-7 lg:px-[14px] lg:py-[0px]">
                 <p
-                  className={`${manrope.className} whitespace-nowrap text-[12px] font-semibold antialiased`}
+                  className={`${manrope.className} whitespace-nowrap text-[12px] font-semibold `}
                 >
                   -20%
                 </p>
@@ -126,7 +126,7 @@ export const PuedeInteresarte = () => {
               </p>
               <span className="hidden h-[28px] w-[58px] items-center justify-center rounded-full bg-[#FF3333] bg-opacity-10 px-2.5 py-0.5 text-[#FF3333] lg:inline-flex lg:h-7 lg:px-[14px] lg:py-[0px]">
                 <p
-                  className={`${manrope.className} whitespace-nowrap text-[12px] font-semibold antialiased`}
+                  className={`${manrope.className} whitespace-nowrap text-[12px] font-semibold `}
                 >
                   -20%
                 </p>

@@ -30,10 +30,10 @@ export const HeroImagenSec = async () => {
           />
         )}
       </div>
-      <div className="overlay absolute top-0 flex h-[400px] w-full flex-col items-start justify-center bg-[#111]/50 p-4 lg:h-[663px] lg:px-12">
+      <div className="overlay absolute top-0 flex h-[400px] w-full flex-col items-start justify-center bg-[#111]/50 p-4 lg:h-[663px] lg:px-[100px]">
         <div className="lg:flex lg:w-full lg:justify-between">
           <div
-            className={`${manrope.className} grid text-[50px] text-white antialiased lg:text-[64px] 2xl:text-[96px]`}
+            className={`${manrope.className} grid text-[50px] text-white  lg:text-[64px] 2xl:text-[96px]`}
           >
             <div className="flex flex-col items-start justify-center">
               <span className="font-light">

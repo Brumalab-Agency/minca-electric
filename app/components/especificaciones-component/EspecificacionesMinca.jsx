@@ -12,11 +12,11 @@ export const EspecificacionesMinca = async (scooters) => {
   const datosWoocommerce = await ProductosWoocommerce();
   const dataWoocommercer = datosWoocommerce.products.nodes;
   const item = scooters.scooters.productTypes.nodes[0].products.nodes[0];
-  console.log(item);
+
   const productoEncontrado = datosWoocommerce.products.nodes.find(
     (producto) => producto.databaseId === item.productId,
     );
-    console.log(datosWoocommerce);
+
 
 
   return (
@@ -81,37 +81,37 @@ export const EspecificacionesMinca = async (scooters) => {
             <div className="mt-[7px] flex justify-between p-4">
               <div className="flex flex-col justify-center">
                 <h2
-                  className={`${manrope.className} mb-1 text-[24px] font-bold uppercase text-[#111111] antialiased lg:text-[42px] lg:leading-[28px]`}
+                  className={`${manrope.className} mb-1 text-[24px] font-bold uppercase text-[#111111]  lg:text-[42px] lg:leading-[28px]`}
                 >
                   {item.sliderProductos.nombreProducto}
                 </h2>
                 <p
-                  className={`${manrope.className} mb-1 text-[16px] font-semibold uppercase text-[#111111] antialiased lg:mt-4 lg:text-[26px] lg:font-medium`}
+                  className={`${manrope.className} mb-1 text-[16px] font-semibold uppercase text-[#111111]  lg:mt-4 lg:text-[26px] lg:font-medium`}
                 >
                   {item.sliderProductos.subtitulo}
                 </p>
 
                 <div className="my-2 flex items-center gap-3 lg:mt-6 lg:gap-4">
                   <div
-                    className={`${manrope.className} text-[24px] font-bold text-[#111111] antialiased lg:text-[26px]`}
+                    className={`${manrope.className} text-[24px] font-bold text-[#111111]  lg:text-[26px]`}
                   >
                     {item.sliderProductos.precioActual}
                   </div>
-                  <div
-                    className={`${manrope.className} text-[24px] font-bold text-[#111111] antialiased opacity-50 lg:text-[26px]`}
+                  <del
+                    className={`${manrope.className} text-[24px] font-bold text-[#111111]  opacity-50 lg:text-[26px]`}
                   >
                     {item.sliderProductos.precioRebajado}
-                  </div>
+                  </del>
                   <span className="items-center justify-center rounded-full bg-[#FF3333] bg-opacity-10 px-2.5 py-0.5 text-[#FF3333] lg:inline-flex lg:h-8 lg:px-[14px] lg:py-[6px]">
                     <p
-                      className={`${manrope.className} whitespace-nowrap text-sm antialiased `}
+                      className={`${manrope.className} whitespace-nowrap text-sm  `}
                     >
                       -15%
                     </p>
                   </span>
                 </div>
                 <p
-                  className={`${ubuntu.className} text-[14px] font-normal leading-[15px] text-[#42454A] antialiased lg:mt-5 lg:w-[342px] lg:text-[16px] lg:leading-[25px]`}
+                  className={`${ubuntu.className} text-[14px] font-normal leading-[15px] text-[#42454A]  lg:mt-5 lg:w-[342px] lg:text-[16px] lg:leading-[25px]`}
                 >
                   {item.sliderProductos.description}
                 </p>

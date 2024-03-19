@@ -18,7 +18,7 @@ export const Footer = () => {
                 placeholder = 'empty'
               />
               <p
-                className={`${ubuntu.className} antialiased text-[#111]/60 text-[14px] font-normal mt-[37px]`}
+                className={`${ubuntu.className}  text-[#111]/60 text-[14px] font-normal mt-[37px]`}
               >
                 Menos humo, más estilo. Adelántate al futuro con una movilidad
                 eléctrica.
@@ -40,37 +40,37 @@ export const Footer = () => {
               <div className="info-minca-pc lg:w-[99px] lg:h-auto">
                 <div className="informacion-minca leading-[45px]">
                   <h2
-                    className={`${manrope.className} antialiased text-[#111] text-[16px] font-bold mt-[32px]`}
+                    className={`${manrope.className}  text-[#111] text-[16px] font-bold mt-[32px]`}
                   >
                     MINCA
                   </h2>
                   <p
-                    className={`${ubuntu.className} antialiased text-[#111]/60 text-[16px] font-normal`}
+                    className={`${ubuntu.className}  text-[#111]/60 text-[16px] font-normal`}
                   >
                     Minca 350W
                   </p>
                   <p
-                    className={`${ubuntu.className} antialiased text-[#111]/60 text-[16px] font-normal`}
+                    className={`${ubuntu.className}  text-[#111]/60 text-[16px] font-normal`}
                   >
                     Minca 500W
                   </p>
                   <p
-                    className={`${ubuntu.className} antialiased text-[#111]/60 text-[16px] font-normal`}
+                    className={`${ubuntu.className}  text-[#111]/60 text-[16px] font-normal`}
                   >
                     Minca 800W
                   </p>
                   <p
-                    className={`${ubuntu.className} antialiased text-[#111]/60 text-[16px] font-normal`}
+                    className={`${ubuntu.className}  text-[#111]/60 text-[16px] font-normal`}
                   >
                     Minca 1600W
                   </p>
                   <p
-                    className={`${ubuntu.className} antialiased text-[#111]/60 text-[16px] font-normal`}
+                    className={`${ubuntu.className}  text-[#111]/60 text-[16px] font-normal`}
                   >
                     Minca City
                   </p>
                   <p
-                    className={`${ubuntu.className} antialiased text-[#111]/60 text-[16px] font-normal`}
+                    className={`${ubuntu.className}  text-[#111]/60 text-[16px] font-normal`}
                   >
                     Minca Trip
                   </p>
@@ -79,32 +79,32 @@ export const Footer = () => {
               <div className="info-informacion-pc lg:hidden">
                 <div className="informacion-minca leading-[45px]">
                   <h2
-                    className={`${manrope.className} antialiased text-[#111] text-[16px] font-bold mt-[32px]`}
+                    className={`${manrope.className}  text-[#111] text-[16px] font-bold mt-[32px]`}
                   >
                     INFORMACIÓN
                   </h2>
                   <p
-                    className={`${ubuntu.className} antialiased text-[#111]/60 text-[16px] font-normal`}
+                    className={`${ubuntu.className}  text-[#111]/60 text-[16px] font-normal`}
                   >
                     Política de devoluciones
                   </p>
                   <p
-                    className={`${ubuntu.className} antialiased text-[#111]/60 text-[16px] font-normal`}
+                    className={`${ubuntu.className}  text-[#111]/60 text-[16px] font-normal`}
                   >
                     Declaración de privacidad
                   </p>
                   <p
-                    className={`${ubuntu.className} antialiased text-[#111]/60 text-[16px] font-normal`}
+                    className={`${ubuntu.className}  text-[#111]/60 text-[16px] font-normal`}
                   >
                     Términos y condiciones
                   </p>
                   <p
-                    className={`${ubuntu.className} antialiased text-[#111]/60 text-[16px] font-normal`}
+                    className={`${ubuntu.className}  text-[#111]/60 text-[16px] font-normal`}
                   >
                     Política de garantía{" "}
                   </p>
                   <p
-                    className={`${ubuntu.className} antialiased text-[#111]/60 text-[16px] font-normal`}
+                    className={`${ubuntu.className}  text-[#111]/60 text-[16px] font-normal`}
                   >
                     PQR
                   </p>
@@ -116,32 +116,32 @@ export const Footer = () => {
               <div className="hidden lg:flex info-informacion-pc lg:w-[189px] lg:h-auto">
                 <div className="informacion-minca leading-[45px]">
                   <h2
-                    className={`${manrope.className} antialiased text-[#111] text-[16px] font-bold mt-[32px]`}
+                    className={`${manrope.className}  text-[#111] text-[16px] font-bold mt-[32px]`}
                   >
                     INFORMACIÓN
                   </h2>
                   <p
-                    className={`${ubuntu.className} antialiased text-[#111]/60 text-[16px] font-normal`}
+                    className={`${ubuntu.className}  text-[#111]/60 text-[16px] font-normal`}
                   >
                     Política de devoluciones
                   </p>
                   <p
-                    className={`${ubuntu.className} antialiased text-[#111]/60 text-[16px] font-normal`}
+                    className={`${ubuntu.className}  text-[#111]/60 text-[16px] font-normal`}
                   >
                     Declaración de privacidad
                   </p>
                   <p
-                    className={`${ubuntu.className} antialiased text-[#111]/60 text-[16px] font-normal`}
+                    className={`${ubuntu.className}  text-[#111]/60 text-[16px] font-normal`}
                   >
                     Términos y condiciones
                   </p>
                   <p
-                    className={`${ubuntu.className} antialiased text-[#111]/60 text-[16px] font-normal`}
+                    className={`${ubuntu.className}  text-[#111]/60 text-[16px] font-normal`}
                   >
                     Política de garantía{" "}
                   </p>
                   <p
-                    className={`${ubuntu.className} antialiased text-[#111]/60 text-[16px] font-normal`}
+                    className={`${ubuntu.className}  text-[#111]/60 text-[16px] font-normal`}
                   >
                     PQR
                   </p>
@@ -152,32 +152,32 @@ export const Footer = () => {
               <div className="info-menu-pc lg:w-[154px] lg:h-auto">
                 <div className="informacion-minca leading-[45px]">
                   <h2
-                    className={`${manrope.className} antialiased text-[#111] text-[16px] font-bold mt-[20px]`}
+                    className={`${manrope.className}  text-[#111] text-[16px] font-bold mt-[20px]`}
                   >
                     MENÚ
                   </h2>
                   <p
-                    className={`${ubuntu.className} antialiased text-[#111]/60 text-[16px] font-normal`}
+                    className={`${ubuntu.className}  text-[#111]/60 text-[16px] font-normal`}
                   >
                     Accesorios
                   </p>
                   <p
-                    className={`${ubuntu.className} antialiased text-[#111]/60 text-[16px] font-normal`}
+                    className={`${ubuntu.className}  text-[#111]/60 text-[16px] font-normal`}
                   >
                     Servicio técnico
                   </p>
                   <p
-                    className={`${ubuntu.className} antialiased text-[#111]/60 text-[16px] font-normal`}
+                    className={`${ubuntu.className}  text-[#111]/60 text-[16px] font-normal`}
                   >
                     Sedes
                   </p>
                   <p
-                    className={`${ubuntu.className} antialiased text-[#111]/60 text-[16px] font-normal`}
+                    className={`${ubuntu.className}  text-[#111]/60 text-[16px] font-normal`}
                   >
                     Recursos
                   </p>
                   <p
-                    className={`${ubuntu.className} antialiased text-[#111]/60 text-[16px] font-normal`}
+                    className={`${ubuntu.className}  text-[#111]/60 text-[16px] font-normal`}
                   >
                     Blog
                   </p>
@@ -188,19 +188,19 @@ export const Footer = () => {
             <div className="agendar-footer-pc">
               <div className="flex justify-end">
                 <button
-                  className={`${ubuntu.className} antialiased bg-[#111] rounded-[8px] px-[16px] py-[8px] text-white text-[14px] font-bold`}
+                  className={`${ubuntu.className}  bg-[#111] rounded-[8px] px-[16px] py-[8px] text-white text-[14px] font-bold`}
                 >
                   ¡Agendar Test Drive!
                 </button>
               </div>
               <div className="text-right mt-4">
                 <p
-                  className={`${ubuntu.className} antialiased text-[#111] text-[12px] font-bold`}
+                  className={`${ubuntu.className}  text-[#111] text-[12px] font-bold`}
                 >
                   +57 322 2102466
                 </p>
                 <p
-                  className={`${ubuntu.className} antialiased text-[#111] text-[12px] font-bold`}
+                  className={`${ubuntu.className}  text-[#111] text-[12px] font-bold`}
                 >
                   info@mincaelectric.com
                 </p>
@@ -225,7 +225,7 @@ export const Footer = () => {
             </div>
             <div className="flex justify-start items-center w-full">
               <div
-                className={`${ubuntu.className} antialiased text-[#1B1819] font-medium text-[12px] flex gap-4 justify-start items-center margin-custom`}
+                className={`${ubuntu.className}  text-[#1B1819] font-medium text-[12px] flex gap-4 justify-start items-center margin-custom`}
               >
                 <p>INVERSIONES LOGUZ SAS</p> | <p>NIT 901127287-1</p> |{" "}
                 <p>CRA 11A # 94A-56 LOCAL 3</p>
@@ -254,7 +254,7 @@ export const Footer = () => {
         <div className="next-footer flex lg:mt-[40px]">
           <div className="w-[663px]">
             <h2
-              className={`${manrope.className} antialiased font-normal text-[25px] mt-4 lg:mt-0 leading-[35px] lg:w-[663px] lg:h-[80px] lg:text-[40px] lg:leading-[42px] text-white`}
+              className={`${manrope.className}  font-normal text-[25px] mt-4 lg:mt-0 leading-[35px] lg:w-[663px] lg:h-[80px] lg:text-[40px] lg:leading-[42px] text-white`}
             >
               ¡Experimenta la emocionante revolución de la movilidad eléctrica!
             </h2>
@@ -293,7 +293,7 @@ export const Footer = () => {
           </div>
         </div>
       </div>
-      <div className="bg-[#111] w-full h-[78px] flex flex-col justify-center lg:flex-row lg:items-center lg:justify-between lg:px-12 text-white">
+      <div className="bg-[#111] w-full h-[78px] flex flex-col justify-center lg:flex-row lg:items-center lg:justify-between lg:px-[100px] text-white">
         <p className="text-[12px] text-center">
           © 2024 Minca Electric | Todos los derechos reservados.{" "}
         </p>
