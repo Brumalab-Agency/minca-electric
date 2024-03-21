@@ -6,7 +6,7 @@ export const HeroImagen = async () => {
   const banner = await getBanner();
 
   return (
-    <div className="heroImagen relative lg:mt-20">
+    <div className="heroImagen relative lg:mt-4">
       <div className="mt-4">
         
         {/* PC */}

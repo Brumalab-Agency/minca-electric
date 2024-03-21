@@ -41,13 +41,12 @@ function NavListMenu() {
   const navListMenuAccesorios = [
     {
       title: "Accesorios",
-      description1: "Casco",
-      description2: "Guantes",
-      description3: "Gafas",
-      description4: "Candado U",
-      description5: "Maleta",
-      description6: "Guaya",
-      description7: "Poncho",
+      description1: "Casco Minca",
+      description2: "Gafas Minca",
+      description3: "On Guard U-look",
+      description4: "Rompevientos Minca",
+      description5: "Poncho Minca",
+      description6: "On Guard Guaya",
     },
   ];
 

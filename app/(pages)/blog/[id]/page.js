@@ -1,10 +1,7 @@
 import { Footer } from "@/components/home/Footer";
-import { HeroBlogSingle } from "@/components/blog/HeroBlogSingle";
 import { HeroContext } from "@/components/reusable/HeroContext";
-import { Entradas } from "@/lib/graphQLRequest";
 import { manrope, ubuntu } from "@/ui/fonts";
 import { BlogContent } from "@/components/blog/BlogContent";
-import { SkeletonBlog } from "@/components/blog/SkeletonBlog";
 import { SinglePost } from "@/lib/graphQLRequest";
 import { format } from "date-fns";
 import OtrosPost from "@/components/blog/OtrosPost";
@@ -15,7 +12,6 @@ const SIngleBlog = async ({ params }) => {
   const data = await SinglePost(id);
 
   const posts = data.posts.nodes;
-  
 
   const parsedDate = new Date(posts[0].dateGmt);
 
@@ -26,12 +22,12 @@ const SIngleBlog = async ({ params }) => {
     <>
       <HeroContext titulo="Blog" />
       {posts.map((post) => (
-        <div className="HeroBlog mt-[45px] grid-cols-3 lg:grid lg:w-full lg:px-[100px]">
-          <div className="col-span-2">
+        <div className="HeroBlog mt-[45px] grid-cols-3 lg:grid  lg:w-full lg:px-[100px] 2xl:grid-cols-4">
+          <div className="col-span-2 2xl:col-span-3">
             {/* PC */}
             <div className="card-blog hidden h-[273px] w-full rounded-[12px] bg-white lg:block  lg:h-[220px] lg:w-[598px]">
               <button
-                className={` ${ubuntu.className} h-[32px] w-auto px-4 rounded-[6px] bg-[#111] text-[14px] font-medium text-white`}
+                className={` ${ubuntu.className} h-[32px] w-auto rounded-[6px] bg-[#111] px-4 text-[14px] font-medium text-white`}
               >
                 {post.categories.edges[0].node.name}
               </button>
@@ -57,7 +53,7 @@ const SIngleBlog = async ({ params }) => {
             {/* *** */}
             <div className="relative flex justify-center lg:justify-start">
               <div
-                className={`relative flex h-[313px] w-full justify-center bg-cover bg-top lg:h-[603px] lg:w-full lg:justify-start lg:rounded-[12px]`}
+                className={`relative flex h-[313px] w-full justify-center bg-cover bg-top lg:h-[500px] lg:w-full lg:justify-start lg:rounded-[12px] 2xl:h-[603px]`}
                 style={{
                   backgroundImage: `url(${post.featuredImage.node.mediaItemUrl})`,
                 }}
@@ -102,7 +98,7 @@ const SIngleBlog = async ({ params }) => {
           </div>
           {/*  Skeleton */}
           <div className="h-30pxlg:block">
-           <OtrosPost/>
+            <OtrosPost />
           </div>
         </div>
       ))}

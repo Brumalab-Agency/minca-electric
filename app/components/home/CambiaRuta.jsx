@@ -13,7 +13,7 @@ export const CambiaRuta = () => {
         />
       </div>
       <div className="text-[42px] 2xl:text-[64px] uppercase hidden lg:block w-[310px] 2xl:w-[500px] lg:-mt-[50px] lg:leading-[52px] 2xl:leading-[74px] justify-self-start">
-          <p>Cambia de ruta, <b>cambia de energía</b></p>
+          <p>Cambia de ruta,  <b>cambia de energía</b></p>
       </div>
       <section className={`${manrope.className} flex gap-8  justify-self-center`}>
         <h1 className="text-[50px] font-bold">01</h1>

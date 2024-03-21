@@ -19,7 +19,6 @@ export const EspecificacionesAccesorios = async (accesorios) => {
   const separadorDeMiles = (numero) => {
     let partesNumero = numero.toString().split('.');
     partesNumero[0] = partesNumero[0].replace(/\B(?=(\d{3})+(?!\d))/g, '.');
-console.log(partesNumero.join('.'));
     return partesNumero.join('.');
   }
 
@@ -27,12 +26,12 @@ console.log(partesNumero.join('.'));
   return (
     <div className="EspecificacionesAccesorios mb-8">
       {items.map((item, index) => (
-        <div className="items-center justify-between lg:flex lg:justify-center lg:px-[96px] lg:py-[70px]">
+        <div className=" justify-between lg:flex lg:justify-center lg:px-[96px] lg:py-[70px]">
           {/* Accesorios */}
           <LightboxComponent item={item}/>
-          <div className="lg:w-1/2">
+          <div className="lg:w-[50%]">
             {/* Titulo y descripcion */}
-            <div className="flex justify-between p-4 ">
+            <div className="flex justify-between">
               <div className="flex flex-col justify-center">
                 <h2
                   className={`${manrope.className} mb-1 text-[24px] font-bold uppercase text-[#111111]  lg:text-[42px] lg:leading-[28px]`}
@@ -47,12 +46,12 @@ console.log(partesNumero.join('.'));
                   </div>
                 </div>
                 <p
-                  className={`${ubuntu.className} text-[14px] font-normal leading-[15px] text-[#42454A]  lg:mt-5 lg:w-[60%] lg:text-[16px] lg:leading-[25px]`}
+                  className={`${ubuntu.className} text-[14px] font-normal leading-[15px] text-[#42454A]  lg:mt-5 lg:w-[90%] lg:text-[16px] lg:leading-[25px]`}
                 >
                   {item.description}
                 </p>
-                <hr className="mt-5 lg:w-[60%]" />
-                {/* <div className="selector-color mt-2">
+                <hr className="mt-5 lg:w-[70%]" />
+                <div className="selector-color mt-2">
                   <p className={`${ubuntu.className} text-base text-[#111]/60`}>
                     Select Colors
                   </p>
@@ -79,12 +78,12 @@ console.log(partesNumero.join('.'));
                       <p>M</p>
                     </div>
                   </div>
-                </div> */}
+                </div>
               </div>
               {/* /Scooter/btn-slider-left-pc.png */}
             </div>
             {/* Btn y contador */}
-            <div className="contador-btnAddCart flex w-full items-center gap-4 px-4 lg:w-[85%] 2xl:w-[70%]">
+            <div className="contador-btnAddCart flex w-full items-center gap-4 lg:w-[85%] 2xl:w-[70%] mt-2">
               <BtnQty/>
               <div className="w-full flex-col justify-center lg:flex">
                 {productoEncontrado ? (

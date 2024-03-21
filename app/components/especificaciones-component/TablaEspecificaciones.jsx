@@ -1,10 +1,9 @@
 import { manrope, ubuntu } from "@/ui/fonts";
 
 export const TablaEspecificaciones = (scooters) => {
-  console.log(scooters.scooters.scooters.productTypes.nodes[0].products.nodes);
 
   const items = scooters.scooters.scooters.productTypes.nodes[0].products.nodes;
-  console.log(items);
+
 
   return (
     <div>
@@ -14,11 +13,6 @@ export const TablaEspecificaciones = (scooters) => {
             <div className="lg:w-full">
               <h2 className="border-b-2 border-[#111] lg:mr-[30px]">
                 Calificación y reseñas
-              </h2>
-            </div>
-            <div className="lg:w-full">
-              <h2 className="border-b-2 border-[#111]/10 lg:mr-[30px]">
-                Preguntas frecuentes
               </h2>
             </div>
           </div>

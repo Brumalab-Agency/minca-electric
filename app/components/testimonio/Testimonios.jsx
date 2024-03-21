@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { manrope, ubuntu } from "../../ui/fonts";
 import { BotonRelativo } from "../botones/BotonRelativo";
 import { CarruselTestimonio } from "../carruseles/testtimonio/CarruselTestimonio";
@@ -8,7 +9,7 @@ export const Testimonios = async ({clases, clase2}) => {
   const dato = await TestimoniosQuery();
   const data = dato.testimonios.nodes;
   return (
-    <div className={`p-4 lg:px-[100px] lg:pb-[70px] ${clase2}`}>
+    <div className={`p-4 lg:pl-[100px] lg:pb-[70px] ${clase2}`}>
       <div className={`my-4 flex items-center ${clases}`}>
         <hr className={`border-1 mt-4 w-full border-[#111]`} />
         <img src="/flecha-correcta 2.png" alt="flechas direccional" />
@@ -24,7 +25,9 @@ export const Testimonios = async ({clases, clase2}) => {
 
       </div>
         <div className="w-full h-auto my-[74px] hidden lg:block">
-          <BotonRelativo param="Ver más testimonios" clases="lg:w-[250px] bg-[#111] text-white"/>
+          <Link target="_blank" href="https://www.google.com/maps/search/minca+electric/@4.6785321,-74.096118,13z/data=!3m1!4b1?authuser=0&entry=ttu" className={`${ubuntu.className} grid place-items-center  text-[16px] w-full h-[52px] rounded-[62px] my-3  lg:w-[250px] bg-[#111] text-white`} >
+          Ver más testimonios
+          </Link>
         </div>
     </div>
   );

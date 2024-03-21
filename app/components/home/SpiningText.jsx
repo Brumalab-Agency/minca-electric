@@ -3,7 +3,7 @@ import { ubuntu } from "../../ui/fonts";
 export function SpinningText({ children }) {
 
   return (
-    <div className="right-[-29px] top-[10px] hidden w-[250px] items-center justify-end lg:flex lg:mt-[40px]">
+    <div className="right-[-29px] top-[10px] hidden w-[250px] items-center justify-end lg:flex lg:mt-[10px]">
       <p
         className={`${ubuntu.className} w-[47%] text-[18px] font-medium leading-[22px]`}
       >

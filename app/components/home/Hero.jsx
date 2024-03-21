@@ -32,9 +32,9 @@ export const Hero = async () => {
         </p>
         <hr className="border-0.5 my-[10px] border border-solid border-[#42454A]" />
         <div
-          className={`${ubuntu.className}  tabs relative flex items-center justify-between gap-4 lg:mt-2`}
+          className={`${ubuntu.className}  tabs relative flex justify-between gap-4 lg:mt-2`}
         >
-          <Anclaje/>
+          <Anclaje hero={hero}/>
           <SpiningText text=" • Agenda tu • test drive 1">
             <img src="/imagotipo-negro.png" alt="logo tipo" />
           </SpiningText>

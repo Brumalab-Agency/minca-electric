@@ -5,17 +5,17 @@ import { manrope } from "@/ui/fonts";
 export const DescargaManual = () => {
 
   const minca350 =
-  "https://test.mincaelectric.com/wp-content/uploads/2024/03/Manual_integracin_e-commerce.pdf";
+  "https://test.mincaelectric.com/wp-content/uploads/2024/03/Manual-350W-FEB-2023.pdf";
   const minca500 =
-  "https://test.mincaelectric.com/wp-content/uploads/2024/03/Manual_integracin_e-commerce.pdf";
+  "https://test.mincaelectric.com/wp-content/uploads/2024/03/Manual-500W-800W-1600W-FEB-2023.pdf";
   const minca800 =
-  "https://test.mincaelectric.com/wp-content/uploads/2024/03/Manual_integracin_e-commerce.pdf";
+  "https://test.mincaelectric.com/wp-content/uploads/2024/03/Manual-500W-800W-1600W-FEB-2023.pdf";
 const minca1600 =
-  "https://test.mincaelectric.com/wp-content/uploads/2024/03/Manual_integracin_e-commerce_1600.pdf";
+  "https://test.mincaelectric.com/wp-content/uploads/2024/03/Manual-500W-800W-1600W-FEB-2023.pdf";
 const politicas =
-  "https://test.mincaelectric.com/wp-content/uploads/2024/03/Politica_de_privacidad.pdf";
+  "https://test.mincaelectric.com/wp-content/uploads/2024/03/POLITICAS-DE-GARANTIA.pdf";
 const devoluciones =
-  "https://test.mincaelectric.com/wp-content/uploads/2024/03/Politica_de_devoluciones.pdf";
+  "#";
   
   const downLoad = (url) => {
     const filename = url.split("/").pop();

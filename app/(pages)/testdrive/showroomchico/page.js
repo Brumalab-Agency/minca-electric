@@ -1,6 +1,6 @@
 import BookingWidget from '@/components/simplybook/SimplyBook'
 import { Suspense } from 'react'
-import Loading from '../loading'
+import Loading from '@/loading'
 
 export const ShowroomChico = () => {
   return (

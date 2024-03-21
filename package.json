@@ -30,6 +30,7 @@
     "create-hmac": "^1.1.7",
     "date-fns": "^3.4.0",
     "embla-carousel-react": "^8.0.0",
+    "framer-motion": "^11.0.18",
     "glightbox": "^3.2.0",
     "graphql": "^16.8.1",
     "is-unicode-supported": "^2.0.0",
@@ -46,7 +47,7 @@
     "react-dom": "^18",
     "react-modal": "^3.16.1",
     "supports-color": "^9.4.0",
-    "tailwind-merge": "^2.2.1",
+    "tailwind-merge": "^2.2.2",
     "tailwindcss-animate": "^1.0.7",
     "validator": "^13.11.0"
   },

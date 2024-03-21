@@ -5,6 +5,7 @@ import { TablaEspecificaciones } from "./TablaEspecificaciones";
 import { ProductosWoocommerce } from "@/lib/graphQLRequest";
 import AddToCart from "../cart/AddToCart";
 import { BtnQty } from "./BtnQty";
+import LightboxComponentScooters from "../lightbox/LightboxComponentScooters";
 
 
 export const EspecificacionesMinca = async (scooters) => {
@@ -21,15 +22,16 @@ export const EspecificacionesMinca = async (scooters) => {
 
   return (
     <>
-      <div className="EspecificacionesMinca" key={1}>
-        <div className="items-center justify-between lg:flex lg:justify-center lg:px-[96px]">
+      <div className="EspecificacionesMinca py-[70px]" key={1}>
+        <div className="justify-between lg:flex lg:justify-center lg:px-[96px]">
           {/* Scooters */}
+          {/* <LightboxComponentScooters item={item}/> */}
           <div className="h-auto w-full flex-row-reverse lg:flex lg:w-1/2">
             <div className="grid h-auto w-full place-items-center lg:ml-4 lg:mr-[50px] lg:flex lg:w-auto">
               <Image
                 placeholder="empty"
                 alt={item.sliderProductos.nombreProducto}
-                className="rounded-[20px] bg-[#F0EEED]"
+                className="rounded-[20px] bg-[#F0EEED] lg:h-[450px] 2xl:h-[650px] w-auto"
                 src={item.sliderProductos.imagen.mediaItemUrl}
                 priority={true}
                 width={358}
@@ -42,7 +44,7 @@ export const EspecificacionesMinca = async (scooters) => {
                 <Image
                   placeholder="empty"
                   alt={item.sliderProductos.nombreProducto}
-                  className="rounded-[20px] border-2 lg:h-[110px] lg:w-[110px]"
+                  className="rounded-[20px] border-2 lg:h-[145px] 2xl:h-[211px] w-auto"
                   src={item.sliderProductos.foto1.mediaItemUrl}
                   priority={true}
                   width={111}
@@ -54,7 +56,7 @@ export const EspecificacionesMinca = async (scooters) => {
                 <Image
                   placeholder="empty"
                   alt={item.sliderProductos.nombreProducto}
-                  className="rounded-[20px] border-2 lg:h-[110px] lg:w-[110px]"
+                  className="rounded-[20px] border-2 lg:h-[145px] 2xl:h-[211px] w-auto"
                   src={item.sliderProductos.foto2.mediaItemUrl}
                   priority={true}
                   width={111}
@@ -66,7 +68,7 @@ export const EspecificacionesMinca = async (scooters) => {
                 <Image
                   placeholder="empty"
                   alt={item.sliderProductos.nombreProducto}
-                  className="rounded-[20px] border-2 lg:h-[110px] lg:w-[110px]"
+                  className="rounded-[20px] border-2 lg:h-[145px] 2xl:h-[211px] w-auto"
                   src={item.sliderProductos.foto3.mediaItemUrl}
                   priority={true}
                   width={111}
@@ -78,7 +80,7 @@ export const EspecificacionesMinca = async (scooters) => {
           </div>
           <div className="lg:w-1/2">
             {/* Titulo y descripcion */}
-            <div className="mt-[7px] flex justify-between p-4">
+            <div className="mt-[7px] flex justify-between">
               <div className="flex flex-col justify-center">
                 <h2
                   className={`${manrope.className} mb-1 text-[24px] font-bold uppercase text-[#111111]  lg:text-[42px] lg:leading-[28px]`}
@@ -120,7 +122,7 @@ export const EspecificacionesMinca = async (scooters) => {
               {/* /Scooter/btn-slider-left-pc.png */}
             </div>
             {/* Btn y contador */}
-            <div className="contador-btnAddCart flex w-full items-center gap-4 px-4 lg:w-[85%] 2xl:w-[60%]">
+            <div className="contador-btnAddCart flex w-full items-center gap-4 px-4 lg:w-[85%] 2xl:w-[60%] mt-2">
               {/* <div>
                 <label for="Quantity" className="sr-only">
                   {" "}

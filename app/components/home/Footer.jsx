@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { manrope, ubuntu } from "../../ui/fonts";
 import Newsletter from "../newsletter/Newsletter";
+import Link from "next/link";
 
 export const Footer = () => {
   return (
@@ -120,26 +121,38 @@ export const Footer = () => {
                   >
                     INFORMACIÓN
                   </h2>
-                  <p
-                    className={`${ubuntu.className}  text-[#111]/60 text-[16px] font-normal`}
-                  >
-                    Política de devoluciones
-                  </p>
-                  <p
-                    className={`${ubuntu.className}  text-[#111]/60 text-[16px] font-normal`}
-                  >
-                    Declaración de privacidad
-                  </p>
-                  <p
-                    className={`${ubuntu.className}  text-[#111]/60 text-[16px] font-normal`}
-                  >
-                    Términos y condiciones
-                  </p>
-                  <p
-                    className={`${ubuntu.className}  text-[#111]/60 text-[16px] font-normal`}
-                  >
-                    Política de garantía{" "}
-                  </p>
+                  <div>
+                    <Link
+                      href="#"
+                      className={`${ubuntu.className}  text-[#111]/60 text-[16px] font-normal`}
+                    >
+                      Política de devoluciones
+                    </Link>
+                  </div>
+                  <div>
+                    <Link
+                    href="#"
+                      className={`${ubuntu.className}  text-[#111]/60 text-[16px] font-normal`}
+                    >
+                      Declaración de privacidad
+                    </Link>
+                  </div>
+                  <div>
+                    <Link
+                    href="https://test.mincaelectric.com/wp-content/uploads/2024/03/TERMINOS-Y-CONDICIONES.pdf"
+                      className={`${ubuntu.className}  text-[#111]/60 text-[16px] font-normal`}
+                    >
+                      Términos y condiciones
+                    </Link>
+                  </div>
+                  <div>
+                    <Link
+                    href="https://test.mincaelectric.com/wp-content/uploads/2024/03/POLITICAS-DE-GARANTIA.pdf"
+                      className={`${ubuntu.className}  text-[#111]/60 text-[16px] font-normal`}
+                    >
+                      Política de garantía{" "}
+                    </Link>
+                  </div>
                   <p
                     className={`${ubuntu.className}  text-[#111]/60 text-[16px] font-normal`}
                   >

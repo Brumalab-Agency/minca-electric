@@ -1,4 +1,4 @@
-import Loading from '@/(pages)/testdrive/loading'
+import Loading from '@/loading'
 import SimplyAgendamientoJaveriana from '@/components/simplybook/SimplyAgendamientoJaveriana'
 import { Suspense } from 'react'
 

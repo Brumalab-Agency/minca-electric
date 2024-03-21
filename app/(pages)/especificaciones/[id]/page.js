@@ -4,7 +4,7 @@ import { HeroContext } from "@/components/reusable/HeroContext"
 import { HeroVideoSingleProduct } from "@/components/reusable/HeroVideoSingleProduct"
 import { PuedeInteresarte } from "@/components/sigle-product/PuedeInteresarte"
 import { CarruselAccesorios } from "@/components/carruseles/accesorios/CarruselAccesorios"
-import { SingleProductos, SingleProductosWoocommerce } from "@/lib/graphQLRequest"
+import { SingleProductosWoocommerce } from "@/lib/graphQLRequest"
 
 
 const Especificaciones = async({params}) => {
@@ -19,6 +19,8 @@ const Especificaciones = async({params}) => {
         <HeroVideoSingleProduct titulo="MINCA" tituloSecundarioNegrita="Scooters" urlVideo="https://test.mincaelectric.com/wp-content/uploads/2024/03/Minca-Electric-Carro-o-Scooter_.mp4"/>
         <PuedeInteresarte/>
         <hr className="hidden lg:block lg:m-auto lg:w-[90%] border-1"></hr>
+        <br></br>
+        <br></br>
         <CarruselAccesorios />
         <Footer/>
     </div>

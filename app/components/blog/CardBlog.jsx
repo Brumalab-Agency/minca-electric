@@ -12,18 +12,20 @@ export const CardBlog = ({data, clasesImg, clasesContenedor, clasesIcon, clasesC
       <div className={`${imgCenter}`}>
         <img className={`w-full h-[236px] rounded-[6px] mt-4 ${clasesImg}`} src={data?.featuredImage?.node.mediaItemUrl} alt={data?.featuredImage?.node.altText} />
       </div>
-      <div className={`lg:flex items-center gap-4 my-4 ${clasesContenedorFlex}`}>
+      <div className={`lg:flex  gap-4 my-4 ${clasesContenedorFlex}`}>
         <img
-          className={`h-[33px] w-[30px] ${clasesIcon}`}
+          className={`h-[40px] w-auto ${clasesIcon}`}
           src="/imagotipo-negro.png"
           alt="imagotipo"
         />
-        <p className={`${ubuntu.className} text-[16px] text-[#97989F] ${title}`}>
-          {data?.title}
-        </p>
-        <p className={`${ubuntu.className} lg:text-[16px] text-[#97989F] ${date}`}>
-          {formattedDate}
-        </p>
+        <div>
+          <p className={`${ubuntu.className} text-[12px] text-[#111] ${title}`}>
+            {data?.title}
+          </p>
+          <small className={`${ubuntu.className} lg:text-[12px] text-[#97989F] ${date}`}>
+            {formattedDate}
+          </small>
+        </div>
       </div>
     </div>
   );

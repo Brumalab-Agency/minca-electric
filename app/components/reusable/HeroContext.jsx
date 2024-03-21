@@ -18,7 +18,7 @@ export const HeroContext = async ({ titulo, tituloNegrita, ocultar }) => {
         <p
           className={`${ubuntu.className} my-[20px] max-w-[263px] leading-[20px] text-[#111]/60  lg:mt-9 lg:max-w-[700px] lg:text-[24px] lg:font-normal lg:leading-[34px] lg:tracking-wide lg:text-[#42454A] 2xl:text-[32px]`}
         >
-          Muévete sostenible, con estilo y eficiencia. Muévete con Minca.
+          Muévete sostenible, con estilo y eficiencia.<br></br> Muévete con Minca.
         </p>
 
         <hr

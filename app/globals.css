@@ -456,7 +456,7 @@ nav.block.w-full.rounded-xl.shadow-md.backdrop-saturate-200.backdrop-blur-2xl.bg
   z-index: 999;
   cursor: pointer;
 }
-.overlay-modal-arrows_left {
+.overlay-arrows_left {
   display: flex;
   justify-content: space-between;
   position: absolute;

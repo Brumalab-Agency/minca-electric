@@ -26,16 +26,6 @@ export const Header = () => {
         <Menu />
       </div>
       <div className="header-right flex items-center justify-between gap-4">
-        <Link
-          href="/contacto"
-          className="hidden text-base font-semibold lg:flex"
-        >
-          Contacto
-          
-        </Link>
-        <button className="mr-4 hidden h-[52px] w-[135px] rounded-[62px] bg-[#111] text-base text-white lg:block">
-          <Link href="/testdrive">Test Drive</Link>
-        </button>
         {/* Carrito de compras */}
 
         <Link href="/cart" className="carrito-movil relative lg:block hidden">
@@ -71,9 +61,22 @@ export const Header = () => {
             )}
           </Link>
         </div>
+        <p>|</p>
+        {/* Btn Contacto */}
+        <Link
+          href="/contacto"
+          className="hidden text-base font-semibold lg:flex"
+        >
+          Contacto
+          
+        </Link>
+        <button className="mr-4 hidden h-[52px] w-[135px] rounded-[62px] bg-[#111] text-base text-white lg:block">
+          <Link href="/testdrive">Test Drive</Link>
+        </button>
+        
 
         {/* Avatar usuario */}
-        <Image
+        {/* <Image
           placeholder="empty"
           className="hidden lg:block" //<--- PC
           src="/carrito/usuariomenu.svg"
@@ -88,7 +91,7 @@ export const Header = () => {
           width={24}
           height={24}
           alt="Imagen representativa de caracteristicas del producto"
-        />
+        /> */}
       </div>
     </div>
   );

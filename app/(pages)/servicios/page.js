@@ -2,11 +2,11 @@ import { HeroContext } from '@/components/reusable/HeroContext'
 import { HeroVideoSingleProduct } from '@/components/reusable/HeroVideoSingleProduct';
 import { Section5 } from '@/components/sigle-product/Section5';
 import { Separador } from '../separador/Separador';
-import { CambiaRuta } from '@/components/home/CambiaRuta';
 import { SolucionesComodidad } from '@/components/home/SolucionesComodidad';
 import { Footer } from '@/components/home/Footer';
 import { CarruselTaller } from '@/components/reusable/CarruselTaller';
 import { CarruselShowRoom } from '@/components/reusable/CarruselShowRoom';
+import { ScootersRendimiento } from '@/components/home/ScootersRendimiento';
 
 export const metadata = {
   title: "Servicios",
@@ -27,7 +27,7 @@ const Servicios = () => {
         <CarruselShowRoom/>
         <Section5/>
         <Separador clases="lg:px-[100px] px-4" clase2="mt-[80px]"/>
-        <CambiaRuta/>
+        <ScootersRendimiento/>
         <SolucionesComodidad/>
         <Footer/>
     </>

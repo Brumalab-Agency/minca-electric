@@ -565,14 +565,15 @@ export const Entradas = async () => {
 
 export const SinglePost = async (id) => {
   const query = `
-        query GetEntradas {
+        query Entradas {
           posts(where: {id: ${id}}) {
             nodes {
+              content(format: RENDERED)
+              guid
               postId
               slug
               entradas {
                 campoTexto
-                subtitulo
               }
               title
               featuredImage {
@@ -589,7 +590,6 @@ export const SinglePost = async (id) => {
                 }
               }
               dateGmt
-              
             }
           }
         }

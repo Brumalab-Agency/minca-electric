@@ -14,11 +14,19 @@ import Link from "next/link";
 export const CarruselAccesorios = async () => {
   const data = await AccesoriosPage();
   const accesorios = data.products.nodes;
+
+  const separadorDeMiles = (numero) => {
+    let partesNumero = numero.toString().split('.');
+    partesNumero[0] = partesNumero[0].replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+    return partesNumero.join('.');
+  }
+
+
   return (
-    <div className="MincaAccesorios over h-auto w-full overflow-x-hidden bg-white ">
+    <div className="MincaAccesorios over h-auto w-full overflow-x-hidden bg-white pl-[100px]">
       <div className="py-4  lg:h-[710px] lg:w-auto lg:border-b-2">
         <div className="h-auto w-full">
-          <div className="flex w-full items-center justify-between px-4 lg:px-[100px] leading-[42px]">
+          <div className="flex w-full items-center justify-between px-4 leading-[42px]">
             <TProductVariant
 
               titulo="Accesorios MINCA,"
@@ -52,14 +60,14 @@ export const CarruselAccesorios = async () => {
                       <p className="mt-[10px] text-base font-bold lg:text-[20px]">
                         {accesorio.name}
                       </p>
-                      <p className="text-[20px] font-bold">{accesorio.price}</p>
+                      <p className="text-[20px] font-bold">$ { separadorDeMiles(accesorio.price)}</p>
                     </div>
                   </CarouselItem>
                 </Link>
               ))}
             </CarouselContent>
-            <CarouselPrevious />
-            <CarouselNext />
+            <CarouselPrevious  izquierda=" lg:top-[6%] lg:left-[85%] 2xl:left-[85%]"/>
+            <CarouselNext derecha=" lg:top-[6%] lg:right-[7%] 2xl:right-[5%]"/>
           </Carousel>
         </div>
       </div>

@@ -1,4 +1,4 @@
-import Loading from '@/(pages)/testdrive/loading'
+import Loading from '@/loading'
 import SimplyAgendamientoChico from '@/components/simplybook/SimplyAgendamientoChico'
 import React, { Suspense } from 'react'
 

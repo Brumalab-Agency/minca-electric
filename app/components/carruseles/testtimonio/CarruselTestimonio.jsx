@@ -39,8 +39,8 @@ export const CarruselTestimonio = ({ clases, nombre, comentario, rate }) => {
                 </div>
               </div>
             </div>
-            <CarouselNext className="lg:right-[50.2%] 2xl:right-[30%] lg:top-[38%] derecha block top-[18%] -right-[4%]"/>
-            <CarouselPrevious className="lg:left-[43%] 2xl:left-[66%] lg:top-[38%] izquierda block top-[18%] right-[5%]"/>
+            <CarouselNext className="lg:right-[50.2%] 2xl:right-[32.8%] lg:top-[18%] derecha block top-[18%] -right-[4%]"/>
+            <CarouselPrevious className="lg:left-[45.5%] 2xl:left-[60%] lg:top-[18%] izquierda block top-[18%] right-[5%]"/>
             <CarouselContent className="marcador2" customClass="overflow-visible">
               {Array.from({ length: 9 }).map((_, index) => (
                 <CarouselItem
@@ -83,8 +83,8 @@ export const CarruselTestimonio = ({ clases, nombre, comentario, rate }) => {
                 </CarouselItem>
               ))}
             </CarouselContent>
-            <CarouselPrevious  izquierda="2xl:left-[58%] 2xl:top-[45%]"/>
-            <CarouselNext derecha="2xl:right-[33.9%] 2xl:top-[45%]"/>
+            {/* <CarouselPrevious  izquierda="lg:top-[18%] 2xl:left-[56.5%] 2xl:top-[45%]"/>
+            <CarouselNext derecha="lg:top-[18%] 2xl:right-[35.5%] 2xl:top-[45%]"/> */}
           </Carousel>
         </div>
       </div>

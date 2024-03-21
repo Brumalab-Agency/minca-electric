@@ -1,15 +1,31 @@
 import { ubuntu, manrope } from "@/ui/fonts";
-import { Entradas } from "@/lib/graphQLRequest"
+import { Entradas } from "@/lib/graphQLRequest";
 
-export const BlogContent = ({contenido}) => {
+export const BlogContent = ({ contenido }) => {
+
 
   return (
-    <div className='BlogContent mt-[220px] lg:mt-[32px]'>
-        <h2 className={`${manrope.className} text-[24px] text-[#111] font-bold`}>{contenido.entradas.subtitulo}</h2>
-        <p className={`${ubuntu.className} text-[20px] mt-4 text-balance`}>{contenido.entradas.campoTexto}</p>
-        <div className="w-full h-auto rounded-[12px] bg-[#F6F6F7] shadow-md grid place-items-center p-[32px] mt-[32px] mb-[67px] border-l-[#E8E8EA]">
-            <p className={` ${manrope.className}text-[#111] text-[24] font-normal leading-[32px]`}>“ Traveling can expose you to new environments and potential health risks, so it's crucial to take precautions to stay safe and healthy. ”</p>
-        </div>
+    <div className="BlogContent mt-[220px] lg:mt-[32px]">
+      <h2 className={`${manrope.className} text-[24px] font-bold text-[#111]`}>
+        {contenido.entradas.subtitulo}
+      </h2>
+      <div
+        dangerouslySetInnerHTML={{
+          __html: contenido.content.replace(
+            /\n\r?/g,
+            '<div style="margin-bottom: 10px;"></div>',
+          ),
+        }}
+      ></div>
+
+      <div className="mb-[67px] mt-[32px] grid h-auto w-full place-items-center rounded-[12px] border-l-[#E8E8EA] bg-[#F6F6F7] p-[32px] shadow-md">
+        <p
+          className={` ${manrope.className}text-[#111] font-normal leading-[32px] text-[24]`}
+        >
+          “ Traveling can expose you to new environments and potential health
+          risks, so it's crucial to take precautions to stay safe and healthy. ”
+        </p>
+      </div>
     </div>
-  )
-}
+  );
+};
