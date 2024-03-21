@@ -10,7 +10,7 @@ import { SolucionesComodidad } from "./components/home/SolucionesComodidad";
 import { Testimonios } from "./components/testimonio/Testimonios";
 import { ShowRoomComponent } from "./components/showroom/ShowRoomComponent";
 import { CarruselAccesorios } from "./components/carruseles/accesorios/CarruselAccesorios";
-import { InfiniteCards } from "./components/aceternity/InfiniteCards";
+/* import { InfiniteCards } from "./components/aceternity/InfiniteCards"; */
 
 
 
@@ -25,7 +25,7 @@ export default function Home() {
       <PruebaMinca/>
       <CarruselAccesorios/>
       <CambiaRuta/>
-      <InfiniteCards/>
+      {/* <InfiniteCards/> */}
       <SolucionesComodidad/>
       <Testimonios/>
       <ShowRoomComponent/>
