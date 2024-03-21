@@ -8,9 +8,9 @@ export const fetchGraphQL = async (query) => {
       headers: {
         "Content-Type": "application/json",
       },
-      cache: "no-store",
+      /* cache: "no-store", */
     },
-    /* { next: { revalidate: 300 } } */
+    { next: { revalidate: 300 } }
   );
 
   const { data } = await res.json();
@@ -30,7 +30,8 @@ const fetchScooters = async (query) => {
         "Content-Type": "application/json",
       },
 /*       cache: "no-store", */
-    }
+    },
+    { next: { revalidate: 300 } }
   );
 
   const { data } = await res.json();
@@ -47,8 +48,9 @@ const fetchScootersSec = async (query) => {
       headers: {
         "Content-Type": "application/json",
       },
-      cache: "no-store",
-    }
+      /* cache: "no-store", */
+    },
+    { next: { revalidate: 300 } }
   );
 
   const { data } = await res.json();
