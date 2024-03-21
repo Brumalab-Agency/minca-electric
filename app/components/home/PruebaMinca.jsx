@@ -7,10 +7,10 @@ export const PruebaMinca = () => {
   return (
     <>
       <div className="pruebaMinca mb-8 mt-[10px] h-[700px] w-full bg-auto bg-right bg-no-repeat  lg:flex lg:bg-[url('/prueba-una-minca-1440_anchoCompleto.jpg')] lg:px-[100px]">
-        <div className="prueba-minca-pc grid w-full p-4 place-items-center justify-start">
-          <div className="z-10 lg:w-[600px] 2xl:w-[750px]">
+        <div className="prueba-minca-pc grid w-full  place-items-center justify-start">
+          <div className="z-10 lg:w-[600px] 2xl:w-[750px] px-4">
             <h1
-              className={`${manrope.className} text-[40px] uppercase leading-[40px] text-[#111]  lg:mt-[77px] lg:block	lg:text-[48px] lg:leading-[30px] 2xl:leading-[35px] 2xl:text-[64px] lg:font-light lg:tracking-wide`}
+              className={`${manrope.className} text-[40px] uppercase leading-[50px] text-[#111]  lg:mt-[77px] lg:block	lg:text-[48px] lg:leading-[30px] 2xl:leading-[35px] 2xl:text-[64px] lg:font-light lg:tracking-wide`}
             >
               Prueba
               <br></br>

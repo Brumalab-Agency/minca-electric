@@ -1,15 +1,16 @@
 import { Header } from "../home/Header";
 import MostarBanner from "@/components/home/MostarMarquee";
 import { manrope, ubuntu } from "@/ui/fonts";
+import NextBreadcrumb from "../breadcrumb/NextBreadcrumb";
 
-export const HeroContext = async ({ titulo, tituloNegrita, ocultar }) => {
+export const HeroContextBreadCrumb = async ({ titulo, tituloNegrita, ocultar }) => {
   return (
     <div>
       <MostarBanner />
       <Header />
       <div className="p-4 lg:px-[100px]">
         <h1
-          className={`${manrope.className} text-[40px] uppercase leading-[50px] text-[#111]  lg:mt-[77px] lg:flex lg:text-[64px]	lg:font-light lg:leading-[45px] lg:tracking-wide 2xl:text-[96px]`}
+          className={`${manrope.className} text-[40px] uppercase leading-[50px] text-[#111]  lg:mt-[77px] lg:flex lg:text-[64px]	lg:font-light lg:leading-[45px] lg:tracking-wide 2xl:text-[96px] 2xl:-ml-[6px]`}
         >
           {titulo}
           <br></br>
@@ -24,6 +25,7 @@ export const HeroContext = async ({ titulo, tituloNegrita, ocultar }) => {
         <hr
           className={`border-0.5 mt-[52px] border border-solid border-[#42454A] ${ocultar}`}
         />
+        <NextBreadcrumb containerClasses="capitalize flex gap-2 text-[18px]" listClasses="flex items-center"/>
       </div>
     </div>
   );

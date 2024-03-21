@@ -8,7 +8,7 @@ export const Testimonios = async ({clases, clase2}) => {
   const dato = await TestimoniosQuery();
   const data = dato.testimonios.nodes;
   return (
-    <div className={`p-4 lg:px-[48px] lg:pb-[70px] ${clase2}`}>
+    <div className={`p-4 lg:px-[100px] lg:pb-[70px] ${clase2}`}>
       <div className={`my-4 flex items-center ${clases}`}>
         <hr className={`border-1 mt-4 w-full border-[#111]`} />
         <img src="/flecha-correcta 2.png" alt="flechas direccional" />

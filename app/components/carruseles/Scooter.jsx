@@ -28,6 +28,7 @@ const Scooter = ({ scooter }) => {
           height={400}
           style={{ objectFit: "cover" }}
         />
+        <Boton slug={item.slugDinamicoTemporal} param="Comprar Ahora" />
         <div>
           <div className="flex justify-between">
             <div className="flex flex-col justify-center">
@@ -119,6 +120,7 @@ const Scooter = ({ scooter }) => {
           <div className="pt-8 lg:hidden">
             <Modal3d url_3d={item.url3d} />
           </div>
+          
         </div>
         {/* ********** */}
         <div className="contenedor-cards-arrows relative">
@@ -209,7 +211,7 @@ const Scooter = ({ scooter }) => {
           </div>
           <div className="scroll-indicator m-auto"></div>
         </div>
-        <Boton slug={item.slugDinamicoTemporal} param="Comprar Ahora" />
+       
       </div>
     </div>
   );

@@ -2,7 +2,7 @@ import { ubuntu } from "../../ui/fonts";
 
 export const BannerMenu = ({clases}) => {
   return (
-    <div className={`divider-mega-menu bg-[#F4F5F0] lg:w-[40%] flex justify-start items-center flex-col lg:p-12 ${clases}`}>
+    <div className={`divider-mega-menu bg-[#F4F5F0] lg:w-[40%] flex justify-start items-center flex-col lg:p-6 ${clases}`}>
             <p
               className={`${ubuntu.className}  lg:text-[18px] text-[16px] font-semibold leading-[80px] text-left w-full px-6`}
             >
@@ -18,7 +18,7 @@ export const BannerMenu = ({clases}) => {
                 <div>
                   <div className="font-semibold items-center gap-2">
                     <div className="flex item-center">
-                      <p className="lg:text-[18px] text-[16px] font-bold text-[#111111] ">Financiamiento</p>
+                      <p className="lg:text-[16px] text-[14px] font-bold text-[#111111] ">Financiamiento</p>
                       <div>
                         <svg
                           className="stroke-2"
@@ -39,7 +39,7 @@ export const BannerMenu = ({clases}) => {
                         </svg>
                       </div>
                     </div>
-                  <p className="lg:text-[18px] text-[14px] font-medium text-[#6F6C90]">Addi, contacta a un asesor</p>
+                  <p className="lg:text-[16px] text-[14px] font-medium text-[#6F6C90]">Addi, contacta a un asesor</p>
                 </div>
                 </div>
               </div>
@@ -52,7 +52,7 @@ export const BannerMenu = ({clases}) => {
                 <div>
                   <div className="font-semibold flex items-center gap-2">
                   <div className="flex item-center">
-                      <p className="lg:text-[18px] text-[16px] font-bold text-[#111111]">Visita nuestras sedes</p>
+                      <p className="lg:text-[16px] text-[14px] font-bold text-[#111111]">Visita nuestras sedes</p>
                       <div>
                         <svg
                           className="stroke-2"
@@ -74,7 +74,7 @@ export const BannerMenu = ({clases}) => {
                       </div>
                     </div>
                   </div>
-                  <p className="lg:text-[18px] text-[14px] font-medium text-[#6F6C90]">Estamos listos para ayudarte</p>
+                  <p className="lg:text-[16px] text-[14px] font-medium text-[#6F6C90]">Estamos listos para ayudarte</p>
                 </div>
               </div>
             </div>

@@ -19,7 +19,7 @@ export const HeroImagen = async () => {
       <div className="overlay h-[400px] w-full bg-[#111]/50 absolute top-0 flex flex-col items-start justify-center p-4 lg:h-[663px] lg:px-[100px]">
         <div className="lg:flex lg:justify-between lg:w-full">
           <div
-            className={`${manrope.className}  text-[50px] text-white grid lg:text-[90px]`}
+            className={`${manrope.className}  text-[50px] text-white grid lg:text-[64px]`}
           >
             <div className="flex flex-col justify-center items-start">
               <span className="font-light">
@@ -34,7 +34,7 @@ export const HeroImagen = async () => {
             <Image
             placeholder = 'empty'
               alt="publicidad"
-              className="hidden lg:block"
+              className="hidden lg:block logo-minca-m shadow-none"
               src="/Logo líneas - Minca Electric.png"
               width={390}
               height={400}

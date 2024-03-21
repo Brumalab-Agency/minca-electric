@@ -25,7 +25,7 @@ console.log(partesNumero.join('.'));
 
 
   return (
-    <div className="EspecificacionesAccesorios">
+    <div className="EspecificacionesAccesorios mb-8">
       {items.map((item, index) => (
         <div className="items-center justify-between lg:flex lg:justify-center lg:px-[96px] lg:py-[70px]">
           {/* Accesorios */}
@@ -91,7 +91,7 @@ console.log(partesNumero.join('.'));
                   <AddToCart
                     key={productoEncontrado.databaseId}
                     producto={productoEncontrado}
-                    clases="lg:w-[80%]"
+                    clases="lg:w-[80%] w-full"
                   />
                 ) : (
                   <p>No se encontró el producto.</p>

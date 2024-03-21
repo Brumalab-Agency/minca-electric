@@ -1,4 +1,3 @@
-import { HeroContext } from "@/components/reusable/HeroContext"; 
 import { SingleProductComponent } from "@/components/sigle-product/SingleProductComponent";
 import { CarruselSingleProduct } from "@/components/reusable/CarruselSingleProduct";
 import { Section3 } from "@/components/sigle-product/Section3";
@@ -10,6 +9,7 @@ import { Footer } from "@/components/home/Footer";
 import { HeroVideoSingleProduct } from "@/components/reusable/HeroVideoSingleProduct";
 import { CarruselAccesorios } from "@/components/carruseles/accesorios/CarruselAccesorios";
 import { SingleProductos } from "@/lib/graphQLRequest";
+import { HeroContextBreadCrumb } from "@/components/reusable/HeroContextBreadCrumb";
 
 export const metadata = {
   title: "Productos",
@@ -26,7 +26,7 @@ const SingleProduct = async ({ params }) => {
   const scooters = await SingleProductos(decodeURIComponent(id));
   return (
     <>
-      <HeroContext titulo="MINCA" tituloNegrita="SCOOTERS" />
+      <HeroContextBreadCrumb titulo="MINCA" tituloNegrita="SCOOTERS" />
       <SingleProductComponent scooters={scooters} />
       <HeroVideoSingleProduct
         titulo="Last Mile"

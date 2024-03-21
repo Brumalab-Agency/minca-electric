@@ -40,7 +40,7 @@ export const HotSpot = (scooters) => {
     },
   };
   return (
-    <div className="carrusel relative grid h-[494px] grid-cols-12 grid-rows-12 bg-[#F4F5F0] px-4 lg:h-[663px] lg:grid-cols-12 lg:grid-rows-12 lg:px-[48px]">
+    <div className="carrusel relative grid h-[494px] grid-cols-12 grid-rows-12 bg-[#F4F5F0] px-4 lg:h-[663px] lg:grid-cols-12 lg:grid-rows-12 lg:px-[48px] overflow-hidden">
       <div className="pointer-events-none col-span-full row-span-full grid h-auto w-full place-items-center overflow-hidden">
         <Image
           className="scale-x-[-1] lg:w-[40%] 2xl:w-[30%]"

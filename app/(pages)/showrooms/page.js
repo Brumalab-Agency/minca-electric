@@ -1,74 +1,35 @@
-import { Header } from "@/components/home/Header";
+import { HeroContext } from "@/components/reusable/HeroContext";
+import { HeroVideoSingleProduct } from "@/components/reusable/HeroVideoSingleProduct";
+import { CarruselTaller } from "@/components/reusable/CarruselTaller";
+import { CarruselShowRoom } from "@/components/reusable/CarruselShowRoom";
+import { Testimonios } from "@/components/testimonio/Testimonios";
+import { Footer } from "@/components/home/Footer";
+import SpiningText from "@/components/home/SpiningText"
 
-import Image from "next/image";
-import Link from "next/link";
-import { ubuntu } from "@/ui/fonts";
 
-export const ShoowRooms = () => {
+
+const Sedes = () => {
   return (
-    <div className="px-4">
-      <Header />
-      <div className="text-center">
-        <h1 className="text-[62px] font-bold ">Selecciona un lugar</h1>
-        <p className="m-auto max-w-[600px]">
-          "Encuentra el Mantenimiento Perfecto para Tu Scooter y Garantiza su
-          Rendimiento. ¡Programa tu Mantenimiento Ahora!"
-        </p>
+    <>
+      <HeroContext titulo="SHOWROOMS" ocultar="hidden"/>
+      <HeroVideoSingleProduct
+        titulo="MINCA"
+        tituloSecundarioNegrita="Servicios."
+        clases="normal-case"
+        urlVideo="https://test.mincaelectric.com/wp-content/uploads/2024/03/sedes.mp4"
+      />
+      <CarruselTaller />
+      <CarruselShowRoom />
+      <div className="spin-text-sedes flex justify-between lg:px-[100px] lg:mb-[50px] mb-[20px] relative px-4">
+        <p className="lg:mt-[80px] mt-[50px]">No solo estamos cambiando el juego,<br></br> <b>¡estamos cambiando tu viaje!</b></p>
+        <SpiningText text=" • Agenda tu • test drive 1">
+            <img src="/imagotipo-negro.png" alt="logo tipo" />
+        </SpiningText>
       </div>
-      <div className="grid grid-cols-1 lg:grid-cols-3 mt-28">
-        <div className="flex flex-col justify-center items-center">
-          <h2 className="text-[28px] font-bold">Taller Chico</h2>
-          <Image
-            alt="scooter"
-            className=""
-            src="/sigleProduct/scooter-single-product3.png"
-            width={300}
-            height={300}
-          />
-          <Link
-            href="/showrooms/tallerChico"
-            className={`${ubuntu.className} my-3 h-[52px] w-full  rounded-[62px] bg-[#111] text-[16px] text-white  lg:w-[210px] grid place-items-center`}
-          >
-            Agendar
-          </Link>
-        </div>
-        {/* ** */}
-        <div className="flex flex-col justify-center items-center">
-        <h2 className="text-[28px] font-bold">Taller Cedritos</h2>
-          <Image
-            alt="scooter"
-            className=""
-            src="/sigleProduct/scooter-single-product3.png"
-            width={300}
-            height={300}
-          />
-          <Link
-            href="#"
-            className={`${ubuntu.className} my-3 h-[52px] w-full  rounded-[62px] bg-[#111] text-[16px] text-white  lg:w-[210px] block grid place-items-center`}
-          >
-            Próximamente!
-          </Link>
-        </div>
-        {/* *** */}
-        <div className="flex flex-col justify-center items-center">
-        <h2 className="text-[28px] font-bold">Taller Javeriana</h2>
-          <Image
-            alt="scooter"
-            className=""
-            src="/sigleProduct/scooter-single-product3.png"
-            width={300}
-            height={300}
-          />
-          <Link
-            href="/showrooms/tallerJaveriana"
-            className={`${ubuntu.className} my-3 h-[52px] w-full  rounded-[62px] bg-[#111] text-[16px] text-white  lg:w-[210px] block grid place-items-center`}
-          >
-            Agendar
-          </Link>
-        </div>
-      </div>
-    </div>
+      <Testimonios clases="mb-[70px]" clase2="mb-[81px]" />
+      <Footer />
+    </>
   );
 };
 
-export default ShoowRooms;
+export default Sedes;

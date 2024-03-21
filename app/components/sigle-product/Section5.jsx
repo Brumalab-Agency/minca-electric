@@ -2,7 +2,7 @@ import { manrope, ubuntu } from "../../ui/fonts";
 
 export const Section5 = () => {
   return (
-    <div className="carrusel w-auto h-auto lg:h-[618px] p-[54px] lg:px-[48px]">
+    <div className="carrusel w-auto h-auto lg:h-[618px] p-[54px] lg:px-[100px]">
         <section className="flex justify-around items-center flex-col lg:flex-row w-full h-full">
            <div className="text-center flex justify-center items-center flex-col">
             <img className="w-[137px] h-[137px]" src="/sigleProduct/estilo-de-vida-single-product.png" alt="icono estilo de vida"/>

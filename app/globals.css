@@ -52,7 +52,7 @@ nav.block.w-full.rounded-xl.shadow-md.backdrop-saturate-200.backdrop-blur-2xl.bg
 }
 
 div[role="menu"]{
-  left: 8% !important;
+  left: 15% !important;
 }
 
 .w-full.p-3.rounded-lg.text-start.leading-tight.transition-all.hover\:bg-blue-gray-50.hover\:bg-opacity-80.focus\:bg-blue-gray-50.focus\:bg-opacity-80.active\:bg-blue-gray-50.active\:bg-opacity-80.hover\:text-blue-gray-900.focus\:text-blue-gray-900.active\:text-blue-gray-900.outline-none.flex.items-center.gap-2.py-2.pr-4.font-medium.text-gray-900, a.block.antialiased.font-sans.text-sm.leading-normal.text-\[\#111\].font-medium {
@@ -125,7 +125,7 @@ input#UserEmail {
 /* Carrusel */
 
 .carrusel .absolute.bottom-4.left-2\/4.z-50.flex.-translate-x-2\/4.gap-2 {
-  left: 94%;
+  left: 91.5%;
   top: 7.4%;
 }
 
@@ -148,8 +148,9 @@ input#UserEmail {
 button.\!absolute.top-2\/4.left-4.-translate-y-2\/4.rounded-full.select-none.transition-all.disabled\:opacity-50.disabled\:shadow-none.disabled\:pointer-events-none.w-12.max-w-\[48px\].h-12.max-h-\[48px\].text-white.hover\:bg-white\/10.active\:bg-white\/30.grid.place-items-center {
   background: #f2f2f2;
   position: absolute;
-  top: 40.5%;
-  left: 35%;
+  /* top: 43%; */
+  top: 50%;
+  left: 40%;
   z-index: 9;
   width: 58px;
   height: 58px;
@@ -170,8 +171,9 @@ button.\!absolute.top-2\/4.left-4.-translate-y-2\/4.rounded-full.select-none.tra
 button.\!absolute.top-2\/4.right-4.-translate-y-2\/4.rounded-full.select-none.transition-all.disabled\:opacity-50.disabled\:shadow-none.disabled\:pointer-events-none.w-12.max-w-\[48px\].h-12.max-h-\[48px\].text-white.hover\:bg-white\/10.active\:bg-white\/30.grid.place-items-center {
   background: #f2f2f2;
   position: absolute;
-  top: 40.5%;
-  right: 3.5%;
+  /* top: 43%; */
+  top: 50%;
+  right: 106px;
   z-index: 9;
   width: 58px;
   height: 58px;
@@ -204,7 +206,7 @@ button.\!absolute.top-2\/4.right-4.-translate-y-2\/4.rounded-full.select-none.tr
 .carrusel-sigle-product button.\!absolute.top-2\/4.left-4.-translate-y-2\/4.rounded-full.select-none.transition-all.disabled\:opacity-50.disabled\:shadow-none.disabled\:pointer-events-none.w-12.max-w-\[48px\].h-12.max-h-\[48px\].text-white.hover\:bg-white\/10.active\:bg-white\/30.grid.place-items-center {
   background: #ffffff;
   position: absolute;
-  top: 40.5%;
+  top: 50;
   left: 0%;
   z-index: 999;
   width: 58px;
@@ -227,7 +229,7 @@ button.\!absolute.top-2\/4.right-4.-translate-y-2\/4.rounded-full.select-none.tr
 .carrusel-sigle-product button.\!absolute.top-2\/4.right-4.-translate-y-2\/4.rounded-full.select-none.transition-all.disabled\:opacity-50.disabled\:shadow-none.disabled\:pointer-events-none.w-12.max-w-\[48px\].h-12.max-h-\[48px\].text-white.hover\:bg-white\/10.active\:bg-white\/30.grid.place-items-center {
   background: #ffffff;
   position: absolute;
-  top: 40.5%;
+  top: 50%;
   right: 0%;
   z-index: 999;
   width: 58px;
@@ -248,16 +250,16 @@ button.\!absolute.top-2\/4.right-4.-translate-y-2\/4.rounded-full.select-none.tr
 
 /*  Carrusel ShowRoom Home */
 
-.carrusel-showRoom-home .ladoIzquierdo.grid.h-full.w-full.place-items-center{
+/* .carrusel-showRoom-home .ladoIzquierdo.grid.h-full.w-full.place-items-center{
   background-image: url(/ShowRoom-pc.jpg);
   background-position: right;
   background-size: cover;
-}
+} */
 
 .carrusel-showRoom-home button.\!absolute.top-2\/4.left-4.-translate-y-2\/4.rounded-full.select-none.transition-all.disabled\:opacity-50.disabled\:shadow-none.disabled\:pointer-events-none.w-12.max-w-\[48px\].h-12.max-h-\[48px\].text-white.hover\:bg-white\/10.active\:bg-white\/30.grid.place-items-center {
   background: #f2f2f2;
   position: absolute;
-  top: 40.5%;
+  top: 50%;
   left: 3.5%;
   z-index: 999;
   width: 58px;
@@ -267,13 +269,18 @@ button.\!absolute.top-2\/4.right-4.-translate-y-2\/4.rounded-full.select-none.tr
   place-items: center;
 }
 
+.carrusel-showRoom-home button.\!absolute.top-2\/4.right-4.-translate-y-2\/4.rounded-full.select-none.transition-all.disabled\:opacity-50.disabled\:shadow-none.disabled\:pointer-events-none.w-12.max-w-\[48px\].h-12.max-h-\[48px\].text-white.hover\:bg-white\/10.active\:bg-white\/30.grid.place-items-center{
+  top: 50%;
+ 
+}
+
 /* Carrusel Talleres */
 
 
 .carrusel-talleres button.\!absolute.top-2\/4.left-4.-translate-y-2\/4.rounded-full.select-none.transition-all.disabled\:opacity-50.disabled\:shadow-none.disabled\:pointer-events-none.w-12.max-w-\[48px\].h-12.max-h-\[48px\].text-white.hover\:bg-white\/10.active\:bg-white\/30.grid.place-items-center {
   background: #ffffff;
   position: absolute;
-  top: 40.5%;
+  top: 50%;
   left: 3.5%;
   z-index: 999;
   width: 58px;
@@ -286,7 +293,7 @@ button.\!absolute.top-2\/4.right-4.-translate-y-2\/4.rounded-full.select-none.tr
 .carrusel-talleres button.\!absolute.top-2\/4.right-4.-translate-y-2\/4.rounded-full.select-none.transition-all.disabled\:opacity-50.disabled\:shadow-none.disabled\:pointer-events-none.w-12.max-w-\[48px\].h-12.max-h-\[48px\].text-white.hover\:bg-white\/10.active\:bg-white\/30.grid.place-items-center {
   background: #ffffff;
   position: absolute;
-  top: 40.5%;
+  top: 50%;
   right: 3.5%;
   z-index: 999;
   width: 58px;
@@ -308,7 +315,7 @@ button.\!absolute.top-2\/4.right-4.-translate-y-2\/4.rounded-full.select-none.tr
 .carrusel-showRoom button.\!absolute.top-2\/4.left-4.-translate-y-2\/4.rounded-full.select-none.transition-all.disabled\:opacity-50.disabled\:shadow-none.disabled\:pointer-events-none.w-12.max-w-\[48px\].h-12.max-h-\[48px\].text-white.hover\:bg-white\/10.active\:bg-white\/30.grid.place-items-center {
   background: #ffffff;
   position: absolute;
-  top: 40.5%;
+  top: 50%;
   left: 3.5%;
   z-index: 999;
   width: 58px;
@@ -321,11 +328,11 @@ button.\!absolute.top-2\/4.right-4.-translate-y-2\/4.rounded-full.select-none.tr
 .carrusel-showRoom button.\!absolute.top-2\/4.right-4.-translate-y-2\/4.rounded-full.select-none.transition-all.disabled\:opacity-50.disabled\:shadow-none.disabled\:pointer-events-none.w-12.max-w-\[48px\].h-12.max-h-\[48px\].text-white.hover\:bg-white\/10.active\:bg-white\/30.grid.place-items-center {
   background: #ffffff;
   position: absolute;
-  top: 40.5%;
-  right: 3.5%;
+
   z-index: 999;
   width: 58px;
   height: 58px;
+  right: 48px;
   border-radius: 4px;
   display: grid;
   place-items: center;
@@ -337,6 +344,14 @@ button.\!absolute.top-2\/4.right-4.-translate-y-2\/4.rounded-full.select-none.tr
   background-size: cover;
 }
 
+.carrusel-showRoom-home button.\!absolute.top-2\/4.right-4.-translate-y-2\/4.rounded-full.select-none.transition-all.disabled\:opacity-50.disabled\:shadow-none.disabled\:pointer-events-none.w-12.max-w-\[48px\].h-12.max-h-\[48px\].text-white.hover\:bg-white\/10.active\:bg-white\/30.grid.place-items-center {
+  top: 50%;
+  right: 1%;
+}
+
+.carrusel-showRoom-home button.\!absolute.top-2\/4.left-4.-translate-y-2\/4.rounded-full.select-none.transition-all.disabled\:opacity-50.disabled\:shadow-none.disabled\:pointer-events-none.w-12.max-w-\[48px\].h-12.max-h-\[48px\].text-white.hover\:bg-white\/10.active\:bg-white\/30.grid.place-items-center{
+  left: 1%;
+}
 
 /* ************************************** */
 
@@ -425,15 +440,14 @@ nav.block.w-full.rounded-xl.shadow-md.backdrop-saturate-200.backdrop-blur-2xl.bg
 }
 
 /* modal */
-.overlay img {
+.overlay-modal img {
   display: block;
   max-width: 60%;
   max-height: 80%;
   margin: 60px auto;
-  box-shadow: 3px 5px 7px rgba(0, 0, 0, 0.5);
   border-radius: 12px;
 }
-.overlay > span {
+.overlay-modal > span {
   position: absolute;
   top: 20px;
   right: 20px;
@@ -442,7 +456,7 @@ nav.block.w-full.rounded-xl.shadow-md.backdrop-saturate-200.backdrop-blur-2xl.bg
   z-index: 999;
   cursor: pointer;
 }
-.overlay-arrows_left {
+.overlay-modal-arrows_left {
   display: flex;
   justify-content: space-between;
   position: absolute;
@@ -473,4 +487,17 @@ nav.block.w-full.rounded-xl.shadow-md.backdrop-saturate-200.backdrop-blur-2xl.bg
   height: 100px;
   top: 43%;
   z-index: 999;
+}
+
+/* Eliminando sombra del modal de accesorios para banner video */
+
+img.hidden.lg\:block.logo-minca-m.shadow-none {
+  box-shadow: none;
+}
+
+/* Modificación btn carrusel en SERVICIOS segundo carrusel de arriba a abajo */
+
+.carrusel-showRoom button.\!absolute.top-2\/4.right-4.-translate-y-2\/4.rounded-full.select-none.transition-all.disabled\:opacity-50.disabled\:shadow-none.disabled\:pointer-events-none.w-12.max-w-\[48px\].h-12.max-h-\[48px\].text-white.hover\:bg-white\/10.active\:bg-white\/30.grid.place-items-center {
+  right: 66px;
+
 }

@@ -3,8 +3,9 @@ import "@/globals.css";
 import "@/animation.css";
 import "@/mediaQueries.css";
 import { AppProvider } from "./components/context/Context";
-import { SpeedInsights } from "@vercel/speed-insights/next"
-import { Analytics } from "@vercel/analytics/react"
+import { SpeedInsights } from "@vercel/speed-insights/next";
+import { Analytics } from "@vercel/analytics/react";
+import SmoothScroll from "./components/smoothscrool/SmoothScroll";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -22,11 +23,10 @@ export default function RootLayout({ children }) {
     <AppProvider>
       <html lang="es">
         <body className={inter.className}>
-
-          {children}
-          <SpeedInsights/>
-          <Analytics/>
-          </body>
+          <SmoothScroll>{children}</SmoothScroll>
+          <SpeedInsights />
+          <Analytics />
+        </body>
       </html>
     </AppProvider>
   );

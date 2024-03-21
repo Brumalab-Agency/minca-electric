@@ -26,7 +26,7 @@ const Servicios = () => {
         <CarruselTaller/>
         <CarruselShowRoom/>
         <Section5/>
-        <Separador clases="lg:px-[48px] px-4" clase2="mt-[80px]"/>
+        <Separador clases="lg:px-[100px] px-4" clase2="mt-[80px]"/>
         <CambiaRuta/>
         <SolucionesComodidad/>
         <Footer/>

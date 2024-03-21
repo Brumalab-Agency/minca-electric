@@ -6,6 +6,7 @@ import Image from "next/image";
 
 const LightboxComponent = ({ item }) => {
   const items = item.galleryImages.nodes;
+  
 
   const [clickImage, setClickImage] = useState(null);
   const [currentIndex, setCurrentIndex] = useState(null);

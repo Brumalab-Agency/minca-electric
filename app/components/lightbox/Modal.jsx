@@ -13,11 +13,11 @@ export const Modal = ({
   };
   return (
     <div
-      className="overlay dismiss fixed left-0 right-0 top-0 flex h-full w-full items-center bg-black bg-opacity-50"
+      className="overlay-modal dismiss fixed left-0 right-0 top-0 flex h-full w-full items-center bg-black bg-opacity-50"
       onClick={handleClick}
     >
       <div
-        className="overlay dismiss fixed left-0 right-0 top-0 flex h-full w-full items-center bg-black bg-opacity-50"
+        className="overlay-modal dismiss fixed left-0 right-0 top-0 flex h-full w-full items-center bg-black bg-opacity-50"
         onClick={handleClick}
       >
         <img src={clickImage} alt="bigger pic" />

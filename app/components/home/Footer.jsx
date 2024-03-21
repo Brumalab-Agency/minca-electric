@@ -263,43 +263,18 @@ export const Footer = () => {
             <p className="font-normal text-[14px] text-[#FFF]">
               Suscríbete para conocer nuestras novedades y descuentos
             </p>
-            {/* <form action="https://script.google.com/macros/s/AKfycby5QcWMaCXzwJ47ghVkUmDh6kOIXEuNN1-aTUNCUyYaHTLgw_ONwI7AdALaNlpGVE0A/exec" method="POST" autocomplete="off">
-              <label
-                htmlFor="Email"
-                className="hidden lg:block overflow-hidden border border-white rounded-[12px] px-3 shadow-sm focus-within:border-white-600 focus-within:ring-1 focus-within:ring-white-600 h-[56px] mt-1 relative"
-              >
-                <span className="text-xs font-normal text-[#FFF] text-[10px] uppercase">
-                  {" "}
-                  Your email{" "}
-                </span>
-                <button type="submit">
-                  <img
-                    className="absolute right-4 top-6"
-                    style={{filter: 'invert(98%) sepia(2%) saturate(718%) hue-rotate(340deg) brightness(122%) contrast(100%)'}}
-                    src="/footer-pc/Vector.png"
-                    alt="arrow-right"
-                  />
-                </button>
-                <input
-                  type="email"
-                  id="Email"
-                  name="Email"
-                  placeholder="@"
-                  className="w-full border-none p-0 focus:border-transparent focus:outline-none focus:ring-0 sm:text-sm text-white bg-[#111]"
-                />
-              </label>
-            </form> */}
             <Newsletter/>
           </div>
         </div>
       </div>
-      <div className="bg-[#111] w-full h-[78px] flex flex-col justify-center lg:flex-row lg:items-center lg:justify-between lg:px-[100px] text-white">
+      <div className="bg-[#111] w-full h-[78px] flex flex-col justify-center items-center gap-2 lg:flex-row lg:items-center lg:justify-between lg:px-[40px] text-white">
         <p className="text-[12px] text-center">
           © 2024 Minca Electric | Todos los derechos reservados.{" "}
         </p>
-        <p className="text-[10px] text-center mt-1">
-          Diseño Web <b>Brumalab</b>
-        </p>
+        <div className="flex items-center gap-2">
+          <p className={`${ubuntu.className} text-[12px]`}>Diseño Web</p>
+          <img className="h-[10px] w-auto" src="/brumalabagency .svg" alt="logo tipo brumalab"/>
+        </div>
       </div>
     </>
   );

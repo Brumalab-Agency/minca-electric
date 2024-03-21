@@ -47,7 +47,7 @@ export const OtrosPost = () => {
 
 
   return (
-    <div className="otrosPosts grid grid-cols-2 px-2 lg:px-8 lg:grid-cols-1 lg:pt-[150px]">
+    <div className="otrosPosts grid grid-cols-2 pl-4 lg:pl-12 lg:grid-cols-1 lg:pt-[150px]">
       {/* <Search valor={search} change={handleSearch} /> */}
       <input
           value={search}

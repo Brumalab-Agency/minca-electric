@@ -18,8 +18,9 @@ export const CarruselAccesorios = async () => {
     <div className="MincaAccesorios over h-auto w-full overflow-x-hidden bg-white ">
       <div className="py-4  lg:h-[710px] lg:w-auto lg:border-b-2">
         <div className="h-auto w-full">
-          <div className="flex w-full items-center justify-between px-4 lg:px-[48px]">
+          <div className="flex w-full items-center justify-between px-4 lg:px-[100px] leading-[42px]">
             <TProductVariant
+
               titulo="Accesorios MINCA,"
               subtitulo="estilo y seguridad..."
               flexion="lg:flex"

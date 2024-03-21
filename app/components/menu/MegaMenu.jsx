@@ -69,9 +69,9 @@ function NavListMenu() {
               <Typography
                 key={index}
                 variant="paragraph"
-                className="text-left text-[16px] font-medium  leading-[40px] text-[#6F6C90] lg:text-base"
+                className="text-left text-[16px] font-medium  leading-[50px] text-[#6F6C90] lg:text-base mt-2"
               >
-                <Link href={`/productos/${description}`}>{description}</Link>
+                <Link className="leading-[40px]" href={`/productos/${description}`}>{description}</Link>
               </Typography>
             ))}
           </div>
@@ -95,9 +95,9 @@ function NavListMenu() {
               <Typography
                 key={index}
                 variant="paragraph"
-                className="text-left text-[16px] font-medium  leading-[40px] text-[#6F6C90] lg:text-base"
+                className="text-left text-[16px] font-medium  leading-[50px] text-[#6F6C90] lg:text-base mt-2"
               >
-                <Link href={`/accesorios/${description}`}>{description}</Link>
+                <Link className="leading-[40px]" href={`/accesorios/${description}`}>{description}</Link>
               </Typography>
             ))}
           </div>
@@ -113,13 +113,14 @@ function NavListMenu() {
         handler={setIsMenuOpen}
         offset={{ mainAxis: 20 }}
         placement="bottom"
+        allowHover = {true}
       >
-        <MenuHandler>
-          <Typography as="div" variant="small" className="font-medium">
+        <MenuHandler className="">
+          <Typography as="div" variant="small" className="font-medium flex ">
             <ListItem
-              className="flex items-center gap-2 py-2 pr-4 text-base font-medium text-[#111]"
-              selected={isMenuOpen || isMobileMenuOpen}
-              onClick={() => setIsMobileMenuOpen((cur) => !cur)}
+              className="flex items-center justify-center gap-2 py-2 text-base font-medium text-[#111] hover:bg-[#111] hover:text-white rounded-[62px] w-[130px]"
+             // selected={isMenuOpen || isMobileMenuOpen}
+              onMouseEnter={() => setIsMenuOpen(true)}
             >
               Productos
               <ChevronDownIcon
@@ -137,7 +138,7 @@ function NavListMenu() {
             </ListItem>
           </Typography>
         </MenuHandler>
-        <MenuList className="block h-[474px] max-w-[1366px] rounded-xl lg:flex lg:w-[85%]">
+        <MenuList className="block h-[474px] max-w-[1366px] rounded-xl lg:flex lg:w-[70%]">
           <ul className="grid w-[60%] grid-cols-3 gap-y-2 p-10 outline-none outline-0">
             {renderProductos}
             {renderAccesorios}
@@ -162,7 +163,7 @@ function NavList() {
       <NavListMenu />
       <Typography variant="small" color="[#111]" className="font-medium">
         <Link
-          className="flex items-center gap-2 py-2 pr-4 text-base text-[#111]"
+          className="flex items-center gap-2 py-2 text-base text-[#111] hover:bg-[#111] hover:text-white rounded-[62px] px-3"
           href="/servicios"
         >
           Servicio técnico
@@ -170,15 +171,15 @@ function NavList() {
       </Typography>
       <Typography variant="small" color="[#111]" className="font-medium">
         <Link
-          href="/sedes"
-          className="flex items-center gap-2 py-2 pr-4 text-base text-[#111]"
+          href="/showrooms"
+          className="flex items-center gap-2 py-2 text-base text-[#111] hover:bg-[#111] hover:text-white rounded-[62px] px-3"
         >
-          Sedes
+          Showrooms
         </Link>
       </Typography>
       <Typography variant="small" color="[#111]" className="font-medium">
         <Link
-          className="flex items-center gap-2 py-2 pr-4 text-base text-[#111]"
+          className="flex items-center gap-2 py-2 text-base text-[#111] hover:bg-[#111] hover:text-white rounded-[62px] px-3"
           href="/recursos"
         >
           Recursos
@@ -186,7 +187,7 @@ function NavList() {
       </Typography>
       <Typography variant="small" color="[#111]" className="font-medium">
         <Link
-          className="flex items-center gap-2 py-2 pr-4 text-base text-[#111]"
+          className="flex items-center gap-2 py-2 text-base text-[#111] hover:bg-[#111] hover:text-white rounded-[62px] px-4"
           href="/blog"
         >
           Blog

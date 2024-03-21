@@ -7,7 +7,7 @@ import { manrope, ubuntu } from "../../ui/fonts";
 
 export function CarruselSingleProduct() {
   return (
-    <div className="carrusel w-full h-[696px] lg:h-[618px] lg:px-[48px]">
+    <div className="carrusel w-full h-[696px] lg:h-[618px] lg:px-[100px]">
       <Suspense fallback={<SkeletonCarrusel />}>
         {/* PC */}
         <Carousel
@@ -20,7 +20,7 @@ export function CarruselSingleProduct() {
           <section className="flex w-full h-full">
               <div className="w-full h-full grid place-items-center">
                 <div className="">
-                    <h1 className={`${manrope.className} w-[330px] h-auto font-bold text-[42px] uppercase leading-[45px]`}>
+                    <h1 className={`${manrope.className} w-[330px] h-auto font-bold text-[42px] uppercase leading-[52px]`}>
                     Ergonomía y durabilidad
                     </h1>
                     <p className={`${ubuntu.classname} w-[445px] h-[140px] text-base leading-[25px] mt-4`}>

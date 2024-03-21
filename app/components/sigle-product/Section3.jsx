@@ -4,7 +4,7 @@ import { BotonRelativo } from "../botones/BotonRelativo";
 
 export const Section3 = () => {
   return (
-    <div className="carrusel flex items-center justify-center lg:h-[618px] h-[450px] px-[16px] lg:px-[48px]">
+    <div className="carrusel flex items-center justify-center lg:h-[618px] h-[450px] px-[16px] lg:px-[100px]">
       <div className="hidden lg:flex h-full w-full items-center justify-end">
         <Image
           placeholder="empty"
@@ -25,14 +25,14 @@ export const Section3 = () => {
         <div className="grid lg:h-full w-full place-items-center">
           <div className="w-full lg:max-w-[450px]">
             <h1
-              className={`${manrope.className} h-auto w-full lg:w-[448px] text-[40px] lg:text-[42px] font-bold uppercase lg:leading-[45px] leading-[50px]`}
-            >
+              className={`${manrope.className} h-auto w-full lg:w-[448px] text-[40px] leading-[50px] lg:text-[42px] font-bold uppercase lg:leading-[5px]`}
+            >2
               Rompe las cadenas del tráfico
             </h1>
             <p
-              className={`${manrope.classname} mt-4 h-auto w-full lg:w-[330px] text-[26px] leading-[35px] uppercase`}
+              className={`${manrope.classname} mt-4 h-auto w-full lg:w-[330px] text-[16px] leading-[25px] `}
             >
-              muévete con agilidad en una minca scooter
+              Muévete con agilidad en una minca scooter
             </p>
             <BotonRelativo
               param="Agendar test drive"

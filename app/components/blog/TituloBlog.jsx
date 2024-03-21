@@ -8,7 +8,7 @@ export const TituloBlog = async() => {
     const posts = entradas.posts.nodes;
 
   return (
-    <div className='TituloBlog mt-[220px] px-1 lg:px-[70px] lg:mt-[80px]'>
+    <div className='TituloBlog mt-[220px] px-4 lg:px-[100px] lg:mt-[80px]'>
         <h2 className={`${manrope.className} font-semibold text-[24px] text-[#111] mb-[57px] px-4 lg:mb-[32px]`}>Últimas publicaciones</h2>
         <div className="lg:grid grid-cols-3 gap-6">
             {

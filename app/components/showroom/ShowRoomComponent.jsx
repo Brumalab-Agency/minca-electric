@@ -20,18 +20,17 @@ export const ShowRoomComponent = () => {
           <section className="flex h-full w-full">
             <div className="ladoIzquierdo grid h-full w-full place-items-center">
               {/* La imagen es un backGround */}
+              <img
+                className="h-[665px] w-full object-cover object-top"
+                src="/modificaciones-showrooms/Showroom Chicó - Minca electric.jpg"
+                alt="icono de herramientas"
+              />
             </div>
             <div className="ladoDerecho hidden h-full w-full place-items-center bg-[#000000] text-white lg:grid ">
               <div className="">
                 <div className="flex gap-4 ">
                   <div className="columna-img mb-[25px] flex h-auto w-[60px] flex-col justify-end gap-6">
-                    {/* <div className="mb-[40px]">
-                      <img
-                        className="h-[50px] w-[50px]"
-                        src="/showroom_icon.png"
-                        alt="icono de herramientas"
-                      />
-                    </div> */}
+                    
                     <div className="">
                       <img
                         className="h-[50px] w-[50px]"
@@ -86,32 +85,33 @@ export const ShowRoomComponent = () => {
                     </div>
                   </div>
                 </div>
-                <div className="mx-auto ml-[60px] mt-6">
+                <div className="ml-[60px] mt-6 flex justify-center items-center flex-col">
                   <Link
-                    href="/showrooms"
-                    className={`${ubuntu.className} border border-1 border-white my-3 grid  h-[52px] w-full place-items-center rounded-[62px] bg-[#111] text-[16px] text-white  lg:w-[290px]`}
+                    href="/talleres"
+                    className={`${ubuntu.className} border-1 my-3 grid h-[52px] w-full  place-items-center rounded-[62px] border border-white bg-[#111] text-[16px] text-white  lg:w-[290px]`}
                   >
                     Agendar Mantenimiento
                   </Link>
+                  <div className="w-full text-center text-[14px] flex justify-center item underline">
+                    <Link href="#">Ver ubicación en Google Maps</Link>
+                  </div>
                 </div>
               </div>
             </div>
           </section>
           <section className="flex h-full w-full">
             <div className="ladoIzquierdo grid h-full w-full place-items-center">
-              {/* La imagen es un backGround */}
+{/* La imagen es un backGround */}
+              <img
+                className="h-[665px] w-full object-cover object-top"
+                src="/modificaciones-showrooms/Showroom Javeriana - Minca electric.jpg"
+                alt="icono de herramientas"
+              />
             </div>
             <div className="ladoDerecho hidden h-full w-full place-items-center bg-[#000000] text-white lg:grid ">
               <div className="">
                 <div className="flex gap-4 ">
                   <div className="columna-img mb-[25px] flex h-auto w-[60px] flex-col justify-end gap-6">
-                    {/* <div className="mb-[40px]">
-                      <img
-                        className="h-[50px] w-[50px]"
-                        src="/showroom_icon.png"
-                        alt="icono de herramientas"
-                      />
-                    </div> */}
                     <div className="">
                       <img
                         className="h-[50px] w-[50px]"
@@ -166,13 +166,16 @@ export const ShowRoomComponent = () => {
                     </div>
                   </div>
                 </div>
-                <div className="mx-auto ml-[60px] mt-6">
+                <div className="ml-[60px] mt-6 flex justify-center items-center flex-col">
                   <Link
-                    href="/showrooms"
-                    className={`${ubuntu.className} border border-1 border-white my-3 grid  h-[52px] w-full place-items-center rounded-[62px] bg-[#111] text-[16px] text-white  lg:w-[290px]`}
+                    href="/talleres"
+                    className={`${ubuntu.className} border-1 my-3 grid h-[52px] w-full  place-items-center rounded-[62px] border border-white bg-[#111] text-[16px] text-white  lg:w-[290px]`}
                   >
                     Agendar Mantenimiento
                   </Link>
+                  <div className="w-full text-center text-[14px] flex justify-center item underline">
+                    <Link href="#">Ver ubicación en Google Maps</Link>
+                  </div>
                 </div>
               </div>
             </div>

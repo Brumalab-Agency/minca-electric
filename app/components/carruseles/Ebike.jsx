@@ -126,7 +126,7 @@ const Ebike = ({ scooter, url_3d }) => {
         </div>
         {/* ********** */}
         <div className="contenedor-cards-arrows relative">
-          <div className="atributos-productos scroll-none relative z-10 mt-4 hidden h-[75px] items-center justify-center gap-2 overflow-y-hidden overflow-x-scroll px-4 lg:flex lg:h-[150px] lg:justify-between lg:gap-4 lg:overflow-x-hidden">
+          <div className="atributos-productos scroll-none relative z-10 mt-4 hidden h-[75px] items-center justify-center gap-2 overflow-y-hidden overflow-x-scroll  lg:flex lg:h-[150px] lg:justify-between lg:gap-4 lg:overflow-x-hidden">
             <CardEspecifications
               titulo={item.motor}
               subtitulo={item.vatios}

@@ -30,7 +30,7 @@ const devoluciones =
 
 
   return (
-    <div className="DescargaManual px-base mx-[16px] mb-[70px] mt-[50px] lg:px-[80px]">
+    <div className="DescargaManual  mx-[16px] mb-[70px] mt-[50px] lg:px-[100px]">
       <div
         className={`${manrope.className} h-auto w-full rounded-[20px] bg-[#F0F0F0] px-[24px] py-[10px] lg:px-[64px]`}
       >

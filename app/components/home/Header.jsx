@@ -27,13 +27,14 @@ export const Header = () => {
       </div>
       <div className="header-right flex items-center justify-between gap-4">
         <Link
-          href="/testdrive"
+          href="/contacto"
           className="hidden text-base font-semibold lg:flex"
         >
-          Prueba una MINCA
+          Contacto
+          
         </Link>
         <button className="mr-4 hidden h-[52px] w-[135px] rounded-[62px] bg-[#111] text-base text-white lg:block">
-          <Link href="/contacto">Contacto</Link>
+          <Link href="/testdrive">Test Drive</Link>
         </button>
         {/* Carrito de compras */}
 

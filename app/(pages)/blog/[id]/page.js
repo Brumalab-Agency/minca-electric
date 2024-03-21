@@ -26,7 +26,7 @@ const SIngleBlog = async ({ params }) => {
     <>
       <HeroContext titulo="Blog" />
       {posts.map((post) => (
-        <div className="HeroBlog mt-[45px] grid-cols-3 lg:ml-[48px] lg:grid lg:min-h-[710px]">
+        <div className="HeroBlog mt-[45px] grid-cols-3 lg:grid lg:w-full lg:px-[100px]">
           <div className="col-span-2">
             {/* PC */}
             <div className="card-blog hidden h-[273px] w-full rounded-[12px] bg-white lg:block  lg:h-[220px] lg:w-[598px]">

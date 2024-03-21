@@ -22,7 +22,7 @@ export const Acordion = () => {
   };
 
   return (
-    <div className={`Acordion bg-[#F0F1EB] px-4 py-8 mx-4 mb-10 lg:mx-[0px] lg:px-[130px] lg:mb-0 lg:pb-22`}>
+    <div className={`Acordion bg-[#F0F1EB] px-4 py-8 mx-4 mb-10 lg:mx-[0px] lg:px-[100px] lg:mb-0 lg:pb-22`}>
       <div className="space-y-1 lg:space-y-0">
         {/* Sección 1 */}
         <details
