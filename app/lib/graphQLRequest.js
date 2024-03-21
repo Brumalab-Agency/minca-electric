@@ -10,7 +10,7 @@ export const fetchGraphQL = async (query) => {
       },
       /* cache: "no-store", */
     },
-    { next: { revalidate: 300 } }
+    { next: { revalidate: 60 } }
   );
 
   const { data } = await res.json();
@@ -31,7 +31,7 @@ const fetchScooters = async (query) => {
       },
 /*       cache: "no-store", */
     },
-    { next: { revalidate: 300 } }
+    { next: { revalidate: 60 } }
   );
 
   const { data } = await res.json();
@@ -50,7 +50,7 @@ const fetchScootersSec = async (query) => {
       },
       /* cache: "no-store", */
     },
-    { next: { revalidate: 300 } }
+    { next: { revalidate: 60 } }
   );
 
   const { data } = await res.json();

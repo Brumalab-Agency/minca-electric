@@ -42,10 +42,10 @@ function NavListMenu() {
     {
       title: "Accesorios",
       description1: "Casco Minca",
-      description2: "Gafas Minca",
-      description3: "On Guard U-look",
-      description4: "Rompevientos Minca",
-      description5: "Poncho Minca",
+      description2: "Poncho Minca",
+      description3: "Lentes Minca",
+      description4: "On Guard U-look",
+      description5: "Rompevientos Minca",
       description6: "On Guard Guaya",
     },
   ];

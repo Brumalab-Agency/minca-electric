@@ -1,16 +1,10 @@
-"use client";
+"use client"
 import { useState } from "react";
 import Modal from "./Modal";
 import Image from "next/image";
 
 const LightboxComponent = ({ item }) => {
-
- 
   const items = item.galleryImages.nodes;
-
-
-  
-
   const [clickImage, setClickImage] = useState(null);
   const [currentIndex, setCurrentIndex] = useState(null);
 
@@ -19,34 +13,29 @@ const LightboxComponent = ({ item }) => {
     setClickImage(item.mediaItemUrl);
   };
 
-  const handleROtationRight = () => {
+  const handleRotationRight = () => {
     const totalLength = items.length;
     let newIndex = currentIndex + 1;
-    
+
     if (newIndex >= totalLength) {
       newIndex = 0;
     }
-  
+
     const newUrl = items[newIndex].mediaItemUrl;
     setClickImage(newUrl);
     setCurrentIndex(newIndex);
   };
-  
 
-  const handelRotationLeft = () => {
+  const handleRotationLeft = () => {
     const totalLength = items.length;
-    if (currentIndex === 0) {
-      setCurrentIndex(totalLength - 1);
-      const newUrl = items[totalLength - 1].mediaItemUrl;
-      setClickImage(newUrl);
-      return;
+    let newIndex = currentIndex - 1;
+
+    if (newIndex < 0) {
+      newIndex = totalLength - 1;
     }
-    const newIndex = currentIndex - 1;
-    const newUrl = items.filter((item) => {
-      return items.indexOf(item) === newIndex;
-    });
-    const newItem = newUrl[0].mediaItemUrl;
-    setClickImage(newItem);
+
+    const newUrl = items[newIndex].mediaItemUrl;
+    setClickImage(newUrl);
     setCurrentIndex(newIndex);
   };
 
@@ -66,15 +55,15 @@ const LightboxComponent = ({ item }) => {
         />
       </div>
       <div className="contenedorFlex flex justify-center gap-4 lg:gap-2 lg:flex-col">
-        {items.map((item, index) => (
-          <div className="mt-[13px] flex items-center justify-evenly lg:mt-0  lg:justify-between">
+        {items.map((image, index) => (
+          <div key={index} className="mt-[13px] flex items-center justify-evenly lg:mt-0  lg:justify-between">
             <div>
               <Image
-                onClick={() => handleClick(item, index)}
+                onClick={() => handleClick(image, index)}
                 placeholder="empty"
                 alt={item.nombreProducto}
                 className="rounded-[20px] border-2 lg:h-[145px] 2xl:h-[211px] w-auto"
-                src={item?.mediaItemUrl}
+                src={image.mediaItemUrl}
                 priority={true}
                 width={111}
                 height={106}
@@ -87,8 +76,8 @@ const LightboxComponent = ({ item }) => {
       {clickImage && (
         <Modal
           clickImage={clickImage}
-          handleROtationRight={handleROtationRight}
-          handelRotationLeft={handelRotationLeft}
+          handleRotationRight={handleRotationRight}
+          handleRotationLeft={handleRotationLeft}
           setClickImage={setClickImage}
         />
       )}
