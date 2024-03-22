@@ -47,33 +47,35 @@ export const OtrosPost = () => {
 
 
   return (
-    <div className="otrosPosts grid grid-cols-2 pl-4 lg:pl-12 lg:grid-cols-1 lg:pt-[150px]">
-      {/* <Search valor={search} change={handleSearch} /> */}
-      <input
-          value={search}
-          onChange={handleSearch}
-          type="text"
-          id="Search"
-          placeholder="Buscar"
-          className="w-full rounded-md border border-gray-200 p-2.5 pe-10 shadow-sm sm:text-sm  "
-        />
-      <div className="my-4"></div>
-      {filterData.map((post, index) => (
-        <Link href={`/blog/${post.postId}`} key={index}>
-          <CardBlog
-            data={post}
-            clasesContenedor={`h-auto mx-1 ${
-              index >= 2 ? "hidden" : ""
-            }`}
-            clasesImg="w-full h-[150px] lg:w-[250px] lg:h-auto"
-            clasesIcon="hidden lg:block"
-            clasesContenedorFlex={`flex-col gap-0 text-left my-0 mt-2 lg:flex-row lg:gap-3`}
-            title="text-lef w-full font-bold lg:w-auto"
-            date="text-[14px] font-bold"
-            imgCenter="grid place-items-center"
+    <div className="relative">
+      <div className="otrosPosts grid grid-cols-2 pl-4 lg:pl-12 lg:grid-cols-1 lg:pt-[150px] absolute right-0 top-0">
+        {/* <Search valor={search} change={handleSearch} /> */}
+        <input
+            value={search}
+            onChange={handleSearch}
+            type="text"
+            id="Search"
+            placeholder="Buscar"
+            className="w-full rounded-md border border-gray-200 p-2.5 pe-10 shadow-sm sm:text-sm  "
           />
-        </Link>
-      ))}
+        <div className="my-4"></div>
+        {filterData.map((post, index) => (
+          <Link href={`/blog/${post.postId}`} key={index}>
+            <CardBlog
+              data={post}
+              clasesContenedor={`h-auto mx-1 ${
+                index >= 2 ? "hidden" : ""
+              }`}
+              clasesImg="w-full h-[150px] lg:w-[250px] lg:h-auto"
+              clasesIcon="hidden lg:block"
+              clasesContenedorFlex={`flex-col gap-0 text-left my-0 mt-2 lg:flex-row lg:gap-3`}
+              title="text-lef w-full font-bold lg:w-auto"
+              date="text-[14px] font-bold"
+              imgCenter="grid place-items-center"
+            />
+          </Link>
+        ))}
+      </div>
     </div>
   );
 };

@@ -23,6 +23,7 @@ export default function RootLayout({ children }) {
     <AppProvider>
       <html lang="es">
         <body className={inter.className}>
+          <div id="scrollbar"></div>
           <SmoothScroll>{children}</SmoothScroll>
           <SpeedInsights />
           <Analytics />

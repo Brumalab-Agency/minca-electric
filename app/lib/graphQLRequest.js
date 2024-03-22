@@ -671,7 +671,6 @@ export const AccesoriosPage = async () => {
 
   try {
     const accesorios = await fetchGraphQL(query);
-    console.log(accesorios);
     return accesorios;
   } catch (error) {
     console.error("Error fetching accesorios:", error);

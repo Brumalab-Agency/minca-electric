@@ -50,7 +50,7 @@ export const Mercadopago = () => {
   return (
     <div className="m-auto h-auto w-[300px]">
      
-      {/* <button
+      <button
         onClick={handleBuy}
         class="inline-block rounded border border-indigo-600 bg-indigo-600 px-[100px] py-3 text-sm font-medium text-white hover:bg-transparent hover:text-indigo-600 focus:outline-none focus:ring active:text-indigo-500"
         href="#"
@@ -62,9 +62,8 @@ export const Mercadopago = () => {
       )}
 
       <h2>Checkout Briks</h2>
-      <PaymentBrick/> */}
-      <h2>Modal 3D</h2>
-      <Modal3d/>
+      <PaymentBrick/>
+
     </div>
   );
 };

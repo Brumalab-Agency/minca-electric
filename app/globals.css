@@ -15,6 +15,48 @@ body {
   scrollbar-color: black;
 }
 
+#scrollbar{
+  position: fixed;
+  top: 0;
+  width: 0%;
+  height: 3px;
+  animation: progress-bar auto linear;
+  animation-timeline: scroll(root block);
+  z-index: 999;
+}
+
+#scrollbar::after {
+  content: "";
+  display: block;
+  background: linear-gradient(to right, #333, #333 40%, #0aff01 100%, #eee 100%, #333 61%);
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  position: absolute;
+  transform: translateX(0%);
+  animation: line-scroll 5s;
+  animation-iteration-count: 1;
+  border-radius: 5px;
+}
+
+@keyframes line-scroll {
+  0% {
+    transform: translateX(-100%);
+  }
+  20% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(0%);
+  }
+}
+
+@keyframes progress-bar {
+  0% {width: 0%}
+  100% {width: 100%}
+}
+
 /* Pausar animacion del Marquee*/
 
 .pause-animations-on-children-on-hover:hover * {
