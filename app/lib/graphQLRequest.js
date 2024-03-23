@@ -8,9 +8,9 @@ export const fetchGraphQL = async (query) => {
       headers: {
         "Content-Type": "application/json",
       },
-      /* cache: "no-store", */
+      cache: "no-store",
     },
-    { next: { revalidate: 60 } }
+    /* { next: { revalidate: 60 } } */
   );
 
   const { data } = await res.json();
@@ -29,9 +29,9 @@ const fetchScooters = async (query) => {
       headers: {
         "Content-Type": "application/json",
       },
-/*       cache: "no-store", */
+      cache: "no-store",
     },
-    { next: { revalidate: 60 } }
+    /* { next: { revalidate: 60 } } */
   );
 
   const { data } = await res.json();
@@ -48,9 +48,9 @@ const fetchScootersSec = async (query) => {
       headers: {
         "Content-Type": "application/json",
       },
-      /* cache: "no-store", */
+      cache: "no-store",
     },
-    { next: { revalidate: 60 } }
+    /* { next: { revalidate: 60 } } */
   );
 
   const { data } = await res.json();
@@ -491,7 +491,7 @@ export const TestimoniosQuery = async () => {
 };
 
 
-/* Consulta de prueba de productos */
+/* Consulta de prueba de productos SIMPLE */
 
 export const ProductosWoocommerce = async () => {
   const query = `
@@ -517,6 +517,55 @@ export const ProductosWoocommerce = async () => {
   } catch (error) {
     console.error("Error fetching productosPrueba:", error);
     throw new Error("Error fetching productosPrueba");
+  }
+};
+
+/* Consulta de prueba de productos VARIABLES*/
+
+export const ProductosWoocommerceVariable = async () => {
+  const query = `
+        query ProductosVariables {
+          products {
+            nodes {
+              name
+              databaseId
+              image {
+                mediaItemUrl
+                altText
+              }
+              ... on VariableProduct {
+                id
+                type
+                name
+                price(format: RAW)
+                regularPrice(format: RAW)
+                variations {
+                  nodes {
+                    price(format: RAW)
+                    salePrice
+                    regularPrice
+                    name
+                    databaseId
+                    description
+                    image {
+                      mediaItemUrl
+                      altText
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+    `;
+
+  try {
+    const productosVariables = await fetchGraphQL(query);
+    console.log(productosVariables);
+    return productosVariables
+  } catch (error) {
+    console.error("Error fetching productosVariables:", error);
+    throw new Error("Error fetching productosVariables");
   }
 };
 

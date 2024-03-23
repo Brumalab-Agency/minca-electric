@@ -12,20 +12,21 @@ import { Rate } from "antd";
 
 export const CarruselTestimonio = ({ clases, nombre, comentario, rate }) => {
   return (
-    <div className="MincaAccesorios over h-auto w-full overflow-x-hidden bg-white">
+    <div className="MincaTestimonios h-auto w-full overflow-x-hidden bg-white">
       <div className="py-4  lg:h-auto lg:w-auto ">
         <div className="h-auto w-full">
           <Carousel
             opts={{
               align: "start",
             }}
-            className="marcador w-full "
+            className="marcadorTestimonios w-full "
           >
             <div className="flex items-end lg:mb-[74px]">
-              <div className="w-full lg:mt-[74px] marcador">
+              <div className="marcador w-full lg:mt-[74px]">
                 <div className={`${manrope.className} `}>
                   <p className="text-[32px] leading-[42px] lg:text-[48px] lg:capitalize 2xl:text-[64px]">
-                    lo que dicen <br className="lg:hidden"></br> nuestros <b>clientes</b>
+                    lo que dicen <br className="lg:hidden"></br> nuestros{" "}
+                    <b>clientes</b>
                   </p>
                 </div>
                 <div>
@@ -39,17 +40,20 @@ export const CarruselTestimonio = ({ clases, nombre, comentario, rate }) => {
                 </div>
               </div>
             </div>
-            <CarouselNext className="lg:right-[50.2%] 2xl:right-[32.8%] lg:top-[18%] derecha block top-[18%] -right-[4%]"/>
-            <CarouselPrevious className="lg:left-[45.5%] 2xl:left-[60%] lg:top-[18%] izquierda block top-[18%] right-[5%]"/>
-            <CarouselContent className="marcador2" customClass="overflow-visible">
+            <CarouselNext className="derecha -right-[4%] top-[18%] block lg:right-[50.2%] lg:top-[18%] 2xl:right-[25.8%]" />
+            <CarouselPrevious className="izquierda right-[5%] top-[18%] block lg:left-[45.5%] lg:top-[18%] 2xl:left-[66%]" />
+            <CarouselContent
+              className="marcador2"
+              customClass="overflow-visible"
+            >
               {Array.from({ length: 9 }).map((_, index) => (
                 <CarouselItem
                   key={index}
-                  className="md:basis-1/2 lg:basis-1/6 2xl:mx-1 2xl:basis-1/6 lg:w-[280px]"
+                  className="md:basis-1/2 lg:w-[280px] lg:basis-1/6 2xl:mx-1 2xl:basis-1/6"
                 >
                   <div className="p-0">
                     <Card
-                      className={`${manrope.className}  mt-[24px] rounded-[20px] border-2 border-[#111]/10 lg:p-6 p-6 ${clases}`}
+                      className={`${manrope.className}  mt-[24px] rounded-[20px] border-2 border-[#111]/10 p-6 lg:p-6 ${clases}`}
                     >
                       <CardContent className="p-0">
                         <div className="marcadorMovil">
@@ -83,8 +87,6 @@ export const CarruselTestimonio = ({ clases, nombre, comentario, rate }) => {
                 </CarouselItem>
               ))}
             </CarouselContent>
-            {/* <CarouselPrevious  izquierda="lg:top-[18%] 2xl:left-[56.5%] 2xl:top-[45%]"/>
-            <CarouselNext derecha="lg:top-[18%] 2xl:right-[35.5%] 2xl:top-[45%]"/> */}
           </Carousel>
         </div>
       </div>

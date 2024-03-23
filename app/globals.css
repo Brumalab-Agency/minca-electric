@@ -446,25 +446,26 @@ nav.block.w-full.rounded-xl.shadow-md.backdrop-saturate-200.backdrop-blur-2xl.bg
   box-shadow: none;
 }
 
-  /* Testimonios */
 
-  .testimonioCard.lg\:my-\[74px\].flex.justify-between.items-center.gap-4.overflow-x-scroll {
-    scrollbar-width: none;
+ /* Testimonios */
+
+/*  .testimonioCard.lg\:my-\[74px\].flex.justify-between.items-center.gap-4.overflow-x-scroll {
+  scrollbar-width: none;
 }
 
 .overflow-hidden.overflow-visible::after {
-  background: linear-gradient(to left, #fff 0%, transparent 100%);
-  color: transparent;
-  content: "00000";
-  position: absolute;
-  right: 46%;
-  height: 40%;
-  width: 4%;
-  bottom: 0;
-  -webkit-backdrop-filter: blur(10px);
-  backdrop-filter: blur(3px);
-}
-
+background: linear-gradient(to left, #fff 0%, transparent 100%);
+color: transparent;
+content: "00000";
+position: absolute;
+height: 43%;
+right: 28%;
+right: 45%;
+width: 4%;
+bottom: 0;
+-webkit-backdrop-filter: blur(10px);
+backdrop-filter: blur(3px);
+} */
 
 /*  LIgthBox Carrusel Productos y Accesorios */
 

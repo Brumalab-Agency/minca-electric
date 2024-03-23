@@ -3,8 +3,8 @@ import React from "react";
 export const Modal = ({
   clickImage,
   setClickImage,
-  handleROtationRight,
-  handelRotationLeft,
+  handleRotationRight,
+  handleRotationLeft,
 }) => {
   const handleClick = (e) => {
     if (e.target.classList.contains("dismiss")) {
@@ -13,15 +13,15 @@ export const Modal = ({
   };
   return (
     <div
-      className="overlay-modal dismiss fixed left-0 right-0 top-0 flex h-full w-full items-center bg-black bg-opacity-50"
+      className="overlay-modal dismiss fixed left-0 right-0 top-0 flex h-full w-full items-center bg-black bg-opacity-50 cursor-pointer"
       onClick={handleClick}
     >
       <div
-        className="overlay-modal dismiss fixed left-0 right-0 top-0 flex h-full w-full items-center bg-black bg-opacity-50"
+        className="overlay-modal dismiss fixed left-0 right-0 top-0 flex h-full w-full items-center bg-black bg-opacity-50 cursor-pointer"
         onClick={handleClick}
       >
         <img src={clickImage} alt="bigger pic" />
-        <div onClick={handelRotationLeft} className="overlay-arrows_left">
+        <div onClick={handleRotationLeft} className="overlay-arrows_left">
           <div>
             <img
               src="/Scooter/btn-slider-left-pc.png"
@@ -29,7 +29,7 @@ export const Modal = ({
             />
           </div>
         </div>
-        <div onClick={handleROtationRight} className="overlay-arrows_right">
+        <div onClick={handleRotationRight} className="overlay-arrows_right">
           <div>
             <img
               src="/Scooter/btn-slider-left-pc.png"
