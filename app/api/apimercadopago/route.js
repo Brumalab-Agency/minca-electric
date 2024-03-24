@@ -27,6 +27,10 @@ export async function POST(request) {
         pending: 'https://jx4r7v2l-3000.use2.devtunnels.ms ',
       },
       auto_return: 'approved',
+      notification_url: 'https://headless-woocommerce-nu.vercel.app/api/webhooks',
+      metadata: {
+        idComplete: body.idComplete
+      }
     };
 
     const preference = new Preference(client);
