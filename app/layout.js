@@ -22,7 +22,7 @@ export default function RootLayout({ children }) {
   return (
     <AppProvider>
       <html lang="es">
-        <body className={inter.className}>
+        <body className={`${inter.className} max-w-[2560px] m-auto`}>
           <div id="scrollbar"></div>
           <SmoothScroll>{children}</SmoothScroll>
           <SpeedInsights />

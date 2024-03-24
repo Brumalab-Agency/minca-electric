@@ -7,18 +7,10 @@ import AddToCart from "../cart/AddToCart";
 import { BtnQty } from "./BtnQty";
 import LightboxComponentScooters from "../lightbox/LightboxComponentScooters";
 
-
 export const EspecificacionesMinca = async (scooters) => {
-
   const datosWoocommerce = await ProductosWoocommerce();
-  const dataWoocommercer = datosWoocommerce.products.nodes;
-  const item = scooters.scooters.productTypes.nodes[0].products.nodes[0];
-
-  const productoEncontrado = datosWoocommerce.products.nodes.find(
-    (producto) => producto.databaseId === item.productId,
-    );
-
-
+  const items = scooters.scooters.productTypes.nodes[0].products.nodes[0];
+  const item = items;
 
   return (
     <>
@@ -31,7 +23,7 @@ export const EspecificacionesMinca = async (scooters) => {
               <Image
                 placeholder="empty"
                 alt={item.sliderProductos.nombreProducto}
-                className="rounded-[20px] bg-[#F0EEED] lg:h-[450px] 2xl:h-[650px] w-auto"
+                className="w-auto rounded-[20px] bg-[#F0EEED] lg:h-[450px] 2xl:h-[650px]"
                 src={item.sliderProductos.imagen.mediaItemUrl}
                 priority={true}
                 width={358}
@@ -44,7 +36,7 @@ export const EspecificacionesMinca = async (scooters) => {
                 <Image
                   placeholder="empty"
                   alt={item.sliderProductos.nombreProducto}
-                  className="rounded-[20px] border-2 lg:h-[145px] 2xl:h-[211px] w-auto"
+                  className="w-auto rounded-[20px] border-2 lg:h-[145px] 2xl:h-[211px]"
                   src={item.sliderProductos.foto1.mediaItemUrl}
                   priority={true}
                   width={111}
@@ -56,7 +48,7 @@ export const EspecificacionesMinca = async (scooters) => {
                 <Image
                   placeholder="empty"
                   alt={item.sliderProductos.nombreProducto}
-                  className="rounded-[20px] border-2 lg:h-[145px] 2xl:h-[211px] w-auto"
+                  className="w-auto rounded-[20px] border-2 lg:h-[145px] 2xl:h-[211px]"
                   src={item.sliderProductos.foto2.mediaItemUrl}
                   priority={true}
                   width={111}
@@ -68,7 +60,7 @@ export const EspecificacionesMinca = async (scooters) => {
                 <Image
                   placeholder="empty"
                   alt={item.sliderProductos.nombreProducto}
-                  className="rounded-[20px] border-2 lg:h-[145px] 2xl:h-[211px] w-auto"
+                  className="w-auto rounded-[20px] border-2 lg:h-[145px] 2xl:h-[211px]"
                   src={item.sliderProductos.foto3.mediaItemUrl}
                   priority={true}
                   width={111}
@@ -122,36 +114,8 @@ export const EspecificacionesMinca = async (scooters) => {
               {/* /Scooter/btn-slider-left-pc.png */}
             </div>
             {/* Btn y contador */}
-            <div className="contador-btnAddCart flex w-full items-center gap-4 px-4 lg:w-[85%] 2xl:w-[60%] mt-2">
-              {/* <div>
-                <label for="Quantity" className="sr-only">
-                  {" "}
-                  Quantity{" "}
-                </label>
-              
-                <div className="btn-aumentarDisminuir flex h-[44px] w-[100px] items-center gap-1 rounded-[62px] bg-[#F0F0F0]">
-                  <button
-                    type="button"
-                    className="size-10 text-[25px] leading-10 text-gray-600 transition"
-                  >
-                    -
-                  </button>
-                  <input
-                    type="number"
-                    id="Quantity"
-                    value="1"
-                    className="h-10 w-2 bg-[#F0F0F0] text-center [-moz-appearance:_textfield] sm:text-sm [&::-webkit-inner-spin-button]:m-0 [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:m-0 [&::-webkit-outer-spin-button]:appearance-none"
-                  />
-                  <button
-                    type="button"
-                    className="size-10 text-[25px] leading-10 text-gray-600 transition"
-                  >
-                    +
-                  </button>
-                </div>
-                
-              </div> */}
-              <BtnQty/>
+            <div className="contador-btnAddCart mt-2 flex w-full items-center gap-4 px-4 lg:w-[85%] 2xl:w-[60%]">
+              <BtnQty />
               <div className="w-full flex-col justify-center lg:flex">
                 {/*   <BotonRelativo
                 param="Agregar producto"
@@ -161,15 +125,22 @@ export const EspecificacionesMinca = async (scooters) => {
 
                 {/* Mostrar solo un botón de "Agregar al carrito" para el primer producto */}
 
-                {productoEncontrado ? (
+                {/*  {productoEncontrado ? (
                   <AddToCart
                     key={productoEncontrado.databaseId}
                     producto={productoEncontrado}
                   />
                 ) : (
                   <p>No se encontró el producto.</p>
-                )}
-                {/* <AddToCart producto={dataWoocommercer}/> */}
+                )} */}
+
+                <div className="w-full flex-col justify-center lg:flex">
+                  <AddToCart
+                    key={item.databaseId}
+                    producto={item}
+                    clases="lg:w-[80%] w-full"
+                  />
+                </div>
               </div>
             </div>
           </div>

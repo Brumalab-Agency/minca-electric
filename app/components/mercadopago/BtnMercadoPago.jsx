@@ -1,22 +1,39 @@
 "use client";
+
 import { initMercadoPago, Wallet } from "@mercadopago/sdk-react";
 import axios from "axios";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
-export const Mercadopago = () => {
+export const Mercadopago = ({preciopagar}) => {
+
+
   const [preferenceId, setPreferenceId] = useState(null);
-  initMercadoPago("TEST-f06eabcb-7ef3-41ee-a379-e532b2658022", {
+  initMercadoPago("APP_USR-b5e5c8f0-8f0b-469f-81ad-525142372167", {
     locale: "es-CO",
   });
 
-  const createPreference = async () => {
+  useEffect(() => {
+    const fetchData = async () => {
+      const id = await createPreference({preciopagar});
+      if (id) {
+        setPreferenceId(id);
+      }
+    };
+
+    fetchData();
+  }, []);
+
+  const createPreference = async (preciopagar, cantidad) => {
+    console.log(preciopagar);
     try {
+      const price = preciopagar.preciopagar;
+      const qty = preciopagar.cantidad
       const response = await axios.post(
-        "https://headless-woocommerce-nu.vercel.app/api/apimercadopago",
+        "http://localhost:3000/api/apimercadopago",
         {
-          title: "Una Card",
+          title: "Total a pagar",
           quantity: 1,
-          price: 100,
+          price: price,
         },
       );
       const { id } = response.data;
@@ -27,25 +44,12 @@ export const Mercadopago = () => {
     }
   };
 
-  const handleBuy = async () => {
-    const id = await createPreference();
-    if (id) {
-      setPreferenceId(id);
-    }
-  };
-
   return (
     <div className="m-auto h-auto w-[300px]">
-      
-      <button
-        onClick={handleBuy}
-        class="inline-block rounded border border-indigo-600 bg-indigo-600 px-[100px] py-3 text-sm font-medium text-white hover:bg-transparent hover:text-indigo-600 focus:outline-none focus:ring active:text-indigo-500"
-        href="#"
-      >
-        Comprar
-      </button>
       {preferenceId && (
-        <Wallet initialization={{ preferenceId: preferenceId, redirectMode: 'blank' }} />
+        <Wallet
+          initialization={{ preferenceId: preferenceId, redirectMode: "modal" }}
+        />
       )}
     </div>
   );

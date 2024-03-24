@@ -261,6 +261,7 @@ const CheckoutForm = ({ countriesData }) => {
             <div className="your-orders">
               {/*	Order*/}
               <h2 className="mb-4 text-xl font-medium">Tu Orden</h2>
+              {console.log(cart)}
               <YourOrder cart={cart} />
               {/*Metodo de envio*/}
               <h2 className={`${manrope.className} text-base lg:text-[24px] font-bold`}>Metodo de envío</h2>
@@ -277,7 +278,7 @@ const CheckoutForm = ({ countriesData }) => {
                 >
                   Place Order
                 </button> */}
-                <BtnMercadoPago />
+                <BtnMercadoPago preciopagar={cart.totalPrice}/>
               </div>
 
               {/* Checkout Loading*/}

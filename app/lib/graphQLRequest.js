@@ -320,6 +320,8 @@ export const SingleProductosWoocommerce = async (name) => {
             nodes {
               products(where: {search: "${name}"}) {
                 nodes {
+                  title
+                  databaseId
                   sliderProductos {
                     nombreProducto
                     ampere
@@ -369,8 +371,6 @@ export const SingleProductosWoocommerce = async (name) => {
                     velocidadMaxima
                     velocidadNum
                   }
-                  title
-                  productId
                 }
               }
             }

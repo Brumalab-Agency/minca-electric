@@ -1,5 +1,5 @@
 "use client";
-import axios from "axios";
+
 import { useContext, useState } from "react";
 import { AppContext } from "../context/Context";
 import Link from "next/link";
