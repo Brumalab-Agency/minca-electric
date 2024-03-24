@@ -112,14 +112,14 @@ function NavListMenu() {
         handler={setIsMenuOpen}
         offset={{ mainAxis: 20 }}
         placement="bottom"
-       /*  allowHover = {true} */
+        allowHover = {true}
       >
         <MenuHandler className="">
           <Typography as="div" variant="small" className="font-medium flex ">
             <ListItem
               className="flex items-center justify-center gap-2 py-2 text-base font-medium text-[#111] hover:bg-[#111] hover:text-white rounded-[62px] w-[130px]"
-              // selected={isMenuOpen || isMobileMenuOpen}
-              onClick={() => setIsMenuOpen(true)}
+              selected={isMenuOpen || isMobileMenuOpen}
+              onClick={() => setIsMobileMenuOpen((cur) => !cur)}
             >
               Productos
               <ChevronDownIcon
