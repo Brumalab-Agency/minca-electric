@@ -70,6 +70,8 @@ const CheckoutForm = ({ countriesData }) => {
   const [cart, setCart] = useContext(AppContext);
   const [input, setInput] = useState(initialState);
   const [requestError, setRequestError] = useState(null);
+  const [idOrder, setIdOrder] = useState(null);
+  const [temporalCarrito, setTemporalCarrito] = useState(AppContext);
   const [theShippingStates, setTheShippingStates] = useState([]);
   const [isFetchingShippingStates, setIsFetchingShippingStates] =
     useState(false);
@@ -88,6 +90,7 @@ const CheckoutForm = ({ countriesData }) => {
   const handleFormSubmit = async (event) => {
     event.preventDefault();
 
+    setTemporalCarrito(cart)
     /**
      * Validate Billing and Shipping Details
      *
@@ -134,10 +137,9 @@ const CheckoutForm = ({ countriesData }) => {
       );
       return null;
     }
-
     // Para cualquier otro modo de pago, cree el pedido y redirija al usuario a la URL de pago.
     const createdOrderData = await handleOtherPaymentMethodCheckout( input, cart?.cartItems, setRequestError, setCart, setIsOrderProcessing, setCreatedOrderData );
-	
+    setIdOrder(createdOrderData.orderId)
 		if ( createdOrderData.paymentUrl ) {
     
 
@@ -205,11 +207,10 @@ const CheckoutForm = ({ countriesData }) => {
       setIsFetchingBillingStates,
     );
   };
-
   return (
     <>
-      {cart ? (
-        <form onSubmit={handleFormSubmit} className="woo-next-checkout-form">
+      {cart || (idOrder && temporalCarrito) ? (
+        <form className="woo-next-checkout-form" onSubmit={(e)=>e.preventDefault()}>
           <div className="grid grid-cols-1 gap-20 md:grid-cols-2">
             <div>
               {/*Shipping Details*/}
@@ -262,30 +263,34 @@ const CheckoutForm = ({ countriesData }) => {
               {/*	Order*/}
               <h2 className="mb-4 text-xl font-medium">Tu Orden</h2>
               {console.log(cart)}
-              <YourOrder cart={cart} />
+              <YourOrder cart={cart?cart:temporalCarrito} />
               {/*Metodo de envio*/}
               <h2 className={`${manrope.className} text-base lg:text-[24px] font-bold`}>Metodo de envío</h2>
             
               {/* <PaymentModes input={input} handleOnChange={handleOnChange} /> */}
               <div className="woo-next-place-order-btn-wrap mt-5">
+               {!idOrder? 
                 <button
                   disabled={isOrderProcessing}
                   className={cx(
                     "w-auto rounded-sm bg-purple-600 px-5 py-3 text-white xl:w-full",
                     { "opacity-50": isOrderProcessing },
                   )}
-                  type="submit"
+                  type="button"
+                  onClick={handleFormSubmit}
                 >
-                  Realizar Pedido
-                </button>
-                {console.log(cart)}
-                {/* <BtnMercadoPago preciopagar={cart.totalPrice}/> */}
+
+                  Realizar pedido
+                </button>:null}
+
+               {idOrder ? <BtnMercadoPago preciopagar={cart?.totalPrice ? cart?.totalPrice : temporalCarrito?.totalPrice} idOrder={idOrder}/> : null }
+
               </div>
 
               {/* Checkout Loading*/}
               {isOrderProcessing && <p>Procesando orde...</p>}
               {requestError && (
-                <p>Error : {requestError} :( Por favor intenta de nuevo</p>
+                <p>Error : {requestError} : Por favor intenta de nuevo</p>
               )}
             </div>
           </div>

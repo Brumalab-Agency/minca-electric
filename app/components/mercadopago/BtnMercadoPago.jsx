@@ -4,7 +4,7 @@ import { initMercadoPago, Wallet } from "@mercadopago/sdk-react";
 import axios from "axios";
 import { useState, useEffect } from "react";
 
-export const Mercadopago = ({preciopagar}) => {
+export const Mercadopago = ({preciopagar,idOrder}) => {
 
   const [preferenceId, setPreferenceId] = useState(null);
   initMercadoPago(process.env.NEXT_PUBLIC_MERCADOPAGO_PUBLIC_KEY, {
@@ -28,12 +28,14 @@ export const Mercadopago = ({preciopagar}) => {
     try {
       const price = preciopagar.preciopagar;
       const qty = preciopagar.cantidad
+
       const response = await axios.post(
         `${window.location.protocol}//${window.location.host}/api/apimercadopago`,
         {
           title: "Total a pagar",
           quantity: 1,
           price: price,
+          idComplete: idOrder
         },
       );
       const { id } = response.data;
