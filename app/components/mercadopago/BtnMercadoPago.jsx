@@ -6,7 +6,6 @@ import { useState, useEffect } from "react";
 
 export const Mercadopago = ({preciopagar}) => {
 
-
   const [preferenceId, setPreferenceId] = useState(null);
   initMercadoPago(process.env.NEXT_PUBLIC_MERCADOPAGO_PUBLIC_KEY, {
     locale: "es-CO",
@@ -15,6 +14,7 @@ export const Mercadopago = ({preciopagar}) => {
   useEffect(() => {
     const fetchData = async () => {
       const id = await createPreference({preciopagar});
+      console.log(id);
       if (id) {
         setPreferenceId(id);
       }
