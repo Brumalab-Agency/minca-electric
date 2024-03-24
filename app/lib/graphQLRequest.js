@@ -699,23 +699,27 @@ AccesoriosWoocommerce("Casco")
 
 export const AccesoriosPage = async () => {
   const query = `
-  query Accesorios {
-    products(where: {category: "accesorios"}) {
-      nodes {
-        name
-        description(format: RAW)
-        ... on SimpleProduct {
-          id
-          name
-          price(format: RAW)
-          image {
-            altText
-            mediaItemUrl
+        query Accesorios {
+          products(where: {category: "accesorios"}) {
+            nodes {
+              name
+              image {
+                altText
+                mediaItemUrl
+              }
+              description(format: RAW)
+              ... on SimpleProduct {
+                id
+                name
+                price(format: RAW)
+                image {
+                  altText
+                  mediaItemUrl
+                }
+              }
+            }
           }
         }
-      }
-    }
-  }
     `;
 
   try {

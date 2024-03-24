@@ -118,8 +118,8 @@ function NavListMenu() {
           <Typography as="div" variant="small" className="font-medium flex ">
             <ListItem
               className="flex items-center justify-center gap-2 py-2 text-base font-medium text-[#111] hover:bg-[#111] hover:text-white rounded-[62px] w-[130px]"
-             // selected={isMenuOpen || isMobileMenuOpen}
-              onMouseEnter={() => setIsMenuOpen(true)}
+              selected={isMenuOpen || isMobileMenuOpen}
+              onClick={() => setIsMobileMenuOpen((cur) => !cur)}
             >
               Productos
               <ChevronDownIcon
