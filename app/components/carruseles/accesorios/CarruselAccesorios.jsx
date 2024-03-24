@@ -50,10 +50,11 @@ console.log(accesorios);
                     <div className="p-1">
                       <Card className="h-auto w-[198px] rounded-[13px] bg-[#F0EEED] lg:h-[298px] lg:w-[295px]">
                         <CardContent className="flex aspect-square items-center justify-center p-2">
+                          {console.log(accesorio.image?.mediaItemUrl)}
                           <img
                             className="h-auto w-[250px]"
                             src={accesorio.image?.mediaItemUrl}
-                            alt="gafas"
+                            alt={accesorio.name}
                           />
                         </CardContent>
                       </Card>

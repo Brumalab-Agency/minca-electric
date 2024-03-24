@@ -68,7 +68,7 @@ export const HotSpot = (scooters) => {
 
       {/* Markers 2 Display digital*/}
       <section
-        className="btn-pulse markers relative left-[4%] top-[2%] col-span-1 row-span-1 lg:-top-[7%] lg:left-[17%] 2xl:-top-[7%] 2xl:left-[20%]"
+        className="btn-pulse markers  left-[4%] top-[2%] col-span-1 row-span-1 lg:-top-[7%] lg:left-[17%] 2xl:-top-[7%] 2xl:left-[20%]"
         style={{ gridColumn: "5 / 12", gridRow: "4 / 12" }}
       >
         <div class="marker__card bottom-[4px] z-50 rounded-[62px] bg-[#111] px-[15px] py-[5px] lg:-right-[4px]">
@@ -80,7 +80,7 @@ export const HotSpot = (scooters) => {
       </section>
       {/* Markers 3 Altura ajustable*/}
       <section
-        className="btn-pulse markers relative left-[13%] -top-[36%] col-span-1 row-span-1 lg:left-[33%] lg:-top-[38%] 2xl:left-[36%] 2xl:-top-[40%]"
+        className="btn-pulse markers  left-[13%] -top-[36%] col-span-1 row-span-1 lg:left-[33%] lg:-top-[38%] 2xl:left-[36%] 2xl:-top-[40%]"
         style={{ gridColumn: "3 / 12", gridRow: "7 / 12" }}
       >
         <div class="marker__card bottom-[4px] z-50 rounded-[62px] bg-[#111] px-[15px] py-[5px] lg:-right-[4px] ">
@@ -92,7 +92,7 @@ export const HotSpot = (scooters) => {
       </section>
       {/* Markers 4 Luz Claxon*/}
       <section
-        className="btn-pulse markers relative left-[7%] -top-[18%] col-span-1 row-span-1 lg:left-[35%] -lg:top-[0%] 2xl:left-[39%] 2xl:-top-[9%]"
+        className="btn-pulse markers  left-[7%] -top-[18%] col-span-1 row-span-1 lg:left-[35%] -lg:top-[0%] 2xl:left-[39%] 2xl:-top-[9%]"
         style={{ gridColumn: "2 / 12", gridRow: "9 / 12" }}
       >
         <div class="marker__card bottom-[4px] z-50 rounded-[62px] bg-[#111] px-[15px] py-[5px] lg:-right-[4px] ">
@@ -107,7 +107,7 @@ export const HotSpot = (scooters) => {
       </section>
        {/* Markers 5 Llanta*/}
        <section
-        className="btn-pulse markers relative left-[4%] top-[22%] col-span-1 row-span-1 lg:left-[33%] lg:top-[40%] 2xl:left-[37%] 2xl:top-[40%]"
+        className="btn-pulse markers  left-[4%] top-[22%] col-span-1 row-span-1 lg:left-[33%] lg:top-[40%] 2xl:left-[37%] 2xl:top-[40%]"
         style={{ gridColumn: "2 / 12", gridRow: "9 / 12" }}
       >
         <div class="marker__card bottom-[4px] z-50 rounded-[62px] bg-[#111] px-[15px] py-[5px] lg:-right-[4px] ">
@@ -122,7 +122,7 @@ export const HotSpot = (scooters) => {
       </section>
        {/* Markers 6 Monoshock*/}
        <section
-        className="btn-pulse markers relative left-[14%] -top-[1%] col-span-1 row-span-1 lg:left-[37%] lg:top-[6%] 2xl:left-[40%] 2xl:top-[9%]"
+        className="btn-pulse markers  left-[14%] -top-[1%] col-span-1 row-span-1 lg:left-[37%] lg:top-[6%] 2xl:left-[40%] 2xl:top-[9%]"
         style={{ gridColumn: "2 / 12", gridRow: "9 / 12" }}
       >
         <div class="marker__card bottom-[4px] z-50 rounded-[62px] bg-[#111] px-[15px] py-[5px] lg:-right-[4px] ">
@@ -137,7 +137,7 @@ export const HotSpot = (scooters) => {
       </section>
        {/* Markers 7 Plegado*/}
        <section
-        className="btn-pulse markers relative left-[25%] top-[0%] col-span-1 row-span-1 lg:left-[41%] lg:top-[10%] 2xl:left-[43%] 2xl:top-[9%]"
+        className="btn-pulse markers  left-[25%] top-[0%] col-span-1 row-span-1 lg:left-[41%] lg:top-[10%] 2xl:left-[43%] 2xl:top-[9%]"
         style={{ gridColumn: "2 / 12", gridRow: "9 / 12" }}
       >
         <div class="marker__card bottom-[4px] z-50 rounded-[62px] bg-[#111] px-[15px] py-[5px] lg:-right-[4px] ">
@@ -152,7 +152,7 @@ export const HotSpot = (scooters) => {
       </section>
       {/* Markers 8 Luces laterales*/}
       <section
-        className="btn-pulse markers relative col-span-1 row-span-1 lg:-left-[6%] lg:top-[13%] 2xl:-left-[11%] 2xl:top-[27%]"
+        className="btn-pulse markers  col-span-1 row-span-1 lg:-left-[6%] lg:top-[13%] 2xl:-left-[11%] 2xl:top-[27%]"
         style={{ gridColumn: "8 / 12", gridRow: "9 / 12" }}
       >
         <div class="marker__card bottom-[4px] z-50 rounded-[62px] bg-[#111] px-[15px] py-[5px] lg:-right-[4px] ">
@@ -164,7 +164,7 @@ export const HotSpot = (scooters) => {
       </section>
       {/* Markers 9 Posa pie*/}
       <section
-        className="btn-pulse markers relative left-[30%] -top-[15%] col-span-1 row-span-1 lg:left-[3%] lg:-top-[3%] 2xl:-left-[4%] 2xl:top-[4%]"
+        className="btn-pulse markers  left-[30%] -top-[15%] col-span-1 row-span-1 lg:left-[3%] lg:-top-[3%] 2xl:-left-[4%] 2xl:top-[4%]"
         style={{ gridColumn: "8 / 12", gridRow: "9 / 12" }}
       >
         <div class="marker__card bottom-[4px] z-50 rounded-[62px] bg-[#111] px-[15px] py-[5px] lg:-right-[4px] ">
@@ -176,7 +176,7 @@ export const HotSpot = (scooters) => {
       </section>
       {/* Markers 10 Suspensión*/}
       <section
-        className="btn-pulse markers relative left-[30%] top-[5%] col-span-1 row-span-1 lg:left-[3%] lg:top-[17%] 2xl:-left-[4%] 2xl:top-[24%]"
+        className="btn-pulse markers  left-[30%] top-[5%] col-span-1 row-span-1 lg:left-[3%] lg:top-[17%] 2xl:-left-[4%] 2xl:top-[24%]"
         style={{ gridColumn: "8 / 12", gridRow: "9 / 12" }}
       >
         <div class="marker__card bottom-[4px] z-50 rounded-[62px] bg-[#111] px-[15px] py-[5px] lg:-right-[4px] ">
@@ -188,7 +188,7 @@ export const HotSpot = (scooters) => {
       </section>
       {/* Markers 11 Llanta*/}
       <section
-        className="btn-pulse markers relative left-[70%] top-[5%] col-span-1 row-span-1 lg:left-[13%] lg:top-[23%] 2xl:left-[4%] 2xl:top-[34%]"
+        className="btn-pulse markers  left-[70%] top-[5%] col-span-1 row-span-1 lg:left-[13%] lg:top-[23%] 2xl:left-[4%] 2xl:top-[34%]"
         style={{ gridColumn: "8 / 12", gridRow: "9 / 12" }}
       >
         <div class="marker__card bottom-[4px] z-50 rounded-[62px] bg-[#111] px-[15px] py-[5px] lg:-right-[4px] ">

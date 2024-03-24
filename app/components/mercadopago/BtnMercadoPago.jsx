@@ -29,7 +29,7 @@ export const Mercadopago = ({preciopagar}) => {
       const price = preciopagar.preciopagar;
       const qty = preciopagar.cantidad
       const response = await axios.post(
-        "http://localhost:3000/api/apimercadopago",
+        `${window.location.protocol}//${window.location.host}/api/apimercadopago`,
         {
           title: "Total a pagar",
           quantity: 1,

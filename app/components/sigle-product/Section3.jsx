@@ -25,9 +25,8 @@ export const Section3 = () => {
         <div className="grid lg:h-full w-full place-items-center">
           <div className="w-full lg:max-w-[450px]">
             <h1
-              className={`${manrope.className} h-auto w-full lg:w-[448px] text-[40px] leading-[50px] lg:text-[42px] font-bold uppercase lg:leading-[5px]`}
-            >2
-              Rompe las cadenas del tráfico
+              className={`${manrope.className} h-auto w-full lg:w-[448px] text-[40px] leading-[50px] lg:text-[42px] font-bold uppercase lg:leading-[52px]`}
+            >Rompe las cadenas del tráfico
             </h1>
             <p
               className={`${manrope.classname} mt-4 h-auto w-full lg:w-[330px] text-[16px] leading-[25px] `}
