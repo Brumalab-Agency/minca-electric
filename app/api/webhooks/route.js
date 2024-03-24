@@ -14,7 +14,7 @@ export async function POST(request) {
         {
           headers: {
             "Content-type": "application/json",
-            Authorization: `Bearer ${process.env.process.env.MERCADOPAGO_SECRET_KEY}`,
+            Authorization: `Bearer ${process.env.MERCADOPAGO_SECRET_KEY}`,
           },
         },
       );
