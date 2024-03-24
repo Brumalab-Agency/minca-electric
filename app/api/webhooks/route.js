@@ -4,10 +4,9 @@ export async function POST(request) {
   try {
     const body = await request.json();
     console.log('Webhook body:', body); 
-    return true;
+    return NextResponse.json({ ok: true }, { status: 200 });
   } catch (error) {
     console.error('Error en el webhook:', error);
     return NextResponse.json({ error: 'Error' }, { status: 500 });
   }
 }
-
