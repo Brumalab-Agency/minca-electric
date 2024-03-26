@@ -262,7 +262,7 @@ const CheckoutForm = ({ countriesData }) => {
             <div className="your-orders">
               {/*	Order*/}
               <h2 className="mb-4 text-xl font-medium">Tu Orden</h2>
-              {console.log(cart)}
+         
               <YourOrder cart={cart?cart:temporalCarrito} />
               {/*Metodo de envio*/}
               <h2 className={`${manrope.className} text-base lg:text-[24px] font-bold`}>Metodo de envío</h2>
@@ -273,14 +273,14 @@ const CheckoutForm = ({ countriesData }) => {
                 <button
                   disabled={isOrderProcessing}
                   className={cx(
-                    "w-auto rounded-sm bg-purple-600 px-5 py-3 text-white xl:w-full",
+                    "rounded-[52px] bg-[#111] px-[54px] py-[16px] text-white h-[60px] w-[300px]",
                     { "opacity-50": isOrderProcessing },
                   )}
                   type="button"
                   onClick={handleFormSubmit}
                 >
 
-                  Realizar pedido
+                  Confirmar Compra
                 </button>:null}
 
                {idOrder ? <BtnMercadoPago preciopagar={cart?.totalPrice ? cart?.totalPrice : temporalCarrito?.totalPrice} idOrder={idOrder}/> : null }

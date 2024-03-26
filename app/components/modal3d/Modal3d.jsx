@@ -52,13 +52,14 @@ export default function Modal3d({url_3d}) {
                 leaveFrom="opacity-100 scale-100"
                 leaveTo="opacity-0 scale-95"
               >
-                <Dialog.Panel className="max-h-[600px] w-full max-w-[600px] transform overflow-hidden rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all">
+                <Dialog.Panel className="max-h-[600px] w-full max-w-[600px] transform overflow-hidden rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all relative">
                     <img className="w-[30%] h-auto" src="/logo.png" alt="logo minca" />
                   <div className="w-full h-full grid place-items-center">
                     <div className="h-[600px] w-[600px]">
                       <Spline scene={url_3d} />
                     </div>
                   </div>
+                  <img className="w-[50px] h-auto mt-0 absolute bottom-[25px] right-[25px]" src="/lucide_rotate-3d.svg" alt="icono 3d"/>
                 </Dialog.Panel>
               </Transition.Child>
             </div>

@@ -79,7 +79,7 @@ export const InfiniteMovingCards = ({
       >
         {items.map((item, idx) => (
           <li
-            className="custom-shadow  relative flex justify-center items-center h-[32px] w-[76px] rounded-[5px] bg-[#F0EEED] lg:h-[75px] lg:w-[191px] 2xl:h-[105px] 2xl:w-[270px]"
+            className="custom-shadow  relative flex justify-center items-center h-[45px] w-[90px] rounded-[5px] bg-[#F0EEED] lg:h-[75px] lg:w-[191px] 2xl:h-[105px] 2xl:w-[270px]"
             key={item.name}
           >
             <div className="grid place-items-center">

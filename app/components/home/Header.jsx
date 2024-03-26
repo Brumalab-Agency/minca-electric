@@ -61,7 +61,7 @@ export const Header = () => {
             )}
           </Link>
         </div>
-        <p>|</p>
+        <p className="hidden lg:block">|</p>
         {/* Btn Contacto */}
         <Link
           href="/contacto"

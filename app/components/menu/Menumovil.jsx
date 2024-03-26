@@ -22,15 +22,15 @@ export const Menumovil = () => {
       </button>
       <Drawer className={`${ubuntu.className}  text-8`} title="Menú" onClose={onClose} open={open}>
         <MegaMenu/>
-        <div className='flex justify-between items-center mb-8'>
+        <div className='flex justify-evenly items-center mb-8'>
           <Link
-            href="/testdrive"
+            href="/contacto"
             className="text-base font-semibold flex"
           >
-            Prueba una MINCA
+            Contacto
           </Link>
           <button className="mr-4 h-[52px] w-[135px] rounded-[62px] bg-[#111] text-base text-white block">
-            <Link href="/contacto">Contacto</Link>
+            <Link href="/testdrive">Test Drive</Link>
           </button>
         </div>
         <BannerMenu/>

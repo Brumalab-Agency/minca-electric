@@ -7,7 +7,7 @@ import Modal3d from "../modal3d/Modal3d";
 
 const Scooter = ({ scooter }) => {
   const item = scooter.node.sliderProductos;
-  console.log(item.url3d);
+
   return (
     <div id="scooter" className="carrusel h-auto w-full">
       <div className="relative p-4 lg:px-[100px] lg:py-14">

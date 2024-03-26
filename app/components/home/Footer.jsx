@@ -37,7 +37,7 @@ export const Footer = () => {
               </div>
             </div>
             {/* *** */}
-            <div className="informacion flex justify-between">
+            <div className="informacion grid grid-cols-2 lg:grid-cols-1">
               <div className="info-minca-pc lg:w-[99px] lg:h-auto">
                 <div className="informacion-minca leading-[45px]">
                   <h2
@@ -45,36 +45,41 @@ export const Footer = () => {
                   >
                     MINCA
                   </h2>
-                  <p
+                  <Link href="/productos/Minca%20350W"
                     className={`${ubuntu.className}  text-[#111]/60 text-[16px] font-normal`}
                   >
                     Minca 350W
-                  </p>
-                  <p
+                  </Link>
+                  <br/>
+                  <Link href="/productos/Minca%20500W"
                     className={`${ubuntu.className}  text-[#111]/60 text-[16px] font-normal`}
                   >
                     Minca 500W
-                  </p>
-                  <p
+                  </Link>
+                  <br/>
+                  <Link href="/productos/Minca%20800W"
                     className={`${ubuntu.className}  text-[#111]/60 text-[16px] font-normal`}
                   >
                     Minca 800W
-                  </p>
-                  <p
+                  </Link>
+                  <br/>
+                  <Link href="/productos/Minca%201600W"
                     className={`${ubuntu.className}  text-[#111]/60 text-[16px] font-normal`}
                   >
                     Minca 1600W
-                  </p>
-                  <p
+                  </Link>
+                  <br/>
+                  <Link href="#"
                     className={`${ubuntu.className}  text-[#111]/60 text-[16px] font-normal`}
                   >
                     Minca City
-                  </p>
-                  <p
+                  </Link>
+                  <br/>
+                  <Link href="#"
                     className={`${ubuntu.className}  text-[#111]/60 text-[16px] font-normal`}
                   >
                     Minca Trip
-                  </p>
+                  </Link>
                 </div>
               </div>
               <div className="info-informacion-pc lg:hidden">
@@ -84,31 +89,37 @@ export const Footer = () => {
                   >
                     INFORMACIÓN
                   </h2>
-                  <p
+                  <Link
+                  href="/politicasDevoluciones"
                     className={`${ubuntu.className}  text-[#111]/60 text-[16px] font-normal`}
                   >
                     Política de devoluciones
-                  </p>
-                  <p
+                  </Link>
+                  <br/>
+                  <Link
+                  href="/declaracionPrivacidad"
                     className={`${ubuntu.className}  text-[#111]/60 text-[16px] font-normal`}
                   >
                     Declaración de privacidad
-                  </p>
-                  <p
+                  </Link>
+                  <br/>
+                  <Link href="#"
                     className={`${ubuntu.className}  text-[#111]/60 text-[16px] font-normal`}
                   >
                     Términos y condiciones
-                  </p>
-                  <p
+                  </Link>
+                  <br/>
+                  <Link href="#"
                     className={`${ubuntu.className}  text-[#111]/60 text-[16px] font-normal`}
                   >
                     Política de garantía{" "}
-                  </p>
-                  <p
+                  </Link>
+                  <br/>
+                  <Link href="#"
                     className={`${ubuntu.className}  text-[#111]/60 text-[16px] font-normal`}
                   >
                     PQR
-                  </p>
+                  </Link>
                 </div>
               </div>
             </div>
@@ -123,7 +134,7 @@ export const Footer = () => {
                   </h2>
                   <div>
                     <Link
-                      href="#"
+                      href="/politicasDevoluciones"
                       className={`${ubuntu.className}  text-[#111]/60 text-[16px] font-normal`}
                     >
                       Política de devoluciones
@@ -131,7 +142,7 @@ export const Footer = () => {
                   </div>
                   <div>
                     <Link
-                    href="#"
+                    href="/declaracionPrivacidad"
                       className={`${ubuntu.className}  text-[#111]/60 text-[16px] font-normal`}
                     >
                       Declaración de privacidad
@@ -153,11 +164,11 @@ export const Footer = () => {
                       Política de garantía{" "}
                     </Link>
                   </div>
-                  <p
+                  <Link href="#"
                     className={`${ubuntu.className}  text-[#111]/60 text-[16px] font-normal`}
                   >
                     PQR
-                  </p>
+                  </Link>
                 </div>
               </div>
             </div>
@@ -169,31 +180,35 @@ export const Footer = () => {
                   >
                     MENÚ
                   </h2>
-                  <p
+                  <Link href="#"
                     className={`${ubuntu.className}  text-[#111]/60 text-[16px] font-normal`}
                   >
                     Accesorios
-                  </p>
-                  <p
+                  </Link>
+                  <br/>
+                  <Link href="/servicios"
                     className={`${ubuntu.className}  text-[#111]/60 text-[16px] font-normal`}
                   >
                     Servicio técnico
-                  </p>
-                  <p
+                  </Link>
+                  <br/>
+                  <Link href="/sedes"
                     className={`${ubuntu.className}  text-[#111]/60 text-[16px] font-normal`}
                   >
                     Sedes
-                  </p>
-                  <p
+                  </Link>
+                  <br/>
+                  <Link href="/recursos"
                     className={`${ubuntu.className}  text-[#111]/60 text-[16px] font-normal`}
                   >
                     Recursos
-                  </p>
-                  <p
+                  </Link>
+                  <br/>
+                  <Link href="/blog"
                     className={`${ubuntu.className}  text-[#111]/60 text-[16px] font-normal`}
                   >
                     Blog
-                  </p>
+                  </Link>
                 </div>
               </div>
               <div className="informacion-minca leading-[45px]"></div>
@@ -207,16 +222,16 @@ export const Footer = () => {
                 </button>
               </div>
               <div className="text-right mt-4">
-                <p
+                <Link href="tel:+573222102466"
                   className={`${ubuntu.className}  text-[#111] text-[12px] font-bold`}
                 >
                   +57 322 2102466
-                </p>
-                <p
+                </Link>
+                <Link href="mailto:info@mincaelectric.com"
                   className={`${ubuntu.className}  text-[#111] text-[12px] font-bold`}
                 >
                   info@mincaelectric.com
-                </p>
+                </Link>
               </div>
             </div>
             <hr className="lg:hidden border border-0.5 border-solid border-[#111]/10 my-[15px] w-full absolute bottom-[4.2%] left-0 right-0" />

@@ -311,6 +311,103 @@ export const SingleProductos = async (name) => {
   }
 };
 
+// Minca City
+
+export const MincaCity = async (name) => {
+  const query = `
+        query MincaCity {
+          products(where: {category: "Ebike", search: "${name}"}) {
+            edges {
+              node {
+                ... on VariableProduct {
+                  name
+                  databaseId
+                  name
+                  description(format: RAW)
+                  image {
+                    altText
+                    mediaItemUrl
+                  }
+                  sliderProductosEbikes {
+                    ampere
+                    bateria
+                    description
+                    descuento
+                    distancia
+                    fieldGroupName
+                    foto1 {
+                      altText
+                      mediaItemUrl
+                    }
+                    foto2 {
+                      altText
+                      mediaItemUrl
+                    }
+                    foto3 {
+                      altText
+                      mediaItemUrl
+                    }
+                    frenos
+                    frenosNulo
+                    kg
+                    kgPesoScooter
+                    km
+                    kmh
+                    llanta
+                    motor
+                    nombreProducto
+                    peso
+                    pesoMaximo
+                    pesoSc
+                    precioActual
+                    precioRebajado
+                    pulgadas
+                    slogan
+                    subtitulo
+                    tipo
+                    tipoAutonomia
+                    tipoBrushless
+                    tipoRodamiento
+                    tipofrenos
+                    tpeso
+                    vatios
+                    velocidadMaxima
+                    velocidadNum
+                  }
+                  price(format: RAW)
+                  regularPrice(format: RAW)
+                  variations {
+                    nodes {
+                      price(format: RAW)
+                      salePrice(format: RAW)
+                      name
+                      databaseId
+                    }
+                  }
+                  galleryImages {
+                    nodes {
+                      altText
+                      mediaItemUrl
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+    `;
+
+  try {
+    const MincaCity = await fetchGraphQL(query);
+    return MincaCity;
+  } catch (error) {
+    console.error("Error fetching mincaCity:", error);
+    throw new Error("Error fetching mincaCity");
+  }
+};
+
+
+
 // Single de Productos directo de Woocommerce
 
 export const SingleProductosWoocommerce = async (name) => {
@@ -525,7 +622,7 @@ export const ProductosWoocommerce = async () => {
 export const ProductosWoocommerceVariable = async () => {
   const query = `
         query ProductosVariables {
-          products {
+          products(where: {type: VARIABLE}) {
             nodes {
               name
               databaseId
@@ -661,9 +758,10 @@ export const SinglePost = async (id) => {
 export const AccesoriosWoocommerce = async (name) => {
   const query = `
         query Accesorios {
-          products(where: {category: "accesorios", search: "${name}"}) {
+          products(where: { search: "${name}"}) {
             nodes {
               name
+              type
               description(format: RAW)
               ... on SimpleProduct {
                 name
@@ -716,6 +814,11 @@ export const AccesoriosPage = async () => {
                   altText
                   mediaItemUrl
                 }
+              }
+              ... on VariableProduct {
+                id
+                name
+                price(format: RAW)
               }
             }
           }

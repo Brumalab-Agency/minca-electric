@@ -9,6 +9,7 @@ import LightboxComponent from "../lightbox/LightboxComponent";
 import AccesorioVariable from "../accesorios/AccesorioVariable";
 
 export const EspecificacionesAccesorios = async (accesorios) => {
+ 
   let content;
   const esCascoMinca = accesorios.accesorios.products.nodes.some(
     (item) => item.name === "Casco Integral Minca",
@@ -16,7 +17,7 @@ export const EspecificacionesAccesorios = async (accesorios) => {
 
   if (esCascoMinca) {
     const itemsVariables = await ProductosWoocommerceVariable();
-    console.log(itemsVariables);
+
 
     const items = itemsVariables.products.nodes;
 
@@ -26,23 +27,23 @@ export const EspecificacionesAccesorios = async (accesorios) => {
       <AccesorioVariable item={items} />
     );
   } else {
-    /* Aqui peoductos SIMPLE */
+    /* Aqui productos SIMPLE */
     const accesoriosWoocommerce = accesorios;
-    console.log(accesoriosWoocommerce);
+   
 
     const items = accesoriosWoocommerce.accesorios.products.nodes;
-    console.log(accesoriosWoocommerce.accesorios.products.nodes);
+   
     const item = items[0];
-console.log(item);
+
     
     const datosWoocommerce = await ProductosWoocommerce();
 
-   console.log(datosWoocommerce);
+  
     const productoEncontrado = datosWoocommerce.products.nodes.find(
       (producto) => producto.databaseId === item.productId,
     );
 
-   console.log(productoEncontrado);
+  
     const separadorDeMiles = (numero) => {
       let partesNumero = numero.toString().split(".");
       partesNumero[0] = partesNumero[0].replace(/\B(?=(\d{3})+(?!\d))/g, ".");

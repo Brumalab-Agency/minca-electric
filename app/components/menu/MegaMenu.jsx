@@ -21,7 +21,6 @@ import {
 } from "@heroicons/react/24/outline";
 import { BannerMenu } from "./BannerMenu";
 
-
 function NavListMenu() {
   const navListMenuProductos = [
     {
@@ -31,6 +30,8 @@ function NavListMenu() {
       description3: "Minca 800W",
       description4: "Minca 1600W",
     },
+  ];
+  const navListMenuEbikes = [
     {
       title: "Minca E-bikes",
       description1: "Minca Trip",
@@ -60,7 +61,7 @@ function NavListMenu() {
             <Typography
               variant="h6"
               color="[#111]"
-              className="flex items-center font-bold leading-[80px] text-base text-[#111]"
+              className="flex items-center text-base font-bold leading-[80px] text-[#111]"
             >
               {title}
             </Typography>
@@ -68,9 +69,14 @@ function NavListMenu() {
               <Typography
                 key={index}
                 variant="paragraph"
-                className="text-left text-[16px] font-medium  leading-[50px] text-[#6F6C90] lg:text-base mt-2"
+                className="mt-2 text-left text-[16px]  font-medium leading-[50px] text-[#6F6C90] lg:text-base"
               >
-                <Link className="leading-[40px]" href={`/productos/${description}`}>{description}</Link>
+                <Link
+                  className="leading-[40px]"
+                  href={`/productos/${description}`}
+                >
+                  {description}
+                </Link>
               </Typography>
             ))}
           </div>
@@ -86,7 +92,7 @@ function NavListMenu() {
             <Typography
               variant="h6"
               color="[#111]"
-              className="flex items-center font-bold leading-[80px] text-base text-[#111]"
+              className="flex items-center text-base font-bold leading-[80px] text-[#111]"
             >
               {title}
             </Typography>
@@ -94,9 +100,42 @@ function NavListMenu() {
               <Typography
                 key={index}
                 variant="paragraph"
-                className="text-left text-[16px] font-medium  leading-[50px] text-[#6F6C90] lg:text-base mt-2"
+                className="mt-2 text-left text-[16px]  font-medium leading-[50px] text-[#6F6C90] lg:text-base"
               >
-                <Link className="leading-[40px]" href={`/accesorios/${description}`}>{description}</Link>
+                <Link
+                  className="leading-[40px]"
+                  href={`/accesorios/${description}`}
+                >
+                  {description}
+                </Link>
+              </Typography>
+            ))}
+          </div>
+        </MenuItem>
+      </div>
+    ),
+  );
+  const renderEbikes = navListMenuEbikes.map(
+    ({ title, ...descriptions }, key) => (
+      <div key={key}>
+        <MenuItem className="flex items-center gap-3 rounded-lg">
+          <div>
+            <Typography
+              variant="h6"
+              color="[#111]"
+              className="flex items-center text-base font-bold leading-[80px] text-[#111]"
+            >
+              {title}
+            </Typography>
+            {Object.values(descriptions).map((description, index) => (
+              <Typography
+                key={index}
+                variant="paragraph"
+                className="mt-2 text-left text-[16px]  font-medium leading-[50px] text-[#6F6C90] lg:text-base"
+              >
+                <Link className="leading-[40px]" href={`/ebikes/${description}`}>
+                  {description}
+                </Link>
               </Typography>
             ))}
           </div>
@@ -112,12 +151,12 @@ function NavListMenu() {
         handler={setIsMenuOpen}
         offset={{ mainAxis: 20 }}
         placement="bottom"
-        allowHover = {true}
+        allowHover={true}
       >
         <MenuHandler className="">
-          <Typography as="div" variant="small" className="font-medium flex ">
+          <Typography as="div" variant="small" className="flex font-medium ">
             <ListItem
-              className="flex items-center justify-center gap-2 py-2 text-base font-medium text-[#111] hover:bg-[#111] hover:text-white rounded-[62px] w-[130px]"
+              className="flex w-[130px] items-center justify-center gap-2 rounded-[62px] py-2 text-base font-medium text-[#111] hover:bg-[#111] hover:text-white"
               selected={isMenuOpen || isMobileMenuOpen}
               onClick={() => setIsMobileMenuOpen((cur) => !cur)}
             >
@@ -140,6 +179,7 @@ function NavListMenu() {
         <MenuList className="block h-[474px] max-w-[1366px] rounded-xl lg:flex lg:w-[70%]">
           <ul className="grid w-[60%] grid-cols-3 gap-y-2 p-10 outline-none outline-0">
             {renderProductos}
+            {renderEbikes}
             {renderAccesorios}
           </ul>
           {/* Divider */}
@@ -149,6 +189,7 @@ function NavListMenu() {
       <div className="colapsable-movil lg:hidden">
         <Collapse className="grid grid-cols-2" open={isMobileMenuOpen}>
           {renderProductos}
+          {renderEbikes}
           {renderAccesorios}
         </Collapse>
       </div>
@@ -162,7 +203,7 @@ function NavList() {
       <NavListMenu />
       <Typography variant="small" color="[#111]" className="font-medium">
         <Link
-          className="flex items-center gap-2 py-2 text-base text-[#111] hover:bg-[#111] hover:text-white rounded-[62px] px-3"
+          className="inline-block w-auto items-center gap-2 rounded-[62px] px-3 py-2 text-base text-[#111] hover:bg-[#111] hover:text-white lg:flex"
           href="/servicios"
         >
           Servicio técnico
@@ -171,14 +212,14 @@ function NavList() {
       <Typography variant="small" color="[#111]" className="font-medium">
         <Link
           href="/showrooms"
-          className="flex items-center gap-2 py-2 text-base text-[#111] hover:bg-[#111] hover:text-white rounded-[62px] px-3"
+          className="inline-block w-auto items-center gap-2 rounded-[62px] px-3 py-2 text-base text-[#111] hover:bg-[#111] hover:text-white lg:flex"
         >
           Showrooms
         </Link>
       </Typography>
       <Typography variant="small" color="[#111]" className="font-medium">
         <Link
-          className="flex items-center gap-2 py-2 text-base text-[#111] hover:bg-[#111] hover:text-white rounded-[62px] px-3"
+          className="inline-block w-auto items-center gap-2 rounded-[62px] px-3 py-2 text-base text-[#111] hover:bg-[#111] hover:text-white lg:flex"
           href="/recursos"
         >
           Recursos
@@ -186,7 +227,7 @@ function NavList() {
       </Typography>
       <Typography variant="small" color="[#111]" className="font-medium">
         <Link
-          className="flex items-center gap-2 py-2 text-base text-[#111] hover:bg-[#111] hover:text-white rounded-[62px] px-4"
+          className="inline-block w-auto items-center gap-2 rounded-[62px] px-4 py-2 text-base text-[#111] hover:bg-[#111] hover:text-white lg:flex"
           href="/blog"
         >
           Blog

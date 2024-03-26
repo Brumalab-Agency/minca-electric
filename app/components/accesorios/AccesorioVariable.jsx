@@ -6,7 +6,8 @@ import AddToCart from "../cart/AddToCart";
 import LightboxComponent from "../lightbox/LightboxComponent";
 
 const AccesorioVariable = (item) => {
-  const items = item.item[0].variations.nodes;
+ 
+  const items = item.item[1].variations.nodes;
 
   const [currentProductIndex, setCurrentProductIndex] = useState(1);
 
@@ -39,6 +40,7 @@ const AccesorioVariable = (item) => {
                       className={`${manrope.className} mb-1 text-[24px] font-bold uppercase text-[#111111]  lg:text-[42px] lg:leading-[28px]`}
                     >
                       {item.name.slice(0, item.name.indexOf('-'))}
+                      {/* {item.name} */}
                     </h2>
                     <div className="flex items-center gap-3 lg:mt-6 lg:gap-4">
                       <div
@@ -57,36 +59,43 @@ const AccesorioVariable = (item) => {
                       <p
                         className={`${ubuntu.className} text-base text-[#111]/60`}
                       >
-                        Select Colors
+                        Seleccciona Talla y Color
                       </p>
                       {/* Btn colores */}
                       <div className="flex gap-2 pt-1">
-                        {/* color azul */}
+                        {/* color azul L */}
                         <button
-                          onClick={() => handleChangeProduct(0)}
-                          className="colores grid h-[37px] w-[37px] place-items-center rounded-[50%] bg-[#242939]"
+                          onClick={() => handleChangeProduct(3)}
+                          className="colores h-[37px] w-[37px] rounded-[50%] bg-[#242939] text-white btn-click-highlight"
                         >
-                          {/* <img
-                              src="/especificaciones-accesorios/check.png"
-                              alt="check"
-                            /> */}
+                          L
                         </button>
-                        {/* color negro */}
+                        {/* color negro L */}
                         <button
                           onClick={() => handleChangeProduct(1)}
-                          className="colores h-[37px] w-[37px] rounded-[50%] bg-[#111]"
-                        ></button>
+                          className="colores h-[37px] w-[37px] rounded-[50%] bg-[#111] text-white btn-click-highlight"
+                        >L</button>
+                        {/* color azul M */}
+                        <button
+                          onClick={() => handleChangeProduct(0)}
+                          className="colores h-[37px] w-[37px] rounded-[50%] bg-[#242939] text-white btn-click-highlight"
+                        >M</button>
+                        {/* color negro M */}
+                        <button
+                          onClick={() => handleChangeProduct(2)}
+                          className="colores h-[37px] w-[37px] rounded-[50%] bg-[#111] text-white btn-click-highlight"
+                        >M</button>
                       </div>
                     </div>
 
-                    <hr className="mt-5" />
+                    {/* <hr className="mt-5" />
                     <div className="selector-talla mt-2">
                       <p
                         className={`${ubuntu.className} text-base text-[#111]/60`}
                       >
                         Talla
                       </p>
-                      {/* Btn tallas */}
+                      
                       <div className="flex gap-2 pt-1">
                         <button
                           onClick={() => handleChangeProduct(2)}
@@ -101,7 +110,7 @@ const AccesorioVariable = (item) => {
                           <p>M</p>
                         </button>
                       </div>
-                    </div>
+                    </div> */}
                   </div>
                   {/* /Scooter/btn-slider-left-pc.png */}
                 </div>

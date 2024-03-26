@@ -7,15 +7,15 @@ import AddToCart from "../cart/AddToCart";
 import { BtnQty } from "./BtnQty";
 import LightboxComponentScooters from "../lightbox/LightboxComponentScooters";
 
-export const EspecificacionesMinca = async (scooters) => {
-  console.log(scooters);
-  const datosWoocommerce = await ProductosWoocommerce();
-  const items = scooters.scooters.productTypes.nodes[0].products.nodes[0];
+export const EspecificacionesMincaEbikes = async (ebikes) => {
+  console.log(ebikes);
+  /* const datosWoocommerce = await ProductosWoocommerce(); */
+  const items = ebikes.ebikes.productTypes.nodes[0].products.nodes[0];
   const item = items;
 
   return (
     <>
-      <div className="EspecificacionesMinca py-[70px]" key={1}>
+      <div className="EspecificacionesMincaEbikes py-[70px]" key={1}>
         <div className="justify-between lg:flex lg:justify-center lg:px-[96px]">
           {/* Scooters */}
           {/* <LightboxComponentScooters item={item}/> */}

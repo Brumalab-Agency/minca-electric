@@ -1,27 +1,30 @@
+import { Footer } from "@/components/home/Footer";
 import { Header } from "@/components/home/Header";
 import { manrope } from "@/ui/fonts";
 import React from "react";
 
-export const Privacidad = () => {
+export const Politicas = () => {
   return (
     <>
       <Header />
       <div className="px-4 lg:px-[100px]">
         <h1 className={`${manrope.className} text-[64px] uppercase`}>
-        DECLARACIÓN DE PRIVACIDAD
+          política DE DEVOLUCIONES
         </h1>
         <h3 className={`${manrope.className} text-[24px] uppercase mt-[22px]`}>
-        Compromiso transparente con la protección de tus datos
+          Nuestra política de devoluciones para tu tranquilidad
         </h3>
         <div
           className={` ${manrope.className} h-auto w-full bg-[#F0F1EB] px-[105px] py-[74px] rounded-[40px] mt-[92px] mb-[114px] text-[20px]`}
         >
-          <p>Sección 1 – ¿Qué hacemos con tu información? </p>
           <p>
-          Cuando compras algo de nuestra tienda, como parte del proceso de compraventa, nosotros recolectamos la información personal que nos das tales como nombre, dirección y correo electrónico. Cuando navegas en nuestra tienda, también recibimos de manera automática la dirección de protocolo de internet de tu computadora (IP) con el fin de proporcionarnos información que nos ayuda a conocer acerca de su navegador y sistema operativo. Email marketing: Con tu permiso, podremos enviarte correos electrónicos acerca de nuestra tienda, nuevos productos y otras actualizaciones.
+            Nuestra política tiene una duración de 5 días. Si 5 días han pasado
+            desde Tu compra, por desgracia no podemos ofrecer un reembolso.
+            Cualquier inconveniente que surja directamente con la Scooter
+            después de esos 5 días, MINCA se encargará de resolver el problema
+            en cualquier taller autorizado.
           </p>
           <br></br>
-          <p>Sección 1 – ¿Qué hacemos con tu información? </p>
           <p>
             Para ser elegible para una devolución, el artículo debe estar sin
             usar y en las mismas condiciones en que lo recibiste.
@@ -55,7 +58,7 @@ export const Privacidad = () => {
           <p>Intercambios (donde aplique)</p>
           <br></br>
           <p>
-             Solo reemplazamos artículos que estén defectuosos o dañados por
+            Solo reemplazamos artículos que estén defectuosos o dañados por
             fallas de fábrica. Si necesitas cambiarlo por el mismo artículo,
             envíanos un correo electrónico a ventas@mincaelectric.com y envía el
             artículo a: Carrera 11a # 94a – 56 Local 3, Bogotá, DC, 110221,
@@ -79,8 +82,9 @@ export const Privacidad = () => {
           </p>
         </div>
       </div>
+      <Footer/>
     </>
   );
 };
 
-export default Privacidad;
+export default Politicas;

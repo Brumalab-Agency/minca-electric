@@ -14,16 +14,16 @@ import Link from "next/link";
 export const CarruselAccesorios = async () => {
   const data = await AccesoriosPage();
   const accesorios = data.products.nodes;
-console.log(accesorios);
-/*   const separadorDeMiles = (numero) => {
-    let partesNumero = numero?.toString().split('.');
+  console.log(accesorios);
+  const separadorDeMiles = (numero) => {
+    let partesNumero = numero?.toString().split(',');
     partesNumero[0] = partesNumero[0]?.replace(/\B(?=(\d{3})+(?!\d))/g, '.');
     return partesNumero.join('.');
-  } */
+  }
 
 
   return (
-    <div className="MincaAccesorios h-auto w-full overflow-x-hidden bg-white pl-[100px]">
+    <div className="MincaAccesorios h-auto w-full overflow-x-hidden bg-white lg:pl-[100px] pl-4">
       <div className="py-4  lg:h-[710px] lg:w-auto lg:border-b-2">
         <div className="h-auto w-full">
           <div className="flex w-full items-center justify-between px-4 leading-[42px]">
@@ -50,7 +50,6 @@ console.log(accesorios);
                     <div className="p-1">
                       <Card className="h-auto w-[198px] rounded-[13px] bg-[#F0EEED] lg:h-[298px] lg:w-[295px]">
                         <CardContent className="flex aspect-square items-center justify-center p-2">
-                          {console.log(accesorio.image?.mediaItemUrl)}
                           <img
                             className="h-auto w-[250px]"
                             src={accesorio.image?.mediaItemUrl}
@@ -61,7 +60,7 @@ console.log(accesorios);
                       <p className="mt-[10px] text-base font-bold lg:text-[20px]">
                         {accesorio.name}
                       </p>
-                      <p className="text-[20px] font-bold">$ {/* { separadorDeMiles(accesorio?.price)} */}</p>
+                      <p className="text-[20px] font-bold">$ { separadorDeMiles(accesorio?.price.slice(0, 6))}</p>
                     </div>
                   </CarouselItem>
                 </Link>

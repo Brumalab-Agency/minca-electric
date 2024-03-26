@@ -20,7 +20,7 @@ export const metadata = {
 export const SingleAccesorio = async({params}) => {
   const { id } = params;
   const accesorios = await AccesoriosWoocommerce(decodeURIComponent(id));
-  console.log(accesorios);
+  
 
   return (
     <>

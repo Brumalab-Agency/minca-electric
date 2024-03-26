@@ -1,25 +1,26 @@
 import { Footer } from "@/components/home/Footer";
-import { EspecificacionesMinca } from "@/components/especificaciones-component/EspecificacionesMinca";
 import { HeroContext } from "@/components/reusable/HeroContext";
 import { HeroVideoSingleProduct } from "@/components/reusable/HeroVideoSingleProduct";
 import { PuedeInteresarte } from "@/components/sigle-product/PuedeInteresarte";
 import { CarruselAccesorios } from "@/components/carruseles/accesorios/CarruselAccesorios";
-import { SingleProductosWoocommerce } from "@/lib/graphQLRequest";
+import { MincaCity } from "@/lib/graphQLRequest";
+import { EspecificacionesMincaEbikes } from "@/components/especificaciones-component/EspecificacionesMincaEbikes";
 
-const Especificaciones = async ({ params }) => {
+const EspecificacionesEbikes = async ({ params }) => {
   const { id } = params;
 
-  const scooters = await SingleProductosWoocommerce(decodeURIComponent(id));
+  const ebikes = await MincaCity(decodeURIComponent(id));
+  
 
   return (
-    <div className="Especificaciones">
-      <HeroContext titulo="MINCA" tituloNegrita="SCOOTERS" />
-      <EspecificacionesMinca scooters={scooters} />
-      <HeroVideoSingleProduct
+    <div className="EspecificacionesEbikes">
+      <HeroContext titulo="MINCA" tituloNegrita="EBIKES" />
+      <EspecificacionesMincaEbikes ebikes={ebikes} />
+     {/*  <HeroVideoSingleProduct
         titulo="MINCA"
         tituloSecundarioNegrita="Scooters"
         urlVideo="https://test.mincaelectric.com/wp-content/uploads/2024/03/Minca-Electric-Carro-o-Scooter_.mp4"
-      />
+      /> */}
       <PuedeInteresarte />
       <hr className="border-1 hidden lg:m-auto lg:block lg:w-[90%]"></hr>
       <br></br>
@@ -30,4 +31,4 @@ const Especificaciones = async ({ params }) => {
   );
 };
 
-export default Especificaciones;
+export default EspecificacionesEbikes;
