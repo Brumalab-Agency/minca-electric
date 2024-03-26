@@ -9,7 +9,7 @@ import LightboxComponentScooters from "../lightbox/LightboxComponentScooters";
 
 export const EspecificacionesMinca = async (scooters) => {
   console.log(scooters);
-  const datosWoocommerce = await ProductosWoocommerce();
+  //const datosWoocommerce = await ProductosWoocommerce();
   const items = scooters.scooters.productTypes.nodes[0].products.nodes[0];
   const item = items;
 

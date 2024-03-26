@@ -10,13 +10,17 @@ const EspecificacionesEbikes = async ({ params }) => {
   const { id } = params;
 
   const ebikes = await MincaCity(decodeURIComponent(id));
-  
 
+  console.log(ebikes);
+
+  const ebike = ebikes.products.edges;
+
+  console.log(ebike);
   return (
     <div className="EspecificacionesEbikes">
       <HeroContext titulo="MINCA" tituloNegrita="EBIKES" />
-      <EspecificacionesMincaEbikes ebikes={ebikes} />
-     {/*  <HeroVideoSingleProduct
+      <EspecificacionesMincaEbikes ebike={ebike} />
+      {/*  <HeroVideoSingleProduct
         titulo="MINCA"
         tituloSecundarioNegrita="Scooters"
         urlVideo="https://test.mincaelectric.com/wp-content/uploads/2024/03/Minca-Electric-Carro-o-Scooter_.mp4"

@@ -7,11 +7,13 @@ import AddToCart from "../cart/AddToCart";
 import { BtnQty } from "./BtnQty";
 import LightboxComponentScooters from "../lightbox/LightboxComponentScooters";
 
-export const EspecificacionesMincaEbikes = async (ebikes) => {
-  console.log(ebikes);
+export const EspecificacionesMincaEbikes = (ebike) => {
+  console.log(ebike);
   /* const datosWoocommerce = await ProductosWoocommerce(); */
-  const items = ebikes.ebikes.productTypes.nodes[0].products.nodes[0];
+  const items = ebike.ebike;
   const item = items;
+
+  console.log(item);
 
   return (
     <>

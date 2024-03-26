@@ -6,8 +6,21 @@ import AddToCart from "../cart/AddToCart";
 import LightboxComponent from "../lightbox/LightboxComponent";
 
 const AccesorioVariable = (item) => {
+  
  
-  const items = item.item[1].variations.nodes;
+  const esCascoMinca = item.item.some(
+    (item) => item.name === "Casco Integral Minca" && item.type === "VARIABLE"
+  );
+
+  if (esCascoMinca) {
+    // Filtrar el producto "Casco Integral Minca" y sus variaciones
+    const cascoMinca = item.item.find(
+      (item) => item.name === "Casco Integral Minca"
+    );
+
+  const items = cascoMinca.variations.nodes;
+
+ 
 
   const [currentProductIndex, setCurrentProductIndex] = useState(1);
 
@@ -132,6 +145,7 @@ const AccesorioVariable = (item) => {
       ))}
     </div>
   );
-};
+}
+}
 
 export default AccesorioVariable;
