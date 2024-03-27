@@ -41,6 +41,7 @@ const LightboxComponent = ({ item }) => {
     setCurrentIndex(newIndex);
   };
 
+  console.log(item);
   return (
     <div className="h-auto w-full flex-row-reverse place-items-start lg:flex lg:w-[50%]">
       <div className="grid h-auto w-full lg:ml-4 lg:mr-[50px] lg:flex lg:w-auto">
@@ -57,7 +58,7 @@ const LightboxComponent = ({ item }) => {
         />
       </div>
      {/*  <div className="contenedorFlex flex justify-center gap-4 lg:flex-col lg:gap-2">
-        {items.map((image, index) => (
+        {item.galleryImages.nodes.map((image, index) => (
           <div
             key={index}
             className="mt-[13px] flex items-center justify-evenly lg:mt-0  lg:justify-between"

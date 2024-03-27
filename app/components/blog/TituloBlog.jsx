@@ -3,25 +3,32 @@ import { CardBlog } from "./CardBlog";
 import Link from "next/link";
 import { Entradas } from "@/lib/graphQLRequest";
 
-export const TituloBlog = async() => {
-    const entradas = await Entradas();
-    const posts = entradas.posts.nodes;
+export const TituloBlog = async () => {
+  const entradas = await Entradas();
+
+  const posts = entradas.posts.nodes;
 
   return (
-    <div className='TituloBlog mt-[220px] px-4 lg:px-[100px] lg:mt-[80px]'>
-        <h2 className={`${manrope.className} font-semibold text-[24px] text-[#111] mb-[57px] px-4 lg:mb-[32px]`}>Últimas publicaciones</h2>
-        <div className="lg:grid grid-cols-3 gap-6">
-            {
-                posts.map((post)=>(
-                    <Link href={`/blog/${post.postId}`}>
-                            <CardBlog data={post}/>
-                        </Link>
-                ))
-            }
-        </div>
-        <div className="text-center my-[58px] lg:mt-[32px] lg:mb-[120px]">
-            <button className={` ${ubuntu.className} w-[240px] h-[48px] border border-1 border-[#696A75] bg-opacity-30 rounded-[6px] text-[#696A75] text-base font-medium`}>Ver todas las publicaciones</button>
-        </div>
+    <div className="TituloBlog mt-[220px] px-4 lg:mt-[80px] lg:px-[100px]">
+      <h2
+        className={`${manrope.className} mb-[57px] px-4 text-[24px] font-semibold text-[#111] lg:mb-[32px]`}
+      >
+        Últimas publicaciones
+      </h2>
+      <div className="grid-cols-3 gap-6 lg:grid">
+        {posts.map((post) => (
+          <Link href={`/blog/${post.databaseId}`}>
+            <CardBlog data={post} />
+          </Link>
+        ))}
+      </div>
+      <div className="my-[58px] text-center lg:mb-[120px] lg:mt-[32px]">
+        <button
+          className={` ${ubuntu.className} border-1 h-[48px] w-[240px] rounded-[6px] border border-[#696A75] bg-opacity-30 text-base font-medium text-[#696A75]`}
+        >
+          Ver todas las publicaciones
+        </button>
+      </div>
     </div>
-  )
-}
+  );
+};

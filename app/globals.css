@@ -28,7 +28,7 @@ body {
 #scrollbar::after {
   content: "";
   display: block;
-  background: linear-gradient(to right, #333, #333 40%, #0aff01 100%, #eee 100%, #333 61%);
+  background: linear-gradient(to right, #333, #333 40%, #E13029 100%, #eee 100%, #333 61%);
   width: 100%;
   height: 100%;
   top: 0;

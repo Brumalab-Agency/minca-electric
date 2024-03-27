@@ -172,16 +172,3 @@
   }
 }
 
-
-/* Btn accesorios de productos Variables */
-
-.btn-click-highlight {
-  transition: border-color 0.3s ease; 
-}
-
-.btn-click-highlight:focus,
-.btn-click-highlight:focus-visible,
-.btn-click-highlight:active {
-    outline: none; 
-    box-shadow: 0 0 0 4px #33ff00; 
-}

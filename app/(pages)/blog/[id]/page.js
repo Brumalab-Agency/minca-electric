@@ -10,6 +10,7 @@ const SIngleBlog = async ({ params }) => {
   const { id } = params;
 
   const data = await SinglePost(id);
+  console.log(data);
 
   const posts = data.posts.nodes;
 

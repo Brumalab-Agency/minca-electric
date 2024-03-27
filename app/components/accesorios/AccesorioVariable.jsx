@@ -4,148 +4,226 @@ import { manrope, ubuntu } from "@/ui/fonts";
 import { BtnQty } from "../especificaciones-component/BtnQty";
 import AddToCart from "../cart/AddToCart";
 import LightboxComponent from "../lightbox/LightboxComponent";
+import CheckIcon from "../svgSeleccion/CheckIcon";
+import XIcon from "../svgSeleccion/XIcon";
 
 const AccesorioVariable = (item) => {
-  
- 
+  const [selectedOptions, setSelectedOptions] = useState({
+    sizes: [],
+    colors: [],
+  });
+
+  const [currentVariation, setCurrentVariation] = useState(null);
+
+  const [isColorSelected, setIsColorSelected] = useState(false);
+
   const esCascoMinca = item.item.some(
-    (item) => item.name === "Casco Integral Minca" && item.type === "VARIABLE"
+    (item) => item.name === "Casco Integral Minca" && item.type === "VARIABLE",
   );
 
   if (esCascoMinca) {
-    // Filtrar el producto "Casco Integral Minca" y sus variaciones
     const cascoMinca = item.item.find(
-      (item) => item.name === "Casco Integral Minca"
+      (item) => item.name === "Casco Integral Minca",
     );
 
-  const items = cascoMinca.variations.nodes;
+    const items = cascoMinca;
 
- 
+    console.log(items);
 
-  const [currentProductIndex, setCurrentProductIndex] = useState(1);
+    console.log(cascoMinca);
+    const [currentProductIndex, setCurrentProductIndex] = useState(1);
 
+    const getSelectedVariation = (items, sizes, colors) => {
+      return (
+        items.variations.nodes.find((variation) => {
+          const variationSize = variation.attributes.nodes.find(
+            (attr) => attr.name === "talla",
+          )?.value;
+          const variationColor = variation.attributes.nodes.find(
+            (attr) => attr.name === "color",
+          )?.value;
+          return (
+            sizes.includes(variationSize) && colors.includes(variationColor)
+          );
+        }) || null
+      );
+    };
 
-  const handleChangeProduct = (index) => {
-    setCurrentProductIndex(index);
-  };
+    const handleSizeSelection = (size) => {
+      setSelectedOptions((prevOptions) => {
+        const { sizes, colors } = prevOptions;
+        let updatedSizes;
 
-  const separadorDeMiles = (numero) => {
-    let partesNumero = numero.toString().split(".");
-    partesNumero[0] = partesNumero[0].replace(/\B(?=(\d{3})+(?!\d))/g, ".");
-    return partesNumero.join(".");
-  };
+        if (sizes.includes(size)) {
+          updatedSizes = sizes.filter((s) => s !== size);
+        } else {
+          updatedSizes = [size];
+        }
 
-  return (
-    <div>
-      {items.map((item, index) => (
-        <div
-          style={{ display: index === currentProductIndex ? "block" : "none" }}
-        >
-          <div className="EspecificacionesAccesorios Productos-VARIABLE mb-8">
-            <div className=" justify-between lg:flex lg:justify-center lg:px-[96px] lg:py-[70px]">
-              {/* Accesorios */}
-               <LightboxComponent item={item} />
-              <div className="lg:w-[50%]">
-                {/* Titulo y descripcion */}
-                <div className="flex justify-between">
-                  <div className="flex flex-col justify-center">
-                    <h2
-                      className={`${manrope.className} mb-1 text-[24px] font-bold uppercase text-[#111111]  lg:text-[42px] lg:leading-[28px]`}
-                    >
-                      {item.name.slice(0, item.name.indexOf('-'))}
-                      {/* {item.name} */}
-                    </h2>
-                    <div className="flex items-center gap-3 lg:mt-6 lg:gap-4">
-                      <div
-                        className={`${manrope.className} text-[24px] font-bold text-[#111111]  lg:text-[26px]`}
+        const selectedVariation = getSelectedVariation(
+          items,
+          updatedSizes,
+          colors,
+        );
+        setCurrentVariation(selectedVariation);
+        return { ...prevOptions, sizes: updatedSizes };
+      });
+    };
+
+    const handleColorSelection = (color) => {
+      setSelectedOptions((prevOptions) => {
+        const { sizes, colors } = prevOptions;
+        let updatedColors;
+
+        if (colors.includes(color)) {
+          updatedColors = colors.filter((c) => c !== color);
+        } else {
+          updatedColors = [color];
+        }
+
+        const selectedVariation = getSelectedVariation(
+          items,
+          sizes,
+          updatedColors,
+        );
+        setCurrentVariation(selectedVariation);
+        setIsColorSelected(updatedColors.length > 0);
+        return { ...prevOptions, colors: updatedColors };
+      });
+    };
+
+    const separadorDeMiles = (numero) => {
+      let partesNumero = numero.toString().split(".");
+      partesNumero[0] = partesNumero[0].replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+      return partesNumero.join(".");
+    };
+
+    return (
+      <div>
+        {items.variations.nodes.map((item, index) => (
+          <div
+            style={{
+              display: index === currentProductIndex ? "block" : "none",
+            }}
+          >
+            <div className="EspecificacionesAccesorios Productos-VARIABLE mb-8">
+              <div className=" justify-between lg:flex lg:justify-center lg:px-[96px] lg:py-[70px]">
+                {/* Accesorios */}
+                {console.log(item)}
+                <LightboxComponent item={item} />
+                <div className="lg:w-[50%]">
+                  {/* Titulo y descripcion */}
+                  <div className="flex justify-between">
+                    <div className="flex flex-col justify-center">
+                      <h2
+                        className={`${manrope.className} mb-1 text-[24px] font-bold uppercase text-[#111111]  lg:text-[42px] lg:leading-[28px]`}
                       >
-                         $ {separadorDeMiles(item?.price)}
+                        {/* {item.name.slice(0, item.name.indexOf('-'))} */}
+                        {item.name}
+                      </h2>
+                      <div className="flex items-center gap-3 lg:mt-6 lg:gap-4">
+                        <div
+                          className={`${manrope.className} text-[24px] font-bold text-[#111111]  lg:text-[26px]`}
+                        >
+                          $ {separadorDeMiles(item?.price)}
+                        </div>
+                      </div>
+                      <p
+                        className={`${ubuntu.className} text-[14px] font-normal leading-[15px] text-[#42454A]  lg:mt-5 lg:w-[90%] lg:text-[16px] lg:leading-[25px]`}
+                      >
+                        {item.description}
+                      </p>
+                      <hr className="mt-5 lg:w-[70%]" />
+                      <div className="selector-color mt-2">
+                        <p
+                          className={`${ubuntu.className} text-base text-[#111]/60`}
+                        >
+                          Color
+                        </p>
+                        {/* Btn colores */}
+                        <div className="flex gap-2 pt-1">
+                          {/* color negro L */}
+                          <button
+                            onClick={() => handleColorSelection("Negro")}
+                            className="colores  h-[37px] w-[37px] rounded-[50%] bg-[#111] text-white grid place-items-center relative"
+                          >
+                            {selectedOptions.colors.includes("Negro") && (
+                              <CheckIcon className=" right-0 top-0" />
+                            )}
+                          </button>
+                          {/* color azul M */}
+                          <button
+                            onClick={() => handleColorSelection("Azul")}
+                            className="colores  h-[37px] w-[37px] rounded-[50%] bg-[#242939] text-white grid place-items-center relative"
+                          >
+                            {selectedOptions.colors.includes("Azul") && (
+                              <CheckIcon className=" right-0 top-0" />
+                            )}
+                          </button>
+                        </div>
+                      </div>
+
+                      <hr className="mt-5" />
+                      <div className="selector-talla mt-2">
+                        <p
+                          className={`${ubuntu.className} text-base text-[#111]/60`}
+                        >
+                          Talla
+                        </p>
+
+                        <div className="flex gap-2 pt-1">
+                          <button
+                            onClick={() => handleSizeSelection("L")}
+                            className="colores grid h-[42px] w-[58px] place-items-center rounded-[62px] bg-[#F0F0F0] text-[#111]/60"
+                            disabled={!isColorSelected}
+                          >
+                            {selectedOptions.sizes.includes("L") && (
+                              <XIcon className="absolute right-0 top-0" />
+                            )}
+                            <p>L</p>
+                          </button>
+                          <button
+                            onClick={() => handleSizeSelection("M")}
+                            className="colores grid h-[42px] w-[58px] place-items-center rounded-[62px] bg-[#111] text-base text-white"
+                            disabled={!isColorSelected}
+                          >
+                            {selectedOptions.sizes.includes("M") && (
+                              <XIcon className="absolute right-0 top-0" />
+                            )}
+                            <p>M</p>
+                          </button>
+                        </div>
                       </div>
                     </div>
-                    <p
-                      className={`${ubuntu.className} text-[14px] font-normal leading-[15px] text-[#42454A]  lg:mt-5 lg:w-[90%] lg:text-[16px] lg:leading-[25px]`}
-                    >
-                      {item.description}
-                    </p>
-                    <hr className="mt-5 lg:w-[70%]" />
-                    <div className="selector-color mt-2">
-                      <p
-                        className={`${ubuntu.className} text-base text-[#111]/60`}
-                      >
-                        Seleccciona Talla y Color
-                      </p>
-                      {/* Btn colores */}
-                      <div className="flex gap-2 pt-1">
-                        {/* color azul L */}
-                        <button
-                          onClick={() => handleChangeProduct(3)}
-                          className="colores h-[37px] w-[37px] rounded-[50%] bg-[#242939] text-white btn-click-highlight"
-                        >
-                          L
-                        </button>
-                        {/* color negro L */}
-                        <button
-                          onClick={() => handleChangeProduct(1)}
-                          className="colores h-[37px] w-[37px] rounded-[50%] bg-[#111] text-white btn-click-highlight"
-                        >L</button>
-                        {/* color azul M */}
-                        <button
-                          onClick={() => handleChangeProduct(0)}
-                          className="colores h-[37px] w-[37px] rounded-[50%] bg-[#242939] text-white btn-click-highlight"
-                        >M</button>
-                        {/* color negro M */}
-                        <button
-                          onClick={() => handleChangeProduct(2)}
-                          className="colores h-[37px] w-[37px] rounded-[50%] bg-[#111] text-white btn-click-highlight"
-                        >M</button>
-                      </div>
-                    </div>
-
-                    {/* <hr className="mt-5" />
-                    <div className="selector-talla mt-2">
-                      <p
-                        className={`${ubuntu.className} text-base text-[#111]/60`}
-                      >
-                        Talla
-                      </p>
-                      
-                      <div className="flex gap-2 pt-1">
-                        <button
-                          onClick={() => handleChangeProduct(2)}
-                          className="colores grid h-[42px] w-[58px] place-items-center rounded-[62px] bg-[#F0F0F0] text-[#111]/60"
-                        >
-                          <p>L</p>
-                        </button>
-                        <button
-                          onClick={() => handleChangeProduct(3)}
-                          className="colores grid h-[42px] w-[58px] place-items-center rounded-[62px] bg-[#111] text-base text-white"
-                        >
-                          <p>M</p>
-                        </button>
-                      </div>
-                    </div> */}
+                    {/* /Scooter/btn-slider-left-pc.png */}
                   </div>
-                  {/* /Scooter/btn-slider-left-pc.png */}
-                </div>
-                {/* Btn de Producto Variable y contador */}
-                <div className="contador-btnAddCart mt-2 flex w-full items-center gap-4 lg:w-[85%] 2xl:w-[70%]">
-                  <BtnQty />
-                  <div className="w-full flex-col justify-center lg:flex">
-                    <AddToCart
-                      key={items[currentProductIndex].databaseId}
-                      producto={items[currentProductIndex]}
-                      clases="lg:w-[80%] w-full"
-                    />
+                  {/* Btn de Producto Variable y contador */}
+                  <div className="contador-btnAddCart mt-2 flex w-full items-center gap-4 lg:w-[85%] 2xl:w-[70%]">
+                    <BtnQty />
+                    <div className="w-full flex-col justify-center lg:flex">
+                      {currentVariation ? (
+                        <AddToCart
+                          key={currentVariation.databaseId}
+                          producto={currentVariation}
+                          clases="lg:w-[80%] w-full"
+                        />
+                      ) : (
+                        <button
+                          className={`h-[52px] w-full rounded-[62px] bg-[#111]  text-white lg:w-[80%] 2xl:w-[79%]`}
+                        >
+                          Agregar al carrito
+                        </button>
+                      )}
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
-      ))}
-    </div>
-  );
-}
-}
+        ))}
+      </div>
+    );
+  }
+};
 
 export default AccesorioVariable;

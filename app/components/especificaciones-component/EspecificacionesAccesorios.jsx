@@ -21,7 +21,7 @@ export const EspecificacionesAccesorios = async (accesorios) => {
 
     const items = itemsVariables.products.nodes;
 
-
+console.log(items);
 
     content = (
       <AccesorioVariable item={items} />

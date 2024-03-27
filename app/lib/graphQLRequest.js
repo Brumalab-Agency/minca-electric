@@ -636,6 +636,12 @@ export const ProductosWoocommerceVariable = async () => {
                 name
                 price(format: RAW)
                 regularPrice(format: RAW)
+                galleryImages {
+                  nodes {
+                    altText
+                    mediaItemUrl
+                  }
+                }
                 variations {
                   nodes {
                     price(format: RAW)
@@ -648,6 +654,13 @@ export const ProductosWoocommerceVariable = async () => {
                       mediaItemUrl
                       altText
                     }
+                    attributes {
+                      nodes {
+                        name
+                        label
+                        value
+                      }
+                    }
                   }
                 }
               }
@@ -658,7 +671,6 @@ export const ProductosWoocommerceVariable = async () => {
 
   try {
     const productosVariables = await fetchGraphQL(query);
-    console.log(productosVariables);
     return productosVariables
   } catch (error) {
     console.error("Error fetching productosVariables:", error);
@@ -671,33 +683,27 @@ export const ProductosWoocommerceVariable = async () => {
 
 export const Entradas = async () => {
   const query = `
-  query Entradas {
-    posts {
-      nodes {
-        guid
-        postId
-        slug
-        entradas {
-          campoTexto
-        }
-        title
-        featuredImage {
-          node {
-            altText
-            mediaItemUrl
-          }
-        }
-        categories {
-          edges {
-            node {
-              name
+        query Entradas {
+          posts {
+            nodes {
+              databaseId
+              dateGmt
+              title
+              content
+              featuredImage {
+                node {
+                  altText
+                  mediaItemUrl
+                }
+              }
+              categories {
+                nodes {
+                  name
+                }
+              }
             }
           }
         }
-        dateGmt
-      }
-    }
-  }
     `;
 
   try {
@@ -713,17 +719,14 @@ export const Entradas = async () => {
 
 export const SinglePost = async (id) => {
   const query = `
-        query Entradas {
+        query SinglePosts {
           posts(where: {id: ${id}}) {
             nodes {
-              content(format: RENDERED)
-              guid
-              postId
+              databaseId
+              dateGmt
               slug
-              entradas {
-                campoTexto
-              }
               title
+              content(format: RENDERED)
               featuredImage {
                 node {
                   altText
@@ -737,7 +740,6 @@ export const SinglePost = async (id) => {
                   }
                 }
               }
-              dateGmt
             }
           }
         }
