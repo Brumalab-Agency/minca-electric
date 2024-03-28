@@ -24,15 +24,17 @@ const SingleProduct = async ({ params }) => {
  
   const { id } = params;
   const scooters = await SingleProductos(decodeURIComponent(id));
+  console.log(scooters);
   return (
     <>
       <HeroContextBreadCrumb titulo="MINCA" tituloNegrita="SCOOTERS" />
-      <SingleProductComponent scooters={scooters} />
       <HeroVideoSingleProduct
         titulo="Last Mile"
         tituloSecundarioNegrita="mODE"
         urlVideo={scooters.edges[0].node.sliderProductos.videoBannerArchivo.mediaItemUrl}
+        scooters={scooters}
       />
+      <SingleProductComponent scooters={scooters} />
       <CarruselSingleProduct />
       <Section3 />
       <Section4 />

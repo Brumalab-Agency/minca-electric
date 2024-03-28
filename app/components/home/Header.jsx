@@ -36,10 +36,11 @@ export const Header = () => {
 
     const tl = gsap.timeline({
       scrollTrigger: {
-        start: "top+=130px",
+        start: "top+=0px",
         end: "+=1",
         toggleActions: "play none none reverse",
         scrub: true,
+        markers: true
       },
     });
 

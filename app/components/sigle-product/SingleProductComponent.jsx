@@ -6,6 +6,7 @@ import Link from "next/link";
 import Modal3d from "../modal3d/Modal3d";
 
 export const SingleProductComponent = ({ scooters }) => {
+  console.log(scooters);
   const productosScooters = scooters;
 
   const items = productosScooters.edges;

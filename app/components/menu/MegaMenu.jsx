@@ -33,11 +33,11 @@ function NavListMenu() {
     const tl = gsap.timeline({
       scrollTrigger: {
         trigger: document.documentElement,
-        start: "top+=130px",
+        start: "top+=0px",
         end: "+=1",
         toggleActions: "play none none reverse",
         scrub: true,
-
+        markers: true,
       },
     });
     const anclaProductosElement = anclaProductos.current;
@@ -238,11 +238,11 @@ function NavList() {
     const tl = gsap.timeline({
       scrollTrigger: {
         trigger: document.documentElement,
-        start: "top+=130px",
+        start: "top+=0px",
         end: "+=1",
         toggleActions: "play none none reverse",
         scrub: true,
-
+        markers: true,
       },
     });
     tl.to(anclasServicio.current, {
@@ -312,11 +312,11 @@ export function MegaMenu() {
     const tl = gsap.timeline({
       scrollTrigger: {
         trigger: document.documentElement,
-        start: "top+=130px",
+        start: "top+=0px",
         end: "+=1",
         toggleActions: "play none none reverse",
         scrub: true,
-
+        markers: true,
       },
     });
     tl.to(navegacion.current, {
