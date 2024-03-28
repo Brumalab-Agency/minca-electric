@@ -20,8 +20,33 @@ import {
   XMarkIcon,
 } from "@heroicons/react/24/outline";
 import { BannerMenu } from "./BannerMenu";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useLayoutEffect, useRef } from "react";
 
 function NavListMenu() {
+  const anclaProductos = useRef(null);
+
+  useLayoutEffect(() => {
+    gsap.registerPlugin(ScrollTrigger);
+
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: document.documentElement,
+        start: "top+=130px",
+        end: "+=1",
+        toggleActions: "play none none reverse",
+        scrub: true,
+
+      },
+    });
+    const anclaProductosElement = anclaProductos.current;
+
+    tl.to(anclaProductosElement, {
+      color: "white",
+    });
+  }, []);
+
   const navListMenuProductos = [
     {
       title: "Minca Scooters",
@@ -133,7 +158,10 @@ function NavListMenu() {
                 variant="paragraph"
                 className="mt-2 text-left text-[16px]  font-medium leading-[50px] text-[#6F6C90] lg:text-base"
               >
-                <Link className="leading-[40px]" href={`/ebikes/${description}`}>
+                <Link
+                  className="leading-[40px]"
+                  href={`/ebikes/${description}`}
+                >
                   {description}
                 </Link>
               </Typography>
@@ -156,6 +184,7 @@ function NavListMenu() {
         <MenuHandler className="">
           <Typography as="div" variant="small" className="flex font-medium ">
             <ListItem
+              ref={anclaProductos}
               className="flex w-[130px] items-center justify-center gap-2 rounded-[62px] py-2 text-base font-medium text-[#111] hover:bg-[#111] hover:text-white"
               selected={isMenuOpen || isMobileMenuOpen}
               onClick={() => setIsMobileMenuOpen((cur) => !cur)}
@@ -176,7 +205,7 @@ function NavListMenu() {
             </ListItem>
           </Typography>
         </MenuHandler>
-        <MenuList className="block h-[474px] max-w-[1366px] rounded-xl lg:flex lg:w-[70%]">
+        <MenuList className="z-50 block h-[474px] max-w-[1366px] rounded-xl lg:flex lg:w-[70%]">
           <ul className="grid w-[60%] grid-cols-3 gap-y-2 p-10 outline-none outline-0">
             {renderProductos}
             {renderEbikes}
@@ -198,11 +227,44 @@ function NavListMenu() {
 }
 
 function NavList() {
+  const anclasServicio = useRef(null);
+  const anclasShowrooms = useRef(null);
+  const anclasRecursos = useRef(null);
+  const anclaBlog = useRef(null);
+
+  useLayoutEffect(() => {
+    gsap.registerPlugin(ScrollTrigger);
+
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: document.documentElement,
+        start: "top+=130px",
+        end: "+=1",
+        toggleActions: "play none none reverse",
+        scrub: true,
+
+      },
+    });
+    tl.to(anclasServicio.current, {
+      color: "white",
+    });
+    tl.to(anclasShowrooms.current, {
+      color: "white",
+    });
+    tl.to(anclasRecursos.current, {
+      color: "white",
+    });
+    tl.to(anclaBlog.current, {
+      color: "white",
+    });
+  }, []);
+
   return (
     <List className="mb-6 mt-4 p-0 lg:mb-0 lg:mt-0 lg:flex-row lg:p-1">
       <NavListMenu />
       <Typography variant="small" color="[#111]" className="font-medium">
         <Link
+          ref={anclasServicio}
           className="inline-block w-auto items-center gap-2 rounded-[62px] px-3 py-2 text-base text-[#111] hover:bg-[#111] hover:text-white lg:flex"
           href="/servicios"
         >
@@ -211,6 +273,7 @@ function NavList() {
       </Typography>
       <Typography variant="small" color="[#111]" className="font-medium">
         <Link
+          ref={anclasShowrooms}
           href="/showrooms"
           className="inline-block w-auto items-center gap-2 rounded-[62px] px-3 py-2 text-base text-[#111] hover:bg-[#111] hover:text-white lg:flex"
         >
@@ -219,6 +282,7 @@ function NavList() {
       </Typography>
       <Typography variant="small" color="[#111]" className="font-medium">
         <Link
+          ref={anclasRecursos}
           className="inline-block w-auto items-center gap-2 rounded-[62px] px-3 py-2 text-base text-[#111] hover:bg-[#111] hover:text-white lg:flex"
           href="/recursos"
         >
@@ -227,6 +291,7 @@ function NavList() {
       </Typography>
       <Typography variant="small" color="[#111]" className="font-medium">
         <Link
+          ref={anclaBlog}
           className="inline-block w-auto items-center gap-2 rounded-[62px] px-4 py-2 text-base text-[#111] hover:bg-[#111] hover:text-white lg:flex"
           href="/blog"
         >
@@ -239,6 +304,25 @@ function NavList() {
 
 export function MegaMenu() {
   const [openNav, setOpenNav] = useState(false);
+  const navegacion = useRef(null);
+
+  useLayoutEffect(() => {
+    gsap.registerPlugin(ScrollTrigger);
+
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: document.documentElement,
+        start: "top+=130px",
+        end: "+=1",
+        toggleActions: "play none none reverse",
+        scrub: true,
+
+      },
+    });
+    tl.to(navegacion.current, {
+      background: "black",
+    });
+  }, []);
 
   useEffect(() => {
     window.addEventListener(
@@ -250,7 +334,7 @@ export function MegaMenu() {
   return (
     <Navbar className="mx-auto max-w-screen-xl px-4 py-2">
       <div className="text-[#111]-900 items-center justify-between lg:flex">
-        <div className="lg:block">
+        <div ref={navegacion} className="navegacion lg:block">
           <NavList />
         </div>
         <IconButton

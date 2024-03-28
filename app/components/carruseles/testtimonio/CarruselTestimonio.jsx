@@ -40,8 +40,8 @@ export const CarruselTestimonio = ({ clases, nombre, comentario, rate }) => {
                 </div>
               </div>
             </div>
-            <CarouselNext className="derecha -right-[4%] top-[18%] block lg:right-[50.2%] lg:top-[18%] 2xl:right-[25.8%]" />
-            <CarouselPrevious className="izquierda right-[5%] top-[18%] block lg:left-[45.5%] lg:top-[18%] 2xl:left-[66%]" />
+            <CarouselNext className="derecha -right-[4%] top-[18%] block lg:right-[50.2%] lg:top-[18%] 2xl:right-[26%]  2xl:top-[39%]" />
+            <CarouselPrevious className="izquierda right-[5%] top-[18%] block lg:left-[45.5%] lg:top-[18%] 2xl:left-[67%] 2xl:top-[39%]" />
             <CarouselContent
               className="marcador2"
               customClass="overflow-visible"

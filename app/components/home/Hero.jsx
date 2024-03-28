@@ -11,12 +11,12 @@ export const Hero = async () => {
   const hero = her[0].node.hero;
 
   return (
-    <div>
+    <div id="up">
       <MostarMarquee />
       <Header />
       <div className="p-4 lg:px-[100px]">
         <h1
-          className={`${manrope.className}  text-[40px] leading-[50px] text-[#111] lg:mt-[77px] lg:flex lg:text-[64px] lg:font-light	lg:tracking-wide 2xl:-ml-[5px] 2xl:text-[96px]`}
+          className={`${manrope.className}  text-[40px] leading-[50px] text-[#111] lg:mt-[77px] lg:flex lg:text-[64px] lg:font-light	lg:tracking-wide 2xl:-ml-[5px] 2xl:text-[96px] 2xl:mt-[115px]`}
         >
           {hero.titulo}
           <br></br>

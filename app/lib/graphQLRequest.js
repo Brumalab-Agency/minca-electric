@@ -602,6 +602,16 @@ export const ProductosWoocommerce = async () => {
               image {
                 mediaItemUrl
               }
+              ... on SimpleProduct {
+                id
+                name
+                galleryImages {
+                  nodes {
+                    altText
+                    mediaItemUrl
+                  }
+                }
+              }
             }
           }
         }
@@ -609,7 +619,6 @@ export const ProductosWoocommerce = async () => {
 
   try {
     const productos = await fetchGraphQL(query);
-    console.log(productos);
     return productos
   } catch (error) {
     console.error("Error fetching productosPrueba:", error);

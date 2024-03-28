@@ -6,6 +6,7 @@ import AddToCart from "../cart/AddToCart";
 import LightboxComponent from "../lightbox/LightboxComponent";
 import CheckIcon from "../svgSeleccion/CheckIcon";
 import XIcon from "../svgSeleccion/XIcon";
+import ReactImagenGalleryLupa from "../react-image-gallery/ReactImagenGalleryLupa";
 
 const AccesorioVariable = (item) => {
   const [selectedOptions, setSelectedOptions] = useState({
@@ -28,9 +29,6 @@ const AccesorioVariable = (item) => {
 
     const items = cascoMinca;
 
-    console.log(items);
-
-    console.log(cascoMinca);
     const [currentProductIndex, setCurrentProductIndex] = useState(1);
 
     const getSelectedVariation = (items, sizes, colors) => {
@@ -106,11 +104,10 @@ const AccesorioVariable = (item) => {
               display: index === currentProductIndex ? "block" : "none",
             }}
           >
-            <div className="EspecificacionesAccesorios Productos-VARIABLE mb-8">
-              <div className=" justify-between lg:flex lg:justify-center lg:px-[96px] lg:py-[70px]">
+            <div className="EspecificacionesAccesorios Productos-VARIABLE mb-8 p-4">
+              <div className=" justify-between lg:flex lg:justify-start lg:px-[75px] lg:py-[50px]">
                 {/* Accesorios */}
-                {console.log(item)}
-                <LightboxComponent item={item} />
+                <ReactImagenGalleryLupa items={items} />
                 <div className="lg:w-[50%]">
                   {/* Titulo y descripcion */}
                   <div className="flex justify-between">
@@ -118,8 +115,8 @@ const AccesorioVariable = (item) => {
                       <h2
                         className={`${manrope.className} mb-1 text-[24px] font-bold uppercase text-[#111111]  lg:text-[42px] lg:leading-[28px]`}
                       >
-                        {/* {item.name.slice(0, item.name.indexOf('-'))} */}
-                        {item.name}
+                        {item.name.slice(0, item.name.indexOf("-"))}
+                        {/* {item.name} */}
                       </h2>
                       <div className="flex items-center gap-3 lg:mt-6 lg:gap-4">
                         <div
@@ -145,7 +142,7 @@ const AccesorioVariable = (item) => {
                           {/* color negro L */}
                           <button
                             onClick={() => handleColorSelection("Negro")}
-                            className="colores  h-[37px] w-[37px] rounded-[50%] bg-[#111] text-white grid place-items-center relative"
+                            className="colores  relative grid h-[37px] w-[37px] place-items-center rounded-[50%] bg-[#111] text-white"
                           >
                             {selectedOptions.colors.includes("Negro") && (
                               <CheckIcon className=" right-0 top-0" />
@@ -154,7 +151,7 @@ const AccesorioVariable = (item) => {
                           {/* color azul M */}
                           <button
                             onClick={() => handleColorSelection("Azul")}
-                            className="colores  h-[37px] w-[37px] rounded-[50%] bg-[#242939] text-white grid place-items-center relative"
+                            className="colores  relative grid h-[37px] w-[37px] place-items-center rounded-[50%] bg-[#242939] text-white"
                           >
                             {selectedOptions.colors.includes("Azul") && (
                               <CheckIcon className=" right-0 top-0" />
