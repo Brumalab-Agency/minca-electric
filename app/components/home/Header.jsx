@@ -8,13 +8,11 @@ import { useContext, useState } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useLayoutEffect, useRef } from "react";
-
-
-
-
+import { useLenis } from "@studio-freight/react-lenis";
 
 export const Header = () => {
   const [cart, setCart] = useContext(AppContext);
+  const lenis = useLenis(({ scroll }) => {});
 
   const bgMenu = useRef(null);
   const menu = useRef(null);
@@ -31,15 +29,8 @@ export const Header = () => {
   useLayoutEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
 
-    
-
     gsap.set(bgMenu.current, {
       backgroundColor: "#000",
-      opacity: 0,
-    });
-
-    gsap.set(svg, {
-      xPercent: -100,
       opacity: 0,
     });
 
@@ -56,10 +47,11 @@ export const Header = () => {
       opacity: 1,
     });
 
-    /*  tl.to(svg.current, {
-      xPercent: 0,
-      opacity: 1
-    }); */
+    tl.to(svg.current, {
+      duration: 3,
+      y: -150,
+      delay: 5,
+    });
 
     tl.to(menu.current, {
       marginTop: "-38px",
@@ -97,21 +89,17 @@ export const Header = () => {
         start: "top+=130px",
         end: "+=1",
         toggleActions: "play none none reverse",
-        scrub: true,
+        scrub: 1,
       },
     });
 
-    tlSVG.to(svg.current, { opacity: 1, xPercent: 0, delay: 5 });
+    tlSVG.to(svg.current, { opacity: 1, y: 0, delay: 5 });
   }, []);
-
-  
-  
 
   return (
     <div ref={menu} className="z-50 h-auto w-full lg:fixed">
       <div className="relative flex items-center justify-between px-4 py-6 lg:justify-normal lg:gap-12 lg:px-[100px]">
         <div className="header-left flex h-auto w-[158px] items-center justify-between lg:flex-grow-0">
-          <Menumovil />
           <Link href="/">
             <Image
               ref={imgLogo}
@@ -148,7 +136,7 @@ export const Header = () => {
               </span>
             )}
           </Link>
-          <div className="">
+          <div className="carritoComprasMovil flex items-center justify-between gap-6">
             <Link
               href="/cart"
               className="carrito-movil relative block lg:hidden"
@@ -167,6 +155,11 @@ export const Header = () => {
                 </span>
               )}
             </Link>
+            <img
+              className="h-[20px] w-[3px] rounded-[52px] lg:hidden"
+              src="/Incon_megamenu/separador_menu_movil.png"
+            />
+            <Menumovil />
           </div>
           <p className="hidden lg:block">|</p>
           {/* Btn Contacto */}
@@ -182,14 +175,14 @@ export const Header = () => {
           >
             <Link href="/testdrive">Test Drive</Link>
           </button>
-          {/* <Link href="#up">
+          <button onClick={() => lenis.scrollTo("#up", { lerp: 0.07 })}>
             <img
               ref={svg}
-              className="svg"
+              className="svgIcon hidden lg:block"
               src="/menusticky/iconUp.svg"
               alt="up"
             />
-          </Link> */}
+          </button>
           {/* Avatar usuario */}
           {/* <Image
               placeholder="empty"

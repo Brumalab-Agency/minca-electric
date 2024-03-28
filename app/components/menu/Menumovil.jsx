@@ -16,10 +16,7 @@ export const Menumovil = () => {
     setOpen(false);
   };
   return (
-    <div className="block lg:hidden">
-      <button type="primary" onClick={showDrawer}>
-        <img src="/icono_menu.png"/>
-      </button>
+    <div className="block lg:hidden w-auto h-[33px]">
       <Drawer className={`${ubuntu.className}  text-8`} title="Menú" onClose={onClose} open={open}>
         <MegaMenu/>
         <div className='flex justify-evenly items-center mb-8'>
@@ -35,6 +32,9 @@ export const Menumovil = () => {
         </div>
         <BannerMenu/>
       </Drawer>
+      <button type="primary" onClick={showDrawer}>
+        <img className='w-[33px] h-auto' src="/Incon_megamenu/menu-icon.svg"/>
+      </button>
     </div>
   );
 };
