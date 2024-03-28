@@ -33,7 +33,7 @@ function NavListMenu() {
     const tl = gsap.timeline({
       scrollTrigger: {
         trigger: document.documentElement,
-        start: "top+=0px",
+        start: "top+=40px",
         end: "+=1",
         toggleActions: "play none none reverse",
         scrub: true,
@@ -238,7 +238,7 @@ function NavList() {
     const tl = gsap.timeline({
       scrollTrigger: {
         trigger: document.documentElement,
-        start: "top+=0px",
+        start: "top+=40px",
         end: "+=1",
         toggleActions: "play none none reverse",
         scrub: true,
@@ -312,7 +312,7 @@ export function MegaMenu() {
     const tl = gsap.timeline({
       scrollTrigger: {
         trigger: document.documentElement,
-        start: "top+=0px",
+        start: "top+=40px",
         end: "+=1",
         toggleActions: "play none none reverse",
         scrub: true,

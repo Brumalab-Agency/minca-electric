@@ -36,7 +36,7 @@ export const Header = () => {
 
     const tl = gsap.timeline({
       scrollTrigger: {
-        start: "top+=0px",
+        start: "top+=40px",
         end: "+=1",
         toggleActions: "play none none reverse",
         scrub: true,
