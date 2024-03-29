@@ -6,13 +6,15 @@ import { Section5 } from "@/components/sigle-product/Section5";
 import { HotSpot } from "@/components/sigle-product/HotSpot";
 import { PuedeInteresarte } from "@/components/sigle-product/PuedeInteresarte";
 import { Footer } from "@/components/home/Footer";
-import { HeroVideoSingleProduct } from "@/components/reusable/HeroVideoSingleProduct";
 import { CarruselAccesorios } from "@/components/carruseles/accesorios/CarruselAccesorios";
 import { SingleProductos } from "@/lib/graphQLRequest";
 import { HeroContextBreadCrumb } from "@/components/reusable/HeroContextBreadCrumb";
 import { StickyScrollRevealDemo } from "@/components/financiamientoflexible/StickyScrollRevealDemo";
 import { LayoutGridInfo } from "@/components/layoutgrid/LayoutGridInfo";
 import { CardHoverEffect } from "@/components/cardhovereffect/CardHoverEffect";
+import { HeroVideoSingleCarsProduct } from "@/components/reusable/HeroVideoSingleCardProduct";
+import { AcordionSingleProduct } from "@/components/reusable/AcordionSingleProduct";
+import ReactImagenGallery from "@/components/react-image-gallery/ReactImagenGallery";
 
 export const metadata = {
   title: "Productos",
@@ -30,7 +32,7 @@ const SingleProduct = async ({ params }) => {
   return (
     <>
       <HeroContextBreadCrumb titulo="MINCA" tituloNegrita="SCOOTERS" />
-      <HeroVideoSingleProduct
+      <HeroVideoSingleCarsProduct
         titulo="Last Mile"
         tituloSecundarioNegrita="mODE"
         urlVideo={scooters.edges[0].node.sliderProductos.videoBannerArchivo.mediaItemUrl}
@@ -44,10 +46,12 @@ const SingleProduct = async ({ params }) => {
       <LayoutGridInfo/>
       {/* <Section4 /> */}
       <CardHoverEffect/>
+      <ReactImagenGallery/>
       <Section5 />
       <HotSpot scooters={scooters} />
       <PuedeInteresarte />
       <CarruselAccesorios />
+      <AcordionSingleProduct/>
       <Footer />
     </>
   );

@@ -5,7 +5,6 @@ import {
 } from "@/lib/graphQLRequest";
 import AddToCart from "../cart/AddToCart";
 import { BtnQty } from "./BtnQty";
-import LightboxComponent from "../lightbox/LightboxComponent";
 import AccesorioVariable from "../accesorios/AccesorioVariable";
 import ReactImagenGalleryLupa from "../react-image-gallery/ReactImagenGalleryLupa";
 
@@ -56,7 +55,6 @@ export const EspecificacionesAccesorios = async (accesorios) => {
       <div className="EspecificacionesAccesorios Productos-SIMPLES mb-8">
         <div className=" justify-between lg:flex lg:justify-start lg:px-[75px] lg:py-[50px] p-4">
           {/* Accesorios */}
-          {/* <LightboxComponent item={item} /> */}
           <ReactImagenGalleryLupa items={items[0]} />
           <div className="lg:w-[50%]">
             {/* Titulo y descripcion */}

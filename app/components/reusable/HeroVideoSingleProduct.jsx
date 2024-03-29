@@ -1,51 +1,43 @@
 import { getBanner } from "@/lib/graphQLRequest";
-import { ubuntu } from "@/ui/fonts";
-import CardHeroSingleScooter from "../singlescooter/CardHeroSingleScooter";
+import Image from "next/image";
+import { manrope } from "@/ui/fonts";
 
-export const HeroVideoSingleProduct = async ({
-  titulo,
-  tituloSecundarioNegrita,
-  urlVideo,
-  clases,
-  scooters,
-}) => {
+export const HeroVideoSingleProduct = async ({titulo, tituloSecundarioNegrita, urlVideo, clases}) => {
   const banner = await getBanner();
   return (
     <div className="heroVideo relative ">
       <div className="">
         {/* PC */}
-        <video
-          className="top-0 hidden h-[700px] w-full object-cover  lg:block"
-          src={urlVideo}
-          autoPlay
-          muted
-          loop
-        />
+        <video className="hidden lg:block w-full h-[663px] object-cover  top-0" src={urlVideo} autoPlay muted loop />
 
         {/* Movil */}
-        <video
-          className="top-0 h-[400px] w-full object-cover  lg:hidden"
-          src={urlVideo}
-          autoPlay
-          muted
-          loop
-        />
+        <video className="lg:hidden w-full h-[400px] object-cover  top-0" src={urlVideo} autoPlay muted loop />
       </div>
-      <div className="overlay absolute top-0 flex h-full w-full flex-col items-center justify-between bg-[#111]/50 p-4 lg:h-[700px] lg:flex-row lg:px-[100px]">
-        <div className="flex w-full flex-col  justify-end h-[45%] lg:h-[90%] lg:w-[50%]">
-          <p
-            className={`${ubuntu.className} lg:text-center text-[14px] text-white w-[73%] lg:w-full`}
+      <div className="overlay h-[400px] w-full bg-[#111]/50 absolute top-0 flex flex-col items-start justify-center p-4 lg:h-[663px] lg:px-[100px]">
+        <div className="lg:flex lg:justify-between lg:w-full">
+          <div
+            className={`${manrope.className}  text-[50px] text-white grid lg:text-[90px]`}
           >
-            El valor final de la scooter no incluye accesorios ni mantenimiento
-            preventivo*
-          </p>
+            <div className="flex flex-col justify-center items-start">
+              <span className="font-light capitalize">
+                {titulo}
+              </span>
+              <span className={`-mt-6 font-bold lg:-mt-8 uppercase ${clases}`}>
+                {tituloSecundarioNegrita}
+              </span>
+            </div>
+          </div>
+          <div>
+            <Image
+            placeholder = 'empty'
+              alt="publicidad"
+              className="hidden lg:block"
+              src="/Logo líneas - Minca Electric.png"
+              width={390}
+              height={400}
+            />
+          </div>
         </div>
-        <div className="lg:grid h-auto w-full place-items-center hidden lg:w-[50%]">
-          <CardHeroSingleScooter scooters={scooters} />
-        </div>
-      </div>
-      <div className="lg:hidden">
-        <CardHeroSingleScooter scooters={scooters} />
       </div>
     </div>
   );

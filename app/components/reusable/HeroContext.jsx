@@ -4,7 +4,7 @@ import { manrope, ubuntu } from "@/ui/fonts";
 
 export const HeroContext = async ({ titulo, tituloNegrita, ocultar }) => {
   return (
-    <div>
+    <div id="up">
       <Header />
       <div className="p-4 lg:px-[100px]">
         <h1
