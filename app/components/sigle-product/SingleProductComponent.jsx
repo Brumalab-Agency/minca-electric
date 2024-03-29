@@ -6,10 +6,11 @@ import Link from "next/link";
 import Modal3d from "../modal3d/Modal3d";
 
 export const SingleProductComponent = ({ scooters }) => {
-  console.log(scooters);
   const productosScooters = scooters;
 
+
   const items = productosScooters.edges;
+
 
   return (
     <div className="carrusel h-auto w-full">
@@ -35,6 +36,7 @@ export const SingleProductComponent = ({ scooters }) => {
           <div>
             <div className="flex justify-between">
               <div className="flex flex-col justify-center">
+                <small className={`${manrope.className} text-base font-medium`}>{item.node.sliderProductos.anoVersion}</small>
                 <h2
                   className={`${manrope.className} mb-1 text-[16px] font-bold uppercase text-[#111111]  lg:text-[42px] lg:leading-[35px]`}
                 >

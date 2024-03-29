@@ -3,7 +3,7 @@ import { manrope, ubuntu } from "../../ui/fonts";
 import { getHero } from "../../lib/graphQLRequest";
 import { HeroImagen } from "./HeroImagen";
 import SpiningText from "./SpiningText";
-import MostarMarquee from "./MostarMarquee";
+
 import { Anclaje } from "./Anclaje";
 
 export const Hero = async () => {
@@ -12,11 +12,11 @@ export const Hero = async () => {
 
   return (
     <div id="up">
-      <MostarMarquee />
+  
       <Header />
       <div className="p-4 lg:px-[100px]">
         <h1
-          className={`${manrope.className}  text-[40px] leading-[50px] text-[#111] lg:mt-[77px] lg:flex lg:text-[64px] lg:font-light	lg:tracking-wide 2xl:-ml-[5px] 2xl:text-[96px] 2xl:mt-[115px]`}
+          className={`${manrope.className}  text-[40px] leading-[50px] text-[#111] lg:mt-[175px] lg:flex lg:text-[64px] lg:font-light	lg:tracking-wide 2xl:-ml-[5px] 2xl:text-[96px] 2xl:mt-[200px]`}
         >
           {hero.titulo}
           <br></br>

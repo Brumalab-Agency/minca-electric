@@ -33,7 +33,7 @@ const MostrarBanner = () => {
 
 
   return (
-    <div ref={referencia} className="bg-black text-white">
+    <div ref={referencia} className="bg-black text-white border-b-[1px] border-white">
       <div ref={parent}>
           {loading ? (
             <SkeletonBanner />

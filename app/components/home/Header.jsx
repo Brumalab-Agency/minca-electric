@@ -9,6 +9,8 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useLayoutEffect, useRef } from "react";
 import { useLenis } from "@studio-freight/react-lenis";
+import { TimelineLite } from "gsap/gsap-core";
+import MostarMarquee from "./MostarMarquee";
 
 export const Header = () => {
   const [cart, setCart] = useContext(AppContext);
@@ -40,23 +42,29 @@ export const Header = () => {
         end: "+=1",
         toggleActions: "play none none reverse",
         scrub: true,
-        markers: true
+        markers: false
       },
     });
+
+    /* const tl = new TimelineLite({
+      onStartParams: ['start'],
+      onComplete:
+    }) */
 
     tl.to(bgMenu.current, {
       opacity: 1,
     });
 
     tl.to(svg.current, {
+      display: 'none',
       duration: 3,
       y: -150,
       delay: 5,
     });
 
-    tl.to(menu.current, {
+    /* tl.to(menu.current, {
       marginTop: "-38px",
-    });
+    }); */
     tl.to(imgLogo.current, {
       filter:
         "invert(100%) sepia(0%) saturate(7500%) hue-rotate(67deg) brightness(109%) contrast(109%)",
@@ -94,13 +102,14 @@ export const Header = () => {
       },
     });
 
-    tlSVG.to(svg.current, { opacity: 1, y: 0, delay: 5 });
+    tlSVG.to(svg.current, { display: 'block', opacity: 1, y: 0 });
   }, []);
 
   return (
     <div ref={menu} className="z-50 h-auto w-full lg:fixed">
+      <MostarMarquee />
       <div className="relative flex items-center justify-between px-4 py-6 lg:justify-normal lg:gap-12 lg:px-[100px]">
-        <div className="header-left flex h-auto w-[158px] items-center justify-between lg:flex-grow-0">
+        <div className="header-left flex h-auto w-[115px] items-center justify-between lg:flex-grow-0">
           <Link href="/">
             <Image
               ref={imgLogo}
@@ -176,10 +185,10 @@ export const Header = () => {
           >
             <Link href="/testdrive">Test Drive</Link>
           </button>
-          <button onClick={() => lenis.scrollTo("#up", { lerp: 0.07 })}>
+          <button ref={svg} className="hidden" onClick={() => lenis.scrollTo("#up", { lerp: 0.07 })}>
             <img
-              ref={svg}
-              className="svgIcon hidden lg:block"
+              
+              className="svgIcon"
               src="/menusticky/iconUp.svg"
               alt="up"
             />

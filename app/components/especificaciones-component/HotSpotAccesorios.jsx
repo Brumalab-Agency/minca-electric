@@ -31,8 +31,8 @@ export const HotSpotAccesorios = () => {
         className="btn-pulse markers -left-[3%] top-[2%] col-span-1 row-span-1 w-auto lg:top-[13%] lg:left-[24%] 2xl:top-[13%] 2xl:left-[45%]"
         style={{ gridColumn: "4 / 12", gridRow: "3 / 12" }}
       >
-        <div class="marker__card bottom-[4px] z-50 rounded-[62px] bg-[#111] px-[15px] py-[5px] lg:-right-[4px]">
-          <p class="marker__card__title text-nowrap text-white">
+        <div className="marker__card bottom-[4px] z-50 rounded-[62px] bg-[#111] px-[15px] py-[5px] lg:-right-[4px]">
+          <p className="marker__card__title text-nowrap text-white">
             {markers.hotspot1.title}
           </p>
         </div>
@@ -45,8 +45,8 @@ export const HotSpotAccesorios = () => {
         className="btn-pulse markers left-[59%] top-[2%] col-span-1 row-span-1 w-auto lg:top-[13%] lg:left-[48%] 2xl:top-[13%] 2xl:left-[28%]"
         style={{ gridColumn: "4 / 12", gridRow: "3 / 12" }}
       >
-        <div class="marker__card bottom-[4px] z-50 rounded-[62px] bg-[#111] px-[15px] py-[5px] lg:-right-[4px]">
-          <p class="marker__card__title text-nowrap text-white">
+        <div className="marker__card bottom-[4px] z-50 rounded-[62px] bg-[#111] px-[15px] py-[5px] lg:-right-[4px]">
+          <p className="marker__card__title text-nowrap text-white">
             {markers.hotspot2.title}
           </p>
         </div>
@@ -59,8 +59,8 @@ export const HotSpotAccesorios = () => {
         className="btn-pulse markers left-[59%] top-[40%] col-span-1 row-span-1 w-auto lg:top-[43%] lg:left-[48%] 2xl:top-[40%] 2xl:left-[42%]"
         style={{ gridColumn: "4 / 12", gridRow: "3 / 12" }}
       >
-        <div class="marker__card bottom-[4px] z-50 rounded-[62px] bg-[#111] px-[15px] py-[5px] lg:-right-[4px]">
-          <p class="marker__card__title text-nowrap text-white">
+        <div className="marker__card bottom-[4px] z-50 rounded-[62px] bg-[#111] px-[15px] py-[5px] lg:-right-[4px]">
+          <p className="marker__card__title text-nowrap text-white">
             {markers.hotspot3.title}
           </p>
         </div>

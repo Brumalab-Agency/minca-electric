@@ -37,7 +37,7 @@ function NavListMenu() {
         end: "+=1",
         toggleActions: "play none none reverse",
         scrub: true,
-        markers: true,
+        markers: false,
       },
     });
     const anclaProductosElement = anclaProductos.current;
@@ -85,7 +85,7 @@ function NavListMenu() {
           <div>
             <Typography
               variant="h6"
-              color="[#111]"
+              color="black"
               className="flex items-center text-base font-bold leading-[80px] text-[#111]"
             >
               {title}
@@ -116,7 +116,7 @@ function NavListMenu() {
           <div>
             <Typography
               variant="h6"
-              color="[#111]"
+              color="black"
               className="flex items-center text-base font-bold leading-[80px] text-[#111]"
             >
               {title}
@@ -147,7 +147,7 @@ function NavListMenu() {
           <div>
             <Typography
               variant="h6"
-              color="[#111]"
+              color="black"
               className="flex items-center text-base font-bold leading-[80px] text-[#111]"
             >
               {title}
@@ -242,7 +242,7 @@ function NavList() {
         end: "+=1",
         toggleActions: "play none none reverse",
         scrub: true,
-        markers: true,
+        markers: false,
       },
     });
     tl.to(anclasServicio.current, {
@@ -262,7 +262,7 @@ function NavList() {
   return (
     <List className="mb-6 mt-4 p-0 lg:mb-0 lg:mt-0 lg:flex-row lg:p-1">
       <NavListMenu />
-      <Typography variant="small" color="[#111]" className="font-medium">
+      <Typography variant="small" color="black" className="font-medium">
         <Link
           ref={anclasServicio}
           className="inline-block w-auto items-center gap-2 rounded-[62px] px-3 py-2 text-base text-[#111] hover:bg-[#111] hover:text-white lg:flex"
@@ -271,7 +271,7 @@ function NavList() {
           Servicio técnico
         </Link>
       </Typography>
-      <Typography variant="small" color="[#111]" className="font-medium">
+      <Typography variant="small" color="black" className="font-medium">
         <Link
           ref={anclasShowrooms}
           href="/showrooms"
@@ -280,7 +280,7 @@ function NavList() {
           Showrooms
         </Link>
       </Typography>
-      <Typography variant="small" color="[#111]" className="font-medium">
+      <Typography variant="small" color="black" className="font-medium">
         <Link
           ref={anclasRecursos}
           className="inline-block w-auto items-center gap-2 rounded-[62px] px-3 py-2 text-base text-[#111] hover:bg-[#111] hover:text-white lg:flex"
@@ -289,7 +289,7 @@ function NavList() {
           Recursos
         </Link>
       </Typography>
-      <Typography variant="small" color="[#111]" className="font-medium">
+      <Typography variant="small" color="black" className="font-medium">
         <Link
           ref={anclaBlog}
           className="inline-block w-auto items-center gap-2 rounded-[62px] px-4 py-2 text-base text-[#111] hover:bg-[#111] hover:text-white lg:flex"
@@ -316,7 +316,7 @@ export function MegaMenu() {
         end: "+=1",
         toggleActions: "play none none reverse",
         scrub: true,
-        markers: true,
+        markers: false,
       },
     });
     tl.to(navegacion.current, {
@@ -334,12 +334,12 @@ export function MegaMenu() {
   return (
     <Navbar className="mx-auto max-w-screen-xl px-4 py-2">
       <div className="text-[#111]-900 items-center justify-between lg:flex">
-        <div ref={navegacion} className="navegacion lg:block">
+        <div ref={navegacion} className="navegacion lg:flex">
           <NavList />
         </div>
         <IconButton
           variant="text"
-          color="[#111]"
+          color="black"
           className="lg:hidden"
           onClick={() => setOpenNav(!openNav)}
         >

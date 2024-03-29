@@ -1,6 +1,5 @@
 import { getBanner } from "@/lib/graphQLRequest";
-import Image from "next/image";
-import { manrope } from "@/ui/fonts";
+import { ubuntu } from "@/ui/fonts";
 import CardHeroSingleScooter from "../singlescooter/CardHeroSingleScooter";
 
 export const HeroVideoSingleProduct = async ({
@@ -16,7 +15,7 @@ export const HeroVideoSingleProduct = async ({
       <div className="">
         {/* PC */}
         <video
-          className="top-0 hidden h-[663px] w-full object-cover  lg:block"
+          className="top-0 hidden h-[700px] w-full object-cover  lg:block"
           src={urlVideo}
           autoPlay
           muted
@@ -32,11 +31,21 @@ export const HeroVideoSingleProduct = async ({
           loop
         />
       </div>
-      <div className="overlay absolute top-0 flex h-[400px] w-full items-center justify-between bg-[#111]/50 p-4 lg:h-[663px] lg:px-[100px]">
-        <div className="h-[400px] w-[50%] bg-green-600"></div>
-        <div className="h-auto w-[50%] grid place-items-center">
+      <div className="overlay absolute top-0 flex h-full w-full flex-col items-center justify-between bg-[#111]/50 p-4 lg:h-[700px] lg:flex-row lg:px-[100px]">
+        <div className="flex w-full flex-col  justify-end h-[45%] lg:h-[90%] lg:w-[50%]">
+          <p
+            className={`${ubuntu.className} lg:text-center text-[14px] text-white w-[73%] lg:w-full`}
+          >
+            El valor final de la scooter no incluye accesorios ni mantenimiento
+            preventivo*
+          </p>
+        </div>
+        <div className="lg:grid h-auto w-full place-items-center hidden lg:w-[50%]">
           <CardHeroSingleScooter scooters={scooters} />
         </div>
+      </div>
+      <div className="lg:hidden">
+        <CardHeroSingleScooter scooters={scooters} />
       </div>
     </div>
   );

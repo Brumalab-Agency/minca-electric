@@ -1,10 +1,10 @@
 "use client"
-import { Tooltip, Button } from "@material-tailwind/react"; 
+import { Tooltip } from "@material-tailwind/react"; 
 
-const TooltipScooter = () => {
+const TooltipScooter = ({tooltips}) => {
   return (
     <>
-      <Tooltip content="Lorem Ipsun">
+      <Tooltip content={tooltips}>
         <img src="/sigleProduct/tooltips_icon.png" alt="tooltips icon"/>
       </Tooltip>
     </>

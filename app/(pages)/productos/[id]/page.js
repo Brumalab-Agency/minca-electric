@@ -10,6 +10,9 @@ import { HeroVideoSingleProduct } from "@/components/reusable/HeroVideoSinglePro
 import { CarruselAccesorios } from "@/components/carruseles/accesorios/CarruselAccesorios";
 import { SingleProductos } from "@/lib/graphQLRequest";
 import { HeroContextBreadCrumb } from "@/components/reusable/HeroContextBreadCrumb";
+import { StickyScrollRevealDemo } from "@/components/financiamientoflexible/StickyScrollRevealDemo";
+import { LayoutGridInfo } from "@/components/layoutgrid/LayoutGridInfo";
+import { CardHoverEffect } from "@/components/cardhovereffect/CardHoverEffect";
 
 export const metadata = {
   title: "Productos",
@@ -24,7 +27,6 @@ const SingleProduct = async ({ params }) => {
  
   const { id } = params;
   const scooters = await SingleProductos(decodeURIComponent(id));
-  console.log(scooters);
   return (
     <>
       <HeroContextBreadCrumb titulo="MINCA" tituloNegrita="SCOOTERS" />
@@ -35,9 +37,13 @@ const SingleProduct = async ({ params }) => {
         scooters={scooters}
       />
       <SingleProductComponent scooters={scooters} />
-      <CarruselSingleProduct />
-      <Section3 />
-      <Section4 />
+      {/* <FinanciamientoFlexible/> */}
+      {/* <CarruselSingleProduct /> */}
+      <StickyScrollRevealDemo/>
+      {/* <Section3 /> */}
+      <LayoutGridInfo/>
+      {/* <Section4 /> */}
+      <CardHoverEffect/>
       <Section5 />
       <HotSpot scooters={scooters} />
       <PuedeInteresarte />

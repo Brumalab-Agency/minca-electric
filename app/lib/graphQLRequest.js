@@ -232,11 +232,12 @@ Scooters()
 export const SingleProductos = async (name) => {
   const query = `
         query SingleProductos {
-          sliderProducts(where: {name: "${name}"}) {
+          sliderProducts(where: {name: "Minca 350W"}) {
             edges {
               node {
                 sliderProductos {
                   ampere
+                  anoVersion
                   bateria
                   description
                   descuento
@@ -289,6 +290,16 @@ export const SingleProductos = async (name) => {
                     mediaItemUrl
                   }
                   url3d
+                  cuponIntermedia
+                  cuponNombre
+                  cuponTitulo1
+                  cuponTitulo2
+                  cuponImg {
+                    id
+                    altText
+                    mediaItemUrl
+                  }
+                  tooltips
                 }
                 contentType {
                   node {
