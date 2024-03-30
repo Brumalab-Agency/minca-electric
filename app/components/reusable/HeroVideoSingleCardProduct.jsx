@@ -1,6 +1,7 @@
 import { getBanner } from "@/lib/graphQLRequest";
 import { ubuntu } from "@/ui/fonts";
 import CardHeroSingleScooter from "../singlescooter/CardHeroSingleScooter";
+import Image from "next/image";
 
 export const HeroVideoSingleCarsProduct = ({urlVideo, scooters, }) => {
   console.log(urlVideo.videoImgBannerMovil.mediaItemUrl);
@@ -19,11 +20,21 @@ export const HeroVideoSingleCarsProduct = ({urlVideo, scooters, }) => {
           loop
         /> */}
 
-        <img
+        {/* <img
         className="top-0 hidden h-[700px] w-full object-cover  lg:block"
         src={urlVideo.videoImgBannerPc.mediaItemUrl}
         alt="Imagen"
 
+        /> */}
+        <Image
+          className="top-0 hidden h-[700px] w-full object-cover  lg:block"
+          placeholder="empty"
+          alt="imagen banner"
+          src={urlVideo.videoImgBannerPc.mediaItemUrl}
+          priority={true}
+          width={390}
+          height={400}
+          style={{ objectFit: "cover" }}
         />
 
 
@@ -37,15 +48,25 @@ export const HeroVideoSingleCarsProduct = ({urlVideo, scooters, }) => {
           loop
         /> */}
     
-        <img
+        {/* <img
           className="top-0 h-[700px] w-full object-cover  lg:hidden"
           src={urlVideo.videoImgBannerMovil.mediaItemUrl}
           alt="Imagen"
+        /> */}
+        <Image
+          className="top-0 h-[700px] w-full object-cover  lg:hidden"
+          placeholder="empty"
+          alt="imagen banner"
+          src={urlVideo.videoImgBannerMovil.mediaItemUrl}
+          priority={true}
+          width={390}
+          height={400}
+          style={{ objectFit: "cover" }}
         />
      
     </div>
       <div className="overlay absolute top-0 flex h-full w-full flex-col items-center justify-between bg-[#111]/50 p-4 lg:h-[700px] lg:flex-row lg:px-[100px]">
-        <div className="flex w-full flex-col  justify-end h-[45%] lg:h-[90%] lg:w-[50%]">
+        <div className="flex w-full flex-col  justify-end h-[58%] lg:h-[90%] lg:w-[50%]">
           <p
             className={`${ubuntu.className} lg:text-center text-[14px] text-white w-[73%] lg:w-full`}
           >
