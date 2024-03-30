@@ -31,7 +31,7 @@ const SingleProduct = async ({ params }) => {
  
   const { id } = params;
   const scooters = await SingleProductos(decodeURIComponent(id));
-  console.log(scooters);
+  
 
   return (
     <>
@@ -51,7 +51,7 @@ const SingleProduct = async ({ params }) => {
       <LayoutGridInfo/>
       {/* <Section4 /> */}
       <CardHoverEffect/>
-      <ReactImagenGallery/>
+      <ReactImagenGallery scooters={scooters}/>
       <Section5 />
       <HotSpot scooters={scooters} />
       <PuedeInteresarte />
