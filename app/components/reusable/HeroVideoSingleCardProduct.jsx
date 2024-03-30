@@ -3,15 +3,14 @@ import { ubuntu } from "@/ui/fonts";
 import CardHeroSingleScooter from "../singlescooter/CardHeroSingleScooter";
 
 export const HeroVideoSingleCarsProduct = async ({
-  titulo,
-  tituloSecundarioNegrita,
+
   urlVideo,
-  clases,
+
   scooters,
 }) => {
   const banner = await getBanner();
   return (
-    <div className="heroVideo relative ">
+    <div id="up" className="heroVideo relative mt-[150px]">
       <div className="">
         {/* PC */}
         <video

@@ -15,6 +15,7 @@ import { CardHoverEffect } from "@/components/cardhovereffect/CardHoverEffect";
 import { HeroVideoSingleCarsProduct } from "@/components/reusable/HeroVideoSingleCardProduct";
 import { AcordionSingleProduct } from "@/components/reusable/AcordionSingleProduct";
 import ReactImagenGallery from "@/components/react-image-gallery/ReactImagenGallery";
+import { HeaderSingleProducts } from "@/components/home/HeaderSingleProducts";
 
 export const metadata = {
   title: "Productos",
@@ -31,8 +32,8 @@ const SingleProduct = async ({ params }) => {
   const scooters = await SingleProductos(decodeURIComponent(id));
   return (
     <>
-      <HeroContextBreadCrumb titulo="MINCA" tituloNegrita="SCOOTERS" />
-      <HeroVideoSingleCarsProduct
+    <HeaderSingleProducts/>
+        <HeroVideoSingleCarsProduct
         titulo="Last Mile"
         tituloSecundarioNegrita="mODE"
         urlVideo={scooters.edges[0].node.sliderProductos.videoBannerArchivo.mediaItemUrl}
@@ -41,7 +42,7 @@ const SingleProduct = async ({ params }) => {
       <SingleProductComponent scooters={scooters} />
       {/* <FinanciamientoFlexible/> */}
       {/* <CarruselSingleProduct /> */}
-      <StickyScrollRevealDemo/>
+      {/* <StickyScrollRevealDemo/> */}
       {/* <Section3 /> */}
       <LayoutGridInfo/>
       {/* <Section4 /> */}
