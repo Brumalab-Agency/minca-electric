@@ -38,7 +38,7 @@ const SingleProduct = async ({ params }) => {
     <HeaderSingleProducts/>
         <HeroVideoSingleCarsProduct
         titulo="Last Mile"
-        tituloSecundarioNegrita="mODE"
+        tituloSecundarioNegrita="MODE"
         urlVideo={scooters.edges[0].node.sliderProductos}
         scooters={scooters}
       />

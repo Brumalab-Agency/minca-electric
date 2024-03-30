@@ -4,9 +4,21 @@ import CardHeroSingleScooter from "../singlescooter/CardHeroSingleScooter";
 import Image from "next/image";
 
 export const HeroVideoSingleCarsProduct = ({urlVideo, scooters, }) => {
+  let cambioOverlay;
+  let cambioOverlayText;
   console.log(urlVideo.videoImgBannerMovil.mediaItemUrl);
  
-  
+  console.log(scooters);
+  console.log(scooters.edges[0].node.sliderProductos.nombreProducto);
+
+  cambioOverlay = scooters.edges[0].node.sliderProductos.nombreProducto
+
+  cambioOverlay = cambioOverlay === "Minca 350W" ? " bg-[#111]/0" : " bg-[#111]/50";
+
+
+  cambioOverlayText = cambioOverlay === " bg-[#111]/0" ? " text-black/50" : " text-white";
+ console.log(cambioOverlayText);
+
   return (
     <div id="up" className="heroVideo relative lg:mt-[150px]">
       <div className="">
@@ -65,10 +77,10 @@ export const HeroVideoSingleCarsProduct = ({urlVideo, scooters, }) => {
         />
      
     </div>
-      <div className="overlay absolute top-0 flex h-full w-full flex-col items-center justify-between bg-[#111]/50 p-4 lg:h-[700px] lg:flex-row lg:px-[100px]">
-        <div className="flex w-full flex-col  justify-end h-[58%] lg:h-[90%] lg:w-[50%]">
+    <div className={`overlay absolute top-0 flex h-full w-full flex-col items-center justify-between bg-[#111] ${cambioOverlay} p-4 lg:h-[700px] lg:flex-row lg:px-[100px]`}>
+        <div className="flex w-full flex-col  justify-end h-[58%] lg:h-[90%] lg:w-[50%]"> 
           <p
-            className={`${ubuntu.className} lg:text-center text-[14px] text-white w-[73%] lg:w-full`}
+            className={`${ubuntu.className} lg:text-center  text-[14px] ${cambioOverlayText} w-[73%] lg:w-full`}
           >
             El valor final de la scooter no incluye accesorios ni mantenimiento
             preventivo*
