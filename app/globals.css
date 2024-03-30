@@ -632,3 +632,10 @@ img.image-gallery-thumbnail-image {
   width: 100%;
   object-fit: cover;
 }
+
+
+/* Overlay de abajo hacia arriba en transparente singleProduct */
+
+.overlaySingleProduct {
+  background: linear-gradient(to top, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
+}
