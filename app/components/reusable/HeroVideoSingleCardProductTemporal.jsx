@@ -2,46 +2,46 @@ import { getBanner } from "@/lib/graphQLRequest";
 import { ubuntu } from "@/ui/fonts";
 import CardHeroSingleScooter from "../singlescooter/CardHeroSingleScooter";
 
-export const HeroVideoSingleCarsProduct = ({urlVideo, scooters, }) => {
-  console.log(urlVideo.videoImgBannerMovil.mediaItemUrl);
+export const HeroVideoSingleCardProductTemporal = ({urlVideo, scooters, }) => {
+  console.log(urlVideo);
  
-  
+  console.log(scooters);
   return (
     <div id="up" className="heroVideo relative lg:mt-[150px]">
       <div className="">
       {/* PC */}
 
-        {/* <video
+        <video
           className="top-0 hidden h-[700px] w-full object-cover  lg:block"
-          src={urlVideo}
+          src={urlVideo.videoImgBannerPcTemporal.mediaItemUrl}
           autoPlay
           muted
           loop
-        /> */}
+        />
 
-        <img
+       {/*  <img
         className="top-0 hidden h-[700px] w-full object-cover  lg:block"
         src={urlVideo.videoImgBannerPc.mediaItemUrl}
         alt="Imagen"
 
-        />
+        /> */}
 
 
       {/* Movil */}
      
-        {/* <video
+        <video
           className="top-0 h-[400px] w-full object-cover  lg:hidden"
-          src={urlVideo}
+          src={urlVideo.videoImgBannerMovilTemporal.mediaItemUrl}
           autoPlay
           muted
           loop
-        /> */}
+        />
     
-        <img
+        {/* <img
           className="top-0 h-[700px] w-full object-cover  lg:hidden"
           src={urlVideo.videoImgBannerMovil.mediaItemUrl}
           alt="Imagen"
-        />
+        /> */}
      
     </div>
       <div className="overlay absolute top-0 flex h-full w-full flex-col items-center justify-between bg-[#111]/50 p-4 lg:h-[700px] lg:flex-row lg:px-[100px]">

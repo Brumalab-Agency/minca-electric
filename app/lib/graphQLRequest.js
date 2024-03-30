@@ -231,85 +231,98 @@ Scooters()
 
 export const SingleProductos = async (name) => {
   const query = `
-        query SingleProductos {
-          sliderProducts(where: {name: "${name}"}) {
-            edges {
-              node {
-                sliderProductos {
-                  ampere
-                  anoVersion
-                  bateria
-                  description
-                  descuento
-                  distancia
-                  fieldGroupName
-                  kg
-                  km
-                  kmh
-                  llanta
-                  motor
-                  nombreProducto
-                  peso
-                  pesoMaximo
-                  precioActual
-                  precioRebajado
-                  pulgadas
-                  slogan
-                  subtitulo
-                  tipo
-                  tipoAutonomia
-                  tipoBrushless
-                  vatios
-                  velocidadMaxima
-                  velocidadNum
-                  frenos
-                  tipofrenos
-                  imagen {
-                    altText
-                    sourceUrl
-                    id
-                  }
-                  frenosNulo
-                  pesoSc
-                  tpeso
-                  kgPesoScooter
-                  tipoRodamiento
-                  foto1 {
-                    altText
-                    sourceUrl
-                  }
-                  foto2 {
-                    mediaItemUrl
-                    altText
-                  }
-                  foto3 {
-                    altText
-                    mediaItemUrl
-                  }
-                  videoBannerArchivo {
-                    mediaItemUrl
-                  }
-                  url3d
-                  cuponIntermedia
-                  cuponNombre
-                  cuponTitulo1
-                  cuponTitulo2
-                  cuponImg {
-                    id
-                    altText
-                    mediaItemUrl
-                  }
-                  tooltips
-                }
-                contentType {
-                  node {
-                    id
-                  }
-                }
-              }
+  query SingleProductos {
+    sliderProducts(where: {name: "Minca 350W"}) {
+      edges {
+        node {
+          sliderProductos {
+            ampere
+            anoVersion
+            bateria
+            description
+            descuento
+            distancia
+            fieldGroupName
+            kg
+            km
+            kmh
+            llanta
+            motor
+            nombreProducto
+            peso
+            pesoMaximo
+            precioActual
+            precioRebajado
+            pulgadas
+            slogan
+            subtitulo
+            tipo
+            tipoAutonomia
+            tipoBrushless
+            vatios
+            velocidadMaxima
+            velocidadNum
+            frenos
+            tipofrenos
+            imagen {
+              altText
+              sourceUrl
+              id
+            }
+            frenosNulo
+            pesoSc
+            tpeso
+            kgPesoScooter
+            tipoRodamiento
+            foto1 {
+              altText
+              sourceUrl
+            }
+            foto2 {
+              mediaItemUrl
+              altText
+            }
+            foto3 {
+              altText
+              mediaItemUrl
+            }
+            url3d
+            cuponIntermedia
+            cuponNombre
+            cuponTitulo1
+            cuponTitulo2
+            cuponImg {
+              id
+              altText
+              mediaItemUrl
+            }
+            tooltips
+            videoImgBannerMovil {
+              altText
+              mediaItemUrl
+            }
+            videoImgBannerPc {
+              altText
+              mediaItemUrl
+            }
+            videoImgBannerMovilTemporal {
+              altText
+              mediaItemUrl
+            }
+            videoImgBannerPcTemporal {
+              altText
+              mediaItemUrl
+            }
+          }
+          contentType {
+            node {
+              id
             }
           }
         }
+      }
+    }
+  }
     `;
 
   try {

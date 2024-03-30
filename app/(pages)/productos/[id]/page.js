@@ -16,6 +16,7 @@ import { HeroVideoSingleCarsProduct } from "@/components/reusable/HeroVideoSingl
 import { AcordionSingleProduct } from "@/components/reusable/AcordionSingleProduct";
 import ReactImagenGallery from "@/components/react-image-gallery/ReactImagenGallery";
 import { HeaderSingleProducts } from "@/components/home/HeaderSingleProducts";
+import { HeroVideoSingleCardProductTemporal } from "@/components/reusable/HeroVideoSingleCardProductTemporal";
 
 export const metadata = {
   title: "Productos",
@@ -30,17 +31,20 @@ const SingleProduct = async ({ params }) => {
  
   const { id } = params;
   const scooters = await SingleProductos(decodeURIComponent(id));
+  console.log(scooters);
+
   return (
     <>
     <HeaderSingleProducts/>
         <HeroVideoSingleCarsProduct
         titulo="Last Mile"
         tituloSecundarioNegrita="mODE"
-        urlVideo={scooters.edges[0].node.sliderProductos.videoBannerArchivo.mediaItemUrl}
+        urlVideo={scooters.edges[0].node.sliderProductos}
         scooters={scooters}
       />
       <SingleProductComponent scooters={scooters} />
       {/* <FinanciamientoFlexible/> */}
+      <HeroVideoSingleCardProductTemporal urlVideo={scooters.edges[0].node.sliderProductos}  scooters={scooters}/>
       {/* <CarruselSingleProduct /> */}
       {/* <StickyScrollRevealDemo/> */}
       {/* <Section3 /> */}

@@ -28,6 +28,7 @@ export const HeaderSingleProducts = () => {
   const anclasRest = useRef(null);
   const anclaBlog = useRef(null);
   const svg = useRef(null);
+  const gap = useRef(null);
 
   useLayoutEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
@@ -93,6 +94,9 @@ export const HeaderSingleProducts = () => {
     tl.to(anclaBlog.current, {
       color: "white",
     });
+    tl.to(gap.current, {
+      gap: 0,
+    });
 
     const tlSVG = gsap.timeline({
       scrollTrigger: {
@@ -110,7 +114,7 @@ export const HeaderSingleProducts = () => {
     <div className="HeaderSingleProduct bg-black">
       <div ref={menu} className="z-50 h-auto w-full lg:fixed top-0 bg-white">
         <MostarMarquee />
-        <div className="relative flex items-center justify-between px-4 py-6 lg:justify-normal lg:gap-12 lg:px-[100px]">
+        <div ref={gap} className="relative flex items-center justify-between px-4 py-6 lg:justify-normal lg:gap-4 lg:px-[100px]">
           <div className="header-left flex h-auto w-[115px] items-center justify-between lg:flex-grow-0">
             <Link href="/">
               <Image

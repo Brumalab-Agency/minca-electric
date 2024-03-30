@@ -27,7 +27,7 @@ const Marquee = ({marquee, ocultar}) => {
         </div>
       </div>
       <div className="w-[28%] flex justify-end">
-        <button
+       {/*  <button
           onClick={ocultar}
           aria-label="Dismiss"
           className="rounded-lg bg-black/10 p-1 transition hover:bg-black/20 mr-[50px] hidden lg:block"
@@ -44,7 +44,7 @@ const Marquee = ({marquee, ocultar}) => {
               clipRule="evenodd"
             />
           </svg>
-        </button>
+        </button> */}
       </div>
     </div>
   );
