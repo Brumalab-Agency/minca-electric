@@ -617,3 +617,18 @@ img.image-gallery-thumbnail-image {
 .absolute.bottom-4.left-2\/4.z-50.flex.-translate-x-2\/4.gap-2 {
   z-index: -1;
 }
+
+/* React Gallery Single Product Scooters */
+
+.react-gallery-cambio  .image-gallery-thumbnails .image-gallery-thumbnails-container button{
+  width: 295px;
+  height: 295px;
+  border-radius: 0px;
+}
+
+
+
+.react-gallery-cambio .image-gallery-slide .image-gallery-image {
+  width: 100%;
+  object-fit: cover;
+}

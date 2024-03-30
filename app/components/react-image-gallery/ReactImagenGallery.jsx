@@ -24,7 +24,7 @@ const ReactImagenGallery = () => {
   ];
 
   return (
-    <div className="m-auto w-full lg:w-[70vw]">
+    <div className="m-auto w-full react-gallery-cambio">
       <ImageGallery
         items={images}
         showNav={false}

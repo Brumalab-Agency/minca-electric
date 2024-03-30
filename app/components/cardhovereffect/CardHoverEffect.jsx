@@ -11,9 +11,11 @@ export function CardHoverEffect() {
 }
 export const projects = [
   {
-    title: "Financiamiento",
+    title: "Financiamiento: Descubre nuestras opciones de financiamiento: ",
     description:
-      "Descubre nuestras opciones de financiamiento: Addi, Vanti Listo y Sistecredito. Compra tu scooter fácilmente en nuestra página web o contacta a nuestros asesores para más detalles.",
+      "Addi, Vanti Listo y Sistecredito.",
+      description2:
+      "Compra tu scooter fácilmente en nuestra página web o contacta a nuestros asesores para más detalles.",
     
     link: "#",
   },
@@ -23,25 +25,27 @@ export const projects = [
     img:"/img-con-bg.png"
   },
   {
-    title: "Prueba tu libertad programa tu test drive",
+    title: "Prueba tu libertad: programa tu test drive:",
     description:
-      "Queremos que sientas la libertad de probar una Minca y descubrir los beneficios de la movilidad eléctrica. Visita nuestros showrooms y toma la decisión hoy mismo. ",
+      "Queremos que sientas la libertad de probar una Minca y descubrir los beneficios de la movilidad eléctrica.",
+    description2:
+    "Visita nuestros showrooms y toma la decisión hoy mismo. ",  
      
     link: "#",
   },
   {
-    title: "Nuestras tiendas físicas a tu servicio",
+    title: "Nuestras tiendas físicas a tu servicio:",
     description: "Tenemos todo un equipo preparado para resolver tus dudas y mostrarte los beneficios de adquirir una Minca.",
     link: "#",
   },
   {
-    title: "Confianza en cada kilómetro soporte postventa garantizado",
+    title: "Confianza en cada kilómetro: soporte postventa garantizado:",
     description:
       "Nuestros talleres están completamente equipados para resolver cualquier inconveniente que puedas tener con tu scooter Minca.",
      link: "#",
   },
   {
-    title: "Compra segura online protección y garantía en cada pedido ",
+    title: "Compra segura online: protección y garantía en cada pedido:",
     description: "Tenemos toda una plataforma pensada para que adquieras tu Minca, tus accesorios y agendes tu test drive o mantenimiento de la forma más efectiva y segura.",
     link: "#",
   },
