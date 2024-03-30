@@ -44,7 +44,7 @@ export const HeroVideoSingleCardProductTemporal = ({urlVideo, scooters, }) => {
         /> */}
      
     </div>
-      <div className="overlay absolute top-0 flex h-full w-full flex-col items-center justify-between bg-[#111]/50 p-4 lg:h-[700px] lg:flex-row lg:px-[100px]">
+      {/* <div className="overlay absolute top-0 flex h-full w-full flex-col items-center justify-between bg-[#111]/50 p-4 lg:h-[700px] lg:flex-row lg:px-[100px]">
         <div className="flex w-full flex-col  justify-end h-[45%] lg:h-[90%] lg:w-[50%]">
           <p
             className={`${ubuntu.className} lg:text-center text-[14px] text-white w-[73%] lg:w-full`}
@@ -59,7 +59,7 @@ export const HeroVideoSingleCardProductTemporal = ({urlVideo, scooters, }) => {
       </div>
       <div className="lg:hidden">
         <CardHeroSingleScooter scooters={scooters} />
-      </div>
+      </div> */}
     </div>
   );
 };

@@ -13,9 +13,8 @@ export const projects = [
   {
     title: "Financiamiento",
     description:
-      "Trabaje en conjunto en tiempo real con su equipo, clientes y partes interesadas. Colabore en documentos, comparta ideas y tome decisiones rápidamente. Con nuestra plataforma, puede optimizar su flujo de trabajo y aumentar la productividad.",
-      description2:
-      "Con nuestra plataforma, puede optimizar su flujo de trabajo y aumentar la productividad.",
+      "Descubre nuestras opciones de financiamiento: Addi, Vanti Listo y Sistecredito. Compra tu scooter fácilmente en nuestra página web o contacta a nuestros asesores para más detalles.",
+    
     link: "#",
   },
   {
@@ -24,29 +23,26 @@ export const projects = [
     img:"/img-con-bg.png"
   },
   {
-    title: "Scooter rápida",
+    title: "Prueba tu libertad programa tu test drive",
     description:
-      "Trabaje en conjunto en tiempo real con su equipo, clientes y partes interesadas. Colabore en documentos, comparta ideas y tome decisiones rápidamente. ",
-      description2:
-      "Con nuestra plataforma, puede optimizar su flujo de trabajo y aumentar la productividad.",
+      "Queremos que sientas la libertad de probar una Minca y descubrir los beneficios de la movilidad eléctrica. Visita nuestros showrooms y toma la decisión hoy mismo. ",
+     
     link: "#",
   },
   {
-    title: "Scooter rápida",
-    img2: "/tres_iconos.png",
+    title: "Nuestras tiendas físicas a tu servicio",
+    description: "Tenemos todo un equipo preparado para resolver tus dudas y mostrarte los beneficios de adquirir una Minca.",
     link: "#",
   },
   {
-    title: "Scooter rápida",
+    title: "Confianza en cada kilómetro soporte postventa garantizado",
     description:
-      "Trabaje en conjunto en tiempo real con su equipo, clientes y partes interesadas. Colabore en documentos, comparta ideas y tome decisiones rápidamente. ",
-      description2:
-      "Con nuestra plataforma, puede optimizar su flujo de trabajo y aumentar la productividad.",
-    link: "#",
+      "Nuestros talleres están completamente equipados para resolver cualquier inconveniente que puedas tener con tu scooter Minca.",
+     link: "#",
   },
   {
-    title: "Scooter rápida",
-    img2: "/tres_iconos.png",
+    title: "Compra segura online protección y garantía en cada pedido ",
+    description: "Tenemos toda una plataforma pensada para que adquieras tu Minca, tus accesorios y agendes tu test drive o mantenimiento de la forma más efectiva y segura.",
     link: "#",
   },
 ];
