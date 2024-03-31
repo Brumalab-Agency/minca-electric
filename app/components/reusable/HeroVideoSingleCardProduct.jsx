@@ -64,8 +64,8 @@ export const HeroVideoSingleCarsProduct = ({urlVideo, scooters, }) => {
         />
      
     </div>
-    <div className={` absolute top-0 flex h-300px w-full flex-col items-center justify-between p-4 lg:h-[700px] lg:flex-row lg:px-[100px]`}>
-      <div className="overlaySingleProduct h-[128px] w-full absolute bottom-0 left-0"></div>
+    <div className={` absolute bottom-[39%] lg:top-0 flex h-300px w-full flex-col items-center justify-between p-4 lg:h-[700px] lg:flex-row lg:px-[100px]`}>
+      <div className="overlaySingleProduct h-[128px] w-full absolute bottom-[0px] left-0"></div>
         <div className="flex w-full flex-col  justify-end h-[58%] lg:h-[90%] lg:w-[50%]"> 
           <p
             className={`${ubuntu.className} lg:text-center  text-[14px] text-white w-[73%] lg:w-full z-10`}

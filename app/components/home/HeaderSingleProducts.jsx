@@ -4,10 +4,9 @@ import Link from "next/link";
 import { Menu } from "../menu/Menu";
 import { Menumovil } from "../menu/Menumovil";
 import { AppContext } from "../context/Context";
-import { useContext, useState } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { useLayoutEffect, useRef } from "react";
+import { useLayoutEffect, useRef, useContext, useState, useEffect } from "react";
 import { useLenis } from "@studio-freight/react-lenis";
 import { TimelineLite } from "gsap/gsap-core";
 import MostarMarquee from "./MostarMarquee";
@@ -108,7 +107,14 @@ export const HeaderSingleProducts = () => {
     });
 
     tlSVG.to(svg.current, { display: 'block', opacity: 1, y: 0 });
+
+    if (window.innerWidth <= 768) {
+      // Aquí puedes añadir cualquier lógica o cambios necesarios para dispositivos móviles
+      gsap.set(svg.current, { display: 'none' }); // Ocultar el SVG en dispositivos móviles
+    }
   }, []);
+
+  
 
   return (
     <div className="HeaderSingleProduct bg-black">
