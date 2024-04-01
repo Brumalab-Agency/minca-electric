@@ -9,9 +9,9 @@ const DesastrePage
   return (
     <div>
        {/*  <FinanciamientoFlexible/> */}
-       {/* <StickyScrollRevealDemo/> */}
+       <StickyScrollRevealDemo/>
        {/* <LayoutGridInfo/> */}
-       <CardHoverEffect/>
+       {/* <CardHoverEffect/> */}
     </div>
   )
 }

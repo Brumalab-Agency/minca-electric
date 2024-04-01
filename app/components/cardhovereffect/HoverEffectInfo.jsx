@@ -21,7 +21,7 @@ export const HoverEffectInfo = ({
         <Link
           href={item?.link}
           key={item?.link}
-          className="relative group p-2  block rounded-[10px] h-[430px] w-full lg:h-[402px] lg:w-[402px] "
+          className="relative group p-2  block rounded-[10px] h-[360px] w-full lg:h-[402px] lg:w-[402px] "
           onMouseEnter={() => setHoveredIndex(idx)}
           onMouseLeave={() => setHoveredIndex(null)}
         >

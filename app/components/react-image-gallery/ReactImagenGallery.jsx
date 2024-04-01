@@ -39,7 +39,7 @@ const ReactImagenGallery = ({scooters}) => {
  */
 
   return (
-    <div className="m-auto w-full react-gallery-cambio">
+    <div className="m-auto w-full react-gallery-cambio overflow-hidden">
       <ImageGallery
         items={arrayConAlias}
         showNav={true}
