@@ -133,6 +133,20 @@
     border-radius: 10px;
   }
 
+  /* Botones de Carrusel en el HOME que se estaban viendo */
+
+  button.\!absolute.top-2\/4.left-4.-translate-y-2\/4.rounded-full.select-none.transition-all.disabled\:opacity-50.disabled\:shadow-none.disabled\:pointer-events-none.w-12.max-w-\[48px\].h-12.max-h-\[48px\].text-white.hover\:bg-white\/10.active\:bg-white\/30.grid.place-items-center {
+    display: none;
+}
+button.\!absolute.top-2\/4.right-4.-translate-y-2\/4.rounded-full.select-none.transition-all.disabled\:opacity-50.disabled\:shadow-none.disabled\:pointer-events-none.w-12.max-w-\[48px\].h-12.max-h-\[48px\].text-white.hover\:bg-white\/10.active\:bg-white\/30.grid.place-items-center {
+  display: none;
+}
+.carrusel .absolute.bottom-4.left-2\/4.z-50.flex.-translate-x-2\/4.gap-2 {
+  left: 80.5%;
+  top: 7.4%;
+  z-index: 999;
+}
+
 
 }
 
