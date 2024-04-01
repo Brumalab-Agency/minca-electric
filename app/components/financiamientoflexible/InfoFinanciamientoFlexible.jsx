@@ -5,7 +5,6 @@ import { motion } from "framer-motion";
 import { cn } from "@/utils/cn";
 
 const InfoFinanciamientoFlexible = ({ content, contentClassName }) => {
- 
   const [activeCard, setActiveCard] = useState(0);
   const ref = useRef(null);
   const { scrollYProgress } = useScroll({
@@ -30,29 +29,19 @@ const InfoFinanciamientoFlexible = ({ content, contentClassName }) => {
     setActiveCard(closestBreakpointIndex);
   });
 
-  
-  const backgroundColors = [
-    "var(--slate-900)",
-    "var(--black)",
-    "var(--neutral-900)",
-  ];
-  const linearGradients = [
-    "linear-gradient(to bottom right, var(--cyan-500), var(--emerald-500))",
-    "linear-gradient(to bottom right, var(--pink-500), var(--indigo-500))",
-    "linear-gradient(to bottom right, var(--orange-500), var(--yellow-500))",
-  ];
+  const backgroundColors = ["var(--black)"];
   return (
     <motion.div
       animate={{
         backgroundColor: backgroundColors[activeCard % backgroundColors.length],
       }}
-      className="relative flex h-[30rem] justify-center space-x-10 overflow-y-auto rounded-md p-10"
+      className="relative flex h-[30rem] justify-center space-x-10 overflow-y-auto rounded-md p-10 "
       ref={ref}
     >
-      <div className="div relative flex items-start px-4">
+      <div className="div relative flex items-start px-4 ">
         <div className="max-w-2xl">
           {content.map((item, index) => (
-            <div key={item.title + index} className="my-20">
+            <div key={item.title + index} className="my-20 ">
               <motion.h2
                 initial={{
                   opacity: 0,
@@ -60,7 +49,7 @@ const InfoFinanciamientoFlexible = ({ content, contentClassName }) => {
                 animate={{
                   opacity: activeCard === index ? 1 : 0.3,
                 }}
-                className="text-2xl font-bold text-slate-100"
+                className="text-2xl font-bold text-slate-100 "
               >
                 {item.title}
               </motion.h2>
@@ -71,21 +60,21 @@ const InfoFinanciamientoFlexible = ({ content, contentClassName }) => {
                 animate={{
                   opacity: activeCard === index ? 1 : 0.3,
                 }}
-                className="text-kg mt-10 max-w-sm text-slate-300"
+                className="text-kg mt-10 max-w-sm text-slate-300 "
               >
                 {item.description}
               </motion.p>
             </div>
           ))}
-          <div className="h-40" />
+          <div className="h-40 " />
         </div>
       </div>
       <motion.div
         animate={{
-          background: linearGradients[activeCard % linearGradients.length],
+          background: "bg-[#F4F5F0]"
         }}
         className={cn(
-          "sticky top-10 hidden h-60 w-80 overflow-hidden rounded-md bg-white lg:block",
+          "sticky top-10 hidden h-60 w-80 overflow-hidden rounded-md bg-[#F4F5F0] lg:block ",
           contentClassName,
         )}
       >

@@ -121,7 +121,7 @@ export const CardDescription2 = ({
       <img
         src={children}
         className={cn(
-          "lg:-mt-[27px] grid place-items-center",
+          "-mt-[27px] grid place-items-center",
           className
         )}
       />

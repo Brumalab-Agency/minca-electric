@@ -4,10 +4,9 @@ import Link from "next/link";
 import { Menu } from "../menu/Menu";
 import { Menumovil } from "../menu/Menumovil";
 import { AppContext } from "../context/Context";
-import { useContext, useState } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { useLayoutEffect, useRef } from "react";
+import { useLayoutEffect, useRef, useEffect, useContext, useState } from "react";
 import { useLenis } from "@studio-freight/react-lenis";
 import { TimelineLite } from "gsap/gsap-core";
 import MostarMarquee from "./MostarMarquee";
@@ -15,6 +14,9 @@ import MostarMarquee from "./MostarMarquee";
 export const Header = () => {
   const [cart, setCart] = useContext(AppContext);
   const lenis = useLenis(({ scroll }) => {});
+
+  
+  const [isMobile, setIsMobile] = useState(false);
 
   const bgMenu = useRef(null);
   const menu = useRef(null);
@@ -43,7 +45,7 @@ export const Header = () => {
         end: "+=1",
         toggleActions: "play none none reverse",
         scrub: true,
-        markers: false
+        markers: false,
       },
     });
 
@@ -57,7 +59,7 @@ export const Header = () => {
     });
 
     tl.to(svg.current, {
-      display: 'none',
+      display: "none",
       duration: 3,
       y: -150,
       delay: 5,
@@ -97,7 +99,6 @@ export const Header = () => {
       gap: 0,
     });
 
-
     const tlSVG = gsap.timeline({
       scrollTrigger: {
         start: "top+=130px",
@@ -107,13 +108,30 @@ export const Header = () => {
       },
     });
 
-    tlSVG.to(svg.current, { display: 'block', opacity: 1, y: 0 });
+    tlSVG.to(svg.current, { display: "block", opacity: 1, y: 0 });
+  }, []);
+
+  useEffect(() => {
+    const checkIsMobile = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+
+    checkIsMobile();
+
+    window.addEventListener("resize", checkIsMobile);
+
+    return () => {
+      window.removeEventListener("resize", checkIsMobile);
+    };
   }, []);
 
   return (
     <div ref={menu} className="z-50 h-auto w-full lg:fixed">
       <MostarMarquee />
-      <div ref={gap} className="relative flex items-center justify-between px-4 py-6 lg:justify-normal lg:gap-4 lg:px-[100px]">
+      <div
+        ref={gap}
+        className="relative flex items-center justify-between px-4 py-6 lg:justify-normal lg:gap-4 lg:px-[100px]"
+      >
         <div className="header-left flex h-auto w-[115px] items-center justify-between lg:flex-grow-0">
           <Link href="/">
             <Image
@@ -190,14 +208,15 @@ export const Header = () => {
           >
             <Link href="/testdrive">Test Drive</Link>
           </button>
-          <button ref={svg} className="hidden" onClick={() => lenis.scrollTo("#up", { lerp: 0.07 })}>
-            <img
-              
-              className="svgIcon"
-              src="/menusticky/iconUp.svg"
-              alt="up"
-            />
-          </button>
+          {!isMobile && (
+            <button
+              ref={svg}
+              className="hidden"
+              onClick={() => lenis.scrollTo("#up", { lerp: 0.07 })}
+            >
+              <img className="svgIcon" src="/menusticky/iconUp.svg" alt="up" />
+            </button>
+          )}
           {/* Avatar usuario */}
           {/* <Image
               placeholder="empty"

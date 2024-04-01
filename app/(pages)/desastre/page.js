@@ -8,8 +8,7 @@ const DesastrePage
  = () => {
   return (
     <div>
-       {/*  <FinanciamientoFlexible/> */}
-       <StickyScrollRevealDemo/>
+        <FinanciamientoFlexible/>
        {/* <LayoutGridInfo/> */}
        {/* <CardHoverEffect/> */}
     </div>

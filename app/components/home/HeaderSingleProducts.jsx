@@ -14,6 +14,7 @@ import { MenuSingleProduct } from "../menu/MenuSingleProduct";
 
 export const HeaderSingleProducts = () => {
   const [cart, setCart] = useContext(AppContext);
+  const [isMobile, setIsMobile] = useState(false);
   const lenis = useLenis(({ scroll }) => {});
 
   const bgMenu = useRef(null);
@@ -114,7 +115,19 @@ export const HeaderSingleProducts = () => {
     }
   }, []);
 
-  
+  useEffect(() => {
+    const checkIsMobile = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+
+    checkIsMobile();
+
+    window.addEventListener("resize", checkIsMobile);
+
+    return () => {
+      window.removeEventListener("resize", checkIsMobile);
+    };
+  }, []);
 
   return (
     <div className="HeaderSingleProduct bg-black">
@@ -197,14 +210,15 @@ export const HeaderSingleProducts = () => {
             >
               <Link href="/testdrive">Test Drive</Link>
             </button>
-            <button ref={svg} className="hidden" onClick={() => lenis.scrollTo("#up", { lerp: 0.07 })}>
-              <img
-      
-                className="svgIcon"
-                src="/menusticky/iconUp.svg"
-                alt="up"
-              />
+            {!isMobile && (
+            <button
+              ref={svg}
+              className="hidden"
+              onClick={() => lenis.scrollTo("#up", { lerp: 0.07 })}
+            >
+              <img className="svgIcon" src="/menusticky/iconUp.svg" alt="up" />
             </button>
+          )}
             {/* Avatar usuario */}
             {/* <Image
                 placeholder="empty"

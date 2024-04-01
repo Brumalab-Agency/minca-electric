@@ -7,6 +7,14 @@
 }
 /* Estilos para la barra de desplazamiento */
 
+* {
+  scrollbar-width: thin;
+  scrollbar-color: rgb(0, 0, 0) rgb(158, 158, 158);
+}
+::-webkit-scrollbar-thumb {
+  border-radius: 6px; 
+}
+
 body {
   background: rgb(var(--backGroundBody));
   position: relative;
@@ -628,12 +636,17 @@ img.image-gallery-thumbnail-image {
 .react-gallery-cambio  .image-gallery-thumbnails .image-gallery-thumbnails-container button{
   width: 295px;
   height: 295px;
+  margin-left: 15px;
   border-radius: 0px;
   margin-top: -150px;
   z-index: 9;
 }
 
-.image-gallery-thumbnails {
+img.image-gallery-thumbnail-image {
+  object-fit: cover;
+}
+
+.react-gallery-cambio .image-gallery-thumbnails {
   z-index: 99;
   display: contents;
 }
@@ -641,22 +654,50 @@ img.image-gallery-thumbnail-image {
 
 .react-gallery-cambio .image-gallery-slide .image-gallery-image {
   width: 100%;
-  height: 900px !important;
+  height: 1425px !important;
   object-fit: cover;
 }
 
-.react-gallery-cambio .image-gallery-slide .image-gallery-image {
-  max-height: calc(151vh) !important;
-}
+
 
 
 .react-gallery-cambio .image-gallery-thumbnail .image-gallery-thumbnail-image {
   vertical-align: middle;
   width: 100%;
+  height: 295px;
   line-height: 0;
-  border-radius: 0;
+  border-radius: 10px;
 }
 
+button.image-gallery-thumbnail.active {
+  display: none;
+}
+
+/* Personalización de las flechas direccionales de React Image Gallery */
+
+
+.image-gallery-svg {
+  display: none;
+}
+
+
+.image-gallery-icon.image-gallery-left-nav{
+  background-image: url('/flecha_carrusel_new.svg');
+  transform: rotateY(180deg);
+  background-repeat: no-repeat;
+  width: 50px; 
+  height: 24px; 
+  margin-left: 50px;
+  margin-top: -50px;
+}
+
+.image-gallery-icon.image-gallery-right-nav{
+  background-image: url('/flecha_carrusel_new.svg');
+  background-repeat: no-repeat;
+  width: 50px; 
+  height: 24px; 
+  margin-right: 50px;
+}
 
 /* Overlay de abajo hacia arriba en transparente singleProduct */
 
@@ -664,3 +705,10 @@ img.image-gallery-thumbnail-image {
   background: linear-gradient(to top, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
 }
 
+
+
+/* Financiamiento Flexible */
+
+.relative.flex.h-\[30rem\].justify-center.space-x-10.overflow-y-auto.rounded-md.p-10 {
+  scrollbar-width: none;
+}

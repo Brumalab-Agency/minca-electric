@@ -2,6 +2,7 @@
 import React from "react";
 import ImageGallery from "react-image-gallery";
 import "react-image-gallery/styles/css/image-gallery.css";
+import ArrowRightReactImageGallery from "./ArrowRightReactImageGallery";
 
 const ReactImagenGallery = ({scooters}) => {
 
@@ -17,36 +18,18 @@ const ReactImagenGallery = ({scooters}) => {
   ];
 
   
-/* 
-  const images = [
-    {
-      original: "https://picsum.photos/id/1018/1000/600/",
-      thumbnail: "https://picsum.photos/id/1018/250/150/",
-    },
-    {
-      original: "https://picsum.photos/id/1015/1000/600/",
-      thumbnail: "https://picsum.photos/id/1015/250/150/",
-    },
-    {
-      original: "https://picsum.photos/id/1019/1000/600/",
-      thumbnail: "https://picsum.photos/id/1019/250/150/",
-    },
-    {
-      original: "https://picsum.photos/id/1019/1000/600/",
-      thumbnail: "https://picsum.photos/id/1019/250/150/",
-    },
-  ];
- */
 
+
+ 
   return (
-    <div className="m-auto w-full react-gallery-cambio overflow-hidden">
+    <div className="m-auto w-full h-auto mb-[100px] lg:mb-0 react-gallery-cambio overflow-hidden">
       <ImageGallery
         items={arrayConAlias}
         showNav={true}
         showFullscreenButton={false}
         thumbnailPosition="bottom"
         showPlayButton={false}
-      />
+        />
     </div>
   );
 };
