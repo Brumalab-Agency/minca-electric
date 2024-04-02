@@ -8,14 +8,14 @@ import Link from "next/link";
 export const ShowRoomComponent = () => {
   return (
     <>
-      <div className="carrusel w-full bg-[#000000] lg:h-[665px] lg:px-0">
+      <div className="carrusel w-full bg-[#111] lg:h-[665px] lg:px-0">
         {/* PC */}
         <Carousel
           autoplay={false}
           loop={true}
           autoplayDelay={5000}
           navigation={false}
-          className="carrusel-showRoom-home relative hidden overflow-x-hidden bg-[#000000] lg:flex"
+          className="carrusel-showRoom-home relative hidden overflow-x-hidden bg-[#111] lg:flex"
         >
           {/* Showrrom Chico */}
           <section className="flex h-full w-full">
@@ -23,11 +23,11 @@ export const ShowRoomComponent = () => {
               {/* La imagen es un backGround */}
               <img
                 className="h-[665px] w-full object-cover object-top"
-                src="/modificaciones-showrooms/Showroom Chicó - Minca electric.jpg"
+                src="/sedes/Showroom Chicó - Minca electric.jpg"
                 alt="icono de herramientas"
               />
             </div>
-            <div className="ladoDerecho hidden h-full w-full place-items-center bg-[#000000] text-white lg:grid ">
+            <div className="ladoDerecho hidden h-full w-full place-items-center bg-[#111] text-white lg:grid ">
               <div className="">
                 <div className="flex gap-4 ">
                   <div className="columna-img mb-[15px] flex h-auto w-[60px] flex-col justify-end gap-6">
@@ -109,11 +109,11 @@ export const ShowRoomComponent = () => {
               {/* La imagen es un backGround */}
               <img
                 className="h-[665px] w-full object-cover object-top"
-                src="/modificaciones-showrooms/Showroom Javeriana - Minca electric.jpg"
+                src="/sedes/Showroom Javeriana - Minca electric.jpg"
                 alt="icono de herramientas"
               />
             </div>
-            <div className="ladoDerecho hidden h-full w-full place-items-center bg-[#000000] text-white lg:grid ">
+            <div className="ladoDerecho hidden h-full w-full place-items-center bg-[#111] text-white lg:grid ">
               <div className="">
                 <div className="flex gap-4 ">
                   <div className="columna-img mb-[15px] flex h-auto w-[60px] flex-col justify-end gap-6">
@@ -189,17 +189,17 @@ export const ShowRoomComponent = () => {
               </div>
             </div>
           </section>
-          {/* Showrrom  Cadritos */}
+          {/* Showrrom  Cedritos */}
           <section className="flex h-full w-full">
             <div className="ladoIzquierdo grid h-full w-full place-items-center">
               {/* La imagen es un backGround */}
               <img
                 className="h-[665px] w-full object-cover object-top"
-                src="/modificaciones-showrooms/Showroom Cedritos - Minca electric.jpg"
+                src="/sedes/Showroom Cedritos - Minca electric.jpg"
                 alt="icono de herramientas"
               />
             </div>
-            <div className="ladoDerecho hidden h-full w-full place-items-center bg-[#000000] text-white lg:grid ">
+            <div className="ladoDerecho hidden h-full w-full place-items-center bg-[#111] text-white lg:grid ">
               <div className="">
                 <div className="flex gap-4 ">
                   <div className="columna-img mb-[15px] flex h-auto w-[60px] flex-col justify-end gap-6">
@@ -281,11 +281,11 @@ export const ShowRoomComponent = () => {
               {/* La imagen es un backGround */}
               <img
                 className="h-[665px] w-full object-cover object-top"
-                src="/modificaciones-showrooms/Taller Chicó - Minca electric.jpg"
+                src="/sedes/Servicio técnico Chicó - Minca electric.jpg"
                 alt="icono de herramientas"
               />
             </div>
-            <div className="ladoDerecho hidden h-full w-full place-items-center bg-[#000000] text-white lg:grid ">
+            <div className="ladoDerecho hidden h-full w-full place-items-center bg-[#111] text-white lg:grid ">
               <div className="">
                 <div className="flex gap-4 ">
                   <div className="columna-img flex h-auto w-[60px] flex-col justify-end gap-4">
@@ -362,11 +362,11 @@ export const ShowRoomComponent = () => {
               {/* La imagen es un backGround */}
               <img
                 className="h-[665px] w-full object-cover object-top"
-                src="/modificaciones-showrooms/Taller Javeriana - Minca electric.jpg"
+                src="/sedes/Servicio técnico Javeriana - Minca electric.jpg"
                 alt="icono de herramientas"
               />
             </div>
-            <div className="ladoDerecho hidden h-full w-full place-items-center bg-[#000000] text-white lg:grid ">
+            <div className="ladoDerecho hidden h-full w-full place-items-center bg-[#111] text-white lg:grid ">
               <div className="">
                 <div className="flex gap-4 ">
                   <div className="columna-img flex h-auto w-[60px] flex-col justify-end gap-4">

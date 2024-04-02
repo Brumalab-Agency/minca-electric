@@ -15,7 +15,7 @@ export const SolucionesComodidad = () => {
           <p>soluciones para <b> tu comodidad</b></p>
       </div>
       <section className={`${manrope.className} flex gap-8 justify-self-center`}>
-        <h1 className="text-[40px] font-bold">03</h1>
+        <h1 className="text-[40px] font-bold leading-[3.2rem]">03</h1>
         <div>
           <h2 className="w-[232px] text-[26px] font-semibold">
             Mantenimiento especializado
@@ -28,8 +28,8 @@ export const SolucionesComodidad = () => {
           </p>
         </div>
       </section>
-      <section className={`${manrope.className} mt-[45px] flex gap-8 justify-self-end`}>
-        <h1 className="text-[40px] font-bold">04</h1>
+      <section className={`${manrope.className} mt-[45px] lg:mt-0 flex gap-8 justify-self-end`}>
+        <h1 className="text-[40px] font-bold leading-[3.2rem]">04</h1>
         <div>
           <h2 className="w-[232px] text-[26px] font-semibold">
             Opciones de financiamiento

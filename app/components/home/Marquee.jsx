@@ -3,7 +3,7 @@ const Marquee = ({marquee, ocultar}) => {
 
 
   return (
-    <div className="banner-marquee text-white relative h-[38px] flex justify-between items-center overflow-x-hidden motion-safe:overflow-x-hidden pause-animations-on-children-on-hover" style={{ backgroundColor: bann.background }}>
+    <div className="banner-marquee text-white relative h-[38px] flex justify-between items-center overflow-x-hidden motion-safe:overflow-x-hidden pause-animations-on-children-on-hover bg-[#111]">
       <div className="w-[28%] flex justify-end">
 
       </div>

@@ -7,24 +7,24 @@ export const Footer = () => {
   return (
     <>
       <div className="bg-[#111] p-4 lg:p-10">
-        <div className="bg-white w-auto lg:w-full h-auto p-5 pb-2 lg:px-10 lg:py-8 mt-[52px] rounded-[9px] relative">
-          <div className="footer-principal lg:flex justify-between">
-            <div className="logo-footer-pc lg:w-[248px] lg:h-auto">
+        <div className="relative mt-[52px] h-auto w-auto rounded-[9px] bg-white p-5 pb-2 lg:w-full lg:px-10 lg:py-8">
+          <div className="footer-principal justify-between lg:flex">
+            <div className="logo-footer-pc lg:h-auto lg:w-[248px]">
               <Image
                 className="mt-4"
                 src="/imagotipo-negro.png"
                 width={59}
                 height={62}
                 alt="imagotipo"
-                placeholder = 'empty'
+                placeholder="empty"
               />
               <p
-                className={`${ubuntu.className}  text-[#111]/60 text-[14px] font-normal mt-[37px]`}
+                className={`${ubuntu.className}  mt-[37px] text-[14px] font-normal text-[#111]/60`}
               >
                 Menos humo, más estilo. Adelántate al futuro con una movilidad
                 eléctrica.
               </p>
-              <div className="redes-sociales flex items-center justify-start gap-2 mt-2">
+              <div className="redes-sociales mt-2 flex items-center justify-start gap-2">
                 <div>
                   <img
                     src="/redesSociales/instagram.png"
@@ -38,39 +38,43 @@ export const Footer = () => {
             </div>
             {/* *** */}
             <div className="informacion grid grid-cols-2 lg:grid-cols-1">
-              <div className="info-minca-pc lg:w-[99px] lg:h-auto">
+              <div className="info-minca-pc lg:h-auto lg:w-[99px]">
                 <div className="informacion-minca leading-[45px]">
                   <h2
-                    className={`${manrope.className}  text-[#111] text-[16px] font-bold mt-[32px]`}
+                    className={`${manrope.className}  text-[16px] font-bold text-[#111]`}
                   >
                     MINCA
                   </h2>
-                  <Link href="/productos/Minca%20350W"
-                    className={`${ubuntu.className}  text-[#111]/60 text-[16px] font-normal`}
+                  <Link
+                    href="/productos/Minca%20350W"
+                    className={`${ubuntu.className}  text-[16px] font-normal text-[#111]/60 hover:underline`}
                   >
                     Minca 350W
                   </Link>
-                  <br/>
-                  <Link href="/productos/Minca%20500W"
-                    className={`${ubuntu.className}  text-[#111]/60 text-[16px] font-normal`}
+                  <br />
+                  <Link
+                    href="/productos/Minca%20500W"
+                    className={`${ubuntu.className}  text-[16px] font-normal text-[#111]/60 hover:underline`}
                   >
                     Minca 500W
                   </Link>
-                  <br/>
-                  <Link href="/productos/Minca%20800W"
-                    className={`${ubuntu.className}  text-[#111]/60 text-[16px] font-normal`}
+                  <br />
+                  <Link
+                    href="/productos/Minca%20800W"
+                    className={`${ubuntu.className}  text-[16px] font-normal text-[#111]/60 hover:underline`}
                   >
                     Minca 800W
                   </Link>
-                  <br/>
-                  <Link href="/productos/Minca%201600W"
-                    className={`${ubuntu.className}  text-[#111]/60 text-[16px] font-normal`}
+                  <br />
+                  <Link
+                    href="/productos/Minca%201600W"
+                    className={`${ubuntu.className}  text-[16px] font-normal text-[#111]/60 hover:underline`}
                   >
                     Minca 1600W
                   </Link>
-                  <br/>
-                  <Link href="#"
-                    className={`${ubuntu.className}  text-[#111]/60 text-[16px] font-normal`}
+                  <br />
+                  {/* <Link href="#"
+                    className={`${ubuntu.className}  text-[#111]/60 text-[16px] font-normal hover:underline`}
                   >
                     Minca City
                   </Link>
@@ -79,44 +83,47 @@ export const Footer = () => {
                     className={`${ubuntu.className}  text-[#111]/60 text-[16px] font-normal`}
                   >
                     Minca Trip
-                  </Link>
+                  </Link> */}
                 </div>
               </div>
               <div className="info-informacion-pc lg:hidden">
-                <div className="informacion-minca leading-[45px]">
+                <div className="informacion-minca leading-[45px] ">
                   <h2
-                    className={`${manrope.className}  text-[#111] text-[16px] font-bold mt-[32px]`}
+                    className={`${manrope.className}  text-[16px] font-bold text-[#111] `}
                   >
                     INFORMACIÓN
                   </h2>
                   <Link
-                  href="/politicasDevoluciones"
-                    className={`${ubuntu.className}  text-[#111]/60 text-[16px] font-normal`}
+                    href="/politicasDevoluciones"
+                    className={`${ubuntu.className}  text-[16px] font-normal text-[#111]/60 hover:underline`}
                   >
                     Política de devoluciones
                   </Link>
-                  <br/>
+                  <br />
                   <Link
-                  href="/declaracionPrivacidad"
-                    className={`${ubuntu.className}  text-[#111]/60 text-[16px] font-normal`}
+                    href="/declaracionPrivacidad"
+                    className={`${ubuntu.className}  text-[16px] font-normal text-[#111]/60 hover:underline`}
                   >
                     Declaración de privacidad
                   </Link>
-                  <br/>
-                  <Link href="#"
-                    className={`${ubuntu.className}  text-[#111]/60 text-[16px] font-normal`}
+                  <br />
+                  <Link
+                    href="#"
+                    className={`${ubuntu.className}  text-[16px] font-normal text-[#111]/60 hover:underline`}
                   >
                     Términos y condiciones
                   </Link>
-                  <br/>
-                  <Link href="#"
-                    className={`${ubuntu.className}  text-[#111]/60 text-[16px] font-normal`}
+                  <br />
+                  <Link
+                    href="#"
+                    className={`${ubuntu.className}  text-[16px] font-normal text-[#111]/60 hover:underline`}
                   >
                     Política de garantía{" "}
                   </Link>
-                  <br/>
-                  <Link href="#"
-                    className={`${ubuntu.className}  text-[#111]/60 text-[16px] font-normal`}
+                  <br />
+                  <Link
+                    href="#"
+                    className={`${ubuntu.className}  text-[16px] font-normal text-[#111]/60 hover:underline`}
                   >
                     PQR
                   </Link>
@@ -125,47 +132,48 @@ export const Footer = () => {
             </div>
             {/* ************ */}
             <div>
-              <div className="hidden lg:flex info-informacion-pc lg:w-[189px] lg:h-auto">
-                <div className="informacion-minca leading-[45px]">
+              <div className="info-informacion-pc hidden lg:flex lg:h-auto lg:w-[189px]">
+                <div className="informacion-minca leading-[45px] ">
                   <h2
-                    className={`${manrope.className}  text-[#111] text-[16px] font-bold mt-[32px]`}
+                    className={`${manrope.className}  text-[16px] font-bold text-[#111] `}
                   >
                     INFORMACIÓN
                   </h2>
                   <div>
                     <Link
                       href="/politicasDevoluciones"
-                      className={`${ubuntu.className}  text-[#111]/60 text-[16px] font-normal`}
+                      className={`${ubuntu.className}  text-[16px] font-normal text-[#111]/60 hover:underline`}
                     >
                       Política de devoluciones
                     </Link>
                   </div>
                   <div>
                     <Link
-                    href="/declaracionPrivacidad"
-                      className={`${ubuntu.className}  text-[#111]/60 text-[16px] font-normal`}
+                      href="/declaracionPrivacidad"
+                      className={`${ubuntu.className}  text-[16px] font-normal text-[#111]/60 hover:underline`}
                     >
                       Declaración de privacidad
                     </Link>
                   </div>
                   <div>
                     <Link
-                    href="https://test.mincaelectric.com/wp-content/uploads/2024/03/TERMINOS-Y-CONDICIONES.pdf"
-                      className={`${ubuntu.className}  text-[#111]/60 text-[16px] font-normal`}
+                      href="https://test.mincaelectric.com/wp-content/uploads/2024/03/TERMINOS-Y-CONDICIONES.pdf"
+                      className={`${ubuntu.className}  text-[16px] font-normal text-[#111]/60 hover:underline`}
                     >
                       Términos y condiciones
                     </Link>
                   </div>
                   <div>
                     <Link
-                    href="https://test.mincaelectric.com/wp-content/uploads/2024/03/POLITICAS-DE-GARANTIA.pdf"
-                      className={`${ubuntu.className}  text-[#111]/60 text-[16px] font-normal`}
+                      href="https://test.mincaelectric.com/wp-content/uploads/2024/03/POLITICAS-DE-GARANTIA.pdf"
+                      className={`${ubuntu.className}  text-[16px] font-normal text-[#111]/60 hover:underline`}
                     >
                       Política de garantía{" "}
                     </Link>
                   </div>
-                  <Link href="#"
-                    className={`${ubuntu.className}  text-[#111]/60 text-[16px] font-normal`}
+                  <Link
+                    href="#"
+                    className={`${ubuntu.className}  text-[16px] font-normal text-[#111]/60 hover:underline`}
                   >
                     PQR
                   </Link>
@@ -173,39 +181,43 @@ export const Footer = () => {
               </div>
             </div>
             <div className="informacion flex justify-between">
-              <div className="info-menu-pc lg:w-[154px] lg:h-auto">
-                <div className="informacion-minca leading-[45px]">
+              <div className="info-menu-pc lg:h-auto lg:w-[154px]">
+                <div className="informacion-minca leading-[45px] ">
                   <h2
-                    className={`${manrope.className}  text-[#111] text-[16px] font-bold mt-[20px]`}
+                    className={`${manrope.className}  text-[16px] font-bold text-[#111] `}
                   >
                     MENÚ
                   </h2>
-                  <Link href="#"
+                  {/* <Link href="#"
                     className={`${ubuntu.className}  text-[#111]/60 text-[16px] font-normal`}
                   >
                     Accesorios
                   </Link>
-                  <br/>
-                  <Link href="/servicios"
-                    className={`${ubuntu.className}  text-[#111]/60 text-[16px] font-normal`}
+                  <br/> */}
+                  <Link
+                    href="/servicios"
+                    className={`${ubuntu.className}  text-[16px] font-normal text-[#111]/60 hover:underline`}
                   >
                     Servicio técnico
                   </Link>
-                  <br/>
-                  <Link href="/sedes"
-                    className={`${ubuntu.className}  text-[#111]/60 text-[16px] font-normal`}
+                  <br />
+                  <Link
+                    href="/sedes"
+                    className={`${ubuntu.className}  text-[16px] font-normal text-[#111]/60 hover:underline`}
                   >
-                    Sedes
+                    Showrooms
                   </Link>
-                  <br/>
-                  <Link href="/recursos"
-                    className={`${ubuntu.className}  text-[#111]/60 text-[16px] font-normal`}
+                  <br />
+                  <Link
+                    href="/recursos"
+                    className={`${ubuntu.className}  text-[16px] font-normal text-[#111]/60 hover:underline`}
                   >
                     Recursos
                   </Link>
-                  <br/>
-                  <Link href="/blog"
-                    className={`${ubuntu.className}  text-[#111]/60 text-[16px] font-normal`}
+                  <br />
+                  <Link
+                    href="/blog"
+                    className={`${ubuntu.className}  text-[16px] font-normal text-[#111]/60 hover:underline`}
                   >
                     Blog
                   </Link>
@@ -216,60 +228,70 @@ export const Footer = () => {
             <div className="agendar-footer-pc">
               <div className="flex justify-end">
                 <button
-                  className={`${ubuntu.className}  bg-[#111] rounded-[8px] px-[16px] py-[8px] text-white text-[14px] font-bold`}
+                  className={`${ubuntu.className}  mt-4 rounded-[8px] bg-[#111] px-[16px] py-[10px] text-[14px] font-bold text-white`}
                 >
                   ¡Agendar Test Drive!
                 </button>
               </div>
-              <div className="text-right mt-4">
-                <Link href="tel:+573222102466"
-                  className={`${ubuntu.className}  text-[#111] text-[12px] font-bold`}
-                >
-                  +57 322 2102466
-                </Link>
-                <Link href="mailto:info@mincaelectric.com"
-                  className={`${ubuntu.className}  text-[#111] text-[12px] font-bold`}
+              <div className="mt-4 text-right">
+                <Link
+                  href="mailto:info@mincaelectric.com"
+                  className={`${ubuntu.className}  text-[16px] font-bold text-[#111]`}
                 >
                   info@mincaelectric.com
                 </Link>
+                <br />
+                <Link
+                  href="tel:+573222102466"
+                  className={`${ubuntu.className}  text-[16px] font-bold text-[#111]`}
+                >
+                  +57 322 2102466
+                </Link>
               </div>
             </div>
-            <hr className="lg:hidden border border-0.5 border-solid border-[#111]/10 my-[15px] w-full absolute bottom-[4.2%] left-0 right-0" />
-            <div className="card-tdc flex justify-center items-center mt-4 lg:hidden ">
-              <Image 
-              placeholder = 'empty'
-              src="/card_tdc.png" 
-              width={281} 
-              height={42} 
-              alt="Imagen representativa de caracteristicas del producto"/>
+            <hr className="border-0.5 absolute bottom-[4.2%] left-0 right-0 my-[15px] w-full border border-solid border-[#111]/10 lg:hidden" />
+            <div className="card-tdc mt-4 flex items-center justify-center lg:hidden ">
+              <Image
+                placeholder="empty"
+                src="/card_tdc.png"
+                width={281}
+                height={42}
+                alt="Imagen representativa de caracteristicas del producto"
+              />
             </div>
           </div>
           {/* ******************* */}
-          <div className="hidden lg:flex justify-between items-center footer-secundario mt-[96px]">
+          <div className="footer-secundario mt-[96px] hidden items-center justify-between lg:flex">
             <div className="card-tdc flex items-center">
-              <Image 
-              placeholder = 'empty'
-              src="/card_tdc.png" width={281} height={30} alt="Imagen representativa de caracteristicas del producto"/>
+              <Image
+                placeholder="empty"
+                src="/card_tdc.png"
+                width={281}
+                height={30}
+                alt="Imagen representativa de caracteristicas del producto"
+              />
             </div>
-            <div className="flex justify-start items-center w-full">
+            <div className="flex w-full items-center justify-start">
               <div
-                className={`${ubuntu.className}  text-[#1B1819] font-medium text-[12px] flex gap-4 justify-start items-center margin-custom`}
+                className={`${ubuntu.className}  margin-custom flex items-center justify-start gap-4 text-[12px] font-medium text-[#1B1819]`}
               >
                 <p>INVERSIONES LOGUZ SAS</p> | <p>NIT 901127287-1</p> |{" "}
                 <p>CRA 11A # 94A-56 LOCAL 3</p>
               </div>
             </div>
-            <div className="ind-comercio flex justify-between items-center w-[380px]">
-              <Image
-              placeholder = 'empty'
-                src="/footer-pc/camara-comercio.png"
-                width={143}
-                height={30}
-                alt="Imagen representativa de caracteristicas del producto"
-              />
+            <div className="ind-comercio flex w-[380px] items-center justify-between">
+              <Link href="https://www.sic.gov.co/" target="_blank">
+                <Image
+                  placeholder="empty"
+                  src="/footer-pc/camara-comercio.png"
+                  width={143}
+                  height={30}
+                  alt="Imagen representativa de caracteristicas del producto"
+                />
+              </Link>
               <img src="/footer-pc/slash.png" alt="slah" />
               <Image
-              placeholder = 'empty'
+                placeholder="empty"
                 src="/footer-pc/Comercio Seguro.png"
                 width={55}
                 height={29}
@@ -282,26 +304,35 @@ export const Footer = () => {
         <div className="next-footer flex lg:mt-[40px]">
           <div className="w-[663px]">
             <h2
-              className={`${manrope.className}  font-normal text-[25px] mt-4 lg:mt-0 leading-[35px] lg:w-[663px] lg:h-[80px] lg:text-[40px] lg:leading-[42px] text-white`}
+              className={`${manrope.className}  mt-4 text-[25px] font-normal  text-white lg:mt-0 lg:h-[40px] lg:w-[663px] lg:text-[30px] `}
             >
-              ¡Experimenta la emocionante revolución de la movilidad eléctrica!
+              ¡Experimenta la emocionante revolución
+            </h2>
+            <h2
+              className={`${manrope.className}  text-[25px] font-normal text-white  lg:mt-0 lg:h-[40px] lg:w-[663px]  lg:text-[30px]`}
+            >
+              de la movilidad eléctrica!
             </h2>
           </div>
-          <div className="hidden email lg:flex grow flex-col ml-4 lg:h-[80px]">
-            <p className="font-normal text-[14px] text-[#FFF]">
+          <div className="email ml-4 hidden grow flex-col lg:flex lg:h-[80px]">
+            <p className="text-[14px] font-normal text-[#FFF]">
               Suscríbete para conocer nuestras novedades y descuentos
             </p>
-            <Newsletter/>
+            <Newsletter />
           </div>
         </div>
       </div>
-      <div className="bg-[#111] w-full h-[78px] flex flex-col justify-center items-center gap-2 lg:flex-row lg:items-center lg:justify-between lg:px-[40px] text-white">
-        <p className="text-[12px] text-center">
+      <div className="flex h-[78px] w-full flex-col items-center justify-center gap-2 bg-[#111] text-white lg:flex-row lg:items-center lg:justify-between lg:px-[40px]">
+        <p className="text-center text-[12px]">
           © 2024 Minca Electric | Todos los derechos reservados.{" "}
         </p>
         <div className="flex items-center gap-2">
           <p className={`${ubuntu.className} text-[12px]`}>Diseño Web</p>
-          <img className="h-[10px] w-auto" src="/brumalabagency .svg" alt="logo tipo brumalab"/>
+          <img
+            className="h-[10px] w-auto"
+            src="/brumalabagency .svg"
+            alt="logo tipo brumalab"
+          />
         </div>
       </div>
     </>

@@ -30,7 +30,7 @@ export const Menumovil = () => {
             <Link href="/testdrive">Test Drive</Link>
           </button>
         </div>
-        <BannerMenu/>
+        <BannerMenu clases="pb-[35px]"/>
       </Drawer>
       <button type="primary" onClick={showDrawer}>
         <img className='w-[33px] h-auto' src="/Incon_megamenu/menu-icon.svg"/>

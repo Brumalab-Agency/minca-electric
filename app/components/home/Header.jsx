@@ -35,7 +35,7 @@ export const Header = () => {
     gsap.registerPlugin(ScrollTrigger);
 
     gsap.set(bgMenu.current, {
-      backgroundColor: "#000",
+      backgroundColor: "#111",
       opacity: 0,
     });
 
@@ -61,16 +61,18 @@ export const Header = () => {
     tl.to(svg.current, {
       display: "none",
       duration: 3,
-      y: -150,
+      x: -150,
       delay: 5,
     });
 
     /* tl.to(menu.current, {
       marginTop: "-38px",
     }); */
+
     tl.to(imgLogo.current, {
       filter:
         "invert(100%) sepia(0%) saturate(7500%) hue-rotate(67deg) brightness(109%) contrast(109%)",
+      width: "350px"
     });
     tl.to(imgCarrito.current, {
       filter:
@@ -83,20 +85,9 @@ export const Header = () => {
       background: "white",
       color: "black",
     });
-    tl.to(navegacion.current, {
-      background: "black",
-    });
-    tl.to(anclaProductos.current, {
-      color: "white",
-    });
-    tl.to(anclasRest.current, {
-      color: "white",
-    });
-    tl.to(anclaBlog.current, {
-      color: "white",
-    });
+   
     tl.to(gap.current, {
-      gap: 0,
+      gap: "16px",
     });
 
     const tlSVG = gsap.timeline({
@@ -108,7 +99,7 @@ export const Header = () => {
       },
     });
 
-    tlSVG.to(svg.current, { display: "block", opacity: 1, y: 0 });
+    tlSVG.to(svg.current, { display: "block", position: "absolute", right: "50px", opacity: 1, x: 0 });
   }, []);
 
   useEffect(() => {
@@ -130,7 +121,7 @@ export const Header = () => {
       <MostarMarquee />
       <div
         ref={gap}
-        className="relative flex items-center justify-between px-4 py-6 lg:justify-normal lg:gap-4 lg:px-[100px]"
+        className="relative flex items-center justify-between px-4 py-4 lg:justify-normal lg:gap-4 lg:px-[100px]"
       >
         <div className="header-left flex h-auto w-[115px] items-center justify-between lg:flex-grow-0">
           <Link href="/">
@@ -204,7 +195,7 @@ export const Header = () => {
           </Link>
           <button
             ref={button}
-            className="mr-4 hidden h-[52px] w-[135px] rounded-[62px] bg-[#111] text-base text-white lg:block"
+            className="mr-4 hidden h-[52px] w-[135px] rounded-[62px] bg-[#111] text-base text-white lg:block z-10"
           >
             <Link href="/testdrive">Test Drive</Link>
           </button>

@@ -3,9 +3,9 @@ import { ubuntu } from "@/ui/fonts";
 import CardHeroSingleScooter from "../singlescooter/CardHeroSingleScooter";
 
 export const HeroVideoSingleCardProductTemporal = ({urlVideo, scooters, }) => {
-  console.log(urlVideo);
+
  
-  console.log(scooters);
+
   return (
     <div id="up" className="heroVideo relative lg:mt-[150px]">
       <div className="">

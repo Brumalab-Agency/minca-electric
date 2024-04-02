@@ -43,7 +43,7 @@ const CardHeroSingleScooter = ({ scooters }) => {
                     className={`${manrope.className} text-[14px] font-bold text-[#fff] flex items-center gap-2`}
                   >
                     Desde {item.node.sliderProductos.precioActual}*
-                    <div className="-mt-1"><TooltipScooter tooltips={item.node.sliderProductos.tooltips}/></div>
+                    <div className="-mt-1 cursor-pointer"><TooltipScooter tooltips={item.node.sliderProductos.tooltips}/></div>
                   </div>
                 </div>
               </div>
@@ -62,8 +62,8 @@ const CardHeroSingleScooter = ({ scooters }) => {
           >
             Comprar Ahora
           </Link>
-          <div className="Cupon w-full h-[150px] bg-[#F0F1EB] rounded-[5px] flex">
-            <div className="w-[60%] h-[150px] border-r-4 border-dashed border-[#111] grid place-items-center">
+          <div className="Cupon w-full h-[150px] bg-[#F0F1EB] rounded-[5px] flex mt-6">
+            <div className="w-[60%] h-[150px] border-r-2 border-dashed border-[#111] grid place-items-center">
               <div className={`${manrope.className }`}>
                 <p className="text-base leading-[22px]">{item.node.sliderProductos.cuponTitulo1}</p>
                 <p className="text-[24px] font-bold">{item.node.sliderProductos.cuponIntermedia}</p>
@@ -75,7 +75,7 @@ const CardHeroSingleScooter = ({ scooters }) => {
             </div>
             <div className="w-[40%] h-[150px] grid place-items-center">
              
-              <img className="w-[69px] h-auto rounded-[15px] p-[7px]" src={item.node.sliderProductos.cuponImg?.mediaItemUrl} alt="producto de descuento" style={{boxShadow: '-1px 5px 0px -3px rgba(0,0,0,0.79)'}}/>
+              <img className="w-[100px] h-auto rounded-[15px] p-[7px]" src={item.node.sliderProductos.cuponImg?.mediaItemUrl} alt="producto de descuento" style={{boxShadow: '-1px 5px 0px -3px rgba(0,0,0,0.79)'}}/>
             </div>
           </div>
         </div>

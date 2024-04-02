@@ -16,8 +16,8 @@ export default function Home() {
     <main>
       <Hero />
       <CarruselScooters />
-      <HeroImagenSec />
-      <CarruselEbikes />
+      {/* <HeroImagenSec />
+      <CarruselEbikes /> */}
       <PruebaMinca />
       <CarruselAccesorios />
       <CambiaRuta />

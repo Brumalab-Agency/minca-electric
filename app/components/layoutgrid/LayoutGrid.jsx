@@ -20,6 +20,7 @@ export const LayoutGrid = ({ cards }) => {
     setLastSelected(selected);
     setSelected(null);
   };
+  
 
   return (
     <div className="w-full h-[579px] p-10 grid grid-cols-1 md:grid-cols-3  max-w-7xl mx-auto gap-4 ">
@@ -29,9 +30,9 @@ export const LayoutGrid = ({ cards }) => {
             onClick={() => handleClick(card)}
             className={cn(
               card.className,
-              "relative overflow-hidden ",
+              "relative overflow-hiddenn",
               selected?.id === card.id
-                ? "rounded-lg cursor-pointer absolute inset-0 h-1/2 w-full md:w-1/2 m-auto z-50 flex justify-center items-center flex-wrap flex-col"
+                ? "rounded-lg cursor-pointer absolute inset-0 h-1/2 w-full md:w-1/2 m-auto z-50 flex justify-center items-center flex-wrap flex-col contenedor-Card"
                 : lastSelected?.id === card.id
                 ? "z-40 bg-[#F4F5F0] rounded-xl h-full w-full"
                 : "bg-[#F4F5F0] rounded-xl h-full w-full"
@@ -65,7 +66,7 @@ const BlurImage = ({ card }) => {
       width="500"
       onLoad={() => setLoaded(true)}
       className={cn(
-        `object-cover object-center absolute inset-0 h-full w-full transition duration-200  ${card.className}`,
+        `object-cover object-center absolute inset-0 h-full w-full transition duration-200   ${card.className}`,
         loaded ? "blur-none" : "blur-md"
       )}
       alt="thumbnail"
@@ -75,15 +76,15 @@ const BlurImage = ({ card }) => {
 
 const SelectedCard = ({ selected }) => {
   return (
-    <div className="bg-transparent h-full w-full flex flex-col justify-end rounded-lg shadow-2xl relative z-[60]">
+    <div className="bg-transparent h-full w-full flex flex-col justify-end rounded-lg shadow-2xl relative ">
       <motion.div
         initial={{
           opacity: 0,
         }}
         animate={{
-          opacity: 0.3,
+          opacity: 1,
         }}
-        className="absolute inset-0 h-full w-full bg-[#111]"
+        className="absolute inset-0 h-full w-full bg-[#F4F5F0]"
       />
       <motion.div
         initial={{
@@ -98,7 +99,7 @@ const SelectedCard = ({ selected }) => {
           duration: 0.3,
           ease: "easeInOut",
         }}
-        className="relative px-8 pb-4 z-[70]"
+        className="contenedor-relativo px-8 pb-4 h-full"
       >
         {selected?.content}
       </motion.div>

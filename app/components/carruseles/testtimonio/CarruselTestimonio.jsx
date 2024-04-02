@@ -15,10 +15,8 @@ export const CarruselTestimonio = ({ clases, nombre, comentario, rate }) => {
     <div className="MincaTestimonios h-auto w-full overflow-x-hidden bg-white">
       <div className="py-4  lg:h-auto lg:w-auto ">
         <div className="h-auto w-full">
-          <Carousel
-            opts={{
-              align: "start",
-            }}
+          <div
+            
             className="marcadorTestimonios w-full "
           >
             <div className="flex items-end lg:mb-[74px]">
@@ -40,22 +38,22 @@ export const CarruselTestimonio = ({ clases, nombre, comentario, rate }) => {
                 </div>
               </div>
             </div>
-            <CarouselNext className="derecha -right-[4%] top-[18%] block lg:right-[50.2%] lg:top-[18%] 2xl:right-[26%]  2xl:top-[39%]" />
-            <CarouselPrevious className="izquierda right-[5%] top-[18%] block lg:left-[45.5%] lg:top-[18%] 2xl:left-[67%] 2xl:top-[39%]" />
-            <CarouselContent
+            <div  izquierda=" lg:top-[6%] lg:left-[85%] 2xl:left-[85%]"/>
+            <div derecha=" lg:top-[6%] lg:right-[7%] 2xl:right-[5%]"/>
+            <div
               className="marcador2"
               customClass="overflow-visible"
             >
               {Array.from({ length: 9 }).map((_, index) => (
-                <CarouselItem
+                <div
                   key={index}
                   className="md:basis-1/2 lg:w-[280px] lg:basis-1/6 2xl:mx-1 2xl:basis-1/6"
                 >
                   <div className="p-0">
-                    <Card
+                    <div
                       className={`${manrope.className}  mt-[24px] rounded-[20px] border-2 border-[#111]/10 p-6 lg:p-6 ${clases}`}
                     >
-                      <CardContent className="p-0">
+                      <div className="p-0">
                         <div className="marcadorMovil">
                           <div className="-minca-rate flex items-center justify-between">
                             <Rate allowHalf defaultValue={rate} />
@@ -81,13 +79,13 @@ export const CarruselTestimonio = ({ clases, nombre, comentario, rate }) => {
                             </section>
                           }
                         </div>
-                      </CardContent>
-                    </Card>
+                      </div>
+                    </div>
                   </div>
-                </CarouselItem>
+                </div>
               ))}
-            </CarouselContent>
-          </Carousel>
+            </div>
+          </div>
         </div>
       </div>
     </div>

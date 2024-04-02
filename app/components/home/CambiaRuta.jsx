@@ -3,7 +3,7 @@ import { TProductVariant } from "../titulos/TProductVariant";
 
 export const CambiaRuta = () => {
   return (
-    <div className="px-4 pt-4 pb-[40px] lg:grid lg:grid-cols-3 lg:place-items-center lg:px-[100px] w-full lg:h-[540px]">
+    <div className="px-4 pt-20 pb-[40px] lg:grid lg:grid-cols-3 lg:place-items-center lg:px-[100px] w-full lg:h-[540px] border-t-2">
       <div className="w-[300px] lg:hidden mb-[40px] leading-[42px]">
         <TProductVariant
           titulo="Cambia de ruta,"
@@ -16,7 +16,7 @@ export const CambiaRuta = () => {
           <p>Cambia de ruta,  <b>cambia de energía</b></p>
       </div>
       <section className={`${manrope.className} flex gap-8  justify-self-center`}>
-        <h1 className="text-[50px] font-bold">01</h1>
+        <h1 className="text-[50px] font-bold leading-[3.2rem]">01</h1>
         <div>
           <h2 className="w-[232px] text-[26px] font-semibold">
             Redefine tu viaje diario
@@ -29,8 +29,8 @@ export const CambiaRuta = () => {
           </p>
         </div>
       </section>
-      <section className={`${manrope.className} mt-[45px] flex gap-8 p-[0px] justify-self-end`}>
-        <h1 className="text-[50px] font-bold">02</h1>
+      <section className={`${manrope.className} mt-[45px] lg:mt-0 flex gap-8 p-[0px] justify-self-end`}>
+        <h1 className="text-[50px] font-bold leading-[3.2rem]">02</h1>
         <div>
           <h2 className="w-[232px] text-[26px] font-semibold">
             Confía en nuestra experiencia

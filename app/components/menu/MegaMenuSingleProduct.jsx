@@ -33,7 +33,7 @@ function NavListMenu() {
     const tl = gsap.timeline({
       scrollTrigger: {
         trigger: document.documentElement,
-        start: "top+=150px",
+        start: "top+=10px",
         end: "+=1",
         toggleActions: "play none none reverse",
         scrub: true,
@@ -56,13 +56,13 @@ function NavListMenu() {
       description4: "Minca 1600W",
     },
   ];
-  const navListMenuEbikes = [
+ /*  const navListMenuEbikes = [
     {
       title: "Minca E-bikes",
       description1: "Minca Trip",
       description2: "Minca City",
     },
-  ];
+  ]; */
 
   const navListMenuAccesorios = [
     {
@@ -86,7 +86,7 @@ function NavListMenu() {
             <Typography
               variant="h6"
               color="black"
-              className="flex items-center text-base font-bold leading-[80px] text-[#111]"
+              className="flex items-center text-base font-bold leading-[80px] text-[#111] -mb-5"
             >
               {title}
             </Typography>
@@ -97,7 +97,7 @@ function NavListMenu() {
                 className="mt-2 text-left text-[16px]  font-medium leading-[50px] text-[#6F6C90] lg:text-base"
               >
                 <Link
-                  className="leading-[40px]"
+                  className="leading-[40px] hover:underline"
                   href={`/productos/${description}`}
                 >
                   {description}
@@ -117,7 +117,7 @@ function NavListMenu() {
             <Typography
               variant="h6"
               color="black"
-              className="flex items-center text-base font-bold leading-[80px] text-[#111]"
+              className="flex items-center text-base font-bold leading-[80px] text-[#111] -mb-5"
             >
               {title}
             </Typography>
@@ -128,7 +128,7 @@ function NavListMenu() {
                 className="mt-2 text-left text-[16px]  font-medium leading-[50px] text-[#6F6C90] lg:text-base"
               >
                 <Link
-                  className="leading-[40px]"
+                  className="leading-[40px] hover:underline"
                   href={`/accesorios/${description}`}
                 >
                   {description}
@@ -140,7 +140,7 @@ function NavListMenu() {
       </div>
     ),
   );
-  const renderEbikes = navListMenuEbikes.map(
+ /*  const renderEbikes = navListMenuEbikes.map(
     ({ title, ...descriptions }, key) => (
       <div key={key}>
         <MenuItem className="flex items-center gap-3 rounded-lg">
@@ -170,7 +170,7 @@ function NavListMenu() {
         </MenuItem>
       </div>
     ),
-  );
+  ); */
 
   return (
     <>
@@ -206,19 +206,19 @@ function NavListMenu() {
           </Typography>
         </MenuHandler>
         <MenuList className="z-50 block h-[474px] max-w-[1366px] rounded-xl lg:flex lg:w-[70%]">
-          <ul className="grid w-[60%] grid-cols-3 gap-y-2 p-10 outline-none outline-0">
+          <ul className="grid w-[50%] grid-cols-2 gap-y-2 p-10 outline-none outline-0">
             {renderProductos}
-            {renderEbikes}
+            {/* {renderEbikes} */}
             {renderAccesorios}
           </ul>
           {/* Divider */}
-          <BannerMenu clases="hidden lg:flex" />
+          <BannerMenu clases="hidden lg:flex rounded-r-xl rounded-b-xl" />
         </MenuList>
       </Menu>
       <div className="colapsable-movil lg:hidden">
         <Collapse className="grid grid-cols-2" open={isMobileMenuOpen}>
           {renderProductos}
-          {renderEbikes}
+          {/* {renderEbikes} */}
           {renderAccesorios}
         </Collapse>
       </div>
@@ -238,7 +238,7 @@ function NavList() {
     const tl = gsap.timeline({
       scrollTrigger: {
         trigger: document.documentElement,
-        start: "top+=150px",
+        start: "top+=10px",
         end: "+=1",
         toggleActions: "play none none reverse",
         scrub: true,
@@ -306,13 +306,14 @@ export function MegaMenuSingleProduct() {
   const [openNav, setOpenNav] = useState(false);
   const navegacion = useRef(null);
 
+ 
   useLayoutEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
 
     const tl = gsap.timeline({
       scrollTrigger: {
         trigger: document.documentElement,
-        start: "top+=150px",
+        start: "top+=40px",
         end: "+=1",
         toggleActions: "play none none reverse",
         scrub: true,
@@ -320,8 +321,11 @@ export function MegaMenuSingleProduct() {
       },
     });
     tl.to(navegacion.current, {
-      background: "black",
+      background: "#111",
     });
+    return () => {
+      tl.revert();
+    };
   }, []);
 
   useEffect(() => {
@@ -329,6 +333,7 @@ export function MegaMenuSingleProduct() {
       "resize",
       () => window.innerWidth >= 960 && setOpenNav(false),
     );
+    
   }, []);
 
   return (

@@ -2,11 +2,13 @@
 
 import React, { useEffect, useState, useRef } from "react";
 import { cn } from "@/utils/cn";
+import { manrope } from "@/ui/fonts";
+import { Rate } from "antd";
 
-export const InfiniteMovingCards = ({
+export const InfiniteMovingCardsTestimonios = ({
   items,
   direction = "left",
-  speed = "slow",
+  speed = "fast",
   pauseOnHover = true,
   className,
 }) => {
@@ -56,7 +58,7 @@ export const InfiniteMovingCards = ({
       } else if (speed === "normal") {
         containerRef.current.style.setProperty("--animation-duration", "40s");
       } else {
-        containerRef.current.style.setProperty("--animation-duration", "380s");
+        containerRef.current.style.setProperty("--animation-duration", "80s");
       }
     }
   };
@@ -65,7 +67,7 @@ export const InfiniteMovingCards = ({
     <div
       ref={containerRef}
       className={cn(
-        "scroller relative z-20  w-full overflow-hidden  [mask-image:linear-gradient(to_right,transparent,white_20%,white_80%,transparent)]",
+        "scroller relative z-20  w-full overflow-hidden  ",
         className,
       )}
     >
@@ -79,21 +81,34 @@ export const InfiniteMovingCards = ({
       >
         {items.map((item, idx) => (
           <li
-            className="  relative flex justify-center items-center h-[45px] w-[90px] rounded-[5px] bg-[#F0EEED] lg:h-[75px] lg:w-[191px] 2xl:h-[105px] 2xl:w-[270px]"
-            key={idx}
+            className="relative w-[350px] max-w-full flex-shrink-0 rounded-2xl border border-b-0  px-8 py-6 md:w-[450px] bg-[#111]"
+            
+            key={item.name}
           >
-            <div className="grid place-items-center">
+            <blockquote>
               <div
                 aria-hidden="true"
-                className="user-select-none -z-1 pointer-events-none grid place-items-center"
-              >
+                className="user-select-none -z-1 pointer-events-none absolute -left-0.5 -top-0.5 h-[calc(100%_+_4px)] w-[calc(100%_+_4px)]"
+              ></div>
+              <div className="-minca-rate flex items-center justify-between">
+                <Rate allowHalf defaultValue={item.testimonio.rate} />
                 <img
-                  className="h-[24px] w-[62px] lg:h-[57px] lg:w-[143px] "
-                  src={item.clientesAliados.clientesaliado.mediaItemUrl}
-                  alt="Clientes relacionados"
+                  className="h-[25px] w-[25px]"
+                  src="/google.png"
+                  alt="imagen google"
                 />
               </div>
-            </div>
+              <div className="relative z-20 mt-6 flex flex-row items-center">
+                <span className="flex flex-col gap-1">
+                  <span className=" text-sm leading-[1.6] text-gray-400 font-bold">
+                    {item.testimonio.nombreDeCliente}
+                  </span>
+                  <span className=" text-sm font-normal leading-[1.6] text-gray-400">
+                    {item.testimonio.comentario}
+                  </span>
+                </span>
+              </div>
+            </blockquote>
           </li>
         ))}
       </ul>

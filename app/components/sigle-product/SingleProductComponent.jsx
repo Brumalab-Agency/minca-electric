@@ -8,9 +8,7 @@ import Modal3d from "../modal3d/Modal3d";
 export const SingleProductComponent = ({ scooters }) => {
   const productosScooters = scooters;
 
-
   const items = productosScooters.edges;
-
 
   return (
     <div className="carrusel h-auto w-full">
@@ -36,7 +34,9 @@ export const SingleProductComponent = ({ scooters }) => {
           <div>
             <div className="flex justify-between">
               <div className="flex flex-col justify-center">
-                <small className={`${manrope.className} text-base font-medium`}>{item.node.sliderProductos.anoVersion}</small>
+                <small className={`${manrope.className} text-base font-medium`}>
+                  {item.node.sliderProductos.anoVersion}
+                </small>
                 <h2
                   className={`${manrope.className} mb-1 text-[16px] font-bold uppercase text-[#111111]  lg:text-[42px] lg:leading-[35px]`}
                 >
@@ -54,15 +54,18 @@ export const SingleProductComponent = ({ scooters }) => {
                 </p>
                 <div className="my-2 flex items-center gap-3 lg:mt-6 lg:gap-4">
                   <div
-                    className={`${manrope.className} text-[14px] font-bold text-[#111111]  lg:text-[26px]`}
-                  >
-                    {item.node.sliderProductos.precioActual}
-                  </div>
-                  <del
                     className={`${manrope.className} text-[14px] font-bold text-[#111111]  opacity-50 lg:text-[26px]`}
                   >
-                    {item.node.sliderProductos.precioRebajado}
-                  </del>
+                    <p className="text-[12px]">Antes</p>
+
+                    <del>{item.node.sliderProductos.precioRebajado}</del>
+                  </div>
+                  <div
+                    className={`${manrope.className} text-[14px] font-bold text-[#111111]   lg:text-[26px]`}
+                  >
+                    <p className="text-[12px]">Ahora</p>
+                    {item.node.sliderProductos.precioActual}
+                  </div>
                   <span className="hidden items-center justify-center rounded-full bg-[#FF3333] bg-opacity-10 px-2.5 py-0.5 text-[#FF3333] lg:inline-flex lg:h-8 lg:px-[14px] lg:py-[6px]">
                     <p
                       className={`${manrope.className} whitespace-nowrap text-sm  `}
@@ -217,7 +220,7 @@ export const SingleProductComponent = ({ scooters }) => {
           </div>
           <Link
             href={`/especificaciones/${encodeURIComponent(item.node.sliderProductos.nombreProducto)}`}
-            className="flex btn-scooter gird z-10 my-3 h-[52px] w-full place-items-center justify-center rounded-[62px]  bg-[#111] text-[16px] text-white lg:absolute lg:right-[100px]  lg:top-[59.2%]  lg:w-[191px] lg:h-[48px] 2xl:w-[235px]"
+            className="btn-scooter gird z-10 my-3 flex h-[52px] w-full place-items-center justify-center rounded-[62px]  bg-[#111] text-[16px] text-white lg:absolute lg:right-[100px]  lg:top-[59.2%]  lg:h-[48px] lg:w-[191px] 2xl:w-[235px]"
           >
             Comprar Ahora
           </Link>

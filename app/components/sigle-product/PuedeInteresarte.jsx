@@ -4,13 +4,13 @@ import { manrope, ubuntu } from "../../ui/fonts";
 
 export const PuedeInteresarte = () => {
   return (
-    <div className="carrusel-single-product-tambien-podria-interesarte grid h-auto lg:h-[730px] place-items-center px-4 py-[50px] lg:px-[100px]">
-      <section>
+    <div className="carrusel-single-product-tambien-podria-interesarte grid h-auto lg:h-[630px] place-items-left px-4 py-[50px] lg:px-[100px]">
+      <section className="h-[60px] w-auto">
         <h2 className={`${manrope.className} lg:text-[48px] lg:leading-[52px] font-bold text-[32px] leading-[42px]`}>
-          También podría interesarte
+          Minca Scooters
         </h2>
       </section>
-      <section className="flex h-full w-full items-center lg:justify-center gap-[19px] overflow-scroll lg:overflow-visible mt-[48px] lg:mt-0">
+      <section className="flex h-full w-full items-center lg:justify-between gap-[19px] overflow-scroll lg:overflow-visible mt-[48px] lg:mt-0">
         <Link href="/productos/Minca%20350W" className="block lg:flex flex-col justify-center text-center h-auto w-[200px] lg:w-[295px]">
           <img
             className="h-[200px] lg:w-[295px] max-w-[295px] lg:h-auto"

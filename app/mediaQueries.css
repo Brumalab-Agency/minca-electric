@@ -187,23 +187,10 @@ button.\!absolute.top-2\/4.right-4.-translate-y-2\/4.rounded-full.select-none.tr
 
     /* Testimonios */
 
-/*     .testimonioCard.lg\:my-\[74px\].flex.justify-between.items-center.gap-4.overflow-x-scroll {
+    .testimonioCard.lg\:my-\[74px\].flex.justify-between.items-center.gap-4.overflow-x-scroll {
       scrollbar-width: none;
   }
   
-  .overflow-hidden.overflow-visible::after {
-    background: linear-gradient(to left, #fff 0%, transparent 100%);
-    color: transparent;
-    content: "00000";
-    position: absolute;
-    height: 43%;
-    right: 37%;
-    width: 4%;
-    bottom: 0;
-    -webkit-backdrop-filter: blur(10px);
-    backdrop-filter: blur(3px);
-  }
- */
 }
 
 @media screen and (min-width: 1600px) {

@@ -47,18 +47,24 @@ const Scooter = ({ scooter }) => {
               >
                 {item.description}
               </p>
+              {/* Btn ADDi compartido con PC/Movil */}
+              <div className="pt-8 lg:hidden">
+                <Modal3d url_3d={item.url3d} />
+              </div>
               <div className="my-2 flex items-center gap-3 lg:mt-6 lg:gap-4">
+                <div
+                  className={`${manrope.className} text-[14px] font-bold text-[#111111]  opacity-50 lg:text-[26px]`}
+                >
+                  <p className="text-[14px]">Antes</p>
+                  <del>{item.precioRebajado}</del>
+                </div>
                 <div
                   className={`${manrope.className} text-[14px] font-bold text-[#111111]  lg:text-[26px]`}
                 >
+                  <p className="text-[14px]">Ahora</p>
                   {item.precioActual}
                 </div>
-                <del
-                  className={`${manrope.className} text-[14px] font-bold text-[#111111]  opacity-50 lg:text-[26px]`}
-                >
-                  {item.precioRebajado}
-                </del>
-                <span className="hidden items-center justify-center rounded-full bg-[#FF3333] bg-opacity-10 px-2.5 py-0.5 text-[#FF3333] lg:inline-flex lg:h-8 lg:px-[14px] lg:py-[6px]">
+                <span className="items-center justify-center rounded-full bg-[#FF3333] bg-opacity-10 px-2.5 py-0.5 text-[#FF3333] lg:inline-flex lg:h-8 lg:px-[14px] lg:py-[6px]">
                   <p
                     className={`${manrope.className} whitespace-nowrap text-sm  `}
                   >
@@ -67,7 +73,10 @@ const Scooter = ({ scooter }) => {
                 </span>
               </div>
               {/* botones descuento y 3D PC*/}
-              <Link href="#" className="relative text-[10px] flex bg-[#F0EEED] w-[355px] h-[44px] justify-center gap-1 items-center rounded-[5px] mt-4">
+              <Link
+                href="#"
+                className="relative mt-4 flex h-[44px] w-[355px] items-center justify-center gap-1 rounded-[5px] bg-[#F0EEED] text-[10px]"
+              >
                 <Image
                   placeholder="empty"
                   className="logoCircular"
@@ -95,10 +104,12 @@ const Scooter = ({ scooter }) => {
                     objectFit: "contain",
                   }}
                 />
-                <p><strong>hasta 6 cuotas.</strong></p>
+                <p>
+                  <strong>hasta 6 cuotas.</strong>
+                </p>
                 <p className="underline">Revisa si calificas</p>
               </Link>
-              <div className="pt-8 hidden lg:block">
+              <div className="hidden pt-8 lg:block">
                 <Modal3d url_3d={item.url3d} />
               </div>
             </div>
@@ -116,11 +127,6 @@ const Scooter = ({ scooter }) => {
             </div>
           </div>
           {/* botones descuento y 3D MOVIL */}
-            {/* Btn ADDi compartido con PC/Movil */}
-          <div className="pt-8 lg:hidden">
-            <Modal3d url_3d={item.url3d} />
-          </div>
-          
         </div>
         {/* ********** */}
         <div className="contenedor-cards-arrows relative">
@@ -211,7 +217,6 @@ const Scooter = ({ scooter }) => {
           </div>
           <div className="scroll-indicator m-auto"></div>
         </div>
-       
       </div>
     </div>
   );
