@@ -26,11 +26,9 @@ export const SingleAccesorio = async({params}) => {
     <>
         <HeroContext titulo="ACCESORIOS" />
         <EspecificacionesAccesorios accesorios={accesorios}/>
-        <HotSpotAccesorios/>
         <HeroVideoSingleProduct titulo="MINCA" tituloSecundarioNegrita="Lifestyle" urlVideo="https://test.mincaelectric.com/wp-content/uploads/2024/03/Minca-Electric-Carro-o-Scooter_.mp4"/>
         <PuedeInteresarte/>
         <hr className="hidden lg:block lg:m-auto lg:w-[90%] border-1"></hr>
-        <NextBreadcrumb containerClasses="capitalize flex gap-2 text-[18px]" listClasses="flex items-center"/>
         <CarruselAccesorios/>
         <Footer/>
     </>

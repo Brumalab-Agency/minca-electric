@@ -8,8 +8,6 @@ import { BtnQty } from "./BtnQty";
 import LightboxComponentScooters from "../lightbox/LightboxComponentScooters";
 
 export const EspecificacionesMinca = async (scooters) => {
-  console.log(scooters);
-  //const datosWoocommerce = await ProductosWoocommerce();
   const items = scooters.scooters.productTypes.nodes[0].products.nodes[0];
   const item = items;
 
@@ -18,7 +16,6 @@ export const EspecificacionesMinca = async (scooters) => {
       <div className="EspecificacionesMinca py-[70px]" key={1}>
         <div className="justify-between lg:flex lg:justify-center lg:px-[96px]">
           {/* Scooters */}
-          {/* <LightboxComponentScooters item={item}/> */}
           <div className="h-auto w-full flex-row-reverse lg:flex lg:w-1/2">
             <div className="grid h-auto w-full place-items-center lg:ml-4 lg:mr-[50px] lg:flex lg:w-auto">
               <Image

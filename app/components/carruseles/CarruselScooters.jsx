@@ -7,15 +7,19 @@ import Scooter from "./Scooter";
 import { SkeletonCarrusel } from "./SkeletonCarrusel";
 
 export function CarruselScooters() {
+
   const [scooters, setScooters] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [autoplay, setAutoplay] = useState(true);
 
+  console.log(scooters);
+
   useEffect(() => {
     const fetchData = async () => {
       try {
         const data = await Scooters();
+
         setScooters(data);
         setLoading(false);
       } catch (error) {

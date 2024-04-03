@@ -193,7 +193,7 @@ button.\!absolute.top-2\/4.right-4.-translate-y-2\/4.rounded-full.select-none.tr
   
 }
 
-@media screen and (min-width: 1600px) {
+@media screen and (min-width: 1900px) {
   img.hidden.lg\:block.logo-minca-pc {
     width: 1040px;
     height: 663px;
@@ -211,6 +211,18 @@ button.\!absolute.top-2\/4.right-4.-translate-y-2\/4.rounded-full.select-none.tr
   .overflow-hidden.overflow-visible::after {
     right: 22%;
   }
+  .image-gallery-thumbnails-wrapper.image-gallery-thumbnails-left .image-gallery-thumbnails, .image-gallery-thumbnails-wrapper.image-gallery-thumbnails-right .image-gallery-thumbnails {
+    width: 170% !important;
+    margin-left: 30px;
+}
+
+button.image-gallery-thumbnail {
+  background: #F0EEED;
+  border-radius: 10px;
+  margin-bottom: 15px;
+  width: 150px;
+  height: auto;
+}
   
 }
 

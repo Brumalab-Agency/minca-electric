@@ -53,12 +53,12 @@ export const EspecificacionesAccesorios = async (accesorios) => {
 
     content = (
       <div className="EspecificacionesAccesorios Productos-SIMPLES mb-8">
-        <div className=" justify-between lg:flex lg:justify-start lg:px-[75px] lg:py-[50px] p-4">
+        <div className=" justify-between lg:flex lg:justify-start lg:px-[100px] lg:py-[50px] p-4">
           {/* Accesorios */}
           <ReactImagenGalleryLupa items={items[0]} />
           <div className="lg:w-[50%]">
             {/* Titulo y descripcion */}
-            <div className="flex justify-between">
+            <div className="flex justify-between ml-7">
               <div className="flex flex-col justify-center">
                 <h2
                   className={`${manrope.className} mb-1 text-[24px] font-bold uppercase text-[#111111]  lg:text-[42px] lg:leading-[28px]`}
@@ -82,7 +82,7 @@ export const EspecificacionesAccesorios = async (accesorios) => {
               {/* /Scooter/btn-slider-left-pc.png */}
             </div>
             {/* Btn y contador */}
-            <div className="contador-btnAddCart mt-2 flex w-full items-center gap-4 lg:w-[85%] 2xl:w-[70%]">
+            <div className="contador-btnAddCart mt-4 flex w-full items-center gap-4 lg:w-[85%] 2xl:w-[70%] ml-7">
               <BtnQty />
               <div className="w-full flex-col justify-center lg:flex">
                 {productoEncontrado ? (

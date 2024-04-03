@@ -22,7 +22,7 @@ export const CarruselAccesorios = async () => {
 
 
   return (
-    <div className="MincaAccesorios h-auto w-full overflow-x-hidden bg-white lg:pl-[100px] pl-4 lg:mt-[130px] 2xl:mt-[150px] mb-[65] lg:mb-0">
+    <div className="MincaAccesorios h-auto w-full overflow-x-hidden bg-white lg:pl-[100px] pl-4 lg:mt-[80px] 2xl:mt-[100px] mb-[65] lg:mb-0">
       <div className="py-4  lg:h-[710px] lg:w-auto">
         <div className="h-auto w-full">
           <div className="flex w-full items-center justify-between px-4 lg:px-0 leading-[42px]">

@@ -3,7 +3,6 @@ import { useState } from "react";
 import { manrope, ubuntu } from "@/ui/fonts";
 import { BtnQty } from "../especificaciones-component/BtnQty";
 import AddToCart from "../cart/AddToCart";
-import LightboxComponent from "../lightbox/LightboxComponent";
 import CheckIcon from "../svgSeleccion/CheckIcon";
 import XIcon from "../svgSeleccion/XIcon";
 import ReactImagenGalleryLupa from "../react-image-gallery/ReactImagenGalleryLupa";
@@ -140,23 +139,29 @@ const AccesorioVariable = (item) => {
                         {/* Btn colores */}
                         <div className="flex gap-2 pt-1">
                           {/* color negro L */}
-                          <button
-                            onClick={() => handleColorSelection("Negro")}
-                            className="colores  relative grid h-[37px] w-[37px] place-items-center rounded-[50%] bg-[#111] text-white"
-                          >
-                            {selectedOptions.colors.includes("Negro") && (
-                              <CheckIcon className=" right-0 top-0" />
-                            )}
-                          </button>
+                          <div>
+                            <button
+                              onClick={() => handleColorSelection("Negro")}
+                              className="colores  relative grid h-[37px] w-[37px] place-items-center rounded-[50%] bg-[#111] text-white"
+                            >
+                              {selectedOptions.colors.includes("Negro") && (
+                                <CheckIcon className=" right-0 top-0" />
+                              )}
+                            </button>
+                            <p className="text-[12px] text-[#111]/60 mt-1">Negro</p>
+                          </div>
                           {/* color azul M */}
-                          <button
-                            onClick={() => handleColorSelection("Azul")}
-                            className="colores  relative grid h-[37px] w-[37px] place-items-center rounded-[50%] bg-[#242939] text-white"
-                          >
-                            {selectedOptions.colors.includes("Azul") && (
-                              <CheckIcon className=" right-0 top-0" />
-                            )}
-                          </button>
+                          <div className="flex flex-col items-center">
+                            <button
+                              onClick={() => handleColorSelection("Azul")}
+                              className="colores  relative grid h-[37px] w-[37px] place-items-center rounded-[50%] bg-[#242939] text-white"
+                            >
+                              {selectedOptions.colors.includes("Azul") && (
+                                <CheckIcon className=" right-0 top-0" />
+                              )}
+                            </button>
+                            <p className="text-[12px] text-[#111]/60 mt-1">Azul</p>
+                          </div>
                         </div>
                       </div>
 

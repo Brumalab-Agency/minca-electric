@@ -9,14 +9,14 @@ export const TablaEspecificaciones = (scooters) => {
     <div>
       {items.map((item) => (
         <>
-          <div className="mt-16 flex items-center justify-between px-4 lg:mt-[80px] lg:px-[96px]">
+          <div className="mt-16 flex items-center justify-between px-4 lg:mt-[80px] lg:pl-[96px]">
             <div className="lg:w-full">
               <h2 className="border-b-2 border-[#111] lg:mr-[30px]">
-                Calificación y reseñas
+                Especificaciones
               </h2>
             </div>
           </div>
-          <div className="overflow-x-auto pb-[72px] lg:px-[96px] lg:pb-[20px]">
+          <div className="overflow-x-auto pb-[72px] lg:pl-[96px] lg:pb-[20px]">
             <table className="mt-8 min-w-full divide-y-2 divide-gray-200 bg-white text-sm">
               <tbody className="divide-y divide-gray-200">
                 <tr className="h-12 odd:bg-[#F4F5F0]">

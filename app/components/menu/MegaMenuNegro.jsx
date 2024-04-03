@@ -20,13 +20,9 @@ import {
   XMarkIcon,
 } from "@heroicons/react/24/outline";
 import { BannerMenu } from "./BannerMenu";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { useLayoutEffect, useRef } from "react";
+
 
 function NavListMenu() {
-
-
   
 
   const navListMenuProductos = [
@@ -130,7 +126,7 @@ function NavListMenu() {
             <Typography
               variant="h6"
               color="black"
-              className="flex items-center text-base font-bold leading-[80px] text-[#111]"
+              className="flex items-center text-base font-bold leading-[80px] text-[#fff]"
             >
               {title}
             </Typography>
@@ -166,8 +162,8 @@ function NavListMenu() {
         <MenuHandler className="">
           <Typography as="div" variant="small" className="flex font-medium ">
             <ListItem
-             
-              className="flex w-[130px] items-center justify-center gap-2 rounded-[62px] py-2 text-base font-medium text-[#111] hover:bg-[#111] hover:text-white"
+           
+              className="flex w-[130px] items-center justify-center gap-2 rounded-[62px] py-2 text-base font-medium text-[#fff] hover:bg-[#fff] hover:text-black"
               selected={isMenuOpen || isMobileMenuOpen}
               onClick={() => setIsMobileMenuOpen((cur) => !cur)}
             >
@@ -217,7 +213,7 @@ function NavList() {
       <Typography variant="small" color="black" className="font-medium">
         <Link
         
-          className="inline-block w-auto items-center gap-2 rounded-[62px] px-3 py-2 text-base text-[#111] hover:bg-[#111] hover:text-white lg:flex"
+          className="inline-block w-auto items-center gap-2 rounded-[62px] px-3 py-2 text-base text-[#fff] hover:bg-[#fff] hover:text-[#111] lg:flex"
           href="/servicios"
         >
           Servicio técnico
@@ -227,15 +223,15 @@ function NavList() {
         <Link
          
           href="/showrooms"
-          className="inline-block w-auto items-center gap-2 rounded-[62px] px-3 py-2 text-base text-[#111] hover:bg-[#111] hover:text-white lg:flex"
+          className="inline-block w-auto items-center gap-2 rounded-[62px] px-3 py-2 text-base text-[#fff] hover:bg-[#fff] hover:text-[#111] lg:flex"
         >
           Showrooms
         </Link>
       </Typography>
       <Typography variant="small" color="black" className="font-medium">
         <Link
-          
-          className="inline-block w-auto items-center gap-2 rounded-[62px] px-3 py-2 text-base text-[#111] hover:bg-[#111] hover:text-white lg:flex"
+ 
+          className="inline-block w-auto items-center gap-2 rounded-[62px] px-3 py-2 text-base text-[#fff] hover:bg-[#fff] hover:text-[#111] lg:flex"
           href="/recursos"
         >
           Recursos
@@ -243,8 +239,8 @@ function NavList() {
       </Typography>
       <Typography variant="small" color="black" className="font-medium">
         <Link
-         
-          className="inline-block w-auto items-center gap-2 rounded-[62px] px-4 py-2 text-base text-[#111] hover:bg-[#111] hover:text-white lg:flex"
+        
+          className="inline-block w-auto items-center gap-2 rounded-[62px] px-4 py-2 text-base text-[#fff] hover:bg-[#fff] hover:text-[#111] lg:flex"
           href="/blog"
         >
           Blog
@@ -254,14 +250,14 @@ function NavList() {
   );
 }
 
-export function MegaMenu() {
+export function MegaMenuNegro() {
   const [openNav, setOpenNav] = useState(false);
   
 
   return (
-    <Navbar className="mx-auto max-w-screen-xl px-4 py-2 border-none">
-      <div className="text-[#111]-900 items-center justify-between lg:flex">
-        <div className="navegacion lg:flex">
+    <Navbar className="mx-auto max-w-screen-xl py-2 border-none bg-[#111] px-0">
+      <div className="text-[#fff]-900 items-center justify-between lg:flex">
+        <div  className="navegacion lg:flex">
           <NavList />
         </div>
         <IconButton

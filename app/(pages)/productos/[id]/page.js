@@ -32,9 +32,9 @@ const SingleProduct = async ({ params }) => {
   const { id } = params;
   const scooters = await SingleProductos(decodeURIComponent(id));
   
-
+console.log(scooters);
   return (
-    <>
+    <div>
     <HeaderSingleProducts/>
         <HeroVideoSingleCarsProduct
         titulo="Last Mile"
@@ -58,7 +58,7 @@ const SingleProduct = async ({ params }) => {
       <CarruselAccesorios />
       <AcordionSingleProduct/>
       <Footer />
-    </>
+    </div>
   );
 };
 export default SingleProduct;

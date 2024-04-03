@@ -5,6 +5,7 @@ import { HeroVideoSingleProduct } from "@/components/reusable/HeroVideoSinglePro
 import { PuedeInteresarte } from "@/components/sigle-product/PuedeInteresarte";
 import { CarruselAccesorios } from "@/components/carruseles/accesorios/CarruselAccesorios";
 import { SingleProductosWoocommerce } from "@/lib/graphQLRequest";
+import { EspecificacionesMincaNew } from "@/components/especificaciones-component/EspecificacionesMincaNew";
 
 const Especificaciones = async ({ params }) => {
   const { id } = params;
@@ -14,7 +15,8 @@ const Especificaciones = async ({ params }) => {
   return (
     <div className="Especificaciones">
       <HeroContext titulo="MINCA" tituloNegrita="SCOOTERS" />
-      <EspecificacionesMinca scooters={scooters} />
+      {/* <EspecificacionesMinca scooters={scooters} /> */}
+      <EspecificacionesMincaNew scooters={scooters}/>
       <HeroVideoSingleProduct
         titulo="MINCA"
         tituloSecundarioNegrita="Scooters"

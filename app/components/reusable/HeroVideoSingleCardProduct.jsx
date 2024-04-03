@@ -1,15 +1,13 @@
-import { getBanner } from "@/lib/graphQLRequest";
 import { ubuntu } from "@/ui/fonts";
 import CardHeroSingleScooter from "../singlescooter/CardHeroSingleScooter";
-import Image from "next/image";
-import TooltipScooter from "../singlescooter/TooltipScooter";
+
 
 export const HeroVideoSingleCarsProduct = ({urlVideo, scooters, }) => {
   
 
   return (
-    <div id="up" className="heroVideo relative lg:mt-[125px]">
-      <div className="">
+    <div className="heroVideo relative lg:mt-[125px]">
+      <div >
       {/* PC */}
 
         {/* <video

@@ -4,15 +4,33 @@ import ImageGallery from "react-image-gallery";
 import "react-image-gallery/styles/css/image-gallery.css";
 import EfectoLupa from "../efectoLupa/EfectoLupa";
 
-const ReactImagenGalleryLupa = ({ items }) => {
-console.log(items);
+const ReactImagenGalleryLupaEspecificaciones = ({ items }) => {
+
 
   const [thumbnailPosition, setThumbnailPosition] = useState("left");
 
-  const arrayConAlias = items.galleryImages.nodes.map((objeto) => ({
-    original: objeto.mediaItemUrl,
-    thumbnail: objeto.mediaItemUrl,
-  }));
+  const images = [
+    {
+      original: items.sliderProductos.foto1.mediaItemUrl,
+      thumbnail: items.sliderProductos.foto1.mediaItemUrl,
+    },
+    {
+      original: items.sliderProductos.foto2.mediaItemUrl,
+      thumbnail: items.sliderProductos.foto2.mediaItemUrl,
+    },
+    {
+      original: items.sliderProductos.foto3.mediaItemUrl,
+      thumbnail: items.sliderProductos.foto3.mediaItemUrl,
+    },
+    {
+      original: items.sliderProductos?.foto4?.mediaItemUrl,
+      thumbnail: items.sliderProductos?.foto4?.mediaItemUrl,
+    },
+    {
+      original: items.sliderProductos?.foto5?.mediaItemUrl,
+      thumbnail: items.sliderProductos?.foto5?.mediaItemUrl,
+    },
+  ];
 
   useEffect(() => {
     const handleResize = () => {
@@ -35,7 +53,7 @@ console.log(items);
   return (
     <div className="lg:ml-[0%] lg.mr-[2%] w-[98%] lg:w-[50vw]">
       <ImageGallery
-        items={arrayConAlias}
+        items={images}
         showNav={false}
         showFullscreenButton={false}
         thumbnailPosition={thumbnailPosition}
@@ -48,4 +66,4 @@ console.log(items);
   );
 };
 
-export default ReactImagenGalleryLupa;
+export default ReactImagenGalleryLupaEspecificaciones;

@@ -8,7 +8,7 @@ export const HeroContext = async ({ titulo, tituloNegrita, ocultar }) => {
       <Header />
       <div className="p-4 lg:px-[100px]">
         <h1
-          className={`${manrope.className} text-[40px] uppercase leading-[50px] text-[#111]  lg:mt-[170px] lg:flex lg:text-[64px]	lg:font-light lg:leading-[45px] lg:tracking-wide 2xl:text-[96px] 2xl:mt-[200px]`}
+          className={`${manrope.className} text-[40px] uppercase leading-[50px] text-[#111]  lg:mt-[170px] lg:flex  lg:font-light	lg:leading-[45px] lg:tracking-wide 2xl:mt-[200px]  2xl:text-[96px] lg:text-[64px]`}
         >
           {titulo}
           <br></br>

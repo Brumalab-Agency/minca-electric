@@ -8,6 +8,8 @@ import Modal3d from "../modal3d/Modal3d";
 const Scooter = ({ scooter }) => {
   const item = scooter.node.sliderProductos;
 
+  console.log(item.foto1);
+
   return (
     <div id="scooter" className="carrusel h-auto w-full">
       <div className="relative p-4 lg:px-[100px] lg:py-14">
@@ -22,7 +24,7 @@ const Scooter = ({ scooter }) => {
           placeholder="empty"
           alt={item.nombreProducto}
           className="lg:hidden"
-          src={item.imagen.sourceUrl}
+          src={item.foto1.mediaItemUrl}
           priority={true}
           width={390}
           height={400}
@@ -117,7 +119,7 @@ const Scooter = ({ scooter }) => {
               placeholder="empty"
               alt="publicidad"
               className="hidden lg:block"
-              src={item.imagen.sourceUrl}
+              src={item.foto1.mediaItemUrl}
               width={500}
               height={499}
             />

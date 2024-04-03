@@ -10,6 +10,8 @@ export const SingleProductComponent = ({ scooters }) => {
 
   const items = productosScooters.edges;
 
+  console.log(items);
+
   return (
     <div className="carrusel h-auto w-full">
       {items.map((item) => (
@@ -25,7 +27,7 @@ export const SingleProductComponent = ({ scooters }) => {
             placeholder="empty"
             alt={item.node.sliderProductos.nombreProducto}
             className="lg:hidden"
-            src={item.node.sliderProductos.imagen.sourceUrl}
+            src={item.node.sliderProductos.foto1.sourceUrl}
             priority={true}
             width={390}
             height={400}
@@ -119,7 +121,7 @@ export const SingleProductComponent = ({ scooters }) => {
                 placeholder="empty"
                 alt="publicidad"
                 className="hidden lg:block"
-                src={item.node.sliderProductos.imagen.sourceUrl}
+                src={item.node.sliderProductos.foto1.sourceUrl}
                 width={500}
                 height={499}
               />

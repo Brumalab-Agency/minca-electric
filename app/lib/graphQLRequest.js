@@ -193,11 +193,6 @@ export const Scooters = async () => {
                   velocidadNum
                   frenos
                   tipofrenos
-                  imagen {
-                    altText
-                    sourceUrl
-                    id
-                  }
                   frenosNulo
                   pesoSc
                   tpeso
@@ -205,6 +200,10 @@ export const Scooters = async () => {
                   tipoRodamiento
                   slugDinamicoTemporal
                   url3d
+                  foto1 {
+                    altText
+                    mediaItemUrl
+                  }
                 }
                 contentType {
                   node {
@@ -264,11 +263,6 @@ export const SingleProductos = async (name) => {
                   velocidadNum
                   frenos
                   tipofrenos
-                  imagen {
-                    altText
-                    sourceUrl
-                    id
-                  }
                   frenosNulo
                   pesoSc
                   tpeso
@@ -283,6 +277,14 @@ export const SingleProductos = async (name) => {
                     altText
                   }
                   foto3 {
+                    altText
+                    mediaItemUrl
+                  }
+                  foto4 {
+                    altText
+                    mediaItemUrl
+                  }
+                  foto5 {
                     altText
                     mediaItemUrl
                   }
@@ -479,6 +481,14 @@ export const SingleProductosWoocommerce = async (name) => {
                       mediaItemUrl
                     }
                     foto3 {
+                      altText
+                      mediaItemUrl
+                    }
+                    foto4 {
+                      altText
+                      mediaItemUrl
+                    }
+                    foto5 {
                       altText
                       mediaItemUrl
                     }

@@ -322,7 +322,7 @@ button.\!absolute.top-2\/4.right-4.-translate-y-2\/4.rounded-full.select-none.tr
   position: absolute;
   top: 50%;
   left: 3.5%;
-  z-index: 999;
+  z-index: 9;
   width: 58px;
   height: 58px;
   border-radius: 4px;
@@ -343,7 +343,7 @@ button.\!absolute.top-2\/4.right-4.-translate-y-2\/4.rounded-full.select-none.tr
   position: absolute;
   top: 50%;
   left: 3.5%;
-  z-index: 999;
+  z-index: 9;
   width: 58px;
   height: 58px;
   border-radius: 4px;
@@ -357,7 +357,7 @@ button.\!absolute.top-2\/4.right-4.-translate-y-2\/4.rounded-full.select-none.tr
   position: absolute;
   top: 50%;
   right: 3.5%;
-  z-index: 999;
+  z-index: 9;
   width: 58px;
   height: 58px;
   border-radius: 4px;
@@ -379,7 +379,7 @@ button.\!absolute.top-2\/4.right-4.-translate-y-2\/4.rounded-full.select-none.tr
   position: absolute;
   top: 50%;
   left: 3.5%;
-  z-index: 999;
+  z-index: 9;
   width: 58px;
   height: 58px;
   border-radius: 4px;
@@ -392,7 +392,7 @@ button.\!absolute.top-2\/4.right-4.-translate-y-2\/4.rounded-full.select-none.tr
   background: #ffffff;
   position: absolute;
 
-  z-index: 999;
+  z-index: 9;
   width: 58px;
   height: 58px;
   right: 48px;
@@ -585,8 +585,8 @@ img.hidden.lg\:block.logo-minca-m.shadow-none {
 
 .magnify {
   @apply absolute hidden rounded-full border-2 border-white bg-no-repeat;
-  width: 200px;
-  height: 200px;
+  width: 400px;
+  height: 400px;
   background-size: 500%;
   background-position: center;
   pointer-events: none;
@@ -713,19 +713,11 @@ button.image-gallery-thumbnail.active {
   scrollbar-width: none;
 }
 
-/* Contenedor Grid Layout en las paginas de las Scooters */
+/*  Tumbnails Imagenes de la galeria de accesorios */
 
+button.image-gallery-thumbnail {
+  background: #F0EEED;
+  border-radius: 10px;
+  margin-bottom: 15px;
+}
 
-
-/* .bg-transparent.h-full.w-full.flex.flex-col.justify-end.rounded-lg.shadow-2xl.relative::after{
-  content: ""; 
-  position: absolute; 
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-image: url(/sigleProduct/estilo-de-vida-single-product.png); 
-  background-repeat: no-repeat;
-  background-color: transparent; 
-  opacity: 0.1; 
-}  */

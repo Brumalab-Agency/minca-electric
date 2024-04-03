@@ -49,16 +49,16 @@ const EfectoLupa = ({ imageUrl, alt }) => {
     setMagnifyStyle((prev) => ({
       ...prev,
       display: "block",
-      top: `${offsetY - 100}px`,
-      left: `${offsetX - 100}px`,
+      top: `${offsetY - 200}px`,
+      left: `${offsetX - 200}px`,
       backgroundPosition: `${xPorcentaje}% ${yPorcentaje}%`,
     }));
   };
 
   return (
-    <div className="relative ml-2 mr-4">
+    <div className="relative ml-2 mr-4  rounded-[20px] flex justify-center items-center">
       <img
-        className="h-auto w-[600px] rounded-[20px]"
+        className="h-auto w-[600px] rounded-[20px] bg-[#F0EEED]"
         src={imageUrl}
         alt={alt}
         draggable={false}
