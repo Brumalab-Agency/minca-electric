@@ -4,12 +4,13 @@ import { AnimatePresence, motion } from "framer-motion";
 import Link from "next/link";
 import { useState } from "react";
 
-export const HoverEffectInfo = ({
+export const HoverEffectInfoShowrooms = ({
   items,
   className,
 }) => {
   let [hoveredIndex, setHoveredIndex] = useState(null);
 
+  console.log(items.class);
   return (
     <div
       className={cn(
@@ -68,8 +69,8 @@ export const Card = ({
       )}
     >
       
-      <div className="relative z-50">
-        <div className="p-4">
+      <div className="relative z-50 grid place-items-center w-auto h-full">
+        <div className="p-4 w-full h-auto grid place-items-center">
           {children}
           </div>
       </div>
@@ -81,7 +82,7 @@ export const CardTitle = ({
   children,
 }) => {
   return (
-    <h4 className={cn("text-zinc-100 font-bold tracking-wide mt-4 text-center", className)}>
+    <h4 className={cn("text-zinc-100 font-bold tracking-wide", className)}>
       {children}
     </h4>
   );
@@ -120,12 +121,13 @@ export const CardDescription2 = ({
   export const CardBackGround= ({
     className,
     children,
+
   }) => {
     return (
       <img
         src={children}
         className={cn(
-          "-mt-[27px] grid place-items-center",
+          `-mt-[65px] grid place-items-center`,
           className
         )}
       />
@@ -136,7 +138,7 @@ export const CardDescription2 = ({
     children,
   }) => {
     return (
-      <div className="grid place-items-center h-[280px]">
+      <div className="grid place-items-center h-[145px]">
           <img
             src={children}
             className={cn(

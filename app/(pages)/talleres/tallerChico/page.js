@@ -1,18 +1,25 @@
-import Loading from '@/loading'
-import SimplyAgendamientoChico from '@/components/simplybook/SimplyAgendamientoChico'
-import React, { Suspense } from 'react'
+import Loading from "@/loading";
+import SimplyAgendamientoChico from "@/components/simplybook/SimplyAgendamientoChico";
+import React, { Suspense } from "react";
+import { Header } from "@/components/home/Header";
+import { Footer } from "@/components/home/Footer";
 
-export const TallerChico
- = () => {
+export const TallerChico = () => {
   return (
-    <Suspense fallback={<Loading />}>
-      <div className='text-center'>
-        <h1>Bienvenido al Taller de mantenimiento Chico</h1>
-        <h2>¡Programa tu Mantenimiento Ahora!</h2>
+    <div>
+      <Header />
+      <Suspense fallback={<Loading />}>
+      <div className="lg:px-[100px] px-4 mb-20">
+        <h1 className="lg:text-[62px] text-[32px] font-bold lg:mt-[155px] text-left">Selecciona un lugar</h1>
+          <p className="m-auto lg:text-[20px] text-base text-[#111] text-left">
+          Encuentra el Mantenimiento Perfecto para Tu Scooter y Garantiza su Rendimiento. <br/>¡Programa tu Mantenimiento Ahora!
+          </p>
       </div>
         <SimplyAgendamientoChico />
       </Suspense>
-  )
-}
+      <Footer/>
+    </div>
+  );
+};
 
-export default TallerChico
+export default TallerChico;

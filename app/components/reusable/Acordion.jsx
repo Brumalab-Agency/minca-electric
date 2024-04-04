@@ -2,7 +2,7 @@
 import React, { useState } from "react";
 import { manrope } from "@/ui/fonts";
 
-export const Acordion = () => {
+export const Acordion = ({clase}) => {
   const [isOpen1, setIsOpen1] = useState(true);
   const [isOpen2, setIsOpen2] = useState(false);
   const [isOpen3, setIsOpen3] = useState(false);
@@ -23,7 +23,7 @@ export const Acordion = () => {
 
   return (
     <div
-      className={`Acordion lg:pb-22 mx-4 mb-10 bg-[#F0F1EB] px-4 py-8 lg:mx-[0px] lg:mb-0 lg:px-[100px]`}
+      className={`Acordion lg:pb-22 mx-4 bg-[#F0F1EB] px-4 py-8 lg:mx-[0px] lg:mb-0 lg:px-[100px] ${clase}`}
     >
       <div className="space-y-1 lg:space-y-0">
         {/* Sección 1 */}

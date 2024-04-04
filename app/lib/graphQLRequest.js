@@ -494,16 +494,15 @@ export const SingleProductosWoocommerce = async (name) => {
                     }
                     frenos
                     frenosNulo
-                    imagen {
-                      altText
-                      mediaItemUrl
-                    }
                     kg
                     kgPesoScooter
                     km
                     kmh
                     llanta
                     motor
+                    manualMinca {
+                      mediaItemUrl
+                    }
                     peso
                     pesoMaximo
                     pesoSc

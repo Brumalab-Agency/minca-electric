@@ -82,7 +82,7 @@ export const Header = () => {
   }, []);
 
   return (
-    <div className="z-50 h-auto w-full lg:fixed ">
+    <div className="z-50 h-auto w-full lg:fixed top-0">
       <MostarMarquee />
       {/* Menu fondo blanco */}
       <div

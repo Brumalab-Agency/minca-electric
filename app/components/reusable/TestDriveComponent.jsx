@@ -10,7 +10,7 @@ export const TestDriveComponent = () => {
 
         {/* showroom 1 */}
         <section className="flex h-full w-full lg:h-[665px]">
-          <div className="ladoIzquierdo grid h-full w-full place-items-center bg-[url(/testDrive/td1.jpg)] bg-cover bg-center">
+          <div className="ladoIzquierdo grid h-full w-full place-items-center bg-[url(/showrooms/TestDriveChico.jpg)] bg-cover bg-top">
             {/* La imagen es un backGround */}
           </div>
           <div className="ladoDerecho hidden h-full w-full place-items-center bg-[#F0F1EB] text-[#111] lg:grid ">
@@ -81,7 +81,7 @@ export const TestDriveComponent = () => {
               <div className="mx-auto ml-[60px] mt-6">
                 <BotonRelativo
                   sitio="/showroomchico"
-                  param="Agendar Mantenimiento"
+                  param="Agendar TestDrive"
                   clases="border-2 border-[#111] bg-[#F0F1EB] lg:w-[342px] lg:h-[56px]"
                 />
               </div>
@@ -129,7 +129,7 @@ export const TestDriveComponent = () => {
                     <h2
                       className={`${manrope.className} mb-[27px] text-left text-[26px] font-medium uppercase`}
                     >
-                      chicó
+                      cedritos
                     </h2>
                   </div>
                   <div>
@@ -158,21 +158,21 @@ export const TestDriveComponent = () => {
               <div className="mx-auto ml-[60px] mt-6">
                 <BotonRelativo
                   sitio="/showroomcedritos"
-                  param="Agendar Mantenimiento"
+                  param="Agendar TestDrive"
                   clases="border-2 border-[#111] bg-[#F0F1EB] lg:w-[342px] lg:h-[56px]"
                 />
               </div>
             </div>
           </div>
 
-          <div className="ladoIzquierdo grid h-full w-full place-items-center bg-[url(/testDrive/td2.jpg)] bg-cover bg-center">
+          <div className="ladoIzquierdo grid h-full w-full place-items-center bg-[url(/showrooms/TestDriveCedritos.jpg)] bg-cover bg-top">
             {/* La imagen es un backGround */}
           </div>
         </section>
         {/* showroom 3 */}
         {/* showroom 1 */}
         <section className="flex h-full w-full lg:h-[665px]">
-          <div className="ladoIzquierdo grid h-full w-full place-items-center bg-[url(/testDrive/td3.jpg)] bg-cover bg-center">
+          <div className="ladoIzquierdo grid h-full w-full place-items-center bg-[url(/showrooms/TestDriveJaveriana.jpg)] bg-cover bg-center">
             {/* La imagen es un backGround */}
           </div>
           <div className="ladoDerecho hidden h-full w-full place-items-center bg-[#F0F1EB] text-[#111] lg:grid ">
@@ -214,7 +214,7 @@ export const TestDriveComponent = () => {
                     <h2
                       className={`${manrope.className} mb-[27px] text-left text-[26px] font-medium uppercase`}
                     >
-                      chicó
+                      javeriana
                     </h2>
                   </div>
                   <div>
@@ -243,7 +243,7 @@ export const TestDriveComponent = () => {
               <div className="mx-auto ml-[60px] mt-6">
                 <BotonRelativo
                   sitio="/showroomjaveriana"
-                  param="Agendar Mantenimiento"
+                  param="Agendar TestDrive"
                   clases="border-2 border-[#111] bg-[#F0F1EB] lg:w-[342px] lg:h-[56px]"
                 />
               </div>

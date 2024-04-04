@@ -12,6 +12,7 @@ const Especificaciones = async ({ params }) => {
 
   const scooters = await SingleProductosWoocommerce(decodeURIComponent(id));
 
+
   return (
     <div className="Especificaciones">
       <HeroContext titulo="MINCA" tituloNegrita="SCOOTERS" />

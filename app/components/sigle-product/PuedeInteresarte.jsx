@@ -11,9 +11,9 @@ export const PuedeInteresarte = () => {
         </h2>
       </section>
       <section className="flex h-full w-full items-center lg:justify-between gap-[19px] overflow-scroll lg:overflow-visible mt-[48px] lg:mt-0">
-        <Link href="/productos/Minca%20350W" className="block lg:flex flex-col justify-center text-center h-auto w-[200px] lg:w-[295px]">
+        <Link href="/productos/Minca%20350W" className="block lg:flex flex-col justify-center text-center h-auto w-[200px] lg:w-[274px]">
           <img
-            className="h-[200px] lg:w-[295px] max-w-[295px] lg:h-auto"
+            className="h-[200px] lg:w-[274px] max-w-[295px] lg:h-auto"
             src="/sigleProduct/minca-300-single-product.png"
             alt="scooter minca 300w"
           />
@@ -42,9 +42,9 @@ export const PuedeInteresarte = () => {
             </div>
           </div>
         </Link>
-        <Link href="/productos/Minca%20500W" className="block lg:flex flex-col justify-center text-center h-auto w-[200px] lg:w-[295px]">
+        <Link href="/productos/Minca%20500W" className="block lg:flex flex-col justify-center text-center h-auto w-[200px] lg:w-[274px]">
           <img
-            className="h-[200px] lg:w-[295px] max-w-[295px] lg:h-auto"
+            className="h-[200px] lg:w-[274px] max-w-[295px] lg:h-auto"
             src="/sigleProduct/minca-500-single-product.png"
             alt="scooter minca 500w"
           />
@@ -73,9 +73,9 @@ export const PuedeInteresarte = () => {
             </div>
           </div>
         </Link>
-        <Link href="/productos/Minca%20800W" className="block lg:flex flex-col justify-center text-center h-auto w-[200px] lg:w-[295px]">
+        <Link href="/productos/Minca%20800W" className="block lg:flex flex-col justify-center text-center h-auto w-[200px] lg:w-[274px]">
           <img
-            className="h-[200px] lg:w-[295px] max-w-[295px] lg:h-auto"
+            className="h-[200px] lg:w-[274px] max-w-[295px] lg:h-auto"
             src="/sigleProduct/minca-800-single-product.png"
             alt="scooter minca 800w"
           />
@@ -103,9 +103,9 @@ export const PuedeInteresarte = () => {
             </div>
           </div>
         </Link>
-        <Link href="/productos/Minca%201600W" className="block lg:flex flex-col justify-center text-center h-auto w-[200px] lg:w-[295px]">
+        <Link href="/productos/Minca%201600W" className="block lg:flex flex-col justify-center text-center h-auto w-[200px] lg:w-[274px]">
           <img
-            className="h-[200px] lg:w-[295px] max-w-[295px] lg:h-auto"
+            className="h-[200px] lg:w-[274px] max-w-[295px] lg:h-auto"
             src="/sigleProduct/minca-1600-single-product.png"
             alt="scooter minca 1600w"
           />

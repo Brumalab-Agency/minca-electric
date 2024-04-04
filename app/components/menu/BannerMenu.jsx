@@ -10,7 +10,7 @@ export const BannerMenu = ({clases}) => {
               ¡Empieza a rodar hoy mismo!
             </p>
             <div className="mt-3 pr-4 w-full px-6">
-              <Link href="#" className="flex items-center gap-4">
+              <Link href="/financiamiento" className="flex items-center gap-4">
                 <img
                   className="w-[70px] h-auto bg-white p-[10px] rounded-[15px]"
                   src="/MenuPC/credit-card-alt-1-svgrepo-com.svg"

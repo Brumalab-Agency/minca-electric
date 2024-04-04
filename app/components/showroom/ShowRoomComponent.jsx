@@ -237,7 +237,7 @@ export const ShowRoomComponent = () => {
                     <div>
                       <div className="">
                         <p className={`${ubuntu.className} text-base`}>
-                        Av. Cra. 19#143A-08
+                          Av. Cra. 19#143A-08
                         </p>
                       </div>
                       <div className="mt-6">
@@ -323,7 +323,7 @@ export const ShowRoomComponent = () => {
                     <div>
                       <div className="">
                         <p className={`${ubuntu.className} text-base`}>
-                        Calle 95 #13-55
+                          Calle 95 #13-55
                         </p>
                       </div>
                       <div className="mt-6">
@@ -404,7 +404,7 @@ export const ShowRoomComponent = () => {
                     <div>
                       <div className="">
                         <p className={`${ubuntu.className} text-base`}>
-                        Carrera 7 # 45-10
+                          Carrera 7 # 45-10
                         </p>
                       </div>
                       <div className="mt-6">
@@ -437,16 +437,22 @@ export const ShowRoomComponent = () => {
               </div>
             </div>
           </section>
-        
         </Carousel>
       </div>
-      <CardShowRoomMovil btn="Agendar TestDrive" icono="/showroom_icon.png" />
       <CardShowRoomMovil
+      titulo="chicó"
+        btn="Agendar TestDrive"
+        icono="/showroom_icon.png"
+        url="/talleres/tallerChico"
+      />
+      <CardShowRoomMovil
+        titulo="javeriana"
         btn="Agendar TestDrive"
         icono="/showroom_icon.png"
         clase="bg-[#F0F1EB]"
+        url="/talleres/tallerJaveriana"
       />
-      <CardShowRoomMovil btn="Agendar TestDrive" icono="/showroom_icon.png" />
+      {/* <CardShowRoomMovil btn="Agendar TestDrive" icono="/showroom_icon.png" url="#"/> */}
     </>
   );
 };

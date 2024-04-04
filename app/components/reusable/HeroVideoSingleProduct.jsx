@@ -2,10 +2,10 @@ import { getBanner } from "@/lib/graphQLRequest";
 import Image from "next/image";
 import { manrope } from "@/ui/fonts";
 
-export const HeroVideoSingleProduct = async ({titulo, tituloSecundarioNegrita, urlVideo, clases}) => {
+export const HeroVideoSingleProduct = async ({titulo, tituloSecundarioNegrita, urlVideo, clases, ocultar}) => {
   const banner = await getBanner();
   return (
-    <div className="heroVideo relative ">
+    <div className="heroVideo relative mt-16">
       <div className="">
         {/* PC */}
         <video className="hidden lg:block w-full h-[663px] object-cover  top-0" src={urlVideo} autoPlay muted loop />
@@ -31,7 +31,7 @@ export const HeroVideoSingleProduct = async ({titulo, tituloSecundarioNegrita, u
             <Image
             placeholder = 'empty'
               alt="publicidad"
-              className="hidden lg:block"
+              className={`hidden lg:block ${ocultar}`}
               src="/Logo líneas - Minca Electric.png"
               width={390}
               height={400}
