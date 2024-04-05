@@ -44,7 +44,7 @@ export const BannerMenu = ({clases}) => {
                 </div>
                 </div>
               </Link>
-              <Link href="#" className="flex items-center gap-4 mt-4">
+              <Link href="/servicios" className="flex items-center gap-4 mt-4">
                 <img
                   className="w-[70px] h-auto bg-white p-[10px] rounded-[15px]"
                   src="/MenuPC/tool-02-svgrepo-com.svg"

@@ -1,30 +1,36 @@
-"use client"
+"use client";
 import { manrope, ubuntu } from "@/ui/fonts";
 import { BotonRelativo } from "../botones/BotonRelativo";
 import { useState } from "react";
 
 export const FormularioContacto = () => {
-  const [nombre, setNombre] = useState('');
-  const [telefono, setTelefono] = useState('');
-  const [email, setEmail] = useState('');
-  const [mensaje, setMensaje] = useState('');
+  const [nombre, setNombre] = useState("");
+  const [email, setEmail] = useState("");
+  const [cedula, setCedula] = useState("");
+  const [compra, setCompra] = useState("");
+  const [factura, setFactura] = useState("");
+  const [asunto, setAsunto] = useState("");
+  const [mensaje, setMensaje] = useState("");
 
   const handleSubmit = async (event) => {
     event.preventDefault();
 
     try {
       const formData = new FormData();
-      formData.append('Nombre', nombre);
-      formData.append('Telefono', telefono);
-      formData.append('Email', email);
-      formData.append('Mensaje', mensaje);
+      formData.append("Nombre", nombre);
+      formData.append("Email", email);
+      formData.append("Cedula", cedula);
+      formData.append("FechaCompra", compra);
+      formData.append("NumeroFactura", factura);
+      formData.append("Asunto", asunto);
+      formData.append("Mensaje", mensaje);
 
       const response = await fetch(
         "https://script.google.com/macros/s/AKfycbxmhKnjgcR7V6-iqzVipfFzw_WIGZDbSO_FiV9DcbJzWz8VEjRg3V8luKyFQEjDhH_znA/exec",
         {
           method: "POST",
           body: formData,
-        }
+        },
       );
 
       if (response.ok) {
@@ -42,102 +48,168 @@ export const FormularioContacto = () => {
   return (
     <div>
       <form onSubmit={handleSubmit}>
-        <div className="FormularioContacto flex mt-[95px] mb-[150px]">
+        <div className="FormularioContacto mb-[150px] mt-[95px] flex">
           <div className="pl-[100px] pr-[55px]">
-            <h2 className={`${manrope.className} text-[48px] text-[#111]`}>Deja aquí <b>tu solicitud</b> </h2>
-            <p className={`${ubuntu.className} text-base leading-[25px] text-`}>
-              Estamos en constante evolución, por eso, si tienes alguna sugerencia o
-              requerimiento especial no dudes en ponerte en contacto. Estaremos
-              felices de aportarle soluciones a tu movilidad.{" "}
+            <h2 className={`${manrope.className} text-[48px] text-[#111]`}>
+              Deja aquí <b>tu solicitud</b>{" "}
+            </h2>
+            <p className={`${ubuntu.className} text- text-base leading-[25px]`}>
+              Estamos en constante evolución, por eso, si tienes alguna
+              sugerencia o requerimiento especial no dudes en ponerte en
+              contacto. Estaremos felices de aportarle soluciones a tu
+              movilidad.{" "}
             </p>
-            <div>
-              <div className="inputs flex mt-[53px] gap-4">
-                  <div className="w-full">
-                    <label
-                      htmlForm="Nombre"
-                      className={`${manrope.className} text-base text-[#111] font-semibold`}
-                    >
-                      {" "}
-                      Nombre completo{" "}
-                    </label>
-                    <input
-                    type="text"
-                    id="Nombre"
-                    name="Nombre"
-                    placeholder="Ingrese su nombre completo aquí"
-                    className="mt-1 w-full h-[56px] border border-1 border-[#ECEEF0] shadow-sm text-[14px] p-4"
-                    value={nombre}
-                    onChange={(e) => setNombre(e.target.value)}
-                  />
-                  </div>
-                  {/* ** */}
-                  <div className="w-full">
-                    <label
-                      htmlForm="Telefono"
-                      className={`${manrope.className} text-base text-[#111] font-semibold`}
-                    >
-                      {" "}
-                      Número de teléfono{" "}
-                    </label>
-                    <input
-                    type="tel"
-                    id="Telefono"
-                    name="Telefono"
-                    placeholder="#"
-                    className="mt-1 w-full h-[56px] border border-1 border-[#ECEEF0] shadow-sm text-[14px] p-4"
-                    value={telefono}
-                    onChange={(e) => setTelefono(e.target.value)}
-                  />
-                  </div>
+            <div className="mt-8">
+              {/* Nombre */}
+              <div className="w-full">
+                <label
+                  htmlForm="Nombre"
+                  className={`${manrope.className} text-base font-semibold text-[#111]`}
+                >
+                  {" "}
+                  Nombre completo{" "}
+                </label>
+                <input
+                  type="text"
+                  id="Nombre"
+                  name="Nombre"
+                  placeholder="Ingrese su nombre completo aquí"
+                  className="border-1 mt-1 h-[56px] w-full border border-[#ECEEF0] p-4 text-[14px] shadow-sm"
+                  value={nombre}
+                  onChange={(e) => setNombre(e.target.value)}
+                />
               </div>
               {/* email */}
-              <div className="email mt-[23px]">
+              <div className="email mt-4">
                 <div className="w-full">
-                    <label
-                      htmlForm="Email"
-                      className={`${manrope.className} text-base text-[#111] font-semibold`}
-                    >
-                      {" "}
-                      Correo electrónico{" "}
-                    </label>
-                    <input
+                  <label
+                    htmlForm="Email"
+                    className={`${manrope.className} text-base font-semibold text-[#111]`}
+                  >
+                    {" "}
+                    Correo electrónico{" "}
+                  </label>
+                  <input
                     type="Email"
                     id="email"
                     name="Email"
                     placeholder="@"
-                    className="mt-1 w-full h-[56px] border border-1 border-[#ECEEF0] shadow-sm text-[14px] p-4"
+                    className="border-1 mt-1 h-[56px] w-full border border-[#ECEEF0] p-4 text-[14px] shadow-sm"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                   />
-                  </div>
+                </div>
               </div>
+
+              {/* Cedula */}
+              <div className="w-full mt-4">
+                <label
+                  htmlForm="Cedula"
+                  className={`${manrope.className} text-base font-semibold text-[#111]`}
+                >
+                  {" "}
+                  Cédula{" "}
+                </label>
+                <input
+                  type="tel"
+                  id="Cedula"
+                  name="Cedula"
+                  placeholder="Cédula"
+                  className="border-1 mt-1 h-[56px] w-full border border-[#ECEEF0] p-4 text-[14px] shadow-sm"
+                  value={cedula}
+                  onChange={(e) => setCedula(e.target.value)}
+                />
+              </div>
+              {/* Fecha de Compra */}
+              <div className="w-full mt-4">
+                <label
+                  htmlForm="FechaCompra"
+                  className={`${manrope.className} text-base font-semibold text-[#111]`}
+                >
+                  {" "}
+                  Fecha de Compra{" "}
+                </label>
+                <input
+                  type="date"
+                  id="FechaCompra"
+                  name="FechaCompra"
+                  placeholder="Fecha de compra"
+                  className="border-1 mt-1 h-[56px] w-full border border-[#ECEEF0] p-4 text-[14px] shadow-sm"
+                  value={compra}
+                  onChange={(e) => setCompra(e.target.value)}
+                />
+              </div>
+
+              {/* Número de factura */}
+              <div className="w-full mt-4">
+                <label
+                  htmlForm="NumeroFactura"
+                  className={`${manrope.className} text-base font-semibold text-[#111]`}
+                >
+                  {" "}
+                  Número de factura{" "}
+                </label>
+                <input
+                  type="text"
+                  id="NumeroFactura"
+                  name="NumeroFactura"
+                  placeholder="Número de factura"
+                  className="border-1 mt-1 h-[56px] w-full border border-[#ECEEF0] p-4 text-[14px] shadow-sm"
+                  value={factura}
+                  onChange={(e) => setFactura(e.target.value)}
+                />
+              </div>
+
+              {/* Asunto */}
+              <div className="w-full mt-4">
+                <label
+                  htmlForm="Asunto"
+                  className={`${manrope.className} text-base font-semibold text-[#111]`}
+                >
+                  {" "}
+                  Asunto{" "}
+                </label>
+                <input
+                  type="text"
+                  id="Asunto"
+                  name="Asunto"
+                  placeholder="Asunto"
+                  className="border-1 mt-1 h-[56px] w-full border border-[#ECEEF0] p-4 text-[14px] shadow-sm"
+                  value={asunto}
+                  onChange={(e) => setAsunto(e.target.value)}
+                />
+              </div>
+
               {/* Text area */}
               <div className="email mt-[23px]">
                 <div className="w-full">
-                    <label
-                      htmlForm="Mensaje"
-                      className={`${manrope.className} text-base text-[#111] font-semibold`}
-                    >
-                      {" "}
-                      Mensaje{" "}
-                    </label>
-                    <textarea
+                  <label
+                    htmlForm="Mensaje"
+                    className={`${manrope.className} text-base font-semibold text-[#111]`}
+                  >
+                    {" "}
+                    Mensaje{" "}
+                  </label>
+                  <textarea
                     id="textArea"
                     name="Mensaje"
-                    placeholder="Escribe tus mensajes aquí"
-                    className="mt-1 w-full h-[136px] border border-1 border-[#ECEEF0] shadow-sm text-[14px] p-4"
+                    placeholder="Escribe tu mensaje aquí"
+                    className="border-1 mt-1 h-[136px] w-full border border-[#ECEEF0] p-4 text-[14px] shadow-sm"
                     value={mensaje}
                     onChange={(e) => setMensaje(e.target.value)}
                   />
-                  </div>
+                </div>
               </div>
               {/* Boton */}
-              <button className="bg-[#111] text-white lg:w-[289px] lg:h-[52px] mt-[35px] rounded-[62px]" type="submit">
-              Contacto
+              <button
+                className="mt-[35px] rounded-[62px] bg-[#111] text-white lg:h-[52px] lg:w-[289px]"
+                type="submit"
+              >
+                Contacto
               </button>
             </div>
           </div>
-          <div className="w-full h-[933px] bg-[url(/contacto/bg-contacto.jpg)] bg-center bg-cover">
+          <div className="h-[933px] w-full bg-[url(/contacto/bg-contacto.jpg)] bg-cover bg-center">
             {/* Imagen background */}
           </div>
         </div>

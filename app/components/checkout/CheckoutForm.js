@@ -21,7 +21,7 @@ import { manrope } from "@/ui/fonts";
 import Link from "next/link";
 
 // Utilice esto con fines de prueba, para que no tenga que completar el formulario de pago una y otra vez.
-const defaultCustomerInfo = {
+/* const defaultCustomerInfo = {
   firstName: "Lenin",
   lastName: "Mendoza",
   address1: "123 Abc farm",
@@ -41,9 +41,9 @@ const defaultCustomerInfo = {
   nit: "1234567-8",
   telefonoTrabajo: "3022222222",
   errors: null,
-};
+}; */
 
-/* const defaultCustomerInfo = {
+const defaultCustomerInfo = {
 	firstName: '',
 	lastName: '',
 	address1: '',
@@ -56,7 +56,7 @@ const defaultCustomerInfo = {
 	phone: '',
 	company: '',
 	errors: null
-} */
+}
 
 const CheckoutForm = ({ countriesData }) => {
   const { billingCountries, shippingCountries } = countriesData || {};
