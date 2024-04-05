@@ -18,6 +18,7 @@ import {
 } from "@/utils/checkout/utilsCheckout";
 import BtnMercadoPago from "../mercadopago/BtnMercadoPago";
 import { manrope } from "@/ui/fonts";
+import Link from "next/link";
 
 // Utilice esto con fines de prueba, para que no tenga que completar el formulario de pago una y otra vez.
 const defaultCustomerInfo = {
@@ -32,7 +33,7 @@ const defaultCustomerInfo = {
   email: "mendoza124302@gmail.com",
   phone: "9883778278",
   company: "Freelance",
-  recogida:"En algún lado de medellín",
+  recogida: "En algún lado de medellín",
   errors: null,
 };
 
@@ -90,14 +91,14 @@ const CheckoutForm = ({ countriesData }) => {
   const handleFormSubmit = async (event) => {
     event.preventDefault();
 
-    setTemporalCarrito(cart)
+    setTemporalCarrito(cart);
     /**
-     * Validate Billing and Shipping Details
+     * Validar Detalles de Facturación y Envío
      *
-     * Note:
-     * 1. If billing is different than shipping address, only then validate billing.
-     * 2. We are passing theBillingStates?.length and theShippingStates?.length, so that
-     * the respective states should only be mandatory, if a country has states.
+     * Nota:
+     * 1. Si la dirección de facturación es diferente a la dirección de envío, entonces validar solo la facturación.
+     * 2. Estamos pasando theBillingStates?.length y theShippingStates?.length, de manera que
+     * los estados respectivos solo deben ser obligatorios si un país tiene estados.
      */
     const billingValidationResult = input?.billingDifferentThanShipping
       ? validateAndSanitizeCheckoutForm(
@@ -126,7 +127,6 @@ const CheckoutForm = ({ countriesData }) => {
 
     // Para el modo de pago con STRIPE, maneje el pago con STRIPE y gracias.
     if ("stripe" === input.paymentMethod) {
-    
       const createdOrderData = await handleStripeCheckout(
         input,
         cart?.cartItems,
@@ -138,24 +138,31 @@ const CheckoutForm = ({ countriesData }) => {
       return null;
     }
     // Para cualquier otro modo de pago, cree el pedido y redirija al usuario a la URL de pago.
-    const createdOrderData = await handleOtherPaymentMethodCheckout( input, cart?.cartItems, setRequestError, setCart, setIsOrderProcessing, setCreatedOrderData );
-    setIdOrder(createdOrderData.orderId)
-		if ( createdOrderData.paymentUrl ) {
+    const createdOrderData = await handleOtherPaymentMethodCheckout(
+      input,
+      cart?.cartItems,
+      setRequestError,
+      setCart,
+      setIsOrderProcessing,
+      setCreatedOrderData,
+    );
+    setIdOrder(createdOrderData.orderId);
+    /* if ( createdOrderData.paymentUrl ) {
     
 
-			/* window.location.href = createdOrderData.paymentUrl; */
+			window.location.href = createdOrderData.paymentUrl;
 
-		}
+		} */
 
     setRequestError(null);
   };
 
   /*
-   * Handle onchange input.
+   * Manejar el cambio de entrada.
    *
-   * @param {Object} event Event Object.
-   * @param {bool} isShipping If this is false it means it is billing.
-   * @param {bool} isBillingOrShipping If this is false means its standard input and not billing or shipping.
+   * @param {Object} event Objeto de Evento.
+   * @param {bool} isShipping Si es falso, significa que es de facturación.
+   * @param {bool} isBillingOrShipping Si es falso, significa que es una entrada estándar y no de facturación o envío.
    *
    * @return {void}
    */
@@ -210,12 +217,23 @@ const CheckoutForm = ({ countriesData }) => {
   return (
     <>
       {cart || (idOrder && temporalCarrito) ? (
-        <form className="woo-next-checkout-form" onSubmit={(e)=>e.preventDefault()}>
+        <form
+          className="woo-next-checkout-form px-4 lg:px-[100px]"
+          onSubmit={(e) => e.preventDefault()}
+        >
           <div className="grid grid-cols-1 gap-20 md:grid-cols-2">
             <div>
               {/*Shipping Details*/}
               <div className="billing-details">
-                <h2 className="mb-4 text-xl font-medium">Detalles de envío</h2>
+                <div className="mb-5 rounded-md bg-[#F0F1EB] p-4">
+                  <p>
+                    Recuerda hacer el proceso de compra con los datos completos
+                    y originales del tipo de identificación (cédula o
+                    pasaporte).
+                  </p>
+                </div>
+
+                <h2 className="mb-4 text-xl font-medium">Mis datos</h2>
                 <UserAdress
                   states={theShippingStates}
                   countries={shippingCountries}
@@ -225,6 +243,7 @@ const CheckoutForm = ({ countriesData }) => {
                   isShipping
                   isBillingOrShipping
                 />
+                
               </div>
               <div>
                 <CheckboxField
@@ -236,10 +255,45 @@ const CheckoutForm = ({ countriesData }) => {
                   containerClassNames="mb-4 pt-4"
                 />
               </div>
+              <CheckboxField
+                name="notificaciones"
+                type="checkbox"
+                checked={input?.billingDifferentThanShipping}
+                handleOnChange={handleOnChange}
+                label="Me gustaría recibir información sobre ofertas y promociones de Samsung Electronics"
+                containerClassNames="pt-4"
+                textCheckBox="text-[10px]"
+              />
+              <CheckboxField
+                name="notificaciones"
+                type="checkbox"
+                required
+                checked={input?.billingDifferentThanShipping}
+                handleOnChange={handleOnChange}
+                label="Acepto los Términos y condiciones"
+                containerClassNames=""
+                textCheckBox="text-[10px]"
+              />
+              <CheckboxField
+                name="notificaciones"
+                type="checkbox"
+                required
+                checked={input?.billingDifferentThanShipping}
+                handleOnChange={handleOnChange}
+                label="Autorizo el tratamiento de mis datos personales , con las siguientes condiciones."
+                containerClassNames="mb-10"
+                textCheckBox="text-[10px]"
+              />
+              <img src="/mercado pago .png" />
+                <p className="my-10 text-[12px]">
+                  Para consultas comunicarse al : WhatsApp: +573222102466
+                </p>
               {/*Billing Details*/}
               {input?.billingDifferentThanShipping ? (
                 <div className="billing-details">
-                  <h2 className="mb-4 text-xl font-medium">Detalles de facturación</h2>
+                  <h2 className="mb-4 text-xl font-medium">
+                    Detalles de facturación
+                  </h2>
                   <UserAdress
                     states={theBillingStates}
                     countries={
@@ -259,32 +313,43 @@ const CheckoutForm = ({ countriesData }) => {
               ) : null}
             </div>
             {/* Order & Payments*/}
-            <div className="your-orders">
+            <div className="your-orders h-fit w-full rounded-md bg-[#F0F1EB] p-8">
               {/*	Order*/}
-              <h2 className="mb-4 text-xl font-medium">Tu Orden</h2>
-         
-              <YourOrder cart={cart?cart:temporalCarrito} />
+              <h2 className="mb-4 text-xl font-medium">Resumen del pedido</h2>
+              <hr className="mb-3"></hr>
+
+              <YourOrder cart={cart ? cart : temporalCarrito} />
               {/*Metodo de envio*/}
-              <h2 className={`${manrope.className} text-base lg:text-[24px] font-bold`}>Metodo de envío</h2>
-            
+              <h2
+                className={`${manrope.className} text-base font-bold lg:text-[24px]`}
+              >
+               
+              </h2>
+
               {/* <PaymentModes input={input} handleOnChange={handleOnChange} /> */}
               <div className="woo-next-place-order-btn-wrap mt-5">
-               {!idOrder? 
-                <button
-                  disabled={isOrderProcessing}
-                  className={cx(
-                    "rounded-[52px] bg-[#111] px-[54px] py-[16px] text-white h-[60px] w-[300px]",
-                    { "opacity-50": isOrderProcessing },
-                  )}
-                  type="button"
-                  onClick={handleFormSubmit}
-                >
+                {!idOrder ? (
+                  <button
+                    disabled={isOrderProcessing}
+                    className={cx(
+                      "h-[60px] w-full rounded-[52px] bg-[#111] px-[54px] py-[16px] text-white",
+                      { "opacity-50": isOrderProcessing },
+                    )}
+                    type="button"
+                    onClick={handleFormSubmit}
+                  >
+                    Procesar Pre-compra
+                  </button>
+                ) : null}
 
-                  Confirmar Compra
-                </button>:null}
-
-               {idOrder ? <BtnMercadoPago preciopagar={cart?.totalPrice ? cart?.totalPrice : temporalCarrito?.totalPrice} idOrder={idOrder}/> : null }
-
+                {idOrder ? (
+                  <Link
+                    href="/checkout/pago"
+                    className="h-[60px] w-full rounded-[52px] bg-[#111] px-[54px] py-[16px] text-white block text-center"
+                  >
+                    Continuar
+                  </Link>
+                ) : null}
               </div>
 
               {/* Checkout Loading*/}

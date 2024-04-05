@@ -32,7 +32,6 @@ export const projects = [
     description:
       "Queremos que sientas la libertad de probar una Minca y descubrir los beneficios de la movilidad eléctrica.",
     description2: "Visita nuestros showrooms y toma la decisión hoy mismo. ",
-    img2: "/showrooms/2.png",
     link: "#",
   },
   {

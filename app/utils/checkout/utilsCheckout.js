@@ -14,11 +14,11 @@ export const handleOtherPaymentMethodCheckout = async ( input, products, setRequ
 
 	const customerOrderData = await createTheOrder( orderData, setRequestError, '' );
 	
-	const cartCleared = await clearCart( setCart, () => {
-	} );
+	/* const cartCleared = await clearCart( setCart, () => {
+	} ); */
 	setIsOrderProcessing( false );
 	
-	if (!isEmpty(customerOrderData?.orderId) && !cartCleared?.error) {
+	if (!isEmpty(customerOrderData?.orderId)) {
 		setCreatedOrderData(customerOrderData);
 		return customerOrderData;
 	  } else {

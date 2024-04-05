@@ -39,16 +39,17 @@ export const EspecificacionesMincaNew = async (scooters) => {
               </p>
               <div className="flex items-center gap-3 lg:mt-6 lg:gap-4">
                 <div
-                  className={`${manrope.className} text-[24px] font-bold text-[#111111]  lg:text-[26px]`}
-                >
-                  <p className="text-[14px]">Antes</p>
-                  {item.sliderProductos.precioActual}
-                </div>
-                <div
                   className={`${manrope.className} text-[24px] font-bold text-[#111111]/60  lg:text-[26px]`}
                 >
-                  <p className="text-[14px]">Ahora</p>
+                  <p className="text-[14px]">Antes</p>
                   <del>{item.sliderProductos.precioRebajado}</del>
+                  
+                </div>
+                <div
+                  className={`${manrope.className} text-[24px] font-bold text-[#111111]  lg:text-[26px]`}
+                >
+                  <p className="text-[14px]">Ahora</p>
+                  {item.sliderProductos.precioActual}
                 </div>
                 <span className="items-center justify-center rounded-full bg-[#FF3333] bg-opacity-10 px-2.5 py-0.5 text-[#FF3333] lg:inline-flex lg:h-8 lg:px-[14px] lg:py-[6px]">
                   <p

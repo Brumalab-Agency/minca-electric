@@ -2,10 +2,10 @@
 
 import { initMercadoPago, Wallet } from "@mercadopago/sdk-react";
 import axios from "axios";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
+import { AppContext } from "../context/Context";
 
 export const Mercadopago = ({preciopagar,idOrder}) => {
-
   const [preferenceId, setPreferenceId] = useState(null);
   initMercadoPago(process.env.NEXT_PUBLIC_MERCADOPAGO_PUBLIC_KEY, {
     locale: "es-CO",
@@ -14,7 +14,7 @@ export const Mercadopago = ({preciopagar,idOrder}) => {
   useEffect(() => {
     const fetchData = async () => {
       const id = await createPreference({preciopagar});
-      console.log(id);
+
       if (id) {
         setPreferenceId(id);
       }
@@ -24,7 +24,7 @@ export const Mercadopago = ({preciopagar,idOrder}) => {
   }, []);
 
   const createPreference = async (preciopagar, cantidad) => {
-    console.log(preciopagar);
+
     try {
       const price = preciopagar.preciopagar;
       const qty = preciopagar.cantidad
@@ -39,12 +39,13 @@ export const Mercadopago = ({preciopagar,idOrder}) => {
         },
       );
       const { id } = response.data;
-
       return id;
     } catch (error) {
       console.log(error);
     }
   };
+
+
 
   return (
     <div className="m-auto h-auto w-[300px]">

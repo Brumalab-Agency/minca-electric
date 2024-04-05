@@ -265,9 +265,9 @@ export const Footer = () => {
             <div className="card-tdc flex items-center">
               <Image
                 placeholder="empty"
-                src="/card_tdc.png"
-                width={281}
-                height={30}
+                src="/mercado pago .png"
+                width={350}
+                height={50}
                 alt="Imagen representativa de caracteristicas del producto"
               />
             </div>

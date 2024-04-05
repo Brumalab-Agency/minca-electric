@@ -28,7 +28,7 @@ const InputField = ({
         placeholder={placeholder}
         type={type}
         name={name}
-        className="w-full rounded border border-gray-500 bg-gray-100 bg-opacity-50 px-3 py-1 text-base leading-8 text-gray-800 outline-none transition-colors duration-200 ease-in-out focus:border-indigo-500 focus:bg-transparent focus:ring-2 focus:ring-indigo-200"
+        className="w-full rounded border border-[#F0F1EB] bg-gray-100 bg-opacity-50 px-3 py-[5px] text-base leading-8 text-gray-800 outline-none transition-colors duration-200 ease-in-out focus:border-slate-500 focus:bg-transparent focus:ring-2 focus:ring-slate-200"
         id={inputId}
       />
       <Error errors={errors} fieldName={name} />

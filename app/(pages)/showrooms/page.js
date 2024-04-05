@@ -14,8 +14,8 @@ const Sedes = () => {
     <>
       <HeroContext titulo="SHOWROOMS" ocultar="hidden"/>
       <HeroVideoSingleProduct
-        titulo="MINCA"
-        tituloSecundarioNegrita="Servicios."
+        titulo=""
+        tituloSecundarioNegrita=""
         clases="normal-case"
         urlVideo="https://test.mincaelectric.com/wp-content/uploads/2024/03/sedes.mp4"
       />

@@ -83,7 +83,7 @@ export function ComponentTallerChico() {
                 </div>
               </div>
               <div className="mx-auto ml-[60px] mt-6">
-                <Link href="/talleres/tallerChico" className="border-2 border-[#111] bg-[#F0F1EB] lg:px-[52px] lg:py-[12px] rounded-[52px]">Agendar Mantenimiento</Link>
+                <Link href="/talleres/tallerChico" className="border-2 border-[#111] bg-[#111] lg:px-[52px] lg:py-[12px] rounded-[52px] text-white">Agendar Mantenimiento</Link>
               </div>
             </div>
           </div>

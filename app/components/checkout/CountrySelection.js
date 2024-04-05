@@ -19,7 +19,7 @@ const CountrySelection = ({ input, handleOnChange, countries, isShipping }) => {
           onChange={handleOnChange}
           value={country}
           name="country"
-          className="inline-block w-full appearance-none rounded border border-gray-500 bg-gray-100 bg-opacity-50 py-3 pl-3 pr-8 leading-tight text-gray-500"
+          className="inline-block w-full appearance-none rounded border border-[#F0F1EB] bg-gray-100 bg-opacity-50 py-3 pl-3 pr-8 leading-tight text-gray-500"
           id={inputId}
         >
           <option value="">Seleccione un país...</option>

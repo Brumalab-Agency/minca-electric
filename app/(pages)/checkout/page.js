@@ -4,6 +4,10 @@ import { WOOCOMMERCE_COUNTRIES_ENDPOINT } from "@/utils/cart/constants/endpoint"
 import axios from "axios";
 import Link from "next/link";
 import { initMercadoPago, Wallet } from "@mercadopago/sdk-react";
+import { Header } from "@/components/home/Header";
+import { Footer } from "@/components/home/Footer";
+import PasoaPaso from "@/components/stepbystep/PasoaPaso";
+import MarqueeCheckout from "@/components/home/MarqueeCheckout";
 
 export const Checkout = async () => {
   const { data: countries } = await axios.get(WOOCOMMERCE_COUNTRIES_ENDPOINT);
@@ -11,20 +15,36 @@ export const Checkout = async () => {
     locale: "es-CO",
   });
   return (
-    <div className="px-[48px] pb-[100px]">
-      <div className="my-10">
-        <Link href="/cart">
-          <Image
-                  placeholder="empty"
-                  alt="logo minca"
-                  className="Image log MINCA"
-                  src="/logo.png"
-                  width={390}
-                  height={400}
-                />
+    <div className="CheckOutPage">
+      <MarqueeCheckout/>
+      <div className="h-auto w-full relative my-7">
+      <div className="flex h-auto w-[450px] px-[100px] absolute left-0 top-[25%]">
+        <Link href="/cart" className="">
+          <div className="flex items-center justify-center gap-2">
+            <img
+              className="hidden h-auto w-[30px] lg:block"
+              src="/arrow-narrow-left-svgrepo-com.svg"
+            />
+            <span className="woo-next-cart-checkout-txt font-bold">
+              Volver a la tienda
+            </span>
+          </div>
         </Link>
       </div>
+        <Image
+          placeholder="empty"
+          alt="logo minca"
+          className="Image log MINCA m-auto"
+          src="/logo.png"
+          width={300}
+          height={260}
+        />
+      </div>
+
+      <PasoaPaso inactivo3="bg-slate-400" inactivo2="bg-slate-400" />
+      
       <CheckoutForm countriesData={countries} />
+      <Footer />
     </div>
   );
 };

@@ -13,7 +13,6 @@ const CarItemsContainer = () => {
   const [isClearCartProcessing, setClearCartProcessing] = useState(false);
 
 
-
   /* Calculo descuento  */
   let precioOriginal = totalQty;
   let descuento = precioOriginal * 0.15;
@@ -43,12 +42,15 @@ const CarItemsContainer = () => {
               <div className="woo-next-cart-table mb-md-0 mb-5 lg:w-[670px] w-full rounded-[20px] border border-black/10 p-5 lg:col-span-2">
                 {cartItems.length &&
                   cartItems.map((item) => (
-                    <CartItem
-                      key={item.product_id}
-                      item={item}
-                      products={cartItems}
-                      setCart={setCart}
-                    />
+                    <div>
+                      {console.log(item)}
+                      <CartItem
+                        key={item.product_id}
+                        item={item}
+                        products={cartItems}
+                        setCart={setCart}
+                      />
+                    </div>
                   ))}
               </div>
             }

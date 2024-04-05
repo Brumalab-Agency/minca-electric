@@ -1,10 +1,10 @@
 import PropTypes from 'prop-types';
 
-const CheckboxField = ({ handleOnChange, checked, name, label, placeholder, containerClassNames }) => {
+const CheckboxField = ({ handleOnChange, checked, name, label, placeholder, containerClassNames, textCheckBox }) => {
 	
 	return (
 		<div className={containerClassNames}>
-			<label className="leading-7 text-md text-gray-700 flex items-center cursor-pointer" htmlFor={name}>
+			<label className={`leading-7 text-md text-gray-700 flex items-center cursor-pointer ${textCheckBox}`} htmlFor={name}>
 				<input
 					onChange={ handleOnChange }
 					placeholder={placeholder}
