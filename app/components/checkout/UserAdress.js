@@ -16,6 +16,7 @@ export const UserAdress = ({
 }) => {
   const { errors } = input || {};
 
+  console.log(input);
   return (
     <>
       <InputField
@@ -63,10 +64,10 @@ export const UserAdress = ({
         containerClassNames="w-full overflow-hidden sm:my-2 md:w-full"
       />
       <div className="flex gap-4">
-        <TipoIdentificacion />
+        <TipoIdentificacion/>
         <InputField
-          name="identificación"
-          inputValue={input?.cdi}
+          name="numeroIdentificacion"
+          inputValue={input?.numeroIdentificacion}
           required
           handleOnChange={handleOnChange}
           label="Número (Identificación)"
@@ -88,7 +89,7 @@ export const UserAdress = ({
         <InputField
           name="emailEmpresa"
           type="email"
-          inputValue={input?.email}
+          inputValue={input?.emailEmpresa}
           handleOnChange={handleOnChange}
           label="Correo electrónico de la empresa"
           errors={errors}
@@ -97,7 +98,7 @@ export const UserAdress = ({
         />
         <InputField
           name="razonSocial"
-          inputValue={input?.cdi}
+          inputValue={input?.razonSocial}
           handleOnChange={handleOnChange}
           label="Razon Social"
           errors={errors}
@@ -108,7 +109,7 @@ export const UserAdress = ({
       <div className="flex gap-4">
         <InputField
           name="nit"
-          inputValue={input?.cdi}
+          inputValue={input?.nit}
           handleOnChange={handleOnChange}
           label="NIT"
           errors={errors}
@@ -117,7 +118,7 @@ export const UserAdress = ({
         />
         <InputField
           name="telefonoTrabajo"
-          inputValue={input?.cdi}
+          inputValue={input?.telefonoTrabajo}
           handleOnChange={handleOnChange}
           label="Número de teléfono del trabajo"
           errors={errors}

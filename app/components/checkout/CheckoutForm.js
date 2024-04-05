@@ -33,7 +33,13 @@ const defaultCustomerInfo = {
   email: "mendoza124302@gmail.com",
   phone: "9883778278",
   company: "Freelance",
+  emailEmpresa: "empresa@empresa.com",
   recogida: "En algún lado de medellín",
+  tipoIdentificacion: ["Cédula de Ciudadanía", "Cédula de Extranjería", "Número de pasaporte"],
+  numeroIdentificacion: "123456789",
+  razonSocial: "Anonimo",
+  nit: "1234567-8",
+  telefonoTrabajo: "3022222222",
   errors: null,
 };
 
