@@ -334,28 +334,21 @@ const CheckoutForm = ({ countriesData }) => {
 
               {/* <PaymentModes input={input} handleOnChange={handleOnChange} /> */}
               <div className="woo-next-place-order-btn-wrap mt-5">
-                {!idOrder ? (
-                  <button
-                    disabled={isOrderProcessing}
-                    className={cx(
-                      "h-[60px] w-full rounded-[52px] bg-[#111] px-[54px] py-[16px] text-white",
-                      { "opacity-50": isOrderProcessing },
-                    )}
-                    type="button"
-                    onClick={handleFormSubmit}
-                  >
-                    Procesar Pre-compra
-                  </button>
-                ) : null}
+              {!idOrder? 
+                <button
+                  disabled={isOrderProcessing}
+                  className={cx(
+                    "rounded-[52px] bg-[#111] px-[54px] py-[16px] text-white h-[60px] w-[300px]",
+                    { "opacity-50": isOrderProcessing },
+                  )}
+                  type="button"
+                  onClick={handleFormSubmit}
+                >
 
-                {idOrder ? (
-                  <Link
-                    href="/checkout/pago"
-                    className="h-[60px] w-full rounded-[52px] bg-[#111] px-[54px] py-[16px] text-white block text-center"
-                  >
-                    Continuar
-                  </Link>
-                ) : null}
+                  Confirmar Compra
+                </button>:null}
+
+               {idOrder ? <BtnMercadoPago preciopagar={cart?.totalPrice ? cart?.totalPrice : temporalCarrito?.totalPrice} idOrder={idOrder}/> : null }
               </div>
 
               {/* Checkout Loading*/}

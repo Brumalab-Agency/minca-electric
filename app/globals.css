@@ -637,7 +637,7 @@ img.image-gallery-thumbnail-image {
   width: 295px;
   height: 295px;
   margin-left: 15px;
-  border-radius: 0px;
+  border-radius: 10px;
   margin-top: -150px;
   z-index: 9;
 }
@@ -671,7 +671,17 @@ img.image-gallery-thumbnail-image {
 
 button.image-gallery-thumbnail.active {
   display: none;
+  background: none;
 }
+button.image-gallery-thumbnail {
+  background: none !important;
+}
+
+/* button.image-gallery-thumbnail {
+  background: #f0eeed00;
+  border-radius: 10px;
+  margin-bottom: 15px;
+} */
 
 /* Personalización de las flechas direccionales de React Image Gallery */
 
