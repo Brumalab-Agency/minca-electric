@@ -40,13 +40,15 @@ export const EspecificacionesAccesorios = async (accesorios) => {
     const datosWoocommerce = await ProductosWoocommerce();
 
   
+
     const productoEncontrado = datosWoocommerce.products.nodes.find(
-      (producto) => producto.databaseId === item.productId,
+      (producto) => producto.databaseId === item?.productId,
     );
 
+    
   
     const separadorDeMiles = (numero) => {
-      let partesNumero = numero.toString().split(".");
+      let partesNumero = numero?.toString().split(".");
       partesNumero[0] = partesNumero[0].replace(/\B(?=(\d{3})+(?!\d))/g, ".");
       return partesNumero.join(".");
     };
@@ -63,19 +65,19 @@ export const EspecificacionesAccesorios = async (accesorios) => {
                 <h2
                   className={`${manrope.className} mb-1 text-[24px] font-bold uppercase text-[#111111]  lg:text-[42px] lg:leading-[28px]`}
                 >
-                  {item.name}
+                  {item?.name}
                 </h2>
                 <div className="flex items-center gap-3 lg:mt-6 lg:gap-4">
                   <div
                     className={`${manrope.className} text-[24px] font-bold text-[#111111]  lg:text-[26px]`}
                   >
-                    $ {separadorDeMiles(item.price)}
+                    $ {separadorDeMiles(item?.price)}
                   </div>
                 </div>
                 <p
                   className={`${ubuntu.className} text-[14px] font-normal leading-[15px] text-[#42454A]  lg:mt-5 lg:w-[90%] lg:text-[16px] lg:leading-[25px]`}
                 >
-                  {item.description}
+                  {item?.description}
                 </p>
                 <hr className="mt-5 lg:w-[70%]" />
               </div>
@@ -87,7 +89,7 @@ export const EspecificacionesAccesorios = async (accesorios) => {
               <div className="w-full flex-col justify-center lg:flex">
                 {productoEncontrado ? (
                   <AddToCart
-                    key={productoEncontrado.databaseId}
+                    key={productoEncontrado?.databaseId}
                     producto={productoEncontrado}
                     clases="lg:w-[80%] w-full"
                   />

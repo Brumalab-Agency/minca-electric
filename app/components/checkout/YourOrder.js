@@ -2,6 +2,12 @@ import CheckoutCartItem from "./fomr-elements/CheckoutCartItem";
 
 const YourOrder = ( { cart } ) => {
 	
+	const separadorDeMiles = (numero) => {
+		let partesNumero = numero.toString().split(".");
+		partesNumero[0] = partesNumero[0].replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+		return partesNumero.join(".");
+	  };
+
 	return (
 		<>
 			{ cart ? (
@@ -28,7 +34,10 @@ const YourOrder = ( { cart } ) => {
 							<td className="hidden lg:table-cell	"/>
 							<td className="woo-next-checkout-total font-normal text-xl">Total</td>
 							<td className="woo-next-checkout-total font-normal text-xl lg:hidden"></td>
-							<td className="woo-next-checkout-total font-bold text-xl text-right">{ cart?.cartItems?.[ 0 ]?.currency ?? '' }{ cart?.totalPrice ?? '' }</td>
+							<td className="woo-next-checkout-total font-bold text-xl text-right">
+								{ separadorDeMiles(cart?.cartItems?.[ 0 ]?.currency ?? '') }{ separadorDeMiles(cart?.totalPrice ?? '') }
+								
+								</td>
 						</tr>
 						</tbody>
 					</table>

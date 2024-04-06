@@ -10,8 +10,6 @@ const CartItem = ({ item, products, setCart }) => {
   const [removingProduct, setRemovingProduct] = useState(false);
   const productImg = item?.data?.images?.[0] ?? "";
 
-
-
   /* * No permitir la actualización del estado en un componente desmontado. * * isMounted se usa para que podamos establecer su valor en falso * cuando el componente está desmontado. * Esto se hace para que setState (por ejemplo, setRemovingProduct) en llamadas asincrónicas * como axios.post, no se ejecuten cuando el componente abandona el DOM * debido a la eliminación del producto/artículo. * Si no hacemos esto como cancelación de la suscripción, obtendremos * "Advertencia de pérdida de memoria de React: no se puede realizar una actualización del estado de React en un componente desmontado"
 
 	 */
@@ -76,20 +74,26 @@ const CartItem = ({ item, products, setCart }) => {
     }
   };
 
+  const separadorDeMiles = (numero) => {
+    let partesNumero = numero.toString().split(".");
+    partesNumero[0] = partesNumero[0].replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+    return partesNumero.join(".");
+  };
+
   return (
     <div>
-      <div className="cart-item-wrap mb-5 flex justify-between gap-4 lg:flex-row flex-col">
+      <div className="cart-item-wrap mb-5 flex flex-col justify-between gap-4 lg:flex-row">
         {/* Remover productos Movil */}
         <button
-                className="cart-remove-item text-22px leading-22px flex justify-end  bg-transparent px-4 py-2 lg:hidden"
-                onClick={(event) => handleRemoveProductClick(event, item?.key)}
-              >
-                <img className="max-w-none" src="/carrito/trash.svg" />
-              </button>
+          className="cart-remove-item text-22px leading-22px flex justify-end  bg-transparent px-4 py-2 lg:hidden"
+          onClick={(event) => handleRemoveProductClick(event, item?.key)}
+        >
+          <img className="max-w-none" src="/carrito/trash.svg" />
+        </button>
         <div className="cart-left-col">
           <figure>
             <Image
-              className="rounded-[8px] max-w-none w-full"
+              className="w-full max-w-none rounded-[8px]"
               width="124"
               height="124"
               alt={productImg.name}
@@ -99,15 +103,15 @@ const CartItem = ({ item, products, setCart }) => {
         </div>
 
         <div className="cart-right-col grow">
-          <div className="flex lg:h-full flex-col justify-between h-full">
-            <div className="cart-product-title-wrap relative flex lg:w-full justify-between">
+          <div className="flex h-full flex-col justify-between lg:h-full">
+            <div className="cart-product-title-wrap relative flex justify-between lg:w-full">
               <div className="aplicado-movil">
                 <h3
                   className={`${manrope.className} cart-product-title text-brand-orange text-base font-bold lg:text-[20px]`}
                 >
                   {item?.data?.name}
                 </h3>
-                <p className={`${ubuntu.className} lg:w-[400px] text-[14px]`}>
+                <p className={`${ubuntu.className} text-[14px] lg:w-[400px]`}>
                   {item?.data?.description ? (
                     <p>{item?.data?.description}</p>
                   ) : (
@@ -117,18 +121,19 @@ const CartItem = ({ item, products, setCart }) => {
               </div>
               {/* Remover productos PC */}
               <button
-                className="cart-remove-item text-22px leading-22px lg:flex  bg-transparent px-4 py-2 hidden"
+                className="cart-remove-item text-22px leading-22px hidden  bg-transparent px-4 py-2 lg:flex"
                 onClick={(event) => handleRemoveProductClick(event, item?.key)}
               >
                 <img className="max-w-none" src="/carrito/trash.svg" />
               </button>
             </div>
 
-            <footer className="cart-product-footer flex justify-between mt-8 lg:mt-0">
-              <div className="precio lg:flex flex-col justify-end ">
+            <footer className="cart-product-footer mt-8 flex justify-between lg:mt-0">
+              <div className="precio flex-col justify-end lg:flex ">
                 <span className="cart-total-price text-[24px] text-base font-bold uppercase">
-                  {item?.currency}
-                  {item?.line_subtotal}
+                  {separadorDeMiles(item?.currency)}
+
+                  {separadorDeMiles(item?.line_subtotal)}
                 </span>
               </div>
 

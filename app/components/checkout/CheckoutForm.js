@@ -4,7 +4,6 @@ import { useState, useContext } from "react";
 import cx from "classnames";
 
 import YourOrder from "./YourOrder";
-import PaymentModes from "./PaymentModes";
 import validateAndSanitizeCheckoutForm from "@/validator/chekout";
 import UserAdress from "./UserAdress";
 import { AppContext } from "../context/Context";
@@ -16,12 +15,11 @@ import {
   handleStripeCheckout,
   setStatesForCountry,
 } from "@/utils/checkout/utilsCheckout";
-import BtnMercadoPago from "../mercadopago/BtnMercadoPago";
 import { manrope } from "@/ui/fonts";
 import Link from "next/link";
 
 // Utilice esto con fines de prueba, para que no tenga que completar el formulario de pago una y otra vez.
-/* const defaultCustomerInfo = {
+const defaultCustomerInfo = {
   firstName: "Lenin",
   lastName: "Mendoza",
   address1: "123 Abc farm",
@@ -35,15 +33,19 @@ import Link from "next/link";
   company: "Freelance",
   emailEmpresa: "empresa@empresa.com",
   recogida: "En algún lado de medellín",
-  tipoIdentificacion: ["Cédula de Ciudadanía", "Cédula de Extranjería", "Número de pasaporte"],
+  tipoIdentificacion: [
+    "Cédula de Ciudadanía",
+    "Cédula de Extranjería",
+    "Número de pasaporte",
+  ],
   numeroIdentificacion: "123456789",
   razonSocial: "Anonimo",
   nit: "1234567-8",
   telefonoTrabajo: "3022222222",
   errors: null,
-}; */
+};
 
-const defaultCustomerInfo = {
+/* const defaultCustomerInfo = {
 	firstName: '',
 	lastName: '',
 	address1: '',
@@ -56,10 +58,13 @@ const defaultCustomerInfo = {
 	phone: '',
 	company: '',
 	errors: null
-}
+} */
 
 const CheckoutForm = ({ countriesData }) => {
   const { billingCountries, shippingCountries } = countriesData || {};
+
+
+
 
   const initialState = {
     billing: {
@@ -153,6 +158,7 @@ const CheckoutForm = ({ countriesData }) => {
       setCreatedOrderData,
     );
     setIdOrder(createdOrderData.orderId);
+    console.log(setIdOrder(createdOrderData.orderId));
     /* if ( createdOrderData.paymentUrl ) {
     
 
@@ -249,7 +255,6 @@ const CheckoutForm = ({ countriesData }) => {
                   isShipping
                   isBillingOrShipping
                 />
-                
               </div>
               <div>
                 <CheckboxField
@@ -291,9 +296,9 @@ const CheckoutForm = ({ countriesData }) => {
                 textCheckBox="text-[10px]"
               />
               <img src="/mercado pago .png" />
-                <p className="my-10 text-[12px]">
-                  Para consultas comunicarse al : WhatsApp: +573222102466
-                </p>
+              <p className="my-10 text-[12px]">
+                Para consultas comunicarse al : WhatsApp: +573222102466
+              </p>
               {/*Billing Details*/}
               {input?.billingDifferentThanShipping ? (
                 <div className="billing-details">
@@ -328,13 +333,11 @@ const CheckoutForm = ({ countriesData }) => {
               {/*Metodo de envio*/}
               <h2
                 className={`${manrope.className} text-base font-bold lg:text-[24px]`}
-              >
-               
-              </h2>
+              ></h2>
 
               {/* <PaymentModes input={input} handleOnChange={handleOnChange} /> */}
               <div className="woo-next-place-order-btn-wrap mt-5">
-              {!idOrder? 
+                {/* {!idOrder? 
                 <button
                   disabled={isOrderProcessing}
                   className={cx(
@@ -348,10 +351,38 @@ const CheckoutForm = ({ countriesData }) => {
                   Confirmar Compra
                 </button>:null}
 
-               {idOrder ? <BtnMercadoPago preciopagar={cart?.totalPrice ? cart?.totalPrice : temporalCarrito?.totalPrice} idOrder={idOrder}/> : null }
+                {idOrder ? <BtnMercadoPago preciopagar={cart?.totalPrice ? cart?.totalPrice : temporalCarrito?.totalPrice} idOrder={idOrder}/> : null } */}
+
+                {/*  */}
+
+                {!idOrder ? (
+                  <button
+                    disabled={isOrderProcessing}
+                    className={cx(
+                      "h-[60px] w-full rounded-[52px] bg-[#111] px-[54px] py-[16px] text-white",
+                      { "opacity-50": isOrderProcessing },
+                    )}
+                    type="button"
+                    onClick={handleFormSubmit}
+                  >
+                    Procesar Pre-compra
+                  </button>
+                ) : null}
+
+               
+                {idOrder ? (
+                  <Link
+                    href={{
+                      pathname: "/checkout/pago",
+                      query: { idOrder: idOrder },
+                    }}
+                    className="block h-[60px] w-full rounded-[52px] bg-[#111] px-[54px] py-[16px] text-center text-white"
+                  >
+                    Continuar
+                  </Link>
+                ) : null}
               </div>
 
-              {/* Checkout Loading*/}
               {isOrderProcessing && <p>Procesando orde...</p>}
               {requestError && (
                 <p>Error : {requestError} : Por favor intenta de nuevo</p>

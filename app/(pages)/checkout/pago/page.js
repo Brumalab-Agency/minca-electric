@@ -2,7 +2,7 @@
 import Image from "next/image";
 import YourOrder from "@/components/checkout/YourOrder";
 import { AppContext } from "@/components/context/Context";
-import { manrope } from "@/ui/fonts";
+import { useRouter, useSearchParams } from 'next/navigation';
 import { useContext, useState } from "react";
 import cx from "classnames";
 import BtnMercadoPago from "../../../components/mercadopago/BtnMercadoPago";
@@ -11,14 +11,18 @@ import { clearCart } from "@/utils/cart/cartUtils";
 import PasoaPaso from "@/components/stepbystep/PasoaPaso";
 import { Header } from "@/components/home/Header";
 import MarqueeCheckout from "@/components/home/MarqueeCheckout";
+import { handleOtherPaymentMethodCheckout } from "@/utils/checkout/utilsCheckout";
 
 const PagoMercadoPagoPage = () => {
   const [cart, setCart] = useContext(AppContext);
   const [temporalCarrito, setTemporalCarrito] = useState(AppContext);
   const [isOrderProcessing, setIsOrderProcessing] = useState(false);
-  /* const [idOrder, setIdOrder] = useState(null);
   const [requestError, setRequestError] = useState(null);
- */
+  const router = useRouter();
+  const searchParams = useSearchParams();
+  const idOrder = searchParams.get('idOrder');
+
+ 
 
   const limpiarLocalStorage = async () => {
     const cartCleared = await clearCart(setCart, () => {});
@@ -31,12 +35,26 @@ const PagoMercadoPagoPage = () => {
     }
   };
 
+  const createOrderId = async() => {
+    const createdOrderData = await handleOtherPaymentMethodCheckout(
+      input,
+      cart?.cartItems,
+      setRequestError,
+      setCart,
+      setIsOrderProcessing,
+      setCreatedOrderData,
+    );
+    setIdOrder(createdOrderData.orderId);
+  }
+
+  
+
   return (
       <div>
         <MarqueeCheckout />
             <div className="PaginaPago px-4 lg:px-[100px]">
         <div className="relative my-7 h-auto w-full">
-          <div className="absolute left-0 top-[25%] flex h-auto w-[450px] px-[100px]">
+          <div className="absolute left-0 top-[25%] flex h-auto w-[450px]">
             <Link href="/cart" className="">
               <div className="flex items-center justify-center gap-2">
                 <img
@@ -71,6 +89,7 @@ const PagoMercadoPagoPage = () => {
                     ? cart?.totalPrice
                     : temporalCarrito?.totalPrice
                 }
+                idOrder={idOrder}
               />
             </button>
           </div>

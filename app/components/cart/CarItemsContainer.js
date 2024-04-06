@@ -29,6 +29,12 @@ const CarItemsContainer = () => {
     await clearCart(setCart, setClearCartProcessing);
   };
 
+  const separadorDeMiles = (numero) => {
+    let partesNumero = numero.toString().split(".");
+    partesNumero[0] = partesNumero[0].replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+    return partesNumero.join(".");
+  };
+
   return (
     <div className={`${manrope.className} CarItemsContainer lg:px-[100px] lg:pb-[100px] p-4`}>
       <h2 className="mb-[20px] text-[24px] font-semibold lg:text-[40px] ">
@@ -43,7 +49,7 @@ const CarItemsContainer = () => {
                 {cartItems.length &&
                   cartItems.map((item) => (
                     <div>
-                      {console.log(item)}
+                     
                       <CartItem
                         key={item.product_id}
                         item={item}
@@ -75,7 +81,8 @@ const CarItemsContainer = () => {
                   className={`${manrope.className} col-span-1 mb-0 p-2 text-base font-bold lg:text-[20px]`}
                 >
                   {cartItems?.[0]?.currency ?? ""}
-                  {totalPrice}
+                  {separadorDeMiles(totalPrice)}
+                
                 </p>
               </div>
               {/* descuento */}
@@ -118,7 +125,7 @@ const CarItemsContainer = () => {
                   className={`${manrope.className} col-span-1 mb-0 p-2 text-[20px] font-bold lg:text-[24px]`}
                 >
                   {cartItems?.[0]?.currency ?? ""}
-                  {totalPrice}
+                  {separadorDeMiles(totalPrice)}
                 </p>
               </div>
               {/* *** */}
