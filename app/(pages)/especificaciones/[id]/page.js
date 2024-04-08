@@ -13,6 +13,7 @@ const Especificaciones = async ({ params }) => {
   const scooters = await SingleProductosWoocommerce(decodeURIComponent(id));
   /* const scooters = await SingleProductos(decodeURIComponent(id)); */
 
+  console.log(scooters);
 
   return (
     <div className="Especificaciones">

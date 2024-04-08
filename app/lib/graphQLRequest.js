@@ -29,9 +29,9 @@ const fetchScooters = async (query) => {
       headers: {
         "Content-Type": "application/json",
       },
-      /* cache: "no-store", */
+      cache: "no-store",
     },
-    { next: { revalidate: 60 } }
+    /* { next: { revalidate: 60 } } */
   );
 
   const { data } = await res.json();
@@ -48,9 +48,9 @@ const fetchScootersSec = async (query) => {
       headers: {
         "Content-Type": "application/json",
       },
-      /* cache: "no-store", */
+      cache: "no-store",
     },
-    { next: { revalidate: 60 } }
+    /* { next: { revalidate: 60 } } */
   );
 
   const { data } = await res.json();

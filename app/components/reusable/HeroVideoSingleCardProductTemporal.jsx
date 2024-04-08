@@ -13,7 +13,7 @@ export const HeroVideoSingleCardProductTemporal = ({urlVideo, scooters, }) => {
 
         <video
           className="top-0 hidden h-[700px] w-full object-cover  lg:block"
-          src={urlVideo.videoImgBannerPcTemporal.mediaItemUrl}
+          src={urlVideo?.videoImgBannerPcTemporal.mediaItemUrl}
           autoPlay
           muted
           loop
@@ -31,7 +31,7 @@ export const HeroVideoSingleCardProductTemporal = ({urlVideo, scooters, }) => {
      
         <video
           className="top-0 h-[400px] w-full object-cover  lg:hidden"
-          src={urlVideo.videoImgBannerMovilTemporal.mediaItemUrl}
+          src={urlVideo?.videoImgBannerMovilTemporal.mediaItemUrl}
           autoPlay
           muted
           loop

@@ -14,9 +14,10 @@ export const EspecificacionesMincaNew = async (scooters) => {
   let content;
 
   const items = scooters.scooters.productTypes.nodes[0].products.nodes[0];
+
   const item = items;
 
-  const manualMinca = item.sliderProductos.manualMinca.mediaItemUrl;
+  const manualMinca = item?.sliderProductos.manualMinca.mediaItemUrl;
 
   content = (
     <div className="EspecificacionesAccesorios Productos-SIMPLES ">
@@ -25,46 +26,45 @@ export const EspecificacionesMincaNew = async (scooters) => {
         <ReactImagenGalleryLupaEspecificaciones items={item} />
         <div className="lg:w-[50%]">
           {/* Titulo y descripcion */}
-          <div className="lg:ml-7 flex justify-between">
+          <div className="flex justify-between lg:ml-7">
             <div className="flex flex-col justify-center">
               <h2
                 className={`${manrope.className} mb-1 text-[24px] font-bold uppercase text-[#111111]  lg:text-[32px] lg:leading-[28px]`}
               >
-                {item.title}
+                {item?.title}
               </h2>
               <p
                 className={`${manrope.className} mb-1 text-[12px] font-normal uppercase text-[#111111]  lg:mt-4 lg:text-[26px] lg:font-medium`}
               >
-                {item.sliderProductos.subtitulo}
+                {item?.sliderProductos.subtitulo}
               </p>
               <div className="flex items-center gap-3 lg:mt-6 lg:gap-4">
                 <div
                   className={`${manrope.className} text-[24px] font-bold text-[#111111]/60  lg:text-[26px]`}
                 >
                   <p className="text-[14px]">Antes</p>
-                  <del>{item.sliderProductos.precioRebajado}</del>
-                  
+                  <del>{item?.sliderProductos.precioRebajado}</del>
                 </div>
                 <div
                   className={`${manrope.className} text-[24px] font-bold text-[#111111]  lg:text-[26px]`}
                 >
                   <p className="text-[14px]">Ahora</p>
-                  {item.sliderProductos.precioActual}
+                  {item?.sliderProductos.precioActual}
                 </div>
                 <span className="items-center justify-center rounded-full bg-[#FF3333] bg-opacity-10 px-2.5 py-0.5 text-[#FF3333] lg:inline-flex lg:h-8 lg:px-[14px] lg:py-[6px]">
                   <p
                     className={`${manrope.className} whitespace-nowrap text-sm  `}
                   >
-                    {item.sliderProductos.descuento}
+                    {item?.sliderProductos.descuento}
                   </p>
                 </span>
               </div>
               <p
                 className={`${ubuntu.className} text-[14px] font-normal leading-[15px] text-[#42454A]  lg:mt-5 lg:w-[90%] lg:text-[16px] lg:leading-[25px]`}
               >
-                {item.sliderProductos.description}
+                {item?.sliderProductos.description}
               </p>
-              <Link
+              {/* <Link
                 href="#"
                 className="relative mt-4 flex h-[44px] w-full lg:w-[355px] items-center justify-center gap-1 rounded-[5px] bg-[#F0EEED] text-[10px]"
               >
@@ -99,18 +99,18 @@ export const EspecificacionesMincaNew = async (scooters) => {
                   <strong>hasta 6 cuotas.</strong>
                 </p>
                 <p className="underline">Revisa si calificas</p>
-              </Link>
+              </Link> */}
               <hr className="mt-5 lg:w-[70%]" />
             </div>
 
             {/* /Scooter/btn-slider-left-pc.png */}
           </div>
           {/* Btn y contador */}
-          <div className="contador-btnAddCart lg:ml-7 mt-4 flex w-full items-center gap-4 lg:w-[85%] 2xl:w-[70%]">
+          <div className="contador-btnAddCart mt-4 flex w-full items-center gap-4 lg:ml-7 lg:w-[85%] 2xl:w-[70%]">
             <BtnQty />
             <div className="w-full flex-col justify-center lg:flex">
               <AddToCart
-                key={item.databaseId}
+                key={item?.databaseId}
                 producto={item}
                 clases="lg:w-[80%] w-full"
               />
@@ -118,9 +118,9 @@ export const EspecificacionesMincaNew = async (scooters) => {
           </div>
         </div>
       </div>
-      <div className="grid grid-cols-1 lg:grid-cols-2 w-full h-auto 2xl:h-[1550px]">
+      <div className="grid h-auto w-full grid-cols-1 lg:grid-cols-2 2xl:h-[1550px]">
         <TablaEspecificaciones scooters={scooters} />
-        <div className="lg:pl-[16px] lg:pr-[96px] pb-10 w-full h-auto px-4">
+        <div className="h-auto w-full px-4 pb-10 lg:pl-[16px] lg:pr-[96px]">
           <div className="mt-16 flex items-center justify-between lg:mt-[80px] ">
             <div className="lg:w-full">
               <h2 className="border-b-2 border-[#111] ">
@@ -145,15 +145,17 @@ export const EspecificacionesMincaNew = async (scooters) => {
             realizar el mantenimiento preventivo cada 3 meses.
           </p>
           <div>
-            <ul className={`${manrope.className} text-[20px] font-medium list-disc ml-[20px] `}>
+            <ul
+              className={`${manrope.className} ml-[20px] list-disc text-[20px] font-medium `}
+            >
               <li>
                 Recuerda que durante el primer año es obligatorio dicho
                 mantenimiento para mantener tu garantía Minca.
               </li>
               <li>
-                Los Talleres de Minca Electric están a disposición únicamente para
-                los usuarios de las Scooter Minca, para así brindarles la mejor
-                calidad en el servicio post-venta.
+                Los Talleres de Minca Electric están a disposición únicamente
+                para los usuarios de las Scooter Minca, para así brindarles la
+                mejor calidad en el servicio post-venta.
               </li>
               <li>
                 Los servicios de despinche, ajuste de frenos y tornillería no
@@ -166,11 +168,22 @@ export const EspecificacionesMincaNew = async (scooters) => {
               </li>
             </ul>
           </div>
-          <p className={`${manrope.className} text-[20px] font-medium`}>El comprador debe hacer un mantenimiento trimestral en cualquiera de estos talleres para mantener la Scooter en óptimas condiciones y vigente en garantía.<b>ES DE SUMA IMPORTANCIA MENCIONAR QUE SI NO SE REALIZAN DICHOS MANTENIMIENTOS TRIMESTRALES, NO SERÁ EFECTIVA NINGÚN TIPO DE GARANTÍA.</b></p>
-          <Link href="http://localhost:3000/servicios" className="underline">Conoce nuestros talleres para realizar mantenimientos</Link>
+          <p className={`${manrope.className} text-[20px] font-medium`}>
+            El comprador debe hacer un mantenimiento trimestral en cualquiera de
+            estos talleres para mantener la Scooter en óptimas condiciones y
+            vigente en garantía.
+            <b>
+              ES DE SUMA IMPORTANCIA MENCIONAR QUE SI NO SE REALIZAN DICHOS
+              MANTENIMIENTOS TRIMESTRALES, NO SERÁ EFECTIVA NINGÚN TIPO DE
+              GARANTÍA.
+            </b>
+          </p>
+          <Link href="http://localhost:3000/servicios" className="underline">
+            Conoce nuestros talleres para realizar mantenimientos
+          </Link>
         </div>
       </div>
-        <Acordion clase="mx-0 mb-0"/>
+      <Acordion clase="mx-0 mb-0" />
     </div>
   );
 

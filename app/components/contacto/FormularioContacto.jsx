@@ -153,7 +153,7 @@ export const FormularioContacto = () => {
                   Número de factura{" "}(en caso de que seas cliente)
                 </label>
                 <input
-                  type="text"
+                  type="tel"
                   id="NumeroFactura"
                   name="NumeroFactura"
                   placeholder="Número de factura"
@@ -221,3 +221,4 @@ export const FormularioContacto = () => {
     </div>
   );
 };
+

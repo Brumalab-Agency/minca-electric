@@ -11,24 +11,24 @@ const ReactImagenGalleryLupaEspecificaciones = ({ items }) => {
 
   const images = [
     {
-      original: items.sliderProductos.foto1.mediaItemUrl,
-      thumbnail: items.sliderProductos.foto1.mediaItemUrl,
+      original: items?.sliderProductos.foto1.mediaItemUrl,
+      thumbnail: items?.sliderProductos.foto1.mediaItemUrl,
     },
     {
-      original: items.sliderProductos.foto2.mediaItemUrl,
-      thumbnail: items.sliderProductos.foto2.mediaItemUrl,
+      original: items?.sliderProductos.foto2.mediaItemUrl,
+      thumbnail: items?.sliderProductos.foto2.mediaItemUrl,
     },
     {
-      original: items.sliderProductos.foto3.mediaItemUrl,
-      thumbnail: items.sliderProductos.foto3.mediaItemUrl,
+      original: items?.sliderProductos.foto3.mediaItemUrl,
+      thumbnail: items?.sliderProductos.foto3.mediaItemUrl,
     },
     {
-      original: items.sliderProductos?.foto4?.mediaItemUrl,
-      thumbnail: items.sliderProductos?.foto4?.mediaItemUrl,
+      original: items?.sliderProductos?.foto4?.mediaItemUrl,
+      thumbnail: items?.sliderProductos?.foto4?.mediaItemUrl,
     },
     {
-      original: items.sliderProductos?.foto5?.mediaItemUrl,
-      thumbnail: items.sliderProductos?.foto5?.mediaItemUrl,
+      original: items?.sliderProductos?.foto5?.mediaItemUrl,
+      thumbnail: items?.sliderProductos?.foto5?.mediaItemUrl,
     },
   ];
 

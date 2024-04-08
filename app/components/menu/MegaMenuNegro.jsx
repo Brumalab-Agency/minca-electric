@@ -29,9 +29,8 @@ function NavListMenu() {
     {
       title: "Minca Scooters",
       description1: "Minca 350W",
-      /* description2: "Minca 500W", */
-      description3: "Minca 800W",
-      description4: "Minca 1600W",
+      description2: "Minca 800W",
+      description3: "Minca 1600W",
     },
   ];
  /*  const navListMenuEbikes = [

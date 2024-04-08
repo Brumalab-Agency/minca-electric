@@ -6,15 +6,15 @@ import ArrowRightReactImageGallery from "./ArrowRightReactImageGallery";
 
 const ReactImagenGallery = ({scooters}) => {
 
-  const sliderProductos = scooters.edges[0].node.sliderProductos;
+  const sliderProductos = scooters.edges[0]?.node.sliderProductos;
 
   
   const arrayConAlias = [
-    { original: sliderProductos.g1.mediaItemUrl, thumbnail: sliderProductos.g1.mediaItemUrl },
-    { original: sliderProductos.g2.mediaItemUrl, thumbnail: sliderProductos.g2.mediaItemUrl },
-    { original: sliderProductos.g3.mediaItemUrl, thumbnail: sliderProductos.g3.mediaItemUrl },
-    { original: sliderProductos.g4.mediaItemUrl, thumbnail: sliderProductos.g4.mediaItemUrl },
-    { original: sliderProductos.g5.mediaItemUrl, thumbnail: sliderProductos.g5.mediaItemUrl }
+    { original: sliderProductos?.g1.mediaItemUrl, thumbnail: sliderProductos?.g1.mediaItemUrl },
+    { original: sliderProductos?.g2.mediaItemUrl, thumbnail: sliderProductos?.g2.mediaItemUrl },
+    { original: sliderProductos?.g3.mediaItemUrl, thumbnail: sliderProductos?.g3.mediaItemUrl },
+    { original: sliderProductos?.g4.mediaItemUrl, thumbnail: sliderProductos?.g4.mediaItemUrl },
+    { original: sliderProductos?.g5.mediaItemUrl, thumbnail: sliderProductos?.g5.mediaItemUrl }
   ];
 
   

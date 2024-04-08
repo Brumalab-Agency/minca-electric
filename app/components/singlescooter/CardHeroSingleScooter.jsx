@@ -24,7 +24,7 @@ const CardHeroSingleScooter = ({ scooters }) => {
             <div className="flex justify-between">
               <div className="flex flex-col justify-center">
                 <h2
-                  className={`${manrope.className} mb-1 text-[16px] font-bold uppercase text-[#fff]  lg:text-[42px] lg:leading-[35px]`}
+                  className={`${manrope.className} mb-1 text-[16px] font-bold uppercase text-[#fff]  lg:text-[42px] lg:leading-[45px]`}
                 >
                   {item.node.sliderProductos.nombreProducto}
                 </h2>

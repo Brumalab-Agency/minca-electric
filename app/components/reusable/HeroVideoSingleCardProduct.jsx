@@ -18,7 +18,7 @@ export const HeroVideoSingleCarsProduct = ({urlVideo, scooters, }) => {
           loop
         /> */}
         
-        <img className="top-0 hidden h-[700px] w-full object-cover  lg:block 2xl:h-[900px]" src={urlVideo.videoImgBannerPc.mediaItemUrl} alt="imagen banner"/>
+        <img className="top-0 hidden h-[700px] w-full object-cover  lg:block 2xl:h-[900px]" src={urlVideo?.videoImgBannerPc.mediaItemUrl} alt="imagen banner"/>
 
 
       {/* Movil */}
@@ -33,7 +33,7 @@ export const HeroVideoSingleCarsProduct = ({urlVideo, scooters, }) => {
     
         <img
           className="top-0 h-[700px] w-full object-cover  lg:hidden"
-          src={urlVideo.videoImgBannerMovil.mediaItemUrl}
+          src={urlVideo?.videoImgBannerMovil.mediaItemUrl}
           alt="Imagen"
         />
       
@@ -48,7 +48,7 @@ export const HeroVideoSingleCarsProduct = ({urlVideo, scooters, }) => {
             El valor final de la scooter no incluye accesorios ni mantenimiento
             preventivo*
           </p>
-          {console.log(scooters?.edges[0].node.sliderProductos.tooltips)}
+          {console.log(scooters?.edges[0]?.node.sliderProductos.tooltips)}
           {/* <div className="bg-white cursor-pointer z-50"><TooltipScooter tooltips={scooters?.edges[0].node.sliderProductos.tooltips}/></div> */}
         </div>
         <div className="lg:grid h-auto w-full place-items-end hidden lg:w-[50%]">

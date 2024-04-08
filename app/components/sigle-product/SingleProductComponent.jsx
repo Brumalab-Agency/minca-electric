@@ -10,8 +10,7 @@ export const SingleProductComponent = ({ scooters }) => {
 
   const items = productosScooters.edges;
 
-  
-console.log(items);
+  console.log(items);
 
   return (
     <div className="carrusel h-auto w-full">
@@ -140,7 +139,7 @@ console.log(items);
                 subtitulo={item.node.sliderProductos.vatios}
                 tipo={item.node.sliderProductos.tipoBrushless}
               />
-              
+
               <CardEspecifications
                 titulo={item.node.sliderProductos.bateria}
                 subtitulo={item.node.sliderProductos.ampere}
@@ -222,8 +221,9 @@ console.log(items);
             </div>
             <div className="scroll-indicator m-auto"></div>
           </div>
+
           <Link
-            href={`/especificaciones/${encodeURIComponent(item.node.sliderProductos.nombreProducto)}`}
+            href={`/especificaciones/${encodeURIComponent(item.node.sliderProductos.nombreProducto.replace(/\u200E/g, ""))}`} // La expresión regular es por que por algún motivo se estaba colando un caracter especial desconocido el [U+200E]
             className="btn-scooter gird z-10 my-3 flex h-[52px] w-full place-items-center justify-center rounded-[62px]  bg-[#111] text-[16px] text-white lg:absolute lg:right-[100px]  lg:top-[59.2%]  lg:h-[48px] lg:w-[191px] 2xl:w-[235px]"
           >
             Comprar Ahora

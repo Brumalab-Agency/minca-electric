@@ -12,7 +12,7 @@ function Newsletter() {
       formData.append("Email", email);
 
       const response = await fetch(
-        "https://script.google.com/macros/s/AKfycbxDLubAOLEQQ2hVPMzWdqkvYV5YMeB7_PiPgFBKLcwJt92r_2hLPZc8tXLWV9cl6xA1/exec",
+        "https://script.google.com/macros/s/AKfycbx6kJUJ9blRC3ywfiDpk7BYpYS_ZtqSNci5p7N_COeV1yZlrfKBxsnW2087PHnAkSi7hQ/exec",
         {
           method: "POST",
           body: formData,

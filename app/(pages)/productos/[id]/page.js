@@ -32,20 +32,21 @@ const SingleProduct = async ({ params }) => {
   const scooters = await SingleProductos(decodeURIComponent(id));
 
   
-  
+  console.log(scooters);
+
   return (
     <div>
       <HeaderSingleProducts />
       <HeroVideoSingleCarsProduct
         titulo="Last Mile"
         tituloSecundarioNegrita="MODE"
-        urlVideo={scooters.edges[0].node.sliderProductos}
+        urlVideo={scooters.edges[0]?.node.sliderProductos}
         scooters={scooters}
       />
       <SingleProductComponent scooters={scooters} />
       {/* <FinanciamientoFlexible/> */}
       <HeroVideoSingleCardProductTemporal
-        urlVideo={scooters.edges[0].node.sliderProductos}
+        urlVideo={scooters.edges[0]?.node.sliderProductos}
         scooters={scooters}
       />
       <HotSpot scooters={scooters} />

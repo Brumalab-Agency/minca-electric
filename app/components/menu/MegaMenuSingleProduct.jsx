@@ -51,9 +51,8 @@ function NavListMenu() {
     {
       title: "Minca Scooters",
       description1: "Minca 350W",
-      description2: "Minca 500W",
-      description3: "Minca 800W",
-      description4: "Minca 1600W",
+      description2: "Minca 800W",
+      description3: "Minca 1600W",
     },
   ];
  /*  const navListMenuEbikes = [
@@ -69,7 +68,7 @@ function NavListMenu() {
       title: "Accesorios",
       description1: "Casco Minca",
       description2: "Poncho Minca",
-      description3: "Lentes Minca",
+      description3: "Gafas‎ Minca",
       description4: "On Guard U-look",
       description5: "Rompevientos Minca",
       description6: "On Guard Guaya",
