@@ -10,7 +10,8 @@ export const SingleProductComponent = ({ scooters }) => {
 
   const items = productosScooters.edges;
 
-  console.log(items);
+  
+console.log(items);
 
   return (
     <div className="carrusel h-auto w-full">
@@ -139,6 +140,7 @@ export const SingleProductComponent = ({ scooters }) => {
                 subtitulo={item.node.sliderProductos.vatios}
                 tipo={item.node.sliderProductos.tipoBrushless}
               />
+              
               <CardEspecifications
                 titulo={item.node.sliderProductos.bateria}
                 subtitulo={item.node.sliderProductos.ampere}

@@ -7,7 +7,7 @@ export async function InfiniteCardsLeftTestimonios({item}) {
       <InfiniteMovingCardsTestimonios
         items={item}
         direction = "left"
-        speed="slow"
+        speed="normal"
         />
     </div>
   );

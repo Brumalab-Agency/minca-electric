@@ -13,6 +13,7 @@ import Link from "next/link";
 
 export const CarruselAccesorios = async () => {
   const data = await AccesoriosPage();
+  console.log(data);
   const accesorios = data.products.nodes;
   const separadorDeMiles = (numero) => {
     let partesNumero = numero?.toString().split(',');
@@ -51,9 +52,10 @@ export const CarruselAccesorios = async () => {
                         <CardContent className="flex aspect-square items-center justify-center p-2">
                           <img
                             className="h-auto w-[250px]"
-                            src={accesorio.image?.mediaItemUrl}
+                            src={accesorio.image.mediaItemUrl}
                             alt={accesorio.name}
                           />
+                          {console.log(accesorio.image?.mediaItemUrl)}
                         </CardContent>
                       </Card>
                       <p className="mt-[10px] text-base font-bold lg:text-[20px]">

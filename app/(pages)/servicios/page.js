@@ -25,9 +25,9 @@ const Servicios = () => {
         ocultar="lg:hidden"
         urlVideo="https://test.mincaelectric.com/wp-content/uploads/2024/03/Servicio-Tecnico-Minca-Electric.mp4"
       />
+      <Section5 />
       <ComponentTallerChico />
       <ComponentTallerJaveriana />
-      <Section5 />
       <Separador clases="lg:px-[100px] px-4" clase2="mt-[80px]" />
       <ScootersRendimiento />
       <SolucionesComodidad />

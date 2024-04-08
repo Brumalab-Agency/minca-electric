@@ -46,10 +46,10 @@ export const FormularioContacto = () => {
     }
   };
   return (
-    <div>
+    <div className="px-4">
       <form onSubmit={handleSubmit}>
-        <div className="FormularioContacto mb-[150px] mt-[95px] flex">
-          <div className="pl-[100px] pr-[55px]">
+        <div className="FormularioContacto lg:mb-[150px] flex boder border-t-2 lg:border-none pt-6">
+          <div className="lg:pl-[100px] lg:pr-[55px] ">
             <h2 className={`${manrope.className} text-[48px] text-[#111]`}>
               Deja aquí <b>tu solicitud</b>{" "}
             </h2>
@@ -67,7 +67,7 @@ export const FormularioContacto = () => {
                   className={`${manrope.className} text-base font-semibold text-[#111]`}
                 >
                   {" "}
-                  Nombre completo{" "}
+                  Nombre completo *{" "}
                 </label>
                 <input
                   type="text"
@@ -76,6 +76,7 @@ export const FormularioContacto = () => {
                   placeholder="Ingrese su nombre completo aquí"
                   className="border-1 mt-1 h-[56px] w-full border border-[#ECEEF0] p-4 text-[14px] shadow-sm"
                   value={nombre}
+                  required
                   onChange={(e) => setNombre(e.target.value)}
                 />
               </div>
@@ -87,7 +88,7 @@ export const FormularioContacto = () => {
                     className={`${manrope.className} text-base font-semibold text-[#111]`}
                   >
                     {" "}
-                    Correo electrónico{" "}
+                    Correo electrónico *{" "}
                   </label>
                   <input
                     type="Email"
@@ -96,6 +97,7 @@ export const FormularioContacto = () => {
                     placeholder="@"
                     className="border-1 mt-1 h-[56px] w-full border border-[#ECEEF0] p-4 text-[14px] shadow-sm"
                     value={email}
+                    required
                     onChange={(e) => setEmail(e.target.value)}
                   />
                 </div>
@@ -108,7 +110,7 @@ export const FormularioContacto = () => {
                   className={`${manrope.className} text-base font-semibold text-[#111]`}
                 >
                   {" "}
-                  Cédula{" "}
+                  Cédula *{" "}
                 </label>
                 <input
                   type="tel"
@@ -117,6 +119,7 @@ export const FormularioContacto = () => {
                   placeholder="Cédula"
                   className="border-1 mt-1 h-[56px] w-full border border-[#ECEEF0] p-4 text-[14px] shadow-sm"
                   value={cedula}
+                  required
                   onChange={(e) => setCedula(e.target.value)}
                 />
               </div>
@@ -127,7 +130,7 @@ export const FormularioContacto = () => {
                   className={`${manrope.className} text-base font-semibold text-[#111]`}
                 >
                   {" "}
-                  Fecha de Compra{" "}
+                  Fecha de Compra{" "}(en caso de que seas cliente)
                 </label>
                 <input
                   type="date"
@@ -147,7 +150,7 @@ export const FormularioContacto = () => {
                   className={`${manrope.className} text-base font-semibold text-[#111]`}
                 >
                   {" "}
-                  Número de factura{" "}
+                  Número de factura{" "}(en caso de que seas cliente)
                 </label>
                 <input
                   type="text"
@@ -167,7 +170,7 @@ export const FormularioContacto = () => {
                   className={`${manrope.className} text-base font-semibold text-[#111]`}
                 >
                   {" "}
-                  Asunto{" "}
+                  Asunto *{" "}
                 </label>
                 <input
                   type="text"
@@ -176,6 +179,7 @@ export const FormularioContacto = () => {
                   placeholder="Asunto"
                   className="border-1 mt-1 h-[56px] w-full border border-[#ECEEF0] p-4 text-[14px] shadow-sm"
                   value={asunto}
+                  required
                   onChange={(e) => setAsunto(e.target.value)}
                 />
               </div>
@@ -202,14 +206,14 @@ export const FormularioContacto = () => {
               </div>
               {/* Boton */}
               <button
-                className="mt-[35px] rounded-[62px] bg-[#111] text-white lg:h-[52px] lg:w-[289px]"
+                className="mt-[35px] rounded-[62px] bg-[#111] text-white h-[52px] w-full lg:w-[289px]"
                 type="submit"
               >
                 Contacto
               </button>
             </div>
           </div>
-          <div className="h-[933px] w-full bg-[url(/contacto/bg-contacto.jpg)] bg-cover bg-center">
+          <div className="hidden lg:block h-[933px] w-full bg-[url(/contacto/bg-contacto.jpg)] bg-cover bg-center">
             {/* Imagen background */}
           </div>
         </div>

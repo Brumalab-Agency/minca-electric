@@ -41,7 +41,7 @@ function Newsletter() {
         >
           <span className="text-[10px] text-xs font-normal uppercase text-[#FFF]">
             {" "}
-            Your email{" "}
+            Agrega tu correo{" "}
           </span>
           <button type="submit">
             <img

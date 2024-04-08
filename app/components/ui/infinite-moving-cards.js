@@ -79,7 +79,7 @@ export const InfiniteMovingCards = ({
       >
         {items.map((item, idx) => (
           <li
-            className="  relative flex justify-center items-center h-[45px] w-[90px] rounded-[5px] bg-[#F0EEED] lg:h-[75px] lg:w-[191px] 2xl:h-[105px] 2xl:w-[270px]"
+            className="  relative flex justify-center items-center py-2 h-auto w-[130px] rounded-[5px] bg-[#F0EEED] lg:h-[75px] lg:w-[191px] 2xl:h-[105px] 2xl:w-[270px]"
             key={idx}
           >
             <div className="grid place-items-center">
@@ -88,7 +88,7 @@ export const InfiniteMovingCards = ({
                 className="user-select-none -z-1 pointer-events-none grid place-items-center"
               >
                 <img
-                  className="h-[24px] w-[62px] lg:h-[57px] lg:w-[143px] "
+                  className="h-auto w-[90px] lg:h-[57px] lg:w-[143px] "
                   src={item.clientesAliados.clientesaliado.mediaItemUrl}
                   alt="Clientes relacionados"
                 />

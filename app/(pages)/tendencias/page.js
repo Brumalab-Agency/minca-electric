@@ -6,7 +6,7 @@ import { Footer } from '@/components/home/Footer'
 const Blog = () => {  
   return (
     <>
-        <HeroContext titulo="Blog" ocultar="hidden"/>
+        <HeroContext titulo="Tendencias" ocultar="hidden"/>
         <HeroBlog/>
         <TituloBlog/>
         <Footer/>

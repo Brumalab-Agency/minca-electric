@@ -13,7 +13,7 @@ export function CarruselScooters() {
   const [error, setError] = useState(null);
   const [autoplay, setAutoplay] = useState(true);
 
-  console.log(scooters);
+
 
   useEffect(() => {
     const fetchData = async () => {
@@ -79,7 +79,8 @@ export function CarruselScooters() {
     >
       <Suspense fallback={<SkeletonCarrusel />}>
       <Carousel
-        
+        autoplay={autoplay}
+        loop={true}
         className="rounded-xl relative overflow-x-hidden carrusel-padre"
       >
         {scooters.edges.map((scooter, index) => (

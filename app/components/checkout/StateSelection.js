@@ -10,7 +10,7 @@ const StateSelection = ({handleOnChange, input, states, isFetchingStates, isShip
 	
 	const {state, errors} = input || {};
 	
-	const inputId = `state-${isShipping ? 'shipping' : 'billing'}`;
+	const inputId = `Estado-${isShipping ? 'shipping' : 'billing'}`;
 	
 	if (isFetchingStates) {
 		// Show loading component.
@@ -24,7 +24,7 @@ const StateSelection = ({handleOnChange, input, states, isFetchingStates, isShip
 					<select
 						disabled
 						value=""
-						name="state"
+						name="Estado"
 						className="opacity-50 bg-gray-100 bg-opacity-50 border border-gray-500 text-gray-500 appearance-none inline-block py-3 pl-3 pr-8 rounded leading-tight w-full"
 					>
 						<option value="">Cargando...</option>
@@ -49,7 +49,7 @@ const StateSelection = ({handleOnChange, input, states, isFetchingStates, isShip
 					disabled={isFetchingStates}
 					onChange={handleOnChange}
 					value={state}
-					name="state"
+					name="Estado"
 					className={cx(
 						'bg-gray-100 bg-opacity-50 border border-gray-400 text-gray-500 appearance-none inline-block py-3 pl-3 pr-8 rounded leading-tight w-full',
 						{'opacity-50': isFetchingStates}
@@ -64,7 +64,7 @@ const StateSelection = ({handleOnChange, input, states, isFetchingStates, isShip
 					))}
 				</select>
 			</div>
-			<Error errors={errors} fieldName={'state'}/>
+			<Error errors={errors} fieldName={'Estado'}/>
 		</div>
 	)
 }

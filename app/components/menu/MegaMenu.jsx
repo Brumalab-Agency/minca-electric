@@ -33,9 +33,8 @@ function NavListMenu() {
     {
       title: "Minca Scooters",
       description1: "Minca 350W",
-      description2: "Minca 500W",
-      description3: "Minca 800W",
-      description4: "Minca 1600W",
+      description2: "Minca 800W",
+      description3: "Minca 1600W",
     },
   ];
  /*  const navListMenuEbikes = [
@@ -245,9 +244,9 @@ function NavList() {
         <Link
          
           className="inline-block w-auto items-center gap-2 rounded-[62px] px-4 py-2 text-base text-[#111] hover:bg-[#111] hover:text-white lg:flex"
-          href="/blog"
+          href="/tendencias"
         >
-          Blog
+          Tendencias
         </Link>
       </Typography>
     </List>

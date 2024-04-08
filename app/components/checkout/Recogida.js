@@ -5,7 +5,7 @@ import ArrowDown from "./iconCheckOut/ArrowDown";
 const RecogidaSelection = ({ input, handleOnChange }) => {
   const { recogida, errors } = input || {};
 
-  const inputId = "recogida";
+  const inputId = "Recogida";
 
   return (
     <div className="mb-3">
@@ -17,7 +17,7 @@ const RecogidaSelection = ({ input, handleOnChange }) => {
         <select
           onChange={handleOnChange}
           value={recogida}
-          name="recogida"
+          name="Recogida"
           className="inline-block w-full appearance-none rounded border border-[#F0F1EB] bg-gray-100 bg-opacity-50 py-3 pl-3 pr-8 leading-tight text-gray-500"
           id={inputId}
         >
@@ -33,7 +33,7 @@ const RecogidaSelection = ({ input, handleOnChange }) => {
           <ArrowDown width={24} height={24} className="fill-current" />
         </span>
       </div>
-      <Error errors={errors} fieldName="recogida" />
+      <Error errors={errors} fieldName="Recogida" />
     </div>
   );
 };

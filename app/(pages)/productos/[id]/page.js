@@ -23,19 +23,20 @@ export const metadata = {
   description:
     "Muévete sostenible, con estilo y eficiencia. Muévete con Minca.",
   icons: {
-    icon: "/favicon.ico",
+    icon: "/favicon.png",
   },
 };
 
 const SingleProduct = async ({ params }) => {
- 
   const { id } = params;
   const scooters = await SingleProductos(decodeURIComponent(id));
+
+  
   
   return (
     <div>
-    <HeaderSingleProducts/>
-        <HeroVideoSingleCarsProduct
+      <HeaderSingleProducts />
+      <HeroVideoSingleCarsProduct
         titulo="Last Mile"
         tituloSecundarioNegrita="MODE"
         urlVideo={scooters.edges[0].node.sliderProductos}
@@ -43,19 +44,22 @@ const SingleProduct = async ({ params }) => {
       />
       <SingleProductComponent scooters={scooters} />
       {/* <FinanciamientoFlexible/> */}
-      <HeroVideoSingleCardProductTemporal urlVideo={scooters.edges[0].node.sliderProductos}  scooters={scooters}/>
+      <HeroVideoSingleCardProductTemporal
+        urlVideo={scooters.edges[0].node.sliderProductos}
+        scooters={scooters}
+      />
+      <HotSpot scooters={scooters} />
       {/* <CarruselSingleProduct /> */}
       {/* <StickyScrollRevealDemo/> */}
       {/* <Section3 /> */}
-      <LayoutGridInfo/>
+      <LayoutGridInfo />
       {/* <Section4 /> */}
-      <CardHoverEffect/>
-      <ReactImagenGallery scooters={scooters}/>
+      <CardHoverEffect />
+      <ReactImagenGallery scooters={scooters} />
       <Section5 />
-      <HotSpot scooters={scooters} />
       <PuedeInteresarte />
       <CarruselAccesorios />
-      <AcordionSingleProduct/>
+      <AcordionSingleProduct />
       <Footer />
     </div>
   );

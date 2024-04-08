@@ -247,6 +247,9 @@ export const SingleProductos = async (name) => {
                   kmh
                   llanta
                   motor
+                  manualMinca {
+                    mediaItemUrl
+                  }
                   nombreProducto
                   peso
                   pesoMaximo
@@ -458,7 +461,7 @@ export const MincaCity = async (name) => {
 
 export const SingleProductosWoocommerce = async (name) => {
   const query = `
-        query SingleProductos {
+        query SingleProductosWoocommerce {
           productTypes {
             nodes {
               products(where: {search: "${name}"}) {

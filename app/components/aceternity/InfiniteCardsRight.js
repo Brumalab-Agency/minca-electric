@@ -8,7 +8,7 @@ export async function InfiniteCardsRight() {
       <InfiniteMovingCards
         items={data}
         direction = "right"
-        speed="slow"
+        speed="normal"
         />
     </div>
   );

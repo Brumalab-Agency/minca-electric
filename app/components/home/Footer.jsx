@@ -2,6 +2,7 @@ import Image from "next/image";
 import { manrope, ubuntu } from "../../ui/fonts";
 import Newsletter from "../newsletter/Newsletter";
 import Link from "next/link";
+import EmailLink from "../emaillink/EmailLink";
 
 export const Footer = () => {
   return (
@@ -9,7 +10,7 @@ export const Footer = () => {
       <div className="bg-[#111] p-4 lg:p-10">
         <div className="relative mt-[52px] h-auto w-auto rounded-[9px] bg-white p-5 pb-2 lg:w-full lg:px-10 lg:py-8">
           <div className="footer-principal justify-between lg:flex">
-            <div className="logo-footer-pc lg:h-auto lg:w-[248px]">
+            <div className="logo-footer-pc w-[248px] lg:h-auto lg:w-1/6">
               <Image
                 className="mt-4"
                 src="/imagotipo-negro.png"
@@ -25,19 +26,40 @@ export const Footer = () => {
                 eléctrica.
               </p>
               <div className="redes-sociales mt-2 flex items-center justify-start gap-2">
-                <div>
+                <Link
+                  href="https://www.instagram.com/mincaelectriccol/"
+                  target="_blank"
+                >
                   <img
+                    className="h-auto w-[35px]"
                     src="/redesSociales/instagram.png"
-                    alt="redes sociales"
+                    alt="instagram"
                   />
-                </div>
-                <div>
-                  <img src="/redesSociales/facebook.png" alt="redes sociales" />
-                </div>
+                </Link>
+                <Link
+                  href="https://www.facebook.com/mincaelectric"
+                  target="_blank"
+                >
+                  <img
+                    className="h-auto w-[35px]"
+                    src="/redesSociales/facebook.png"
+                    alt="facebook"
+                  />
+                </Link>
+                <Link
+                  href="https://www.tiktok.com/@mincaelectric"
+                  target="_blank"
+                >
+                  <img
+                    className="h-auto w-[35px]"
+                    src="/redesSociales/tiktok.png"
+                    alt="tiktok"
+                  />
+                </Link>
               </div>
             </div>
             {/* *** */}
-            <div className="informacion grid grid-cols-2 lg:grid-cols-1">
+            <div className="minca-footer grid grid-cols-2 lg:w-1/6 lg:grid-cols-1">
               <div className="info-minca-pc lg:h-auto lg:w-[99px]">
                 <div className="informacion-minca leading-[45px]">
                   <h2
@@ -52,13 +74,12 @@ export const Footer = () => {
                     Minca 350W
                   </Link>
                   <br />
-                  <Link
+                  {/* <Link
                     href="/productos/Minca%20500W"
                     className={`${ubuntu.className}  text-[16px] font-normal text-[#111]/60 hover:underline`}
                   >
                     Minca 500W
-                  </Link>
-                  <br />
+                  </Link> */}
                   <Link
                     href="/productos/Minca%20800W"
                     className={`${ubuntu.className}  text-[16px] font-normal text-[#111]/60 hover:underline`}
@@ -85,7 +106,48 @@ export const Footer = () => {
                     Minca Trip
                   </Link> */}
                 </div>
+                <div className="informacion-minca leading-[45px] lg:hidden">
+                  <h2
+                    className={`${manrope.className}  text-[16px] font-bold text-[#111] `}
+                  >
+                    MENÚ
+                  </h2>
+                  {/* <Link href="#"
+                    className={`${ubuntu.className}  text-[#111]/60 text-[16px] font-normal`}
+                  >
+                    Accesorios
+                  </Link>
+                  <br/> */}
+                  <Link
+                    href="/servicios"
+                    className={`${ubuntu.className}  text-[16px] font-normal text-[#111]/60 hover:underline`}
+                  >
+                    Servicio técnico
+                  </Link>
+                  <br />
+                  <Link
+                    href="/sedes"
+                    className={`${ubuntu.className}  text-[16px] font-normal text-[#111]/60 hover:underline`}
+                  >
+                    Showrooms
+                  </Link>
+                  <br />
+                  <Link
+                    href="/recursos"
+                    className={`${ubuntu.className}  text-[16px] font-normal text-[#111]/60 hover:underline`}
+                  >
+                    Recursos
+                  </Link>
+                  <br />
+                  <Link
+                    href="/blog"
+                    className={`${ubuntu.className}  text-[16px] font-normal text-[#111]/60 hover:underline`}
+                  >
+                    Blog
+                  </Link>
+                </div>
               </div>
+
               <div className="info-informacion-pc lg:hidden">
                 <div className="informacion-minca leading-[45px] ">
                   <h2
@@ -131,7 +193,7 @@ export const Footer = () => {
               </div>
             </div>
             {/* ************ */}
-            <div>
+            <div className="informacion-footer lg:w-1/6">
               <div className="info-informacion-pc hidden lg:flex lg:h-auto lg:w-[189px]">
                 <div className="informacion-minca leading-[45px] ">
                   <h2
@@ -180,7 +242,7 @@ export const Footer = () => {
                 </div>
               </div>
             </div>
-            <div className="informacion flex justify-between">
+            <div className="menu-footer hidden justify-between lg:flex lg:w-1/6">
               <div className="info-menu-pc lg:h-auto lg:w-[154px]">
                 <div className="informacion-minca leading-[45px] ">
                   <h2
@@ -225,7 +287,7 @@ export const Footer = () => {
               </div>
               <div className="informacion-minca leading-[45px]"></div>
             </div>
-            <div className="agendar-footer-pc">
+            <div className="agendar-footer-pc shrink lg:w-1/6 ">
               <div className="flex justify-end">
                 <button
                   className={`${ubuntu.className}  mt-4 rounded-[8px] bg-[#111] px-[16px] py-[10px] text-[14px] font-bold text-white`}
@@ -233,13 +295,16 @@ export const Footer = () => {
                   ¡Agendar Test Drive!
                 </button>
               </div>
-              <div className="mt-4 text-right">
-                <Link
-                  href="mailto:info@mincaelectric.com"
-                  className={`${ubuntu.className}  text-[16px] font-bold text-[#111]`}
+              <div className="mb-6 mt-4 text-right">
+                {/* <a
+                  href="mailto:servicioalcliente@mincaelectric.com?subject=Solicitud"
+                  class="ubuntu text-[12px] font-bold text-[#111]"
                 >
-                  info@mincaelectric.com
-                </Link>
+                  servicioalcliente@mincaelectric.com
+                </a> */}
+
+                <EmailLink email="servicioalcliente@mincaelectric.com" subject="Solicitud"/>
+
                 <br />
                 <Link
                   href="tel:+573222102466"
@@ -250,10 +315,10 @@ export const Footer = () => {
               </div>
             </div>
             <hr className="border-0.5 absolute bottom-[4.2%] left-0 right-0 my-[15px] w-full border border-solid border-[#111]/10 lg:hidden" />
-            <div className="card-tdc mt-4 flex items-center justify-center lg:hidden ">
+            <div className="card-tdc mb-2 mt-4 flex items-center justify-center lg:hidden ">
               <Image
                 placeholder="empty"
-                src="/card_tdc.png"
+                src="/mercado pago .png"
                 width={281}
                 height={42}
                 alt="Imagen representativa de caracteristicas del producto"
@@ -326,14 +391,18 @@ export const Footer = () => {
         <p className="text-center text-[12px]">
           © 2024 Minca Electric | Todos los derechos reservados.{" "}
         </p>
-        <div className="flex items-center gap-2">
+        <Link
+          href="https://www.brumalab.agency"
+          target="_blank"
+          className="flex items-center gap-2"
+        >
           <p className={`${ubuntu.className} text-[12px]`}>Diseño Web</p>
           <img
             className="h-[10px] w-auto"
             src="/brumalabagency .svg"
             alt="logo tipo brumalab"
           />
-        </div>
+        </Link>
       </div>
     </>
   );

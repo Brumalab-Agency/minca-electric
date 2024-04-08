@@ -4,13 +4,14 @@ import { HeroContext } from "@/components/reusable/HeroContext";
 import { HeroVideoSingleProduct } from "@/components/reusable/HeroVideoSingleProduct";
 import { PuedeInteresarte } from "@/components/sigle-product/PuedeInteresarte";
 import { CarruselAccesorios } from "@/components/carruseles/accesorios/CarruselAccesorios";
-import { SingleProductosWoocommerce } from "@/lib/graphQLRequest";
+import { SingleProductosWoocommerce,  SingleProductos} from "@/lib/graphQLRequest";
 import { EspecificacionesMincaNew } from "@/components/especificaciones-component/EspecificacionesMincaNew";
 
 const Especificaciones = async ({ params }) => {
   const { id } = params;
 
   const scooters = await SingleProductosWoocommerce(decodeURIComponent(id));
+  /* const scooters = await SingleProductos(decodeURIComponent(id)); */
 
 
   return (

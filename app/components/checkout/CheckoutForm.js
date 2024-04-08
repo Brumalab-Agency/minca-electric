@@ -19,8 +19,8 @@ import { manrope } from "@/ui/fonts";
 import Link from "next/link";
 
 // Utilice esto con fines de prueba, para que no tenga que completar el formulario de pago una y otra vez.
-const defaultCustomerInfo = {
-  firstName: "Lenin",
+/* const defaultCustomerInfo = {
+  Nombre: "Lenin",
   lastName: "Mendoza",
   address1: "123 Abc farm",
   address2: "Hill Road",
@@ -28,7 +28,7 @@ const defaultCustomerInfo = {
   country: "CO",
   state: "En medellín",
   postcode: "221029",
-  email: "mendoza124302@gmail.com",
+  email: "flavioanez@gmail.com",
   phone: "9883778278",
   company: "Freelance",
   emailEmpresa: "empresa@empresa.com",
@@ -43,10 +43,10 @@ const defaultCustomerInfo = {
   nit: "1234567-8",
   telefonoTrabajo: "3022222222",
   errors: null,
-};
+}; */
 
-/* const defaultCustomerInfo = {
-	firstName: '',
+const defaultCustomerInfo = {
+	Nombre: '',
 	lastName: '',
 	address1: '',
 	address2: '',
@@ -58,7 +58,7 @@ const defaultCustomerInfo = {
 	phone: '',
 	company: '',
 	errors: null
-} */
+}
 
 const CheckoutForm = ({ countriesData }) => {
   const { billingCountries, shippingCountries } = countriesData || {};
@@ -76,6 +76,9 @@ const CheckoutForm = ({ countriesData }) => {
     createAccount: false,
     orderNotes: "",
     billingDifferentThanShipping: false,
+    recibirInfo: true,
+    aceptarTerminos: true,
+    tratamientoDatos: true,
     paymentMethod: "",
   };
 
@@ -92,6 +95,7 @@ const CheckoutForm = ({ countriesData }) => {
   const [isOrderProcessing, setIsOrderProcessing] = useState(false);
   const [createdOrderData, setCreatedOrderData] = useState({});
 
+   
   /**
    * Handle form submit.
    *
@@ -103,6 +107,16 @@ const CheckoutForm = ({ countriesData }) => {
     event.preventDefault();
 
     setTemporalCarrito(cart);
+
+    const formEl = document.querySelector("#gas");
+    alert("Formulario enviado")
+    const formData = new FormData(formEl);
+    fetch("https://script.google.com/macros/s/AKfycby0NyHWnrg_ItxXOPaviBOa30tP2DNWTUedGpv9g7M3M3eqffoo4gkG8rinT3kHtBNH/exec", {
+      method: "POST",
+      body: formData
+    }).then(res => res.json()).then(data=>{
+      console.log(data);
+    }).catch(error=>console.log(error))
     /**
      * Validar Detalles de Facturación y Envío
      *
@@ -230,6 +244,7 @@ const CheckoutForm = ({ countriesData }) => {
     <>
       {cart || (idOrder && temporalCarrito) ? (
         <form
+          id="gas"
           className="woo-next-checkout-form px-4 lg:px-[100px]"
           onSubmit={(e) => e.preventDefault()}
         >
@@ -267,29 +282,29 @@ const CheckoutForm = ({ countriesData }) => {
                 />
               </div>
               <CheckboxField
-                name="notificaciones"
+                name="recibirInfo"
                 type="checkbox"
-                checked={input?.billingDifferentThanShipping}
+                checked={input?.recibirInfo}
                 handleOnChange={handleOnChange}
-                label="Me gustaría recibir información sobre ofertas y promociones de Samsung Electronics"
+                label="Me gustaría recibir información sobre ofertas y promociones de MINCA"
                 containerClassNames="pt-4"
                 textCheckBox="text-[10px]"
               />
               <CheckboxField
-                name="notificaciones"
+                name="aceptarTerminos"
                 type="checkbox"
                 required
-                checked={input?.billingDifferentThanShipping}
+                checked={input?.aceptarTerminos}
                 handleOnChange={handleOnChange}
                 label="Acepto los Términos y condiciones"
                 containerClassNames=""
                 textCheckBox="text-[10px]"
               />
               <CheckboxField
-                name="notificaciones"
+                name="tratamientoDatos"
                 type="checkbox"
                 required
-                checked={input?.billingDifferentThanShipping}
+                checked={input?.tratamientoDatos}
                 handleOnChange={handleOnChange}
                 label="Autorizo el tratamiento de mis datos personales , con las siguientes condiciones."
                 containerClassNames="mb-10"

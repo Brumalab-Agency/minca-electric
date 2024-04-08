@@ -193,7 +193,7 @@ export const Header = () => {
       {/* Menu fondo negro */}
       <div
         ref={blackMenuRef}
-        className="black-menu relative flex items-center justify-between bg-[#111] px-4 py-4 lg:justify-normal lg:gap-4 lg:px-[100px]"
+        className="black-menu relative hidden lg:flex items-center justify-between bg-[#111] px-4 py-3 lg:justify-normal lg:gap-4 lg:px-[100px]"
       >
         <div className="header-left flex h-auto w-[115px] items-center justify-between lg:flex-grow-0">
           <Link href="/">

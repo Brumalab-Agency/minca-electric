@@ -13,7 +13,7 @@ export const metadata = {
   description:
     "Muévete sostenible, con estilo y eficiencia. Muévete con Minca.",
   icons: {
-    icon: "/favicon.ico",
+    icon: "/favicon.png",
   },
 };
 

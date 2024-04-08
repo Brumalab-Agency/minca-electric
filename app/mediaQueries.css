@@ -150,7 +150,7 @@ button.\!absolute.top-2\/4.right-4.-translate-y-2\/4.rounded-full.select-none.tr
 
 }
 
-@media only screen and (min-width: 768px) and (max-width: 1500px) {
+@media only screen and (min-width: 768px) and (max-width:2500px) {
   .carrusel .absolute.bottom-4.left-2\/4.z-50.flex.-translate-x-2\/4.gap-2 {
     left: 88.5%;
     top: 7.4%;

@@ -17,17 +17,17 @@ export const Testimonios = async ({ clases, clase2 }) => {
       </div>
       <div className="testimonioCard flex items-center justify-between gap-4 overflow-x-hidden lg:mt-[74px]">
         <div className="w-full h-auto lg:w-auto">
-        <div className="flex items-end lg:mb-[26px] px-[100px]">
+        <div className="flex items-end lg:mb-[26px] px-4 lg:px-[100px]">
               <div className="marcador w-full lg:mt-[74px]">
                 <div className={`${manrope.className} `}>
                   <p className="text-[32px] leading-[42px] lg:text-[48px] lg:capitalize 2xl:text-[64px]">
-                    lo que dicen <br className="lg:hidden"></br> nuestros{" "}
+                    Lo que dicen <br className="lg:hidden"></br> nuestros{" "}
                     <b>clientes</b>
                   </p>
                 </div>
                 <div>
                   <p
-                    className={`${ubuntu.className} mt-[21px] hidden text-[22px] text-[#131313] lg:block lg:w-[10%] lg:leading-[34px] 2xl:text-[32px] 2xl:leading-[42px]`}
+                    className={`${ubuntu.className} mt-[21px] text-[22px] text-[#131313] lg:block lg:w-[10%] lg:leading-[34px] 2xl:text-[32px] 2xl:leading-[42px]`}
                   >
                     Conoce el testimonio positivo de nuestros clientes y
                     descubre los beneficios de nuestras soluciones en movilidad
@@ -43,7 +43,7 @@ export const Testimonios = async ({ clases, clase2 }) => {
           />
         </div>
       </div>
-      <div className="my-[26px] hidden h-auto w-full lg:block px-[100px]">
+      <div className="my-[26px] h-auto w-full lg:block px-4 lg:px-[100px]">
         <Link
           target="_blank"
           href="https://www.google.com/maps/search/minca+electric/@4.6785321,-74.096118,13z/data=!3m1!4b1?authuser=0&entry=ttu"

@@ -2,7 +2,7 @@ import { manrope, ubuntu } from "../../ui/fonts";
 
 export const Section5 = () => {
   return (
-    <div className="carrusel w-auto h-auto lg:h-[618px] pb-[54px] lg:px-[100px] py-14 border-b-[1px] border-[#111]/30 lg:border-none">
+    <div className="carrusel w-auto h-auto lg:h-[618px] pb-[54px] lg:px-[100px] py-14  lg:border-none">
         <section className="flex justify-around items-center flex-col lg:flex-row w-full h-full">
            <div className="text-center flex justify-center items-center flex-col">
             <img className="w-[137px] h-[137px]" src="/sigleProduct/estilo-de-vida-single-product.png" alt="icono estilo de vida"/>
@@ -20,7 +20,7 @@ export const Section5 = () => {
             <p className={`${ubuntu.className} lg:w-[343px] h-auto text-[#42454A] text-base text-center lg:mt-[20px] mt-[11px]`}>Revela la ciudad de una manera única, descubre sus rincones y vibraciones desde una perspectiva más liviana.</p>
            </div>
         </section>
-        <hr className="hidden lg:block"/>
+        <hr className="hidden "/>
   </div>
   )
 }

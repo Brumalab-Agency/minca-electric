@@ -20,7 +20,7 @@ export const UserAdress = ({
   return (
     <>
       <InputField
-        name="email"
+        name="Email"
         type="email"
         inputValue={input?.email}
         required
@@ -32,8 +32,8 @@ export const UserAdress = ({
       />
       <div className="flex flex-wrap overflow-hidden sm:-mx-3">
         <InputField
-          name="firstName"
-          inputValue={input?.firstName}
+          name="Nombre"
+          inputValue={input?.Nombre}
           required
           handleOnChange={handleOnChange}
           label="Nombre"
@@ -43,7 +43,7 @@ export const UserAdress = ({
         />
 
         <InputField
-          name="lastName"
+          name="Apellido"
           inputValue={input?.lastName}
           required
           handleOnChange={handleOnChange}
@@ -54,7 +54,7 @@ export const UserAdress = ({
         />
       </div>
       <InputField
-        name="phone"
+        name="Telefono"
         inputValue={input?.phone}
         required
         handleOnChange={handleOnChange}
@@ -66,7 +66,7 @@ export const UserAdress = ({
       <div className="flex gap-4">
         <TipoIdentificacion/>
         <InputField
-          name="numeroIdentificacion"
+          name="NumeroIdentificacion"
           inputValue={input?.numeroIdentificacion}
           required
           handleOnChange={handleOnChange}
@@ -77,7 +77,7 @@ export const UserAdress = ({
         />
       </div>
       <InputField
-        name="company"
+        name="Compania"
         inputValue={input?.company}
         handleOnChange={handleOnChange}
         label="Compra Empresa (Opcional)"
@@ -87,7 +87,7 @@ export const UserAdress = ({
       />
       <div className="flex gap-4">
         <InputField
-          name="emailEmpresa"
+          name="EmailEmpresa"
           type="email"
           inputValue={input?.emailEmpresa}
           handleOnChange={handleOnChange}
@@ -97,7 +97,7 @@ export const UserAdress = ({
           containerClassNames="w-full overflow-hidden sm:my-2 md:w-1/2"
         />
         <InputField
-          name="razonSocial"
+          name="RazonSocial"
           inputValue={input?.razonSocial}
           handleOnChange={handleOnChange}
           label="Razon Social"
@@ -108,7 +108,7 @@ export const UserAdress = ({
       </div>
       <div className="flex gap-4">
         <InputField
-          name="nit"
+          name="Nit"
           inputValue={input?.nit}
           handleOnChange={handleOnChange}
           label="NIT"
@@ -117,7 +117,7 @@ export const UserAdress = ({
           containerClassNames="w-full overflow-hidden sm:my-2 md:w-1/2"
         />
         <InputField
-          name="telefonoTrabajo"
+          name="TelefonoTrabajo"
           inputValue={input?.telefonoTrabajo}
           handleOnChange={handleOnChange}
           label="Número de teléfono del trabajo"
@@ -134,7 +134,7 @@ export const UserAdress = ({
         isShipping={isShipping}
       />
       <InputField
-        name="address1"
+        name="Direccion1"
         inputValue={input?.address1}
         required
         handleOnChange={handleOnChange}
@@ -145,7 +145,7 @@ export const UserAdress = ({
         containerClassNames="mb-4"
       />
       <InputField
-        name="address2"
+        name="Direccion2"
         inputValue={input?.address2}
         handleOnChange={handleOnChange}
         label="Segunda dirección"
@@ -155,7 +155,7 @@ export const UserAdress = ({
         containerClassNames="mb-4"
       />
       <InputField
-        name="city"
+        name="Ciudad"
         required
         inputValue={input?.city}
         handleOnChange={handleOnChange}
@@ -166,6 +166,7 @@ export const UserAdress = ({
       />
       {/* State */}
       <StateSelection
+        name="Estado"
         input={input}
         handleOnChange={handleOnChange}
         states={states}
@@ -174,7 +175,7 @@ export const UserAdress = ({
       />
       <div className="flex flex-wrap overflow-hidden sm:-mx-3">
         <InputField
-          name="postcode"
+          name="CodigoPostal"
           inputValue={input?.postcode}
           required
           handleOnChange={handleOnChange}

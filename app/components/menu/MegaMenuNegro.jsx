@@ -29,7 +29,7 @@ function NavListMenu() {
     {
       title: "Minca Scooters",
       description1: "Minca 350W",
-      description2: "Minca 500W",
+      /* description2: "Minca 500W", */
       description3: "Minca 800W",
       description4: "Minca 1600W",
     },
@@ -241,9 +241,9 @@ function NavList() {
         <Link
         
           className="inline-block w-auto items-center gap-2 rounded-[62px] px-4 py-2 text-base text-[#fff] hover:bg-[#fff] hover:text-[#111] lg:flex"
-          href="/blog"
+          href="/tendencias"
         >
-          Blog
+          Tendencias
         </Link>
       </Typography>
     </List>
@@ -255,7 +255,7 @@ export function MegaMenuNegro() {
   
 
   return (
-    <Navbar className="mx-auto max-w-screen-xl py-2 border-none bg-[#111] px-0">
+    <Navbar className="mx-auto max-w-screen-xl border-none bg-[#111] px-0 py-0">
       <div className="text-[#fff]-900 items-center justify-between lg:flex">
         <div  className="navegacion lg:flex">
           <NavList />

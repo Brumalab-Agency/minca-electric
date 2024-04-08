@@ -6,7 +6,7 @@ import ArrowDown from "./iconCheckOut/ArrowDown";
 const CountrySelection = ({ input, handleOnChange, countries, isShipping }) => {
   const { country, errors } = input || {};
 
-  const inputId = `country-${isShipping ? "shipping" : "billing"}`;
+  const inputId = `Pais-${isShipping ? "shipping" : "billing"}`;
 
   return (
     <div className="mb-3">
@@ -18,7 +18,7 @@ const CountrySelection = ({ input, handleOnChange, countries, isShipping }) => {
         <select
           onChange={handleOnChange}
           value={country}
-          name="country"
+          name="Pais"
           className="inline-block w-full appearance-none rounded border border-[#F0F1EB] bg-gray-100 bg-opacity-50 py-3 pl-3 pr-8 leading-tight text-gray-500"
           id={inputId}
         >
@@ -41,7 +41,7 @@ const CountrySelection = ({ input, handleOnChange, countries, isShipping }) => {
           <ArrowDown width={24} height={24} className="fill-current" />
         </span>
       </div>
-      <Error errors={errors} fieldName={"country"} />
+      <Error errors={errors} fieldName={"Pais"} />
     </div>
   );
 };

@@ -10,6 +10,7 @@ import { SolucionesComodidad } from "./components/home/SolucionesComodidad";
 import { Testimonios } from "./components/testimonio/Testimonios";
 import { ShowRoomComponent } from "./components/showroom/ShowRoomComponent";
 import { CarruselAccesorios } from "./components/carruseles/accesorios/CarruselAccesorios";
+import { TalleresComponent } from "./components/showroom/TalleresComponent";
 
 export default function Home() {
   return (
@@ -24,6 +25,7 @@ export default function Home() {
       <SolucionesComodidad />
       <Testimonios />
       <ShowRoomComponent />
+      <TalleresComponent/>
       <ClientesAliados />
       <Footer />
     </main>

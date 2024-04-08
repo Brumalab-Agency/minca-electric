@@ -17,7 +17,7 @@ export const TituloBlog = async () => {
       </h2>
       <div className="grid-cols-3 gap-6 lg:grid">
         {posts.map((post) => (
-          <Link href={`/blog/${post.databaseId}`}>
+          <Link href={`/tendencias/${post.databaseId}`}>
             <CardBlog data={post} />
           </Link>
         ))}

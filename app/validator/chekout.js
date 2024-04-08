@@ -13,8 +13,10 @@ const validateAndSanitizeCheckoutForm = ( data, hasStates = true ) => {
 	 * Validator.isEmpty() down below comes from validator library.
 	 * Similarly we do it for for the rest of the fields
 	 */
-	data.firstName = ( ! isEmpty( data.firstName ) ) ? data.firstName : '';
+	data.Nombre = ( ! isEmpty( data.Nombre ) ) ? data.Nombre : '';
 	data.lastName = ( ! isEmpty( data.lastName ) ) ? data.lastName : '';
+	data.wooccm11 = ( ! isEmpty( data.wooccm11 ) ) ? data.wooccm11 : '';
+	data.numeroIdentificacion =(! isEmpty( data.numeroIdentificacion ) ) ? data.numeroIdentificacion : '';
 	data.company = ( ! isEmpty( data.company ) ) ? data.company : '';
 	data.country = ( ! isEmpty( data.country ) ) ? data.country : '';
 	data.address1 = ( ! isEmpty( data.address1 ) ) ? data.address1 : '';
@@ -71,7 +73,7 @@ const validateAndSanitizeCheckoutForm = ( data, hasStates = true ) => {
 		
 	};
 	
-	addErrorAndSanitizedData( 'firstName', 'First name', 2, 35, 'string', true );
+	addErrorAndSanitizedData( 'Nombre', 'First name', 2, 35, 'string', true );
 	addErrorAndSanitizedData( 'lastName', 'Last name', 2, 35, 'string', true );
 	addErrorAndSanitizedData( 'company', 'Company Name', 0, 35, 'string', false );
 	addErrorAndSanitizedData( 'country', 'Country name', 2, 55, 'string', true );
