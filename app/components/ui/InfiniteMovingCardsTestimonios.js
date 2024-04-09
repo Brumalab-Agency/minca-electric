@@ -8,7 +8,7 @@ import { Rate } from "antd";
 export const InfiniteMovingCardsTestimonios = ({
   items,
   direction = "left",
-  speed = "fast",
+  speed = "normal",
   pauseOnHover = true,
   className,
 }) => {

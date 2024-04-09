@@ -11,6 +11,7 @@ import { Testimonios } from "./components/testimonio/Testimonios";
 import { ShowRoomComponent } from "./components/showroom/ShowRoomComponent";
 import { CarruselAccesorios } from "./components/carruseles/accesorios/CarruselAccesorios";
 import { TalleresComponent } from "./components/showroom/TalleresComponent";
+import TalleresSingleComponents from "./components/talleres/TalleresSingleComponents";
 
 export default function Home() {
   return (
@@ -26,6 +27,7 @@ export default function Home() {
       <Testimonios />
       <ShowRoomComponent />
       <TalleresComponent/>
+      <TalleresSingleComponents/>
       <ClientesAliados />
       <Footer />
     </main>

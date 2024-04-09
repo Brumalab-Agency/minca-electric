@@ -5,6 +5,9 @@ import InputField from "./fomr-elements/InputField";
 import RecogidaSelection from "./Recogida";
 import TipoIdentificacion from "./TipoIdentificacion";
 import CheckboxField from "./fomr-elements/CheckboxField";
+import CiudadesColombia from "../ciudadesColombia/CiudadesColombia";
+import LocalidadesColombia from "../ciudadesColombia/LocalidadesColombia";
+import { useState } from "react";
 
 export const UserAdress = ({
   input,
@@ -15,14 +18,20 @@ export const UserAdress = ({
   isShipping,
 }) => {
   const { errors } = input || {};
+  const [cart, setCart] = useState([]);
 
-  console.log(input);
+  const handleShippingFee = (fee) => {
+    // Lógica para agregar el cargo adicional al carrito
+    const newCartItem = { name: 'Cargo de envío', price: fee };
+    setCart([...cart, newCartItem]);
+  };
+
   return (
     <>
       <InputField
         name="Email"
         type="email"
-        inputValue={input?.email}
+        inputValue={input?.Email}
         required
         handleOnChange={handleOnChange}
         label="Correo"
@@ -44,7 +53,7 @@ export const UserAdress = ({
 
         <InputField
           name="Apellido"
-          inputValue={input?.lastName}
+          inputValue={input?.Apellido}
           required
           handleOnChange={handleOnChange}
           label="Apellido"
@@ -55,7 +64,8 @@ export const UserAdress = ({
       </div>
       <InputField
         name="Telefono"
-        inputValue={input?.phone}
+        type="tel"
+        inputValue={input?.Telefono}
         required
         handleOnChange={handleOnChange}
         label="Teléfono Celular"
@@ -64,10 +74,10 @@ export const UserAdress = ({
         containerClassNames="w-full overflow-hidden sm:my-2 md:w-full"
       />
       <div className="flex gap-4">
-        <TipoIdentificacion/>
+        <TipoIdentificacion />
         <InputField
           name="NumeroIdentificacion"
-          inputValue={input?.numeroIdentificacion}
+          inputValue={input?.NumeroIdentificacion}
           required
           handleOnChange={handleOnChange}
           label="Número (Identificación)"
@@ -77,10 +87,10 @@ export const UserAdress = ({
         />
       </div>
       <InputField
-        name="Compania"
-        inputValue={input?.company}
+        name="Empresa"
+        inputValue={input?.Empresa}
         handleOnChange={handleOnChange}
-        label="Compra Empresa (Opcional)"
+        label="Empresa (Opcional)"
         errors={errors}
         isShipping={isShipping}
         containerClassNames="mb-4"
@@ -89,7 +99,7 @@ export const UserAdress = ({
         <InputField
           name="EmailEmpresa"
           type="email"
-          inputValue={input?.emailEmpresa}
+          inputValue={input?.EmailEmpresa}
           handleOnChange={handleOnChange}
           label="Correo electrónico de la empresa"
           errors={errors}
@@ -98,7 +108,7 @@ export const UserAdress = ({
         />
         <InputField
           name="RazonSocial"
-          inputValue={input?.razonSocial}
+          inputValue={input?.RazonSocial}
           handleOnChange={handleOnChange}
           label="Razon Social"
           errors={errors}
@@ -109,7 +119,8 @@ export const UserAdress = ({
       <div className="flex gap-4">
         <InputField
           name="Nit"
-          inputValue={input?.nit}
+          type="tel"
+          inputValue={input?.Nit}
           handleOnChange={handleOnChange}
           label="NIT"
           errors={errors}
@@ -118,7 +129,8 @@ export const UserAdress = ({
         />
         <InputField
           name="TelefonoTrabajo"
-          inputValue={input?.telefonoTrabajo}
+          type="tel"
+          inputValue={input?.TelefonoTrabajo}
           handleOnChange={handleOnChange}
           label="Número de teléfono del trabajo"
           errors={errors}
@@ -126,16 +138,15 @@ export const UserAdress = ({
           containerClassNames="w-full overflow-hidden sm:my-2 md:w-1/2"
         />
       </div>
-      {/* Country Selection*/}
-      <CountrySelection
-        input={input}
-        handleOnChange={handleOnChange}
-        countries={countries}
-        isShipping={isShipping}
-      />
+      {/*  Ciudades de Colombia*/}
+      <CiudadesColombia />
+      {/* Localidades de Colombia */}
+      <LocalidadesColombia />
+      {/* Sitio de recogida */}
+      <RecogidaSelection handleShippingFee={handleShippingFee} handleOnChange={handleOnChange}/>
       <InputField
         name="Direccion1"
-        inputValue={input?.address1}
+        inputValue={input?.Direccion1}
         required
         handleOnChange={handleOnChange}
         label="Dirección"
@@ -146,7 +157,7 @@ export const UserAdress = ({
       />
       <InputField
         name="Direccion2"
-        inputValue={input?.address2}
+        inputValue={input?.Direccion2}
         handleOnChange={handleOnChange}
         label="Segunda dirección"
         placeholder="Apartment floor unit building floor etc(optional)"
@@ -154,39 +165,6 @@ export const UserAdress = ({
         isShipping={isShipping}
         containerClassNames="mb-4"
       />
-      <InputField
-        name="Ciudad"
-        required
-        inputValue={input?.city}
-        handleOnChange={handleOnChange}
-        label="Pueblo/Ciudad"
-        errors={errors}
-        isShipping={isShipping}
-        containerClassNames="mb-4"
-      />
-      {/* State */}
-      <StateSelection
-        name="Estado"
-        input={input}
-        handleOnChange={handleOnChange}
-        states={states}
-        isShipping={isShipping}
-        isFetchingStates={isFetchingStates}
-      />
-      <div className="flex flex-wrap overflow-hidden sm:-mx-3">
-        <InputField
-          name="CodigoPostal"
-          inputValue={input?.postcode}
-          required
-          handleOnChange={handleOnChange}
-          label="Código postal"
-          errors={errors}
-          isShipping={isShipping}
-          containerClassNames="w-full overflow-hidden sm:my-2 sm:px-2 md:w-1/2"
-        />
-      </div>
-      <RecogidaSelection />
-      
 
       {/*	@TODO Create an Account */}
       {/*<div className="form-check">*/}

@@ -8,10 +8,10 @@ import Link from "next/link";
 export const TalleresComponent = () => {
   return (
     <>
-      <div className="carrusel w-full bg-[#F0F1EB] lg:h-[665px] lg:px-0">
+      <div className="hidden carrusel w-full bg-[#F0F1EB] lg:h-[665px] lg:px-0">
         {/* PC */}
         <Carousel
-          autoplay={false}
+          autoplay={true}
           loop={true}
           autoplayDelay={5000}
           navigation={false}

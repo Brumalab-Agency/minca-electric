@@ -19,52 +19,49 @@ import { manrope } from "@/ui/fonts";
 import Link from "next/link";
 
 // Utilice esto con fines de prueba, para que no tenga que completar el formulario de pago una y otra vez.
-/* const defaultCustomerInfo = {
+const defaultCustomerInfo = {
   Nombre: "Lenin",
-  lastName: "Mendoza",
-  address1: "123 Abc farm",
-  address2: "Hill Road",
-  city: "Medellín",
-  country: "CO",
-  state: "En medellín",
-  postcode: "221029",
-  email: "flavioanez@gmail.com",
-  phone: "9883778278",
-  company: "Freelance",
-  emailEmpresa: "empresa@empresa.com",
-  recogida: "En algún lado de medellín",
+  Apellido: "Mendoza",
+  Direccion1: "123 Abc farm",
+  Direccion2: "Hill Road",
+  Ciudad: "Medellín",
+  Pais: "CO",
+  Email: "mendoza124302@gmail.com",
+  Telefono: "9883778278",
+  Empresa: "Freelance",
+  EmailEmpresa: "empresa@empresa.com",
+  RazonSocial: "Anonimo",
+  Nit: "1147696023-8",
+  TelefonoTrabajo: "3022222222",
   tipoIdentificacion: [
     "Cédula de Ciudadanía",
     "Cédula de Extranjería",
     "Número de pasaporte",
   ],
-  numeroIdentificacion: "123456789",
-  razonSocial: "Anonimo",
-  nit: "1234567-8",
-  telefonoTrabajo: "3022222222",
+  NumeroIdentificacion: "1147696023",
   errors: null,
-}; */
+};
 
-const defaultCustomerInfo = {
+/* const defaultCustomerInfo = {
 	Nombre: '',
-	lastName: '',
-	address1: '',
-	address2: '',
-	city: '',
-	country: '',
-	state: '',
-	postcode: '',
-	email: '',
-	phone: '',
-	company: '',
+	Apellido: '',
+	Direccion1: '',
+	Direccion2: '',
+	Ciudad: '',
+	Pais: '',
+	Email: '',
+	Telefono: '',
+	Empresa: '',
+  EmailEmpresa: '',
+  RazonSocial: '',
+  Nit: '',
 	errors: null
-}
+} */
+
+// el state o estado del país es parte del componente Pais y este ya tiene sus campos predeterminados
 
 const CheckoutForm = ({ countriesData }) => {
   const { billingCountries, shippingCountries } = countriesData || {};
-
-
-
 
   const initialState = {
     billing: {
@@ -95,7 +92,6 @@ const CheckoutForm = ({ countriesData }) => {
   const [isOrderProcessing, setIsOrderProcessing] = useState(false);
   const [createdOrderData, setCreatedOrderData] = useState({});
 
-   
   /**
    * Handle form submit.
    *
@@ -109,14 +105,20 @@ const CheckoutForm = ({ countriesData }) => {
     setTemporalCarrito(cart);
 
     const formEl = document.querySelector("#gas");
-    alert("Formulario enviado")
+    alert("Formulario enviado");
     const formData = new FormData(formEl);
-    fetch("https://script.google.com/macros/s/AKfycby0NyHWnrg_ItxXOPaviBOa30tP2DNWTUedGpv9g7M3M3eqffoo4gkG8rinT3kHtBNH/exec", {
-      method: "POST",
-      body: formData
-    }).then(res => res.json()).then(data=>{
-      console.log(data);
-    }).catch(error=>console.log(error))
+    fetch(
+      "https://script.google.com/macros/s/AKfycbwRyrma-4jWZ9fc_Z6cUbd3-pVIFVLyz_bLI-47wmoqqtfIsk2fsW-8qw7Wop7Nay9f/exec",
+      {
+        method: "POST",
+        body: formData,
+      },
+    )
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+      })
+      .catch((error) => console.log(error));
     /**
      * Validar Detalles de Facturación y Envío
      *
@@ -172,7 +174,7 @@ const CheckoutForm = ({ countriesData }) => {
       setCreatedOrderData,
     );
     setIdOrder(createdOrderData.orderId);
-    console.log(setIdOrder(createdOrderData.orderId));
+
     /* if ( createdOrderData.paymentUrl ) {
     
 
@@ -205,6 +207,21 @@ const CheckoutForm = ({ countriesData }) => {
       handleBillingDifferentThanShipping(input, setInput, target);
     } else if (isBillingOrShipping) {
       if (isShipping) {
+        if (target.name === "RetirarEn" && target.value === "Fuera de Bogotá. Entrega de 3 a 5 días hábiles: $90.000") {
+          // Agregar el cargo adicional al carrito
+          setCart((prevCart) => {
+            const updatedCart = { ...prevCart };
+            updatedCart.totalPrice += 90000;
+            return updatedCart;
+          });
+        }setCart((prevCart) => {
+          const updatedCart = { ...prevCart };
+          updatedCart.totalPrice = prevCart.cartItems.reduce(
+            (total, item) => total + item.line_total,
+            0
+          );
+          return updatedCart;
+        });
         await handleShippingChange(target);
       } else {
         await handleBillingChange(target);
@@ -262,6 +279,7 @@ const CheckoutForm = ({ countriesData }) => {
 
                 <h2 className="mb-4 text-xl font-medium">Mis datos</h2>
                 <UserAdress
+                  idOrder={idOrder}
                   states={theShippingStates}
                   countries={shippingCountries}
                   input={input?.shipping}
@@ -314,12 +332,17 @@ const CheckoutForm = ({ countriesData }) => {
               <p className="my-10 text-[12px]">
                 Para consultas comunicarse al : WhatsApp: +573222102466
               </p>
+
               {/*Billing Details*/}
               {input?.billingDifferentThanShipping ? (
                 <div className="billing-details">
                   <h2 className="mb-4 text-xl font-medium">
                     Detalles de facturación
                   </h2>
+                  {console.log(input?.billingDifferentThanShipping)}
+                  {console.log(idOrder)}
+                  {console.log(input)}
+                  {console.log(input?.billing)}
                   <UserAdress
                     states={theBillingStates}
                     countries={
@@ -343,6 +366,7 @@ const CheckoutForm = ({ countriesData }) => {
               {/*	Order*/}
               <h2 className="mb-4 text-xl font-medium">Resumen del pedido</h2>
               <hr className="mb-3"></hr>
+              {console.log(cart)}
 
               <YourOrder cart={cart ? cart : temporalCarrito} />
               {/*Metodo de envio*/}
@@ -384,7 +408,6 @@ const CheckoutForm = ({ countriesData }) => {
                   </button>
                 ) : null}
 
-               
                 {idOrder ? (
                   <Link
                     href={{

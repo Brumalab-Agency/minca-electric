@@ -10,7 +10,7 @@ export const SingleProductComponent = ({ scooters }) => {
 
   const items = productosScooters.edges;
 
-  console.log(items);
+ 
 
   return (
     <div className="carrusel h-auto w-full">
@@ -40,8 +40,9 @@ export const SingleProductComponent = ({ scooters }) => {
                   {item.node.sliderProductos.anoVersion}
                 </small>
                 <h2
-                  className={`${manrope.className} mb-1 text-[16px] font-bold uppercase text-[#111111]  lg:text-[42px] lg:leading-[35px]`}
+                  className={`${manrope.className} mb-1 text-[16px] font-bold uppercase text-[#111111]  lg:text-[42px] lg:leading-[45px]`}
                 >
+                  Scooter Eléctrico <br/>
                   {item.node.sliderProductos.nombreProducto}
                 </h2>
                 <p

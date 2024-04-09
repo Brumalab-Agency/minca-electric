@@ -14,18 +14,17 @@ const validateAndSanitizeCheckoutForm = ( data, hasStates = true ) => {
 	 * Similarly we do it for for the rest of the fields
 	 */
 	data.Nombre = ( ! isEmpty( data.Nombre ) ) ? data.Nombre : '';
-	data.lastName = ( ! isEmpty( data.lastName ) ) ? data.lastName : '';
-	data.wooccm11 = ( ! isEmpty( data.wooccm11 ) ) ? data.wooccm11 : '';
+	data.Apellido = ( ! isEmpty( data.Apellido ) ) ? data.Apellido : '';
 	data.numeroIdentificacion =(! isEmpty( data.numeroIdentificacion ) ) ? data.numeroIdentificacion : '';
-	data.company = ( ! isEmpty( data.company ) ) ? data.company : '';
+	data.Empresa = ( ! isEmpty( data.Empresa ) ) ? data.Empresa : '';
 	data.country = ( ! isEmpty( data.country ) ) ? data.country : '';
-	data.address1 = ( ! isEmpty( data.address1 ) ) ? data.address1 : '';
-	data.address2 = ( ! isEmpty( data.address2 ) ) ? data.address2 : '';
-	data.city = ( ! isEmpty( data.city ) ) ? data.city : '';
-	data.state = ( ! isEmpty( data.state ) ) ? data.state : '';
-	data.postcode = ( ! isEmpty( data.postcode ) ) ? data.postcode : '';
-	data.phone = ( ! isEmpty( data.phone ) ) ? data.phone : '';
-	data.email = ( ! isEmpty( data.email ) ) ? data.email : '';
+	data.Direccion1 = ( ! isEmpty( data.Direccion1 ) ) ? data.Direccion1 : '';
+	data.Direccion2 = ( ! isEmpty( data.Direccion2 ) ) ? data.Direccion2 : '';
+	data.Ciudad = ( ! isEmpty( data.Ciudad ) ) ? data.Ciudad : '';
+	data.Estado = ( ! isEmpty( data.Estado ) ) ? data.Estado : '';
+	data.Codigopostal = ( ! isEmpty( data.Codigopostal ) ) ? data.Codigopostal : '';
+	data.Telefono = ( ! isEmpty( data.Telefono ) ) ? data.Telefono : '';
+	data.Email = ( ! isEmpty( data.Email ) ) ? data.Email : '';
 	data.createAccount = ( ! isEmpty( data.createAccount ) ) ? data.createAccount : '';
 	data.orderNotes = ( ! isEmpty( data.orderNotes ) ) ? data.orderNotes : '';
 	// data.paymentMethod = ( ! isEmpty( data.paymentMethod ) ) ? data.paymentMethod : '';
@@ -48,42 +47,45 @@ const validateAndSanitizeCheckoutForm = ( data, hasStates = true ) => {
 		 *
 		 * Check for error and if there is no error then sanitize data.
 		 */
-		if ( ! validator.isLength( data[ fieldName ], { min, max } ) ){
-			errors[ fieldName ] = `${errorContent} must be ${min} to ${max} characters`;
-		}
+		if (!isEmpty(data[fieldName]) && !validator.isLength(data[fieldName], { min, max })) {
+			errors[fieldName] = `${errorContent} must be ${min} to ${max} characters`;
+		  }
 		
-		if ( 'email' === type && ! validator.isEmail( data[ fieldName ] ) ){
+		if ( 'Email' === type && ! validator.isEmail( data[ fieldName ] ) ){
 			errors[ fieldName ] = `${errorContent} is not valid`;
 		}
 		
-		if ( 'phone' === type && ! validator.isMobilePhone( data[ fieldName ] ) ) {
+		if ( 'Telefono' === type && ! validator.isMobilePhone( data[ fieldName ] ) ) {
 			errors[ fieldName ] = `${errorContent} is not valid`;
 		}
-		
-		if ( required && validator.isEmpty( data[ fieldName ] ) ) {
-			errors[ fieldName ] = `${errorContent} is required`;
-		}
+		if (required && !isEmpty(data[fieldName]) && validator.isEmpty(data[fieldName])) {
+			errors[fieldName] = `${errorContent} is required`;
+		  }
 		
 		// If no errors
-		if ( ! errors[ fieldName ] ) {
-			sanitizedData[ fieldName ] = validator.trim( data[ fieldName ] );
-			sanitizedData[ fieldName ] = ( 'email' === type ) ? validator.normalizeEmail( sanitizedData[ fieldName ] ) : sanitizedData[ fieldName ];
-			sanitizedData[ fieldName ] = validator.escape( sanitizedData[ fieldName ] );
-		}
+		if (!errors[fieldName]) {
+			if (!isEmpty(data[fieldName])) {
+			  sanitizedData[fieldName] = validator.trim(data[fieldName]);
+			  sanitizedData[fieldName] = ('Email' === type) ? validator.normalizeEmail(sanitizedData[fieldName]) : sanitizedData[fieldName];
+			  sanitizedData[fieldName] = validator.escape(sanitizedData[fieldName]);
+			} else {
+			  sanitizedData[fieldName] = '';
+			}
+		  }
 		
 	};
 	
 	addErrorAndSanitizedData( 'Nombre', 'First name', 2, 35, 'string', true );
-	addErrorAndSanitizedData( 'lastName', 'Last name', 2, 35, 'string', true );
-	addErrorAndSanitizedData( 'company', 'Company Name', 0, 35, 'string', false );
-	addErrorAndSanitizedData( 'country', 'Country name', 2, 55, 'string', true );
-	addErrorAndSanitizedData( 'address1', 'Street address line 1', 12, 100,'string',true );
-	addErrorAndSanitizedData( 'address2', '', 0, 254, 'string', false );
-	addErrorAndSanitizedData( 'city', 'City field', 3, 25, 'string', true );
-	addErrorAndSanitizedData( 'state', 'State/County', 0, 254, 'string', hasStates );
-	addErrorAndSanitizedData( 'postcode', 'Post code', 2, 10, 'postcode', true );
+	addErrorAndSanitizedData( 'Apellido', 'Last name', 2, 35, 'string', true );
+	addErrorAndSanitizedData( 'Empresa', 'Company Name', 0, 35, 'string', false );
+	addErrorAndSanitizedData( 'Pais', 'Country name', 2, 55, 'string', true );
+	addErrorAndSanitizedData( 'Direccion1', 'Street address line 1', 12, 100,'string',true );
+	addErrorAndSanitizedData( 'Direccion2', '', 0, 254, 'string', false );
+	addErrorAndSanitizedData( 'state', 'City field', 3, 25, 'string', true );
+	addErrorAndSanitizedData( 'Ciudad', 'State/County', 0, 254, 'string', hasStates );
+	addErrorAndSanitizedData( 'Codigopostal', 'Post code', 2, 10, 'Codigopostal', true );
 	addErrorAndSanitizedData( 'phone', 'Phone number', 10, 15, 'phone', true );
-	addErrorAndSanitizedData( 'email', 'Email', 11, 254, 'email', true );
+	addErrorAndSanitizedData( 'Email', 'Email', 11, 254, 'Email', true );
 	
 	// The data.createAccount is a boolean value.
 	sanitizedData.createAccount = data.createAccount;

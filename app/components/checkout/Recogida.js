@@ -2,10 +2,18 @@ import Error from "./Error";
 import Abbr from "./fomr-elements/Abbr";
 import ArrowDown from "./iconCheckOut/ArrowDown";
 
-const RecogidaSelection = ({ input, handleOnChange }) => {
-  const { recogida, errors } = input || {};
+const RecogidaSelection = ({ input, handleOnChange, handleShippingFee }) => {
+  const { RetirarEn, errors } = input || {};
 
-  const inputId = "Recogida";
+  const inputId = "RetirarEn";
+
+  const handleSelectChange = (e) => {
+    handleOnChange(e);
+    if (e.target.value === 'Fuera de Bogotá. Entrega de 3 a 5 días hábiles: $90.000') {
+      handleShippingFee(90000); // Llamar a la función de devolución de llamada con el cargo adicional
+    }
+  };
+
 
   return (
     <div className="mb-3">
@@ -15,9 +23,9 @@ const RecogidaSelection = ({ input, handleOnChange }) => {
       </label>
       <div className="relative w-full border-none">
         <select
-          onChange={handleOnChange}
-          value={recogida}
-          name="Recogida"
+          onChange={handleSelectChange}
+          value={RetirarEn}
+          name="RetirarEn"
           className="inline-block w-full appearance-none rounded border border-[#F0F1EB] bg-gray-100 bg-opacity-50 py-3 pl-3 pr-8 leading-tight text-gray-500"
           id={inputId}
         >
@@ -33,7 +41,7 @@ const RecogidaSelection = ({ input, handleOnChange }) => {
           <ArrowDown width={24} height={24} className="fill-current" />
         </span>
       </div>
-      <Error errors={errors} fieldName="Recogida" />
+      <Error errors={errors} fieldName="RetirarEn" />
     </div>
   );
 };

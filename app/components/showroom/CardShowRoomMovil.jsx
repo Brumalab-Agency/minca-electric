@@ -18,8 +18,8 @@ export const CardShowRoomMovil = ({
 }) => {
   return (
     <div className="lg:hidden">
-      <img className="w-full h-auto" src={src} alt={titulo} />
-      <section className={`${clase} h-auto px-4 pt-4 pb-8 lg:hidden`}>
+      <img className="h-auto w-full" src={src} alt={titulo} />
+      <section className={`${clase} h-auto px-4 pb-8 pt-4 lg:hidden`}>
         <div className="p-1">
           <img className="h-[41px] w-[41px]" src={icono} alt="icon scooter" />
           <h1
@@ -32,13 +32,29 @@ export const CardShowRoomMovil = ({
           >
             {titulo}
           </h2>
-          <div className={`${ubuntu.className} text-[14px] leading-[25px] mt-4`}>
+          <div
+            className={`${ubuntu.className} mt-4 text-[14px] leading-[25px]`}
+          >
+            <div className="">
+              <img
+                className="h-[41px] w-[41px]"
+                src="/map.png"
+                alt="pointer map"
+              />
+            </div>
             <b>Dirección:</b>
             <p>{direccion}</p>
             <p>{ciudad}</p>
             <br></br>
             <span>
-            <b>Dirección:</b>
+              <div className="">
+                <img
+                  className="h-[41px] w-[41px]"
+                  src="/calendario.png"
+                  alt="icono calendario"
+                />
+              </div>
+              <b>Horario:</b>
               <p>{entreSemana}</p>
               <p>{sabado}</p>
               <p>{domingo}</p>

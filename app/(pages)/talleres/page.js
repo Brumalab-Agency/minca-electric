@@ -25,7 +25,7 @@ export const ShoowRooms = () => {
               width={300}
               height={300}
             />
-            <h2 className="text-[28px] font-bold mt-4">Taller Chico</h2>
+            <h2 className="text-[28px] font-bold mt-4">Taller Chicó</h2>
             <Link
               href="/talleres/tallerChico"
               className={`${ubuntu.className} my-3 h-[52px] w-full  rounded-[62px] bg-[#111] text-[16px] text-white  lg:w-[210px] grid place-items-center`}

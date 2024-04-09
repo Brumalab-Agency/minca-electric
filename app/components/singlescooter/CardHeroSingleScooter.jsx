@@ -13,7 +13,7 @@ const CardHeroSingleScooter = ({ scooters }) => {
   return (
     <div className="h-[100%] w-full lg:w-[500px] lg:rounded-[10px] rounded-none bg-[#111] py-5 lg:py-2 relative z-10">
       {items?.map((item) => (
-        <div className="relative p-4 lg:p-14">
+        <div className="relative p-4 lg:px-10 lg:py-3 2xl:p-14">
           <div className="slogan-dots mb-4 flex items-center justify-between">
             <div>
             <small className={`${manrope.className} text-base text-white font-medium`}>{item.node.sliderProductos.anoVersion}</small>

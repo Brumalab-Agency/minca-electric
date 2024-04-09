@@ -5,29 +5,28 @@ import cx from 'classnames';
 
 import Abbr from './fomr-elements/Abbr';
 import Error from './Error';
-
 const StateSelection = ({handleOnChange, input, states, isFetchingStates, isShipping}) => {
 	
 	const {state, errors} = input || {};
 	
-	const inputId = `Estado-${isShipping ? 'shipping' : 'billing'}`;
+	const inputId = `state-${isShipping ? 'shipping' : 'billing'}`;
 	
 	if (isFetchingStates) {
 		// Show loading component.
 		return (
 			<div className="mb-3">
 				<label className="leading-7 text-sm text-gray-700">
-				Estado
+					State/County
 					<Abbr required/>
 				</label>
 				<div className="relative w-full border-none">
 					<select
 						disabled
 						value=""
-						name="Estado"
+						name="state"
 						className="opacity-50 bg-gray-100 bg-opacity-50 border border-gray-500 text-gray-500 appearance-none inline-block py-3 pl-3 pr-8 rounded leading-tight w-full"
 					>
-						<option value="">Cargando...</option>
+						<option value="">Loading...</option>
 					</select>
 				</div>
 			</div>
@@ -41,7 +40,7 @@ const StateSelection = ({handleOnChange, input, states, isFetchingStates, isShip
 	return (
 		<div className="mb-3">
 			<label className="leading-7 text-sm text-gray-600" htmlFor={inputId}>
-				Estado
+				State/County
 				<Abbr required/>
 			</label>
 			<div className="relative w-full border-none">
@@ -49,7 +48,7 @@ const StateSelection = ({handleOnChange, input, states, isFetchingStates, isShip
 					disabled={isFetchingStates}
 					onChange={handleOnChange}
 					value={state}
-					name="Estado"
+					name="state"
 					className={cx(
 						'bg-gray-100 bg-opacity-50 border border-gray-400 text-gray-500 appearance-none inline-block py-3 pl-3 pr-8 rounded leading-tight w-full',
 						{'opacity-50': isFetchingStates}
@@ -64,7 +63,7 @@ const StateSelection = ({handleOnChange, input, states, isFetchingStates, isShip
 					))}
 				</select>
 			</div>
-			<Error errors={errors} fieldName={'Estado'}/>
+			<Error errors={errors} fieldName={'state'}/>
 		</div>
 	)
 }

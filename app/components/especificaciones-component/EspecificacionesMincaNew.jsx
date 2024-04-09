@@ -107,6 +107,7 @@ export const EspecificacionesMincaNew = async (scooters) => {
           </div>
           {/* Btn y contador */}
           <div className="contador-btnAddCart mt-4 flex w-full items-center gap-4 lg:ml-7 lg:w-[85%] 2xl:w-[70%]">
+           
             <BtnQty />
             <div className="w-full flex-col justify-center lg:flex">
               <AddToCart
@@ -141,8 +142,7 @@ export const EspecificacionesMincaNew = async (scooters) => {
             AGENDA TU CITA PARA SERVICIO TÉCNICO
           </h2>
           <p className={`${manrope.className} text-[20px] font-medium`}>
-            Para mantener tu Scooter en óptimas condiciones, es indispensable
-            realizar el mantenimiento preventivo cada 3 meses.
+          Para mantener tu Scooter en óptimas condiciones, es indispensable realizar el mantenimiento preventivo cada 6 meses o cada 600 kilómetros.
           </p>
           <div>
             <ul
@@ -169,13 +169,9 @@ export const EspecificacionesMincaNew = async (scooters) => {
             </ul>
           </div>
           <p className={`${manrope.className} text-[20px] font-medium`}>
-            El comprador debe hacer un mantenimiento trimestral en cualquiera de
-            estos talleres para mantener la Scooter en óptimas condiciones y
-            vigente en garantía.
+          El comprador debe hacer un mantenimiento semestral o cada 600 kilómetros en cualquiera de estos talleres para mantener la Scooter en óptimas condiciones y vigente en garantía. 
             <b>
-              ES DE SUMA IMPORTANCIA MENCIONAR QUE SI NO SE REALIZAN DICHOS
-              MANTENIMIENTOS TRIMESTRALES, NO SERÁ EFECTIVA NINGÚN TIPO DE
-              GARANTÍA.
+            ES DE SUMA IMPORTANCIA MENCIONAR QUE SI NO SE REALIZAN DICHOS MANTENIMIENTOS SEMESTRALES, NO SERÁ EFECTIVA NINGÚN TIPO DE GARANTÍA.
             </b>
           </p>
           <Link href="http://localhost:3000/servicios" className="underline">

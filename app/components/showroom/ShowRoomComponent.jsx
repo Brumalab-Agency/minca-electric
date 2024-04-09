@@ -11,9 +11,9 @@ export const ShowRoomComponent = () => {
       <div className="carrusel w-full bg-[#111] lg:h-[665px] lg:px-0">
         {/* PC */}
         <Carousel
-          autoplay={false}
+          autoplay={true}
           loop={true}
-          autoplayDelay={5000}
+          autoplayDelay={3000}
           navigation={false}
           className="carrusel-showRoom-home relative hidden overflow-x-hidden bg-[#111] lg:flex"
         >

@@ -31,9 +31,6 @@ const SingleProduct = async ({ params }) => {
   const { id } = params;
   const scooters = await SingleProductos(decodeURIComponent(id));
 
-  
-  console.log(scooters);
-
   return (
     <div>
       <HeaderSingleProducts />
