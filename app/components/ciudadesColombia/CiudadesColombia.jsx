@@ -21,7 +21,7 @@ const CiudadesColombia = () => {
   return (
     <div>
       <div className='flex'>
-          <h2 className="text-sm leading-7 text-gray-700">Selecciona un Estado/Municipio de Colombia</h2>
+          <h2 className="text-sm leading-7 text-gray-700">Selecciona una de Colombia</h2>
           <Abbr required />
       </div>
       <CitySelect cities={cities} onChange={handleCityChange} />

@@ -35,8 +35,9 @@ const Scooter = ({ scooter }) => {
           <div className="flex justify-between">
             <div className="flex flex-col justify-center">
               <h2
-                className={`${manrope.className} mb-1 text-[16px] font-bold uppercase text-[#111111]  lg:text-[42px] lg:leading-[35px]`}
+                className={`${manrope.className} mb-1 text-[16px] font-bold uppercase text-[#111111]  lg:text-[42px] lg:leading-[45px]`}
               >
+                SCOOTER ELÉCTRICO <br/>
                 {item.nombreProducto}
               </h2>
               <p

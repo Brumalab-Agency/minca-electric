@@ -39,7 +39,7 @@ const TalleresSingleComponents = () => {
           <Image
             alt="scooter"
             className="h-auto rounded-[10px] lg:w-[360px] 2xl:w-[500px]"
-            src="/talleres/Taller cedritos - Minca Electric.png"
+            src="/talleres/TallerCedritos.png"
             width={300}
             height={300}
           />

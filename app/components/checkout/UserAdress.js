@@ -140,8 +140,6 @@ export const UserAdress = ({
       </div>
       {/*  Ciudades de Colombia*/}
       <CiudadesColombia />
-      {/* Localidades de Colombia */}
-      <LocalidadesColombia />
       {/* Sitio de recogida */}
       <RecogidaSelection handleShippingFee={handleShippingFee} handleOnChange={handleOnChange}/>
       <InputField
@@ -149,8 +147,8 @@ export const UserAdress = ({
         inputValue={input?.Direccion1}
         required
         handleOnChange={handleOnChange}
-        label="Dirección"
-        placeholder="House number and street name"
+        label="Agrega la dirección de tu Localidad ó Municipio"
+        placeholder="Dirección de tu Localidad ó Municipio"
         errors={errors}
         isShipping={isShipping}
         containerClassNames="mb-4"
@@ -159,8 +157,8 @@ export const UserAdress = ({
         name="Direccion2"
         inputValue={input?.Direccion2}
         handleOnChange={handleOnChange}
-        label="Segunda dirección"
-        placeholder="Apartment floor unit building floor etc(optional)"
+        label="Agrega la dirección de tu Vivienda"
+        placeholder="Dirección de tu Vivienda"
         errors={errors}
         isShipping={isShipping}
         containerClassNames="mb-4"

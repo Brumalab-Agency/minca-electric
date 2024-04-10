@@ -108,7 +108,7 @@ const CheckoutForm = ({ countriesData }) => {
     alert("Formulario enviado");
     const formData = new FormData(formEl);
     fetch(
-      "https://script.google.com/macros/s/AKfycbwRyrma-4jWZ9fc_Z6cUbd3-pVIFVLyz_bLI-47wmoqqtfIsk2fsW-8qw7Wop7Nay9f/exec",
+      "https://script.google.com/macros/s/AKfycbzw1c7khCWRgmmNzy1F7FlH42XldHeR3AhgvJ_uEncuDXma3yjwV_PJTAoBojoYVrYi/exec",
       {
         method: "POST",
         body: formData,
@@ -214,14 +214,17 @@ const CheckoutForm = ({ countriesData }) => {
             updatedCart.totalPrice += 90000;
             return updatedCart;
           });
-        }setCart((prevCart) => {
-          const updatedCart = { ...prevCart };
-          updatedCart.totalPrice = prevCart.cartItems.reduce(
-            (total, item) => total + item.line_total,
-            0
-          );
-          return updatedCart;
-        });
+        }else {
+          // Restaurar el totalPrice original del carrito
+          setCart((prevCart) => {
+            const updatedCart = { ...prevCart };
+            updatedCart.totalPrice = prevCart.cartItems.reduce(
+              (total, item) => total + item.line_total,
+              0
+            );
+            return updatedCart;
+          });
+        }
         await handleShippingChange(target);
       } else {
         await handleBillingChange(target);
@@ -366,8 +369,7 @@ const CheckoutForm = ({ countriesData }) => {
               {/*	Order*/}
               <h2 className="mb-4 text-xl font-medium">Resumen del pedido</h2>
               <hr className="mb-3"></hr>
-              {console.log(cart)}
-
+             
               <YourOrder cart={cart ? cart : temporalCarrito} />
               {/*Metodo de envio*/}
               <h2

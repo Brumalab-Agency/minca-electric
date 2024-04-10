@@ -6,7 +6,7 @@ const CitySelect = ({ cities, onChange }) => {
     <div className="mb-3">
       <div className="relative w-full border-none">
         <select
-          name="Estado"
+          name="Ciudad"
           className="inline-block w-full appearance-none rounded border border-gray-400 bg-gray-100 bg-opacity-50 py-3 pl-3 pr-8 leading-tight text-gray-500"
           id="city-select"
           onChange={onChange}

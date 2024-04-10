@@ -49,7 +49,7 @@ export const TablaEspecificaciones = (scooters) => {
                   Tamaño de la rueda
                 </td>
                 <td className="whitespace-nowrap py-2 pr-4 text-gray-700">
-                  {item.pulgadas} pulgadas
+                  {item.tipoRodamiento}
                 </td>
               </tr>
 
@@ -83,7 +83,7 @@ export const TablaEspecificaciones = (scooters) => {
                   Tipo de la bateria
                 </td>
                 <td className="whitespace-nowrap py-2 pr-4 text-gray-700">
-                  Litio {item.bateria}V
+                  {item.ampere} {item.tipo}
                 </td>
               </tr>
 

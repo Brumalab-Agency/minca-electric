@@ -50,7 +50,7 @@ const EfectoLupa = ({ imageUrl, alt }) => {
       ...prev,
       display: "block",
       top: `${offsetY - 200}px`,
-      left: `${offsetX - 200}px`,
+      left: `${offsetX - 10}px`,
       backgroundPosition: `${xPorcentaje}% ${yPorcentaje}%`,
     }));
   };
