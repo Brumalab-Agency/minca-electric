@@ -19,7 +19,7 @@ import { manrope } from "@/ui/fonts";
 import Link from "next/link";
 
 // Utilice esto con fines de prueba, para que no tenga que completar el formulario de pago una y otra vez.
-/* const defaultCustomerInfo = {
+const defaultCustomerInfo = {
   Nombre: "Lenin",
   Apellido: "Mendoza",
   Direccion1: "Medellín - Antioquia",
@@ -35,15 +35,15 @@ import Link from "next/link";
   TelefonoTrabajo: "3022222222",
   NumeroIdentificacion: "1147696023",
   errors: null,
-}; */
+};
 
-const defaultCustomerInfo = {
+/* const defaultCustomerInfo = {
    Nombre: "",
   Apellido: "",
   Direccion1: "",
   Direccion2: "",
   Ciudad: "",
- /*  Pais: "CO", */
+  Pais: "CO",
   Email: "",
   Telefono: "",
   Empresa: "",
@@ -53,7 +53,7 @@ const defaultCustomerInfo = {
   TelefonoTrabajo: "",
   NumeroIdentificacion: "",
   errors: null,
-};
+}; */
 
 // el state o estado del país es parte del componente Pais y este ya tiene sus campos predeterminados
 
