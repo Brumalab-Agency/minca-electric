@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 
-const CheckboxField = ({ handleOnChange, checked, name, label, placeholder, containerClassNames, textCheckBox }) => {
+const CheckboxField = ({ handleOnChange, checked, name, label, placeholder, containerClassNames, textCheckBox, required }) => {
 	
 	return (
 		<div className={containerClassNames}>
@@ -12,6 +12,7 @@ const CheckboxField = ({ handleOnChange, checked, name, label, placeholder, cont
 					checked={checked}
 					name={name}
 					id={name}
+					required={required}
 				/>
 				<span className="ml-2">{ label || '' }</span>
 			</label>

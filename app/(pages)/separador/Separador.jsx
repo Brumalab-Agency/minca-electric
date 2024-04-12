@@ -1,18 +1,18 @@
 import { ubuntu } from "@/ui/fonts";
 import {SpinningText} from "@/components/home/SpiningText"
 
-export const Separador = ({clases, clase2}) => {
+export const Separador = ({clases, clase2, clase3, claseText}) => {
   return (
     <div className={`Separador ${clases}`}>
-      <div className="spinig-text flex w-full items-center justify-between lg:my-[130px]">
+      <div className={`spinig-text flex w-full items-center justify-between lg:my-[130px] ${clase3}`}>
         <div className="w-auto">
           <p
-            className={`${ubuntu.className} mt-[110px] text-[18px] leading-[35px] lg:mt-0 lg:text-[20px] ${clase2}`}
+            className={`${ubuntu.className} mt-[110px] text-[18px] leading-[35px] lg:mt-0 lg:text-[20px] ${clase2} ${claseText}`}
           >
             No solo estamos cambiando el juego,
           </p>
           <p
-            className={`${ubuntu.className} text-[18px] font-bold lg:text-[20px]`}
+            className={`${ubuntu.className} text-[18px] font-bold lg:text-[20px] ${claseText}`}
           >
             ¡estamos cambiando tu viaje!
           </p>

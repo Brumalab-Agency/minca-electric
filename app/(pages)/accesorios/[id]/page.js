@@ -7,6 +7,7 @@ import { CarruselAccesorios } from '@/components/carruseles/accesorios/CarruselA
 import { AccesoriosWoocommerce } from '@/lib/graphQLRequest'
 import HotSpotAccesorios from '@/components/especificaciones-component/HotSpotAccesorios'
 import NextBreadcrumb from '@/components/breadcrumb/NextBreadcrumb'
+import { Testimonios } from '@/components/testimonio/Testimonios'
 
 export const metadata = {
   title: "Accesorios",
@@ -30,6 +31,7 @@ export const SingleAccesorio = async({params}) => {
         <PuedeInteresarte/>
         <hr className="hidden lg:block lg:m-auto lg:w-[90%] border-1"></hr>
         <CarruselAccesorios/>
+        <Testimonios />
         <Footer/>
     </>
   )

@@ -9,7 +9,7 @@ const TalleresSingleComponents = () => {
         <h1 className="mt-[55px] text-left text-[62px] font-bold">
           Talleres
         </h1>
-        <p className="m-auto text-left text-[20px] text-[#111]">
+        <p className="m-auto text-left text-[20px] 2xl:text-[28px] text-[#111]">
           Encuentra el Mantenimiento Perfecto para Tu Scooter y Garantiza su
           Rendimiento. <br />
           ¡Programa tu Mantenimiento Ahora!
@@ -20,7 +20,7 @@ const TalleresSingleComponents = () => {
           <div className="flex flex-col items-center justify-center">
             <Image
               alt="scooter"
-              className="h-auto rounded-[10px] lg:w-[360px] 2xl:w-[500px]"
+              className="h-auto rounded-[10px] lg:w-[360px] 2xl:w-[600px]"
               src="/talleres2/TallerChico.jpg"
               width={300}
               height={300}
@@ -38,7 +38,7 @@ const TalleresSingleComponents = () => {
         <div className="flex flex-col items-center justify-center">
           <Image
             alt="scooter"
-            className="h-auto rounded-[10px] lg:w-[360px] 2xl:w-[500px]"
+            className="h-auto rounded-[10px] lg:w-[360px] 2xl:w-[600px]"
             src="/talleres/TallerCedritos.png"
             width={300}
             height={300}
@@ -56,7 +56,7 @@ const TalleresSingleComponents = () => {
           <div className="flex flex-col items-center justify-center">
             <Image
               alt="scooter"
-              className="h-auto rounded-[10px] lg:w-[360px] 2xl:w-[500px]"
+              className="h-auto rounded-[10px] lg:w-[360px] 2xl:w-[600px]"
               src="/talleres2/TallerJaveriana.jpg"
               width={300}
               height={300}

@@ -18,6 +18,7 @@ const TipoIdentificacion = ({ input, handleOnChange }) => {
           onChange={handleOnChange}
           value={tipoIdentificacion}
           name="Identificacion"
+          defaultValue="Cédula de Ciudadanía" // Valor predeterminado
           className="inline-block w-full appearance-none rounded border border-[#F0F1EB] bg-gray-100 bg-opacity-50 py-3 pl-3 pr-8 leading-tight text-gray-500"
           id={inputId}
         >
@@ -38,3 +39,4 @@ const TipoIdentificacion = ({ input, handleOnChange }) => {
 };
 
 export default TipoIdentificacion;
+

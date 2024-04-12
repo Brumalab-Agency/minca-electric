@@ -89,14 +89,14 @@ export const Header = () => {
         ref={whiteMenuRef}
         className="white-menu relative flex items-center justify-between bg-white px-4 py-4 lg:justify-normal lg:gap-4 lg:px-[100px]"
       >
-        <div className="header-left flex h-auto w-[115px] items-center justify-between lg:flex-grow-0">
+        <div className="header-left flex h-auto w-[115px] lg:w-[160px] items-center justify-between lg:flex-grow-0">
           <Link href="/">
             <Image
-              className="LogoMincaNegro"
+              className="LogoMincaNegro w-[115px] h-auto lg:w-[300px]"
               placeholder="empty"
               src="/logo.png"
-              width={117}
-              height={19}
+              width={100}
+              height={100}
               alt="Imagen representativa de caracteristicas del producto"
             />
           </Link>
@@ -150,11 +150,11 @@ export const Header = () => {
           {/* Btn Contacto */}
           <Link
             href="/contacto"
-            className="hidden text-base font-semibold lg:flex"
+            className="hidden text-base 2xl:text-[20px] font-semibold lg:flex"
           >
             Contacto
           </Link>
-          <button className="z-10 mr-4 hidden h-[52px] w-[135px] rounded-[62px] bg-[#111] text-base text-white lg:block">
+          <button className="z-10 mr-4 hidden h-[52px] w-[135px] rounded-[62px] bg-[#111] text-base 2xl:text-[20px] text-white lg:block">
             <Link href="/testdrive">Test Drive</Link>
           </button>
           {!isMobile && (
@@ -195,18 +195,18 @@ export const Header = () => {
         ref={blackMenuRef}
         className="black-menu relative hidden lg:flex items-center justify-between bg-[#111] px-4 py-3 lg:justify-normal lg:gap-4 lg:px-[100px]"
       >
-        <div className="header-left flex h-auto w-[115px] items-center justify-between lg:flex-grow-0">
+        <div className="header-left flex h-auto w-[115px] lg:w-[160px] items-center justify-between lg:flex-grow-0">
           <Link href="/">
             <Image
-              className="LogoMincaNegro"
+              className="LogoMincaNegro w-[115px] lg:w-[300px]"
               placeholder="empty"
               src="/logo.png"
               style={{
                 filter:
                   "invert(100%) sepia(0%) saturate(7500%) hue-rotate(67deg) brightness(109%) contrast(109%)",
               }}
-              width={117}
-              height={19}
+              width={100}
+              height={100}
               alt="Imagen representativa de caracteristicas del producto"
             />
           </Link>
@@ -264,11 +264,11 @@ export const Header = () => {
           {/* Btn Contacto */}
           <Link
             href="/contacto"
-            className="hidden text-base font-semibold text-white lg:flex"
+            className="hidden text-base 2xl:text-[20px] font-semibold text-white lg:flex"
           >
             Contacto
           </Link>
-          <button className="z-10 mr-4 hidden h-[52px] w-[135px] rounded-[62px] bg-[#fff] text-base text-[#111] lg:block">
+          <button className="z-10 mr-4 hidden h-[52px] w-[135px] rounded-[62px] bg-[#fff] text-base 2xl:text-[20px] text-[#111] lg:block">
             <Link href="/testdrive">Test Drive</Link>
           </button>
           {!isMobile && (

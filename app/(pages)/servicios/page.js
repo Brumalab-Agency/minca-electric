@@ -7,6 +7,7 @@ import { Footer } from "@/components/home/Footer";
 import { ComponentTallerChico } from "@/components/reusable/ComponentTallerChico";
 import { ScootersRendimiento } from "@/components/home/ScootersRendimiento";
 import { ComponentTallerJaveriana } from "@/components/reusable/ComponentTallerJaveriana";
+import { Testimonios } from "@/components/testimonio/Testimonios";
 
 export const metadata = {
   title: "Servicios",
@@ -28,9 +29,10 @@ const Servicios = () => {
       <Section5 />
       <ComponentTallerChico />
       <ComponentTallerJaveriana />
-      <Separador clases="lg:px-[100px] px-4" clase2="mt-[80px]" />
+      <Separador clases="lg:px-[100px] px-4" clase2="mt-[80px]" clase3="lg:mb-[50px] lg:mt-[100px]" claseText="2xl:text-[28px]"/>
       <ScootersRendimiento />
       <SolucionesComodidad />
+      <Testimonios/>
       <Footer />
     </>
   );

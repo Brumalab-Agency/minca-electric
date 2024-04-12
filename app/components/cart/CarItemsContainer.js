@@ -12,11 +12,10 @@ const CarItemsContainer = () => {
   const { cartItems, totalPrice, totalQty } = cart || {};
   const [isClearCartProcessing, setClearCartProcessing] = useState(false);
 
-
   /* Calculo descuento  */
-  let precioOriginal = totalQty;
+  let precioOriginal = totalPrice;
   let descuento = precioOriginal * 0.15;
-  let precioConDescuento = precioOriginal - descuento;
+  let precioConDescuento = descuento;
 
   // Limpiar el carrito
   const handleClearCart = async (event) => {
@@ -68,7 +67,7 @@ const CarItemsContainer = () => {
               <h2
                 className={`${manrope.className} text-base font-bold lg:text-[24px]`}
               >
-                Cart Total
+                Carrito Total
               </h2>
               {/* subtotal */}
               <div className="mb-4 mt-4 flex items-center justify-between">

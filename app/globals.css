@@ -727,3 +727,8 @@ button.image-gallery-thumbnail {
   margin-bottom: 15px;
 }
 
+/* Checkbox del formulario de Checkout */
+
+.claseCheckBoxFormCheckOut{
+  width: 2% !important;
+}

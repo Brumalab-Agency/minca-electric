@@ -20,16 +20,18 @@ export const ScootersRendimiento = () => {
       <section
         className={`${manrope.className} flex gap-8  justify-self-center`}
       >
-        <h1 className="text-[40px] font-bold text-transparent">01</h1>
+        <h1 className="text-[40px] font-bold leading-[3.2rem] text-[#111]">
+          01
+        </h1>
         <div>
-          <h2 className="w-[232px] text-[26px] font-semibold">
+          <h2 className="w-[370px] text-[26px] font-semibold lg:leading-[35px] 2xl:text-[35px]">
             Mantenimiento especializado
           </h2>
           <p
             className={`${ubuntu.className} mt-25px w-[232px] text-balance text-base font-normal leading-[34px]`}
           >
             <div>
-              <ul>
+              <ul className="2xl:text-[22px] 2xl:leading-[35px]">
                 <li className="flex items-center gap-2">
                   <img
                     src="/servicioTecnico/checkmark-circle.png"
@@ -80,16 +82,16 @@ export const ScootersRendimiento = () => {
       <section
         className={`${manrope.className} mt-[45px] flex gap-8 justify-self-end p-[0px] lg:-mt-[63px]`}
       >
-        <h1 className="text-[40px] font-bold text-transparent">01</h1>
+        <h1 className="text-[40px] font-bold leading-[3.2rem] text-[#111]">02</h1>
         <div>
-          <h2 className="w-[232px] text-[26px] font-semibold">
+          <h2 className="2xl:w-[370px] w-full  text-[26px] font-semibold lg:leading-[35px] 2xl:text-[35px]">
             Opciones de financiamiento
           </h2>
           <p
             className={`${ubuntu.className} mt-25px w-[232px] text-balance text-base font-normal leading-[34px]`}
           >
             <div>
-              <ul>
+              <ul className="2xl:text-[22px] 2xl:leading-[35px]">
                 <li className="flex items-center gap-2">
                   <img
                     src="/servicioTecnico/checkmark-circle.png"
@@ -99,7 +101,7 @@ export const ScootersRendimiento = () => {
                 </li>
                 <li className="flex items-center gap-2">
                   <img
-                    className="mt-3 h-auto w-[15x] self-baseline"
+                    className="self-start mt-2"
                     src="/servicioTecnico/checkmark-circle.png"
                     alt="verificación"
                   />

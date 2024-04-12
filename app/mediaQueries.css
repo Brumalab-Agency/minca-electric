@@ -234,6 +234,17 @@ button.image-gallery-thumbnail {
   width: 150px;
   height: auto;
 }
+
+/* Spinner */
+
+.spinning-text-wrapper {
+
+  transform: scale(1.2);
+}
+.spinning-text-wrapper img {
+  width: 32%;
+  height: auto;
+}
   
 }
 

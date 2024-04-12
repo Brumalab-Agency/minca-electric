@@ -17,6 +17,7 @@ import { AcordionSingleProduct } from "@/components/reusable/AcordionSingleProdu
 import ReactImagenGallery from "@/components/react-image-gallery/ReactImagenGallery";
 import { HeaderSingleProducts } from "@/components/home/HeaderSingleProducts";
 import { HeroVideoSingleCardProductTemporal } from "@/components/reusable/HeroVideoSingleCardProductTemporal";
+import { Testimonios } from "@/components/testimonio/Testimonios";
 
 export const metadata = {
   title: "Productos",
@@ -55,6 +56,7 @@ const SingleProduct = async ({ params }) => {
       <CardHoverEffect />
       <ReactImagenGallery scooters={scooters} />
       <Section5 />
+      <Testimonios />
       <PuedeInteresarte />
       <CarruselAccesorios />
       <AcordionSingleProduct />

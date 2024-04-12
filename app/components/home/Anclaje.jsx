@@ -8,7 +8,7 @@ export const Anclaje = ({hero}) => {
     <div className="anclas">
       <button
         onClick={() => lenis.scrollTo("#scooter", { lerp: 0.07 })}
-        className="lg:font-regular text-[15px] text-[#42454A] underline decoration-1 lg:mt-2 lg:text-base lg:leading-[25px] 2xl:text-[18px]"
+        className="lg:font-regular text-[15px] text-[#42454A] underline decoration-1 lg:mt-2 lg:text-base lg:leading-[25px] 2xl:text-[28px]"
       >
         {hero.ancla1}
 

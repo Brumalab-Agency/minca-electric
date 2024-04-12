@@ -1,8 +1,6 @@
 'use client'
 
 const DonwLoadManual = ({manualMinca, item}) => {
-
-  console.log(manualMinca);
   
     const downLoad = (url) => {
         const filename = url.split("/").pop();

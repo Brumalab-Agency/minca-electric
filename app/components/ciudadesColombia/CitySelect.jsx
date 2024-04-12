@@ -3,14 +3,13 @@ import ArrowDown from '../checkout/iconCheckOut/ArrowDown';
 
 const CitySelect = ({ cities, onChange }) => {
   return (
-    <div className="mb-3">
+    <div id="Ciudad" className="mb-3">
       <div className="relative w-full border-none">
         <select
           name="Ciudad"
           className="inline-block w-full appearance-none rounded border border-gray-400 bg-gray-100 bg-opacity-50 py-3 pl-3 pr-8 leading-tight text-gray-500"
           id="city-select"
           onChange={onChange}
-          required 
         >
           <option value="">Selecciona un Estado...</option>
           {cities.map((city, index) => (

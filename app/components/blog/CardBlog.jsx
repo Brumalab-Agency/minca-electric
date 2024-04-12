@@ -12,7 +12,7 @@ export const CardBlog = ({data, clasesImg, clasesContenedor, clasesIcon, clasesC
       {/* <div className={`${ubuntu.className} badge bg-[#f4f4f4] rounded-[6px] h-[28px] text-[#111] text-[14px] grid place-items-center lg:w-[110px]`}>{data.categories.edges[0].node.name}</div> */}
       <div className={`${ubuntu.className} titulo text-[24px] text-[#111] font-bold leading-[28px] mt-4`}>{data?.titulo}</div>
       <div className={`${imgCenter}`}>
-        <img className={`w-full h-[236px] rounded-[6px] mt-4 ${clasesImg}`} src={data?.featuredImage?.node.mediaItemUrl} alt={data?.featuredImage?.node.altText} />
+        <img className={`w-full h-[236px] 2xl:h-[350px] rounded-[6px] mt-4 ${clasesImg}`} src={data?.featuredImage?.node.mediaItemUrl} alt={data?.featuredImage?.node.altText} />
       </div>
       <div className={`lg:flex  gap-4 my-4 ${clasesContenedorFlex}`}>
         <img

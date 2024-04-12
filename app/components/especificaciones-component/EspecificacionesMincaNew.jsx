@@ -9,6 +9,7 @@ import Image from "next/image";
 import DonwLoadManual from "../manuales/DonwLoadManual";
 import classNames from "classnames";
 import { Acordion } from "../reusable/Acordion";
+import { Testimonios } from "../testimonio/Testimonios";
 
 export const EspecificacionesMincaNew = async (scooters) => {
   let content;
@@ -107,7 +108,6 @@ export const EspecificacionesMincaNew = async (scooters) => {
           </div>
           {/* Btn y contador */}
           <div className="contador-btnAddCart mt-4 flex w-full items-center gap-4 lg:ml-7 lg:w-[85%] 2xl:w-[70%]">
-           
             <BtnQty />
             <div className="w-full flex-col justify-center lg:flex">
               <AddToCart
@@ -119,7 +119,7 @@ export const EspecificacionesMincaNew = async (scooters) => {
           </div>
         </div>
       </div>
-      <div className="grid h-auto w-full grid-cols-1 lg:grid-cols-2 2xl:h-[1550px]">
+      <div className="grid h-auto w-full grid-cols-1 lg:grid-cols-2 2xl:h-auto mb-10">
         <TablaEspecificaciones scooters={scooters} />
         <div className="h-auto w-full px-4 pb-10 lg:pl-[16px] lg:pr-[96px]">
           <div className="mt-16 flex items-center justify-between lg:mt-[80px] ">
@@ -130,7 +130,7 @@ export const EspecificacionesMincaNew = async (scooters) => {
             </div>
           </div>
           <video
-            className="top-0 mt-8 hidden h-[355px] w-auto object-cover  lg:block 2xl:h-[50%]"
+            className="top-0 mt-8 h-[355px] w-auto object-cover lg:block  lg:h-[78%]"
             src="https://test.mincaelectric.com/wp-content/uploads/2024/04/videoplayback_prueba.mp4"
             autoPlay
             controls
@@ -138,47 +138,61 @@ export const EspecificacionesMincaNew = async (scooters) => {
             loop
           />
           <DonwLoadManual manualMinca={manualMinca} item={item} />
-          <h2 className={`${manrope.className} text-[24px] font-bold`}>
-            AGENDA TU CITA PARA SERVICIO TÉCNICO
-          </h2>
-          <p className={`${manrope.className} text-[20px] font-medium`}>
-          Para mantener tu Scooter en óptimas condiciones, es indispensable realizar el mantenimiento preventivo cada 6 meses o cada 600 kilómetros.
-          </p>
-          <div>
-            <ul
-              className={`${manrope.className} ml-[20px] list-disc text-[20px] font-medium `}
-            >
-              <li>
-                Recuerda que durante el primer año es obligatorio dicho
-                mantenimiento para mantener tu garantía Minca.
-              </li>
-              <li>
-                Los Talleres de Minca Electric están a disposición únicamente
-                para los usuarios de las Scooter Minca, para así brindarles la
-                mejor calidad en el servicio post-venta.
-              </li>
-              <li>
-                Los servicios de despinche, ajuste de frenos y tornillería no
-                requieren de agenda previa.
-              </li>
-              <li>El cambio de piezas y repuestos no está incluido.</li>
-              <li>
-                Cualquier repuesto adicional que se requiera, será notificado
-                previamente al cliente vía telefónica o por medio de WhatsApp
-              </li>
-            </ul>
-          </div>
-          <p className={`${manrope.className} text-[20px] font-medium`}>
-          El comprador debe hacer un mantenimiento semestral o cada 600 kilómetros en cualquiera de estos talleres para mantener la Scooter en óptimas condiciones y vigente en garantía. 
-            <b>
-            ES DE SUMA IMPORTANCIA MENCIONAR QUE SI NO SE REALIZAN DICHOS MANTENIMIENTOS SEMESTRALES, NO SERÁ EFECTIVA NINGÚN TIPO DE GARANTÍA.
-            </b>
-          </p>
-          <Link href="http://localhost:3000/servicios" className="underline">
-            Conoce nuestros talleres para realizar mantenimientos
-          </Link>
         </div>
       </div>
+      {/* CardAgendaCita */}
+      <div className="CardAgendaCita bg-[#FAF6FF] p-4 lg:mx-[100px] lg:px-[100px] lg:py-8 mb-[70px]">
+        <h2 className={`${manrope.className} text-[24px] font-bold leading-[30px]`}>
+          AGENDA TU CITA PARA SERVICIO TÉCNICO
+        </h2>
+        <p className={`${manrope.className} text-[20px] font-medium`}>
+          Para mantener tu Scooter en óptimas condiciones, es indispensable
+          realizar el mantenimiento preventivo cada 6 meses o cada 600
+          kilómetros.
+        </p>
+        <div>
+          <ul
+            className={`${manrope.className} ml-[20px] list-disc text-[20px] font-medium `}
+          >
+            <li>
+              Recuerda que durante el primer año es obligatorio dicho
+              mantenimiento para mantener tu garantía Minca.
+            </li>
+            <li>
+              Los Talleres de Minca Electric están a disposición únicamente para
+              los usuarios de las Scooter Minca, para así brindarles la mejor
+              calidad en el servicio post-venta.
+            </li>
+            <li>
+              Los servicios de despinche, ajuste de frenos y tornillería no
+              requieren de agenda previa.
+            </li>
+            <li>El cambio de piezas y repuestos no está incluido.</li>
+            <li>
+              Cualquier repuesto adicional que se requiera, será notificado
+              previamente al cliente vía telefónica o por medio de WhatsApp
+            </li>
+          </ul>
+        </div>
+        <p className={`${manrope.className} text-[20px] font-medium`}>
+          El comprador debe hacer un mantenimiento semestral o cada 600
+          kilómetros en cualquiera de estos talleres para mantener la Scooter en
+          óptimas condiciones y vigente en garantía.
+          <b>
+            <br/>
+            ES DE SUMA IMPORTANCIA MENCIONAR QUE SI NO SE REALIZAN DICHOS
+            MANTENIMIENTOS SEMESTRALES, NO SERÁ EFECTIVA NINGÚN TIPO DE
+            GARANTÍA.
+          </b>
+        </p>
+        <Link href="http://localhost:3000/servicios" className="underline">
+          Conoce nuestros talleres para realizar mantenimientos
+        </Link>
+      </div>
+      {/*  */}
+      {/* Review */}
+      <Testimonios/>
+      {/*  */}
       <Acordion clase="mx-0 mb-0" />
     </div>
   );

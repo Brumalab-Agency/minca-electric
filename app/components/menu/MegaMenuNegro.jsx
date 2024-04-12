@@ -162,7 +162,7 @@ function NavListMenu() {
           <Typography as="div" variant="small" className="flex font-medium ">
             <ListItem
            
-              className="flex w-[130px] items-center justify-center gap-2 rounded-[62px] py-2 text-base font-medium text-[#fff] hover:bg-[#fff] hover:text-black"
+              className="flex w-[130px] items-center justify-center gap-2 rounded-[62px] py-2 text-base 2xl:text-[20px] font-medium text-[#fff] hover:bg-[#fff] hover:text-black"
               selected={isMenuOpen || isMobileMenuOpen}
               onClick={() => setIsMobileMenuOpen((cur) => !cur)}
             >
@@ -212,7 +212,7 @@ function NavList() {
       <Typography variant="small" color="black" className="font-medium">
         <Link
         
-          className="inline-block w-auto items-center gap-2 rounded-[62px] px-3 py-2 text-base text-[#fff] hover:bg-[#fff] hover:text-[#111] lg:flex"
+          className="inline-block w-auto items-center gap-2 rounded-[62px] px-3 py-2 text-base 2xl:text-[20px] text-[#fff] hover:bg-[#fff] hover:text-[#111] lg:flex"
           href="/servicios"
         >
           Servicio técnico
@@ -222,7 +222,7 @@ function NavList() {
         <Link
          
           href="/showrooms"
-          className="inline-block w-auto items-center gap-2 rounded-[62px] px-3 py-2 text-base text-[#fff] hover:bg-[#fff] hover:text-[#111] lg:flex"
+          className="inline-block w-auto items-center gap-2 rounded-[62px] px-3 py-2 text-base 2xl:text-[20px] text-[#fff] hover:bg-[#fff] hover:text-[#111] lg:flex"
         >
           Showrooms
         </Link>
@@ -230,7 +230,7 @@ function NavList() {
       <Typography variant="small" color="black" className="font-medium">
         <Link
  
-          className="inline-block w-auto items-center gap-2 rounded-[62px] px-3 py-2 text-base text-[#fff] hover:bg-[#fff] hover:text-[#111] lg:flex"
+          className="inline-block w-auto items-center gap-2 rounded-[62px] px-3 py-2 text-base 2xl:text-[20px] text-[#fff] hover:bg-[#fff] hover:text-[#111] lg:flex"
           href="/recursos"
         >
           Recursos
@@ -239,7 +239,7 @@ function NavList() {
       <Typography variant="small" color="black" className="font-medium">
         <Link
         
-          className="inline-block w-auto items-center gap-2 rounded-[62px] px-4 py-2 text-base text-[#fff] hover:bg-[#fff] hover:text-[#111] lg:flex"
+          className="inline-block w-auto items-center gap-2 rounded-[62px] px-4 py-2 text-base 2xl:text-[20px] text-[#fff] hover:bg-[#fff] hover:text-[#111] lg:flex"
           href="/tendencias"
         >
           Tendencias

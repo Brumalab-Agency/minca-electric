@@ -1,12 +1,8 @@
 import PropTypes from "prop-types";
-import CountrySelection from "./CountrySelection";
-import StateSelection from "./StateSelection";
 import InputField from "./fomr-elements/InputField";
 import RecogidaSelection from "./Recogida";
 import TipoIdentificacion from "./TipoIdentificacion";
-import CheckboxField from "./fomr-elements/CheckboxField";
 import CiudadesColombia from "../ciudadesColombia/CiudadesColombia";
-import LocalidadesColombia from "../ciudadesColombia/LocalidadesColombia";
 import { useState } from "react";
 
 export const UserAdress = ({
@@ -16,14 +12,21 @@ export const UserAdress = ({
   handleOnChange,
   isFetchingStates,
   isShipping,
+  setFormIsValid,
 }) => {
   const { errors } = input || {};
   const [cart, setCart] = useState([]);
+  const [hasCheckedCheckbox, setHasCheckedCheckbox] = useState(false);
+  const [mostrarEmpresa, setMostrarEmpresa] = useState(false);
 
   const handleShippingFee = (fee) => {
     // Lógica para agregar el cargo adicional al carrito
-    const newCartItem = { name: 'Cargo de envío', price: fee };
+    const newCartItem = { name: "Cargo de envío", price: fee };
     setCart([...cart, newCartItem]);
+  };
+
+  const handleCheckChange = () => {
+    setMostrarEmpresa(!mostrarEmpresa);
   };
 
   return (
@@ -86,63 +89,81 @@ export const UserAdress = ({
           containerClassNames="w-full overflow-hidden sm:my-2 md:w-1/2"
         />
       </div>
-      <InputField
-        name="Empresa"
-        inputValue={input?.Empresa}
-        handleOnChange={handleOnChange}
-        label="Empresa (Opcional)"
-        errors={errors}
-        isShipping={isShipping}
-        containerClassNames="mb-4"
-      />
-      <div className="flex gap-4">
-        <InputField
-          name="EmailEmpresa"
-          type="email"
-          inputValue={input?.EmailEmpresa}
-          handleOnChange={handleOnChange}
-          label="Correo electrónico de la empresa"
-          errors={errors}
-          isShipping={isShipping}
-          containerClassNames="w-full overflow-hidden sm:my-2 md:w-1/2"
+
+       {/* Input de tipo check para mostrar/ocultar */}
+       <div className="py-4">
+        <input
+          style={{ width: "15px", height: "15px", borderRadius: "50%", marginRight:"10px" }}
+          type="checkbox"
+          id="mostrarEmpresa"
+          name="mostrarEmpresa"
+          onChange={handleCheckChange}
         />
-        <InputField
-          name="RazonSocial"
-          inputValue={input?.RazonSocial}
-          handleOnChange={handleOnChange}
-          label="Razon Social"
-          errors={errors}
-          isShipping={isShipping}
-          containerClassNames="w-full overflow-hidden sm:my-2 md:w-1/2"
-        />
+        <label className="text-[20px] font-bold" htmlFor="mostrarEmpresa">¿Eres Empresa?</label>
       </div>
-      <div className="flex gap-4">
+      {mostrarEmpresa && (
+      <div className="Empresa pb-6">
         <InputField
-          name="Nit"
-          type="tel"
-          inputValue={input?.Nit}
+          name="Empresa"
+          inputValue={input?.Empresa}
           handleOnChange={handleOnChange}
-          label="NIT"
+          label="Empresa (Opcional)"
           errors={errors}
           isShipping={isShipping}
-          containerClassNames="w-full overflow-hidden sm:my-2 md:w-1/2"
+          containerClassNames="mb-4"
         />
-        <InputField
-          name="TelefonoTrabajo"
-          type="tel"
-          inputValue={input?.TelefonoTrabajo}
-          handleOnChange={handleOnChange}
-          label="Número de teléfono del trabajo"
-          errors={errors}
-          isShipping={isShipping}
-          containerClassNames="w-full overflow-hidden sm:my-2 md:w-1/2"
-        />
+        <div className="flex gap-4">
+          <InputField
+            name="EmailEmpresa"
+            type="email"
+            inputValue={input?.EmailEmpresa}
+            handleOnChange={handleOnChange}
+            label="Correo electrónico de la empresa (Opcional)"
+            errors={errors}
+            isShipping={isShipping}
+            containerClassNames="w-full overflow-hidden sm:my-2 md:w-1/2"
+          />
+          <InputField
+            name="RazonSocial"
+            inputValue={input?.RazonSocial}
+            handleOnChange={handleOnChange}
+            label="Razon Social (Opcional)"
+            errors={errors}
+            isShipping={isShipping}
+            containerClassNames="w-full overflow-hidden sm:my-2 md:w-1/2"
+          />
+        </div>
+        <div className="flex gap-4">
+          <InputField
+            name="Nit"
+            type="tel"
+            inputValue={input?.Nit}
+            handleOnChange={handleOnChange}
+            label="NIT (Opcional)"
+            errors={errors}
+            isShipping={isShipping}
+            containerClassNames="w-full overflow-hidden sm:my-2 md:w-1/2"
+          />
+          <InputField
+            name="TelefonoTrabajo"
+            type="tel"
+            inputValue={input?.TelefonoTrabajo}
+            handleOnChange={handleOnChange}
+            label="Número de teléfono del trabajo (Opcional)"
+            errors={errors}
+            isShipping={isShipping}
+            containerClassNames="w-full overflow-hidden sm:my-2 md:w-1/2"
+          />
+        </div>
       </div>
+      )}
+      <div><p className="text-[20px] font-bold">Datos de envio</p></div>
       {/*  Ciudades de Colombia*/}
-      <CiudadesColombia />
-      {/* Sitio de recogida */}
-      <RecogidaSelection handleShippingFee={handleShippingFee} handleOnChange={handleOnChange}/>
-      <InputField
+      <CiudadesColombia
+        handleOnChange={handleOnChange}
+        setFormIsValid={setFormIsValid}
+      />
+       <InputField
         name="Direccion1"
         inputValue={input?.Direccion1}
         required
@@ -153,8 +174,15 @@ export const UserAdress = ({
         isShipping={isShipping}
         containerClassNames="mb-4"
       />
+      {/* Sitio de recogida */}
+      <RecogidaSelection
+        handleShippingFee={handleShippingFee}
+        handleOnChange={handleOnChange}
+      />
+     
       <InputField
         name="Direccion2"
+        required
         inputValue={input?.Direccion2}
         handleOnChange={handleOnChange}
         label="Agrega la dirección de tu Vivienda"
@@ -163,6 +191,53 @@ export const UserAdress = ({
         isShipping={isShipping}
         containerClassNames="mb-4"
       />
+     
+
+      
+      {/* Campos Checkbox */}
+      <InputField
+        name="RecibirInfo"
+        type="checkbox"
+        inputValue={input?.RecibirInfo ? "Sí" : "No"}
+        handleOnChange={handleOnChange}
+        label="Me gustaría recibir información sobre ofertas y promociones de MINCA"
+        placeholder=""
+        errors={errors}
+        isShipping={isShipping}
+        containerClassNames="mb-4 flex items-center"
+        classInput="w-[3%] order-first mr-2 claseCheckBoxFormCheckOut" 
+        classLabel="grow"
+      />
+
+      <InputField
+        name="AceptarTerminos"
+        required
+        type="checkbox"
+        inputValue={input?.AceptarTerminos ? "Sí" : "No"}
+        handleOnChange={handleOnChange}
+        label="Acepto los Términos y condiciones"
+        placeholder=""
+        errors={errors}
+        isShipping={isShipping}
+        containerClassNames="mb-4 flex items-center"
+        classInput="w-[3%] order-first mr-2 claseCheckBoxFormCheckOut" 
+        classLabel="grow"
+      />
+      <InputField
+        name="TratamientoDatos"
+        required
+        type="checkbox"
+        inputValue={input?.TratamientoDatos ? "Sí" : "No"}
+        handleOnChange={handleOnChange}
+        label="Autorizo el tratamiento de mis datos personales , con las siguientes condiciones."
+        placeholder=""
+        errors={errors}
+        isShipping={isShipping}
+        containerClassNames="mb-4 flex items-center"
+        classInput="w-[3%] order-first mr-2 claseCheckBoxFormCheckOut" 
+        classLabel="grow"
+      />
+      
 
       {/*	@TODO Create an Account */}
       {/*<div className="form-check">*/}

@@ -11,8 +11,8 @@ export const Testimonios = async ({ clases, clase2 }) => {
   const data = dato.testimonios.nodes;
   return (
     <div className={`lg:pb-[70px]  ${clase2}`}>
-      <div className={`my-4 flex items-center ${clases}`}>
-        <hr className={`border-1 mt-4 border-[#111] w-full lg:w-[91%] 2xl:w-[94%]`} />
+      <div className={`my-4 flex items-center lg:px-[100px] ${clases}`}>
+        <hr className={`border-1 mt-4 border-[#111] w-full lg:w-full 2xl:w-[94%]`} />
         <img src="/flecha-correcta 2.png" alt="flechas direccional" />
       </div>
       <div className="testimonioCard flex items-center justify-between gap-4 overflow-x-hidden lg:mt-[74px]">
@@ -30,7 +30,7 @@ export const Testimonios = async ({ clases, clase2 }) => {
                     className={`${ubuntu.className} mt-[21px] text-[22px] text-[#131313] lg:block lg:w-[10%] lg:leading-[34px] 2xl:text-[32px] 2xl:leading-[42px]`}
                   >
                     Conoce el testimonio positivo de nuestros clientes y
-                    descubre los beneficios de nuestras soluciones en movilidad
+                    descubre los beneficios <br/> de nuestras soluciones en movilidad
                     y atención al usuario{" "}
                   </p>
                 </div>

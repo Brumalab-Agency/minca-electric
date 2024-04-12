@@ -19,10 +19,10 @@ import { manrope } from "@/ui/fonts";
 import Link from "next/link";
 
 // Utilice esto con fines de prueba, para que no tenga que completar el formulario de pago una y otra vez.
-const defaultCustomerInfo = {
+/* const defaultCustomerInfo = {
   Nombre: "Lenin",
   Apellido: "Mendoza",
-  Direccion1: "123 Abc farm",
+  Direccion1: "Medellín - Antioquia",
   Direccion2: "Hill Road",
   Ciudad: "Medellín",
   Pais: "CO",
@@ -33,30 +33,27 @@ const defaultCustomerInfo = {
   RazonSocial: "Anonimo",
   Nit: "1147696023-8",
   TelefonoTrabajo: "3022222222",
-  tipoIdentificacion: [
-    "Cédula de Ciudadanía",
-    "Cédula de Extranjería",
-    "Número de pasaporte",
-  ],
   NumeroIdentificacion: "1147696023",
   errors: null,
-};
+}; */
 
-/* const defaultCustomerInfo = {
-	Nombre: '',
-	Apellido: '',
-	Direccion1: '',
-	Direccion2: '',
-	Ciudad: '',
-	Pais: '',
-	Email: '',
-	Telefono: '',
-	Empresa: '',
-  EmailEmpresa: '',
-  RazonSocial: '',
-  Nit: '',
-	errors: null
-} */
+const defaultCustomerInfo = {
+   Nombre: "",
+  Apellido: "",
+  Direccion1: "",
+  Direccion2: "",
+  Ciudad: "",
+ /*  Pais: "CO", */
+  Email: "",
+  Telefono: "",
+  Empresa: "",
+  EmailEmpresa: "",
+  RazonSocial: "",
+  Nit: "",
+  TelefonoTrabajo: "",
+  NumeroIdentificacion: "",
+  errors: null,
+};
 
 // el state o estado del país es parte del componente Pais y este ya tiene sus campos predeterminados
 
@@ -73,9 +70,9 @@ const CheckoutForm = ({ countriesData }) => {
     createAccount: false,
     orderNotes: "",
     billingDifferentThanShipping: false,
-    recibirInfo: true,
-    aceptarTerminos: true,
-    tratamientoDatos: true,
+    recibirInfo: false,
+    aceptarTerminos: false,
+    tratamientoDatos: false,
     paymentMethod: "",
   };
 
@@ -91,6 +88,8 @@ const CheckoutForm = ({ countriesData }) => {
   const [isFetchingBillingStates, setIsFetchingBillingStates] = useState(false);
   const [isOrderProcessing, setIsOrderProcessing] = useState(false);
   const [createdOrderData, setCreatedOrderData] = useState({});
+  const [formIsValid, setFormIsValid] = useState(false);
+  const [showAdditionalContent, setShowAdditionalContent] = useState(true);
 
   /**
    * Handle form submit.
@@ -99,6 +98,42 @@ const CheckoutForm = ({ countriesData }) => {
    *
    * @return Null.
    */
+
+  /*  Ocultar la imagen y texto despues de ser seleccionado una 'Facturacion Diferente' */
+
+  const handleCheckboxChange = () => {
+    setShowAdditionalContent(!showAdditionalContent);
+  };
+
+  /* Validacion para inhabilitar el boton de envio de formulario hasta que todos los campos requeridos esten llenos */
+  const checkFormValidity = () => {
+    const requiredFields = document.querySelectorAll("input[required]");
+    const requiredCheckboxes = document.querySelectorAll(
+      "input[type='checkbox']",
+    );
+    let isValid = true;
+
+    requiredFields.forEach((field) => {
+      if (field.value.trim() === "") {
+        isValid = false;
+      }
+    });
+    // RecibirInfo
+
+    requiredCheckboxes.forEach((checkbox) => {
+      if (
+        checkbox.name !== "billingDifferentThanShipping" &&
+        checkbox.name !== "RecibirInfo" &&
+        checkbox.name !== "mostrarEmpresa" &&
+        !checkbox.checked
+      ) {
+        isValid = false;
+      }
+    });
+
+    setFormIsValid(isValid);
+  };
+
   const handleFormSubmit = async (event) => {
     event.preventDefault();
 
@@ -108,7 +143,7 @@ const CheckoutForm = ({ countriesData }) => {
     alert("Formulario enviado");
     const formData = new FormData(formEl);
     fetch(
-      "https://script.google.com/macros/s/AKfycbzw1c7khCWRgmmNzy1F7FlH42XldHeR3AhgvJ_uEncuDXma3yjwV_PJTAoBojoYVrYi/exec",
+      "https://script.google.com/macros/s/AKfycby94az2J5ToSKdvjDSrk8LUb6RV7YXV4Nx3j5o34Lsl_Z3yPpn58nmv3B07LQ487Zuc/exec",
       {
         method: "POST",
         body: formData,
@@ -201,26 +236,39 @@ const CheckoutForm = ({ countriesData }) => {
   ) => {
     const { target } = event || {};
 
+    if (!target || !target.name) {
+      return;
+    }
+
+    checkFormValidity();
+    if (target.name === 'billingDifferentThanShipping') {
+      handleCheckboxChange();
+    }
+
     if ("createAccount" === target.name) {
       handleCreateAccount(input, setInput, target);
     } else if ("billingDifferentThanShipping" === target.name) {
       handleBillingDifferentThanShipping(input, setInput, target);
     } else if (isBillingOrShipping) {
       if (isShipping) {
-        if (target.name === "RetirarEn" && target.value === "Fuera de Bogotá. Entrega de 3 a 5 días hábiles: $90.000") {
+        if (
+          target.name === "RetirarEn" &&
+          target.value ===
+            "Fuera de Bogotá. Entrega de 3 a 5 días hábiles: $90.000"
+        ) {
           // Agregar el cargo adicional al carrito
           setCart((prevCart) => {
             const updatedCart = { ...prevCart };
             updatedCart.totalPrice += 90000;
             return updatedCart;
           });
-        }else {
+        } else {
           // Restaurar el totalPrice original del carrito
           setCart((prevCart) => {
             const updatedCart = { ...prevCart };
             updatedCart.totalPrice = prevCart.cartItems.reduce(
               (total, item) => total + item.line_total,
-              0
+              0,
             );
             return updatedCart;
           });
@@ -280,9 +328,10 @@ const CheckoutForm = ({ countriesData }) => {
                   </p>
                 </div>
 
-                <h2 className="mb-4 text-xl font-medium">Mis datos</h2>
+                <h2 className="mb-4 text-[20px] font-bold">Mis datos</h2>
                 <UserAdress
                   idOrder={idOrder}
+                  setFormIsValid={setFormIsValid}
                   states={theShippingStates}
                   countries={shippingCountries}
                   input={input?.shipping}
@@ -302,50 +351,21 @@ const CheckoutForm = ({ countriesData }) => {
                   containerClassNames="mb-4 pt-4"
                 />
               </div>
-              <CheckboxField
-                name="recibirInfo"
-                type="checkbox"
-                checked={input?.recibirInfo}
-                handleOnChange={handleOnChange}
-                label="Me gustaría recibir información sobre ofertas y promociones de MINCA"
-                containerClassNames="pt-4"
-                textCheckBox="text-[10px]"
-              />
-              <CheckboxField
-                name="aceptarTerminos"
-                type="checkbox"
-                required
-                checked={input?.aceptarTerminos}
-                handleOnChange={handleOnChange}
-                label="Acepto los Términos y condiciones"
-                containerClassNames=""
-                textCheckBox="text-[10px]"
-              />
-              <CheckboxField
-                name="tratamientoDatos"
-                type="checkbox"
-                required
-                checked={input?.tratamientoDatos}
-                handleOnChange={handleOnChange}
-                label="Autorizo el tratamiento de mis datos personales , con las siguientes condiciones."
-                containerClassNames="mb-10"
-                textCheckBox="text-[10px]"
-              />
-              <img src="/mercado pago .png" />
-              <p className="my-10 text-[12px]">
-                Para consultas comunicarse al : WhatsApp: +573222102466
-              </p>
+              {showAdditionalContent && (
+                <div>
+                  <img src="/mercado pago .png" />
+                  <p className="my-10 text-[12px]">
+                    Para consultas comunicarse al : WhatsApp: +573222102466
+                  </p>
+                </div>
+              )}
 
               {/*Billing Details*/}
               {input?.billingDifferentThanShipping ? (
                 <div className="billing-details">
                   <h2 className="mb-4 text-xl font-medium">
-                    Detalles de facturación
+                    Detalles de facturación diferente al envio
                   </h2>
-                  {console.log(input?.billingDifferentThanShipping)}
-                  {console.log(idOrder)}
-                  {console.log(input)}
-                  {console.log(input?.billing)}
                   <UserAdress
                     states={theBillingStates}
                     countries={
@@ -361,7 +381,14 @@ const CheckoutForm = ({ countriesData }) => {
                     isShipping={false}
                     isBillingOrShipping
                   />
+                  <div>
+                  <img src="/mercado pago .png" />
+                  <p className="my-10 text-[12px]">
+                    Para consultas comunicarse al : WhatsApp: +573222102466
+                  </p>
                 </div>
+                </div>
+                
               ) : null}
             </div>
             {/* Order & Payments*/}
@@ -369,7 +396,7 @@ const CheckoutForm = ({ countriesData }) => {
               {/*	Order*/}
               <h2 className="mb-4 text-xl font-medium">Resumen del pedido</h2>
               <hr className="mb-3"></hr>
-             
+
               <YourOrder cart={cart ? cart : temporalCarrito} />
               {/*Metodo de envio*/}
               <h2
@@ -398,10 +425,10 @@ const CheckoutForm = ({ countriesData }) => {
 
                 {!idOrder ? (
                   <button
-                    disabled={isOrderProcessing}
+                    disabled={!formIsValid || isOrderProcessing}
                     className={cx(
                       "h-[60px] w-full rounded-[52px] bg-[#111] px-[54px] py-[16px] text-white",
-                      { "opacity-50": isOrderProcessing },
+                      { "opacity-50": !formIsValid || isOrderProcessing },
                     )}
                     type="button"
                     onClick={handleFormSubmit}

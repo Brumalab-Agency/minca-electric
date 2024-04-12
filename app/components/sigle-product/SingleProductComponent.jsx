@@ -10,8 +10,6 @@ export const SingleProductComponent = ({ scooters }) => {
 
   const items = productosScooters.edges;
 
- 
-
   return (
     <div className="carrusel h-auto w-full">
       {items.map((item) => (
@@ -42,7 +40,7 @@ export const SingleProductComponent = ({ scooters }) => {
                 <h2
                   className={`${manrope.className} mb-1 text-[16px] font-bold uppercase text-[#111111]  lg:text-[42px] lg:leading-[45px]`}
                 >
-                  Scooter Eléctrico <br/>
+                  Scooter Eléctrico <br />
                   {item.node.sliderProductos.nombreProducto}
                 </h2>
                 <p
@@ -166,11 +164,14 @@ export const SingleProductComponent = ({ scooters }) => {
                 subtitulo={item.node.sliderProductos.frenosNulo}
                 tipo={item.node.sliderProductos.tipofrenos}
               />
-              <CardEspecifications
-                titulo={item.node.sliderProductos.pulgadas}
-                subtitulo={item.node.sliderProductos.tipo}
-                tipo={item.node.sliderProductos.llanta}
-              />
+
+              {
+                <CardEspecifications
+                  titulo={item.node.sliderProductos.pulgadas}
+                  subtitulo={item.node.sliderProductos.tipoRodamiento}
+                  tipo={item.node.sliderProductos.llanta}
+                />
+              }
               <CardEspecifications
                 titulo={item.node.sliderProductos.pesoSc}
                 subtitulo={item.node.sliderProductos.kg}

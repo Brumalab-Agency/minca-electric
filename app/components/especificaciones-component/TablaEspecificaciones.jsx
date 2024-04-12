@@ -133,8 +133,9 @@ export const TablaEspecificaciones = (scooters) => {
                 <td className="whitespace-nowrap px-4 py-2 font-medium text-gray-900">
                   Garantía del proveedor
                 </td>
-                <td className="whitespace-nowrap py-2 pr-4 text-gray-700">
-                  1 año
+                <td className="whitespace-nowrap py-2 pr-4 text-gray-700 w-[70px]">
+                  1 año 
+                  <p>(Sujeto a revisión semestral o cada 600km)</p>
                 </td>
               </tr>
 

@@ -3,43 +3,125 @@ import { TProductVariant } from "../titulos/TProductVariant";
 
 export const SolucionesComodidad = () => {
   return (
-    <div className="bg-[#111] px-4 pt-10 lg:py-20 text-white pb-[40px] lg:grid lg:grid-cols-3 lg:place-items-center lg:px-[100px] w.full lg:h-[540px] ">
-      <div className="w-[300px] lg:hidden mb-[40px] leading-[42px]">
+    <div className="w.full bg-[#111] px-4 pb-[40px] pt-10 text-white lg:grid lg:h-[540px] lg:grid-cols-3 lg:place-items-center lg:px-[100px] lg:py-20 ">
+      <div className="mb-[40px] w-[300px] leading-[42px] lg:hidden">
         <TProductVariant
           titulo="soluciones para"
           subtitulo="tu comodidad"
           transform={"uppercase"}
         />
       </div>
-      <div className="text-[42px] 2xl:text-[64px] uppercase hidden lg:block w-[310px] 2xl:w-[500px] lg:-mt-[50px] lg:leading-[52px] 2xl:leading-[74px] justify-self-start">
-          <p>soluciones para <b> tu comodidad</b></p>
+      <div className="hidden w-[310px] justify-self-start text-[42px] uppercase lg:-mt-[50px] lg:block lg:leading-[52px] 2xl:w-[500px] 2xl:text-[64px] 2xl:leading-[74px]">
+        <p>
+          soluciones para <b> tu comodidad</b>
+        </p>
       </div>
-      <section className={`${manrope.className} flex gap-8 justify-self-center`}>
+      <section
+        className={`${manrope.className} flex gap-8 justify-self-center`}
+      >
         <h1 className="text-[40px] font-bold leading-[3.2rem]">03</h1>
         <div>
-          <h2 className="w-[232px] text-[26px] font-semibold">
+          <h2 className="w-[232px] text-[26px] font-semibold lg:leading-[35px] 2xl:text-[35px]">
             Mantenimiento especializado
           </h2>
-          <p
-            className={`${ubuntu.className} mt-25px w-[232px] text-balance text-base font-normal leading-[34px]`}
-          >
-            Olvídate del trancón Deja de pagar SOAT Transforma tu conducción
-            Ahorra en combustible Activa tu conciencia ambiental
-          </p>
+          <div className="2xl:mt-4">
+            <ul className="2xl:text-[22px] 2xl:leading-[35px]">
+              <li className="flex items-center gap-2">
+                <img
+                  className="hue-rotate-25 contrast-101 brightness-110 invert saturate-0 sepia-0 filter"
+                  src="/servicioTecnico/checkmark-circle.png"
+                  alt="verificación"
+                />
+                Olvídate del trancón
+              </li>
+              <li className="flex items-center gap-2">
+                <img
+                  className="hue-rotate-25 contrast-101 brightness-110 invert saturate-0 sepia-0 filter"
+                  src="/servicioTecnico/checkmark-circle.png"
+                  alt="verificación"
+                />
+                Deja de pagar SOAT
+              </li>
+              <li className="flex items-center gap-2">
+                <img
+                  className="hue-rotate-25 contrast-101 brightness-110 invert saturate-0 sepia-0 filter"
+                  src="/servicioTecnico/checkmark-circle.png"
+                  alt="verificación"
+                />
+                Transforma tu conducción
+              </li>
+              <li className="flex items-center gap-2">
+                <img
+                  className="hue-rotate-25 contrast-101 brightness-110 invert saturate-0 sepia-0 filter"
+                  src="/servicioTecnico/checkmark-circle.png"
+                  alt="verificación"
+                />
+                Ahorra en combustible
+              </li>
+              <li className="flex items-center gap-2">
+                <img
+                  className="hue-rotate-25 contrast-101 brightness-110 invert saturate-0 sepia-0 filter"
+                  src="/servicioTecnico/checkmark-circle.png"
+                  alt="verificación"
+                />
+                Activa tu conciencia ambiental
+              </li>
+            </ul>
+          </div>
         </div>
       </section>
-      <section className={`${manrope.className} mt-[45px] lg:mt-0 flex gap-8 justify-self-end`}>
+      <section
+        className={`${manrope.className} mt-[45px] flex gap-8 justify-self-end lg:mt-0`}
+      >
         <h1 className="text-[40px] font-bold leading-[3.2rem]">04</h1>
         <div>
-          <h2 className="w-[232px] text-[26px] font-semibold">
+          <h2 className="2xl:w-[370px] w-full  text-[26px] font-semibold lg:leading-[35px] 2xl:text-[35px]">
             Opciones de financiamiento
           </h2>
-          <p
-            className={`${ubuntu.className} mt-25px w-[232px] text-balance text-base font-normal leading-[34px]`}
-          >
-            Compromiso social y ambiental Sostenibilidad integral Innovación
-            constante Diseños funcionales Acompañamiento postventa
-          </p>
+          <div className="2xl:mt-4">
+            <ul className="2xl:text-[22px] 2xl:leading-[35px]">
+              <li className="flex items-center gap-2">
+                <img
+                  className="hue-rotate-25 contrast-101 brightness-110 invert saturate-0 sepia-0 filter"
+                  src="/servicioTecnico/checkmark-circle.png"
+                  alt="verificación"
+                />
+               Compromiso social y ambiental
+              </li>
+              <li className="flex items-center gap-2">
+                <img
+                  className="hue-rotate-25 contrast-101 brightness-110 invert saturate-0 sepia-0 filter"
+                  src="/servicioTecnico/checkmark-circle.png"
+                  alt="verificación"
+                />
+                Sostenibilidad integral
+              </li>
+              <li className="flex items-center gap-2">
+                <img
+                  className="hue-rotate-25 contrast-101 brightness-110 invert saturate-0 sepia-0 filter"
+                  src="/servicioTecnico/checkmark-circle.png"
+                  alt="verificación"
+                />
+                Innovación constante
+              </li>
+              <li className="flex items-center gap-2">
+                <img
+                  className="hue-rotate-25 contrast-101 brightness-110 invert saturate-0 sepia-0 filter"
+                  src="/servicioTecnico/checkmark-circle.png"
+                  alt="verificación"
+                />
+                Diseños funcionales
+              </li>
+              <li className="flex items-center gap-2">
+                <img
+                  className="hue-rotate-25 contrast-101 brightness-110 invert saturate-0 sepia-0 filter"
+                  src="/servicioTecnico/checkmark-circle.png"
+                  alt="verificación"
+                />
+                Acompañamiento postventa
+              </li>
+            </ul>
+          </div>
         </div>
       </section>
     </div>

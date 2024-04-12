@@ -15,7 +15,7 @@ export const Hero = async () => {
     <div id="up">
   
       <Header />
-      <div className="p-4 lg:px-[100px]">
+      <div className="p-4 lg:px-[100px] 2xl:h-[680px]">
         <h2
           className={`${manrope.className}  text-[40px] leading-[50px] text-[#111] lg:mt-[175px] lg:flex lg:text-[64px] lg:font-light	lg:tracking-wide 2xl:-ml-[5px] 2xl:text-[96px] 2xl:mt-[200px]`}
         >
@@ -28,17 +28,17 @@ export const Hero = async () => {
         >
           {hero.subTitulo}
         </h1>
-        <p className="text-[15px] text-[#42454A] lg:mt-[69px] lg:text-base lg:font-normal 2xl:text-[18px]">
+        <p className="text-[15px] text-[#42454A] lg:mt-[69px] lg:text-base lg:font-normal 2xl:text-[28px]">
           {hero.subTitulo2}
         </p>
-        <hr className="border-0.5 my-[10px] border border-solid border-[#42454A]" />
+        <hr className="border-0.5 my-[10px] 2xl:my-[40px] border border-solid border-[#42454A]" />
         <div
-          className={`${ubuntu.className}  tabs relative flex justify-between gap-4 lg:mt-2`}
+          className={`${ubuntu.className}  tabs relative flex justify-between gap-4 lg:mt-2 2xl:mt-8 `}
         >
           <Anclaje hero={hero}/>
           <Link href="/testdrive">
             <SpiningText text=" • Agenda tu • test drive 1">
-              <img src="/imagotipo-negro.png" alt="logo tipo" />
+              <img className="imagotipo" src="/imagotipo-negro.png" alt="logo tipo" />
             </SpiningText>
           </Link>
         </div>

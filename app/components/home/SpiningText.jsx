@@ -5,7 +5,7 @@ export function SpinningText({ children }) {
   return (
     <div className="right-[-29px] top-[10px] hidden w-[250px] items-center justify-end lg:flex lg:mt-[10px]">
       <p
-        className={`${ubuntu.className} w-[47%] text-[18px] font-medium leading-[22px]`}
+        className={`${ubuntu.className} w-[47%] text-[18px] 2xl:text-[28px] 2xl:w-[70%]  font-medium leading-[22px] 2xl:leading-[30px]`}
       >
         Transforma ya tu forma de moverte
       </p>
