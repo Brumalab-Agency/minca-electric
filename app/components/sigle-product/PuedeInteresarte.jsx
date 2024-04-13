@@ -42,37 +42,6 @@ export const PuedeInteresarte = () => {
             </div>
           </div>
         </Link>
-        <Link href="/productos/Minca%20500W" className="block lg:flex flex-col justify-center text-center h-auto w-[200px] lg:w-[274px] 2xl:w-[450px]">
-          <img
-            className="h-[200px] lg:w-[274px] 2xl:w-[450px] lg:h-auto max-w-[450px]"
-            src="/sigleProduct/minca-500-single-product.png"
-            alt="scooter minca 500w"
-          />
-          <div className="flex w-full flex-col items-start justify-center">
-            <h2
-              className={`${manrope.className} text-left lg:mt-[16px] lg:text-[20px] 2xl:text-[28px] 2xl:leading-[45px]  font-bold text-[#111] mt-[10px] text-base`}
-            >
-              Scooter Eléctrico Minca 500W
-            </h2>
-            <p className={`${manrope.className} lg:text-base text-[#111] text-[14px] 2xl:text-[24px] font-medium`}>
-            Electric Freedom
-            </p>
-            <div className="lg:mt-[20px] flex items-center justify-between gap-4">
-              <p
-                className={`${manrope.className}text-[#111] text-left text-[20px]  2xl:text-[24px]  font-bold`}
-              >
-                $3.780.000
-              </p>
-              <span className="h-[24px] w-[58px] items-center justify-center rounded-full bg-[#FF3333] bg-opacity-10 px-2.5 py-0.5 text-[#FF3333] lg:inline-flex lg:h-7 lg:px-[14px] lg:py-[0px]">
-                <p
-                  className={`${manrope.className} whitespace-nowrap text-[12px] font-semibold `}
-                >
-                  -16%
-                </p>
-              </span>
-            </div>
-          </div>
-        </Link>
         <Link href="/productos/Minca%20800W" className="block lg:flex flex-col justify-center text-center h-auto w-[200px] lg:w-[274px] 2xl:w-[450px]">
           <img
             className="h-[200px] lg:w-[274px] 2xl:w-[450px] lg:h-auto max-w-[450px]"
