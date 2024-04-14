@@ -1,5 +1,6 @@
 import { Footer } from "@/components/home/Footer";
 import { Header } from "@/components/home/Header";
+import Whatsapp from "@/components/whatsapp/Whatsapp";
 import { manrope } from "@/ui/fonts";
 import Link from "next/link";
 import React from "react";
@@ -70,6 +71,7 @@ export const Privacidad = () => {
         </div>
       </div>
       <Footer/>
+      <Whatsapp/>
     </>
   );
 };

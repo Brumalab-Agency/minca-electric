@@ -1,5 +1,6 @@
 import { Footer } from "@/components/home/Footer";
 import { Header } from "@/components/home/Header";
+import Whatsapp from "@/components/whatsapp/Whatsapp";
 import { manrope } from "@/ui/fonts";
 import React from "react";
 
@@ -83,6 +84,7 @@ export const Politicas = () => {
         </div>
       </div>
       <Footer/>
+      <Whatsapp/>
     </>
   );
 };

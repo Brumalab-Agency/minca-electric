@@ -6,6 +6,7 @@ import SpiningText from "@/components/home/SpiningText"
 import { CardHoverEffect } from "@/components/cardhovereffect/CardHoverEffect";
 import TituloCardHoverEffect from "@/components/cardhovereffect/TituloCardHoverEffect";
 import { CardHoverEffectShowrooms } from "@/components/cardhovereffect/CardHoverEffectShowrooms";
+import Whatsapp from "@/components/whatsapp/Whatsapp";
 
 
 
@@ -29,6 +30,7 @@ const Sedes = () => {
       </div>
       <Testimonios clases="mb-[70px]" clase2="mb-[81px]" />
       <Footer />
+      <Whatsapp/>
     </>
   );
 };

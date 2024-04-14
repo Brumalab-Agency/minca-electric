@@ -33,7 +33,6 @@ const CarItemsContainer = () => {
     partesNumero[0] = partesNumero[0].replace(/\B(?=(\d{3})+(?!\d))/g, ".");
     return partesNumero.join(".");
   };
-
   return (
     <div className={`${manrope.className} CarItemsContainer lg:px-[100px] lg:pb-[100px] p-4`}>
       <h2 className="mb-[20px] text-[24px] font-semibold lg:text-[40px] ">

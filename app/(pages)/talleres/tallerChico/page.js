@@ -3,6 +3,7 @@ import SimplyAgendamientoChico from "@/components/simplybook/SimplyAgendamientoC
 import React, { Suspense } from "react";
 import { Header } from "@/components/home/Header";
 import { Footer } from "@/components/home/Footer";
+import Whatsapp from "@/components/whatsapp/Whatsapp";
 
 export const TallerChico = () => {
   return (
@@ -18,6 +19,7 @@ export const TallerChico = () => {
         <SimplyAgendamientoChico />
       </Suspense>
       <Footer/>
+      <Whatsapp/>
     </div>
   );
 };

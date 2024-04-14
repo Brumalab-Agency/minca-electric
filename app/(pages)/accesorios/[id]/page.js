@@ -8,6 +8,7 @@ import { AccesoriosWoocommerce } from '@/lib/graphQLRequest'
 import HotSpotAccesorios from '@/components/especificaciones-component/HotSpotAccesorios'
 import NextBreadcrumb from '@/components/breadcrumb/NextBreadcrumb'
 import { Testimonios } from '@/components/testimonio/Testimonios'
+import Whatsapp from '@/components/whatsapp/Whatsapp'
 
 export const metadata = {
   title: "Accesorios",
@@ -33,6 +34,7 @@ export const SingleAccesorio = async({params}) => {
         <CarruselAccesorios/>
         <Testimonios />
         <Footer/>
+        <Whatsapp/>
     </>
   )
 }

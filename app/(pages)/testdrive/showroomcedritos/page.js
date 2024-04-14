@@ -3,6 +3,7 @@ import { Suspense } from 'react'
 import Loading from '@/loading'
 import { Header } from '@/components/home/Header'
 import { Footer } from '@/components/home/Footer'
+import Whatsapp from '@/components/whatsapp/Whatsapp'
 
 export const ShowroomCedritos = () => {
   return (
@@ -17,6 +18,7 @@ export const ShowroomCedritos = () => {
       <BookingWidget/>
       </Suspense>
       <Footer/>
+      <Whatsapp/>
     </div>
   )
 }

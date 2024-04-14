@@ -5,6 +5,7 @@ import { BlogContent } from "@/components/blog/BlogContent";
 import { SinglePost } from "@/lib/graphQLRequest";
 import { format } from "date-fns";
 import OtrosPost from "@/components/blog/OtrosPost";
+import Whatsapp from "@/components/whatsapp/Whatsapp";
 
 const SIngleBlog = async ({ params }) => {
   const { id } = params;
@@ -104,6 +105,7 @@ const SIngleBlog = async ({ params }) => {
         </div>
       ))}
       <Footer />
+      <Whatsapp/>
     </>
   );
 };

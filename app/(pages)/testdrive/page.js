@@ -3,6 +3,7 @@ import { HeroContext } from '@/components/reusable/HeroContext'
 import { HeroVideoSingleProduct } from '@/components/reusable/HeroVideoSingleProduct'
 import TestDriveComponent from '@/components/reusable/TestDriveComponent'
 import { Testimonios } from '@/components/testimonio/Testimonios'
+import Whatsapp from '@/components/whatsapp/Whatsapp'
 
 
 const TestDrive = () => {
@@ -13,6 +14,7 @@ const TestDrive = () => {
         <TestDriveComponent/>
         <Testimonios />
         <Footer/>
+        <Whatsapp/>
     </>
   )
 }

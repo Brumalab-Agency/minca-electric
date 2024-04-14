@@ -2,6 +2,7 @@ import Loading from "@/loading";
 import SimplyAgendamientoJaveriana from "@/components/simplybook/SimplyAgendamientoJaveriana";
 import { Suspense } from "react";
 import { Header } from "@/components/home/Header";
+import Whatsapp from "@/components/whatsapp/Whatsapp";
 
 export const TallerJaveriana = () => {
   return (
@@ -16,6 +17,7 @@ export const TallerJaveriana = () => {
       </div>
         <SimplyAgendamientoJaveriana />
       </Suspense>
+      <Whatsapp/>
     </div>
   );
 };

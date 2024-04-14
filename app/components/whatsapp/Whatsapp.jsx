@@ -9,7 +9,7 @@ const Whatsapp = ({ message }) => {
   useEffect(() => {
     const timer = setTimeout(() => {
       setIsVisible(true);
-    }, 8000);
+    }, 3000);
 
     return () => clearTimeout(timer);
   }, []);

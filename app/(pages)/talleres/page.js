@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { ubuntu } from "@/ui/fonts";
 import { Footer } from "@/components/home/Footer";
+import Whatsapp from "@/components/whatsapp/Whatsapp";
 
 export const ShoowRooms = () => {
   return (
@@ -72,6 +73,7 @@ export const ShoowRooms = () => {
         </div>
       </div>
       <Footer/>
+      <Whatsapp/>
     </div>
   );
 };

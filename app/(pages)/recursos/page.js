@@ -3,6 +3,7 @@ import { DescargaManual } from '@/components/descarga/DescargaManual'
 import { Acordion } from '@/components/reusable/Acordion'
 import { HeroContext } from '@/components/reusable/HeroContext'
 import { Testimonios } from '@/components/testimonio/Testimonios'
+import Whatsapp from '@/components/whatsapp/Whatsapp'
 
 const Recursos = () => {
   return (
@@ -12,6 +13,7 @@ const Recursos = () => {
         <Acordion clase="mb-10"/>
         <Testimonios />
         <Footer/>
+        <Whatsapp/>
     </>
   )
 }

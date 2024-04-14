@@ -18,6 +18,7 @@ import ReactImagenGallery from "@/components/react-image-gallery/ReactImagenGall
 import { HeaderSingleProducts } from "@/components/home/HeaderSingleProducts";
 import { HeroVideoSingleCardProductTemporal } from "@/components/reusable/HeroVideoSingleCardProductTemporal";
 import { Testimonios } from "@/components/testimonio/Testimonios";
+import Whatsapp from "@/components/whatsapp/Whatsapp";
 
 export const metadata = {
   title: "Productos",
@@ -61,6 +62,7 @@ const SingleProduct = async ({ params }) => {
       <CarruselAccesorios />
       <AcordionSingleProduct />
       <Footer />
+      <Whatsapp/>
     </div>
   );
 };

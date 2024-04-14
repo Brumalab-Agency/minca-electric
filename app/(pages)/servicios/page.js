@@ -8,6 +8,7 @@ import { ComponentTallerChico } from "@/components/reusable/ComponentTallerChico
 import { ScootersRendimiento } from "@/components/home/ScootersRendimiento";
 import { ComponentTallerJaveriana } from "@/components/reusable/ComponentTallerJaveriana";
 import { Testimonios } from "@/components/testimonio/Testimonios";
+import Whatsapp from "@/components/whatsapp/Whatsapp";
 
 export const metadata = {
   title: "Servicios",
@@ -34,6 +35,7 @@ const Servicios = () => {
       <SolucionesComodidad />
       <Testimonios/>
       <Footer />
+      <Whatsapp/>
     </>
   );
 };

@@ -80,6 +80,25 @@ const CartItem = ({ item, products, setCart }) => {
     return partesNumero.join(".");
   };
 
+  /*  const getProductMessage = (productName) => {
+    const cleanedProductName = productName.trim().replace(/[^\w\s]/gi, "");
+    console.log(cleanedProductName);
+
+    const productMessages = {
+      "Scooter Eléctrico Minca 350W": "(estoy en minca 350)",
+      "Scooter Eléctrico Minca 800W":
+        "(incluye $190.000 Impuesto 5% estimado para Colombia)",
+      "Scooter Eléctrico MINCA 1600W": "(estoy en minca 350)",
+    };
+    console.log(productMessages);
+
+    // Busca el mensaje correspondiente al nombre limpio del producto
+    console.log(productMessages[cleanedProductName]);
+
+    return productMessages[cleanedProductName] || null;
+  }; */
+
+  console.log(item.data.name.trim().replace(/[^\w\s]/gi, ""));
   return (
     <div>
       <div className="cart-item-wrap mb-5 flex flex-col justify-between gap-4 lg:flex-row">
@@ -130,11 +149,20 @@ const CartItem = ({ item, products, setCart }) => {
 
             <footer className="cart-product-footer mt-8 flex justify-between lg:mt-0">
               <div className="precio flex-col justify-end lg:flex ">
-                <span className="cart-total-price text-[24px] text-base font-bold uppercase">
-                  {separadorDeMiles(item?.currency)}
+                <div className="flex items-center justify-between gap-2">
+                  <span className="cart-total-price text-[24px] text-base font-bold uppercase">
+                    {separadorDeMiles(item?.currency)}
 
-                  {separadorDeMiles(item?.line_subtotal)}
-                </span>
+                    {separadorDeMiles(item?.line_subtotal)}
+                  </span>
+                  {item.product_id === 952 ? (
+                    <small className="text-[9px]">
+                      (incluye $190.000 Impuesto 5% estimado para Colombia)
+                    </small>
+                  ) : item.product_id === 435 ? (
+                    <small className="text-[9px]">(incluye $214.286 Impuesto 5% estimado para Colombia)</small>
+                  ) : null}
+                </div>
               </div>
 
               {updatingProduct ? (

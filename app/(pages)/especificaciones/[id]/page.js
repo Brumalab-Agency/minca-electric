@@ -6,6 +6,7 @@ import { PuedeInteresarte } from "@/components/sigle-product/PuedeInteresarte";
 import { CarruselAccesorios } from "@/components/carruseles/accesorios/CarruselAccesorios";
 import { SingleProductosWoocommerce,  SingleProductos} from "@/lib/graphQLRequest";
 import { EspecificacionesMincaNew } from "@/components/especificaciones-component/EspecificacionesMincaNew";
+import Whatsapp from "@/components/whatsapp/Whatsapp";
 
 const Especificaciones = async ({ params }) => {
   const { id } = params;
@@ -29,6 +30,7 @@ const Especificaciones = async ({ params }) => {
       <br></br>
       <CarruselAccesorios />
       <Footer />
+      <Whatsapp/>
     </div>
   );
 };
