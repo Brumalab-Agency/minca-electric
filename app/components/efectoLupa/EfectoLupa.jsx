@@ -1,5 +1,10 @@
 "use client"
+import Image from "next/image";
 import { useState, useRef, useEffect } from "react";
+
+const MANIFY_SIZE = 150;
+const MAGNIFY_SIZE_HALF = MANIFY_SIZE / 2;
+
 
 const EfectoLupa = ({ imageUrl, alt }) => {
   const [magnifyStyle, setMagnifyStyle] = useState({
@@ -49,18 +54,20 @@ const EfectoLupa = ({ imageUrl, alt }) => {
     setMagnifyStyle((prev) => ({
       ...prev,
       display: "block",
-      top: `${offsetY - 200}px`,
-      left: `${offsetX - 10}px`,
+      top: `${offsetY - 150}px`,
+      left: `${offsetX - MAGNIFY_SIZE_HALF}px`,
       backgroundPosition: `${xPorcentaje}% ${yPorcentaje}%`,
     }));
   };
 
   return (
-    <div className="relative ml-2 mr-4  rounded-[20px] flex justify-center items-center">
-      <img
+    <div className="relative ml-2 mr-4 cursor-none rounded-[20px] flex justify-center items-center">
+      <Image
         className="h-auto w-[600px] rounded-[20px] bg-[#F0EEED]"
         src={imageUrl}
         alt={alt}
+        width={600}
+        height={600}
         draggable={false}
         onMouseMove={handleMouseMove}
         onMouseLeave={handleMouseLeave}

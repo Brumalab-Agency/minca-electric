@@ -60,7 +60,7 @@ export const EspecificacionesAccesorios = async (accesorios) => {
           <ReactImagenGalleryLupa items={items[0]} />
           <div className="lg:w-[50%]">
             {/* Titulo y descripcion */}
-            <div className="flex justify-between ml-7">
+            <div className="flex justify-between">
               <div className="flex flex-col justify-center">
                 <h2
                   className={`${manrope.className} mb-1 text-[24px] font-bold uppercase text-[#111111]  lg:text-[42px] lg:leading-[28px]`}
@@ -84,7 +84,7 @@ export const EspecificacionesAccesorios = async (accesorios) => {
               {/* /Scooter/btn-slider-left-pc.png */}
             </div>
             {/* Btn y contador */}
-            <div className="contador-btnAddCart mt-4 flex w-full items-center gap-4 lg:w-[85%] 2xl:w-[70%] ml-7">
+            <div className="contador-btnAddCart mt-4 flex w-full items-center gap-4 lg:w-[85%] 2xl:w-[70%]">
               <BtnQty />
               <div className="w-full flex-col justify-center lg:flex">
                 {productoEncontrado ? (

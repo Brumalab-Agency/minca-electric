@@ -4,8 +4,8 @@ import Modal from "./Modal";
 import Image from "next/image";
 
 const LightboxComponentScooters = ({ item }) => {
-  console.log(item.sliderProductos);
-  const items = item.imagen.mediaItemUrl;
+  console.log(item);
+  const items = item[0].original;
 
   console.log(items);
 
@@ -14,7 +14,7 @@ const LightboxComponentScooters = ({ item }) => {
 
   const handleClick = (item, index) => {
     setCurrentIndex(index);
-    setClickImage(item.imagen.mediaItemUrl);
+    setClickImage(item);
   };
 
   const handleROtationRight = () => {
@@ -53,9 +53,9 @@ const LightboxComponentScooters = ({ item }) => {
         {console.log(item)}
         <Image
           placeholder="empty"
-          alt={item.sliderProductos.nombreProducto}
+          alt={item[0].original}
           className="w-auto rounded-[20px] bg-[#F0EEED] lg:h-[450px] 2xl:h-[650px]"
-          src={item.sliderProductos.imagen.mediaItemUrl}
+          src={item[0].original}
           priority={true}
           width={358}
           height={346}
@@ -69,9 +69,9 @@ const LightboxComponentScooters = ({ item }) => {
             <Image
               onClick={() => handleClick(item, index)}
               placeholder="empty"
-              alt={item.sliderProductos.nombreProducto}
+              alt={item[0].original}
               className="w-auto rounded-[20px] border-2 lg:h-[145px] 2xl:h-[211px]"
-              src={item?.sliderProductos.foto1.mediaItemUrl}
+              src={item[1].original}
               priority={true}
               width={111}
               height={106}
@@ -84,9 +84,9 @@ const LightboxComponentScooters = ({ item }) => {
             <Image
               onClick={() => handleClick(item, index)}
               placeholder="empty"
-              alt={item.sliderProductos.nombreProducto}
+              alt={item[0].original}
               className="w-auto rounded-[20px] border-2 lg:h-[145px] 2xl:h-[211px]"
-              src={item?.sliderProductos.foto2.mediaItemUrl}
+              src={item[2].original}
               priority={true}
               width={111}
               height={106}
@@ -99,9 +99,9 @@ const LightboxComponentScooters = ({ item }) => {
             <Image
               onClick={() => handleClick(item, index)}
               placeholder="empty"
-              alt={item.sliderProductos.nombreProducto}
+              alt={item[0].original}
               className="w-auto rounded-[20px] border-2 lg:h-[145px] 2xl:h-[211px]"
-              src={item?.sliderProductos.foto3.mediaItemUrl}
+              src={item[3].original}
               priority={true}
               width={111}
               height={106}
