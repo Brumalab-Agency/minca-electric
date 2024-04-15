@@ -4,6 +4,8 @@ import RecogidaSelection from "./Recogida";
 import TipoIdentificacion from "./TipoIdentificacion";
 import CiudadesColombia from "../ciudadesColombia/CiudadesColombia";
 import { useState } from "react";
+import CountrySelection from "./CountrySelection";
+import StateSelection from "./StateSelection";
 
 export const UserAdress = ({
   input,
@@ -159,10 +161,36 @@ export const UserAdress = ({
       )}
       <div><p className="text-[20px] font-bold">Datos de envio</p></div>
       {/*  Ciudades de Colombia*/}
-      <CiudadesColombia
+      {/* <CiudadesColombia
         handleOnChange={handleOnChange}
         setFormIsValid={setFormIsValid}
-      />
+      /> */}
+      <CountrySelection
+				input={input}
+				handleOnChange={handleOnChange}
+				countries={countries}
+				isShipping={isShipping}
+			/>
+
+      <InputField
+				name="city"
+				required
+				inputValue={input?.city}
+				handleOnChange={handleOnChange}
+				label="Pueblo/Ciudad"
+				errors={errors}
+				isShipping={isShipping}
+				containerClassNames="mb-4"
+			/>
+			{/* State */}
+			<StateSelection
+				input={input}
+				handleOnChange={handleOnChange}
+				states={states}
+				isShipping={isShipping}
+				isFetchingStates={isFetchingStates}
+			/>
+
        <InputField
         name="Direccion1"
         inputValue={input?.Direccion1}
