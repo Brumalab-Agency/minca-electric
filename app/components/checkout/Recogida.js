@@ -17,8 +17,8 @@ const RecogidaSelection = ({ input, handleOnChange, handleShippingFee }) => {
 
   return (
     <div className="mb-3">
-      <label className="text-sm leading-7 text-gray-700" htmlFor={inputId}>
-        Sitio de Recogida
+      <label className="text-sm leading-7 text-[#111] font-bold" htmlFor={inputId}>
+        Envío
         <Abbr required />
       </label>
       <div className="relative w-full border-none">
@@ -26,7 +26,7 @@ const RecogidaSelection = ({ input, handleOnChange, handleShippingFee }) => {
           onChange={handleSelectChange}
           value={RetirarEn}
           name="RetirarEn"
-          className="inline-block w-full appearance-none rounded border border-[#F0F1EB] bg-gray-100 bg-opacity-50 py-3 pl-3 pr-8 leading-tight text-gray-500"
+          className="inline-block w-full appearance-none rounded border border-[#F0F1EB] bg-white bg-opacity-50 py-3 pl-3 pr-8 leading-tight text-gray-500"
           id={inputId}
         >
           <option value="">Seleccione un sitio de recogida...</option>
@@ -37,7 +37,7 @@ const RecogidaSelection = ({ input, handleOnChange, handleShippingFee }) => {
           <option value="Chico Cra. 11a #94a-56">Chico Cra. 11a #94a-56</option>
           <option value="Cedritos Av. Cra 19 #143a-8">Cedritos Av. Cra 19 #143a-8</option>
         </select>
-        <span className="absolute right-0 mr-1 text-gray-500" style={{ top: "25%" }}>
+        <span className="absolute right-0 mr-1 text-[#111]" style={{ top: "25%" }}>
           <ArrowDown width={24} height={24} className="fill-current" />
         </span>
       </div>

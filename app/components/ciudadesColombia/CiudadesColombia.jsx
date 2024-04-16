@@ -33,9 +33,22 @@ import Tolima from "./municipios/Tolima";
 import ValleDelCauca from "./municipios/ValleDelCauca";
 import Vaupes from "./municipios/Vapues";
 import Vichada from "./municipios/Vichada";
+import Atlantico from "./municipios/Atlantico";
+import CampoVacio from "./municipios/CampoVacio";
+import DireccionSamsung from "./direccion/DireccionSamsung";
+import InputField from "../checkout/fomr-elements/InputField";
+import TipoViviendaSamsung from "./direccion/TipoViviendaSamsung";
+import RecogidaSelection from "../checkout/Recogida";
 // Importa los demás componentes de municipios según sea necesario
 
-const CiudadesColombia = ({ handleOnChange, setFormIsValid }) => {
+const CiudadesColombia = ({
+  handleOnChange,
+  setFormIsValid,
+  input,
+  isShipping,
+  errors,
+  handleShippingFee,
+}) => {
   const [selectedCity, setSelectedCity] = useState("");
   const [selectedDepartment, setSelectedDepartment] = useState("");
 
@@ -58,19 +71,19 @@ const CiudadesColombia = ({ handleOnChange, setFormIsValid }) => {
     Guainía: "Guainía",
     Guaviare: "Guaviare",
     Huila: "Huila",
-    Guajira: "La Guajira",
+    "La Guajira": "La Guajira",
     Magdalena: "Magdalena",
     Meta: "Meta",
     Narino: "Nariño",
-    NorteDeSantander: "Norte de Santander",
+    "Norte de Santander": "Norte de Santander",
     Putumayo: "Putumayo",
     Quindio: "Quindío",
     Risaralda: "Risaralda",
     Santander: "Santander",
-    SanAndres: "San Andrés y Providencia",
+    "San Andrés y Providencia": "San Andrés y Providencia",
     Sucre: "Sucre",
     Tolima: "Tolima",
-    ValleDelCauca: "Valle del Cauca",
+    "Valle del Cauca": "Valle del Cauca",
     Vaupes: "Vaupés",
     Vichada: "Vichada",
   };
@@ -93,144 +106,261 @@ const CiudadesColombia = ({ handleOnChange, setFormIsValid }) => {
   const handleDepartmentChange = (event) => {
     const departmentValue = event.target.value;
     setSelectedDepartment(departmentValue);
-    console.log(selectedDepartment)
+    console.log(selectedDepartment);
   };
 
   const cities = Object.keys(cityDepartmentMapping);
 
   return (
     <div>
-      <div className="flex">
-        <h2 className="text-sm leading-7 text-gray-700">
-          Selecciona un Departamento
-        </h2>
-        <Abbr required />
+      <div className="w-full overflow-hidden sm:my-2 md:w-1/2">
+        <div className="flex">
+          <h2 className="text-sm font-bold leading-7 text-[#111]">
+            Departamento
+          </h2>
+          <Abbr required />
+        </div>
+        <CitySelect cities={cities} onChange={handleCityChange} />
+        <div className="flex">
+          <h2 className="text-sm font-bold leading-7 text-[#111]">Municipio</h2>
+          <Abbr required />
+        </div>
+        {!selectedDepartment && <CampoVacio />}
+        {/* Renderiza el componente de municipios correspondiente */}
+        {selectedDepartment === "Bolívar" && (
+          <Bolivar onChange={handleDepartmentChange} />
+        )}
+        {selectedDepartment === "Atlántico" && (
+          <Atlantico onChange={handleDepartmentChange} />
+        )}
+        {selectedDepartment === "Amazonas" && (
+          <Amazonas onChange={handleDepartmentChange} />
+        )}
+        {selectedDepartment === "Antioquia" && (
+          <Antioquia onChange={handleDepartmentChange} />
+        )}
+        {selectedDepartment === "Arauca" && (
+          <Arauca onChange={handleDepartmentChange} />
+        )}
+        {selectedDepartment === "Boyacá" && (
+          <Boyaca onChange={handleDepartmentChange} />
+        )}
+        {selectedDepartment === "Caldas" && (
+          <Caldas onChange={handleDepartmentChange} />
+        )}
+        {selectedDepartment === "Caquetá" && (
+          <Caqueta onChange={handleDepartmentChange} />
+        )}
+        {selectedDepartment === "Casanare" && (
+          <Casanare onChange={handleDepartmentChange} />
+        )}
+        {selectedDepartment === "Cauca" && (
+          <Cauca onChange={handleDepartmentChange} />
+        )}
+        {selectedDepartment === "Cesar" && (
+          <Cesar onChange={handleDepartmentChange} />
+        )}
+        {selectedDepartment === "Chocó" && (
+          <Choco onChange={handleDepartmentChange} />
+        )}
+        {selectedDepartment === "Córdoba" && (
+          <Cordoba onChange={handleDepartmentChange} />
+        )}
+        {selectedDepartment === "Cundinamarca" && (
+          <Cundinamarca onChange={handleDepartmentChange} />
+        )}
+        {selectedDepartment === "Bogotá" && (
+          <Bogota onChange={handleDepartmentChange} />
+        )}
+        {selectedDepartment === "Guainía" && (
+          <Guainia onChange={handleDepartmentChange} />
+        )}
+        {selectedDepartment === "Guaviare" && (
+          <Guaviare onChange={handleDepartmentChange} />
+        )}
+        {selectedDepartment === "Huila" && (
+          <Huila onChange={handleDepartmentChange} />
+        )}
+        {selectedDepartment === "La Guajira" && (
+          <Guajira onChange={handleDepartmentChange} />
+        )}
+        {selectedDepartment === "Magdalena" && (
+          <Magdalena onChange={handleDepartmentChange} />
+        )}
+        {selectedDepartment === "Meta" && (
+          <Meta onChange={handleDepartmentChange} />
+        )}
+        {selectedDepartment === "Nariño" && (
+          <Narino onChange={handleDepartmentChange} />
+        )}
+        {selectedDepartment === "Norte de Santander" && (
+          <NorteDeSantander onChange={handleDepartmentChange} />
+        )}
+        {selectedDepartment === "Putumayo" && (
+          <Putumayo onChange={handleDepartmentChange} />
+        )}
+        {selectedDepartment === "Quindío" && (
+          <Quindio onChange={handleDepartmentChange} />
+        )}
+        {selectedDepartment === "Risaralda" && (
+          <Risaralda onChange={handleDepartmentChange} />
+        )}
+        {selectedDepartment === "Santander" && (
+          <Santander onChange={handleDepartmentChange} />
+        )}
+        {selectedDepartment === "San Andrés y Providencia" && (
+          <SanAndres onChange={handleDepartmentChange} />
+        )}
+        {selectedDepartment === "Sucre" && (
+          <Sucre onChange={handleDepartmentChange} />
+        )}
+        {selectedDepartment === "Tolima" && (
+          <Tolima onChange={handleDepartmentChange} />
+        )}
+        {selectedDepartment === "Valle del Cauca" && (
+          <ValleDelCauca onChange={handleDepartmentChange} />
+        )}
+        {selectedDepartment === "Vaupés" && (
+          <Vaupes onChange={handleDepartmentChange} />
+        )}
+        {selectedDepartment === "Vichada" && (
+          <Vichada onChange={handleDepartmentChange} />
+        )}
       </div>
-      <CitySelect cities={cities} onChange={handleCityChange} />
+      {/* El resto de campos el ¿porque se hizo asi?  es por requerimiento de que el campo de seleccion de envio coincida con la opción que el cliente tome al seleccionar una Ciudad*/}
+      <div>
+        <div className="flex">
+          <h2 className="text-sm font-bold leading-7 text-[#111]">Dirección</h2>
+          <Abbr required />
+        </div>
+        <div className="relative w-full overflow-hidden ">
+          <DireccionSamsung
+            inputValue={input?.CiudadesColombia}
+            handleOnChange={handleOnChange}
+            setFormIsValid={setFormIsValid}
+            isShipping={isShipping}
+          />
+          <div className="flex items-center gap-3">
+            <InputField
+              name="DireccionSamsung1"
+              type="text"
+              inputValue={input?.DireccionSamsung1}
+              handleOnChange={handleOnChange}
+              errors={errors}
+              isShipping={isShipping}
+              containerClassNames="w-full overflow-hidden sm:my-2 md:w-1/2"
+            />
+            <span className="text-base font-bold">#</span>
+            <InputField
+              name="DireccionSamsung2"
+              type="text"
+              inputValue={input?.DireccionSamsung2}
+              handleOnChange={handleOnChange}
+              errors={errors}
+              isShipping={isShipping}
+              containerClassNames="w-full overflow-hidden sm:my-2 md:w-1/2"
+            />
+            <span className="text-base font-bold">-</span>
+            <InputField
+              name="DireccionSamsung3"
+              type="text"
+              inputValue={input?.DireccionSamsung3}
+              handleOnChange={handleOnChange}
+              errors={errors}
+              isShipping={isShipping}
+              containerClassNames="w-full overflow-hidden sm:my-2 md:w-1/2"
+            />
+          </div>
+        </div>
+        <div className="flex gap-3">
+          <InputField
+            name="Barrio"
+            type="text"
+            label="Barrio"
+            required
+            inputValue={input?.Barrio}
+            handleOnChange={handleOnChange}
+            errors={errors}
+            isShipping={isShipping}
+            containerClassNames="w-full overflow-hidden sm:my-2 md:w-1/2"
+          />
+          <div className="mb-4 w-full overflow-hidden sm:my-2 md:w-1/2">
+            <div className="flex">
+              <h2 className="text-sm font-bold leading-7 text-[#111]">
+                Tipo de Inmueble
+              </h2>
+              <Abbr required />
+            </div>
+            <TipoViviendaSamsung
+              inputValue={input?.TipoViviendaSamsung}
+              handleOnChange={handleOnChange}
+              setFormIsValid={setFormIsValid}
+              isShipping={isShipping}
+            />
+          </div>
+        </div>
+        <div className="flex gap-3">
+          <div className="mb-4 w-full overflow-hidden sm:my-2 md:w-1/2">
+            <div className="flex">
+              <h2 className="text-sm font-bold leading-7 text-[#111]">
+                Nombre de la persona que recibe
+              </h2>
+              <Abbr required />
+            </div>
+            <InputField
+              name="Quienrecibe"
+              type="text"
+              label=""
+              inputValue={input?.Quienrecibe}
+              handleOnChange={handleOnChange}
+              errors={errors}
+              isShipping={isShipping}
+              containerClassNames="w-full overflow-hidden sm:my-2"
+            />
+          </div>
+          <div className="mb-4 w-full overflow-hidden sm:my-2 md:w-1/2">
+            <div className="flex">
+              <h2 className="text-sm font-bold leading-7 text-[#111]">
+                Teléfono celular (Persona receptora)
+              </h2>
+              <Abbr required />
+            </div>
+            <InputField
+              name="Receptor"
+              type="tel"
+              label=""
+              inputValue={input?.Receptor}
+              handleOnChange={handleOnChange}
+              errors={errors}
+              isShipping={isShipping}
+              containerClassNames="w-full overflow-hidden sm:my-2"
+            />
+          </div>
+        </div>
 
-      {/* Renderiza el componente de municipios correspondiente */}
-      {selectedDepartment === "Bolívar" && (
-        <Bolivar onChange={handleDepartmentChange} />
-      )}
-      {selectedDepartment === "Amazonas" && (
-        <Amazonas onChange={handleDepartmentChange} />
-      )}
-      {selectedDepartment === "Antioquia" && (
-        <Antioquia onChange={handleDepartmentChange} />
-      )}
-      {selectedDepartment === "Arauca" && (
-        <Arauca onChange={handleDepartmentChange} />
-      )}
-      {selectedDepartment === "Boyacá" && (
-        <Boyaca onChange={handleDepartmentChange} />
-      )}
-      {selectedDepartment === "Caldas" && (
-        <Caldas onChange={handleDepartmentChange} />
-      )}
+        <InputField
+          name="Referencia"
+          type="text"
+          label="Lugar de referencia: calle , lugar o punto de
+          indicación para encontrar tu direccion (opcional)"
+          required
+          inputValue={input?.Referencia}
+          handleOnChange={handleOnChange}
+          errors={errors}
+          isShipping={isShipping}
+          containerClassNames="w-full overflow-hidden sm:my-2"
+          classLabel="w-[60%] block 2xl:w-[43%]"
+        />
 
-      {selectedDepartment === "Caquetá" && (
-        <Caqueta onChange={handleDepartmentChange} />
-      )}
+        {!selectedDepartment && (
+          <RecogidaSelection
+            handleShippingFee={handleShippingFee}
+            handleOnChange={handleOnChange}
+          />
+        )}
 
-      {selectedDepartment === "Casanare" && (
-        <Casanare onChange={handleDepartmentChange} />
-      )}
-
-      {selectedDepartment === "Cauca" && (
-        <Cauca onChange={handleDepartmentChange} />
-      )}
-
-      {selectedDepartment === "Cesar" && (
-        <Cesar onChange={handleDepartmentChange} />
-      )}
-
-      {selectedDepartment === "Chocó" && (
-        <Choco onChange={handleDepartmentChange} />
-      )}
-
-      {selectedDepartment === "Córdoba" && (
-        <Cordoba onChange={handleDepartmentChange} />
-      )}
-
-      {selectedDepartment === "Cundinamarca" && (
-        <Cundinamarca onChange={handleDepartmentChange} />
-      )}
-
-      {selectedDepartment === "Bogotá" && (
-        <Bogota onChange={handleDepartmentChange} />
-      )}
-
-      {selectedDepartment === "Guainía" && (
-        <Guainia onChange={handleDepartmentChange} />
-      )}
-
-      {selectedDepartment === "Guaviare" && (
-        <Guaviare onChange={handleDepartmentChange} />
-      )}
-
-      {selectedDepartment === "Huila" && (
-        <Huila onChange={handleDepartmentChange} />
-      )}
-
-      {selectedDepartment === "La Guajira" && (
-        <Guajira onChange={handleDepartmentChange} />
-      )}
-
-      {selectedDepartment === "Magdalena" && (
-        <Magdalena onChange={handleDepartmentChange} />
-      )}
-
-      {selectedDepartment === "Meta" && (
-        <Meta onChange={handleDepartmentChange} />
-      )}
-
-      {selectedDepartment === "Nariño" && (
-        <Narino onChange={handleDepartmentChange} />
-      )}
-
-      {selectedDepartment === "Norte de Santander" && (
-        <NorteDeSantander onChange={handleDepartmentChange} />
-      )}
-
-      {selectedDepartment === "Putumayo" && (
-        <Putumayo onChange={handleDepartmentChange} />
-      )}
-
-      {selectedDepartment === "Quindío" && (
-        <Quindio onChange={handleDepartmentChange} />
-      )}
-
-      {selectedDepartment === "Risaralda" && (
-        <Risaralda onChange={handleDepartmentChange} />
-      )}
-
-      {selectedDepartment === "Santander" && (
-        <Santander onChange={handleDepartmentChange} />
-      )}
-
-      {selectedDepartment === "San Andrés y Providencia" && (
-        <SanAndres onChange={handleDepartmentChange} />
-      )}
-
-      {selectedDepartment === "Sucre" && (
-        <Sucre onChange={handleDepartmentChange} />
-      )}
-
-      {selectedDepartment === "Tolima" && (
-        <Tolima onChange={handleDepartmentChange} />
-      )}
-
-      {selectedDepartment === "Valle del Cauca" && (
-        <ValleDelCauca onChange={handleDepartmentChange} />
-      )}
-
-      {selectedDepartment === "Vaupés" && (
-        <Vaupes onChange={handleDepartmentChange} />
-      )}
-
-      {selectedDepartment === "Vichada" && (
-        <Vichada onChange={handleDepartmentChange} />
-      )}
+        <hr className="my-8 border-[1px] border-[#111] stroke-black"></hr>
+      </div>
     </div>
   );
 };

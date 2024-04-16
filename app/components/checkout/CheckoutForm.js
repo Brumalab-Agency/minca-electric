@@ -19,7 +19,7 @@ import { manrope } from "@/ui/fonts";
 import Link from "next/link";
 
 // Utilice esto con fines de prueba, para que no tenga que completar el formulario de pago una y otra vez.
-const defaultCustomerInfo = {
+/* const defaultCustomerInfo = {
   Nombre: "Lenin",
   Apellido: "Mendoza",
   Direccion1: "Medellín - Antioquia",
@@ -35,9 +35,9 @@ const defaultCustomerInfo = {
   TelefonoTrabajo: "3022222222",
   NumeroIdentificacion: "1147696023",
   errors: null,
-};
+}; */
 
-/* const defaultCustomerInfo = {
+const defaultCustomerInfo = {
    Nombre: "",
   Apellido: "",
   Direccion1: "",
@@ -52,8 +52,20 @@ const defaultCustomerInfo = {
   Nit: "",
   TelefonoTrabajo: "",
   NumeroIdentificacion: "",
+  CiudadesColombia: "",
+  DireccionSamsung1: "",
+  DireccionSamsung2: "",
+  DireccionSamsung3: "",
+  Barrio: "",
+  RecibirInfo:"",
+  AceptarTerminos:"",
+  TratamientoDatos:"",
+  TipoVivienda: "",
+  Referencia:"",
+  Quienrecibe:"",
+  Receptor:"",
   errors: null,
-}; */
+};
 
 // el state o estado del país es parte del componente Pais y este ya tiene sus campos predeterminados
 
@@ -313,10 +325,10 @@ const CheckoutForm = ({ countriesData }) => {
       {cart || (idOrder && temporalCarrito) ? (
         <form
           id="gas"
-          className="woo-next-checkout-form px-4 lg:px-[100px]"
+          className="woo-next-checkout-form px-4 lg:px-[85px]"
           onSubmit={(e) => e.preventDefault()}
         >
-          <div className="grid grid-cols-1 gap-20 md:grid-cols-2">
+          <div className="grid grid-cols-1 gap-10 md:grid-cols-2">
             <div>
               {/*Shipping Details*/}
               <div className="billing-details">
@@ -450,7 +462,7 @@ const CheckoutForm = ({ countriesData }) => {
                 ) : null}
               </div>
 
-              {isOrderProcessing && <p>Procesando orde...</p>}
+              {isOrderProcessing && <p>Procesando orden...</p>}
               {requestError && (
                 <p>Error : {requestError} : Por favor intenta de nuevo</p>
               )}

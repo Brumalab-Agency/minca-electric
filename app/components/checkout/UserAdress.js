@@ -4,6 +4,9 @@ import RecogidaSelection from "./Recogida";
 import TipoIdentificacion from "./TipoIdentificacion";
 import CiudadesColombia from "../ciudadesColombia/CiudadesColombia";
 import { useState } from "react";
+import DireccionSamsung from "../ciudadesColombia/direccion/DireccionSamsung";
+import Abbr from "./fomr-elements/Abbr";
+import TipoViviendaSamsung from "../ciudadesColombia/direccion/TipoViviendaSamsung";
 
 export const UserAdress = ({
   input,
@@ -29,6 +32,7 @@ export const UserAdress = ({
     setMostrarEmpresa(!mostrarEmpresa);
   };
 
+
   return (
     <>
       <InputField
@@ -37,7 +41,7 @@ export const UserAdress = ({
         inputValue={input?.Email}
         required
         handleOnChange={handleOnChange}
-        label="Correo"
+        label="Dirección de correo electrónico"
         errors={errors}
         isShipping={isShipping}
         containerClassNames="mb-4"
@@ -48,7 +52,7 @@ export const UserAdress = ({
           inputValue={input?.Nombre}
           required
           handleOnChange={handleOnChange}
-          label="Nombre"
+          label="Nombres Completos"
           errors={errors}
           isShipping={isShipping}
           containerClassNames="w-full overflow-hidden sm:my-2 sm:px-2 md:w-1/2"
@@ -59,7 +63,7 @@ export const UserAdress = ({
           inputValue={input?.Apellido}
           required
           handleOnChange={handleOnChange}
-          label="Apellido"
+          label="Apellidos Completos"
           errors={errors}
           isShipping={isShipping}
           containerClassNames="w-full overflow-hidden sm:my-2 sm:px-2 md:w-1/2"
@@ -84,103 +88,243 @@ export const UserAdress = ({
           required
           handleOnChange={handleOnChange}
           label="Número (Identificación)"
+          placeholder="#"
           errors={errors}
           isShipping={isShipping}
           containerClassNames="w-full overflow-hidden sm:my-2 md:w-1/2"
         />
       </div>
 
-       {/* Input de tipo check para mostrar/ocultar */}
-       <div className="py-4">
+      {/* Input de tipo check para mostrar/ocultar */}
+      <div className="py-4">
         <input
-          style={{ width: "15px", height: "15px", borderRadius: "50%", marginRight:"10px" }}
+          style={{
+            width: "15px",
+            height: "15px",
+            borderRadius: "50%",
+            marginRight: "10px",
+          }}
           type="checkbox"
           id="mostrarEmpresa"
           name="mostrarEmpresa"
           onChange={handleCheckChange}
         />
-        <label className="text-[20px] font-bold" htmlFor="mostrarEmpresa">¿Eres Empresa?</label>
+        <label className="text-[14px] font-medium" htmlFor="mostrarEmpresa">
+          Compra (Empresa)
+        </label>
       </div>
       {mostrarEmpresa && (
-      <div className="Empresa pb-6">
-        <InputField
-          name="Empresa"
-          inputValue={input?.Empresa}
-          handleOnChange={handleOnChange}
-          label="Empresa (Opcional)"
-          errors={errors}
-          isShipping={isShipping}
-          containerClassNames="mb-4"
-        />
-        <div className="flex gap-4">
+        <div className="Empresa pb-6">
           <InputField
-            name="EmailEmpresa"
-            type="email"
-            inputValue={input?.EmailEmpresa}
+            name="Empresa"
+            inputValue={input?.Empresa}
             handleOnChange={handleOnChange}
-            label="Correo electrónico de la empresa (Opcional)"
+            label="Empresa (Opcional)"
             errors={errors}
             isShipping={isShipping}
-            containerClassNames="w-full overflow-hidden sm:my-2 md:w-1/2"
+            containerClassNames="mb-4"
           />
-          <InputField
-            name="RazonSocial"
-            inputValue={input?.RazonSocial}
-            handleOnChange={handleOnChange}
-            label="Razon Social (Opcional)"
-            errors={errors}
-            isShipping={isShipping}
-            containerClassNames="w-full overflow-hidden sm:my-2 md:w-1/2"
-          />
+          <div className="flex gap-4">
+            <InputField
+              name="EmailEmpresa"
+              type="email"
+              inputValue={input?.EmailEmpresa}
+              handleOnChange={handleOnChange}
+              label="Correo electrónico de la empresa (Opcional)"
+              errors={errors}
+              isShipping={isShipping}
+              containerClassNames="w-full overflow-hidden sm:my-2 md:w-1/2"
+            />
+            <InputField
+              name="RazonSocial"
+              inputValue={input?.RazonSocial}
+              handleOnChange={handleOnChange}
+              label="Razon Social (Opcional)"
+              errors={errors}
+              isShipping={isShipping}
+              containerClassNames="w-full overflow-hidden sm:my-2 md:w-1/2"
+            />
+          </div>
+          <div className="flex gap-4">
+            <InputField
+              name="Nit"
+              type="tel"
+              inputValue={input?.Nit}
+              handleOnChange={handleOnChange}
+              label="NIT (Opcional)"
+              errors={errors}
+              isShipping={isShipping}
+              containerClassNames="w-full overflow-hidden sm:my-2 md:w-1/2"
+            />
+            <InputField
+              name="TelefonoTrabajo"
+              type="tel"
+              inputValue={input?.TelefonoTrabajo}
+              handleOnChange={handleOnChange}
+              label="Número de teléfono del trabajo (Opcional)"
+              errors={errors}
+              isShipping={isShipping}
+              containerClassNames="w-full overflow-hidden sm:my-2 md:w-1/2"
+            />
+          </div>
         </div>
-        <div className="flex gap-4">
-          <InputField
-            name="Nit"
-            type="tel"
-            inputValue={input?.Nit}
-            handleOnChange={handleOnChange}
-            label="NIT (Opcional)"
-            errors={errors}
-            isShipping={isShipping}
-            containerClassNames="w-full overflow-hidden sm:my-2 md:w-1/2"
-          />
-          <InputField
-            name="TelefonoTrabajo"
-            type="tel"
-            inputValue={input?.TelefonoTrabajo}
-            handleOnChange={handleOnChange}
-            label="Número de teléfono del trabajo (Opcional)"
-            errors={errors}
-            isShipping={isShipping}
-            containerClassNames="w-full overflow-hidden sm:my-2 md:w-1/2"
-          />
-        </div>
-      </div>
       )}
-      <div><p className="text-[20px] font-bold">Datos de envio</p></div>
+      <hr className="my-4 border-[1px] border-[#111] stroke-black"></hr>
+      <div>
+        <p className="text-[20px] font-bold">Datos de envío</p>
+      </div>
       {/*  Ciudades de Colombia*/}
       <CiudadesColombia
+        inputValue={input?.CiudadesColombia}
+        input={input}
         handleOnChange={handleOnChange}
         setFormIsValid={setFormIsValid}
+        isShipping={isShipping}
       />
-       <InputField
+      {/* <div>
+        <div className="flex">
+          <h2 className="text-sm font-bold leading-7 text-[#111]">Dirección</h2>
+          <Abbr required />
+        </div>
+        <div className="relative w-full overflow-hidden ">
+          <DireccionSamsung
+            inputValue={input?.CiudadesColombia}
+            handleOnChange={handleOnChange}
+            setFormIsValid={setFormIsValid}
+            isShipping={isShipping}
+          />
+          <div className="flex items-center gap-3">
+            <InputField
+              name="DireccionSamsung1"
+              type="text"
+              inputValue={input?.DireccionSamsung1}
+              handleOnChange={handleOnChange}
+              errors={errors}
+              isShipping={isShipping}
+              containerClassNames="w-full overflow-hidden sm:my-2 md:w-1/2"
+            />
+            <span className="text-base font-bold">#</span>
+            <InputField
+              name="DireccionSamsung2"
+              type="text"
+              inputValue={input?.DireccionSamsung2}
+              handleOnChange={handleOnChange}
+              errors={errors}
+              isShipping={isShipping}
+              containerClassNames="w-full overflow-hidden sm:my-2 md:w-1/2"
+            />
+            <span className="text-base font-bold">-</span>
+            <InputField
+              name="DireccionSamsung3"
+              type="text"
+              inputValue={input?.DireccionSamsung3}
+              handleOnChange={handleOnChange}
+              errors={errors}
+              isShipping={isShipping}
+              containerClassNames="w-full overflow-hidden sm:my-2 md:w-1/2"
+            />
+          </div>
+        </div>
+        <div className="flex gap-3">
+          <InputField
+            name="Barrio"
+            type="text"
+            label="Barrio"
+            required
+            inputValue={input?.Barrio}
+            handleOnChange={handleOnChange}
+            errors={errors}
+            isShipping={isShipping}
+            containerClassNames="w-full overflow-hidden sm:my-2 md:w-1/2"
+          />
+          <div className="mb-4 w-full overflow-hidden sm:my-2 md:w-1/2">
+            <div className="flex">
+              <h2 className="text-sm font-bold leading-7 text-[#111]">
+                Tipo de Inmueble
+              </h2>
+              <Abbr required />
+            </div>
+            <TipoViviendaSamsung
+              inputValue={input?.TipoViviendaSamsung}
+              handleOnChange={handleOnChange}
+              setFormIsValid={setFormIsValid}
+              isShipping={isShipping}
+            />
+          </div>
+        </div>
+        <div className="flex gap-3">
+          <div className="mb-4 w-full overflow-hidden sm:my-2 md:w-1/2">
+            <div className="flex">
+              <h2 className="text-sm font-bold leading-7 text-[#111]">
+                Nombre de la persona que recibe
+              </h2>
+              <Abbr required />
+            </div>
+            <InputField
+              name="Quienrecibe"
+              type="text"
+              label=""
+              inputValue={input?.Quienrecibe}
+              handleOnChange={handleOnChange}
+              errors={errors}
+              isShipping={isShipping}
+              containerClassNames="w-full overflow-hidden sm:my-2"
+            />
+          </div>
+          <div className="mb-4 w-full overflow-hidden sm:my-2 md:w-1/2">
+            <div className="flex">
+              <h2 className="text-sm font-bold leading-7 text-[#111]">
+                Teléfono celular (Persona receptora)
+              </h2>
+              <Abbr required />
+            </div>
+            <InputField
+              name="Receptor"
+              type="tel"
+              label=""
+              inputValue={input?.Receptor}
+              handleOnChange={handleOnChange}
+              errors={errors}
+              isShipping={isShipping}
+              containerClassNames="w-full overflow-hidden sm:my-2"
+            />
+          </div>
+        </div>
+
+        <InputField
+          name="Referencia"
+          type="text"
+          label="Lugar de referencia: calle , lugar o punto de
+          indicación para encontrar tu direccion (opcional)"
+          required
+          inputValue={input?.Referencia}
+          handleOnChange={handleOnChange}
+          errors={errors}
+          isShipping={isShipping}
+          containerClassNames="w-full overflow-hidden sm:my-2"
+          classLabel="w-[60%] block 2xl:w-[43%]"
+        />
+
+        <RecogidaSelection
+          handleShippingFee={handleShippingFee}
+          handleOnChange={handleOnChange}
+        />
+        <hr className="my-8 border-[1px] border-[#111] stroke-black"></hr>
+      </div> */}
+      {/* <InputField
         name="Direccion1"
         inputValue={input?.Direccion1}
         required
         handleOnChange={handleOnChange}
-        label="Agrega la dirección de tu Localidad ó Municipio"
-        placeholder="Dirección de tu Localidad ó Municipio"
+        label="Municipio"
+        placeholder="Por favor seleccione"
         errors={errors}
         isShipping={isShipping}
-        containerClassNames="mb-4"
-      />
+        containerClassNames="mb-4 w-full overflow-hidden sm:my-2 md:w-1/2"
+      /> */}
       {/* Sitio de recogida */}
-      <RecogidaSelection
-        handleShippingFee={handleShippingFee}
-        handleOnChange={handleOnChange}
-      />
-     
-      <InputField
+
+      {/* <InputField
         name="Direccion2"
         required
         inputValue={input?.Direccion2}
@@ -190,10 +334,93 @@ export const UserAdress = ({
         errors={errors}
         isShipping={isShipping}
         containerClassNames="mb-4"
-      />
-     
+      /> */}
 
-      
+      {/* <div className="flex gap-3">
+        <InputField
+          name="Barrio"
+          type="text"
+          label="Barrio"
+          required
+          inputValue={input?.Barrio}
+          handleOnChange={handleOnChange}
+          errors={errors}
+          isShipping={isShipping}
+          containerClassNames="w-full overflow-hidden sm:my-2 md:w-1/2"
+        />
+        <div className="mb-4 w-full overflow-hidden sm:my-2 md:w-1/2">
+          <div className="flex">
+            <h2 className="text-sm font-bold leading-7 text-[#111]">
+              Tipo de Inmueble
+            </h2>
+            <Abbr required />
+          </div>
+          <TipoViviendaSamsung
+            inputValue={input?.TipoViviendaSamsung}
+            handleOnChange={handleOnChange}
+            setFormIsValid={setFormIsValid}
+            isShipping={isShipping}
+          />
+        </div>
+      </div>
+      <div className="flex gap-3">
+        <div className="mb-4 w-full overflow-hidden sm:my-2 md:w-1/2">
+          <div className="flex">
+            <h2 className="text-sm font-bold leading-7 text-[#111]">
+              Nombre de la persona que recibe
+            </h2>
+            <Abbr required />
+          </div>
+          <InputField
+            name="Quienrecibe"
+            type="text"
+            label=""
+            inputValue={input?.Quienrecibe}
+            handleOnChange={handleOnChange}
+            errors={errors}
+            isShipping={isShipping}
+            containerClassNames="w-full overflow-hidden sm:my-2"
+          />
+        </div>
+        <div className="mb-4 w-full overflow-hidden sm:my-2 md:w-1/2">
+          <div className="flex">
+            <h2 className="text-sm font-bold leading-7 text-[#111]">
+              Teléfono celular (Persona receptora)
+            </h2>
+            <Abbr required />
+          </div>
+          <InputField
+            name="Receptor"
+            type="tel"
+            label=""
+            inputValue={input?.Receptor}
+            handleOnChange={handleOnChange}
+            errors={errors}
+            isShipping={isShipping}
+            containerClassNames="w-full overflow-hidden sm:my-2"
+          />
+        </div>
+      </div>
+
+      <InputField
+        name="Referencia"
+        type="text"
+        label="Lugar de referencia: calle , lugar o punto de
+          indicación para encontrar tu direccion (opcional)"
+        required
+        inputValue={input?.Referencia}
+        handleOnChange={handleOnChange}
+        errors={errors}
+        isShipping={isShipping}
+        containerClassNames="w-full overflow-hidden sm:my-2"
+        classLabel="w-[60%] block 2xl:w-[43%]"
+      />
+
+      <RecogidaSelection
+        handleShippingFee={handleShippingFee}
+        handleOnChange={handleOnChange}
+      />
+      <hr className="my-8 border-[1px] border-[#111] stroke-black"></hr> */}
       {/* Campos Checkbox */}
       <InputField
         name="RecibirInfo"
@@ -205,7 +432,7 @@ export const UserAdress = ({
         errors={errors}
         isShipping={isShipping}
         containerClassNames="mb-4 flex items-center"
-        classInput="w-[3%] order-first mr-2 claseCheckBoxFormCheckOut" 
+        classInput="w-[3%] order-first mr-2 claseCheckBoxFormCheckOut"
         classLabel="grow"
       />
 
@@ -220,7 +447,7 @@ export const UserAdress = ({
         errors={errors}
         isShipping={isShipping}
         containerClassNames="mb-4 flex items-center"
-        classInput="w-[3%] order-first mr-2 claseCheckBoxFormCheckOut" 
+        classInput="w-[3%] order-first mr-2 claseCheckBoxFormCheckOut"
         classLabel="grow"
       />
       <InputField
@@ -234,10 +461,9 @@ export const UserAdress = ({
         errors={errors}
         isShipping={isShipping}
         containerClassNames="mb-4 flex items-center"
-        classInput="w-[3%] order-first mr-2 claseCheckBoxFormCheckOut" 
+        classInput="w-[3%] order-first mr-2 claseCheckBoxFormCheckOut"
         classLabel="grow"
       />
-      
 
       {/*	@TODO Create an Account */}
       {/*<div className="form-check">*/}
