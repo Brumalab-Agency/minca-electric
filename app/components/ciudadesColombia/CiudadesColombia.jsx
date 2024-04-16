@@ -47,7 +47,6 @@ const CiudadesColombia = ({
   input,
   isShipping,
   errors,
-  handleShippingFee,
 }) => {
   const [selectedCity, setSelectedCity] = useState("");
   const [selectedDepartment, setSelectedDepartment] = useState("");
@@ -110,6 +109,16 @@ const CiudadesColombia = ({
   };
 
   const cities = Object.keys(cityDepartmentMapping);
+
+  const handleShippingFee = (fee) => {
+    // Lógica para agregar el cargo adicional al carrito
+    const newCartItem = { name: "Cargo de envío", price: fee };
+    setCart([...cart, newCartItem]);
+  };
+
+  const handleCheckChange = () => {
+    setMostrarEmpresa(!mostrarEmpresa);
+  };
 
   return (
     <div>
@@ -352,12 +361,20 @@ const CiudadesColombia = ({
           classLabel="w-[60%] block 2xl:w-[43%]"
         />
 
-        {!selectedDepartment && (
+        {selectedDepartment === "" && selectedCity !== "Bogotá" && (
           <RecogidaSelection
             handleShippingFee={handleShippingFee}
             handleOnChange={handleOnChange}
           />
         )}
+        {selectedDepartment === "" && selectedCity === "Bogotá" && (
+          <CampoVacio />
+        )}
+
+       {/*  <RecogidaSelection
+          handleShippingFee={handleShippingFee}
+          handleOnChange={handleOnChange}
+        /> */}
 
         <hr className="my-8 border-[1px] border-[#111] stroke-black"></hr>
       </div>

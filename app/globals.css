@@ -733,3 +733,85 @@ button.image-gallery-thumbnail {
 .claseCheckBoxFormCheckOut{
   width: 2% !important;
 }
+
+/* Estilo a inputs tipo checkbox para el formulario de pago */
+
+/* Estilos para ocultar el checkbox original */
+.radio-input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+/* Estilo para el radio personalizado */
+.radio-custom {
+  position: relative;
+  top: 0;
+  left: 0;
+  height: 15px;
+  width: 15px;
+  background-color: #000;
+  border: 2px solid #000;
+  border-radius: 50%;
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 10px;
+}
+
+/* Estilo para el punto blanco interno */
+.radio-custom::after {
+  content: "";
+  position: absolute;
+  display: block;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background-color: #fff;
+}
+
+/* Estilo para el radio cuando está seleccionado */
+.radio-input:checked ~ .radio-custom {
+  background-color: #a8a8a8;
+  border-color: #a8a8a8;
+}
+
+/* Estilo para el punto negro interno cuando está seleccionado */
+.radio-input:checked ~ .radio-custom::after {
+  background-color: #000;
+}
+
+/* **** */
+
+.custom-checkbox {
+  width: 30px;
+  height: 30px;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  border: 2px solid #000;
+  border-radius: 4px;
+  position: relative;
+  outline: none;
+  cursor: pointer;
+}
+
+.custom-checkbox:checked {
+  background-color: #000;
+}
+
+.custom-checkbox:checked::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 16px;
+  height: 16px;
+  background-color: #fff;
+  border-radius: 2px;
+}
