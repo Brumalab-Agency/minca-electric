@@ -32,7 +32,6 @@ export const UserAdress = ({
     setMostrarEmpresa(!mostrarEmpresa);
   };
 
-
   return (
     <>
       <InputField
@@ -96,7 +95,7 @@ export const UserAdress = ({
       </div>
 
       {/* Input de tipo check para mostrar/ocultar */}
-      <div className="py-4">
+      {/* <div className="py-4">
         <input
           style={{
             width: "15px",
@@ -110,6 +109,19 @@ export const UserAdress = ({
           onChange={handleCheckChange}
         />
         <label className="text-[14px] font-medium" htmlFor="mostrarEmpresa">
+          Compra (Empresa)
+        </label>
+      </div> */}
+      <div className="flex items-center py-4">
+        <label className="radio-container text-[14px] font-medium">
+          <input
+            type="checkbox"
+            id="mostrarEmpresa"
+            name="mostrarEmpresa"
+            onChange={handleCheckChange}
+            className="radio-input"
+          />
+          <span className="radio-custom"></span>
           Compra (Empresa)
         </label>
       </div>
@@ -432,7 +444,7 @@ export const UserAdress = ({
         errors={errors}
         isShipping={isShipping}
         containerClassNames="mb-4 flex items-center"
-        classInput="w-[3%] order-first mr-2 claseCheckBoxFormCheckOut"
+        classInput="w-[5%] h-[5%] order-first mr-2 claseCheckBoxFormCheckOut"
         classLabel="grow"
       />
 
@@ -447,7 +459,7 @@ export const UserAdress = ({
         errors={errors}
         isShipping={isShipping}
         containerClassNames="mb-4 flex items-center"
-        classInput="w-[3%] order-first mr-2 claseCheckBoxFormCheckOut"
+        classInput="w-[5%] h-[5%] order-first mr-2 claseCheckBoxFormCheckOut"
         classLabel="grow"
       />
       <InputField
@@ -461,7 +473,7 @@ export const UserAdress = ({
         errors={errors}
         isShipping={isShipping}
         containerClassNames="mb-4 flex items-center"
-        classInput="w-[3%] order-first mr-2 claseCheckBoxFormCheckOut"
+        classInput="w-[5%] h-[5%] order-first mr-2 claseCheckBoxFormCheckOut"
         classLabel="grow"
       />
 
