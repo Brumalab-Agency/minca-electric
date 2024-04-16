@@ -1,5 +1,5 @@
-import React from 'react';
-import ArrowDown from '../checkout/iconCheckOut/ArrowDown';
+import React from "react";
+import ArrowDown from "../checkout/iconCheckOut/ArrowDown";
 
 const CitySelect = ({ cities, onChange }) => {
   return (
@@ -7,18 +7,21 @@ const CitySelect = ({ cities, onChange }) => {
       <div className="relative w-full border-none">
         <select
           name="Ciudad"
-          className="inline-block w-full appearance-none rounded border border-gray-400 bg-gray-100 bg-opacity-50 py-3 pl-3 pr-8 leading-tight text-gray-500"
+          className="inline-block w-full appearance-none rounded border border-[#F0F1EB] bg-white bg-opacity-50 py-3 pl-3 pr-8 leading-tight text-gray-500 font-light text-[14px]"
           id="city-select"
           onChange={onChange}
         >
-          <option value="">Selecciona un Estado...</option>
+          <option value="">Por favor seleccione</option>
           {cities.map((city, index) => (
             <option key={index} value={city}>
               {city}
             </option>
           ))}
         </select>
-        <span className="absolute right-0 mr-1 text-gray-500" style={{ top: "25%" }}>
+        <span
+          className="absolute right-0 mr-1 text-[#111]"
+          style={{ top: "25%" }}
+        >
           <ArrowDown width={24} height={24} className="fill-current" />
         </span>
       </div>

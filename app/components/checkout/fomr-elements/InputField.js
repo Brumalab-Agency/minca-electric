@@ -20,7 +20,7 @@ const InputField = ({
 
   return (
     <div className={containerClassNames}>
-      <label className={`text-sm leading-7 text-gray-700 ${classLabel}`} htmlFor={inputId}>
+      <label className={`text-sm leading-7 text-[#111] font-bold ${classLabel}`} htmlFor={inputId}>
         {label || ""}
         <Abbr required={required} />
       </label>
@@ -31,7 +31,7 @@ const InputField = ({
         type={type}
         name={name}
         required={required}
-        className={`w-full rounded border border-[#F0F1EB] bg-gray-100 bg-opacity-50 px-3 py-[5px] text-base leading-8 text-gray-800 outline-none transition-colors duration-200 ease-in-out focus:border-slate-500 focus:bg-transparent focus:ring-2 focus:ring-slate-200 ${classInput}`}
+        className={`w-full rounded border border-[#F0F1EB] bg-white bg-opacity-50 px-3 py-[5px] text-base leading-8 text-gray-800 outline-none transition-colors duration-200 ease-in-out focus:border-slate-500 focus:bg-transparent focus:ring-2 focus:ring-slate-200 ${classInput} placeholder:text-[14px]`}
         id={inputId}
       />
       <Error errors={errors} fieldName={name} />
