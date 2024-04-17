@@ -7,6 +7,7 @@ import { useState } from "react";
 import DireccionSamsung from "../ciudadesColombia/direccion/DireccionSamsung";
 import Abbr from "./fomr-elements/Abbr";
 import TipoViviendaSamsung from "../ciudadesColombia/direccion/TipoViviendaSamsung";
+import InputCustomField from "./fomr-elements/InputCustomField";
 
 export const UserAdress = ({
   input,
@@ -54,7 +55,7 @@ export const UserAdress = ({
           label="Nombres Completos"
           errors={errors}
           isShipping={isShipping}
-          containerClassNames="w-full overflow-hidden sm:my-2 sm:px-2 md:w-1/2"
+          containerClassNames="w-full overflow-hidden sm:my-2 sm:px-2 md:w-1/2 mb-4"
         />
 
         <InputField
@@ -65,7 +66,7 @@ export const UserAdress = ({
           label="Apellidos Completos"
           errors={errors}
           isShipping={isShipping}
-          containerClassNames="w-full overflow-hidden sm:my-2 sm:px-2 md:w-1/2"
+          containerClassNames="w-full overflow-hidden sm:my-2 sm:px-2 md:w-1/2 mb-4"
         />
       </div>
       <InputField
@@ -77,9 +78,9 @@ export const UserAdress = ({
         label="Teléfono Celular"
         errors={errors}
         isShipping={isShipping}
-        containerClassNames="w-full overflow-hidden sm:my-2 md:w-full"
+        containerClassNames="w-full overflow-hidden sm:my-2 md:w-full mb-4"
       />
-      <div className="flex gap-4">
+      <div className="flex gap-4 mb-4">
         <TipoIdentificacion />
         <InputField
           name="NumeroIdentificacion"
@@ -95,23 +96,6 @@ export const UserAdress = ({
       </div>
 
       {/* Input de tipo check para mostrar/ocultar */}
-      {/* <div className="py-4">
-        <input
-          style={{
-            width: "15px",
-            height: "15px",
-            borderRadius: "50%",
-            marginRight: "10px",
-          }}
-          type="checkbox"
-          id="mostrarEmpresa"
-          name="mostrarEmpresa"
-          onChange={handleCheckChange}
-        />
-        <label className="text-[14px] font-medium" htmlFor="mostrarEmpresa">
-          Compra (Empresa)
-        </label>
-      </div> */}
       <div className="flex items-center py-4">
         <label className="radio-container text-[14px] font-medium">
           <input
@@ -190,6 +174,7 @@ export const UserAdress = ({
         inputValue={input?.CiudadesColombia}
         input={input}
         handleOnChange={handleOnChange}
+        handleShippingFee={handleShippingFee}
         setFormIsValid={setFormIsValid}
         isShipping={isShipping}
       />
@@ -434,49 +419,49 @@ export const UserAdress = ({
       />
       <hr className="my-8 border-[1px] border-[#111] stroke-black"></hr> */}
       {/* Campos Checkbox */}
-      <InputField
-        name="RecibirInfo"
-        type="checkbox"
-        inputValue={input?.RecibirInfo ? "Sí" : "No"}
-        handleOnChange={handleOnChange}
-        label="Me gustaría recibir información sobre ofertas y promociones de MINCA"
-        placeholder=""
-        errors={errors}
-        isShipping={isShipping}
-        containerClassNames="mb-4 flex items-center"
-        classInput="w-[5%] h-[5%] order-first mr-2 claseCheckBoxFormCheckOut"
-        classLabel="grow"
+     {/*  <InputCustomField
+      name="RecibirInfo"
+      type="checkbox"
+      inputValue={input?.RecibirInfo ? "Sí" : "No"}
+      handleOnChange={handleOnChange}
+      label="Me gustaría recibir información sobre ofertas y promociones de MINCA"
+      placeholder=""
+      errors={errors}
+      isShipping={isShipping}
+      containerClassNames="mb-4 flex items-center"
+      classInput="w-[5%] h-[5%] order-first mr-2 claseCheckBoxFormCheckOut"
+      classLabel="grow"
       />
 
-      <InputField
-        name="AceptarTerminos"
-        required
-        type="checkbox"
-        inputValue={input?.AceptarTerminos ? "Sí" : "No"}
-        handleOnChange={handleOnChange}
-        label="Acepto los Términos y condiciones"
-        placeholder=""
-        errors={errors}
-        isShipping={isShipping}
-        containerClassNames="mb-4 flex items-center"
-        classInput="w-[5%] h-[5%] order-first mr-2 claseCheckBoxFormCheckOut"
-        classLabel="grow"
+      <InputCustomField
+      name="AceptarTerminos"
+      required
+      type="checkbox"
+      inputValue={input?.AceptarTerminos ? "Sí" : "No"}
+      handleOnChange={handleOnChange}
+      label="Acepto los Términos y condiciones"
+      placeholder=""
+      errors={errors}
+      isShipping={isShipping}
+      containerClassNames="mb-4 flex items-center"
+      classInput="w-[5%] h-[5%] order-first mr-2 claseCheckBoxFormCheckOut" 
+      classLabel="grow"
       />
-      <InputField
-        name="TratamientoDatos"
-        required
-        type="checkbox"
-        inputValue={input?.TratamientoDatos ? "Sí" : "No"}
-        handleOnChange={handleOnChange}
-        label="Autorizo el tratamiento de mis datos personales , con las siguientes condiciones."
-        placeholder=""
-        errors={errors}
-        isShipping={isShipping}
-        containerClassNames="mb-4 flex items-center"
-        classInput="w-[5%] h-[5%] order-first mr-2 claseCheckBoxFormCheckOut"
-        classLabel="grow"
+      <InputCustomField
+       name="TratamientoDatos"
+       required
+       type="checkbox"
+       inputValue={input?.TratamientoDatos ? "Sí" : "No"}
+       handleOnChange={handleOnChange}
+       label="Autorizo el tratamiento de mis datos personales , con las siguientes condiciones."
+       placeholder=""
+       errors={errors}
+       isShipping={isShipping}
+       containerClassNames="mb-4 flex items-center"
+       classInput="w-[5%] h-[5%] order-first mr-2 claseCheckBoxFormCheckOut"
+       classLabel="grow"
       />
-
+ */}
       {/*	@TODO Create an Account */}
       {/*<div className="form-check">*/}
       {/*	<label className="leading-7 text-sm text-gray-600" className="form-check-label">*/}

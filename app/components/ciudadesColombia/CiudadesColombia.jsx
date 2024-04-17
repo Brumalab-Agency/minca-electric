@@ -46,6 +46,7 @@ const CiudadesColombia = ({
   setFormIsValid,
   input,
   isShipping,
+  handleShippingFee,
   errors,
 }) => {
   const [selectedCity, setSelectedCity] = useState("");
@@ -109,12 +110,7 @@ const CiudadesColombia = ({
   };
 
   const cities = Object.keys(cityDepartmentMapping);
-
-  const handleShippingFee = (fee) => {
-    // Lógica para agregar el cargo adicional al carrito
-    const newCartItem = { name: "Cargo de envío", price: fee };
-    setCart([...cart, newCartItem]);
-  };
+;
 
   const handleCheckChange = () => {
     setMostrarEmpresa(!mostrarEmpresa);
@@ -131,7 +127,7 @@ const CiudadesColombia = ({
         </div>
         <CitySelect cities={cities} onChange={handleCityChange} />
         <div className="flex">
-          <h2 className="text-sm font-bold leading-7 text-[#111]">Municipio</h2>
+          <h2 className="text-sm font-bold leading-7 text-[#111] ">Municipio</h2>
           <Abbr required />
         </div>
         {!selectedDepartment && <CampoVacio />}
@@ -242,7 +238,7 @@ const CiudadesColombia = ({
           <h2 className="text-sm font-bold leading-7 text-[#111]">Dirección</h2>
           <Abbr required />
         </div>
-        <div className="relative w-full overflow-hidden ">
+        <div className="relative w-full overflow-hidden mb-4">
           <DireccionSamsung
             inputValue={input?.CiudadesColombia}
             handleOnChange={handleOnChange}
@@ -357,21 +353,19 @@ const CiudadesColombia = ({
           handleOnChange={handleOnChange}
           errors={errors}
           isShipping={isShipping}
-          containerClassNames="w-full overflow-hidden sm:my-2"
-          classLabel="w-[60%] block 2xl:w-[43%]"
+          containerClassNames="w-full overflow-hidden sm:my-2 mb-4"
+          classLabel="w-full lg:w-[60%] block 2xl:w-[43%]"
         />
 
-        {selectedDepartment === "" && selectedCity !== "Bogotá" && (
+        {selectedDepartment === "Bogotá" && (
           <RecogidaSelection
             handleShippingFee={handleShippingFee}
             handleOnChange={handleOnChange}
           />
         )}
-        {selectedDepartment === "" && selectedCity === "Bogotá" && (
-          <CampoVacio />
-        )}
+        {selectedDepartment !== "Bogotá" && <CampoVacio />}
 
-       {/*  <RecogidaSelection
+        {/*  <RecogidaSelection
           handleShippingFee={handleShippingFee}
           handleOnChange={handleOnChange}
         /> */}

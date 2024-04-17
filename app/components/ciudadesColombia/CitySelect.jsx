@@ -3,7 +3,7 @@ import ArrowDown from "../checkout/iconCheckOut/ArrowDown";
 
 const CitySelect = ({ cities, onChange }) => {
   return (
-    <div id="Ciudad" className="mb-3">
+    <div id="Ciudad" className="mb-4">
       <div className="relative w-full border-none">
         <select
           name="Ciudad"

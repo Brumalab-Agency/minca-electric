@@ -12,7 +12,7 @@ const DireccionSamsung = ({ onChange }) => {
   ];
 
   return (
-    <div className='relative sm:mb-2 md:w-1/2 '>
+    <div className='relative sm:mb-2 md:w-1/2 mb-4'>
         <select
           data-automation-id="address.line2"
           id="DireccionSamsungTipoVivienda"

@@ -159,6 +159,25 @@ button.\!absolute.top-2\/4.right-4.-translate-y-2\/4.rounded-full.select-none.tr
   animation: scaleUp 200ms esase-in forwards;
 }
 
+/* Estilos para input en el formulario de pago */
+
+.inputTypeCheckbox{
+  display: none;
+}
+
+.spanTypeCheckbox{
+
+  height: 20px !important;
+  width: 20px !important;
+
+}
+
+.spanTypeCheckbox::after{
+
+  left: 1em;
+
+}
+
 }
 
 @media only screen and (min-width: 768px) and (max-width:2500px) {
