@@ -17,6 +17,8 @@ import {
 } from "@/utils/checkout/utilsCheckout";
 import { manrope } from "@/ui/fonts";
 import Link from "next/link";
+import { uploadOrder } from "@/lib/graphQLRequest";
+import { sendEmailWithBill } from "./EmailStucture"
 
 // Utilice esto con fines de prueba, para que no tenga que completar el formulario de pago una y otra vez.
 /* const defaultCustomerInfo = {
@@ -152,8 +154,18 @@ const CheckoutForm = ({ countriesData }) => {
     setTemporalCarrito(cart);
 
     const formEl = document.querySelector("#gas");
-    alert("Formulario enviado");
     const formData = new FormData(formEl);
+
+     /* // Pass the input directly to the uploadOrder function
+     try {
+      await uploadOrder(formData); // Assuming 'formData' represents your input
+      alert("Formulario enviado");
+  } catch (error) {
+      console.error("Error uploading order:", error);
+      alert("Error al enviar el formulario");
+      return; // Stop further execution if there's an error uploading the order
+  } */
+
     fetch(
       "https://script.google.com/macros/s/AKfycby94az2J5ToSKdvjDSrk8LUb6RV7YXV4Nx3j5o34Lsl_Z3yPpn58nmv3B07LQ487Zuc/exec",
       {
@@ -166,6 +178,17 @@ const CheckoutForm = ({ countriesData }) => {
         console.log(data);
       })
       .catch((error) => console.log(error));
+    
+     /*  // Send email with bill
+    try {
+      await sendEmailWithBill(formData); // Assuming 'formData' contains necessary data for the bill
+      console.log('Email sent successfully');
+  } catch (error) {
+      console.error("Error sending email with bill:", error);
+      alert("Error al enviar el correo con la factura");
+      return; // Stop further execution if there's an error sending the email
+  } */
+
     /**
      * Validar Detalles de Facturación y Envío
      *

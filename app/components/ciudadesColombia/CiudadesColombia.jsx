@@ -361,20 +361,15 @@ const CiudadesColombia = ({
           classLabel="w-[60%] block 2xl:w-[43%]"
         />
 
-        {selectedDepartment === "" && selectedCity !== "Bogotá" && (
+        {selectedDepartment === "Bogotá" && (
           <RecogidaSelection
             handleShippingFee={handleShippingFee}
             handleOnChange={handleOnChange}
           />
         )}
-        {selectedDepartment === "" && selectedCity === "Bogotá" && (
+        {selectedDepartment !== "Bogotá" && (
           <CampoVacio />
         )}
-
-       {/*  <RecogidaSelection
-          handleShippingFee={handleShippingFee}
-          handleOnChange={handleOnChange}
-        /> */}
 
         <hr className="my-8 border-[1px] border-[#111] stroke-black"></hr>
       </div>

@@ -41,6 +41,7 @@
     "mercadopago": "^2.0.8",
     "micro": "^10.0.1",
     "next": "14.1.4",
+    "nodemailer": "^6.9.13",
     "npm-check-updates": "^16.14.18",
     "prop-types": "^15.8.1",
     "react": "^18",

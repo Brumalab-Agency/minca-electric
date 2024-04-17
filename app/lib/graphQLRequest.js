@@ -901,3 +901,42 @@ export const AccesoriosPage = async () => {
     throw new Error("Error fetching accesorios");
   }
 };
+
+/* POST Requests*/
+export const fetchOrders = async (query, varibales) => {
+  const res = await fetch(`${process.env.NEXT_PUBLIC_GRAPHQL_ENDPOINT}`, {
+    method: 'POST',
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify({
+      query,
+      varibales,
+    }),
+  });
+  const { data } = await res.json();
+
+  return data
+}
+
+/* Upload Order */
+export const uploadOrder = async (input) => {
+  const query = `
+  /* mutation uploadOrders {
+    createOrder(
+      input: {billing: {address1: "${input}", city: "${input}", country: ${input}, email: "${input}", firstName: "${input}", lastName: "${input}", phone: "${input}"}, shipping: {address1: "${input}", city: "${input}", country: ${input}, firstName: "${input}", lastName: "${input}", phone: "${input}", email: "${input}"}}
+    ) {
+      clientMutationId
+      orderId
+    }
+  }
+  } */
+  `;
+  try {
+    const { createOrder: { order } } = await fetchOrders(query, { input });
+    return order;
+  } catch (error) {
+    console.error("Error creating order:", error);
+    throw new Error("Error creating order");
+  }
+};
