@@ -797,7 +797,7 @@ button.image-gallery-thumbnail {
 
 /* Estilo para el punto negro interno cuando está seleccionado */
 .radio-input:checked ~ .radio-custom::after {
-  background-color: #000;
+  background-color: #111;
 }
 
 /* **** */

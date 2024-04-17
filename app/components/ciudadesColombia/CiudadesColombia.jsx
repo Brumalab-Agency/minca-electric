@@ -46,7 +46,6 @@ const CiudadesColombia = ({
   setFormIsValid,
   input,
   isShipping,
-  handleShippingFee,
   errors,
 }) => {
   const [selectedCity, setSelectedCity] = useState("");
@@ -92,7 +91,6 @@ const CiudadesColombia = ({
     const cityValue = event.target.value;
     setSelectedCity(cityValue);
 
-    // Set the selected department based on the selected city
     if (cityDepartmentMapping[cityValue]) {
       setSelectedDepartment(cityDepartmentMapping[cityValue]);
     } else {
@@ -248,7 +246,7 @@ const CiudadesColombia = ({
           <div className="flex items-center gap-3">
             <InputField
               name="DireccionSamsung1"
-              type="text"
+              type="number"
               inputValue={input?.DireccionSamsung1}
               handleOnChange={handleOnChange}
               errors={errors}
@@ -258,7 +256,7 @@ const CiudadesColombia = ({
             <span className="text-base font-bold">#</span>
             <InputField
               name="DireccionSamsung2"
-              type="text"
+              type="number"
               inputValue={input?.DireccionSamsung2}
               handleOnChange={handleOnChange}
               errors={errors}
@@ -268,7 +266,7 @@ const CiudadesColombia = ({
             <span className="text-base font-bold">-</span>
             <InputField
               name="DireccionSamsung3"
-              type="text"
+              type="number"
               inputValue={input?.DireccionSamsung3}
               handleOnChange={handleOnChange}
               errors={errors}
@@ -348,7 +346,6 @@ const CiudadesColombia = ({
           type="text"
           label="Lugar de referencia: calle , lugar o punto de
           indicación para encontrar tu direccion (opcional)"
-          required
           inputValue={input?.Referencia}
           handleOnChange={handleOnChange}
           errors={errors}
@@ -359,7 +356,6 @@ const CiudadesColombia = ({
 
         {selectedDepartment === "Bogotá" && (
           <RecogidaSelection
-            handleShippingFee={handleShippingFee}
             handleOnChange={handleOnChange}
           />
         )}

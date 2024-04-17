@@ -2,7 +2,7 @@ import Error from "./Error";
 import Abbr from "./fomr-elements/Abbr";
 import ArrowDown from "./iconCheckOut/ArrowDown";
 
-const RecogidaSelection = ({ input, handleOnChange }) => {
+const Envio = ({ input, handleOnChange }) => {
   const { RetirarEn, errors } = input || {};
 
   const inputId = "RetirarEn";
@@ -40,4 +40,4 @@ const RecogidaSelection = ({ input, handleOnChange }) => {
   );
 };
 
-export default RecogidaSelection;
+export default Envio;

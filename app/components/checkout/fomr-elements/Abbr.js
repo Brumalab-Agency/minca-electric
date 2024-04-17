@@ -5,7 +5,7 @@ const Abbr = ({required}) => {
 		return null;
 	}
 	
-	return <abbr className="text-[#111]" style={{textDecoration: 'none'}} title="required">*</abbr>
+	return <abbr className="text-[#ff2f2f]" style={{textDecoration: 'none'}} title="required">*</abbr>
 }
 
 Abbr.propTypes = {

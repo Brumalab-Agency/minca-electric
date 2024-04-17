@@ -24,7 +24,6 @@ export const UserAdress = ({
   const [mostrarEmpresa, setMostrarEmpresa] = useState(false);
 
   const handleShippingFee = (fee) => {
-    // Lógica para agregar el cargo adicional al carrito
     const newCartItem = { name: "Cargo de envío", price: fee };
     setCart([...cart, newCartItem]);
   };
@@ -83,6 +82,7 @@ export const UserAdress = ({
       <div className="flex gap-4 mb-4">
         <TipoIdentificacion />
         <InputField
+          type="number"
           name="NumeroIdentificacion"
           inputValue={input?.NumeroIdentificacion}
           required
@@ -144,7 +144,7 @@ export const UserAdress = ({
           <div className="flex gap-4">
             <InputField
               name="Nit"
-              type="tel"
+              type="number"
               inputValue={input?.Nit}
               handleOnChange={handleOnChange}
               label="NIT (Opcional)"

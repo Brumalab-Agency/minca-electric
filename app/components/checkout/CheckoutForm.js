@@ -267,12 +267,12 @@ const CheckoutForm = ({ countriesData }) => {
         if (
           target.name === "RetirarEn" &&
           target.value ===
-            "Fuera de Bogotá. Entrega de 3 a 5 días hábiles: $90.000"
+            "Bogotá: $45.000"
         ) {
           // Agregar el cargo adicional al carrito
           setCart((prevCart) => {
             const updatedCart = { ...prevCart };
-            updatedCart.totalPrice += 90000;
+            updatedCart.totalPrice += 45000;
             return updatedCart;
           });
         } else {
@@ -354,8 +354,13 @@ const CheckoutForm = ({ countriesData }) => {
                   isBillingOrShipping
                 />
               </div>
-              {/* <div>
-                <CheckboxField
+              
+              <div className="DetallesFacturacion mt-4">
+                <h2 className="mb-4 text-[20px] font-bold">
+                  Detalles de facturación
+                </h2>
+                <div className="flex items-center py-4">
+                  <CheckboxField
                   name="billingDifferentThanShipping"
                   type="checkbox"
                   checked={input?.billingDifferentThanShipping}
@@ -363,24 +368,9 @@ const CheckoutForm = ({ countriesData }) => {
                   label="Igual que el envío"
                   containerClassNames="mb-4 pt-4"
                 />
-              </div> */}
-              <div className="DetallesFacturacion mt-4">
-                <h2 className="mb-4 text-[20px] font-bold">
-                  Detalles de facturación
-                </h2>
-                <div className="flex items-center py-4">
-                  <label className="radio-container text-[14px] font-medium">
-                    <CheckboxField
-                      name="billingDifferentThanShipping"
-                      type="checkbox"
-                      checked={input?.billingDifferentThanShipping}
-                      handleOnChange={handleOnChange}
-                      label=""
-                      containerClassNames="mb-4 pt-4 hidden radio-input"
-                    />
-                    <span className="radio-custom"></span>
-                    Igual que el envío
-                  </label>
+                  <div>
+                
+              </div>
                 </div>
                 <hr className="my-6 border-[1px] border-[#111] stroke-black"></hr>
               </div>
