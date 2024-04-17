@@ -17,8 +17,7 @@ import {
 } from "@/utils/checkout/utilsCheckout";
 import { manrope } from "@/ui/fonts";
 import Link from "next/link";
-import { uploadOrder } from "@/lib/graphQLRequest";
-import { sendEmailWithBill } from "./EmailStucture"
+import InputCustomField from "./fomr-elements/InputCustomField";
 
 // Utilice esto con fines de prueba, para que no tenga que completar el formulario de pago una y otra vez.
 /* const defaultCustomerInfo = {
@@ -40,7 +39,7 @@ import { sendEmailWithBill } from "./EmailStucture"
 }; */
 
 const defaultCustomerInfo = {
-   Nombre: "",
+  Nombre: "",
   Apellido: "",
   Direccion1: "",
   Direccion2: "",
@@ -59,13 +58,13 @@ const defaultCustomerInfo = {
   DireccionSamsung2: "",
   DireccionSamsung3: "",
   Barrio: "",
-  RecibirInfo:"",
-  AceptarTerminos:"",
-  TratamientoDatos:"",
+  RecibirInfo: "",
+  AceptarTerminos: "",
+  TratamientoDatos: "",
   TipoVivienda: "",
-  Referencia:"",
-  Quienrecibe:"",
-  Receptor:"",
+  Referencia: "",
+  Quienrecibe: "",
+  Receptor: "",
   errors: null,
 };
 
@@ -276,7 +275,7 @@ const CheckoutForm = ({ countriesData }) => {
     }
 
     checkFormValidity();
-    if (target.name === 'billingDifferentThanShipping') {
+    if (target.name === "billingDifferentThanShipping") {
       handleCheckboxChange();
     }
 
@@ -289,12 +288,12 @@ const CheckoutForm = ({ countriesData }) => {
         if (
           target.name === "RetirarEn" &&
           target.value ===
-            "Fuera de Bogotá. Entrega de 3 a 5 días hábiles: $90.000"
+            "Bogotá: $45.000"
         ) {
           // Agregar el cargo adicional al carrito
           setCart((prevCart) => {
             const updatedCart = { ...prevCart };
-            updatedCart.totalPrice += 90000;
+            updatedCart.totalPrice += 45000;
             return updatedCart;
           });
         } else {
@@ -376,25 +375,26 @@ const CheckoutForm = ({ countriesData }) => {
                   isBillingOrShipping
                 />
               </div>
-              <div>
-                <CheckboxField
+              
+              <div className="DetallesFacturacion mt-4">
+                <h2 className="mb-4 text-[20px] font-bold">
+                  Detalles de facturación
+                </h2>
+                <div className="flex items-center py-4">
+                  <CheckboxField
                   name="billingDifferentThanShipping"
                   type="checkbox"
                   checked={input?.billingDifferentThanShipping}
                   handleOnChange={handleOnChange}
-                  label="Facturación diferente al envío."
+                  label="Igual que el envío"
                   containerClassNames="mb-4 pt-4"
                 />
+                  <div>
+                
               </div>
-              {showAdditionalContent && (
-                <div>
-                  <img src="/mercado pago .png" />
-                  <p className="my-10 text-[12px]">
-                    Para consultas comunicarse al : WhatsApp: +573222102466
-                  </p>
                 </div>
-              )}
-
+                <hr className="my-6 border-[1px] border-[#111] stroke-black"></hr>
+              </div>
               {/*Billing Details*/}
               {input?.billingDifferentThanShipping ? (
                 <div className="billing-details">
@@ -416,18 +416,57 @@ const CheckoutForm = ({ countriesData }) => {
                     isShipping={false}
                     isBillingOrShipping
                   />
-                  <div>
-                  <img src="/mercado pago .png" />
-                  <p className="my-10 text-[12px]">
-                    Para consultas comunicarse al : WhatsApp: +573222102466
-                  </p>
                 </div>
-                </div>
-                
               ) : null}
+              <div className="mt-4">
+                <InputCustomField
+                  name="RecibirInfo"
+                  required
+                  type="checkbox"
+                  inputValue={input?.RecibirInfo ? "Sí" : "No"}
+                  handleOnChange={handleOnChange}
+                  label="Me gustaría recibir información sobre ofertas y promociones de MINCA"
+                  placeholder=""
+                  containerClassNames="mb-4 flex items-center"
+                  classInput="w-[5%] h-[5%] order-first mr-2 "
+                  classLabel="grow"
+                />
+
+                <InputCustomField
+                  name="AceptarTerminos"
+                  required
+                  type="checkbox"
+                  inputValue={input?.AceptarTerminos ? "Sí" : "No"}
+                  handleOnChange={handleOnChange}
+                  label="Acepto los Términos y condiciones"
+                  placeholder=""
+                  containerClassNames="mb-4 flex items-center"
+                  classInput="w-[5%] h-[5%] order-first mr-2 "
+                  classLabel="grow"
+                />
+                <InputCustomField
+                  name="TratamientoDatos"
+                  required
+                  type="checkbox"
+                  inputValue={input?.TratamientoDatos ? "Sí" : "No"}
+                  handleOnChange={handleOnChange}
+                  label="Autorizo el tratamiento de mis datos personales , con las siguientes condiciones."
+                  placeholder=""
+                  containerClassNames="mb-4 flex items-center"
+                  classInput="w-[5%] h-[5%] order-first mr-2 "
+                  classLabel="grow"
+                />
+              </div>
+
+              <div className="mt-14">
+                <img src="/mercado pago .png" />
+                <p className="my-10 text-[12px]">
+                  Para consultas comunicarse al : WhatsApp: +573222102466
+                </p>
+              </div>
             </div>
             {/* Order & Payments*/}
-            <div className="your-orders h-fit w-full rounded-md bg-[#F0F1EB] p-8">
+            <div className="your-orders h-fit w-full rounded-md bg-[#F0F1EB] p-8 mb-14 lg:mb-0">
               {/*	Order*/}
               <h2 className="mb-4 text-xl font-medium">Resumen del pedido</h2>
               <hr className="mb-3"></hr>
@@ -468,7 +507,7 @@ const CheckoutForm = ({ countriesData }) => {
                     type="button"
                     onClick={handleFormSubmit}
                   >
-                    Procesar Pre-compra
+                    Continuar
                   </button>
                 ) : null}
 

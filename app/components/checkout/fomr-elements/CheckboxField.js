@@ -4,7 +4,7 @@ const CheckboxField = ({ handleOnChange, checked, name, label, placeholder, cont
 	
 	return (
 		<div className={containerClassNames}>
-			<label className={`leading-7 text-md text-gray-700 flex items-center cursor-pointer ${textCheckBox}`} htmlFor={name}>
+			<label className={`radio-container leading-7 text-md text-gray-700 flex items-center cursor-pointer ${textCheckBox}`} htmlFor={name}>
 				<input
 					onChange={ handleOnChange }
 					placeholder={placeholder}
@@ -13,8 +13,10 @@ const CheckboxField = ({ handleOnChange, checked, name, label, placeholder, cont
 					name={name}
 					id={name}
 					required={required}
+					className="radio-input"
 				/>
-				<span className="ml-2">{ label || '' }</span>
+				<span className="ml-2 radio-custom"></span>
+				{ label || '' }
 			</label>
 		</div>
 	)

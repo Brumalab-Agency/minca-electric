@@ -3,7 +3,7 @@ import React from "react";
 
 const CampoVacio = ({ onChange }) => {
   return (
-    <div className="relative">
+    <div className="relative mb-4">
       <select
         name="Direccion1"
         id="Amazonas"

@@ -91,7 +91,6 @@ const CiudadesColombia = ({
     const cityValue = event.target.value;
     setSelectedCity(cityValue);
 
-    // Set the selected department based on the selected city
     if (cityDepartmentMapping[cityValue]) {
       setSelectedDepartment(cityDepartmentMapping[cityValue]);
     } else {
@@ -109,12 +108,7 @@ const CiudadesColombia = ({
   };
 
   const cities = Object.keys(cityDepartmentMapping);
-
-  const handleShippingFee = (fee) => {
-    // Lógica para agregar el cargo adicional al carrito
-    const newCartItem = { name: "Cargo de envío", price: fee };
-    setCart([...cart, newCartItem]);
-  };
+;
 
   const handleCheckChange = () => {
     setMostrarEmpresa(!mostrarEmpresa);
@@ -131,7 +125,7 @@ const CiudadesColombia = ({
         </div>
         <CitySelect cities={cities} onChange={handleCityChange} />
         <div className="flex">
-          <h2 className="text-sm font-bold leading-7 text-[#111]">Municipio</h2>
+          <h2 className="text-sm font-bold leading-7 text-[#111] ">Municipio</h2>
           <Abbr required />
         </div>
         {!selectedDepartment && <CampoVacio />}
@@ -242,7 +236,7 @@ const CiudadesColombia = ({
           <h2 className="text-sm font-bold leading-7 text-[#111]">Dirección</h2>
           <Abbr required />
         </div>
-        <div className="relative w-full overflow-hidden ">
+        <div className="relative w-full overflow-hidden mb-4">
           <DireccionSamsung
             inputValue={input?.CiudadesColombia}
             handleOnChange={handleOnChange}
@@ -252,7 +246,7 @@ const CiudadesColombia = ({
           <div className="flex items-center gap-3">
             <InputField
               name="DireccionSamsung1"
-              type="text"
+              type="number"
               inputValue={input?.DireccionSamsung1}
               handleOnChange={handleOnChange}
               errors={errors}
@@ -262,7 +256,7 @@ const CiudadesColombia = ({
             <span className="text-base font-bold">#</span>
             <InputField
               name="DireccionSamsung2"
-              type="text"
+              type="number"
               inputValue={input?.DireccionSamsung2}
               handleOnChange={handleOnChange}
               errors={errors}
@@ -272,7 +266,7 @@ const CiudadesColombia = ({
             <span className="text-base font-bold">-</span>
             <InputField
               name="DireccionSamsung3"
-              type="text"
+              type="number"
               inputValue={input?.DireccionSamsung3}
               handleOnChange={handleOnChange}
               errors={errors}
@@ -352,24 +346,25 @@ const CiudadesColombia = ({
           type="text"
           label="Lugar de referencia: calle , lugar o punto de
           indicación para encontrar tu direccion (opcional)"
-          required
           inputValue={input?.Referencia}
           handleOnChange={handleOnChange}
           errors={errors}
           isShipping={isShipping}
-          containerClassNames="w-full overflow-hidden sm:my-2"
-          classLabel="w-[60%] block 2xl:w-[43%]"
+          containerClassNames="w-full overflow-hidden sm:my-2 mb-4"
+          classLabel="w-full lg:w-[60%] block 2xl:w-[43%]"
         />
 
         {selectedDepartment === "Bogotá" && (
           <RecogidaSelection
-            handleShippingFee={handleShippingFee}
             handleOnChange={handleOnChange}
           />
         )}
-        {selectedDepartment !== "Bogotá" && (
-          <CampoVacio />
-        )}
+        {selectedDepartment !== "Bogotá" && <CampoVacio />}
+
+        {/*  <RecogidaSelection
+          handleShippingFee={handleShippingFee}
+          handleOnChange={handleOnChange}
+        /> */}
 
         <hr className="my-8 border-[1px] border-[#111] stroke-black"></hr>
       </div>
