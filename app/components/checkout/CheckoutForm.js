@@ -353,7 +353,7 @@ const CheckoutForm = ({ countriesData }) => {
                   </p>
                 </div>
 
-                <h2 className="mb-4 text-[20px] font-bold">Mis datos</h2>
+                <h2 className={` ${manrope.className} font-bold text-[24px]`}>Mis datos</h2>
                 <UserAdress
                   idOrder={idOrder}
                   setFormIsValid={setFormIsValid}

@@ -12,6 +12,7 @@ import PasoaPaso from "@/components/stepbystep/PasoaPaso";
 import { Header } from "@/components/home/Header";
 import MarqueeCheckout from "@/components/home/MarqueeCheckout";
 import { handleOtherPaymentMethodCheckout } from "@/utils/checkout/utilsCheckout";
+import { manrope } from "@/ui/fonts";
 
 const PagoMercadoPagoPage = () => {
   const [cart, setCart] = useContext(AppContext);
@@ -80,8 +81,10 @@ const PagoMercadoPagoPage = () => {
         {/* Order & Payments*/}
         <div className="grid grid-cols-2">
           {/* Btn mercado pago */}
-          <div className="woo-next-place-order-btn-wrap my-10">
-          <h2 className="mb-4 text-xl font-medium">Metodo de pago</h2>
+          <div className="woo-next-place-order-btn-wrap my-10 pr-14">
+          <h2 className={` ${manrope.className} font-bold text-[24px] my-2`}>Metodo de pago</h2>
+          <p className={` ${manrope.className} font-normal text-[20px] mb-5`}>Todas las transacciones son seguras y están encriptadas.</p>
+          <hr className="border-[1px] border-[#111] stroke-black"></hr>
             <button onClick={limpiarLocalStorage}>
               <BtnMercadoPago
                 preciopagar={
