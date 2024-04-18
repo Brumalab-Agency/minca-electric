@@ -39,6 +39,7 @@ import DireccionSamsung from "./direccion/DireccionSamsung";
 import InputField from "../checkout/fomr-elements/InputField";
 import TipoViviendaSamsung from "./direccion/TipoViviendaSamsung";
 import RecogidaSelection from "../checkout/Recogida";
+import Envio from "../checkout/Envio";
 // Importa los demás componentes de municipios según sea necesario
 
 const CiudadesColombia = ({
@@ -110,10 +111,10 @@ const CiudadesColombia = ({
   const cities = Object.keys(cityDepartmentMapping);
 ;
 
-  const handleCheckChange = () => {
+  /* const handleCheckChange = () => {
     setMostrarEmpresa(!mostrarEmpresa);
   };
-
+ */
   return (
     <div>
       <div className="w-full overflow-hidden sm:my-2 md:w-1/2">
@@ -354,19 +355,15 @@ const CiudadesColombia = ({
           classLabel="w-full lg:w-[60%] block 2xl:w-[43%]"
         />
 
-        {selectedDepartment === "Bogotá" && (
+        {/* {selectedDepartment === "Bogotá" && (
           <RecogidaSelection
             handleOnChange={handleOnChange}
           />
         )}
-        {selectedDepartment !== "Bogotá" && <CampoVacio />}
+        {selectedDepartment !== "Bogotá" && <Envio handleOnChange={handleOnChange}/>} */}
 
-        {/*  <RecogidaSelection
-          handleShippingFee={handleShippingFee}
-          handleOnChange={handleOnChange}
-        /> */}
 
-        <hr className="my-8 border-[1px] border-[#111] stroke-black"></hr>
+        <hr className="mt-20 mb-10 border-[1px] border-[#111] stroke-black"></hr>
       </div>
     </div>
   );

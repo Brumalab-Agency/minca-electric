@@ -29,7 +29,7 @@ export async function POST(req) {
   data.status = 'pending';
   data.set_paid = false;
 
-  console.log(data);
+
 
   try {
 	const response = await api.post('orders', data);

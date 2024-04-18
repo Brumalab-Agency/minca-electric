@@ -20,7 +20,7 @@ import Link from "next/link";
 import InputCustomField from "./fomr-elements/InputCustomField";
 
 // Utilice esto con fines de prueba, para que no tenga que completar el formulario de pago una y otra vez.
-/* const defaultCustomerInfo = {
+const defaultCustomerInfo = {
   Nombre: "Lenin",
   Apellido: "Mendoza",
   Direccion1: "Medellín - Antioquia",
@@ -36,9 +36,9 @@ import InputCustomField from "./fomr-elements/InputCustomField";
   TelefonoTrabajo: "3022222222",
   NumeroIdentificacion: "1147696023",
   errors: null,
-}; */
+};
 
-const defaultCustomerInfo = {
+/* const defaultCustomerInfo = {
   Nombre: "",
   Apellido: "",
   Direccion1: "",
@@ -66,7 +66,7 @@ const defaultCustomerInfo = {
   Quienrecibe: "",
   Receptor: "",
   errors: null,
-};
+}; */
 
 // el state o estado del país es parte del componente Pais y este ya tiene sus campos predeterminados
 
@@ -152,7 +152,7 @@ const CheckoutForm = ({ countriesData }) => {
 
     setTemporalCarrito(cart);
 
-    const formEl = document.querySelector("#gas");
+    /* const formEl = document.querySelector("#gas");
     alert("Formulario enviado");
     const formData = new FormData(formEl);
     fetch(
@@ -166,7 +166,7 @@ const CheckoutForm = ({ countriesData }) => {
       .then((data) => {
         console.log(data);
       })
-      .catch((error) => console.log(error));
+      .catch((error) => console.log(error)); */
     /**
      * Validar Detalles de Facturación y Envío
      *
@@ -275,7 +275,19 @@ const CheckoutForm = ({ countriesData }) => {
             updatedCart.totalPrice += 45000;
             return updatedCart;
           });
-        } else {
+        }else if (
+          target.name === "Envio" &&
+          target.value ===
+            "Fuera de Bogotá. Entrega de 3 a 5 días hábiles: $90.000"
+        ) {
+          // Agregar el cargo adicional al carrito
+          setCart((prevCart) => {
+            const updatedCart = { ...prevCart };
+            updatedCart.totalPrice += 90000;
+            return updatedCart;
+          });
+        }
+         else {
           // Restaurar el totalPrice original del carrito
           setCart((prevCart) => {
             const updatedCart = { ...prevCart };
@@ -355,7 +367,7 @@ const CheckoutForm = ({ countriesData }) => {
                 />
               </div>
               
-              <div className="DetallesFacturacion mt-4">
+              {/* <div className="DetallesFacturacion mt-4">
                 <h2 className="mb-4 text-[20px] font-bold">
                   Detalles de facturación
                 </h2>
@@ -373,7 +385,7 @@ const CheckoutForm = ({ countriesData }) => {
               </div>
                 </div>
                 <hr className="my-6 border-[1px] border-[#111] stroke-black"></hr>
-              </div>
+              </div> */}
               {/*Billing Details*/}
               {input?.billingDifferentThanShipping ? (
                 <div className="billing-details">
@@ -400,7 +412,6 @@ const CheckoutForm = ({ countriesData }) => {
               <div className="mt-4">
                 <InputCustomField
                   name="RecibirInfo"
-                  required
                   type="checkbox"
                   inputValue={input?.RecibirInfo ? "Sí" : "No"}
                   handleOnChange={handleOnChange}
@@ -485,6 +496,7 @@ const CheckoutForm = ({ countriesData }) => {
                     )}
                     type="button"
                     onClick={handleFormSubmit}
+
                   >
                     Continuar
                   </button>

@@ -8,6 +8,7 @@ import DireccionSamsung from "../ciudadesColombia/direccion/DireccionSamsung";
 import Abbr from "./fomr-elements/Abbr";
 import TipoViviendaSamsung from "../ciudadesColombia/direccion/TipoViviendaSamsung";
 import InputCustomField from "./fomr-elements/InputCustomField";
+import FormaEntrega from "./FormaEntrega";
 
 export const UserAdress = ({
   input,
@@ -79,7 +80,7 @@ export const UserAdress = ({
         isShipping={isShipping}
         containerClassNames="w-full overflow-hidden sm:my-2 md:w-full mb-4"
       />
-      <div className="flex gap-4 mb-4">
+      <div className="mb-4 flex gap-4">
         <TipoIdentificacion />
         <InputField
           type="number"
@@ -167,17 +168,26 @@ export const UserAdress = ({
       )}
       <hr className="my-4 border-[1px] border-[#111] stroke-black"></hr>
       <div>
-        <p className="text-[20px] font-bold">Datos de envío</p>
+        <p className="text-[20px] font-bold">Forma de entrega</p>
+        <div>
+          {" "}
+          <FormaEntrega
+          
+          />
+        </div>
       </div>
+     {/*  <div>
+        <p className="text-[20px] font-bold">Datos de envío</p>
+      </div> */}
       {/*  Ciudades de Colombia*/}
-      <CiudadesColombia
+      {/* <CiudadesColombia
         inputValue={input?.CiudadesColombia}
         input={input}
         handleOnChange={handleOnChange}
         handleShippingFee={handleShippingFee}
         setFormIsValid={setFormIsValid}
         isShipping={isShipping}
-      />
+      /> */}
       {/* <div>
         <div className="flex">
           <h2 className="text-sm font-bold leading-7 text-[#111]">Dirección</h2>
@@ -419,7 +429,7 @@ export const UserAdress = ({
       />
       <hr className="my-8 border-[1px] border-[#111] stroke-black"></hr> */}
       {/* Campos Checkbox */}
-     {/*  <InputCustomField
+      {/*  <InputCustomField
       name="RecibirInfo"
       type="checkbox"
       inputValue={input?.RecibirInfo ? "Sí" : "No"}
