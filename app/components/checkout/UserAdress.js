@@ -172,7 +172,9 @@ export const UserAdress = ({
         <div>
           {" "}
           <FormaEntrega
-          
+          handleOnChange={handleOnChange}
+          setFormIsValid={setFormIsValid}
+          input={input}
           />
         </div>
       </div>
