@@ -876,3 +876,9 @@ input[type="checkbox"]:checked + label:before:after {
   order: -1; /* Cambia el orden del span */
 }
 
+/*  Personalización BTN MercadoPago */
+
+button.mercadopago-color-31N6KB.svelte-1ruergu.svelte-1ruergu {
+  background-color: #000000 #000000 !important;
+  color: #ffffff #ffffff !important;
+}
