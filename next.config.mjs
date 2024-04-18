@@ -52,9 +52,6 @@ const nextConfig = {
       },
     ],
   },
-  experimental: {
-    esmExternals: "loose",
-  },
   async redirects() {
     return [
       {

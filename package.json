@@ -9,7 +9,8 @@
     "start": "next start",
     "trace": "node --trace-deprecation index.js",
     "lint": "next lint",
-    "build:css": "tailwindcss build globals.css -o output.css"
+    "build:css": "tailwindcss build globals.css -o output.css",
+    "turbo": "next dev --turbo"
   },
   "dependencies": {
     "@formkit/auto-animate": "^0.8.1",

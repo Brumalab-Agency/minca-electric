@@ -36,7 +36,7 @@ export const handleOtherPaymentMethodCheckout = async ( input, products, setRequ
  * 3. Clear the cart session.
  * 4. On success set show stripe form to true
  */
-export const handleStripeCheckout = async ( input, products, setRequestError, setCart, setIsProcessing, setCreatedOrderData ) => {
+/* export const handleStripeCheckout = async ( input, products, setRequestError, setCart, setIsProcessing, setCreatedOrderData ) => {
 	setIsProcessing( true );
 	const orderData = getCreateOrderData( input, products );
 	const customerOrderData = await createTheOrder( orderData, setRequestError, '' );
@@ -55,7 +55,7 @@ export const handleStripeCheckout = async ( input, products, setRequestError, se
 	await createCheckoutSessionAndRedirect( products, input, customerOrderData?.orderId );
 	
 	return customerOrderData;
-};
+}; */
 
 /**
  * Create Checkout Session and redirect.
@@ -64,7 +64,7 @@ export const handleStripeCheckout = async ( input, products, setRequestError, se
  * @param orderId
  * @return {Promise<void>}
  */
-const createCheckoutSessionAndRedirect = async ( products, input, orderId ) => {
+/* const createCheckoutSessionAndRedirect = async ( products, input, orderId ) => {
 	const sessionData = {
 		success_url: window.location.origin,
 		cancel_url: window.location.href,
@@ -92,14 +92,14 @@ const createCheckoutSessionAndRedirect = async ( products, input, orderId ) => {
 	} catch ( error ) {
 		console.log( error );
 	}
-};
+}; */
 
 /**
  * Get Stripe Line Items
  *
  
  */
-const getStripeLineItems = ( products ) => {
+/* const getStripeLineItems = ( products ) => {
 	
 	if ( isEmpty( products ) && ! isArray( products ) ) {
 		return [];
@@ -114,7 +114,7 @@ const getStripeLineItems = ( products ) => {
 			currency: 'usd',
 		};
 	} );
-};
+}; */
 
 /**
  * Get meta data.
@@ -183,6 +183,8 @@ export const setStatesForCountry = async ( target, setTheStates, setIsFetchingSt
  *
  * @returns {Promise<*[]>}
  */
+
+
 export const getStates = async ( countryCode = '' ) => {
 	
 	if ( ! countryCode ) {
