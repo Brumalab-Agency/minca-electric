@@ -795,6 +795,13 @@ button.image-gallery-thumbnail {
   border-color: #111;
 }
 
+/* Contenido duplicado solo para el caso de envios y recogida showrooms */
+
+.radio-input:checked ~ .flex.items-center.justify-start > .radio-custom {
+  background-color: #111;
+  border-color: #111;
+}
+
 /* Estilo para el punto negro interno cuando está seleccionado */
 .radio-input:checked ~ .radio-custom::after {
   background-color: #fff;

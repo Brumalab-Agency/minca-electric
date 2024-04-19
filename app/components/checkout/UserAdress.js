@@ -9,6 +9,7 @@ import Abbr from "./fomr-elements/Abbr";
 import TipoViviendaSamsung from "../ciudadesColombia/direccion/TipoViviendaSamsung";
 import InputCustomField from "./fomr-elements/InputCustomField";
 import FormaEntrega from "./FormaEntrega";
+import { manrope } from "@/ui/fonts";
 
 export const UserAdress = ({
   input,
@@ -168,7 +169,7 @@ export const UserAdress = ({
       )}
       <hr className="my-4 border-[1px] border-[#111] stroke-black"></hr>
       <div>
-        <p className="text-[20px] font-bold">Forma de entrega</p>
+        <p className={` ${manrope.className} font-bold text-[24px] mb-3`}>Forma de entrega</p>
         <div>
           {" "}
           <FormaEntrega

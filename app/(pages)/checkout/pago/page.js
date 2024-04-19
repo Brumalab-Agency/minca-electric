@@ -12,6 +12,8 @@ import PasoaPaso from "@/components/stepbystep/PasoaPaso";
 import { Header } from "@/components/home/Header";
 import MarqueeCheckout from "@/components/home/MarqueeCheckout";
 import { handleOtherPaymentMethodCheckout } from "@/utils/checkout/utilsCheckout";
+import { manrope } from "@/ui/fonts";
+import CardMercadoPago from "@/components/pagoPage/CardMercadoPago";
 
 const PagoMercadoPagoPage = () => {
   const [cart, setCart] = useContext(AppContext);
@@ -80,8 +82,14 @@ const PagoMercadoPagoPage = () => {
         {/* Order & Payments*/}
         <div className="grid grid-cols-2">
           {/* Btn mercado pago */}
-          <div className="woo-next-place-order-btn-wrap my-10">
-          <h2 className="mb-4 text-xl font-medium">Metodo de pago</h2>
+          <div className="woo-next-place-order-btn-wrap my-10 pr-14">
+          <h2 className={` ${manrope.className} font-bold text-[24px] my-2`}>Metodo de pago</h2>
+          <p className={` ${manrope.className} font-normal text-[20px] mb-5`}>Todas las transacciones son seguras y están encriptadas.</p>
+          <hr className="border-[1px] border-[#111] stroke-black mb-10"></hr>
+          <div>
+            <CardMercadoPago/>
+            <p className={` ${manrope.className} font-medium text-base w-[484px] h-auto my-9`}>Luego de hacer clic en “Finalizar el pedido”, serás redirigido a Checkout Mercado Pago para completar tu compra de forma segura.</p>
+          </div>
             <button onClick={limpiarLocalStorage}>
               <BtnMercadoPago
                 preciopagar={
@@ -92,6 +100,10 @@ const PagoMercadoPagoPage = () => {
                 idOrder={idOrder}
               />
             </button>
+            <div className="mt-36">
+              <p>Tipos de pago admitidos:</p>
+              <img src="/mercado pago .png" />
+            </div>
           </div>
           {/*  */}
           <div className="your-orders h-fit w-full rounded-md bg-[#F0F1EB] p-8">

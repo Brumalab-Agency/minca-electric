@@ -1,4 +1,4 @@
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 900px) {
   /* Menu  */
 
   button.relative.align-middle.select-none.font-sans.font-medium.text-center.uppercase.transition-all.disabled\:opacity-50.disabled\:shadow-none.disabled\:pointer-events-none.w-10.max-w-\[40px\].h-10.max-h-\[40px\].rounded-lg.text-xs.text-gray-900.hover\:bg-gray-900\/10.active\:bg-gray-900\/20.lg\:hidden {
@@ -11,7 +11,7 @@
     display: none;
   }
   .carrusel .absolute.bottom-4.left-2\/4.z-50.flex.-translate-x-2\/4.gap-2 {
-    left: 88.5%;
+    left: 87%;
     top: 7.4%;
   }
   .carusel-movil.lg\:hidden.flex.h-full.mt-4.overflow-y-hidden.overflow-x-scroll {

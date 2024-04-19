@@ -27,8 +27,6 @@ export default function RootLayout({ children }) {
           <SmoothScroll>
             {children}
           </SmoothScroll>
-          <SpeedInsights />
-          <Analytics />
         </body>
       </html>
     </AppProvider>

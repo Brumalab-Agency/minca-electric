@@ -11,24 +11,25 @@ const ElegirShowroom = ({ input }) => {
   };
 
   return (
-    <div className="mb-3 w-full rounded-[10px] border-[3px] border-[#464646] bg-[#F0F1EB]">
+    <div className="mb-3 w-full h-auto rounded-[10px] border-[3px] border-[#464646] bg-[#F0F1EB]">
       <div className="flex flex-col items-start">
-        <div className="p-[18px]">
-          <label className="mr-4 radio-container">
+        <div className="grid place-items-center justify-start ml-3 w-full h-[50px]">
+          <label className="radio-container mr-2">
             <input
               type="radio"
               name={inputId}
               value="Javeriana Cra. 7 #45-10"
               checked={selectedOption === "Javeriana Cra. 7 #45-10"}
               onChange={handleRadioChange}
-              className="mr-2 radio-input"
+              className="radio-input mr-2"
             />
-            <span className="radio-custom"></span> Javeriana Cra. 7 #45-10
+            <span className="radio-custom" style={{marginRight:0}}></span> Showroom Javeriana - Carrera
+            7 # 45-10 , Bogotá
           </label>
         </div>
         <hr className="w-full border-b-[1px] border-[#464646]" />
-        <div className="p-[18px]">
-          <label className="mr-4 radio-container">
+        <div className="grid place-items-center justify-start ml-3 w-full h-[50px]">
+          <label className="radio-container mr-2">
             <input
               type="radio"
               id="chico"
@@ -36,14 +37,15 @@ const ElegirShowroom = ({ input }) => {
               value="Chico Cra. 11a #94a-56"
               checked={selectedOption === "Chico Cra. 11a #94a-56"}
               onChange={handleRadioChange}
-              className="mr-2 radio-input"
+              className="radio-input mr-2"
             />
-            <span className="radio-custom"></span> Chico Cra. 11a #94a-56
+            <span className="radio-custom" style={{marginRight:0}}></span> Showroom Chicó - Cra. 11a
+            #94a-56 , Bogotá
           </label>
         </div>
         <hr className="w-full border-b-[1px] border-[#464646]" />
-        <div className="p-[18px]">
-          <label className="mr-4 radio-container">
+        <div className="grid place-items-center justify-start ml-3 w-full h-[50px]">
+          <label className="radio-container mr-2">
             <input
               type="radio"
               id="cedritos"
@@ -51,9 +53,10 @@ const ElegirShowroom = ({ input }) => {
               value="Cedritos Av. Cra 19 #143a-8"
               checked={selectedOption === "Cedritos Av. Cra 19 #143a-8"}
               onChange={handleRadioChange}
-              className="mr-2 radio-input"
+              className="radio-input mr-2"
             />
-            <span className="radio-custom"></span> Cedritos Av. Cra 19 #143a-8
+            <span className="radio-custom" style={{marginRight:0}}></span> Showroom Cedritos - Av. Cra
+            19 #143A - 08 , Bogotá
           </label>
         </div>
       </div>

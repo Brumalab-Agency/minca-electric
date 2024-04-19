@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Envio from "./Envio";
 import ElegirShowroom from "./ElegirShoroom";
 import CiudadesColombia from "../ciudadesColombia/CiudadesColombia";
+import { manrope } from "@/ui/fonts";
 
 const FormaEntrega = ({
   input,
@@ -20,9 +21,9 @@ const FormaEntrega = ({
   return (
     <div>
       {/* Input para seleccionar la forma de entrega */}
-      <div className="mb-3 w-full rounded-[10px] border-[3px] border-[#464646] bg-[#F0F1EB]">
+      <div className="mb-3 w-full h-auto rounded-[10px] border-[3px] border-[#464646] bg-[#F0F1EB]">
         <div className="flex flex-col items-start">
-          <div className="p-[18px]">
+          <div className="grid place-items-center justify-start ml-3 w-full h-[50px]">
             <label className="radio-container mr-4">
               <input
                 type="radio"
@@ -32,23 +33,37 @@ const FormaEntrega = ({
                 onChange={handleFormaEntregaChange}
                 className="radio-input mr-2"
               />
-              <span className="radio-custom"></span>
-              Envía
+              <div className="flex items-center justify-start ">
+                <span className="radio-custom"></span>
+                <img
+                  className="h-auto w-[25px] -ml-1 mr-1"
+                  src="/carrito/envio-formulario.svg"
+                  alt="store"
+                />
+                <p>Envía</p>
+              </div>
             </label>
           </div>
           <hr className="w-full border-b-[1px] border-[#464646]" />
-          <div className="p-[18px]">
-            <label className="radio-container mr-4">
+          <div className="grid place-items-center justify-start ml-3 w-full h-[50px]">
+            <label className="radio-container mr-2">
               <input
                 type="radio"
                 name="formaEntrega"
                 value="recogida"
                 checked={formaEntrega === "recogida"}
                 onChange={handleFormaEntregaChange}
-                className="radio-input mr-2"
+                className="radio-input"
               />
-              <span className="radio-custom"></span>
-              Recogida en showrooms
+              <div className="flex items-center justify-start ">
+                <span className="radio-custom"></span>
+                <img
+                  className="h-auto w-[30px] -ml-2"
+                  src="/carrito/stor-formulario.svg"
+                  alt="store"
+                />
+                <p>Recogida en showrooms</p>
+              </div>
             </label>
           </div>
         </div>
@@ -58,7 +73,7 @@ const FormaEntrega = ({
       {formaEntrega === "envia" && (
         <>
           <div>
-            <p className="text-[20px] font-bold">Datos de envío</p>
+            <p className={` ${manrope.className} font-bold text-[24px] my-10`}>Datos de envío</p>
           </div>
           {/*  Ciudades de Colombia*/}
           <CiudadesColombia
@@ -73,9 +88,11 @@ const FormaEntrega = ({
       )}
       {formaEntrega === "recogida" && (
         <>
+          <h2 className={` ${manrope.className} font-medium text-[20px] mb-4 mt-10`}>Elige un showroom para recoger tu compra</h2>
           <ElegirShowroom />
+          <hr className="border-b-[1px] border-[#111] mt-10"/>
           <div>
-            <p className="text-[20px] font-bold">Datos de facturación</p>
+            <p className={` ${manrope.className} font-bold text-[24px] my-10`}>Datos de facturación</p>
           </div>
           {/*  Ciudades de Colombia*/}
           <CiudadesColombia

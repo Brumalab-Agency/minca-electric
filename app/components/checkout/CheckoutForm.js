@@ -304,18 +304,14 @@ const CheckoutForm = ({ countriesData }) => {
       handleBillingDifferentThanShipping(input, setInput, target);
     } else if (isBillingOrShipping) {
       if (isShipping) {
-        if (
-          target.name === "RetirarEn" &&
-          target.value ===
-            "Bogotá: $45.000"
-        ) {
+        if (target.name === "RetirarEn" && target.value === "Bogotá: $45.000") {
           // Agregar el cargo adicional al carrito
           setCart((prevCart) => {
             const updatedCart = { ...prevCart };
             updatedCart.totalPrice += 45000;
             return updatedCart;
           });
-        }else if (
+        } else if (
           target.name === "Envio" &&
           target.value ===
             "Fuera de Bogotá. Entrega de 3 a 5 días hábiles: $90.000"
@@ -326,8 +322,7 @@ const CheckoutForm = ({ countriesData }) => {
             updatedCart.totalPrice += 90000;
             return updatedCart;
           });
-        }
-         else {
+        } else {
           // Restaurar el totalPrice original del carrito
           setCart((prevCart) => {
             const updatedCart = { ...prevCart };
@@ -393,7 +388,9 @@ const CheckoutForm = ({ countriesData }) => {
                   </p>
                 </div>
 
-                <h2 className="mb-4 text-[20px] font-bold">Mis datos</h2>
+                <h2 className={` ${manrope.className} text-[24px] font-bold`}>
+                  Mis datos
+                </h2>
                 <UserAdress
                   idOrder={idOrder}
                   setFormIsValid={setFormIsValid}
@@ -406,7 +403,7 @@ const CheckoutForm = ({ countriesData }) => {
                   isBillingOrShipping
                 />
               </div>
-              
+
               {/* <div className="DetallesFacturacion mt-4">
                 <h2 className="mb-4 text-[20px] font-bold">
                   Detalles de facturación
@@ -489,6 +486,7 @@ const CheckoutForm = ({ countriesData }) => {
               </div>
 
               <div className="mt-14">
+                <p>Tipos de pago admitidos:</p>
                 <img src="/mercado pago .png" />
                 <p className="my-10 text-[12px]">
                   Para consultas comunicarse al : WhatsApp: +573222102466
@@ -496,7 +494,7 @@ const CheckoutForm = ({ countriesData }) => {
               </div>
             </div>
             {/* Order & Payments*/}
-            <div className="your-orders h-fit w-full rounded-md bg-[#F0F1EB] p-8 mb-14 lg:mb-0">
+            <div className="your-orders mb-14 h-fit w-full rounded-md bg-[#F0F1EB] p-8 lg:mb-0">
               {/*	Order*/}
               <h2 className="mb-4 text-xl font-medium">Resumen del pedido</h2>
               <hr className="mb-3"></hr>
@@ -536,7 +534,6 @@ const CheckoutForm = ({ countriesData }) => {
                     )}
                     type="button"
                     onClick={handleFormSubmit}
-
                   >
                     Continuar
                   </button>

@@ -1,3 +1,4 @@
+"use client"
 import { Separador } from "@/(pages)/separador/Separador";
 import { TProductVariant } from "@/components/titulos/TProductVariant";
 import { Card, CardContent } from "@/components/ui/card";
@@ -10,10 +11,19 @@ import {
 } from "@/components/ui/carousel";
 import { AccesoriosPage } from "@/lib/graphQLRequest";
 import Link from "next/link";
+import { useEffect, useState } from "react";
 
-export const CarruselAccesorios = async () => {
-  const data = await AccesoriosPage();
-  const accesorios = data.products.nodes;
+export const CarruselAccesorios = () => {
+  const [accesorios, setAccesorios] = useState([]);
+
+  useEffect(() => {
+    const fetchAccesorios = async () => {
+      const data = await AccesoriosPage();
+      setAccesorios(data.products.nodes);
+    };
+    fetchAccesorios();
+  }, []);
+
   const separadorDeMiles = (numero) => {
     let partesNumero = numero?.toString().split(',');
     partesNumero[0] = partesNumero[0]?.replace(/\B(?=(\d{3})+(?!\d))/g, '.');
