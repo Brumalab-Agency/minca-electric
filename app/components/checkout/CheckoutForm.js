@@ -198,6 +198,43 @@ const CheckoutForm = ({ countriesData }) => {
       shipping: { ...input.shipping, errors: shippingValidationResult.errors },
     });
 
+    
+    // Steps of getting custom fields
+      /*
+        - Interface or dictionary of the custom fields
+        - sum the directionSamsungfields
+        - send the data to the POST request in create-order.requests
+      */
+    function extractCustomCheckoutFields() {
+      const customFields = {};
+    
+      const billingInfo = input.billing || {};
+      const shippingInfo = input.shipping || {};
+    
+      const identification = billingInfo.NumeroIdentificacion || '';
+    
+      const addressParts = [
+        shippingInfo.Barrio || '',
+        shippingInfo.DireccionSamsung1 || '',
+        '#',
+        shippingInfo.DireccionSamsung2 || '',
+        '-',
+        shippingInfo.DireccionSamsung3 || '',
+        shippingInfo.Referencia || ''
+      ];
+      const address = addressParts.filter(Boolean).join(' ');
+    
+      const nameReceiver = shippingInfo.Quienrecibe || '';
+      const phoneReceiver = shippingInfo.Receptor || '';
+    
+      customFields['Identification'] = identification;
+      customFields['Address'] = address;
+      customFields['Name_Receiver'] = nameReceiver;
+      customFields['Phone_Receiver'] = phoneReceiver;
+    
+      return customFields;
+    }    
+
     // Si hay algún error, regrese.
     if (!shippingValidationResult.isValid || !billingValidationResult.isValid) {
       return null;
