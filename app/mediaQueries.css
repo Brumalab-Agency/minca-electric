@@ -178,50 +178,13 @@ button.\!absolute.top-2\/4.right-4.-translate-y-2\/4.rounded-full.select-none.tr
 
 }
 
+canvas{
+  width: 250px !important;
+  height: 250px !important;
 }
 
-@media only screen and (min-width: 768px) and (max-width:2500px) {
-  .carrusel .absolute.bottom-4.left-2\/4.z-50.flex.-translate-x-2\/4.gap-2 {
-    left: 88.5%;
-    top: 7.4%;
-  }
-  .margin-custom {
-    margin-left: 21.5%;
-  }
-
-  /* Prueba MINCA */
-
-  .atributos-productos {
-    gap: 0 !important;
-  }
-
-  .btn-scooter {
-    top: 59% !important;
-  }
-  .btn-prueba-minca {
-    & .btn-scooter {
-      top: 59% !important;
-      right: 0px !important;
-      left: 0;
-    }
-  }
-
-  .background-gradient {
-    margin-top: -4px;
-  }
-
-  .w-full.logo-flotante.absolute.-top-\[19\%\].lg\:top-\[19\%\].lg\:-left-\[450px\] {
-    left: -380px !important;
-    top: 3% !important;
-  }
-
-    /* Testimonios */
-
-    .testimonioCard.lg\:my-\[74px\].flex.justify-between.items-center.gap-4.overflow-x-scroll {
-      scrollbar-width: none;
-  }
-  
 }
+
 
 @media screen and (min-width: 1900px) {
   img.hidden.lg\:block.logo-minca-pc {
@@ -266,6 +229,52 @@ button.image-gallery-thumbnail {
 }
   
 }
+
+/* Justificación de breakpoint debido a la manipulación de los componentes externos */
+
+@media only screen and (min-width: 768px) and (max-width:2500px) {
+  .carrusel .absolute.bottom-4.left-2\/4.z-50.flex.-translate-x-2\/4.gap-2 {
+    left: 88.5%;
+    top: 7.4%;
+  }
+  .margin-custom {
+    margin-left: 21.5%;
+  }
+
+  /* Prueba MINCA */
+
+  .atributos-productos {
+    gap: 0 !important;
+  }
+
+  .btn-scooter {
+    top: 59% !important;
+  }
+  .btn-prueba-minca {
+    & .btn-scooter {
+      top: 59% !important;
+      right: 0px !important;
+      left: 0;
+    }
+  }
+
+  .background-gradient {
+    margin-top: -4px;
+  }
+
+  .w-full.logo-flotante.absolute.-top-\[19\%\].lg\:top-\[19\%\].lg\:-left-\[450px\] {
+    left: -380px !important;
+    top: 3% !important;
+  }
+
+    /* Testimonios */
+
+    .testimonioCard.lg\:my-\[74px\].flex.justify-between.items-center.gap-4.overflow-x-scroll {
+      scrollbar-width: none;
+  }
+  
+}
+
 
 /* Pantallas rara o de abogados */
 

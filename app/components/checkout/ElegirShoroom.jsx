@@ -1,13 +1,17 @@
 import { useState } from "react";
 import Error from "./Error";
+import useShowroomStore from "@/store/orden.store";
 
 const ElegirShowroom = ({ input }) => {
   const { RetirarEn, errors } = input || {};
   const inputId = "RetirarEn";
   const [selectedOption, setSelectedOption] = useState(RetirarEn || "");
+  const setSelectedShowroom = useShowroomStore((state) => state.setSelectedShowroom);
 
   const handleRadioChange = (event) => {
-    setSelectedOption(event.target.value);
+    const selectedOption = event.target.value;
+    setSelectedOption(selectedOption);
+    setSelectedShowroom(selectedOption);
   };
 
   return (

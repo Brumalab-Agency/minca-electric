@@ -2,7 +2,9 @@ import React, { useState } from "react";
 import Envio from "./Envio";
 import ElegirShowroom from "./ElegirShoroom";
 import CiudadesColombia from "../ciudadesColombia/CiudadesColombia";
+import useShowroomStore from "@/store/orden.store";
 import { manrope } from "@/ui/fonts";
+
 
 const FormaEntrega = ({
   input,
@@ -12,6 +14,7 @@ const FormaEntrega = ({
   isShipping,
 }) => {
   const [formaEntrega, setFormaEntrega] = useState(""); // Estado para almacenar la forma de entrega seleccionada
+  const setSelectedShowroom = useShowroomStore((state) => state.setSelectedShowroom);
 
   // Función para manejar el cambio de forma de entrega
   const handleFormaEntregaChange = (event) => {
@@ -89,7 +92,7 @@ const FormaEntrega = ({
       {formaEntrega === "recogida" && (
         <>
           <h2 className={` ${manrope.className} font-medium text-[20px] mb-4 mt-10`}>Elige un showroom para recoger tu compra</h2>
-          <ElegirShowroom />
+          <ElegirShowroom input={input} handleShowroomSelection={setSelectedShowroom}/>
           <hr className="border-b-[1px] border-[#111] mt-10"/>
           <div>
             <p className={` ${manrope.className} font-bold text-[24px] my-10`}>Datos de facturación</p>
