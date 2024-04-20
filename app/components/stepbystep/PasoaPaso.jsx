@@ -2,7 +2,7 @@ import React from "react";
 
 const PasoaPaso = ({inactivo1, inactivo2, inactivo3}) => {
   return (
-    <div className="w-full h-[150px] lg:mt-[130px]">
+    <div className="w-full h-[120px] lg:h-[150px] lg:mt-[130px] mt-8">
       <div className="relative m-auto grid h-[30px] w-full lg:w-[500px] grid-cols-3 place-items-center">
         <div className={`z-10 grid h-[30px] w-[30px] place-items-center rounded-full bg-[#111] text-white ${inactivo1} `}>
           1

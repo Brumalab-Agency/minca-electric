@@ -48,8 +48,8 @@ const Scooter = ({ scooter }) => {
               >
                 {item.description}
               </p>
-              {/* Btn ADDi compartido con PC/Movil */}
-              <div className="pt-8 lg:hidden">
+              {/* Modelo 3D Movil/PC */}
+              <div className="pt-8">
                 <Modal3d url_3d={item.url3d} />
               </div>
               <div className="my-2 flex items-center gap-3 lg:mt-6 lg:gap-4">
@@ -110,9 +110,9 @@ const Scooter = ({ scooter }) => {
                 </p>
                 <p className="underline">Revisa si calificas</p>
               </Link>
-              <div className="hidden pt-8 lg:block">
+              {/* <div className="hidden pt-8 lg:block">
                 <Modal3d url_3d={item.url3d} />
-              </div>
+              </div> */}
             </div>
             <Image
               placeholder="empty"

@@ -40,6 +40,7 @@ import InputField from "../checkout/fomr-elements/InputField";
 import TipoViviendaSamsung from "./direccion/TipoViviendaSamsung";
 import RecogidaSelection from "../checkout/Recogida";
 import Envio from "../checkout/Envio";
+import useShowroomStore from "@/store/orden.store";
 // Importa los demás componentes de municipios según sea necesario
 
 const CiudadesColombia = ({
@@ -51,6 +52,7 @@ const CiudadesColombia = ({
 }) => {
   const [selectedCity, setSelectedCity] = useState("");
   const [selectedDepartment, setSelectedDepartment] = useState("");
+  const setShippingCharge = useShowroomStore((state) => state.setShippingCharge);
 
   const cityDepartmentMapping = {
     Amazonas: "Amazonas",
@@ -96,6 +98,11 @@ const CiudadesColombia = ({
       setSelectedDepartment(cityDepartmentMapping[cityValue]);
     } else {
       setSelectedDepartment("");
+    }
+    if (cityValue === "Bogotá") {
+      setShippingCharge(45000);
+    } else {
+      setShippingCharge(90000);
     }
 
     handleOnChange();

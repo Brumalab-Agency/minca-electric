@@ -1,11 +1,16 @@
+import useShowroomStore from "@/store/orden.store";
 import CheckoutCartItem from "./fomr-elements/CheckoutCartItem";
 
+
 const YourOrder = ({ cart }) => {
+  const shippingCharge = useShowroomStore((state) => state.shippingCharge);
+
   const separadorDeMiles = (numero) => {
     let partesNumero = numero.toString().split(".");
     partesNumero[0] = partesNumero[0].replace(/\B(?=(\d{3})+(?!\d))/g, ".");
     return partesNumero.join(".");
   };
+  
 
   return (
     <>
@@ -34,10 +39,10 @@ const YourOrder = ({ cart }) => {
             <tbody>
               {cart?.cartItems?.length &&
                 cart.cartItems.map((item, index) => (
-					<CheckoutCartItem
+                  <CheckoutCartItem
                     key={item?.productId ?? index}
                     item={item}
-					/>
+                  />
                 ))}
               {/*Total*/}
               <td>
@@ -48,13 +53,14 @@ const YourOrder = ({ cart }) => {
                 <td className="woo-next-checkout-total text-xl font-normal">
                   Total
                 </td>
+                
                 <td className="woo-next-checkout-total text-xl font-normal lg:hidden"></td>
                 <td className="woo-next-checkout-total text-right text-xl font-bold">
                   {separadorDeMiles(cart?.cartItems?.[0]?.currency ?? "")}
-                  {separadorDeMiles(cart?.totalPrice ?? "")}
+                  {separadorDeMiles(cart?.totalPrice + shippingCharge ?? "")}
                 </td>
               </tr>
-{/* 				<tr>
+              {/* 				<tr>
 					<td>Otro campo</td>
 				</tr> */}
             </tbody>
