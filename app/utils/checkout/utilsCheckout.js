@@ -3,6 +3,7 @@ import { createTheOrder, getCreateOrderData } from './order';
 import { clearCart } from '../cart/cartUtils';
 import axios from 'axios';
 import { WOOCOMMERCE_STATES_ENDPOINT } from '../cart/constants/endpoint';
+import { NextResponse } from 'next/server';
 
 /**
  * Handle Other Payment Method checkout.
@@ -195,3 +196,66 @@ export const getStates = async ( countryCode = '' ) => {
 	
 	return data?.states ?? [];
 };
+
+/* async function getOrderDetails(orderId) {
+    const response = {
+        shipping: {},
+        billing: {},
+    };
+
+    try {
+        const request = await fetch(`/api/get-order?orderId=${orderId}`);
+
+        if (!request.ok) {
+            throw new Error('Failed to fetch order details');
+        }
+
+        const result = await request.json();
+
+        // Assuming the API response structure contains the order details
+        response.success = true;
+        response.orderDetails = {
+            id: result?.orderDetails?.id ?? '',
+            status: result?.orderDetails?.status ?? '',
+            // Extract shipping and billing details from the response if available
+            shipping: result?.orderDetails?.shipping ?? {},
+            billing: result?.orderDetails?.billing ?? {},
+            // Add more details as needed
+        };
+    } catch (error) {
+        response.error = error.message;
+    }
+
+    return response;
+} */
+
+
+
+export async function getOrderStatus(id) {
+    const orderId = id;
+    const responseData = {};
+
+    if (!orderId) {
+        responseData.error = 'Order ID is required';
+        return NextResponse.json(responseData, { status: 400 });
+    }
+
+    try {
+        // Make an HTTP request to the route where getOrderDetails is implemented
+        const response = await fetch(`/api/order?orderId=${orderId}`);
+        const orderData = await response.json();
+
+        if (response.ok) {
+            responseData.success = true;
+            responseData.orderStatus = orderData.orderDetails.status;
+        } else {
+            responseData.error = 'Error fetching order details';
+            return NextResponse.json(responseData, { status: response.status });
+        }
+    } catch (error) {
+        responseData.error = error.message;
+        return NextResponse.json(responseData, { status: 500 });
+    }
+
+    return NextResponse.json(responseData);
+}

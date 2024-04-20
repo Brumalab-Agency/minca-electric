@@ -20,7 +20,7 @@ import Link from "next/link";
 import InputCustomField from "./fomr-elements/InputCustomField";
 
 // Utilice esto con fines de prueba, para que no tenga que completar el formulario de pago una y otra vez.
-const defaultCustomerInfo = {
+/* const defaultCustomerInfo = {
   Nombre: "Lenin",
   Apellido: "Mendoza",
   Direccion1: "Medellín - Antioquia",
@@ -36,9 +36,9 @@ const defaultCustomerInfo = {
   TelefonoTrabajo: "3022222222",
   NumeroIdentificacion: "1147696023",
   errors: null,
-};
+}; */
 
-/* const defaultCustomerInfo = {
+const defaultCustomerInfo = {
   Nombre: "",
   Apellido: "",
   Direccion1: "",
@@ -63,10 +63,11 @@ const defaultCustomerInfo = {
   TratamientoDatos: "",
   TipoVivienda: "",
   Referencia: "",
-  Quienrecibe: "",
-  Receptor: "",
+  Destinatario: "",
+  TelefonoDestinatario: "",
   errors: null,
-}; */
+};
+//let InputFields;
 
 // el state o estado del país es parte del componente Pais y este ya tiene sus campos predeterminados
 
@@ -103,6 +104,28 @@ const CheckoutForm = ({ countriesData }) => {
   const [createdOrderData, setCreatedOrderData] = useState({});
   const [formIsValid, setFormIsValid] = useState(false);
   const [showAdditionalContent, setShowAdditionalContent] = useState(true);
+
+  function concatenateAddress(input) {
+        
+    const billingInfo = input.billing || {};
+    const shippingInfo = input.shipping || {};
+  
+    const addressParts = [
+      "Barrio",
+      shippingInfo.Barrio || billingInfo.Barrio,
+      shippingInfo.DireccionSamsung1 || billingInfo.DireccionSamsung1,
+      '#',
+      shippingInfo.DireccionSamsung2 || billingInfo.DireccionSamsung2,
+      '-',
+      shippingInfo.DireccionSamsung3 || billingInfo.DireccionSamsung2,
+      shippingInfo.Referencia || billingInfo.Referencia
+    ];
+    const address = addressParts.filter(Boolean).join(' ');
+  
+    input.shipping.Direccion1 = address 
+    input.billing.Direccion1 = address;
+
+  }
 
   /**
    * Handle form submit.
@@ -152,7 +175,7 @@ const CheckoutForm = ({ countriesData }) => {
 
     setTemporalCarrito(cart);
 
-    /* const formEl = document.querySelector("#gas");
+   /*  const formEl = document.querySelector("#gas");
     alert("Formulario enviado");
     const formData = new FormData(formEl);
 
@@ -192,48 +215,15 @@ const CheckoutForm = ({ countriesData }) => {
       theShippingStates?.length,
     );
 
+    concatenateAddress(input)
+
     setInput({
       ...input,
       billing: { ...input.billing, errors: billingValidationResult.errors },
       shipping: { ...input.shipping, errors: shippingValidationResult.errors },
     });
 
-    
-    // Steps of getting custom fields
-      /*
-        - Interface or dictionary of the custom fields
-        - sum the directionSamsungfields
-        - send the data to the POST request in create-order.requests
-      */
-    function extractCustomCheckoutFields() {
-      const customFields = {};
-    
-      const billingInfo = input.billing || {};
-      const shippingInfo = input.shipping || {};
-    
-      const identification = billingInfo.NumeroIdentificacion || '';
-    
-      const addressParts = [
-        shippingInfo.Barrio || '',
-        shippingInfo.DireccionSamsung1 || '',
-        '#',
-        shippingInfo.DireccionSamsung2 || '',
-        '-',
-        shippingInfo.DireccionSamsung3 || '',
-        shippingInfo.Referencia || ''
-      ];
-      const address = addressParts.filter(Boolean).join(' ');
-    
-      const nameReceiver = shippingInfo.Quienrecibe || '';
-      const phoneReceiver = shippingInfo.Receptor || '';
-    
-      customFields['Identification'] = identification;
-      customFields['Address'] = address;
-      customFields['Name_Receiver'] = nameReceiver;
-      customFields['Phone_Receiver'] = phoneReceiver;
-    
-      return customFields;
-    }    
+    console.log(input)
 
     // Si hay algún error, regrese.
     if (!shippingValidationResult.isValid || !billingValidationResult.isValid) {
@@ -261,6 +251,7 @@ const CheckoutForm = ({ countriesData }) => {
       setIsOrderProcessing,
       setCreatedOrderData,
     );
+    console.log(createdOrderData.orderId)
     setIdOrder(createdOrderData.orderId);
 
     /* if ( createdOrderData.paymentUrl ) {
@@ -547,6 +538,7 @@ const CheckoutForm = ({ countriesData }) => {
                     }}
                     className="block h-[60px] w-full rounded-[52px] bg-[#111] px-[54px] py-[16px] text-center text-white"
                   >
+                    {console.log(idOrder)}
                     Continuar
                   </Link>
                 ) : null}

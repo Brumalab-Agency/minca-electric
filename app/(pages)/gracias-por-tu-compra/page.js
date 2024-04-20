@@ -1,8 +1,39 @@
+"use client"
 import Link from "next/link"
 import Image from "next/image"
 import PasoaPaso from "@/components/stepbystep/PasoaPaso";
+import { useEffect, useState } from "react";
+import { sendEmail } from "@/utils/email/sendEmail";
+import { getOrderStatus } from '@/utils/checkout/utilsCheckout';
+import { useSearchParams } from 'next/navigation';
 
 const GraciasCompraPage = () => {
+  const [orderStatus, setOrderStatus] = useState();
+  const searchParams = useSearchParams();
+  const idOrder = searchParams.get('idOrder');
+  console.log(idOrder)
+
+  useEffect(() => {
+    // Fetch the order status when the component mounts
+    const fetchOrderStatus = async () => {
+      try {
+        // Assuming orderId is retrieved from the URL or passed as a prop
+        const response = await getOrderStatus(idOrder);
+        setOrderStatus(response.orderStatus);
+      } catch (error) {
+        console.error('Error fetching order status: ', error);
+      }
+    };
+
+    fetchOrderStatus();
+  }, [idOrder]);
+
+  useEffect(() => {
+    // If the order status is "completed", send the email
+    if (orderStatus === 'Completado' && idOrder) {
+      sendEmail(idOrder);
+    }
+  }, [orderStatus, idOrder]);
   return (
     <div className="px-4 lg:px-[100px]">
       <div className="relative my-7 h-auto w-full">

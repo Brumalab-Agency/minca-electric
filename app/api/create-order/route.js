@@ -1,7 +1,6 @@
 import { NextResponse } from 'next/server';
 import WooCommerceRestApi from '@woocommerce/woocommerce-rest-api';
 import { isEmpty } from 'lodash';
-import CheckoutForm from "@/components/checkout/CheckoutForm";
 
 const api = new WooCommerceRestApi({
   url: process.env.NEXT_PUBLIC_WORDPRESS_SITE_URL,
@@ -26,36 +25,11 @@ export async function POST(req) {
     return NextResponse.json(responseData, { status: 400 });
   }
 
-  /* const data = body;
-  data.status = 'pending';
-  data.set_paid = false;*/
-
-  // Get the custom fields
-  inputFields = CheckoutForm.extractCustomCheckoutFields();
-  
-  const customFields = {
-    shipping: {
-      ...newFields
-    },
-    billing: {
-      ...newFields
-    }
-  };
-
-  // Merge the data object with custome fields
   const data = {
     ...body,
-    shipping: {
-      ...body.shipping,
-      ...newFields
-    },
-    billing: {
-      ...body.billing,
-      ...newFields
-    },
     status: 'pending',
-    set_paid: false,
-  };
+    set_paid: false
+  }
 
   console.log(data)
 

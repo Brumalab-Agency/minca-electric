@@ -16,7 +16,7 @@ const GenerateCupons = () => {
         random_code += char;
     }
 
-    return random_code;
+    return "MINCA_" + random_code;
   };
 
   const generateCoupon = async () => {

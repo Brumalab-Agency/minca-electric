@@ -28,45 +28,52 @@ export const getCreateOrderLineItems = ( products ) => {
  * @param products
  * @return {{shipping: {country: *, city: *, phone: *, address_1: (string|*), address_2: (string|*), postcode: (string|*), last_name: (string|*), company: *, state: *, first_name: (string|*), email: *}, payment_method_title: string, line_items: (*[]|*), payment_method: string, billing: {country: *, city: *, phone: *, address_1: (string|*), address_2: (string|*), postcode: (string|*), last_name: (string|*), company: *, state: *, first_name: (string|*), email: *}}}
  */
-export const getCreateOrderData = ( order, products ) => {
-	// Set the billing Data to shipping, if applicable.
-	const billingData = order.billingDifferentThanShipping ? order.billing : order.shipping;
-	
-	// Checkout data.
-	return {
-		shipping: {
-			first_name: order?.shipping?.Nombre,
-			last_name: order?.shipping?.Apellido,
-			address_1: order?.shipping?.Direccion1,
-			address_2: order?.shipping?.Direccion2,
-			city: order?.shipping?.Ciudad,
-			country: order?.shipping?.country,
-			state: order?.shipping?.state,
-			postcode: order?.shipping?.Codigopostal,
-			email: order?.shipping?.Email,
-			phone: order?.shipping?.Telefono,
-			company: order?.shipping?.Empresa,
-			NumeroIdentificacion: order?.shipping?.NumeroIdentificacion,
-		},
-		billing: {
-			first_name: billingData?.Nombre,
-			last_name: billingData?.Apellido,
-			NumeroIdentificacion: billingData?.NumeroIdentificacion,
-			address_1: billingData?.Direccion1,
-			address_2: billingData?.Direccion2,
-			city: billingData?.Ciudad,
-			country: billingData?.country,
-			state: billingData?.state,
-			postcode: billingData?.Codigopostal,
-			email: billingData?.Email,
-			phone: billingData?.Telefono,
-			company: billingData?.Empresa,
-		},
-		payment_method: order?.paymentMethod,
-		payment_method_title: order?.paymentMethod,
-		line_items: getCreateOrderLineItems( products ),
-	};
+export const getCreateOrderData = (order, products) => {
+    // Set the billing Data to shipping, if applicable.
+    const billingData = order.billingDifferentThanShipping ? order.billing : order.shipping;
+    
+    // Checkout data.
+    return {
+        shipping: {
+            first_name: order?.shipping?.Nombre,
+            last_name: order?.shipping?.Apellido,
+            address_1: order?.shipping?.Direccion1,
+            address_2: order?.shipping?.Direccion2,
+            city: order?.shipping?.Ciudad,
+            country: order?.shipping?.country,
+            state: order?.shipping?.state,
+            postcode: order?.shipping?.Codigopostal,
+            email: order?.shipping?.Email,
+            phone: order?.shipping?.Telefono,
+            company: order?.shipping?.Empresa,
+            numero_identificacion: order?.shipping?.NumeroIdentificacion,
+            name_receiver: order?.shipping?.Destinatario,
+            phone_receiver: order?.shipping?.TelefonoDestinatario,
+        },
+        billing: {
+            first_name: billingData?.Nombre,
+            last_name: billingData?.Apellido,
+            numero_identificacion: billingData?.NumeroIdentificacion,
+            address_1: billingData?.Direccion1,
+            address_2: billingData?.Direccion2,
+            city: billingData?.Ciudad,
+            country: billingData?.country,
+            state: billingData?.state,
+            postcode: billingData?.Codigopostal,
+            email: billingData?.Email,
+            phone: billingData?.Telefono,
+            company: billingData?.Empresa,
+            name_receiver: billingData?.Destinatario,
+            phone_peceiver: billingData?.TelefonoDestinatario,
+        },
+        payment_method: order?.paymentMethod,
+        payment_method_title: order?.paymentMethod,
+        line_items: getCreateOrderLineItems(products),
+        status: 'pending',
+        set_paid: false
+    };
 };
+
 
 /**
  * Create order.
