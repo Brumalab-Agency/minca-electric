@@ -110,28 +110,6 @@ const CheckoutForm = ({ countriesData, onFormSubmit }) => {
   const selectedShowroom = useShowroomStore((state) => state.selectedShowroom);
   const shippingCharge = useShowroomStore((state) => state.shippingCharge);
 
-  function concatenateAddress(input) {
-        
-    const billingInfo = input.billing || {};
-    const shippingInfo = input.shipping || {};
-  
-    const addressParts = [
-      "Barrio",
-      shippingInfo.Barrio || billingInfo.Barrio,
-      shippingInfo.DireccionSamsung1 || billingInfo.DireccionSamsung1,
-      '#',
-      shippingInfo.DireccionSamsung2 || billingInfo.DireccionSamsung2,
-      '-',
-      shippingInfo.DireccionSamsung3 || billingInfo.DireccionSamsung2,
-      shippingInfo.Referencia || billingInfo.Referencia
-    ];
-    const address = addressParts.filter(Boolean).join(' ');
-  
-    input.shipping.Direccion1 = address 
-    input.billing.Direccion1 = address;
-
-  }
-
   /**
    * Handle form submit.
    *
@@ -180,7 +158,11 @@ const CheckoutForm = ({ countriesData, onFormSubmit }) => {
 
     setTemporalCarrito(cart);
 
-   /*  const formEl = document.querySelector("#gas");
+    if (typeof onFormSubmit === "function") {
+      onFormSubmit();
+    }
+
+    /* const formEl = document.querySelector("#gas");
     alert("Formulario enviado");
     const formData = new FormData(formEl);
 
