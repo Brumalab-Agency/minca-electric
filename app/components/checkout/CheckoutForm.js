@@ -107,6 +107,9 @@ const CheckoutForm = ({ countriesData, onFormSubmit }) => {
   const [formIsValid, setFormIsValid] = useState(false);
   const [showAdditionalContent, setShowAdditionalContent] = useState(true);
 
+  const selectedShowroom = useShowroomStore((state) => state.selectedShowroom);
+  const shippingCharge = useShowroomStore((state) => state.shippingCharge);
+
   function concatenateAddress(input) {
         
     const billingInfo = input.billing || {};
