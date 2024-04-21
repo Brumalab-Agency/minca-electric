@@ -31,9 +31,6 @@ export async function POST(req) {
     set_paid: false
   }
 
-  console.log(data)
-
-
   try {
 	const response = await api.post('orders', data);
 

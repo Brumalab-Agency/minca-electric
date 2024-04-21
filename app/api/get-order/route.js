@@ -1,5 +1,3 @@
-// pages/api/order.js
-
 import { NextResponse } from 'next/server';
 import WooCommerceRestApi from '@woocommerce/woocommerce-rest-api';
 
@@ -10,51 +8,50 @@ const api = new WooCommerceRestApi({
     version: 'wc/v3',
 });
 
-async function getOrderDetails(orderId) {
-    try {
-        const response = await api.get(`orders/${orderId}`);
-        return response.data;
-    } catch (error) {
-        throw new Error('Error fetching order details');
-    }
-}
-
 export async function GET(req) {
-    const orderId = req.query.orderId;
     const responseData = {
+        id: 0,
         shipping: {
-            first_name: "",
-            last_name: "",
-            address_1: "",
-            address_2: "",
-            city: "",
-            country: "",
-            state: "",
-            postcode: "",
-            email: "",
-            phone: "",
-            company: "",
-            numero_identificacion: "",
-            name_receiver: "",
-            phone_receiver: "",
+            first_name: '',
+            last_name: '',
+            address_1: '',
+            address_2: '',
+            city: '',
+            country: '',
+            state: '',
+            postcode: '',
+            email: '',
+            phone: '',
+            company: '',
+            numero_identificacion: '',
+            name_receiver: '',
+            phone_receiver: '',
         },
         billing: {
-            first_name: "",
-            last_name: "",
-            numero_identificacion: "",
-            address_1: "",
-            address_2: "",
-            city: "",
-            country: "",
-            state: "",
-            postcode: "",
-            email: "",
-            phone: "",
-            company: "",
-            name_receiver: "",
-            phone_peceiver: "",
+            first_name: '',
+            last_name: '',
+            numero_identificacion: '',
+            address_1: '',
+            address_2: '',
+            city: '',
+            country: '',
+            state: '',
+            postcode: '',
+            email: '',
+            phone: '',
+            company: '',
+            name_receiver: '',
+            phone_peceiver: '',
         },
+        status: ''
     }
+    
+    /* const orderId = await req.query.orderId;
+    console.log(req.query, "route get function") */
+
+    const { searchParams } = new URL(req.url);
+    const orderId = searchParams.get('orderId');
+
 
     if (!orderId) {
         responseData.error = 'Order ID is required';
@@ -62,8 +59,8 @@ export async function GET(req) {
     }
 
     try {
-        // Fetch order details using getOrderDetails function
-        const orderData = await getOrderDetails(orderId);
+        const response = await api.get(`orders/${orderId}`);
+        const orderData = response.data;
         responseData.success = true;
         responseData.orderDetails = {
             id: orderData.id,

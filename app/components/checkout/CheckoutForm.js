@@ -251,7 +251,6 @@ const CheckoutForm = ({ countriesData }) => {
       setIsOrderProcessing,
       setCreatedOrderData,
     );
-    console.log(createdOrderData.orderId)
     setIdOrder(createdOrderData.orderId);
 
     /* if ( createdOrderData.paymentUrl ) {
@@ -538,7 +537,6 @@ const CheckoutForm = ({ countriesData }) => {
                     }}
                     className="block h-[60px] w-full rounded-[52px] bg-[#111] px-[54px] py-[16px] text-center text-white"
                   >
-                    {console.log(idOrder)}
                     Continuar
                   </Link>
                 ) : null}

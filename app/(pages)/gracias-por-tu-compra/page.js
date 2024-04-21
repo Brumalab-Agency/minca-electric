@@ -1,39 +1,47 @@
 "use client"
+import { useEffect, useState } from "react";
+import { useSearchParams } from 'next/navigation';
 import Link from "next/link"
 import Image from "next/image"
 import PasoaPaso from "@/components/stepbystep/PasoaPaso";
-import { useEffect, useState } from "react";
 import { sendEmail } from "@/utils/email/sendEmail";
 import { getOrderStatus } from '@/utils/checkout/utilsCheckout';
-import { useSearchParams } from 'next/navigation';
 
 const GraciasCompraPage = () => {
-  const [orderStatus, setOrderStatus] = useState();
   const searchParams = useSearchParams();
-  const idOrder = searchParams.get('idOrder');
-  console.log(idOrder)
+  let idOrder = searchParams.get('idOrder');
+
+  if (typeof window !== 'undefined') {
+    // Check if idOrder is not already set in sessionStorage
+    if (sessionStorage.getItem("idOrder") === null || sessionStorage.getItem("idOrder") === undefined || sessionStorage.getItem("isOrder") !== idOrder) {
+      sessionStorage.setItem("idOrder", idOrder);
+    }
+
+    // Retrieve idOrder from sessionStorage
+    idOrder = sessionStorage.getItem("idOrder");
+  }
 
   useEffect(() => {
-    // Fetch the order status when the component mounts
-    const fetchOrderStatus = async () => {
+    const sendEmailFunction = async () => {
       try {
-        // Assuming orderId is retrieved from the URL or passed as a prop
-        const response = await getOrderStatus(idOrder);
-        setOrderStatus(response.orderStatus);
+        console.log("Checking idOrder:", idOrder);
+        if (idOrder) {
+          const status = await getOrderStatus(idOrder); // Await the result of getOrderStatus
+          console.log(status)
+          if (status === 'completed') {
+            await sendEmail(idOrder);
+          }
+        } else {
+          console.log("No order ID available yet.");
+        }
       } catch (error) {
         console.error('Error fetching order status: ', error);
       }
     };
 
-    fetchOrderStatus();
+    sendEmailFunction(); // Call sendEmailFunction once when the component mounts
   }, [idOrder]);
 
-  useEffect(() => {
-    // If the order status is "completed", send the email
-    if (orderStatus === 'Completado' && idOrder) {
-      sendEmail(idOrder);
-    }
-  }, [orderStatus, idOrder]);
   return (
     <div className="px-4 lg:px-[100px]">
       <div className="relative my-7 h-auto w-full">

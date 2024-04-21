@@ -197,43 +197,26 @@ export const getStates = async ( countryCode = '' ) => {
 	return data?.states ?? [];
 };
 
-/* async function getOrderDetails(orderId) {
-    const response = {
-        shipping: {},
-        billing: {},
-    };
+export async function getOrderDetails(orderId) {
+    const url = `/api/get-order?orderId=${orderId}`;
 
     try {
-        const request = await fetch(`/api/get-order?orderId=${orderId}`);
+        //const response = await axios.get(url);
+		const response = await axios.get(url)
 
-        if (!request.ok) {
+        if (response.status !== 200) {
             throw new Error('Failed to fetch order details');
         }
 
-        const result = await request.json();
-
-        // Assuming the API response structure contains the order details
-        response.success = true;
-        response.orderDetails = {
-            id: result?.orderDetails?.id ?? '',
-            status: result?.orderDetails?.status ?? '',
-            // Extract shipping and billing details from the response if available
-            shipping: result?.orderDetails?.shipping ?? {},
-            billing: result?.orderDetails?.billing ?? {},
-            // Add more details as needed
-        };
+        return response.data.orderDetails;
     } catch (error) {
-        response.error = error.message;
+        throw new Error('Error fetching order details');
     }
-
-    return response;
-} */
-
-
+}
 
 export async function getOrderStatus(id) {
     const orderId = id;
-    const responseData = {};
+	let responseData = "";
 
     if (!orderId) {
         responseData.error = 'Order ID is required';
@@ -242,20 +225,11 @@ export async function getOrderStatus(id) {
 
     try {
         // Make an HTTP request to the route where getOrderDetails is implemented
-        const response = await fetch(`/api/order?orderId=${orderId}`);
-        const orderData = await response.json();
-
-        if (response.ok) {
-            responseData.success = true;
-            responseData.orderStatus = orderData.orderDetails.status;
-        } else {
-            responseData.error = 'Error fetching order details';
-            return NextResponse.json(responseData, { status: response.status });
-        }
+        const response = await getOrderDetails(orderId);
+		responseData = response.status;
     } catch (error) {
-        responseData.error = error.message;
-        return NextResponse.json(responseData, { status: 500 });
+        return error
     }
 
-    return NextResponse.json(responseData);
+    return responseData;
 }
