@@ -10,6 +10,7 @@ const CardMercadoPago = () => {
             name="formaEntrega"
             value="envia"
             className="radio-input mr-2"
+            checked
           />
           <div className="flex items-center justify-start">
             <span className="radio-custom"></span>

@@ -107,6 +107,11 @@ const CiudadesColombia = ({
 
     handleOnChange();
     setFormIsValid(cityValue !== "");
+    if (cityValue === "Bogotá") {
+      setShippingCharge(45000);
+    } else {
+      setShippingCharge(90000);
+    }
   };
 
   const handleDepartmentChange = (event) => {

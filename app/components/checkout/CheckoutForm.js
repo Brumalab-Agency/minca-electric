@@ -346,6 +346,30 @@ const CheckoutForm = ({ countriesData, onFormSubmit }) => {
     return partesNumero.join(".");
   };
 
+  // Renderizado del mensaje según la opción de envio o recogida en tienda
+
+  const RenderMensaje = () => {
+    if (shippingCharge) {
+      return (
+        <div className="rounded-sm bg-slate-200 text-center">
+          <small className="w-full">
+            Se ha asignado un recargo por tu zona destino de:{" "}
+            <b>{separadorDeMiles(shippingCharge)}$ COP</b>{" "}
+          </small>
+        </div>
+      );
+    } else if (selectedShowroom) {
+      return (
+        <div className="rounded-sm bg-slate-200 text-center">
+          <small className="w-full">
+            Has seleccionado retirar en: <b>{selectedShowroom}</b>{" "}
+          </small>
+        </div>
+      );
+    }
+    return null;
+  };
+
   return (
     <>
       {cart || (idOrder && temporalCarrito) ? (
@@ -478,20 +502,7 @@ const CheckoutForm = ({ countriesData, onFormSubmit }) => {
               <hr className="mb-3"></hr>
 
               <YourOrder cart={cart ? cart : temporalCarrito} />
-              {shippingCharge ? (
-                <div className="rounded-sm bg-slate-200 text-center">
-                  <small className="w-full">
-                    Se ha asignado un recargo por tu zona destino de:{" "}
-                    <b>{separadorDeMiles(shippingCharge)}$ COP</b>{" "}
-                  </small>
-                </div>
-              ) : selectedShowroom ? (
-                <div className="rounded-sm bg-slate-200 text-center">
-                  <small className="w-full">
-                    Has seleccionado retirar en: <b>{selectedShowroom}</b>{" "}
-                  </small>
-                </div>
-              ) : null}
+              <RenderMensaje />
               {/*Metodo de envio*/}
               <h2
                 className={`${manrope.className} text-base font-bold lg:text-[24px]`}
