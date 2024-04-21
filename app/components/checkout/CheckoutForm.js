@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useContext } from "react";
+import { useState, useContext, useEffect, useRef } from "react";
 import cx from "classnames";
 
 import YourOrder from "./YourOrder";
@@ -18,6 +18,8 @@ import {
 import { manrope } from "@/ui/fonts";
 import Link from "next/link";
 import InputCustomField from "./fomr-elements/InputCustomField";
+import { useRouter } from "next/router";
+import useShowroomStore from "@/store/orden.store";
 
 // Utilice esto con fines de prueba, para que no tenga que completar el formulario de pago una y otra vez.
 /* const defaultCustomerInfo = {
@@ -71,7 +73,7 @@ const defaultCustomerInfo = {
 
 // el state o estado del país es parte del componente Pais y este ya tiene sus campos predeterminados
 
-const CheckoutForm = ({ countriesData }) => {
+const CheckoutForm = ({ countriesData, onFormSubmit }) => {
   const { billingCountries, shippingCountries } = countriesData || {};
 
   const initialState = {
@@ -231,7 +233,7 @@ const CheckoutForm = ({ countriesData }) => {
     }
 
     // Para el modo de pago con STRIPE, maneje el pago con STRIPE y gracias.
-    if ("stripe" === input.paymentMethod) {
+    /* if ("stripe" === input.paymentMethod) {
       const createdOrderData = await handleStripeCheckout(
         input,
         cart?.cartItems,
@@ -241,7 +243,7 @@ const CheckoutForm = ({ countriesData }) => {
         setCreatedOrderData,
       );
       return null;
-    }
+    } */
     // Para cualquier otro modo de pago, cree el pedido y redirija al usuario a la URL de pago.
     const createdOrderData = await handleOtherPaymentMethodCheckout(
       input,
@@ -272,6 +274,7 @@ const CheckoutForm = ({ countriesData }) => {
    *
    * @return {void}
    */
+
   const handleOnChange = async (
     event,
     isShipping = false,
@@ -288,6 +291,7 @@ const CheckoutForm = ({ countriesData }) => {
       handleCheckboxChange();
     }
 
+    // createAccount no esta haciendo nada pero por motivos de evitar errores más adelante se ha dejado, ya luego se eliminara!
     if ("createAccount" === target.name) {
       handleCreateAccount(input, setInput, target);
     } else if ("billingDifferentThanShipping" === target.name) {
@@ -358,6 +362,38 @@ const CheckoutForm = ({ countriesData }) => {
       setIsFetchingBillingStates,
     );
   };
+
+  // Separador de miles
+  const separadorDeMiles = (numero) => {
+    let partesNumero = numero.toString().split(".");
+    partesNumero[0] = partesNumero[0].replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+    return partesNumero.join(".");
+  };
+
+  // Renderizado del mensaje según la opción de envio o recogida en tienda
+
+  const RenderMensaje = () => {
+    if (shippingCharge) {
+      return (
+        <div className="rounded-sm bg-slate-200 text-center">
+          <small className="w-full">
+            Se ha asignado un recargo por tu zona destino de:{" "}
+            <b>{separadorDeMiles(shippingCharge)}$ COP</b>{" "}
+          </small>
+        </div>
+      );
+    } else if (selectedShowroom) {
+      return (
+        <div className="rounded-sm bg-slate-200 text-center">
+          <small className="w-full">
+            Has seleccionado retirar en: <b>{selectedShowroom}</b>{" "}
+          </small>
+        </div>
+      );
+    }
+    return null;
+  };
+
   return (
     <>
       {cart || (idOrder && temporalCarrito) ? (
@@ -484,12 +520,13 @@ const CheckoutForm = ({ countriesData }) => {
               </div>
             </div>
             {/* Order & Payments*/}
-            <div className="your-orders mb-14 h-fit w-full rounded-md bg-[#F0F1EB] p-8 lg:mb-0">
+            <div className="your-orders order-first h-fit w-full rounded-md bg-[#F0F1EB] p-8 lg:order-none lg:mb-0 lg:mb-14">
               {/*	Order*/}
               <h2 className="mb-4 text-xl font-medium">Resumen del pedido</h2>
               <hr className="mb-3"></hr>
 
               <YourOrder cart={cart ? cart : temporalCarrito} />
+              <RenderMensaje />
               {/*Metodo de envio*/}
               <h2
                 className={`${manrope.className} text-base font-bold lg:text-[24px]`}

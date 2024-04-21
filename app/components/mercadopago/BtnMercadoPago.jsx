@@ -49,7 +49,7 @@ export const Mercadopago = ({preciopagar,idOrder}) => {
 
 
   return (
-    <div className="m-auto h-auto w-[300px]">
+    <div className="m-auto h-auto w-full lg:w-[300px]">
       {preferenceId && (
         <Link
         href={{

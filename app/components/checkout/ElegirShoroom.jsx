@@ -1,13 +1,29 @@
 import { useState } from "react";
 import Error from "./Error";
+import useShowroomStore from "@/store/orden.store";
 
 const ElegirShowroom = ({ input }) => {
   const { RetirarEn, errors } = input || {};
   const inputId = "RetirarEn";
   const [selectedOption, setSelectedOption] = useState(RetirarEn || "");
+  const setSelectedShowroom = useShowroomStore((state) => state.setSelectedShowroom);
 
   const handleRadioChange = (event) => {
-    setSelectedOption(event.target.value);
+    const selectedOption = event.target.value;
+    let charge = 0;
+  
+    if (selectedOption === "Javeriana Cra. 7 #45-10") {
+      charge = 0; // No hay recargo para esta opción
+    } else if (selectedOption === "Chico Cra. 11a #94a-56") {
+      charge = 0; // No hay recargo para esta opción
+    } else if (selectedOption === "Cedritos Av. Cra 19 #143a-8") {
+      charge = 0; // No hay recargo para esta opción
+    } else if (selectedOption === "Fuera de Bogotá. Entrega de 3 a 5 días hábiles: $90.000") {
+      charge = 90000;
+    }
+  
+    setSelectedOption(selectedOption);
+    setSelectedShowroom(selectedOption, charge);
   };
 
   return (
