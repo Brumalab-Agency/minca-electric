@@ -30,7 +30,7 @@ const GraciasCompraPage = () => {
       try {
         if (idOrder) {
           const status = await getOrderStatus(idOrder); // Await the result of getOrderStatus
-          if (true) { // change for status
+          if (status === "completed") { // change for status
             await sendEmail(data, products);
             //sessionStorage.removeItem("data");
           }
