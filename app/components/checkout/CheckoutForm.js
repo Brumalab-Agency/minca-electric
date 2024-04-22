@@ -22,7 +22,7 @@ import { useRouter } from "next/router";
 import useShowroomStore from "@/store/orden.store";
 
 // Utilice esto con fines de prueba, para que no tenga que completar el formulario de pago una y otra vez.
-const defaultCustomerInfo = {
+/* const defaultCustomerInfo = {
   Nombre: "Lenin",
   Apellido: "Mendoza",
   Direccion1: "Medellín - Antioquia",
@@ -40,9 +40,9 @@ const defaultCustomerInfo = {
   name_receiver: "Juan",
   phone_receiver: "3244234233423",
   errors: null,
-};
+}; */
 
-/* const defaultCustomerInfo = {
+const defaultCustomerInfo = {
   Nombre: "",
   Apellido: "",
   Direccion1: "",
@@ -70,7 +70,7 @@ const defaultCustomerInfo = {
   Destinatario: "",
   TelefonoDestinatario: "",
   errors: null,
-}; */
+};
 
 // el state o estado del país es parte del componente Pais y este ya tiene sus campos predeterminados
 
