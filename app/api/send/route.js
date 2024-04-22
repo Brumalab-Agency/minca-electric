@@ -4,9 +4,8 @@ import { Resend } from 'resend';
 const resend = new Resend(process.env.RESEND_API_KEY);
 
 export async function POST(req) {
-  const { searchParams } = new URL(req.url);
-  const data = searchParams.get('data');
-  console.log(data)
+  const rawData = await req.json()
+  const data = JSON.parse(rawData); // Parse the JSON string into an object
   try {
     // Extract the data from the request body
 
@@ -14,17 +13,17 @@ export async function POST(req) {
       throw new Error("Request body is missing");
     }
 
-    const email = data.shipping.email || data.billing.email;
+    const shipping = data.shipping;
+    const billing = data.billing;
 
-    if (!email) {
-      throw new Error("Email address not found in data");
-    }
+    const email = shipping.Email || billing.Email;
+    console.log(email)
 
     const emailResponse = await resend.emails.send({
       from: 'Acme <onboarding@resend.dev>',
-      to: ["jehp01104006@gmail.com"],//[email],
+      to: [email],
       subject: 'Thank you for buying with us',
-      react: <EmailTemplate firstName="MINCA" shipping={data.shipping} billing={data.billing} />,
+      react: <EmailTemplate firstName="MINCA" shipping={shipping} billing={billing} />,
     });
 
     return NextResponse.json({ message: "Email sent", emailResponse }, { status: 200 });
@@ -35,42 +34,38 @@ export async function POST(req) {
 }
 
 export const EmailTemplate = ({
-    firstName,
-    shipping,
-    billing
-  }) => (
-    <div>
-      <h1>Welcome to {firstName}</h1>
-      <h2>Shipping Information:</h2>
-      <p>First Name: {shipping.first_name}</p>
-      <p>Last Name: {shipping.last_name}</p>
-      <p>Address 1: {shipping.address_1}</p>
-      <p>Address 2: {shipping.address_2}</p>
-      <p>City: {shipping.city}</p>
-      <p>Country: {shipping.country}</p>
-      <p>State: {shipping.state}</p>
-      <p>Postcode: {shipping.postcode}</p>
-      <p>Email: {shipping.email}</p>
-      <p>Phone: {shipping.phone}</p>
-      <p>Company: {shipping.company}</p>
-      <p>Numero Identificacion: {shipping.NumeroIdentificacion}</p>
-      <p>Name Receiver: {shipping.name_receiver}</p>
-      <p>Phone Receiver: {shipping.phone_receiver}</p>
-  
-      <h2>Billing Information:</h2>
-      <p>First Name: {billing.first_name}</p>
-      <p>Last Name: {billing.last_name}</p>
-      <p>Address 1: {billing.address_1}</p>
-      <p>Address 2: {billing.address_2}</p>
-      <p>City: {billing.city}</p>
-      <p>Country: {billing.country}</p>
-      <p>State: {billing.state}</p>
-      <p>Postcode: {billing.postcode}</p>
-      <p>Email: {billing.email}</p>
-      <p>Phone: {billing.phone}</p>
-      <p>Company: {billing.company}</p>
-      <p>Numero Identificacion: {billing.NumeroIdentificacion}</p>
-      <p>Name Receiver: {billing.name_receiver}</p>
-      <p>Phone Receiver: {billing.phone_receiv}</p>
+  firstName,
+  shipping,
+  billing
+}) => (
+  <div>
+    <h1>Welcome to {firstName}</h1>
+    <h2>Shipping Information:</h2>
+    <p>First Name: {shipping.Nombre}</p>
+    <p>Last Name: {shipping.Apellido}</p>
+    <p>Address 1: {shipping.Direccion1}</p>
+    <p>Address 2: {shipping.Direccion2}</p>
+    <p>City: {shipping.Ciudad}</p>
+    <p>Country: {shipping.Pais}</p>
+    <p>State: {shipping.Estado}</p>
+    <p>Postcode: {shipping.Codigopostal}</p>
+    <p>Email: {shipping.Email}</p>
+    <p>Phone: {shipping.Telefono}</p>
+    <p>Company: {shipping.Empresa}</p>
+    <p>Numero Identificacion: {shipping.NumeroIdentificacion}</p>
+    <p>Name Receiver: {shipping.name_receiver}</p>
+    <p>Phone Receiver: {shipping.phone_receiver}</p>
+
+    <h2>Billing Information:</h2>
+    <p>First Name: {billing.Nombre}</p>
+    <p>Last Name: {billing.Apellido}</p>
+    <p>Address 1: {billing.Direccion1}</p>
+    <p>Address 2: {billing.Direccion2}</p>
+    <p>City: {billing.Ciudad}</p>
+    <p>Country: {billing.Pais}</p>
+    <p>State: {billing.Estado}</p>
+    <p>Postcode: {billing.Codigopostal}</p>
+    <p>Email: {billing.Email}</p>
+    <p>Phone: {billing.Telefono}</p>
     </div>
-);
+)

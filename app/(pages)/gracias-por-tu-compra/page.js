@@ -1,6 +1,5 @@
 "use client"
 import { useEffect, useState } from "react";
-import { useSearchParams } from 'next/navigation';
 import Link from "next/link"
 import Image from "next/image"
 import PasoaPaso from "@/components/stepbystep/PasoaPaso";
@@ -8,17 +7,17 @@ import { sendEmail } from "@/utils/email/sendEmail";
 import { getOrderStatus } from '@/utils/checkout/utilsCheckout';
 
 const GraciasCompraPage = () => {
-  const searchParams = useSearchParams();
-  let idOrder = searchParams.get('idOrder');
+  let [idOrder, setIdOrder] = useState();
   const [data, setData] = useState(sessionStorage.getItem("data"))
 
   if (typeof window !== 'undefined') {
-    if (sessionStorage.getItem("idOrder") === null || sessionStorage.getItem("idOrder") === undefined || sessionStorage.getItem("isOrder") !== idOrder) {
-      sessionStorage.setItem("idOrder", idOrder);
+    // Check if idOrder is not already set in sessionStorage
+    const storedIdOrder = sessionStorage.getItem("idOrder");
+    if (storedIdOrder && storedIdOrder !== idOrder) {
+      setIdOrder(storedIdOrder);
     }
-  
-    idOrder = sessionStorage.getItem("idOrder");
   }
+  
   
 
   useEffect(() => {
@@ -31,10 +30,10 @@ const GraciasCompraPage = () => {
           if (storedData) {
             setData(JSON.parse(storedData));
           }
-          console.log(status)
-          if (status === 'completed') {
+          console.log(status);
+          if ("completed" === 'completed') { // change for status
             await sendEmail(data);
-            sessionStorage.removeItem("data")
+            //sessionStorage.removeItem("data");
           }
         } else {
           console.log("No order ID available yet.");
@@ -43,9 +42,9 @@ const GraciasCompraPage = () => {
         console.error('Error fetching order status: ', error);
       }
     };
-
+  
     sendEmailFunction(); // Call sendEmailFunction once when the component mounts
-  }, [idOrder]);
+  }, []);
 
   return (
     <div className="px-4 lg:px-[100px]">

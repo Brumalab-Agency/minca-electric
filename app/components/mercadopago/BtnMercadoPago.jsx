@@ -68,7 +68,6 @@ export const Mercadopago = ({preciopagar,idOrder}) => {
           query: { idOrder: idOrder },
         }}
       >
-        {console.log(idOrder)}
         <Wallet
           initialization={{ preferenceId: preferenceId, redirectMode: "modal" }}
           customization={customization}

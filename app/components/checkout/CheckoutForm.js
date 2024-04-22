@@ -22,7 +22,7 @@ import { useRouter } from "next/router";
 import useShowroomStore from "@/store/orden.store";
 
 // Utilice esto con fines de prueba, para que no tenga que completar el formulario de pago una y otra vez.
-/* const defaultCustomerInfo = {
+const defaultCustomerInfo = {
   Nombre: "Lenin",
   Apellido: "Mendoza",
   Direccion1: "Medellín - Antioquia",
@@ -40,9 +40,9 @@ import useShowroomStore from "@/store/orden.store";
   name_receiver: "Juan",
   phone_receiver: "3244234233423",
   errors: null,
-}; */
+};
 
-const defaultCustomerInfo = {
+/* const defaultCustomerInfo = {
   Nombre: "",
   Apellido: "",
   Direccion1: "",
@@ -70,7 +70,7 @@ const defaultCustomerInfo = {
   Destinatario: "",
   TelefonoDestinatario: "",
   errors: null,
-};
+}; */
 
 // el state o estado del país es parte del componente Pais y este ya tiene sus campos predeterminados
 
@@ -203,7 +203,7 @@ const CheckoutForm = ({ countriesData, onFormSubmit }) => {
       window.location.href = `/checkout/pago?idOrder=${idOrder}`;
     }, 1000); 
 
-    const formEl = document.querySelector("#gas");
+    /* const formEl = document.querySelector("#gas");
     alert("Formulario enviado");
     const formData = new FormData(formEl);
 
@@ -221,7 +221,7 @@ const CheckoutForm = ({ countriesData, onFormSubmit }) => {
         console.log(data);
       })
       .catch((error) => console.log(error));
-
+ */
       
     /**
      * Validar Detalles de Facturación y Envío
@@ -284,6 +284,9 @@ const CheckoutForm = ({ countriesData, onFormSubmit }) => {
       setCreatedOrderData,
     );
     setIdOrder(createdOrderData.orderId);
+    console.log(createdOrderData.orderId)
+    sessionStorage.setItem("idOrder", createdOrderData.orderId)
+
 
     /* if ( createdOrderData.paymentUrl ) {
     
