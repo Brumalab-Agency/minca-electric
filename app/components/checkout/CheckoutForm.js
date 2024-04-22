@@ -182,6 +182,7 @@ const CheckoutForm = ({ countriesData, onFormSubmit }) => {
     event.preventDefault();
 
     setTemporalCarrito(cart);
+    sessionStorage.setItem("data", JSON.stringify(cart))
 
     if (typeof onFormSubmit === "function") {
       onFormSubmit();

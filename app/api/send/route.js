@@ -4,8 +4,8 @@ import { Resend } from 'resend';
 const resend = new Resend(process.env.RESEND_API_KEY);
 
 export async function POST(req) {
-  const rawData = await req.json()
-  const data = JSON.parse(rawData); // Parse the JSON string into an object
+  const data = await req.json();
+  console.log(data)
   try {
     // Extract the data from the request body
 
@@ -17,13 +17,12 @@ export async function POST(req) {
     const billing = data.billing;
 
     const email = shipping.Email || billing.Email;
-    console.log(email)
 
     const emailResponse = await resend.emails.send({
       from: 'Acme <onboarding@resend.dev>',
       to: [email],
       subject: 'Thank you for buying with us',
-      react: <EmailTemplate firstName="MINCA" shipping={shipping} billing={billing} />,
+      react: <EmailTemplate firstName="MINCA" shipping={shipping} billing={billing} cartItems={data.cartItems} totalPrice={data.totalPrice}/>,
     });
 
     return NextResponse.json({ message: "Email sent", emailResponse }, { status: 200 });
@@ -36,10 +35,26 @@ export async function POST(req) {
 export const EmailTemplate = ({
   firstName,
   shipping,
-  billing
+  billing,
+  cartItems,
+  totalPrice
 }) => (
   <div>
     <h1>Welcome to {firstName}</h1>
+    <h2>Order details</h2>
+    {/* Iterate over each item in cartItems */}
+    {cartItems.map(item => (
+      <div key={item.key}>
+        <h3>Product Details:</h3>
+        <p>Name: {item.data.name}</p>
+        <p>Quantity: {item.quantity}</p>
+        <p>Price: {item.data.price}</p>
+        <p>Subtotal: {item.line_total}</p>
+        <p>Image: <img src={item.data.images[0].src} alt={item.data.images[0].alt} /></p>
+      </div>
+    ))}
+
+    <h2>Total Price: {totalPrice}</h2>
     <h2>Shipping Information:</h2>
     <p>First Name: {shipping.Nombre}</p>
     <p>Last Name: {shipping.Apellido}</p>

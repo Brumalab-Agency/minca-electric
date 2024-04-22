@@ -108,7 +108,7 @@ export const EspecificacionesMincaNew = async (scooters) => {
           </div>
           {/* Btn y contador */}
           <div className="contador-btnAddCart mt-4 flex w-full items-center gap-4 lg:ml-7 lg:w-[85%] 2xl:w-[70%]">
-            <BtnQty />
+            {/* <BtnQty /> */}
             <div className="w-full flex-col justify-center lg:flex">
               <AddToCart
                 key={item?.databaseId}

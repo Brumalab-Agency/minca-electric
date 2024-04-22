@@ -7,14 +7,19 @@ import { sendEmail } from "@/utils/email/sendEmail";
 import { getOrderStatus } from '@/utils/checkout/utilsCheckout';
 
 const GraciasCompraPage = () => {
-  let [idOrder, setIdOrder] = useState();
-  const [data, setData] = useState(sessionStorage.getItem("data"))
+  const [idOrder, setIdOrder] = useState();
+  const [data, setData] = useState();
+  const [products, setProducts] = useState();
 
   if (typeof window !== 'undefined') {
     // Check if idOrder is not already set in sessionStorage
+    const storedData = sessionStorage.getItem("data")
+    const storedProducts = sessionStorage.getItem("products");
     const storedIdOrder = sessionStorage.getItem("idOrder");
     if (storedIdOrder && storedIdOrder !== idOrder) {
       setIdOrder(storedIdOrder);
+      setData(storedData);
+      setProducts(storedProducts)
     }
   }
   
@@ -23,16 +28,10 @@ const GraciasCompraPage = () => {
   useEffect(() => {
     const sendEmailFunction = async () => {
       try {
-        console.log("Checking idOrder:", idOrder);
         if (idOrder) {
           const status = await getOrderStatus(idOrder); // Await the result of getOrderStatus
-          const storedData = sessionStorage.getItem("data");
-          if (storedData) {
-            setData(JSON.parse(storedData));
-          }
-          console.log(status);
-          if ("completed" === 'completed') { // change for status
-            await sendEmail(data);
+          if (true) { // change for status
+            await sendEmail(data, products);
             //sessionStorage.removeItem("data");
           }
         } else {
