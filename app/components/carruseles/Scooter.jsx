@@ -28,14 +28,13 @@ const Scooter = ({ scooter }) => {
           height={400}
           style={{ objectFit: "cover" }}
         />
-        <Boton slug={item.slugDinamicoTemporal} param="Comprar Ahora" />
         <div>
           <div className="flex justify-between">
             <div className="flex flex-col justify-center">
               <h2
                 className={`${manrope.className} mb-1 text-[16px] font-bold uppercase text-[#111111]  lg:text-[42px] lg:leading-[45px]`}
               >
-                SCOOTER ELÉCTRICO <br/>
+                SCOOTER ELÉCTRICO <br />
                 {item.nombreProducto}
               </h2>
               <p
@@ -73,8 +72,11 @@ const Scooter = ({ scooter }) => {
                   </p>
                 </span>
               </div>
-              {/* botones descuento y 3D PC*/}
-              <Link
+              <div className="hidden lg:block">
+                <Boton slug={item.slugDinamicoTemporal} param="Comprar Ahora" />
+              </div>
+              {/* botones descuento oculto hasta su implementación y 3D PC*/}
+              {/* <Link
                 href="#"
                 className="relative mt-4 flex h-[44px] w-[355px] items-center justify-center gap-1 rounded-[5px] bg-[#F0EEED] text-[10px]"
               >
@@ -109,7 +111,7 @@ const Scooter = ({ scooter }) => {
                   <strong>hasta 6 cuotas.</strong>
                 </p>
                 <p className="underline">Revisa si calificas</p>
-              </Link>
+              </Link> */}
               {/* <div className="hidden pt-8 lg:block">
                 <Modal3d url_3d={item.url3d} />
               </div> */}
@@ -217,6 +219,9 @@ const Scooter = ({ scooter }) => {
             />
           </div>
           <div className="scroll-indicator m-auto"></div>
+          <div className="block lg:hidden">
+            <Boton slug={item.slugDinamicoTemporal} param="Comprar Ahora" />
+          </div>
         </div>
       </div>
     </div>

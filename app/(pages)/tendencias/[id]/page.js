@@ -11,7 +11,6 @@ const SIngleBlog = async ({ params }) => {
   const { id } = params;
 
   const data = await SinglePost(id);
-  console.log(data);
 
   const posts = data.posts.nodes;
 
@@ -24,7 +23,10 @@ const SIngleBlog = async ({ params }) => {
     <>
       <HeroContext titulo="Blog" />
       {posts.map((post) => (
-        <div className="HeroBlog mt-[45px] grid-cols-3 lg:grid  lg:w-full lg:px-[100px] 2xl:grid-cols-4">
+        <div className="HeroBlog lg:mt-[45px] grid-cols-3 lg:grid  lg:w-full lg:px-[100px] 2xl:grid-cols-4">
+          {/* <div className="h-[30px] lg:hidden block">
+            <OtrosPost />
+          </div> */}
           <div className="col-span-2 2xl:col-span-3">
             {/* PC */}
             <div className="card-blog hidden h-[273px] w-full rounded-[12px] bg-white lg:block  lg:h-[220px] lg:w-[598px]">
@@ -55,7 +57,7 @@ const SIngleBlog = async ({ params }) => {
             {/* *** */}
             <div className="relative flex justify-center lg:justify-start">
               <div
-                className={`relative flex h-[313px] w-full justify-center bg-cover bg-top lg:h-[500px] lg:w-full lg:justify-start lg:rounded-[12px] 2xl:h-[603px]`}
+                className={`relative flex h-[313px] w-full justify-center bg-cover bg-top lg:h-[500px] lg:w-full lg:justify-start lg:rounded-[12px] 2xl:h-[730px] object-cover`}
                 style={{
                   backgroundImage: `url(${post.featuredImage.node.mediaItemUrl})`,
                 }}
@@ -99,7 +101,7 @@ const SIngleBlog = async ({ params }) => {
             </div>
           </div>
           {/*  Skeleton */}
-          <div className="h-30pxlg:block">
+          <div className="h-auto">
             <OtrosPost />
           </div>
         </div>

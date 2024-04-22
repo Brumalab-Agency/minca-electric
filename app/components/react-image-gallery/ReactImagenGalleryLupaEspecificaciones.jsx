@@ -93,11 +93,11 @@ const ReactImagenGalleryLupaEspecificaciones = ({ items }) => {
           }}
           onClick={handleClick}
         >
-         {isFullscreen ? (
+        {/*  {isFullscreen ? (
           <FaCompress style={{ color: 'white' }} />
         ) : (
           <FaExpand style={{ color: 'black' }} />
-        )}
+        )} */}
         </button>
       </div>
     );

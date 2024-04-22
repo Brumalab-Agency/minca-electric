@@ -27,7 +27,7 @@ export const Testimonios = async ({ clases, clase2 }) => {
                 </div>
                 <div>
                   <p
-                    className={`${ubuntu.className} mt-[21px] text-[22px] text-[#131313] lg:block lg:w-[10%] lg:leading-[34px] 2xl:text-[32px] 2xl:leading-[42px]`}
+                    className={`${ubuntu.className} mt-[21px] text-[18px] text-[#131313] lg:block lg:w-[10%] lg:leading-[34px] 2xl:text-[32px] 2xl:leading-[42px]`}
                   >
                     Conoce el testimonio positivo de nuestros clientes y
                     descubre los beneficios <br/> de nuestras soluciones en movilidad

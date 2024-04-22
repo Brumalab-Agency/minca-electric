@@ -8,7 +8,11 @@ import TituloCardHoverEffect from "@/components/cardhovereffect/TituloCardHoverE
 import { CardHoverEffectShowrooms } from "@/components/cardhovereffect/CardHoverEffectShowrooms";
 import Whatsapp from "@/components/whatsapp/Whatsapp";
 
-
+export const metadata = {
+  title: "Showrooms",
+  description:
+    "Muévete sostenible, con estilo y eficiencia. Muévete con Minca.",
+};
 
 const Sedes = () => {
   return (

@@ -2,7 +2,6 @@ import { ubuntu, manrope } from "@/ui/fonts";
 import { Entradas } from "@/lib/graphQLRequest";
 
 export const BlogContent = ({ contenido }) => {
-  console.log(contenido.content);
   return (
     <div className="BlogContent mt-[220px] pb-24 lg:mt-[32px]">
       <div

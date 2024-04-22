@@ -16,7 +16,7 @@ export const ClientesAliados = async () => {
       </h1>
       <InfiniteCardsRight/>
       <InfiniteCardsLeft/>
-      <InfiniteCardsRight/>
+      {/* <InfiniteCardsRight/> */}
     </div>
   );
 };

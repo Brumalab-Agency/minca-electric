@@ -75,8 +75,8 @@ export const SingleProductComponent = ({ scooters }) => {
                     </p>
                   </span>
                 </div>
-                {/* botones descuento y 3D PC */}
-                <Link
+                {/* botones descuento oculto hasta su implementación y 3D PC */}
+                {/* <Link
                   href="#"
                   className="relative mt-4 flex h-[44px] w-[355px] items-center justify-center gap-1 rounded-[5px] bg-[#F0EEED] text-[10px]"
                 >
@@ -111,7 +111,7 @@ export const SingleProductComponent = ({ scooters }) => {
                     <strong>hasta 6 cuotas.</strong>
                   </p>
                   <p className="underline">Revisa si calificas</p>
-                </Link>
+                </Link> */}
                 <div className="pt-8 ">
                   <Modal3d url_3d={item.node.sliderProductos.url3d} />
                 </div>

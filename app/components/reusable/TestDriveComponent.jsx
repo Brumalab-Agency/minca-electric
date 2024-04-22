@@ -23,6 +23,7 @@ export const TestDriveComponent = () => {
                       src="/showroom_icon.png"
                       alt="icono de herramientas"
                     />
+                    
                   </div>
                   <div className="">
                     <img
@@ -58,7 +59,7 @@ export const TestDriveComponent = () => {
                   <div>
                     <div className="">
                       <p className={`${ubuntu.className} text-base`}>
-                        Cra. 11a #94a-56, Localidad de Chapinero, <br></br>{" "}
+                        Cra. 11a #94a-56, <br></br>{" "}
                         Bogotá, Colombia
                       </p>
                     </div>
@@ -135,7 +136,7 @@ export const TestDriveComponent = () => {
                   <div>
                     <div className="">
                       <p className={`${ubuntu.className} text-base`}>
-                        Cra. 11a #94a-56, Localidad de Chapinero, <br></br>{" "}
+                      Av. Cra. 19#143A-08, <br></br>{" "}
                         Bogotá, Colombia
                       </p>
                     </div>
@@ -220,7 +221,7 @@ export const TestDriveComponent = () => {
                   <div>
                     <div className="">
                       <p className={`${ubuntu.className} text-base`}>
-                        Cra. 11a #94a-56, Localidad de Chapinero, <br></br>{" "}
+                      Carrera 7 # 45-10, <br></br>{" "}
                         Bogotá, Colombia
                       </p>
                     </div>

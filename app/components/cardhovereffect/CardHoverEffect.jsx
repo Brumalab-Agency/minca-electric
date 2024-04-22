@@ -17,11 +17,11 @@ export const projects = [
       description2:
       "Compra tu scooter fácilmente en nuestra página web o contacta a nuestros asesores para más detalles.",
     
-    link: "#",
+    link: "/financiamiento",
   },
   {
    
-    link: "#",
+    link: "",
     img:"/img-con-bg.png"
   },
   {
@@ -31,22 +31,22 @@ export const projects = [
     description2:
     "Visita nuestros showrooms y toma la decisión hoy mismo. ",  
      
-    link: "#",
+    link: "/testdrive",
   },
   {
     title: "Nuestras tiendas físicas a tu servicio:",
     description: "Tenemos todo un equipo preparado para resolver tus dudas y mostrarte los beneficios de adquirir una Minca.",
-    link: "#",
+    link: "/showrooms",
   },
   {
     title: "Confianza en cada kilómetro: soporte postventa garantizado:",
     description:
       "Nuestros talleres están completamente equipados para resolver cualquier inconveniente que puedas tener con tu scooter Minca.",
-     link: "#",
+     link: "/servicios",
   },
   {
     title: "Compra segura online: protección y garantía en cada pedido:",
     description: "Tenemos toda una plataforma pensada para que adquieras tu Minca, tus accesorios y agendes tu test drive o mantenimiento de la forma más efectiva y segura.",
-    link: "#",
+    link: "",
   },
 ];

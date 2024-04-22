@@ -145,7 +145,7 @@ export const EspecificacionesMincaNew = async (scooters) => {
         <h2 className={`${manrope.className} text-[24px] font-bold leading-[30px]`}>
           AGENDA TU CITA PARA SERVICIO TÉCNICO
         </h2>
-        <p className={`${manrope.className} text-[20px] font-medium`}>
+        <p className={`${manrope.className} text-[20px] font-bold`}>
           Para mantener tu Scooter en óptimas condiciones, es indispensable
           realizar el mantenimiento preventivo cada 6 meses o cada 600
           kilómetros.

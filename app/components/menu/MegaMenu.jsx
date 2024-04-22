@@ -197,7 +197,7 @@ function NavListMenu() {
         </MenuList>
       </Menu>
       <div className="colapsable-movil lg:hidden">
-        <Collapse className="grid grid-cols-2" open={isMobileMenuOpen}>
+        <Collapse className="grid grid-cols-1" open={isMobileMenuOpen}>
           {renderProductos}
           {/* {renderEbikes} */}
           {renderAccesorios}

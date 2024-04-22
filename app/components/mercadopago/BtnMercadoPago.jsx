@@ -46,6 +46,17 @@ export const Mercadopago = ({preciopagar,idOrder}) => {
     }
   };
 
+  const customization ={
+    texts: {
+      action: 'pay',
+      valueProp: 'security_details',
+    },
+    visual: {
+      buttonBackground: 'black',
+      borderRadius: '16px',
+      valuePropColor: 'white'
+  },
+  }
 
 
   return (
@@ -60,6 +71,7 @@ export const Mercadopago = ({preciopagar,idOrder}) => {
         {console.log(idOrder)}
         <Wallet
           initialization={{ preferenceId: preferenceId, redirectMode: "modal" }}
+          customization={customization}
         />
       </Link>
       )}

@@ -13,11 +13,11 @@ const ElegirShowroom = ({ input }) => {
     let charge = 0;
   
     if (selectedOption === "Javeriana Cra. 7 #45-10") {
-      charge = 0; // No hay recargo para esta opción
+      charge = 0; 
     } else if (selectedOption === "Chico Cra. 11a #94a-56") {
-      charge = 0; // No hay recargo para esta opción
+      charge = 0; 
     } else if (selectedOption === "Cedritos Av. Cra 19 #143a-8") {
-      charge = 0; // No hay recargo para esta opción
+      charge = 0; 
     } else if (selectedOption === "Fuera de Bogotá. Entrega de 3 a 5 días hábiles: $90.000") {
       charge = 90000;
     }
