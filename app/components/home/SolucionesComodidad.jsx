@@ -32,7 +32,7 @@ export const SolucionesComodidad = () => {
                   src="/servicioTecnico/checkmark-circle.png"
                   alt="verificación"
                 />
-                Olvídate del trancón
+                Mantenimiento preventivo
               </li>
               <li className="flex items-center gap-2">
                 <img
@@ -40,7 +40,7 @@ export const SolucionesComodidad = () => {
                   src="/servicioTecnico/checkmark-circle.png"
                   alt="verificación"
                 />
-                Deja de pagar SOAT
+                Ajuste de frenos
               </li>
               <li className="flex items-center gap-2">
                 <img
@@ -48,7 +48,7 @@ export const SolucionesComodidad = () => {
                   src="/servicioTecnico/checkmark-circle.png"
                   alt="verificación"
                 />
-                Transforma tu conducción
+                Problemas eléctricos
               </li>
               <li className="flex items-center gap-2">
                 <img
@@ -56,7 +56,7 @@ export const SolucionesComodidad = () => {
                   src="/servicioTecnico/checkmark-circle.png"
                   alt="verificación"
                 />
-                Ahorra en combustible
+                Ajuste de tornillería
               </li>
               <li className="flex items-center gap-2">
                 <img
@@ -64,7 +64,7 @@ export const SolucionesComodidad = () => {
                   src="/servicioTecnico/checkmark-circle.png"
                   alt="verificación"
                 />
-                Activa tu conciencia ambiental
+                Mecánicos expertos
               </li>
             </ul>
           </div>
@@ -86,7 +86,7 @@ export const SolucionesComodidad = () => {
                   src="/servicioTecnico/checkmark-circle.png"
                   alt="verificación"
                 />
-               Compromiso social y ambiental
+               Realizamos tu estudio
               </li>
               <li className="flex items-center gap-2">
                 <img
@@ -94,7 +94,7 @@ export const SolucionesComodidad = () => {
                   src="/servicioTecnico/checkmark-circle.png"
                   alt="verificación"
                 />
-                Sostenibilidad integral
+                Sistecrédito
               </li>
               <li className="flex items-center gap-2">
                 <img
@@ -102,7 +102,7 @@ export const SolucionesComodidad = () => {
                   src="/servicioTecnico/checkmark-circle.png"
                   alt="verificación"
                 />
-                Innovación constante
+                RappiCard
               </li>
               <li className="flex items-center gap-2">
                 <img
@@ -110,7 +110,7 @@ export const SolucionesComodidad = () => {
                   src="/servicioTecnico/checkmark-circle.png"
                   alt="verificación"
                 />
-                Diseños funcionales
+                Vanti Listo
               </li>
               <li className="flex items-center gap-2">
                 <img
@@ -118,7 +118,7 @@ export const SolucionesComodidad = () => {
                   src="/servicioTecnico/checkmark-circle.png"
                   alt="verificación"
                 />
-                Acompañamiento postventa
+                Addi
               </li>
             </ul>
           </div>

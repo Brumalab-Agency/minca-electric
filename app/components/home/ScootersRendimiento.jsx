@@ -24,7 +24,7 @@ export const ScootersRendimiento = () => {
           01
         </h1>
         <div>
-          <h2 className="w-[370px] text-[26px] font-semibold lg:leading-[35px] 2xl:text-[35px]">
+          <h2 className=" w-full lg:w-[370px] text-[26px] font-semibold lg:leading-[35px] 2xl:text-[35px] text-wrap">
             Mantenimiento especializado
           </h2>
           <p

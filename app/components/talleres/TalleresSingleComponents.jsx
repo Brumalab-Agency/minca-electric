@@ -15,7 +15,7 @@ const TalleresSingleComponents = () => {
           ¡Programa tu Mantenimiento Ahora!
         </p>
       </div>
-      <div className="my-28 hidden grid-cols-1 px-[100px] lg:grid lg:grid-cols-3">
+      <div className="lg:my-10 2xl:my-28 hidden grid-cols-1 px-[100px] lg:grid lg:grid-cols-3">
         <div className="flex self-start">
           <div className="flex flex-col items-center justify-center">
             <Image
@@ -30,7 +30,7 @@ const TalleresSingleComponents = () => {
               href="/talleres/tallerChico"
               className={`${ubuntu.className} my-3 grid h-[52px]  w-full place-items-center rounded-[62px] bg-[#111]  text-[16px] text-white lg:w-[210px]`}
             >
-              Agendar
+              Agendar Mantenimiento
             </Link>
           </div>
         </div>

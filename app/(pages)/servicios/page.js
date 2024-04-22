@@ -9,14 +9,12 @@ import { ScootersRendimiento } from "@/components/home/ScootersRendimiento";
 import { ComponentTallerJaveriana } from "@/components/reusable/ComponentTallerJaveriana";
 import { Testimonios } from "@/components/testimonio/Testimonios";
 import Whatsapp from "@/components/whatsapp/Whatsapp";
+import { CambiaRuta } from "@/components/home/CambiaRuta";
 
 export const metadata = {
   title: "Servicios",
   description:
     "Muévete sostenible, con estilo y eficiencia. Muévete con Minca.",
-  icons: {
-    icon: "/favicon.ico",
-  },
 };
 
 const Servicios = () => {
@@ -31,7 +29,7 @@ const Servicios = () => {
       <ComponentTallerChico />
       <ComponentTallerJaveriana />
       <Separador clases="lg:px-[100px] px-4" clase2="mt-[80px]" clase3="lg:mb-[50px] lg:mt-[100px]" claseText="2xl:text-[28px]"/>
-      <ScootersRendimiento />
+      <CambiaRuta />
       <SolucionesComodidad />
       <Testimonios/>
       <Footer />

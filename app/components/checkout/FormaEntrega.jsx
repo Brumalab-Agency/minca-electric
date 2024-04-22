@@ -4,6 +4,7 @@ import ElegirShowroom from "./ElegirShoroom";
 import CiudadesColombia from "../ciudadesColombia/CiudadesColombia";
 import useShowroomStore from "@/store/orden.store";
 import { manrope } from "@/ui/fonts";
+import CiudadesColombiaShowrooms from "../ciudadesColombia/CiudadesColombiaShowrooms";
 
 
 const FormaEntrega = ({
@@ -98,7 +99,7 @@ const FormaEntrega = ({
             <p className={` ${manrope.className} font-bold text-[24px] my-10`}>Datos de facturación</p>
           </div>
           {/*  Ciudades de Colombia*/}
-          <CiudadesColombia
+          <CiudadesColombiaShowrooms
             inputValue={input?.CiudadesColombia}
             input={input}
             handleOnChange={handleOnChange}

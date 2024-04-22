@@ -25,6 +25,7 @@ const CustomFullscreenViewer = ({ renderFullscreenContent, isFullscreen }) => (
 );
 
 const ReactImagenGalleryLupa = ({ items }) => {
+  console.log(items);
   const [thumbnailPosition, setThumbnailPosition] = useState("left");
   const [isFullscreen, setIsFullscreen] = useState(false);
 
@@ -76,11 +77,11 @@ const ReactImagenGalleryLupa = ({ items }) => {
           }}
           onClick={handleClick}
         >
-         {isFullscreen ? (
+        {/*  {isFullscreen ? (
           <FaCompress style={{ color: 'white' }} />
         ) : (
           <FaExpand style={{ color: 'black' }} />
-        )}
+        )} */}
         </button>
       </div>
     );

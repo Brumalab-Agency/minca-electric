@@ -10,7 +10,6 @@ export const HoverEffectInfoShowrooms = ({
 }) => {
   let [hoveredIndex, setHoveredIndex] = useState(null);
 
-  console.log(items.class);
   return (
     <div
       className={cn(
@@ -23,7 +22,7 @@ export const HoverEffectInfoShowrooms = ({
         <Link
           href={item?.link}
           key={item?.link}
-          className="relative group p-2  block rounded-[10px] h-[360px] w-full lg:h-[402px] lg:w-[402px] "
+          className="relative group p-2  block rounded-[10px] h-[418px] w-full lg:h-[402px] lg:w-[402px] "
           onMouseEnter={() => setHoveredIndex(idx)}
           onMouseLeave={() => setHoveredIndex(null)}
         >
@@ -82,7 +81,7 @@ export const CardTitle = ({
   children,
 }) => {
   return (
-    <h4 className={cn("text-zinc-100 font-bold tracking-wide", className)}>
+    <h4 className={cn("text-zinc-100 font-bold tracking-wide text-center", className)}>
       {children}
     </h4>
   );
@@ -127,7 +126,7 @@ export const CardDescription2 = ({
       <img
         src={children}
         className={cn(
-          `-mt-[65px] grid place-items-center`,
+          `-mt-[25px] lg:-mt-[65px] grid place-items-center`,
           className
         )}
       />

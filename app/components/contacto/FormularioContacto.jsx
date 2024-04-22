@@ -67,7 +67,7 @@ export const FormularioContacto = () => {
                   className={`${manrope.className} text-base font-semibold text-[#111]`}
                 >
                   {" "}
-                  Nombre completo *{" "}
+                  Nombre completo <span className="text-red-700">*</span>{" "}
                 </label>
                 <input
                   type="text"
@@ -88,7 +88,7 @@ export const FormularioContacto = () => {
                     className={`${manrope.className} text-base font-semibold text-[#111]`}
                   >
                     {" "}
-                    Correo electrónico *{" "}
+                    Correo electrónico <span className="text-red-700">*</span>{" "}
                   </label>
                   <input
                     type="Email"
@@ -110,7 +110,7 @@ export const FormularioContacto = () => {
                   className={`${manrope.className} text-base font-semibold text-[#111]`}
                 >
                   {" "}
-                  Cédula *{" "}
+                  Cédula <span className="text-red-700">*</span>{" "}
                 </label>
                 <input
                   type="tel"
@@ -170,7 +170,7 @@ export const FormularioContacto = () => {
                   className={`${manrope.className} text-base font-semibold text-[#111]`}
                 >
                   {" "}
-                  Asunto *{" "}
+                  Asunto <span className="text-red-700">*</span>{" "}
                 </label>
                 <input
                   type="text"

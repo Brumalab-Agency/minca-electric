@@ -22,7 +22,7 @@ import { useRouter } from "next/router";
 import useShowroomStore from "@/store/orden.store";
 
 // Utilice esto con fines de prueba, para que no tenga que completar el formulario de pago una y otra vez.
-const defaultCustomerInfo = {
+/* const defaultCustomerInfo = {
   Nombre: "Lenin",
   Apellido: "Mendoza",
   Direccion1: "Medellín - Antioquia",
@@ -38,9 +38,9 @@ const defaultCustomerInfo = {
   TelefonoTrabajo: "3022222222",
   NumeroIdentificacion: "1147696023",
   errors: null,
-};
+}; */
 
-/* const defaultCustomerInfo = {
+const defaultCustomerInfo = {
   Nombre: "",
   Apellido: "",
   Direccion1: "",
@@ -68,12 +68,14 @@ const defaultCustomerInfo = {
   Quienrecibe: "",
   Receptor: "",
   errors: null,
-}; */
+};
 
 // el state o estado del país es parte del componente Pais y este ya tiene sus campos predeterminados
 
 const CheckoutForm = ({ countriesData, onFormSubmit }) => {
   const { billingCountries, shippingCountries } = countriesData || {};
+
+
 
   const initialState = {
     billing: {
@@ -160,7 +162,23 @@ const CheckoutForm = ({ countriesData, onFormSubmit }) => {
       onFormSubmit();
     }
 
-    /* const formEl = document.querySelector("#gas");
+
+    setIsOrderProcessing(true);
+
+
+    // Este enfoque se utilizo para darle tiempo al formulario de ser enviado y luevo pasar a la pagin de /pago
+    setTimeout(() => {
+      setIsOrderProcessing(false);
+      setIdOrder('id-del-pedido'); 
+    }, 1000); 
+
+
+    setTimeout(() => {
+
+      window.location.href = `/checkout/pago?idOrder=${idOrder}`;
+    }, 1000); 
+
+    const formEl = document.querySelector("#gas");
     alert("Formulario enviado");
     const formData = new FormData(formEl);
     fetch(
@@ -174,7 +192,9 @@ const CheckoutForm = ({ countriesData, onFormSubmit }) => {
       .then((data) => {
         console.log(data);
       })
-      .catch((error) => console.log(error)); */
+      .catch((error) => console.log(error));
+
+      
     /**
      * Validar Detalles de Facturación y Envío
      *
@@ -510,24 +530,7 @@ const CheckoutForm = ({ countriesData, onFormSubmit }) => {
 
               {/* <PaymentModes input={input} handleOnChange={handleOnChange} /> */}
               <div className="woo-next-place-order-btn-wrap mt-5">
-                {/* {!idOrder? 
-                <button
-                  disabled={isOrderProcessing}
-                  className={cx(
-                    "rounded-[52px] bg-[#111] px-[54px] py-[16px] text-white h-[60px] w-[300px]",
-                    { "opacity-50": isOrderProcessing },
-                  )}
-                  type="button"
-                  onClick={handleFormSubmit}
-                >
-
-                  Confirmar Compra
-                </button>:null}
-
-                {idOrder ? <BtnMercadoPago preciopagar={cart?.totalPrice ? cart?.totalPrice : temporalCarrito?.totalPrice} idOrder={idOrder}/> : null } */}
-
-                {/*  */}
-
+                
                 {!idOrder ? (
                   <button
                     disabled={!formIsValid || isOrderProcessing}

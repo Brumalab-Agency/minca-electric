@@ -307,7 +307,10 @@ section.flex.h-full.w-full.items-center.lg\:justify-center.gap-\[19px\].overflow
 }
 
 
+}
 
-
-
+@media only screen and (min-width: 1280px) and (max-width: 1600px) {
+  img.rounded-\[10px\].fixed.lg\:bottom-6.bottom-2.lg\:right-6.right-2.lg\:w-\[50px\].\32 xl\:w-\[70px\].w-\[40px\].h-auto.transition-opacity.duration-1000 {
+    width: 50px !important;
+}
 }

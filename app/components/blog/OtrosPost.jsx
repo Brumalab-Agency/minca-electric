@@ -47,8 +47,8 @@ export const OtrosPost = () => {
 
 
   return (
-    <div className="relative">
-      <div className="otrosPosts grid grid-cols-2 pl-4 lg:pl-12 lg:grid-cols-1 lg:pt-[150px] absolute right-0 top-0">
+    <div className="relative search">
+      <div className="otrosPosts grid grid-cols-1 p-4 lg:pl-12  lg:pt-[150px] lg:absolute right-0 top-0">
         {/* <Search valor={search} change={handleSearch} /> */}
         <input
             value={search}
@@ -66,7 +66,7 @@ export const OtrosPost = () => {
               clasesContenedor={`h-auto mx-1 ${
                 index >= 2 ? "hidden" : ""
               }`}
-              clasesImg="w-full h-[150px] lg:w-[250px] lg:h-auto"
+              clasesImg="w-full h-[150px] lg:w-full lg:h-auto object-cover"
               clasesIcon="hidden lg:block"
               clasesContenedorFlex={`flex-col gap-0 text-left my-0 mt-2 lg:flex-row lg:gap-3`}
               title="text-lef w-full font-bold lg:w-auto"

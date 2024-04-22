@@ -64,7 +64,7 @@ export const CardShowRoomMovil = ({
         <div className="mt-4 grid place-items-center">
           <Link
             href={url}
-            className="rounded-[52px] bg-[#111] px-[55px] py-[15px] text-white "
+            className="w-full text-center rounded-[52px] bg-[#111] px-[55px] py-[15px] text-white "
           >
             {btn}
           </Link>

@@ -89,7 +89,7 @@ export const Header = () => {
         ref={whiteMenuRef}
         className="white-menu relative flex items-center justify-between bg-white px-4 py-4 lg:justify-normal lg:gap-4 lg:px-[100px]"
       >
-        <div className="header-left flex h-auto w-[115px] lg:w-[160px] items-center justify-between lg:flex-grow-0">
+        <div className="header-left flex h-auto w-[115px] lg:w-[120px] 2xl:w-[160px] items-center justify-between lg:flex-grow-0">
           <Link href="/">
             <Image
               className="LogoMincaNegro w-[115px] h-auto lg:w-[300px]"
@@ -195,7 +195,7 @@ export const Header = () => {
         ref={blackMenuRef}
         className="black-menu relative hidden lg:flex items-center justify-between bg-[#111] px-4 py-3 lg:justify-normal lg:gap-4 lg:px-[100px]"
       >
-        <div className="header-left flex h-auto w-[115px] lg:w-[160px] items-center justify-between lg:flex-grow-0">
+        <div className="header-left flex h-auto w-[115px] lg:w-[120px] 2xl:w-[160px] items-center justify-between lg:flex-grow-0">
           <Link href="/">
             <Image
               className="LogoMincaNegro w-[115px] lg:w-[300px]"

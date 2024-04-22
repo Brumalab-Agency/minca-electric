@@ -35,7 +35,6 @@ export const EspecificacionesAccesorios = async (accesorios) => {
     const items = accesoriosWoocommerce.accesorios.products.nodes;
    
     const item = items[0];
-
     
     const datosWoocommerce = await ProductosWoocommerce();
 
@@ -70,13 +69,13 @@ export const EspecificacionesAccesorios = async (accesorios) => {
                 <div className="flex items-center gap-3 lg:mt-6 lg:gap-4">
                   <div
                     className={`${manrope.className} text-[24px] font-bold text-[#111111]  lg:text-[26px]`}
-                  >
+                    >
                     $ {separadorDeMiles(item?.price)}
                   </div>
                 </div>
                 <p
                   className={`${ubuntu.className} text-[14px] font-normal leading-[15px] text-[#42454A]  lg:mt-5 lg:w-[90%] lg:text-[16px] lg:leading-[25px]`}
-                >
+                  >
                   {item?.description}
                 </p>
                 <hr className="mt-5 lg:w-[70%]" />

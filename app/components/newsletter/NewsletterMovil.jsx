@@ -1,7 +1,7 @@
 "use client";
 import { useState } from "react";
 
-function Newsletter() {
+function NewsletterMovil() {
   const [email, setEmail] = useState("");
 
   const handleSubmit = async (event) => {
@@ -37,7 +37,7 @@ function Newsletter() {
       <form onSubmit={handleSubmit}>
         <label
           htmlFor="Email"
-          className="focus-within:border-white-600 focus-within:ring-white-600 relative mt-1 h-[56px] overflow-hidden rounded-[12px] border border-white px-3 shadow-sm focus-within:ring-1 lg:block"
+          className="focus-within:border-white-600 focus-within:ring-white-600 relative mt-1 h-[56px] overflow-hidden rounded-[12px] border border-white px-3 shadow-sm focus-within:ring-1 block w-full "
         >
           <span className="text-[10px] text-xs font-normal uppercase text-[#FFF]">
             {" "}
@@ -69,4 +69,4 @@ function Newsletter() {
   );
 }
 
-export default Newsletter;
+export default NewsletterMovil;

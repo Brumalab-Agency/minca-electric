@@ -11,11 +11,10 @@ export const HeroContext = async ({ titulo, tituloNegrita, ocultar }) => {
           className={`${manrope.className} text-[40px] uppercase leading-[50px] text-[#111]  lg:mt-[170px] lg:flex  lg:font-light	lg:leading-[45px] lg:tracking-wide 2xl:mt-[200px]  2xl:text-[96px] lg:text-[64px]`}
         >
           {titulo}
-          <br></br>
-          <b className="uppercase lg:ml-6 lg:font-bold">{tituloNegrita}</b>
+          <b className="uppercase lg:ml-6 lg:font-bold"> {tituloNegrita}</b>
         </h1>
         <p
-          className={`${ubuntu.className} my-[20px] max-w-[263px] leading-[20px] text-[#111]/60  lg:mt-9 lg:max-w-[700px] lg:text-[24px] lg:font-normal lg:leading-[34px] lg:tracking-wide lg:text-[#42454A] 2xl:text-[32px]`}
+          className={`${ubuntu.className} my-[20px] max-w-[330px] leading-[20px] text-[#111]/60  lg:mt-9 lg:max-w-[700px] lg:text-[24px] lg:font-normal lg:leading-[34px] lg:tracking-wide lg:text-[#42454A] 2xl:text-[32px]`}
         >
           Muévete sostenible, con estilo y eficiencia.<br></br> Muévete con
           Minca.

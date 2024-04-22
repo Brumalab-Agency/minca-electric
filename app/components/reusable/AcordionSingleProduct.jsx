@@ -23,8 +23,9 @@ export const AcordionSingleProduct = () => {
 
   return (
     <div
-      className={`Acordion lg:pb-22 mx-4 mb-10 bg-[#F0F1EB] px-4 py-8 lg:mx-[0px] lg:mb-0 lg:px-[100px]`}
+      className={`Acordion lg:pb-22 mb-10 bg-[#F0F1EB] px-4 py-8 lg:mx-[0px] lg:mb-0 lg:px-[100px]`}
     >
+      <h2 className={`${manrope.className} text-[25px] lg:text-[32px] font-bold mb-6`}>Preguntas frecuentes</h2>
       <div className="space-y-1 lg:space-y-0">
         {/* Sección 1 */}
         <details

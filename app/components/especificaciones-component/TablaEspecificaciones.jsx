@@ -135,7 +135,7 @@ export const TablaEspecificaciones = (scooters) => {
                 </td>
                 <td className="whitespace-nowrap py-2 pr-4 text-gray-700 w-[70px]">
                   1 año 
-                  <p>(Sujeto a revisión semestral o cada 600km)</p>
+                  <p className="text-wrap lg:text-nowrap">(Sujeto a revisión semestral o cada 600km)</p>
                 </td>
               </tr>
 

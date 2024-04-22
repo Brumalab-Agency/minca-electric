@@ -3,6 +3,7 @@ import { manrope, ubuntu } from "../../ui/fonts";
 import Newsletter from "../newsletter/Newsletter";
 import Link from "next/link";
 import EmailLink from "../emaillink/EmailLink";
+import NewsletterMovil from "../newsletter/NewsletterMovil";
 
 export const Footer = () => {
   return (
@@ -11,14 +12,16 @@ export const Footer = () => {
         <div className="relative mt-[52px] h-auto w-auto rounded-[9px] bg-white p-5 pb-2 lg:w-full lg:px-10 lg:py-8">
           <div className="footer-principal justify-between lg:flex">
             <div className="logo-footer-pc w-[248px] lg:h-auto lg:w-1/6">
-              <Image
-                className="mt-4"
-                src="/imagotipo-negro.png"
-                width={59}
-                height={62}
-                alt="imagotipo"
-                placeholder="empty"
-              />
+              <Link href="/">
+                <Image
+                  className="mt-4"
+                  src="/imagotipo-negro.png"
+                  width={59}
+                  height={62}
+                  alt="imagotipo"
+                  placeholder="empty"
+                />
+              </Link>
               <p
                 className={`${ubuntu.className}  mt-[37px] text-[14px] font-normal text-[#111]/60`}
               >
@@ -61,7 +64,7 @@ export const Footer = () => {
             {/* *** */}
             <div className="minca-footer grid grid-cols-2 lg:w-1/6 lg:grid-cols-1">
               <div className="info-minca-pc lg:h-auto lg:w-[99px]">
-                <div className="informacion-minca leading-[45px]">
+                <div className="informacion-minca leading-[45px] ">
                   <h2
                     className={`${manrope.className}  text-[16px] font-bold text-[#111]`}
                   >
@@ -69,27 +72,27 @@ export const Footer = () => {
                   </h2>
                   <Link
                     href="/productos/Minca%20350W"
-                    className={`${ubuntu.className}  text-[16px] font-normal text-[#111]/60 hover:underline`}
+                    className={`${ubuntu.className} text-[16px] font-normal text-[#111]/60 hover:underline`}
                   >
                     Minca 350W
                   </Link>
                   <br />
                   {/* <Link
                     href="/productos/Minca%20500W"
-                    className={`${ubuntu.className}  text-[16px] font-normal text-[#111]/60 hover:underline`}
+                    className={`${ubuntu.className} text-[16px] font-normal text-[#111]/60 hover:underline`}
                   >
                     Minca 500W
                   </Link> */}
                   <Link
                     href="/productos/Minca%20800W"
-                    className={`${ubuntu.className}  text-[16px] font-normal text-[#111]/60 hover:underline`}
+                    className={`${ubuntu.className} text-[16px] font-normal text-[#111]/60 hover:underline`}
                   >
                     Minca 800W
                   </Link>
                   <br />
                   <Link
                     href="/productos/Minca%201600W"
-                    className={`${ubuntu.className}  text-[16px] font-normal text-[#111]/60 hover:underline`}
+                    className={`${ubuntu.className} text-[16px] font-normal text-[#111]/60 hover:underline`}
                   >
                     Minca 1600W
                   </Link>
@@ -120,35 +123,35 @@ export const Footer = () => {
                   <br/> */}
                   <Link
                     href="/servicios"
-                    className={`${ubuntu.className}  text-[16px] font-normal text-[#111]/60 hover:underline`}
+                    className={`${ubuntu.className} text-[16px] font-normal text-[#111]/60 hover:underline`}
                   >
                     Servicio técnico
                   </Link>
                   <br />
                   <Link
-                    href="/sedes"
-                    className={`${ubuntu.className}  text-[16px] font-normal text-[#111]/60 hover:underline`}
+                    href="/showrooms"
+                    className={`${ubuntu.className} text-[16px] font-normal text-[#111]/60 hover:underline`}
                   >
                     Showrooms
                   </Link>
                   <br />
                   <Link
                     href="/recursos"
-                    className={`${ubuntu.className}  text-[16px] font-normal text-[#111]/60 hover:underline`}
+                    className={`${ubuntu.className} text-[16px] font-normal text-[#111]/60 hover:underline`}
                   >
                     Recursos
                   </Link>
                   <br />
                   <Link
-                    href="/blog"
-                    className={`${ubuntu.className}  text-[16px] font-normal text-[#111]/60 hover:underline`}
+                    href="/tendencias"
+                    className={`${ubuntu.className} text-[16px] font-normal text-[#111]/60 hover:underline`}
                   >
-                    Blog
+                    Tendencias
                   </Link>
                 </div>
               </div>
 
-              <div className="info-informacion-pc lg:hidden">
+              <div className="info-informacion-pc lg:hidden col-span-2 lg:col-span-1">
                 <div className="informacion-minca leading-[45px] ">
                   <h2
                     className={`${manrope.className}  text-[16px] font-bold text-[#111] `}
@@ -157,42 +160,42 @@ export const Footer = () => {
                   </h2>
                   <Link
                     href="/politicasDevoluciones"
-                    className={`${ubuntu.className}  text-[16px] font-normal text-[#111]/60 hover:underline`}
+                    className={`${ubuntu.className} text-[16px] font-normal text-[#111]/60 hover:underline`}
                   >
                     Política de devoluciones
                   </Link>
                   <br />
                   <Link
                     href="/declaracionPrivacidad"
-                    className={`${ubuntu.className}  text-[16px] font-normal text-[#111]/60 hover:underline`}
+                    className={`${ubuntu.className} text-[16px] font-normal text-[#111]/60 hover:underline`}
                   >
                     Declaración de privacidad
                   </Link>
                   <br />
                   <Link
                     href="#"
-                    className={`${ubuntu.className}  text-[16px] font-normal text-[#111]/60 hover:underline`}
+                    className={`${ubuntu.className} text-[16px] font-normal text-[#111]/60 hover:underline`}
                   >
                     Términos y condiciones
                   </Link>
                   <br />
                   <Link
                     href="#"
-                    className={`${ubuntu.className}  text-[16px] font-normal text-[#111]/60 hover:underline`}
+                    className={`${ubuntu.className} text-[16px] font-normal text-[#111]/60 hover:underline`}
                   >
                     Política de garantía{" "}
                   </Link>
                   <br />
                   <Link
-                    href="#"
-                    className={`${ubuntu.className}  text-[16px] font-normal text-[#111]/60 hover:underline`}
+                    href="/contacto"
+                    className={`${ubuntu.className} text-[16px] font-normal text-[#111]/60 hover:underline`}
                   >
                     PQR
                   </Link>
                 </div>
               </div>
             </div>
-            {/* ************ */}
+            {/* Este campo de INFORMACIÖN solo aplica en PC */}
             <div className="informacion-footer lg:w-1/6">
               <div className="info-informacion-pc hidden lg:flex lg:h-auto lg:w-[189px]">
                 <div className="informacion-minca leading-[45px] ">
@@ -234,7 +237,7 @@ export const Footer = () => {
                     </Link>
                   </div>
                   <Link
-                    href="#"
+                    href="/contacto"
                     className={`${ubuntu.className}  text-[16px] font-normal text-[#111]/60 hover:underline`}
                   >
                     PQR
@@ -258,30 +261,30 @@ export const Footer = () => {
                   <br/> */}
                   <Link
                     href="/servicios"
-                    className={`${ubuntu.className}  text-[16px] font-normal text-[#111]/60 hover:underline`}
+                    className={`${ubuntu.className} text-[14px] lg:text-[16px] font-normal text-[#111]/60 hover:underline`}
                   >
                     Servicio técnico
                   </Link>
                   <br />
                   <Link
-                    href="/sedes"
-                    className={`${ubuntu.className}  text-[16px] font-normal text-[#111]/60 hover:underline`}
+                    href="/showrooms"
+                    className={`${ubuntu.className} text-[14px] lg:text-[16px] font-normal text-[#111]/60 hover:underline`}
                   >
                     Showrooms
                   </Link>
                   <br />
                   <Link
                     href="/recursos"
-                    className={`${ubuntu.className}  text-[16px] font-normal text-[#111]/60 hover:underline`}
+                    className={`${ubuntu.className} text-[14px] lg:text-[16px] font-normal text-[#111]/60 hover:underline`}
                   >
                     Recursos
                   </Link>
                   <br />
                   <Link
-                    href="/blog"
-                    className={`${ubuntu.className}  text-[16px] font-normal text-[#111]/60 hover:underline`}
+                    href="/tendencias"
+                    className={`${ubuntu.className} text-[14px] lg:text-[16px] font-normal text-[#111]/60 hover:underline`}
                   >
-                    Blog
+                    Tendencias
                   </Link>
                 </div>
               </div>
@@ -289,11 +292,11 @@ export const Footer = () => {
             </div>
             <div className="agendar-footer-pc shrink lg:w-1/6 ">
               <div className="flex justify-end">
-                <button
+                <Link href="/testdrive"
                   className={`${ubuntu.className}  mt-4 rounded-[8px] bg-[#111] px-[16px] py-[10px] text-[14px] font-bold text-white`}
                 >
                   ¡Agendar Test Drive!
-                </button>
+                </Link>
               </div>
               <div className="mb-6 mt-4 text-right">
                 {/* <a
@@ -366,19 +369,28 @@ export const Footer = () => {
           </div>
         </div>
         {/* ************* */}
+        {/* Newstletter movilc */}
+        <div className="email mt-4 lg:hidden grow flex-col flex h-[80px]">
+            <p className="text-[12px] font-normal text-[#FFF]">
+              Suscríbete para conocer nuestras novedades y descuentos
+            </p>
+            <NewsletterMovil />
+          </div>
         <div className="next-footer flex lg:mt-[40px]">
+          
           <div className="w-[663px]">
             <h2
-              className={`${manrope.className}  mt-4 text-[25px] font-normal  text-white lg:mt-0 lg:h-[40px] lg:w-[663px] lg:text-[30px] `}
+              className={`${manrope.className}  mt-4 text-[20px] font-normal  text-white lg:mt-0 lg:h-[40px] lg:w-[663px] lg:text-[30px] `}
             >
-              ¡Experimenta la emocionante revolución
+              ¡Experimenta la emocionante revolución de la movilidad eléctrica!
             </h2>
-            <h2
+            {/* <h2
               className={`${manrope.className}  text-[25px] font-normal text-white  lg:mt-0 lg:h-[40px] lg:w-[663px]  lg:text-[30px]`}
             >
               de la movilidad eléctrica!
-            </h2>
+            </h2> */}
           </div>
+          {/* Newstletter pc */}
           <div className="email ml-4 hidden grow flex-col lg:flex lg:h-[80px]">
             <p className="text-[14px] font-normal text-[#FFF]">
               Suscríbete para conocer nuestras novedades y descuentos
@@ -387,9 +399,12 @@ export const Footer = () => {
           </div>
         </div>
       </div>
-      <div className="flex h-[78px] w-full flex-col items-center justify-center gap-2 bg-[#111] text-white lg:flex-row lg:items-center lg:justify-between lg:px-[40px]">
+      <div className="flex h-[78px] w-full flex-col items-center justify-center gap-2 bg-[#111] text-white lg:flex-row lg:items-center lg:justify-start lg:px-[40px]">
         <p className="text-center text-[12px]">
           © 2024 Minca Electric | Todos los derechos reservados.{" "}
+        </p>
+        <p className="text-center text-[12px]">
+          |
         </p>
         <Link
           href="https://www.brumalab.agency"
