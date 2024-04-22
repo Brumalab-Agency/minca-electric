@@ -32,7 +32,7 @@ export const SingleProductComponent = ({ scooters }) => {
             style={{ objectFit: "cover" }}
           />
           <div>
-            <div className="flex justify-between">
+            <div className="flex justify-between lg:justify-start 2xl:justify-between">
               <div className="flex flex-col justify-center">
                 <small className={`${manrope.className} text-base font-medium`}>
                   {item.node.sliderProductos.anoVersion}

@@ -22,7 +22,7 @@ import { useRouter } from "next/router";
 import useShowroomStore from "@/store/orden.store";
 
 // Utilice esto con fines de prueba, para que no tenga que completar el formulario de pago una y otra vez.
-/* const defaultCustomerInfo = {
+const defaultCustomerInfo = {
   Nombre: "Lenin",
   Apellido: "Mendoza",
   Direccion1: "Medellín - Antioquia",
@@ -38,9 +38,9 @@ import useShowroomStore from "@/store/orden.store";
   TelefonoTrabajo: "3022222222",
   NumeroIdentificacion: "1147696023",
   errors: null,
-}; */
+};
 
-const defaultCustomerInfo = {
+/* const defaultCustomerInfo = {
   Nombre: "",
   Apellido: "",
   Direccion1: "",
@@ -68,7 +68,7 @@ const defaultCustomerInfo = {
   Quienrecibe: "",
   Receptor: "",
   errors: null,
-};
+}; */
 
 // el state o estado del país es parte del componente Pais y este ya tiene sus campos predeterminados
 
@@ -163,11 +163,13 @@ const CheckoutForm = ({ countriesData, onFormSubmit }) => {
     }
 
 
-    setIsOrderProcessing(true);
+    // Aqui se utilizo el siguiente codigo para simplificar el paso de dos botones en el checkout
+
+    //setIsOrderProcessing(true);
 
 
     // Este enfoque se utilizo para darle tiempo al formulario de ser enviado y luevo pasar a la pagin de /pago
-    setTimeout(() => {
+    /* setTimeout(() => {
       setIsOrderProcessing(false);
       setIdOrder('id-del-pedido'); 
     }, 1000); 
@@ -177,8 +179,12 @@ const CheckoutForm = ({ countriesData, onFormSubmit }) => {
 
       window.location.href = `/checkout/pago?idOrder=${idOrder}`;
     }, 1000); 
+ */
 
-    const formEl = document.querySelector("#gas");
+    // Aqui culimna el codigo
+
+
+    /* const formEl = document.querySelector("#gas");
     alert("Formulario enviado");
     const formData = new FormData(formEl);
     fetch(
@@ -192,7 +198,7 @@ const CheckoutForm = ({ countriesData, onFormSubmit }) => {
       .then((data) => {
         console.log(data);
       })
-      .catch((error) => console.log(error));
+      .catch((error) => console.log(error)); */
 
       
     /**
@@ -547,12 +553,13 @@ const CheckoutForm = ({ countriesData, onFormSubmit }) => {
 
                 {idOrder ? (
                   <Link
-                    href={{
-                      pathname: "/checkout/pago",
-                      query: { idOrder: idOrder },
-                    }}
-                    className="block h-[60px] w-full rounded-[52px] bg-[#111] px-[54px] py-[16px] text-center text-white"
+                  href={{
+                    pathname: "/checkout/pago",
+                    query: { idOrder: idOrder },
+                  }}
+                  className="block h-[60px] w-full rounded-[52px] bg-[#111] px-[54px] py-[16px] text-center text-white"
                   >
+                    {console.log(idOrder)}
                     Continuar
                   </Link>
                 ) : null}

@@ -7,6 +7,7 @@ import AddToCart from "../cart/AddToCart";
 import { BtnQty } from "./BtnQty";
 import AccesorioVariable from "../accesorios/AccesorioVariable";
 import ReactImagenGalleryLupa from "../react-image-gallery/ReactImagenGalleryLupa";
+import AccesorioDetailsBtnQty from "./AccesorioDetailsBtnQty";
 
 export const EspecificacionesAccesorios = async (accesorios) => {
   
@@ -84,7 +85,8 @@ export const EspecificacionesAccesorios = async (accesorios) => {
             </div>
             {/* Btn y contador */}
             <div className="contador-btnAddCart mt-4 flex w-full items-center gap-4 lg:w-[85%] 2xl:w-[70%]">
-              <BtnQty />
+              {/* <BtnQty /> */}
+              {/* <AccesorioDetailsBtnQty/> */}
               <div className="w-full flex-col justify-center lg:flex">
                 {productoEncontrado ? (
                   <AddToCart
