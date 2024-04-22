@@ -207,7 +207,7 @@ const CheckoutForm = ({ countriesData, onFormSubmit }) => {
     }, 1000); 
  */
 
-    // Aqui culimna el codigo
+    // Aqui culmina el codigo
 
       
     /**
