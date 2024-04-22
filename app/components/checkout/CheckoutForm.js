@@ -208,26 +208,6 @@ const CheckoutForm = ({ countriesData, onFormSubmit }) => {
 
     // Aqui culimna el codigo
 
-
-    /* const formEl = document.querySelector("#gas");
-    alert("Formulario enviado");
-    const formData = new FormData(formEl);
-
-
-
-    fetch(
-      "https://script.google.com/macros/s/AKfycby94az2J5ToSKdvjDSrk8LUb6RV7YXV4Nx3j5o34Lsl_Z3yPpn58nmv3B07LQ487Zuc/exec",
-      {
-        method: "POST",
-        body: formData,
-      },
-    )
-      .then((res) => res.json())
-      .then((data) => {
-        console.log(data);
-      })
-      .catch((error) => console.log(error)); */
-
       
     /**
      * Validar Detalles de Facturación y Envío
