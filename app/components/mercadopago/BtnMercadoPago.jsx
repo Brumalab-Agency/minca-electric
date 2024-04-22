@@ -4,6 +4,7 @@ import { initMercadoPago, Wallet } from "@mercadopago/sdk-react";
 import axios from "axios";
 import { useState, useEffect, useContext } from "react";
 import { AppContext } from "../context/Context";
+import Link from "next/link"
 
 export const Mercadopago = ({preciopagar,idOrder}) => {
   const [preferenceId, setPreferenceId] = useState(null);
@@ -61,10 +62,17 @@ export const Mercadopago = ({preciopagar,idOrder}) => {
   return (
     <div className="m-auto h-auto w-full lg:w-[300px]">
       {preferenceId && (
+        <Link
+        href={{
+          pathname: "/gracias-por-tu-compra",
+          query: { idOrder: idOrder },
+        }}
+      >
         <Wallet
           initialization={{ preferenceId: preferenceId, redirectMode: "modal" }}
           customization={customization}
         />
+      </Link>
       )}
     </div>
   );

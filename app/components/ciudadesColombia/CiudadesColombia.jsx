@@ -324,10 +324,10 @@ const CiudadesColombia = ({
               <Abbr required />
             </div>
             <InputField
-              name="Quienrecibe"
+              name="Destinatario"
               type="text"
               label=""
-              inputValue={input?.Quienrecibe}
+              inputValue={input?.Destinatario}
               handleOnChange={handleOnChange}
               errors={errors}
               isShipping={isShipping}
@@ -342,10 +342,10 @@ const CiudadesColombia = ({
               <Abbr required />
             </div>
             <InputField
-              name="Receptor"
+              name="TelefonoDestinatario"
               type="tel"
               label=""
-              inputValue={input?.Receptor}
+              inputValue={input?.TelefonoDestinatario}
               handleOnChange={handleOnChange}
               errors={errors}
               isShipping={isShipping}

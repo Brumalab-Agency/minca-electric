@@ -25,14 +25,16 @@ export async function POST(req) {
     return NextResponse.json(responseData, { status: 400 });
   }
 
-  const data = body;
-  data.status = 'pending';
-  data.set_paid = false;
-
-
+  const data = {
+    ...body,
+    status: 'pending',
+    set_paid: false
+  }
 
   try {
 	const response = await api.post('orders', data);
+
+
 	if (response.status === 201) {
 		const { data } = response;
 		responseData.success = true;

@@ -37,11 +37,14 @@
     "graphql": "^16.8.1",
     "gsap": "^3.12.5",
     "is-unicode-supported": "^2.0.0",
+    "isomorphic-fetch": "^3.0.0",
     "lodash": "^4.17.21",
     "lucide-react": "^0.363.0",
     "mercadopago": "^2.0.8",
     "micro": "^10.0.1",
     "next": "14.1.4",
+    "nodemailer": "^6.9.13",
+    "nodemailer-smtp-transport": "^2.7.4",
     "npm-check-updates": "^16.14.18",
     "prop-types": "^15.8.1",
     "react": "^18",
@@ -58,11 +61,23 @@
     "zustand": "^4.5.2"
   },
   "devDependencies": {
+    "@types/node": "20.12.7",
+    "@types/react": "18.2.79",
     "autoprefixer": "^10.4.19",
     "postcss": "^8",
     "postcss-nesting": "^12.1.0",
     "prettier": "^3.2.5",
     "prettier-plugin-tailwindcss": "^0.5.13",
-    "tailwindcss": "^3.4.3"
+    "tailwindcss": "^3.4.3",
+    "typescript": "5.4.5"
+  },
+  "browser": {
+    "fs": false,
+    "os": false,
+    "path": false,
+    "net": false,
+    "dns": false,
+    "child_process": false,
+    "tls": false
   }
 }

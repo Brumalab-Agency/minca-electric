@@ -113,7 +113,7 @@ export const EspecificacionesMinca = async (scooters) => {
             </div>
             {/* Btn y contador */}
             <div className="contador-btnAddCart mt-2 flex w-full items-center gap-4 px-4 lg:w-[85%] 2xl:w-[60%]">
-              <BtnQty />
+              {/* <BtnQty /> */}
               <div className="w-full flex-col justify-center lg:flex">
                 {/*   <BotonRelativo
                 param="Agregar producto"

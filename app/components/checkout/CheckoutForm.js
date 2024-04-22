@@ -29,7 +29,7 @@ const defaultCustomerInfo = {
   Direccion2: "Hill Road",
   Ciudad: "Medellín",
   Pais: "CO",
-  Email: "mendoza124302@gmail.com",
+  Email: "jehp01104006@gmail.com",
   Telefono: "9883778278",
   Empresa: "Freelance",
   EmailEmpresa: "empresa@empresa.com",
@@ -37,6 +37,8 @@ const defaultCustomerInfo = {
   Nit: "1147696023-8",
   TelefonoTrabajo: "3022222222",
   NumeroIdentificacion: "1147696023",
+  name_receiver: "Juan",
+  phone_receiver: "3244234233423",
   errors: null,
 };
 
@@ -65,8 +67,8 @@ const defaultCustomerInfo = {
   TratamientoDatos: "",
   TipoVivienda: "",
   Referencia: "",
-  Quienrecibe: "",
-  Receptor: "",
+  Destinatario: "",
+  TelefonoDestinatario: "",
   errors: null,
 }; */
 
@@ -107,6 +109,29 @@ const CheckoutForm = ({ countriesData, onFormSubmit }) => {
   const [createdOrderData, setCreatedOrderData] = useState({});
   const [formIsValid, setFormIsValid] = useState(false);
   const [showAdditionalContent, setShowAdditionalContent] = useState(true);
+
+  function concatenateAddress(input) {
+
+    const billingInfo = input.billing || {};
+    const shippingInfo = input.shipping || {};
+
+    const addressParts = [
+      "Barrio",
+      shippingInfo.Barrio || billingInfo.Barrio,
+      shippingInfo.DireccionSamsung1 || billingInfo.DireccionSamsung1,
+      '#',
+      shippingInfo.DireccionSamsung2 || billingInfo.DireccionSamsung2,
+      '-',
+      shippingInfo.DireccionSamsung3 || billingInfo.DireccionSamsung2,
+      shippingInfo.Referencia || billingInfo.Referencia
+    ];
+    const address = addressParts.filter(Boolean).join(' ');
+
+    input.shipping.Direccion1 = address 
+    input.billing.Direccion1 = address;
+
+  }
+
   const selectedShowroom = useShowroomStore((state) => state.selectedShowroom);
   const shippingCharge = useShowroomStore((state) => state.shippingCharge);
 
@@ -157,6 +182,7 @@ const CheckoutForm = ({ countriesData, onFormSubmit }) => {
     event.preventDefault();
 
     setTemporalCarrito(cart);
+    sessionStorage.setItem("data", JSON.stringify(cart))
 
     if (typeof onFormSubmit === "function") {
       onFormSubmit();
@@ -183,23 +209,6 @@ const CheckoutForm = ({ countriesData, onFormSubmit }) => {
 
     // Aqui culimna el codigo
 
-
-    /* const formEl = document.querySelector("#gas");
-    alert("Formulario enviado");
-    const formData = new FormData(formEl);
-    fetch(
-      "https://script.google.com/macros/s/AKfycby94az2J5ToSKdvjDSrk8LUb6RV7YXV4Nx3j5o34Lsl_Z3yPpn58nmv3B07LQ487Zuc/exec",
-      {
-        method: "POST",
-        body: formData,
-      },
-    )
-      .then((res) => res.json())
-      .then((data) => {
-        console.log(data);
-      })
-      .catch((error) => console.log(error)); */
-
       
     /**
      * Validar Detalles de Facturación y Envío
@@ -223,11 +232,17 @@ const CheckoutForm = ({ countriesData, onFormSubmit }) => {
       theShippingStates?.length,
     );
 
+    concatenateAddress(input)
+
     setInput({
       ...input,
       billing: { ...input.billing, errors: billingValidationResult.errors },
       shipping: { ...input.shipping, errors: shippingValidationResult.errors },
     });
+
+    console.log(input);
+
+    sessionStorage.setItem("data", JSON.stringify(input))
 
     // Si hay algún error, regrese.
     if (!shippingValidationResult.isValid || !billingValidationResult.isValid) {
@@ -256,6 +271,9 @@ const CheckoutForm = ({ countriesData, onFormSubmit }) => {
       setCreatedOrderData,
     );
     setIdOrder(createdOrderData.orderId);
+    console.log(createdOrderData.orderId)
+    sessionStorage.setItem("idOrder", createdOrderData.orderId)
+
 
     /* if ( createdOrderData.paymentUrl ) {
     

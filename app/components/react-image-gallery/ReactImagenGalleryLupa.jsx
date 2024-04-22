@@ -25,15 +25,14 @@ const CustomFullscreenViewer = ({ renderFullscreenContent, isFullscreen }) => (
 );
 
 const ReactImagenGalleryLupa = ({ items }) => {
-  console.log(items);
   const [thumbnailPosition, setThumbnailPosition] = useState("left");
   const [isFullscreen, setIsFullscreen] = useState(false);
-
+  
   const arrayConAlias = items.galleryImages.nodes.map((objeto) => ({
     original: objeto.mediaItemUrl,
     thumbnail: objeto.mediaItemUrl,
   }));
-
+  
   useEffect(() => {
     const handleResize = () => {
       if (window.innerWidth <= 768) {

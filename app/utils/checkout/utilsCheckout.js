@@ -3,6 +3,7 @@ import { createTheOrder, getCreateOrderData } from './order';
 import { clearCart } from '../cart/cartUtils';
 import axios from 'axios';
 import { WOOCOMMERCE_STATES_ENDPOINT } from '../cart/constants/endpoint';
+import { NextResponse } from 'next/server';
 
 /**
  * Handle Other Payment Method checkout.
@@ -195,3 +196,40 @@ export const getStates = async ( countryCode = '' ) => {
 	
 	return data?.states ?? [];
 };
+
+export async function getOrderDetails(orderId) {
+    const url = `/api/get-order?orderId=${orderId}`;
+
+    try {
+        //const response = await axios.get(url);
+		const response = await axios.get(url)
+
+        if (response.status !== 200) {
+            throw new Error('Failed to fetch order details');
+        }
+
+        return response.data.orderDetails;
+    } catch (error) {
+        throw new Error('Error fetching order details');
+    }
+}
+
+export async function getOrderStatus(id) {
+    const orderId = id;
+	let responseData = "";
+
+    if (!orderId) {
+        responseData.error = 'Order ID is required';
+        return NextResponse.json(responseData, { status: 400 });
+    }
+
+    try {
+        // Make an HTTP request to the route where getOrderDetails is implemented
+        const response = await getOrderDetails(orderId);
+		responseData = response.status;
+    } catch (error) {
+        return error
+    }
+
+    return responseData;
+}
