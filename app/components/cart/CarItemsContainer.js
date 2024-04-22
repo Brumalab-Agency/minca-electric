@@ -9,9 +9,11 @@ import { manrope, ubuntu } from "@/ui/fonts";
 
 const CarItemsContainer = () => {
   const [cart, setCart] = useContext(AppContext);
+  console.log(cart);
   const { cartItems, totalPrice, totalQty } = cart || {};
   const [isClearCartProcessing, setClearCartProcessing] = useState(false);
 
+  console.log(cartItems);
   /* Calculo descuento  */
   let precioOriginal = totalPrice;
   let descuento = precioOriginal * 0.15;
@@ -33,6 +35,7 @@ const CarItemsContainer = () => {
     partesNumero[0] = partesNumero[0].replace(/\B(?=(\d{3})+(?!\d))/g, ".");
     return partesNumero.join(".");
   };
+
   return (
     <div className={`${manrope.className} CarItemsContainer lg:px-[100px] lg:pb-[100px] p-4`}>
       <h2 className="mb-[20px] text-[24px] font-semibold lg:text-[40px] ">
@@ -47,7 +50,8 @@ const CarItemsContainer = () => {
                 {cartItems.length &&
                   cartItems.map((item) => (
                     <div>
-                     
+                      {console.log(cartItems)}
+                      {console.log(item)}
                       <CartItem
                         key={item.product_id}
                         item={item}

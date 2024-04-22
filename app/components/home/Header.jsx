@@ -91,14 +91,7 @@ export const Header = () => {
       >
         <div className="header-left flex h-auto w-[115px] lg:w-[120px] 2xl:w-[160px] items-center justify-between lg:flex-grow-0">
           <Link href="/">
-            <Image
-              className="LogoMincaNegro w-[115px] h-auto lg:w-[300px]"
-              placeholder="empty"
-              src="/logo.png"
-              width={100}
-              height={100}
-              alt="Imagen representativa de caracteristicas del producto"
-            />
+            <img className="LogoMincaNegro w-[115px] h-auto lg:w-[300px]" src="/logo.png" alt="Logo tipo MINCA"/>
           </Link>
         </div>
         <div className="hidden lg:flex lg:flex-grow">
@@ -197,17 +190,11 @@ export const Header = () => {
       >
         <div className="header-left flex h-auto w-[115px] lg:w-[120px] 2xl:w-[160px] items-center justify-between lg:flex-grow-0">
           <Link href="/">
-            <Image
-              className="LogoMincaNegro w-[115px] lg:w-[300px]"
-              placeholder="empty"
-              src="/logo.png"
-              style={{
-                filter:
-                  "invert(100%) sepia(0%) saturate(7500%) hue-rotate(67deg) brightness(109%) contrast(109%)",
-              }}
-              width={100}
-              height={100}
-              alt="Imagen representativa de caracteristicas del producto"
+            <img className="LogoMincaNegro w-[115px] h-auto lg:w-[300px]" src="/logo.png" alt="Logo tipo MINCA"
+            style={{
+              filter:
+                "invert(100%) sepia(0%) saturate(7500%) hue-rotate(67deg) brightness(109%) contrast(109%)",
+            }}
             />
           </Link>
         </div>

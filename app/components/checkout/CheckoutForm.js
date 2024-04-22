@@ -188,11 +188,13 @@ const CheckoutForm = ({ countriesData, onFormSubmit }) => {
     }
 
 
-    setIsOrderProcessing(true);
+    // Aqui se utilizo el siguiente codigo para simplificar el paso de dos botones en el checkout
+
+    //setIsOrderProcessing(true);
 
 
     // Este enfoque se utilizo para darle tiempo al formulario de ser enviado y luevo pasar a la pagin de /pago
-    setTimeout(() => {
+    /* setTimeout(() => {
       setIsOrderProcessing(false);
       setIdOrder('id-del-pedido'); 
     }, 1000); 
@@ -202,6 +204,10 @@ const CheckoutForm = ({ countriesData, onFormSubmit }) => {
 
       window.location.href = `/checkout/pago?idOrder=${idOrder}`;
     }, 1000); 
+ */
+
+    // Aqui culimna el codigo
+
 
     /* const formEl = document.querySelector("#gas");
     alert("Formulario enviado");
@@ -220,8 +226,8 @@ const CheckoutForm = ({ countriesData, onFormSubmit }) => {
       .then((data) => {
         console.log(data);
       })
-      .catch((error) => console.log(error));
- */
+      .catch((error) => console.log(error)); */
+
       
     /**
      * Validar Detalles de Facturación y Envío
@@ -584,12 +590,13 @@ const CheckoutForm = ({ countriesData, onFormSubmit }) => {
 
                 {idOrder ? (
                   <Link
-                    href={{
-                      pathname: "/checkout/pago",
-                      query: { idOrder: idOrder },
-                    }}
-                    className="block h-[60px] w-full rounded-[52px] bg-[#111] px-[54px] py-[16px] text-center text-white"
+                  href={{
+                    pathname: "/checkout/pago",
+                    query: { idOrder: idOrder },
+                  }}
+                  className="block h-[60px] w-full rounded-[52px] bg-[#111] px-[54px] py-[16px] text-center text-white"
                   >
+                    {console.log(idOrder)}
                     Continuar
                   </Link>
                 ) : null}

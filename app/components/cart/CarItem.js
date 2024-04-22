@@ -5,6 +5,7 @@ import { updateCart, deleteCartItem } from "@/utils/cart/cartUtils";
 import { manrope, ubuntu } from "@/ui/fonts";
 
 const CartItem = ({ item, products, setCart }) => {
+  console.log(products);
   const [productCount, setProductCount] = useState(item.quantity);
   const [updatingProduct, setUpdatingProduct] = useState(false);
   const [removingProduct, setRemovingProduct] = useState(false);
@@ -45,6 +46,7 @@ const CartItem = ({ item, products, setCart }) => {
    *
    */
   const handleQtyChange = (event, cartKey, type) => {
+    console.log(type);
     if (process.browser) {
       event.stopPropagation();
       let newQty;
@@ -68,6 +70,7 @@ const CartItem = ({ item, products, setCart }) => {
       // Establezca la nueva cantidad en el estado.
       setProductCount(newQty);
 
+      console.log(products.length);
       if (products.length) {
         updateCart(item?.key, newQty, setCart, setUpdatingProduct);
       }
@@ -98,7 +101,6 @@ const CartItem = ({ item, products, setCart }) => {
     return productMessages[cleanedProductName] || null;
   }; */
 
-  console.log(item.data.name.trim().replace(/[^\w\s]/gi, ""));
   return (
     <div>
       <div className="cart-item-wrap mb-5 flex flex-col justify-between gap-4 lg:flex-row">
