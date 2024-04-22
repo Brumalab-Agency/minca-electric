@@ -10,16 +10,16 @@ import { getOrderStatus } from '@/utils/checkout/utilsCheckout';
 const GraciasCompraPage = () => {
   const searchParams = useSearchParams();
   let idOrder = searchParams.get('idOrder');
+  const [data, setData] = useState(sessionStorage.getItem("data"))
 
   if (typeof window !== 'undefined') {
-    // Check if idOrder is not already set in sessionStorage
     if (sessionStorage.getItem("idOrder") === null || sessionStorage.getItem("idOrder") === undefined || sessionStorage.getItem("isOrder") !== idOrder) {
       sessionStorage.setItem("idOrder", idOrder);
     }
-
-    // Retrieve idOrder from sessionStorage
+  
     idOrder = sessionStorage.getItem("idOrder");
   }
+  
 
   useEffect(() => {
     const sendEmailFunction = async () => {
@@ -27,9 +27,14 @@ const GraciasCompraPage = () => {
         console.log("Checking idOrder:", idOrder);
         if (idOrder) {
           const status = await getOrderStatus(idOrder); // Await the result of getOrderStatus
+          const storedData = sessionStorage.getItem("data");
+          if (storedData) {
+            setData(JSON.parse(storedData));
+          }
           console.log(status)
           if (status === 'completed') {
-            await sendEmail(idOrder);
+            await sendEmail(data);
+            sessionStorage.removeItem("data")
           }
         } else {
           console.log("No order ID available yet.");

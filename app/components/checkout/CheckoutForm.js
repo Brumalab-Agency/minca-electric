@@ -29,7 +29,7 @@ import useShowroomStore from "@/store/orden.store";
   Direccion2: "Hill Road",
   Ciudad: "Medellín",
   Pais: "CO",
-  Email: "mendoza124302@gmail.com",
+  Email: "jehp01104006@gmail.com",
   Telefono: "9883778278",
   Empresa: "Freelance",
   EmailEmpresa: "empresa@empresa.com",
@@ -37,6 +37,8 @@ import useShowroomStore from "@/store/orden.store";
   Nit: "1147696023-8",
   TelefonoTrabajo: "3022222222",
   NumeroIdentificacion: "1147696023",
+  name_receiver: "Juan",
+  phone_receiver: "3244234233423",
   errors: null,
 }; */
 
@@ -68,8 +70,7 @@ const defaultCustomerInfo = {
   Destinatario: "",
   TelefonoDestinatario: "",
   errors: null,
-};
-//let InputFields;
+}; 
 
 // el state o estado del país es parte del componente Pais y este ya tiene sus campos predeterminados
 
@@ -106,6 +107,28 @@ const CheckoutForm = ({ countriesData, onFormSubmit }) => {
   const [createdOrderData, setCreatedOrderData] = useState({});
   const [formIsValid, setFormIsValid] = useState(false);
   const [showAdditionalContent, setShowAdditionalContent] = useState(true);
+
+  function concatenateAddress(input) {
+
+    const billingInfo = input.billing || {};
+    const shippingInfo = input.shipping || {};
+
+    const addressParts = [
+      "Barrio",
+      shippingInfo.Barrio || billingInfo.Barrio,
+      shippingInfo.DireccionSamsung1 || billingInfo.DireccionSamsung1,
+      '#',
+      shippingInfo.DireccionSamsung2 || billingInfo.DireccionSamsung2,
+      '-',
+      shippingInfo.DireccionSamsung3 || billingInfo.DireccionSamsung2,
+      shippingInfo.Referencia || billingInfo.Referencia
+    ];
+    const address = addressParts.filter(Boolean).join(' ');
+
+    input.shipping.Direccion1 = address 
+    input.billing.Direccion1 = address;
+
+  }
 
   const selectedShowroom = useShowroomStore((state) => state.selectedShowroom);
   const shippingCharge = useShowroomStore((state) => state.shippingCharge);
@@ -210,7 +233,9 @@ const CheckoutForm = ({ countriesData, onFormSubmit }) => {
       shipping: { ...input.shipping, errors: shippingValidationResult.errors },
     });
 
-    console.log(input)
+    console.log(input);
+
+    sessionStorage.setItem("data", JSON.stringify(input))
 
     // Si hay algún error, regrese.
     if (!shippingValidationResult.isValid || !billingValidationResult.isValid) {
