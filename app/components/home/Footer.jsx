@@ -403,7 +403,7 @@ export const Footer = () => {
         <p className="text-center text-[12px]">
           © 2024 Minca Electric | Todos los derechos reservados.{" "}
         </p>
-        <p className="text-center text-[12px]">
+        <p className="text-center text-[12px] hidden lg:block">
           |
         </p>
         <Link

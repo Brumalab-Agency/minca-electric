@@ -23,7 +23,7 @@ const SIngleBlog = async ({ params }) => {
     <>
       <HeroContext titulo="Blog" />
       {posts.map((post) => (
-        <div className="HeroBlog lg:mt-[45px] grid-cols-3 lg:grid  lg:w-full lg:px-[100px] 2xl:grid-cols-4">
+        <div className="HeroBlog lg:mt-[45px] grid-cols-1 lg:grid  lg:w-full lg:px-[100px] 2xl:grid-cols-1">
           {/* <div className="h-[30px] lg:hidden block">
             <OtrosPost />
           </div> */}
@@ -57,7 +57,9 @@ const SIngleBlog = async ({ params }) => {
             {/* *** */}
             <div className="relative flex justify-center lg:justify-start">
               <div
-                className={`relative flex h-[313px] w-full justify-center bg-cover bg-top lg:h-[500px] lg:w-full lg:justify-start lg:rounded-[12px] 2xl:h-[730px] object-cover`}
+                id="singleImageBlog"
+                className={`relative flex h-[313px] w-full justify-center bg-cover lg:h-[500px] lg:w-full lg:justify-start lg:rounded-[12px] 2xl:h-[730px] object-cover" 
+                }`}
                 style={{
                   backgroundImage: `url(${post.featuredImage.node.mediaItemUrl})`,
                 }}
@@ -102,7 +104,7 @@ const SIngleBlog = async ({ params }) => {
           </div>
           {/*  Skeleton */}
           <div className="h-auto">
-            <OtrosPost />
+            {/* <OtrosPost /> */}
           </div>
         </div>
       ))}

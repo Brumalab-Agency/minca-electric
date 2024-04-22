@@ -32,7 +32,7 @@ const Sedes = () => {
             <img src="/imagotipo-negro.png" alt="logo tipo" />
         </SpiningText>
       </div>
-      <Testimonios clases="mb-[70px]" clase2="mb-[81px]" />
+      <Testimonios clases="mb-[70px]" clase2="lg:mb-[30px] mb-[81px]" />
       <Footer />
       <Whatsapp/>
     </>

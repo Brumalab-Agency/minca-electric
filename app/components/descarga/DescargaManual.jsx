@@ -1,5 +1,6 @@
 "use client";
 import { manrope } from "@/ui/fonts";
+import Link from "next/link";
 
 
 export const DescargaManual = () => {
@@ -15,7 +16,7 @@ const minca1600 =
 const politicas =
   "https://test.mincaelectric.com/wp-content/uploads/2024/03/POLITICAS-DE-GARANTIA.pdf";
 const devoluciones =
-  "#";
+  "/politicasDevoluciones";
   
   const downLoad = (url) => {
     const filename = url.split("/").pop();
@@ -77,7 +78,7 @@ const devoluciones =
           <div className="mb-4 h-[190px] w-full items-center justify-between rounded-[20px] bg-white px-[24px] py-[16px] lg:col-span-2 lg:flex lg:h-[289px]">
             {/* *** */}
             <div className="flex flex-wrap self-start  lg:flex-col">
-            <button
+            {/* <button
             onClick={() =>
               downLoad(minca500)
             }
@@ -100,7 +101,7 @@ const devoluciones =
                   <path d="M12 14l4 -4" />
                   <path d="M12 14l-4 -4" />
                 </svg>
-              </button>
+              </button> */}
               <button
             onClick={() =>
               downLoad(minca800)
@@ -189,10 +190,8 @@ const devoluciones =
           </div>
           {/* Cuadricula 4 */}
           <div className="mb-4 flex h-[190px] w-full items-center justify-start rounded-[20px] bg-white bg-[url('/recursos/bg-recursos2.jpg')] bg-cover bg-center px-[24px] py-[16px] lg:h-[289px]">
-          <button
-            onClick={() =>
-              downLoad(devoluciones)
-            }
+          <Link
+            href="/politicasDevoluciones"
               className="flex self-start"
             >
               <p className="text-[24px] text-white lg:text-[36px] lg:font-bold">
@@ -214,7 +213,7 @@ const devoluciones =
                 <path d="M12 14l4 -4" />
                 <path d="M12 14l-4 -4" />
               </svg>
-            </button>
+            </Link>
           </div>
         </div>
       </div>

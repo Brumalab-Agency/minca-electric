@@ -11,7 +11,7 @@ const Recursos = () => {
         <HeroContext titulo="Recursos" ocultar="hidden"/>
         <DescargaManual/>
         <Acordion clase="mb-10"/>
-        <Testimonios />
+        <Testimonios clase3="lg:mt-[0px]"/>
         <Footer/>
         <Whatsapp/>
     </>

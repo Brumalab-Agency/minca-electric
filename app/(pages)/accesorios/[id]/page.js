@@ -5,8 +5,6 @@ import { PuedeInteresarte } from "@/components/sigle-product/PuedeInteresarte"
 import { EspecificacionesAccesorios } from '@/components/especificaciones-component/EspecificacionesAccesorios'
 import { CarruselAccesorios } from '@/components/carruseles/accesorios/CarruselAccesorios'
 import { AccesoriosWoocommerce } from '@/lib/graphQLRequest'
-import HotSpotAccesorios from '@/components/especificaciones-component/HotSpotAccesorios'
-import NextBreadcrumb from '@/components/breadcrumb/NextBreadcrumb'
 import { Testimonios } from '@/components/testimonio/Testimonios'
 import Whatsapp from '@/components/whatsapp/Whatsapp'
 
@@ -23,7 +21,6 @@ export const SingleAccesorio = async({params}) => {
   const { id } = params;
   const accesorios = await AccesoriosWoocommerce(decodeURIComponent(id));
   
-
   return (
     <>
         <HeroContext titulo="ACCESORIOS" />

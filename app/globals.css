@@ -889,3 +889,12 @@ button.mercadopago-color-31N6KB.svelte-1ruergu.svelte-1ruergu {
   background-color: #000000 #000000 !important;
   color: #ffffff #ffffff !important;
 }
+
+/* Personalización de Tendencias(Blog) para centrar las imagenes */
+
+figure.wp-block-image.aligncenter img {
+  margin: auto;
+}
+#singleImageBlog {
+  background-position-y: -100px;
+}
