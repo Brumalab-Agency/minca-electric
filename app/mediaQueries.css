@@ -183,6 +183,10 @@ canvas{
   height: 250px !important;
 }
 
+#singleImageBlog {
+  background-position-y: 0px;
+}
+
 }
 
 

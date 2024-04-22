@@ -20,7 +20,7 @@ const TalleresSingleComponents = () => {
           <div className="flex flex-col items-center justify-center">
             <Image
               alt="scooter"
-              className="h-auto rounded-[10px] lg:w-[360px] 2xl:w-[600px]"
+              className="h-auto rounded-[10px] lg:w-[360px] 2xl:w-[500px]"
               src="/talleres2/TallerChico.jpg"
               width={300}
               height={300}
@@ -38,7 +38,7 @@ const TalleresSingleComponents = () => {
         <div className="flex flex-col items-center justify-center">
           <Image
             alt="scooter"
-            className="h-auto rounded-[10px] lg:w-[360px] 2xl:w-[600px]"
+            className="h-auto rounded-[10px] lg:w-[360px] 2xl:w-[500px]"
             src="/talleres/TallerCedritos.png"
             width={300}
             height={300}
@@ -56,7 +56,7 @@ const TalleresSingleComponents = () => {
           <div className="flex flex-col items-center justify-center">
             <Image
               alt="scooter"
-              className="h-auto rounded-[10px] lg:w-[360px] 2xl:w-[600px]"
+              className="h-auto rounded-[10px] lg:w-[360px] 2xl:w-[500px]"
               src="/talleres2/TallerJaveriana.jpg"
               width={300}
               height={300}

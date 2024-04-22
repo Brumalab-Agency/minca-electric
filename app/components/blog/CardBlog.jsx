@@ -10,7 +10,7 @@ export const CardBlog = ({data, clasesImg, clasesContenedor, clasesIcon, clasesC
     <div className={`CardBlog h-auto p-4 border border-1 rounded-[12px] mt-4 mb-[50px] lg:mb-[10px] lg:mt-0 ${clasesContenedor}`} key={data.databaseId}>
       <div className={`${ubuntu.className} titulo text-[24px] text-[#111] font-bold leading-[28px] mt-4`}>{data?.titulo}</div>
       <div className={`${imgCenter}`}>
-        <img className={`w-full h-[236px] 2xl:h-[300px] rounded-[6px] mt-4 ${clasesImg}`} src={data?.featuredImage?.node.mediaItemUrl} alt={data?.featuredImage?.node.altText} />
+        <img className={`w-full h-[236px] 2xl:h-[300px] rounded-[6px] mt-4 object-cover ${clasesImg}`} src={data?.featuredImage?.node.mediaItemUrl} alt={data?.featuredImage?.node.altText} />
       </div>
       <div className={`lg:flex  gap-4 my-4 ${clasesContenedorFlex}`}>
         <img

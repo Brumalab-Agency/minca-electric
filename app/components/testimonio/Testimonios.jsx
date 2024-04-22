@@ -6,7 +6,7 @@ import { Cardtestimonio } from "./Cardtestimonio";
 import { TestimoniosQuery } from "@/lib/graphQLRequest";
 import { InfiniteCardsLeftTestimonios } from "../aceternity/InfiniteCardsLeftTestimonios";
 
-export const Testimonios = async ({ clases, clase2 }) => {
+export const Testimonios = async ({ clases, clase2, clase3 }) => {
   const dato = await TestimoniosQuery();
   const data = dato.testimonios.nodes;
   return (
@@ -15,7 +15,7 @@ export const Testimonios = async ({ clases, clase2 }) => {
         <hr className={`border-1 mt-4 border-[#111] w-full lg:w-full 2xl:w-[94%]`} />
         <img src="/flecha-correcta 2.png" alt="flechas direccional" />
       </div>
-      <div className="testimonioCard flex items-center justify-between gap-4 overflow-x-hidden lg:mt-[74px]">
+      <div className={`testimonioCard flex items-center justify-between gap-4 overflow-x-hidden lg:mt-[74px] ${clase3}`}>
         <div className="w-full h-auto lg:w-auto">
         <div className="flex items-end lg:mb-[26px] px-4 lg:px-[100px]">
               <div className="marcador w-full lg:mt-[74px]">
