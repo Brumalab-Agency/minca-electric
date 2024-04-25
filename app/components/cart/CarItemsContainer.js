@@ -6,18 +6,34 @@ import Link from "next/link";
 import CartItem from "./CarItem";
 import { clearCart } from "@/utils/cart/cartUtils";
 import { manrope, ubuntu } from "@/ui/fonts";
+import { applyDiscount } from "@/utils/coupons/applyDiscount";
 
 const CarItemsContainer = () => {
   const [cart, setCart] = useContext(AppContext);
-  console.log(cart);
   const { cartItems, totalPrice, totalQty } = cart || {};
   const [isClearCartProcessing, setClearCartProcessing] = useState(false);
+  const [couponError, setCouponError] = useState(null);
+  const [uses, setUses] = useState(0);
+  const [priceWithoutDiscount, setPriceWithoutDiscount] = useState(totalPrice)
 
-  console.log(cartItems);
-  /* Calculo descuento  */
-  let precioOriginal = totalPrice;
-  let descuento = precioOriginal * 0.15;
-  let precioConDescuento = descuento;
+
+  const handleCouponsDiscount = async () => {
+    const code = document.getElementById("code").value;
+      try {
+        if (uses === 0) {
+          /* Calculo descuento  */
+          setPriceWithoutDiscount(totalPrice)
+          const newTotal = await applyDiscount(totalPrice, code);
+          setCart({ ...cart, totalPrice: newTotal });
+          setUses(1)
+          setCouponError("Cupon aplicado")
+        } else {
+          setCouponError("Cupon ya utlizado");
+        }
+      } catch (error) {
+        setCouponError('Código de cupón no válido');
+      }
+  }
 
   // Limpiar el carrito
   const handleClearCart = async (event) => {
@@ -83,7 +99,7 @@ const CarItemsContainer = () => {
                   className={`${manrope.className} col-span-1 mb-0 p-2 text-base font-bold lg:text-[20px]`}
                 >
                   {cartItems?.[0]?.currency ?? ""}
-                  {separadorDeMiles(totalPrice)}
+                  {separadorDeMiles(priceWithoutDiscount)}
                 
                 </p>
               </div>
@@ -98,7 +114,7 @@ const CarItemsContainer = () => {
                   className={`${manrope.className} col-span-1 mb-0 p-2 text-base font-bold lg:text-[20px] text-[#F33]`}
                 >
                   - {cartItems?.[0]?.currency ?? ""}
-                  {precioConDescuento}
+                  {priceWithoutDiscount - totalPrice}
                 </p>
               </div>
               {/* envio */}
@@ -132,6 +148,10 @@ const CarItemsContainer = () => {
               </div>
               {/* *** */}
               <div className="flex flex-col justify-between">
+                {/* Coupon Error */}
+              {couponError && (
+                <p className="text-red-500 text-sm">{couponError}</p>
+              )}
                 {/* Cupon */}
                 <div className="cupon my-[24px] flex items-center justify-between gap-4 ">
                   <div className="relative flex grow items-center w-full h-auto">
@@ -142,13 +162,14 @@ const CarItemsContainer = () => {
                     />
                     <input
                       type="text"
-                      id="text"
+                      id="code"
                       placeholder="Añadir código de promoción"
                       className="lg:h-[50px] h-[47px] w-full rounded-[62px] border-none bg-[#F0F0F0] px-[16px] py-[12px] pl-[40px] focus:border-transparent focus:outline-none focus:ring-0 sm:text-sm text-[10px]"
                     />
                   </div>
 
-                  <button className="h-auto w-[119px] rounded-[62px] bg-[#111] px-[16px] py-[12px] text-white lg:text-base text-[14px]">
+                  <button className="h-auto w-[119px] rounded-[62px] bg-[#111] px-[16px] py-[12px] text-white lg:text-base text-[14px]"
+                    onClick={handleCouponsDiscount}>
                     Aplicar
                   </button>
                 </div>

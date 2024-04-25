@@ -1,7 +1,7 @@
 import { NextResponse } from 'next/server';
 import { Resend } from 'resend';
 
-const resend = new Resend(process.env.RESEND_API_KEY);
+const resend = new Resend(process.env.RESEEND_API_KEY_MINCA);
 
 export async function POST(req) {
   const data = await req.json();
@@ -18,8 +18,8 @@ export async function POST(req) {
     const email = shipping.Email || billing.Email;
 
     const emailResponse = await resend.emails.send({
-      from: 'Acme <onboarding@resend.dev>',
-      to: [email],
+      from: process.env.EMAIL_ADDRESS_CLIENT_SERVICEMINCA,
+      to: [email, process.env.EMAIL_ADDRESS_CLIENT_SERVICEMINCA, process.env.EMAIL_ADDRESS_CLIENT_SERVICEMINCA],
       subject: 'Thank you for buying with us',
       react: <EmailTemplate firstName="MINCA" shipping={shipping} billing={billing} cartItems={data.cartItems} totalPrice={data.totalPrice}/>,
     });
@@ -39,7 +39,7 @@ export const EmailTemplate = ({
   totalPrice
 }) => (
   <div>
-    <h1>Welcome to {firstName}</h1>
+    <h1>Bienvenido a {firstName}</h1>
     <h2>Order details</h2>
     {/* Iterate over each item in cartItems */}
     {cartItems.map(item => (
@@ -75,7 +75,7 @@ export const EmailTemplate = ({
     <p>Last Name: {billing.Apellido}</p>
     <p>Address 1: {billing.Direccion1}</p>
     <p>Address 2: {billing.Direccion2}</p>
-    <p>City: {billing.Ciudad}</p>
+    {/* <p>City: {billing.Ciudad}</p> */}
     <p>Country: {billing.Pais}</p>
     <p>State: {billing.Estado}</p>
     <p>Postcode: {billing.Codigopostal}</p>
