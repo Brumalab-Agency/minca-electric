@@ -271,7 +271,6 @@ const CheckoutForm = ({ countriesData, onFormSubmit }) => {
       setCreatedOrderData,
     );
     setIdOrder(createdOrderData.orderId);
-    console.log(createdOrderData.orderId)
     sessionStorage.setItem("idOrder", createdOrderData.orderId)
 
 
@@ -295,7 +294,7 @@ const CheckoutForm = ({ countriesData, onFormSubmit }) => {
    * @return {void}
    */
 
-  const handleOnChange = async (
+  /* const handleOnChange = async (
     event,
     isShipping = false,
     isBillingOrShipping = false,
@@ -355,7 +354,40 @@ const CheckoutForm = ({ countriesData, onFormSubmit }) => {
       const newState = { ...input, [target.name]: target.value };
       setInput(newState);
     }
+  }; */
+
+  const handleOnChange = async (
+    event,
+    isShipping = false,
+    isBillingOrShipping = false,
+  ) => {
+    const { target } = event || {};
+  
+    if (!target || !target.name) {
+      return;
+    }
+  
+    checkFormValidity();
+    if (target.name === "billingDifferentThanShipping") {
+      handleCheckboxChange();
+    }
+  
+    if ("createAccount" === target.name) {
+      handleCreateAccount(input, setInput, target);
+    } else if ("billingDifferentThanShipping" === target.name) {
+      handleBillingDifferentThanShipping(input, setInput, target);
+    } else if (isBillingOrShipping) {
+      if (isShipping) {
+        await handleShippingChange(target);
+      } else {
+        await handleBillingChange(target);
+      }
+    } else {
+      const newState = { ...input, [target.name]: target.value };
+      setInput(newState);
+    }
   };
+  
 
   const handleShippingChange = async (target) => {
     const newState = {

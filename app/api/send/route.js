@@ -19,7 +19,7 @@ export async function POST(req) {
 
     const emailResponse = await resend.emails.send({
       from: process.env.EMAIL_ADDRESS_CLIENT_SERVICEMINCA,
-      to: [email, process.env.EMAIL_ADDRESS_CLIENT_SERVICEMINCA, process.env.EMAIL_ADDRESS_CLIENT_SERVICEMINCA],
+      to: [email, process.env.EMAIL_ADDRESS_CLIENT_SERVICEMINCA, process.env.EMAIL_ADDRESS_CLIENT_BRUMA],
       subject: 'Thank you for buying with us',
       react: <EmailTemplate firstName="MINCA" shipping={shipping} billing={billing} cartItems={data.cartItems} totalPrice={data.totalPrice}/>,
     });
