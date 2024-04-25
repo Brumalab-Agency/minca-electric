@@ -30,9 +30,8 @@ const GraciasCompraPage = () => {
       try {
         if (idOrder) {
           const status = await getOrderStatus(idOrder); // Await the result of getOrderStatus
-          if (true) {//(status === "completed") {
+          if (status === "completed") {
             await sendEmail(data, products);
-            //sessionStorage.removeItem("data");
           }
         } else {
           console.log("No order ID available yet.");
