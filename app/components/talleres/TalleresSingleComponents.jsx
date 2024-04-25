@@ -45,10 +45,10 @@ const TalleresSingleComponents = () => {
           />
           <h2 className="mt-4 text-[28px] font-bold">Taller Cedritos</h2>
           <Link
-            href="#"
+            href="/talleres/tallerCedritos"
             className={`${ubuntu.className} my-3 block grid  h-[52px] w-full place-items-center rounded-[62px]  bg-[#111] text-[16px] text-white lg:w-[210px]`}
           >
-            Próximamente!
+            Agendar
           </Link>
         </div>
         {/* *** */}

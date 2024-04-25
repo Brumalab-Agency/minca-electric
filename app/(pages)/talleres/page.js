@@ -46,10 +46,10 @@ export const ShoowRooms = () => {
           />
         <h2 className="text-[28px] font-bold mt-4">Taller Cedritos</h2>
           <Link
-            href="#"
+            href="talleres/tallerCedritos"
             className={`${ubuntu.className} my-3 h-[52px] w-full  rounded-[62px] bg-[#111] text-[16px] text-white  lg:w-[210px] block grid place-items-center`}
           >
-            Próximamente!
+            Agendar
           </Link>
         </div>
         {/* *** */}

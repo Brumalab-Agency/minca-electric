@@ -21,27 +21,6 @@ import InputCustomField from "./fomr-elements/InputCustomField";
 import { useRouter } from "next/router";
 import useShowroomStore from "@/store/orden.store";
 
-// Utilice esto con fines de prueba, para que no tenga que completar el formulario de pago una y otra vez.
-/* const defaultCustomerInfo = {
-  Nombre: "Lenin",
-  Apellido: "Mendoza",
-  Direccion1: "Medellín - Antioquia",
-  Direccion2: "Hill Road",
-  Ciudad: "Medellín",
-  Pais: "CO",
-  Email: "jehp01104006@gmail.com",
-  Telefono: "9883778278",
-  Empresa: "Freelance",
-  EmailEmpresa: "empresa@empresa.com",
-  RazonSocial: "Anonimo",
-  Nit: "1147696023-8",
-  TelefonoTrabajo: "3022222222",
-  NumeroIdentificacion: "1147696023",
-  name_receiver: "Juan",
-  phone_receiver: "3244234233423",
-  errors: null,
-}; */
-
 const defaultCustomerInfo = {
   Nombre: "",
   Apellido: "",
@@ -183,6 +162,8 @@ const CheckoutForm = ({ countriesData, onFormSubmit }) => {
 
     setTemporalCarrito(cart);
     sessionStorage.setItem("products", JSON.stringify(cart))
+    sessionStorage.setItem("data", JSON.stringify(input))
+    console.log(input)
 
     if (typeof onFormSubmit === "function") {
       onFormSubmit();
@@ -239,10 +220,6 @@ const CheckoutForm = ({ countriesData, onFormSubmit }) => {
       billing: { ...input.billing, errors: billingValidationResult.errors },
       shipping: { ...input.shipping, errors: shippingValidationResult.errors },
     });
-
-    console.log(input);
-
-    sessionStorage.setItem("data", JSON.stringify(input))
 
     // Si hay algún error, regrese.
     if (!shippingValidationResult.isValid || !billingValidationResult.isValid) {
@@ -370,6 +347,27 @@ const CheckoutForm = ({ countriesData, onFormSubmit }) => {
     checkFormValidity();
     if (target.name === "billingDifferentThanShipping") {
       handleCheckboxChange();
+    }
+
+    // Handle checkbox input for Ciudad
+    if (target.name === "Ciudad") {
+      // Update the value for Ciudad in both billing and shipping
+      const ciudadValue = target.checked ? target.value : "";
+      setInput((prevInput) => ({
+        ...prevInput,
+        billing: { ...prevInput.billing, Ciudad: ciudadValue },
+        shipping: { ...prevInput.shipping, Ciudad: ciudadValue },
+      }));
+      return; // Exit the function early
+    }
+
+    if (target.name === "Departamento") {
+      const stateValue = target.checked ? target.value: "";
+      setInput((prevInput) => ({
+        ...prevInput,
+        billing: {...prevInput.billing, Estado: stateValue},
+        shipping: {...prevInput.shipping, Estado: stateValue},
+      }))
     }
   
     if ("createAccount" === target.name) {
