@@ -201,7 +201,7 @@ const AccesorioVariable = (item) => {
                   </div>
                   {/* Btn de Producto Variable y contador */}
                   <div className="contador-btnAddCart mt-2 flex w-full items-center gap-4 lg:w-[85%] 2xl:w-[70%]">
-                    <BtnQty />
+                    {/* <BtnQty /> */}
                     <div className="w-full flex-col justify-center lg:flex">
                       {currentVariation ? (
                         <AddToCart

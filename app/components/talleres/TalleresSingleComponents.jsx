@@ -30,7 +30,7 @@ const TalleresSingleComponents = () => {
               href="/talleres/tallerChico"
               className={`${ubuntu.className} my-3 grid h-[52px]  w-full place-items-center rounded-[62px] bg-[#111]  text-[16px] text-white lg:w-[210px]`}
             >
-              Agendar Mantenimiento
+              Agendar
             </Link>
           </div>
         </div>
