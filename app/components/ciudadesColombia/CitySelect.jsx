@@ -1,7 +1,7 @@
 import React from "react";
 import ArrowDown from "../checkout/iconCheckOut/ArrowDown";
 
-const CitySelect = ({ cities, onChange }) => {
+const CitySelect = ({ departments, onChange }) => {
   return (
     <div id="Ciudad" className="mb-4">
       <div className="relative w-full border-none">
@@ -12,9 +12,9 @@ const CitySelect = ({ cities, onChange }) => {
           onChange={onChange}
         >
           <option value="">Por favor seleccione</option>
-          {cities.map((city, index) => (
-            <option key={index} value={city}>
-              {city}
+          {departments.map((department, index) => (
+            <option key={index} value={department}>
+              {department}
             </option>
           ))}
         </select>
