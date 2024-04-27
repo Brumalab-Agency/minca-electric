@@ -8,6 +8,7 @@ const Amazonas = ({ onChange }) => {
         name="Direccion1"
         id="Amazonas"
         className="city_select select2-hidden-accessible inline-block w-full appearance-none rounded border border-gray-400 bg-white bg-opacity-50 py-3 pl-3 pr-8 text-[14px] font-light leading-tight text-gray-500"
+        onChange={onChange}
       >
         <option value="">Por favor seleccione</option>
         <option value="El encanto">El encanto</option>

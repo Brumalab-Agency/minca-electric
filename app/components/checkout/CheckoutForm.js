@@ -27,6 +27,7 @@ const defaultCustomerInfo = {
   Direccion1: "",
   Direccion2: "",
   Ciudad: "",
+  Departamento: '',
   Pais: "CO",
   Email: "",
   Telefono: "",
@@ -36,7 +37,7 @@ const defaultCustomerInfo = {
   Nit: "",
   TelefonoTrabajo: "",
   NumeroIdentificacion: "",
-  CiudadesColombia: "",
+  DireccionPrefijo: "",
   DireccionSamsung1: "",
   DireccionSamsung2: "",
   DireccionSamsung3: "",
@@ -94,21 +95,46 @@ const CheckoutForm = ({ countriesData, onFormSubmit }) => {
     const billingInfo = input.billing || {};
     const shippingInfo = input.shipping || {};
 
+    const City = sessionStorage.getItem("City")
+    const Department = sessionStorage.getItem("Department")
+    const prefijo = sessionStorage.getItem("Prefijo")
+    const showRoomAddress = sessionStorage.getItem("ShowRoom")
+
+    shippingInfo.DireccionPrefijo = prefijo;
+    billingInfo.DireccionPrefijo = prefijo;
+
     const addressParts = [
-      "Barrio",
-      shippingInfo.Barrio || billingInfo.Barrio,
+      shippingInfo.DireccionPrefijo || billingInfo.DireccionPrefijo,
       shippingInfo.DireccionSamsung1 || billingInfo.DireccionSamsung1,
       '#',
       shippingInfo.DireccionSamsung2 || billingInfo.DireccionSamsung2,
       '-',
       shippingInfo.DireccionSamsung3 || billingInfo.DireccionSamsung2,
+      shippingInfo.Barrio || billingInfo.Barrio,
       shippingInfo.Referencia || billingInfo.Referencia
     ];
     const address = addressParts.filter(Boolean).join(' ');
 
-    input.shipping.Direccion1 = address 
+
+    input.shipping.Ciudad = City;
+    input.billing.Ciudad = City;
+    input.shipping.Departamento = Department;
+    input.billing.departamento = Department;
+    if (showRoomAddress){
+      input.shipping.Direccion2 = showRoomAddress;
+      input.billing.Direccion2 = showRoomAddress;
+    }
+    input.shipping.Direccion1 = address;
     input.billing.Direccion1 = address;
 
+    sessionStorage.removeItem("City");
+    sessionStorage.removeItem("Department");
+    sessionStorage.removeItem("Prefijo");
+
+    input.billing = {
+      ...input.billing,
+      ...shippingInfo, // Fill billing fields with shipping data
+    };
   }
 
   const selectedShowroom = useShowroomStore((state) => state.selectedShowroom);
@@ -162,8 +188,6 @@ const CheckoutForm = ({ countriesData, onFormSubmit }) => {
 
     setTemporalCarrito(cart);
     sessionStorage.setItem("products", JSON.stringify(cart))
-    sessionStorage.setItem("data", JSON.stringify(input))
-    console.log(input)
 
     if (typeof onFormSubmit === "function") {
       onFormSubmit();
@@ -249,6 +273,7 @@ const CheckoutForm = ({ countriesData, onFormSubmit }) => {
     );
     setIdOrder(createdOrderData.orderId);
     sessionStorage.setItem("idOrder", createdOrderData.orderId)
+    sessionStorage.setItem("data", JSON.stringify(input))
 
 
     /* if ( createdOrderData.paymentUrl ) {
@@ -271,23 +296,22 @@ const CheckoutForm = ({ countriesData, onFormSubmit }) => {
    * @return {void}
    */
 
-  /* const handleOnChange = async (
+  const handleOnChange = async (
     event,
     isShipping = false,
     isBillingOrShipping = false,
   ) => {
     const { target } = event || {};
-
+  
     if (!target || !target.name) {
       return;
     }
-
+  
     checkFormValidity();
     if (target.name === "billingDifferentThanShipping") {
       handleCheckboxChange();
     }
-
-    // createAccount no esta haciendo nada pero por motivos de evitar errores más adelante se ha dejado, ya luego se eliminara!
+  
     if ("createAccount" === target.name) {
       handleCreateAccount(input, setInput, target);
     } else if ("billingDifferentThanShipping" === target.name) {
@@ -312,70 +336,7 @@ const CheckoutForm = ({ countriesData, onFormSubmit }) => {
             updatedCart.totalPrice += 90000;
             return updatedCart;
           });
-        } else {
-          // Restaurar el totalPrice original del carrito
-          setCart((prevCart) => {
-            const updatedCart = { ...prevCart };
-            updatedCart.totalPrice = prevCart.cartItems.reduce(
-              (total, item) => total + item.line_total,
-              0,
-            );
-            return updatedCart;
-          });
         }
-        await handleShippingChange(target);
-      } else {
-        await handleBillingChange(target);
-      }
-    } else {
-      const newState = { ...input, [target.name]: target.value };
-      setInput(newState);
-    }
-  }; */
-
-  const handleOnChange = async (
-    event,
-    isShipping = false,
-    isBillingOrShipping = false,
-  ) => {
-    const { target } = event || {};
-  
-    if (!target || !target.name) {
-      return;
-    }
-  
-    checkFormValidity();
-    if (target.name === "billingDifferentThanShipping") {
-      handleCheckboxChange();
-    }
-
-    // Handle checkbox input for Ciudad
-    if (target.name === "Ciudad") {
-      // Update the value for Ciudad in both billing and shipping
-      const ciudadValue = target.checked ? target.value : "";
-      setInput((prevInput) => ({
-        ...prevInput,
-        billing: { ...prevInput.billing, Ciudad: ciudadValue },
-        shipping: { ...prevInput.shipping, Ciudad: ciudadValue },
-      }));
-      return; // Exit the function early
-    }
-
-    if (target.name === "Departamento") {
-      const stateValue = target.checked ? target.value: "";
-      setInput((prevInput) => ({
-        ...prevInput,
-        billing: {...prevInput.billing, Estado: stateValue},
-        shipping: {...prevInput.shipping, Estado: stateValue},
-      }))
-    }
-  
-    if ("createAccount" === target.name) {
-      handleCreateAccount(input, setInput, target);
-    } else if ("billingDifferentThanShipping" === target.name) {
-      handleBillingDifferentThanShipping(input, setInput, target);
-    } else if (isBillingOrShipping) {
-      if (isShipping) {
         await handleShippingChange(target);
       } else {
         await handleBillingChange(target);
@@ -526,7 +487,7 @@ const CheckoutForm = ({ countriesData, onFormSubmit }) => {
                 <InputCustomField
                   name="RecibirInfo"
                   type="checkbox"
-                  inputValue={input?.RecibirInfo ? "Sí" : "No"}
+                  inputValue={input?.recibirInfo ? "Sí" : "No"}
                   handleOnChange={handleOnChange}
                   label="Me gustaría recibir información sobre ofertas y promociones de MINCA"
                   placeholder=""
@@ -539,7 +500,7 @@ const CheckoutForm = ({ countriesData, onFormSubmit }) => {
                   name="AceptarTerminos"
                   required
                   type="checkbox"
-                  inputValue={input?.AceptarTerminos ? "Sí" : "No"}
+                  inputValue={input?.aceptarTerminos ? "Sí" : "No"}
                   handleOnChange={handleOnChange}
                   label="Acepto los Términos y condiciones"
                   placeholder=""
@@ -551,7 +512,7 @@ const CheckoutForm = ({ countriesData, onFormSubmit }) => {
                   name="TratamientoDatos"
                   required
                   type="checkbox"
-                  inputValue={input?.TratamientoDatos ? "Sí" : "No"}
+                  inputValue={input?.tratamientoDatos ? "Sí" : "No"}
                   handleOnChange={handleOnChange}
                   label="Autorizo el tratamiento de mis datos personales , con las siguientes condiciones."
                   placeholder=""
@@ -607,7 +568,6 @@ const CheckoutForm = ({ countriesData, onFormSubmit }) => {
                   }}
                   className="block h-[60px] w-full rounded-[52px] bg-[#111] px-[54px] py-[16px] text-center text-white"
                   >
-                    {console.log(idOrder)}
                     Continuar
                   </Link>
                 ) : null}

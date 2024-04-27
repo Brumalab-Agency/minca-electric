@@ -49,7 +49,7 @@ const NorteDeSantander = ({ onChange }) => {
         name="Direccion1"
         id="NorteDeSantander"
         className="city_select select2-hidden-accessible inline-block w-full appearance-none rounded border border-gray-400 bg-white bg-opacity-50 py-3 pl-3 pr-8 leading-tight text-gray-500 font-light text-[14px]"
-      
+        onChange={onChange}
       >
         <option value="">Por favor seleccione</option>
         {municipios.map((municipio, index) => (
