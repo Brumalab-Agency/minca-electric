@@ -39,13 +39,13 @@ const SingleProduct = async ({ params }) => {
       <HeroVideoSingleCarsProduct
         titulo="Last Mile"
         tituloSecundarioNegrita="MODE"
-        urlVideo={scooters.edges[0]?.node.sliderProductos}
+        urlVideo={scooters.sliderProductos}
         scooters={scooters}
       />
       <SingleProductComponent scooters={scooters} />
       {/* <FinanciamientoFlexible/> */}
       <HeroVideoSingleCardProductTemporal
-        urlVideo={scooters.edges[0]?.node.sliderProductos}
+        urlVideo={scooters.sliderProductos}
         scooters={scooters}
       />
       <HotSpot scooters={scooters} />

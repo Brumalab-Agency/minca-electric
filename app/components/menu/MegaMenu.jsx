@@ -23,6 +23,7 @@ import { BannerMenu } from "./BannerMenu";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useLayoutEffect, useRef } from "react";
+import { App } from "antd";
 
 function NavListMenu() {
 
@@ -32,9 +33,9 @@ function NavListMenu() {
   const navListMenuProductos = [
     {
       title: "Minca Scooters",
-      description1: "Minca 350W",
-      description2: "Minca 800W",
-      description3: "Minca 1600W",
+      description1: ["Minca 350W", "cHJvZHVjdDo0MTk="],
+      description2: ["Minca 800W", "cHJvZHVjdDo5NTI="],
+      description3: ["Minca 1600W", "cHJvZHVjdDo0MzU="],
     },
   ];
  /*  const navListMenuEbikes = [
@@ -79,9 +80,9 @@ function NavListMenu() {
               >
                 <Link
                   className="leading-[40px] hover:underline"
-                  href={`/productos/${description}`}
+                  href={`/productos/${description[0]}`}
                 >
-                  {description}
+                  {description[0]}
                 </Link>
               </Typography>
             ))}
