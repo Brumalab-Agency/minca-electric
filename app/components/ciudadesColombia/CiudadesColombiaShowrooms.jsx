@@ -54,6 +54,7 @@ const CiudadesColombiaShowrooms = ({
 }) => {
   const [selectedCity, setSelectedCity] = useState("");
   const [selectedDepartment, setSelectedDepartment] = useState("");
+  const [selectedPrefijo, setPrefijo] = useState("");
   const setShippingCharge = useShowroomStore((state) => state.setShippingCharge);
 
   const cityDepartmentMapping = {
@@ -92,25 +93,30 @@ const CiudadesColombiaShowrooms = ({
     Vichada: "Vichada",
   };
 
-  const handleCityChange = (event) => {
-    const cityValue = event.target.value;
-    setSelectedCity(cityValue);
-
-    if (cityDepartmentMapping[cityValue]) {
-      setSelectedDepartment(cityDepartmentMapping[cityValue]);
-    } else {
-      setSelectedDepartment("");
-    }
+  const handleDepartmentChange = (event) => {
+    const departmentValue = event.target.value;
+    setSelectedCity(departmentValue);
+    setSelectedDepartment(departmentValue)
     
   };
 
-  const handleDepartmentChange = (event) => {
-    const departmentValue = event.target.value;
-    setSelectedDepartment(departmentValue);
-    console.log(selectedDepartment);
+  const handleCityChange = (event) => {
+    const cityValue = event.target.value;
+    setSelectedCity(cityValue);
   };
 
-  const cities = Object.keys(cityDepartmentMapping);
+  const handlePrefijoChange = (event) => {
+    const prefijo = event.target.value;
+    console.log(prefijo);
+    setPrefijo(prefijo)
+
+  }
+
+  sessionStorage.setItem("City", selectedCity);
+  sessionStorage.setItem("Department", selectedDepartment);
+  sessionStorage.setItem("Prefijo", selectedPrefijo)
+
+  const departments = Object.keys(cityDepartmentMapping);
 ;
 
   /* const handleCheckChange = () => {
@@ -126,7 +132,9 @@ const CiudadesColombiaShowrooms = ({
           </h2>
           <Abbr required />
         </div>
-        <CitySelect cities={cities} onChange={handleCityChange} />
+        <CitySelect 
+          departments={departments} 
+          onChange={handleDepartmentChange}/>
         <div className="flex">
           <h2 className="text-sm font-bold leading-7 text-[#111] ">Municipio</h2>
           <Abbr required />
@@ -134,103 +142,103 @@ const CiudadesColombiaShowrooms = ({
         {!selectedDepartment && <CampoVacio />}
         {/* Renderiza el componente de municipios correspondiente */}
         {selectedDepartment === "Bolívar" && (
-          <Bolivar onChange={handleDepartmentChange} />
+          <Bolivar onChange={handleCityChange} inputValue={input?.Ciudad}/>
         )}
         {selectedDepartment === "Atlántico" && (
-          <Atlantico onChange={handleDepartmentChange} />
+          <Atlantico onChange={handleCityChange} inputValue={input?.Ciudad}/>
         )}
         {selectedDepartment === "Amazonas" && (
-          <Amazonas onChange={handleDepartmentChange} />
+          <Amazonas onChange={handleCityChange} inputValue={input?.Ciudad}/>
         )}
         {selectedDepartment === "Antioquia" && (
-          <Antioquia onChange={handleDepartmentChange} />
+          <Antioquia onChange={handleCityChange} inputValue={input?.Ciudad}/>
         )}
         {selectedDepartment === "Arauca" && (
-          <Arauca onChange={handleDepartmentChange} />
+          <Arauca onChange={handleCityChange} inputValue={input?.Ciudad}/>
         )}
         {selectedDepartment === "Boyacá" && (
-          <Boyaca onChange={handleDepartmentChange} />
+          <Boyaca onChange={handleCityChange} inputValue={input?.Ciudad}/>
         )}
         {selectedDepartment === "Caldas" && (
-          <Caldas onChange={handleDepartmentChange} />
+          <Caldas onChange={handleCityChange} inputValue={input?.Ciudad}/>
         )}
         {selectedDepartment === "Caquetá" && (
-          <Caqueta onChange={handleDepartmentChange} />
+          <Caqueta onChange={handleCityChange} inputValue={input?.Ciudad}/>
         )}
         {selectedDepartment === "Casanare" && (
-          <Casanare onChange={handleDepartmentChange} />
+          <Casanare onChange={handleCityChange} inputValue={input?.Ciudad}/>
         )}
         {selectedDepartment === "Cauca" && (
-          <Cauca onChange={handleDepartmentChange} />
+          <Cauca onChange={handleCityChange} inputValue={input?.Ciudad}/>
         )}
         {selectedDepartment === "Cesar" && (
-          <Cesar onChange={handleDepartmentChange} />
+          <Cesar onChange={handleCityChange} inputValue={input?.Ciudad}/>
         )}
         {selectedDepartment === "Chocó" && (
-          <Choco onChange={handleDepartmentChange} />
+          <Choco onChange={handleCityChange} inputValue={input?.Ciudad}/>
         )}
         {selectedDepartment === "Córdoba" && (
-          <Cordoba onChange={handleDepartmentChange} />
+          <Cordoba onChange={handleCityChange} inputValue={input?.Ciudad}/>
         )}
         {selectedDepartment === "Cundinamarca" && (
-          <Cundinamarca onChange={handleDepartmentChange} />
+          <Cundinamarca onChange={handleCityChange} inputValue={input?.Ciudad}/>
         )}
         {selectedDepartment === "Bogotá" && (
-          <Bogota onChange={handleDepartmentChange} />
+          <Bogota onChange={handleCityChange} inputValue={input?.Ciudad}/>
         )}
         {selectedDepartment === "Guainía" && (
-          <Guainia onChange={handleDepartmentChange} />
+          <Guainia onChange={handleCityChange} inputValue={input?.Ciudad}/>
         )}
         {selectedDepartment === "Guaviare" && (
-          <Guaviare onChange={handleDepartmentChange} />
+          <Guaviare onChange={handleCityChange} inputValue={input?.Ciudad}/>
         )}
         {selectedDepartment === "Huila" && (
-          <Huila onChange={handleDepartmentChange} />
+          <Huila onChange={handleCityChange} inputValue={input?.Ciudad}/>
         )}
         {selectedDepartment === "La Guajira" && (
-          <Guajira onChange={handleDepartmentChange} />
+          <Guajira onChange={handleCityChange} inputValue={input?.Ciudad}/>
         )}
         {selectedDepartment === "Magdalena" && (
-          <Magdalena onChange={handleDepartmentChange} />
+          <Magdalena onChange={handleCityChange} inputValue={input?.Ciudad}/>
         )}
         {selectedDepartment === "Meta" && (
-          <Meta onChange={handleDepartmentChange} />
+          <Meta onChange={handleCityChange} inputValue={input?.Ciudad}/>
         )}
         {selectedDepartment === "Nariño" && (
-          <Narino onChange={handleDepartmentChange} />
+          <Narino onChange={handleCityChange} inputValue={input?.Ciudad}/>
         )}
         {selectedDepartment === "Norte de Santander" && (
-          <NorteDeSantander onChange={handleDepartmentChange} />
+          <NorteDeSantander onChange={handleCityChange} inputValue={input?.Ciudad}/>
         )}
         {selectedDepartment === "Putumayo" && (
-          <Putumayo onChange={handleDepartmentChange} />
+          <Putumayo onChange={handleCityChange} inputValue={input?.Ciudad}/>
         )}
         {selectedDepartment === "Quindío" && (
-          <Quindio onChange={handleDepartmentChange} />
+          <Quindio onChange={handleCityChange} inputValue={input?.Ciudad}/>
         )}
         {selectedDepartment === "Risaralda" && (
-          <Risaralda onChange={handleDepartmentChange} />
+          <Risaralda onChange={handleCityChange} inputValue={input?.Ciudad}/>
         )}
         {selectedDepartment === "Santander" && (
-          <Santander onChange={handleDepartmentChange} />
+          <Santander onChange={handleCityChange} inputValue={input?.Ciudad}/>
         )}
         {selectedDepartment === "San Andrés y Providencia" && (
-          <SanAndres onChange={handleDepartmentChange} />
+          <SanAndres onChange={handleCityChange} inputValue={input?.Ciudad}/>
         )}
         {selectedDepartment === "Sucre" && (
-          <Sucre onChange={handleDepartmentChange} />
+          <Sucre onChange={handleCityChange} inputValue={input?.Ciudad}/>
         )}
         {selectedDepartment === "Tolima" && (
-          <Tolima onChange={handleDepartmentChange} />
+          <Tolima onChange={handleCityChange} inputValue={input?.Ciudad}/>
         )}
         {selectedDepartment === "Valle del Cauca" && (
-          <ValleDelCauca onChange={handleDepartmentChange} />
+          <ValleDelCauca onChange={handleCityChange} inputValue={input?.Ciudad}/>
         )}
         {selectedDepartment === "Vaupés" && (
-          <Vaupes onChange={handleDepartmentChange} />
+          <Vaupes onChange={handleCityChange} inputValue={input?.Ciudad}/>
         )}
         {selectedDepartment === "Vichada" && (
-          <Vichada onChange={handleDepartmentChange} />
+          <Vichada onChange={handleCityChange} inputValue={input?.Ciudad}/>
         )}
       </div>
       {/* El resto de campos el ¿porque se hizo asi?  es por requerimiento de que el campo de seleccion de envio coincida con la opción que el cliente tome al seleccionar una Ciudad*/}
@@ -245,11 +253,12 @@ const CiudadesColombiaShowrooms = ({
             handleOnChange={handleOnChange}
             setFormIsValid={setFormIsValid}
             isShipping={isShipping}
+            onChange={handlePrefijoChange}
           />
           <div className="flex items-center gap-3">
             <InputField
               name="DireccionSamsung1"
-              type="number"
+              type="text"
               inputValue={input?.DireccionSamsung1}
               handleOnChange={handleOnChange}
               errors={errors}
@@ -259,7 +268,7 @@ const CiudadesColombiaShowrooms = ({
             <span className="text-base font-bold">#</span>
             <InputField
               name="DireccionSamsung2"
-              type="number"
+              type="text"
               inputValue={input?.DireccionSamsung2}
               handleOnChange={handleOnChange}
               errors={errors}
@@ -269,7 +278,7 @@ const CiudadesColombiaShowrooms = ({
             <span className="text-base font-bold">-</span>
             <InputField
               name="DireccionSamsung3"
-              type="number"
+              type="text"
               inputValue={input?.DireccionSamsung3}
               handleOnChange={handleOnChange}
               errors={errors}

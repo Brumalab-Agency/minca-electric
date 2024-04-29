@@ -40,46 +40,46 @@ export const EmailTemplate = ({
 }) => (
   <div>
     <h1>Bienvenido a {firstName}</h1>
-    <h2>Order details</h2>
+    <h2>Detalles de la orden</h2>
     {/* Iterate over each item in cartItems */}
     {cartItems.map(item => (
       <div key={item.key}>
-        <h3>Product Details:</h3>
-        <p>Name: {item.data.name}</p>
-        <p>Quantity: {item.quantity}</p>
-        <p>Price: {item.data.price}</p>
-        <p>Subtotal: {item.line_total}</p>
-        <p>Image: <img src={item.data.images[0].src} alt={item.data.images[0].alt} /></p>
+        <h3>Detalles de producto:</h3>
+        <p>Nombre: {item.data.name}</p>
+        <p>Cantidad: {item.quantity}</p>
+        <p>Precio: {item.data.price}</p>
+        <p>SubPrecio: {item.line_total}</p>
+        <p>Imagen: <img src={item.data.images[0].src} alt={item.data.images[0].alt} /></p>
       </div>
     ))}
 
-    <h2>Total Price: {totalPrice}</h2>
-    <h2>Shipping Information:</h2>
-    <p>First Name: {shipping.Nombre}</p>
-    <p>Last Name: {shipping.Apellido}</p>
-    <p>Address 1: {shipping.Direccion1}</p>
-    <p>Address 2: {shipping.Direccion2}</p>
-    <p>City: {shipping.Ciudad}</p>
-    <p>Country: {shipping.Pais}</p>
-    <p>State: {shipping.Estado}</p>
-    <p>Postcode: {shipping.Codigopostal}</p>
-    <p>Email: {shipping.Email}</p>
-    <p>Phone: {shipping.Telefono}</p>
-    <p>Company: {shipping.Empresa}</p>
-    <p>Numero Identificacion: {shipping.NumeroIdentificacion}</p>
-    <p>Name Receiver: {shipping.name_receiver}</p>
-    <p>Phone Receiver: {shipping.phone_receiver}</p>
+    <h2>Precio total: {totalPrice}</h2>
+    <h2>Información de envío:</h2>
+    <p>Nombre Completo: {shipping.Nombre}</p>
+    <p>Apellido Completo: {shipping.Apellido}</p>
+    <p>Dirección cliente: {shipping.Direccion1}</p>
+    <p>Dirección showroom: {shipping.Direccion2}</p>
+    <p>Ciudad: {shipping.Ciudad}</p>
+    <p>País: {shipping.Pais}</p>
+    <p>Departamento: {shipping.Departamento}</p>
+    <p>Correo: {shipping.Email}</p>
+    <p>Teléfono: {shipping.Telefono}</p>
+    <p>Número de Identificación: {shipping.NumeroIdentificacion}</p>
+    <p>Nombre de quien recibe: {shipping.Quienrecibe}</p>
+    <p>Teléfono de quien recibe: {shipping.Receptor}</p>
 
-    <h2>Billing Information:</h2>
-    <p>First Name: {billing.Nombre}</p>
-    <p>Last Name: {billing.Apellido}</p>
-    <p>Address 1: {billing.Direccion1}</p>
-    <p>Address 2: {billing.Direccion2}</p>
-    {/* <p>City: {billing.Ciudad}</p> */}
-    <p>Country: {billing.Pais}</p>
-    <p>State: {billing.Estado}</p>
-    <p>Postcode: {billing.Codigopostal}</p>
-    <p>Email: {billing.Email}</p>
-    <p>Phone: {billing.Telefono}</p>
+    <h2>Información de facturacion:</h2>
+    <p>Nombre Completo: {shipping.Nombre}</p>
+    <p>Apellido Completo: {shipping.Apellido}</p>
+    <p>Dirección cliente: {shipping.Direccion1}</p>
+    <p>Dirección showroom: {shipping.Direccion2}</p>
+    <p>Ciudad: {shipping.Ciudad}</p>
+    <p>País: {shipping.Pais}</p>
+    <p>Departamento: {shipping.Estado}</p>
+    <p>Correo: {shipping.Email}</p>
+    <p>Teléfono: {shipping.Telefono}</p>
+    <p>Número de Identificación: {shipping.NumeroIdentificacion}</p>
+    <p>Nombre de quien recibe: {shipping.Quienrecibe}</p>
+    <p>Teléfono de quien recibe: {shipping.Receptor}</p>
     </div>
 )

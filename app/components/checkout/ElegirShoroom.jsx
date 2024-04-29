@@ -23,6 +23,7 @@ const ElegirShowroom = ({ input }) => {
     }
   
     setSelectedOption(selectedOption);
+    sessionStorage.setItem("ShowRoom", selectedOption);
     setSelectedShowroom(selectedOption, charge);
   };
 
