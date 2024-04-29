@@ -10,7 +10,7 @@ import SmoothScroll from "./components/smoothscrool/SmoothScroll";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
-  title: "MINCA",
+  title: "Minca Electric | Empresa líder de movilidad eléctrica en Colombia",
   description:
     "Muévete sostenible, con estilo y eficiencia. Muévete con Minca.",
   icons: {

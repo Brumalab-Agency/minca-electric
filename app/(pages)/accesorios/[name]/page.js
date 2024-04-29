@@ -8,7 +8,7 @@ import { AccesoriosWoocommerce } from '@/lib/graphQLRequest'
 import { Testimonios } from '@/components/testimonio/Testimonios'
 import Whatsapp from '@/components/whatsapp/Whatsapp'
 
-export const metadata = {
+export let metadata = {
   title: "Accesorios",
   description:
     "Muévete sostenible, con estilo y eficiencia. Muévete con Minca.",
@@ -18,8 +18,47 @@ export const metadata = {
 };
 
 export const SingleAccesorio = async({params}) => {
-  const { id } = params;
-  const accesorios = await AccesoriosWoocommerce(decodeURIComponent(id));
+  const paths = [
+    "Casco_Integral_Minca",
+    "Poncho_Minca",
+    "Gafas_Minca",
+    "On_Guard_U-look",
+    "Baúl_Minca",
+    "On_Guard_Guaya",
+  ];
+
+  let { name } = params;
+  decodeURIComponent(name)
+
+  console.log(name)
+
+  if (name === paths[0]) {
+    name = "Casco Integral Minca";
+  }
+
+  if (name === paths[1]) {
+    name = "Poncho Minca";
+  }
+
+  if (name === paths[2]) {
+    name = "Gafas‎ Minca"; 
+  }
+
+  if (name === paths[3]) {
+    name = "On Guard U-look";
+  }
+
+  if (name === paths[4] || name === "Ba%C3%BAl_Minca") {
+    name = "Baúl Minca";
+  }
+
+  if (name === paths[5]) {
+    name = "On Guard Guaya";
+  }
+
+  metadata.title = `Accesorios | ${name}`
+
+  const accesorios = await AccesoriosWoocommerce(name);
   
   return (
     <>

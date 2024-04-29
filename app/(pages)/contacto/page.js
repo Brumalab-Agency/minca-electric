@@ -4,6 +4,12 @@ import { IconosContacto } from '@/components/contacto/IconosContacto'
 import { HeroContext } from '@/components/reusable/HeroContext'
 import Whatsapp from '@/components/whatsapp/Whatsapp'
 
+export const metadata = {
+  title: "Minca Electric | Contacto",
+  description:
+    "Muévete sostenible, con estilo y eficiencia. Muévete con Minca.",
+};
+
 const Contact = () => {
   return (
     <>

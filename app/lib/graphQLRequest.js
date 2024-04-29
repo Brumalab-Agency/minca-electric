@@ -35,8 +35,7 @@ const fetchScooters = async (query) => {
   );
 
   const { data } = await res.json();
-  console.log(data)
-  return data.simpleProduct;
+  return data.sliderProducts;
 };
 
 const fetchScootersSec = async (query) => {
@@ -229,124 +228,130 @@ Scooters()
 
 // Single de Productos
 
-export const SingleProductos = async (id) => {
+export const SingleProductos = async (name) => {
   const query = `
   query SingleProductos {
-    simpleProduct(id: "${id}") {
-      name
-      price
-      sliderProductos {
-        description
-        ampere
-        anoVersion
-        bateria
-        descuento
-        distancia
-        fieldGroupName
-        kg
-        km
-        kmh
-        llanta
-        motor
-        manualMinca {
-          mediaItemId
+          sliderProducts(where: {name: "${name}"}) {
+            edges {
+              node {
+                sliderProductos {
+                  ampere
+                  anoVersion
+                  bateria
+                  description
+                  descuento
+                  distancia
+                  fieldGroupName
+                  kg
+                  km
+                  kmh
+                  llanta
+                  motor
+                  manualMinca {
+                    mediaItemUrl
+                  }
+                  nombreProducto
+                  peso
+                  pesoMaximo
+                  precioActual
+                  precioRebajado
+                  pulgadas
+                  slogan
+                  subtitulo
+                  tipo
+                  tipoAutonomia
+                  tipoBrushless
+                  vatios
+                  velocidadMaxima
+                  velocidadNum
+                  frenos
+                  tipofrenos
+                  frenosNulo
+                  pesoSc
+                  tpeso
+                  kgPesoScooter
+                  tipoRodamiento
+                  foto1 {
+                    altText
+                    sourceUrl
+                  }
+                  foto2 {
+                    mediaItemUrl
+                    altText
+                  }
+                  foto3 {
+                    altText
+                    mediaItemUrl
+                  }
+                  foto4 {
+                    altText
+                    mediaItemUrl
+                  }
+                  foto5 {
+                    altText
+                    mediaItemUrl
+                  }
+                  url3d
+                  cuponIntermedia
+                  cuponNombre
+                  cuponTitulo1
+                  cuponTitulo2
+                  cuponImg {
+                    id
+                    altText
+                    mediaItemUrl
+                  }
+                  tooltips
+                  videoImgBannerMovil {
+                    altText
+                    mediaItemUrl
+                  }
+                  videoImgBannerPc {
+                    altText
+                    mediaItemUrl
+                  }
+                  videoImgBannerMovilTemporal {
+                    altText
+                    mediaItemUrl
+                  }
+                  videoImgBannerPcTemporal {
+                    altText
+                    mediaItemUrl
+                  }
+                  g1 {
+                    altText
+                    mediaItemUrl
+                  }
+                  g2 {
+                    altText
+                    mediaItemUrl
+                  }
+                  g3 {
+                    altText
+                    mediaItemUrl
+                  }
+                  g4 {
+                    altText
+                    mediaItemUrl
+                  }
+                  g5 {
+                    altText
+                    mediaItemUrl
+                  }
+                }
+                contentType {
+                  node {
+                    id
+                  }
+                }
+              }
+            }
+          }
         }
-        nombreProducto
-        peso
-        pesoMaximo
-        precioActual
-        precioRebajado
-        pulgadas
-        slogan
-        subtitulo
-        tipo
-        tipoAutonomia
-        tipoBrushless
-        vatios
-        velocidadMaxima
-        velocidadNum
-        frenos
-        tipofrenos
-        frenosNulo
-        pesoSc
-        tpeso
-        kgPesoScooter
-        tipoRodamiento
-        foto1 {
-          altText
-          sourceUrl
-        }
-        foto2 {
-          mediaItemUrl
-          altText
-        }
-        foto3 {
-          altText
-          mediaItemUrl
-        }
-        foto4 {
-          altText
-          mediaItemUrl
-        }
-        foto5 {
-          altText
-          mediaItemUrl
-        }
-        url3d
-        cuponIntermedia
-        cuponNombre
-        cuponTitulo1
-        cuponTitulo2
-        cuponImg {
-          id
-          altText
-          mediaItemUrl
-        }
-        tooltips
-        videoImgBannerMovil {
-          altText
-          mediaItemUrl
-        }
-        videoImgBannerPc {
-          altText
-          mediaItemUrl
-        }
-        videoImgBannerMovilTemporal {
-          altText
-          mediaItemUrl
-        }
-        videoImgBannerPcTemporal {
-          altText
-          mediaItemUrl
-        }
-        g1 {
-          altText
-          mediaItemUrl
-        }
-        g2 {
-          altText
-          mediaItemUrl
-        }
-        g3 {
-          altText
-          mediaItemUrl
-        }
-        g4 {
-          altText
-          mediaItemUrl
-        }
-        g5 {
-          altText
-          mediaItemUrl
-        }
-      }
-    }
-  }
     `;
 
   try {
     const scooters = await  fetchScooters(query);
-    console.log(scooters)
 
     return scooters;
   } catch (error) {

@@ -8,10 +8,41 @@ import { SingleProductosWoocommerce,  SingleProductos} from "@/lib/graphQLReques
 import { EspecificacionesMincaNew } from "@/components/especificaciones-component/EspecificacionesMincaNew";
 import Whatsapp from "@/components/whatsapp/Whatsapp";
 
-const Especificaciones = async ({ params }) => {
-  const { id } = params;
+export let metadata = {
+  title: "Especificaciones",
+  description:
+    "Muévete sostenible, con estilo y eficiencia. Muévete con Minca.",
+  icons: {
+    icon: "/favicon.png",
+  },
+};
 
-  const scooters = await SingleProductosWoocommerce(decodeURIComponent(id));
+const Especificaciones = async ({ params }) => {
+  const paths = [
+    "Especificacione_Scooter_Electrico_Minca_350W",
+    "Especificacione_Scooter_Electrico_Minca_800W",
+    "Especificacione_Scooter_Electrico_Minca_1600W"
+  ];
+
+  let { name } = params;
+  decodeURIComponent(name)
+
+  console.log(name)
+
+  if (name === paths[0]) {
+    name = "Minca 350W";
+  }
+
+  if (name === paths[1]) {
+    name = "Minca 800W";
+  }
+
+  if (name === paths[2]) {
+    name = "Minca 1600W"; 
+  }
+  metadata.title = `Especificaciones | ${name}`
+
+  const scooters = await SingleProductosWoocommerce(name);
   /* const scooters = await SingleProductos(decodeURIComponent(id)); */
 
   return (

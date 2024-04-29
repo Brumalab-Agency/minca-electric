@@ -7,6 +7,12 @@ import { format } from "date-fns";
 import OtrosPost from "@/components/blog/OtrosPost";
 import Whatsapp from "@/components/whatsapp/Whatsapp";
 
+export const metadata = {
+  title: "Minca Electric | Tendencias",
+  description:
+    "Muévete sostenible, con estilo y eficiencia. Muévete con Minca.",
+};
+
 const SIngleBlog = async ({ params }) => {
   const { id } = params;
 

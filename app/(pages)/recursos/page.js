@@ -5,6 +5,12 @@ import { HeroContext } from '@/components/reusable/HeroContext'
 import { Testimonios } from '@/components/testimonio/Testimonios'
 import Whatsapp from '@/components/whatsapp/Whatsapp'
 
+export const metadata = {
+  title: "Minca Electric | Recursos",
+  description:
+    "Muévete sostenible, con estilo y eficiencia. Muévete con Minca.",
+};
+
 const Recursos = () => {
   return (
     <>

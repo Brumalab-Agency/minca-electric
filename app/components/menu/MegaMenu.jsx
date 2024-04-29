@@ -33,9 +33,9 @@ function NavListMenu() {
   const navListMenuProductos = [
     {
       title: "Minca Scooters",
-      description1: ["Minca 350W", "cHJvZHVjdDo0MTk="],
-      description2: ["Minca 800W", "cHJvZHVjdDo5NTI="],
-      description3: ["Minca 1600W", "cHJvZHVjdDo0MzU="],
+      description1: ["Minca 350W", "Scooter_Electrico_Minca_350W"],
+      description2: ["Minca 800W", "Scooter_Electrico_Minca_800W"],
+      description3: ["Minca 1600W", "Scooter_Electrico_Minca_1600W"],
     },
   ];
  /*  const navListMenuEbikes = [
@@ -49,12 +49,12 @@ function NavListMenu() {
   const navListMenuAccesorios = [
     {
       title: "Accesorios",
-      description1: "Casco Integral Minca",
-      description2: "Poncho Minca",
-      description3: "Gafas‎ Minca",
-      description4: "On Guard U-look",
-      description5: "Baúl Minca",
-      description6: "On Guard Guaya",
+      description1: ["Casco Integral Minca", "Casco_Integral_Minca"],
+      description2: ["Poncho Minca", "Poncho_Minca"],
+      description3: ["Gafas Minca", "Gafas_Minca"],
+      description4: ["On Guard U-look", "On_Guard_U-look"],
+      description5: ["Baúl Minca", "Baúl_Minca"],
+      description6: ["On Guard Guaya", "On_Guard_Guaya"],
     },
   ];
 
@@ -80,7 +80,7 @@ function NavListMenu() {
               >
                 <Link
                   className="leading-[40px] hover:underline"
-                  href={`/productos/${description[0]}`}
+                  href={`/productos/${description[1]}`}
                 >
                   {description[0]}
                 </Link>
@@ -111,9 +111,9 @@ function NavListMenu() {
               >
                 <Link
                   className="leading-[40px] hover:underline"
-                  href={`/accesorios/${description}`}
+                  href={`/accesorios/${description[1]}`}
                 >
-                  {description}
+                  {description[0]}
                 </Link>
               </Typography>
             ))}

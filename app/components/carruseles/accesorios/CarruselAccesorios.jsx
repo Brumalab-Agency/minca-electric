@@ -30,6 +30,40 @@ export const CarruselAccesorios = () => {
     return partesNumero.join('.');
   }
 
+  const paths = [
+    "Casco Integral Minca",
+    "Poncho Minca",
+    "Gafas‎ Minca",
+    "On Guard U-look",
+    "Baúl Minca",
+    "On Guard Guaya",
+  ];
+
+  accesorios.map((accesorio, index) => {
+    if (accesorio.name === paths[0]) {
+      accesorio.name = "Casco_Integral_Minca";
+    }
+  
+    if (accesorio.name === paths[1]) {
+      accesorio.name = "Poncho_Minca";
+    }
+  
+    if (accesorio.name === paths[2]) {
+      accesorio.name = "Gafas_Minca"; 
+    }
+  
+    if (accesorio.name === paths[3]) {
+      accesorio.name = "On_Guard_U-look";
+    }
+  
+    if (accesorio.name === paths[4] || name === "Ba%C3%BAl_Minca") {
+      accesorio.name = "Baúl_Minca";
+    }
+  
+    if (accesorio.name === paths[5]) {
+      accesorio.name = "On_Guard_Guaya";
+    }
+  })
 
   return (
     <div className="MincaAccesorios h-auto w-full overflow-x-hidden bg-white lg:pl-[100px] pl-4 lg:mt-[80px] 2xl:mt-[100px] mb-[65] lg:mb-0">
