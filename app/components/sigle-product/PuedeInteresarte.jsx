@@ -11,7 +11,7 @@ export const PuedeInteresarte = () => {
         </h2>
       </section>
       <section className="flex h-full w-full items-center lg:justify-between gap-[19px] overflow-scroll lg:overflow-visible mt-[28px] lg:mt-0 ">
-        <Link href="/productos/Minca%20350W" className="block lg:flex flex-col justify-center text-center h-auto w-[200px] lg:w-[274px] 2xl:w-[450px]">
+        <Link href="/productos/Scooter_Electrico_Minca_350W" className="block lg:flex flex-col justify-center text-center h-auto w-[200px] lg:w-[274px] 2xl:w-[450px]">
           <img
             className="h-[200px] lg:w-[274px] 2xl:w-[450px] lg:h-auto  max-w-[450px]"
             src="/sigleProduct/minca-300-single-product.png"
@@ -42,7 +42,7 @@ export const PuedeInteresarte = () => {
             </div>
           </div>
         </Link>
-        <Link href="/productos/Minca%20800W" className="block lg:flex flex-col justify-center text-center h-auto w-[200px] lg:w-[274px] 2xl:w-[450px]">
+        <Link href="/productos/Scooter_Electrico_Minca_800W" className="block lg:flex flex-col justify-center text-center h-auto w-[200px] lg:w-[274px] 2xl:w-[450px]">
           <img
             className="h-[200px] lg:w-[274px] 2xl:w-[450px] lg:h-auto max-w-[450px]"
             src="/sigleProduct/minca-800-single-product.png"
@@ -72,7 +72,7 @@ export const PuedeInteresarte = () => {
             </div>
           </div>
         </Link>
-        <Link href="/productos/Minca%201600W" className="block lg:flex flex-col justify-center text-center h-auto w-[200px] lg:w-[274px] 2xl:w-[450px]">
+        <Link href="/productos/Scooter_Electrico_Minca_1600W" className="block lg:flex flex-col justify-center text-center h-auto w-[200px] lg:w-[274px] 2xl:w-[450px]">
           <img
             className="h-[200px] lg:w-[274px] 2xl:w-[450px] lg:h-auto max-w-[450px]"
             src="/sigleProduct/minca-1600-single-product.png"

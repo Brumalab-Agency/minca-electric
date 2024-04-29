@@ -230,7 +230,7 @@ Scooters()
 
 export const SingleProductos = async (name) => {
   const query = `
-        query SingleProductos {
+  query SingleProductos {
           sliderProducts(where: {name: "${name}"}) {
             edges {
               node {

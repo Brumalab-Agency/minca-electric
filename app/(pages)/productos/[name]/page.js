@@ -20,8 +20,9 @@ import { HeroVideoSingleCardProductTemporal } from "@/components/reusable/HeroVi
 import { Testimonios } from "@/components/testimonio/Testimonios";
 import Whatsapp from "@/components/whatsapp/Whatsapp";
 
-export const metadata = {
-  title: "Productos",
+
+export let metadata = {
+  title: `Productos`,
   description:
     "Muévete sostenible, con estilo y eficiencia. Muévete con Minca.",
   icons: {
@@ -30,9 +31,31 @@ export const metadata = {
 };
 
 const SingleProduct = async ({ params }) => {
-  const { id } = params;
-  const scooters = await SingleProductos(decodeURIComponent(id));
+  const paths = [
+    "Scooter_Electrico_Minca_350W",
+    "Scooter_Electrico_Minca_800W",
+    "Scooter_Electrico_Minca_1600W"
+  ]
 
+  let { name } = params;
+  decodeURIComponent(name)
+  if (name === paths[0]) {
+    name = "Minca 350W";
+  }
+
+  if (name === paths[1]) {
+    name = "Minca 800W";
+  }
+
+  if (name === paths[2]) {
+    name = "Minca 1600W"; 
+  }
+
+  metadata.title = `Productos | ${name}`
+
+  console.log(name)
+
+  const scooters = await SingleProductos(name);
   return (
     <div>
       <HeaderSingleProducts />

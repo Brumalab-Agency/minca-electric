@@ -12,7 +12,7 @@ import Whatsapp from "@/components/whatsapp/Whatsapp";
 import { CambiaRuta } from "@/components/home/CambiaRuta";
 
 export const metadata = {
-  title: "Servicios",
+  title: "Minca Electric | Servicios",
   description:
     "Muévete sostenible, con estilo y eficiencia. Muévete con Minca.",
 };

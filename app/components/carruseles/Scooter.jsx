@@ -8,6 +8,24 @@ import Modal3d from "../modal3d/Modal3d";
 const Scooter = ({ scooter }) => {
   const item = scooter.node.sliderProductos;
 
+  const paths = [
+    "Minca%20350W",
+    "Minca%20800W",
+    "Minca%201600W"
+  ];
+
+  if (item.slugDinamicoTemporal === paths[0]) {
+    item.slugDinamicoTemporal = "Especificacione_Scooter_Electrico_Minca_350W";
+  }
+
+  if (item.slugDinamicoTemporal === paths[1]) {
+    item.slugDinamicoTemporal = "Especificacione_Scooter_Electrico_Minca_800W";
+  }
+
+  if (item.slugDinamicoTemporal === paths[2]) {
+    item.slugDinamicoTemporal = "Especificacione_Scooter_Electrico_Minca_1600W"; 
+  }
+
   return (
     <div id="scooter" className="carrusel h-auto w-full">
       <div className="relative p-4 lg:px-[100px] lg:py-14">

@@ -9,7 +9,7 @@ import { CardHoverEffectShowrooms } from "@/components/cardhovereffect/CardHover
 import Whatsapp from "@/components/whatsapp/Whatsapp";
 
 export const metadata = {
-  title: "Showrooms",
+  title: "Minca Electric | Showrooms",
   description:
     "Muévete sostenible, con estilo y eficiencia. Muévete con Minca.",
 };

@@ -5,6 +5,12 @@ import TestDriveComponent from '@/components/reusable/TestDriveComponent'
 import { Testimonios } from '@/components/testimonio/Testimonios'
 import Whatsapp from '@/components/whatsapp/Whatsapp'
 
+export const metadata = {
+  title: "Minca Electric | Test Drive",
+  description:
+    "Muévete sostenible, con estilo y eficiencia. Muévete con Minca.",
+};
+
 
 const TestDrive = () => {
   return (

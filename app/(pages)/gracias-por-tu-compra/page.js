@@ -32,6 +32,7 @@ const GraciasCompraPage = () => {
           const status = await getOrderStatus(idOrder); // Await the result of getOrderStatus
           if (status === "completed") {
             await sendEmail(data, products);
+            sessionStorage.clear();
           }
         } else {
           console.log("No order ID available yet.");

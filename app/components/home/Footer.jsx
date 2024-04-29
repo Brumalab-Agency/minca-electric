@@ -71,7 +71,7 @@ export const Footer = () => {
                     MINCA
                   </h2>
                   <Link
-                    href="/productos/Minca%20350W"
+                    href="/productos/Scooter_Electrico_Minca_350W"
                     className={`${ubuntu.className} text-[16px] font-normal text-[#111]/60 hover:underline`}
                   >
                     Minca 350W
@@ -84,14 +84,14 @@ export const Footer = () => {
                     Minca 500W
                   </Link> */}
                   <Link
-                    href="/productos/Minca%20800W"
+                    href="/productos/Scooter_Electrico_Minca_800W"
                     className={`${ubuntu.className} text-[16px] font-normal text-[#111]/60 hover:underline`}
                   >
                     Minca 800W
                   </Link>
                   <br />
                   <Link
-                    href="/productos/Minca%201600W"
+                    href="/productos/Scooter_Electrico_Minca_1600W"
                     className={`${ubuntu.className} text-[16px] font-normal text-[#111]/60 hover:underline`}
                   >
                     Minca 1600W
