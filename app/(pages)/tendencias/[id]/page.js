@@ -8,7 +8,7 @@ import OtrosPost from "@/components/blog/OtrosPost";
 import Whatsapp from "@/components/whatsapp/Whatsapp";
 
 export const metadata = {
-  title: "Minca Electric | Tendencias",
+  title: "Minca Electric | Blog",
   description:
     "Muévete sostenible, con estilo y eficiencia. Muévete con Minca.",
 };
@@ -16,7 +16,12 @@ export const metadata = {
 const SIngleBlog = async ({ params }) => {
   const { id } = params;
 
-  const data = await SinglePost(id);
+   // Decode the URL-encoded string
+   const decodedTitle = decodeURIComponent(id);
+  
+  const title = decodedTitle.replace(/_/g, ' ');
+
+  const data = await SinglePost(title);
 
   const posts = data.posts.nodes;
 

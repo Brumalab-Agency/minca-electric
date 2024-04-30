@@ -22,9 +22,9 @@ export async function POST(request) {
         }
       ],
       back_urls: {
-        success: 'https://headless-woocommerce-nu.vercel.app/gracias-por-tu-compra',
-        failure: 'https://headless-woocommerce-nu.vercel.app/error-en-tu-compra ',
-        pending: 'https://headless-woocommerce-nu.vercel.app/intentalo-mas-tarde ',
+        success: 'https://www.mincaelectric.com/gracias-por-tu-compra',
+        failure: 'https://www.mincaelectric.com/error-en-tu-compra ',
+        pending: 'https://www.mincaelectric.com/intentalo-mas-tarde ',
       },
       auto_return: 'approved',
       notification_url: 'https://headless-woocommerce-nu.vercel.app/api/webhooks',
@@ -41,5 +41,3 @@ export async function POST(request) {
     return NextResponse.json({ error: 'Error' }, { status: 500 });
   }
 }
-
-

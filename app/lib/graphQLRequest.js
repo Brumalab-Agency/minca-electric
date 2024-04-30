@@ -786,7 +786,7 @@ export const Entradas = async () => {
 export const SinglePost = async (id) => {
   const query = `
         query SinglePosts {
-          posts(where: {id: ${id}}) {
+          posts(where: {title: "${id}"}) {
             nodes {
               databaseId
               dateGmt
