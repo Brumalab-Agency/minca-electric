@@ -64,7 +64,6 @@ export const Mercadopago = ({preciopagar,idOrder}) => {
       {preferenceId && (
         <Link
         href={{
-          pathname: "/gracias-por-tu-compra",
           query: { idOrder: idOrder },
         }}
       >
