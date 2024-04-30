@@ -9,6 +9,8 @@ const CardHeroSingleScooter = ({ scooters }) => {
 
   const items = singleScooter?.edges;
 
+  let path = '';
+
   const paths = [
     "Minca 350W",
     "Minca 800W",
@@ -17,15 +19,15 @@ const CardHeroSingleScooter = ({ scooters }) => {
 
   items.map((item) => {
     if (item.node.sliderProductos.nombreProducto === paths[0]) {
-      item.node.sliderProductos.nombreProducto = "Especificacione_Scooter_Electrico_Minca_350W";
+      path = "Especificaciones_Scooter_Electrico_Minca_350W";
     }
   
     if (item.node.sliderProductos.nombreProducto === paths[1]) {
-      item.node.sliderProductos.nombreProducto = "Especificacione_Scooter_Electrico_Minca_800W";
+      path = "Especificaciones_Scooter_Electrico_Minca_800W";
     }
   
     if (item.node.sliderProductos.nombreProducto === paths[2]) {
-      item.node.sliderProductos.nombreProducto = "Especificacione_Scooter_Electrico_Minca_1600W";
+      path = "Especificaciones_Scooter_Electrico_Minca_1600W";
     }
   })
  
@@ -77,7 +79,7 @@ const CardHeroSingleScooter = ({ scooters }) => {
           {/* ********** */}
           
           <Link
-            href={`/especificaciones/${encodeURIComponent(item.node.sliderProductos.nombreProducto)}`}
+            href={`/especificaciones/${encodeURIComponent(path)}`}
             className="btn-scooter gird border-1 z-10 my-3 flex h-[52px] w-full place-items-center justify-center  rounded-[62px] border border-white bg-[#111] text-[16px] text-white   lg:h-[48px] lg:w-[191px] 2xl:w-[235px]"
           >
             Comprar Ahora
