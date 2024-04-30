@@ -19,9 +19,9 @@ export let metadata = {
 
 const Especificaciones = async ({ params }) => {
   const paths = [
-    "Especificacione_Scooter_Electrico_Minca_350W",
-    "Especificacione_Scooter_Electrico_Minca_800W",
-    "Especificacione_Scooter_Electrico_Minca_1600W"
+    "Especificaciones_Scooter_Electrico_Minca_350W",
+    "Especificaciones_Scooter_Electrico_Minca_800W",
+    "Especificaciones_Scooter_Electrico_Minca_1600W"
   ];
 
   let { name } = params;

@@ -15,15 +15,15 @@ const Scooter = ({ scooter }) => {
   ];
 
   if (item.slugDinamicoTemporal === paths[0]) {
-    item.slugDinamicoTemporal = "Especificacione_Scooter_Electrico_Minca_350W";
+    item.slugDinamicoTemporal = "Especificaciones_Scooter_Electrico_Minca_350W";
   }
 
   if (item.slugDinamicoTemporal === paths[1]) {
-    item.slugDinamicoTemporal = "Especificacione_Scooter_Electrico_Minca_800W";
+    item.slugDinamicoTemporal = "Especificaciones_Scooter_Electrico_Minca_800W";
   }
 
   if (item.slugDinamicoTemporal === paths[2]) {
-    item.slugDinamicoTemporal = "Especificacione_Scooter_Electrico_Minca_1600W"; 
+    item.slugDinamicoTemporal = "Especificaciones_Scooter_Electrico_Minca_1600W"; 
   }
 
   return (

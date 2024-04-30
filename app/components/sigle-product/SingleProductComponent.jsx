@@ -10,25 +10,33 @@ export const SingleProductComponent = ({ scooters }) => {
 
   const items = productosScooters.edges;
 
+  let path = "";
+
   const paths = [
     "Minca 350W",
-    "Minca 800W",
-    "Minca 1600W"
+    "Minca 800W‎‎",
+    'Minca 1600W‎'
   ];
 
   items.map((item) => {
+    console.log(item.node.sliderProductos.nombreProducto)
     if (item.node.sliderProductos.nombreProducto === paths[0]) {
-      item.node.sliderProductos.nombreProducto = "Especificacione_Scooter_Electrico_Minca_350W";
+      path = "Especificaciones_Scooter_Electrico_Minca_350W";
     }
   
     if (item.node.sliderProductos.nombreProducto === paths[1]) {
-      item.node.sliderProductos.nombreProducto = "Especificacione_Scooter_Electrico_Minca_800W";
+      console.log("800")
+      path = "Especificaciones_Scooter_Electrico_Minca_800W";
     }
   
     if (item.node.sliderProductos.nombreProducto === paths[2]) {
-      item.node.sliderProductos.nombreProducto = "Especificacione_Scooter_Electrico_Minca_1600W";
+      console.log("1600")
+      path = "Especificaciones_Scooter_Electrico_Minca_1600W";
     }
+    console.log(path)
   })
+
+  console.log(path)
 
   return (
     <div className="carrusel h-auto w-full">
@@ -245,10 +253,10 @@ export const SingleProductComponent = ({ scooters }) => {
           </div>
 
           <Link
-            href={`/especificaciones/${encodeURIComponent(item.node.sliderProductos.nombreProducto.replace(/\u200E/g, ""))}`} // La expresión regular es por que por algún motivo se estaba colando un caracter especial desconocido el [U+200E]
+            href={`/especificaciones/${(path)}`} // La expresión regular es por que por algún motivo se estaba colando un caracter especial desconocido el [U+200E]
             className="btn-scooter gird z-10 my-3 flex h-[52px] w-full place-items-center justify-center rounded-[62px]  bg-[#111] text-[16px] text-white lg:absolute lg:right-[100px]  lg:top-[59.2%]  lg:h-[48px] lg:w-[191px] 2xl:w-[235px]"
           >
-            Comprar Ahora
+            Comprar Ahora!
           </Link>
         </div>
       ))}
