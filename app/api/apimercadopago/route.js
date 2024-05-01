@@ -27,7 +27,7 @@ export async function POST(request) {
         pending: 'https://www.mincaelectric.com/intentalo-mas-tarde ',
       },
       auto_return: 'approved',
-      notification_url: 'https://headless-woocommerce-nu.vercel.app/api/webhooks',
+      notification_url: 'https://www.mincaelectric.com/api/webhooks',
       metadata: {
         idComplete: body.idComplete
       }

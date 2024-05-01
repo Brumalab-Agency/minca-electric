@@ -5,7 +5,6 @@ import { updateCart, deleteCartItem } from "@/utils/cart/cartUtils";
 import { manrope, ubuntu } from "@/ui/fonts";
 
 const CartItem = ({ item, products, setCart }) => {
-  console.log(products);
   const [productCount, setProductCount] = useState(item.quantity);
   const [updatingProduct, setUpdatingProduct] = useState(false);
   const [removingProduct, setRemovingProduct] = useState(false);

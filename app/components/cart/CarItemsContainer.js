@@ -66,8 +66,6 @@ const CarItemsContainer = () => {
                 {cartItems.length &&
                   cartItems.map((item) => (
                     <div>
-                      {console.log(cartItems)}
-                      {console.log(item)}
                       <CartItem
                         key={item.product_id}
                         item={item}

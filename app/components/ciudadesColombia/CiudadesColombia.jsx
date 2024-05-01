@@ -103,7 +103,6 @@ const CiudadesColombia = ({
 
   const handlePrefijoChange = (event) => {
     const prefijo = event.target.value;
-    console.log(prefijo);
     setPrefijo(prefijo)
 
   }
