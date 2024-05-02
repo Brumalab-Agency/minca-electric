@@ -3,7 +3,7 @@ import { MercadoPagoConfig, Preference } from 'mercadopago';
 
 const client = new MercadoPagoConfig({
   accessToken: process.env.MERCADOPAGO_SECRET_KEY,
-} );
+});
 
 export async function GET(request) {
   return NextResponse.json({ message: 'Soy el servidor' });
@@ -16,20 +16,20 @@ export async function POST(request) {
       items: [
         {
           title: body.title,
-          quantity: Number(body.quantity), 
+          quantity: Number(body.quantity),
           unit_price: Number(body.price),
           currency_id: 'COP',
         }
       ],
       back_urls: {
         success: 'https://www.mincaelectric.com/gracias-por-tu-compra',
-        failure: 'https://www.mincaelectric.com/error-en-tu-compra ',
-        pending: 'https://www.mincaelectric.com/intentalo-mas-tarde ',
+        failure: 'https://www.mincaelectric.com/error-en-tu-compra',
+        pending: 'https://www.mincaelectric.com/intentalo-mas-tarde',
       },
       auto_return: 'approved',
       notification_url: 'https://www.mincaelectric.com/api/webhooks',
       metadata: {
-        idComplete: body.idComplete
+        id_complete: body.idComplete
       }
     };
 

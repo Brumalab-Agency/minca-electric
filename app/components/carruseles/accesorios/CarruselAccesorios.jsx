@@ -39,29 +39,31 @@ export const CarruselAccesorios = () => {
     "On Guard Guaya",
   ];
 
+  let path = "";
+
   accesorios.map((accesorio, index) => {
     if (accesorio.name === paths[0]) {
-      accesorio.name = "Casco_Integral_Minca";
+      path = "Casco_Integral_Minca";
     }
   
     if (accesorio.name === paths[1]) {
-      accesorio.name = "Poncho_Minca";
+      path = "Poncho_Minca";
     }
   
     if (accesorio.name === paths[2]) {
-      accesorio.name = "Gafas_Minca"; 
+      path = "Gafas_Minca"; 
     }
   
     if (accesorio.name === paths[3]) {
-      accesorio.name = "On_Guard_U-look";
+      path = "On_Guard_U-look";
     }
   
     if (accesorio.name === paths[4] || name === "Ba%C3%BAl_Minca") {
-      accesorio.name = "Baúl_Minca";
+      path = "Baúl_Minca";
     }
   
     if (accesorio.name === paths[5]) {
-      accesorio.name = "On_Guard_Guaya";
+      path = "On_Guard_Guaya";
     }
   })
 
@@ -106,7 +108,7 @@ export const CarruselAccesorios = () => {
                       </p>
                       <div className="btnCardAccesorios w-full h-[100px]">
                         <p className="text-[20px] 2xl:text-[24px] font-bold mb-[10px] leading-[40px]">$ { separadorDeMiles(accesorio?.price.slice(0, 6))}</p>
-                        <Link href={`/accesorios/${accesorio.name}`} className="bg-[#111] px-[20px] py-[10px] rounded-[52px] text-white mt-4">Ver accesorio</Link>
+                        <Link href={`/accesorios/${path}`} className="bg-[#111] px-[20px] py-[10px] rounded-[52px] text-white mt-4">Ver accesorio</Link>
                       </div>
                     </div>
                   </CarouselItem>

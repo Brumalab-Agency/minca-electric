@@ -9,6 +9,10 @@ const api = new WooCommerceRestApi({
   version: 'wc/v3',
 });
 
+export async function GET(request) {
+  return NextResponse.json({ message: 'Soy el servidor webhook' });
+}
+
 export async function POST(request) {
   try {
     const url = new URL(request.url);
