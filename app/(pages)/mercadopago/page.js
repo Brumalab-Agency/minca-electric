@@ -14,7 +14,6 @@ export const Mercadopago = () => {
   useEffect(() => {
     const fetchData = async () => {
       const id = await createPreference();
-      console.log(id, "meercadopago page")
       if (id) {
         setPreferenceId(id);
       }
@@ -23,12 +22,11 @@ export const Mercadopago = () => {
     fetchData();
   }, []);
 
-  console.log(preferenceId)
 
   const createPreference = async () => {
     try {
       const response = await axios.post(
-        "https://www.mincaelectric.com/api/apimercadopago",
+        "/api/apimercadopago",
         {
           title: "Una Card",
           quantity: 1,
