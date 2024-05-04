@@ -1,3 +1,20 @@
+/* let dataObject;
+let products;
+export const getData = function(data) {
+    const dataString = data;
+    dataObject = JSON.parse(dataString);
+    console.log(dataObject)
+}
+
+export const getProducts = function(cart) {
+    const productsString = cart;
+    products = JSON.parse(productsString);
+    console.log(products)
+}
+
+console.log(dataObject)
+console.log(products) */
+
 export async function sendEmail(dataString, productsString) {
     const url = `/api/send`;
     let dataObject = JSON.parse(dataString);
@@ -6,9 +23,6 @@ export async function sendEmail(dataString, productsString) {
         ...dataObject,
         ...products
     }
-
-    console.log(data)
-
     try {
         const response = await fetch(url, {
             method: "POST",

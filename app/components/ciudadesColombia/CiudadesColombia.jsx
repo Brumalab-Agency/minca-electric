@@ -39,8 +39,7 @@ import DireccionSamsung from "./direccion/DireccionSamsung";
 import InputField from "../checkout/fomr-elements/InputField";
 import TipoViviendaSamsung from "./direccion/TipoViviendaSamsung";
 import RecogidaSelection from "../checkout/Recogida";
-import Envio from "../checkout/Envio";
-import useShowroomStore from "@/store/orden.store";
+import useDepartmentStore from "@/store/department.store";
 // Importa los demás componentes de municipios según sea necesario
 
 const CiudadesColombia = ({
@@ -52,8 +51,9 @@ const CiudadesColombia = ({
 }) => {
   const [selectedCity, setSelectedCity] = useState("");
   const [selectedPrefijo, setPrefijo] = useState("");
-  const [selectedDepartment, setSelectedDepartment] = useState("");
-  const setShippingCharge = useShowroomStore((state) => state.setShippingCharge);
+  const [selectedLivingType, setLivingType] = useState("");
+  const [selectedDepartment, setSelectedDepartmentOption] = useState("");
+  const setSelectedDepartment = useDepartmentStore((state) => state.setSelectedDepartment);
 
   const cityDepartmentMapping = {
     Amazonas: "Amazonas",
@@ -93,7 +93,8 @@ const CiudadesColombia = ({
 
   const handleDepartmentChange = (event) => {
     const departmentValue = event.target.value;
-    setSelectedDepartment(departmentValue);
+    setSelectedDepartmentOption(departmentValue);
+    setSelectedDepartment(departmentValue)
   };
   
   const handleCityChange = (event) => {
@@ -107,9 +108,15 @@ const CiudadesColombia = ({
 
   }
 
+  const handleLivingType = (event) => {
+    const typeValue = event.target.value;
+    setLivingType(typeValue);
+  }
+
   sessionStorage.setItem("City", selectedCity);
   sessionStorage.setItem("Department", selectedDepartment);
-  sessionStorage.setItem("Prefijo", selectedPrefijo)
+  sessionStorage.setItem("Prefijo", selectedPrefijo);
+  sessionStorage.setItem("LivingType", selectedLivingType);
   
   const departments = Object.keys(cityDepartmentMapping);
 ;
@@ -306,6 +313,7 @@ const CiudadesColombia = ({
               handleOnChange={handleOnChange}
               setFormIsValid={setFormIsValid}
               isShipping={isShipping}
+              onChange={handleLivingType}
             />
           </div>
         </div>

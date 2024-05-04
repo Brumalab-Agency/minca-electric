@@ -116,7 +116,7 @@ const PagoMercadoPagoPage = () => {
             <h2 className="mb-4 text-xl font-medium">Resumen del pedido</h2>
             <hr className="mb-3"></hr>
 
-            <YourOrder cart={cart ? cart : temporalCarrito} />
+            <YourOrder cart={cart ? cart : temporalCarrito}/>
             {/*Metodo de envio*/}
           </div>
         </div>

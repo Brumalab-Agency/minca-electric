@@ -20,6 +20,8 @@ import Link from "next/link";
 import InputCustomField from "./fomr-elements/InputCustomField";
 import { useRouter } from "next/router";
 import useShowroomStore from "@/store/orden.store";
+import useDepartmentStore from "@/store/department.store";
+import { getData, getProducts } from "@/utils/email/sendEmail";
 
 const defaultCustomerInfo = {
   Nombre: "",
@@ -28,6 +30,7 @@ const defaultCustomerInfo = {
   Direccion2: "",
   Ciudad: "",
   Departamento: '',
+  TipoVivienda: '',
   Pais: "CO",
   Email: "",
   Telefono: "",
@@ -98,6 +101,7 @@ const CheckoutForm = ({ countriesData, onFormSubmit }) => {
     const City = sessionStorage.getItem("City")
     const Department = sessionStorage.getItem("Department")
     const prefijo = sessionStorage.getItem("Prefijo")
+    const livingType = sessionStorage.getItem("LivingType")
     const showRoomAddress = sessionStorage.getItem("ShowRoom")
 
     shippingInfo.DireccionPrefijo = prefijo;
@@ -119,7 +123,9 @@ const CheckoutForm = ({ countriesData, onFormSubmit }) => {
     input.shipping.Ciudad = City;
     input.billing.Ciudad = City;
     input.shipping.Departamento = Department;
-    input.billing.departamento = Department;
+    input.billing.Departamento = Department;
+    input.shipping.TipoVivienda = livingType;
+    input.billing.TipoVivienda = livingType;
     if (showRoomAddress){
       input.shipping.Direccion2 = showRoomAddress;
       input.billing.Direccion2 = showRoomAddress;
@@ -130,6 +136,7 @@ const CheckoutForm = ({ countriesData, onFormSubmit }) => {
     sessionStorage.removeItem("City");
     sessionStorage.removeItem("Department");
     sessionStorage.removeItem("Prefijo");
+    sessionStorage.removeItem("LivingType");
 
     input.billing = {
       ...input.billing,
@@ -138,6 +145,7 @@ const CheckoutForm = ({ countriesData, onFormSubmit }) => {
   }
 
   const selectedShowroom = useShowroomStore((state) => state.selectedShowroom);
+  const selectedDepartment = useDepartmentStore((state) => state.selectedDepartment);
   const shippingCharge = useShowroomStore((state) => state.shippingCharge);
 
   /**
@@ -188,6 +196,7 @@ const CheckoutForm = ({ countriesData, onFormSubmit }) => {
 
     setTemporalCarrito(cart);
     sessionStorage.setItem("products", JSON.stringify(cart))
+    //getProducts(JSON.stringify(cart));
 
     if (typeof onFormSubmit === "function") {
       onFormSubmit();
@@ -274,6 +283,7 @@ const CheckoutForm = ({ countriesData, onFormSubmit }) => {
     setIdOrder(createdOrderData.orderId);
     sessionStorage.setItem("idOrder", createdOrderData.orderId)
     sessionStorage.setItem("data", JSON.stringify(input))
+    //getData(JSON.stringify(input));
 
 
     /* if ( createdOrderData.paymentUrl ) {
@@ -536,7 +546,7 @@ const CheckoutForm = ({ countriesData, onFormSubmit }) => {
               <h2 className="mb-4 text-xl font-medium">Resumen del pedido</h2>
               <hr className="mb-3"></hr>
 
-              <YourOrder cart={cart ? cart : temporalCarrito} />
+              <YourOrder cart={cart ? cart : temporalCarrito} department={selectedDepartment} showroom={selectedShowroom}/>
               <RenderMensaje />
               {/*Metodo de envio*/}
               <h2

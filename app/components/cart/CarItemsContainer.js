@@ -116,7 +116,7 @@ const CarItemsContainer = () => {
                 </p>
               </div>
               {/* envio */}
-              <div className="mb-4 mt-4 flex items-center justify-between">
+              {/* <div className="mb-4 mt-4 flex items-center justify-between">
                 <p
                   className={`${ubuntu.className} col-span-2 mb-0 p-2 text-base text-black/60 lg:text-[20px]`}
                 >
@@ -129,7 +129,7 @@ const CarItemsContainer = () => {
                   {0}
                 </p>
               </div>
-              <hr className="my-[20px]"></hr>
+          <hr className="my-[20px]"></hr> */}
               {/* Total */}
               <div className="mb-4 mt-4 flex items-center justify-between">
                 <p

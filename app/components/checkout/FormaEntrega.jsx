@@ -5,6 +5,7 @@ import CiudadesColombia from "../ciudadesColombia/CiudadesColombia";
 import useShowroomStore from "@/store/orden.store";
 import { manrope } from "@/ui/fonts";
 import CiudadesColombiaShowrooms from "../ciudadesColombia/CiudadesColombiaShowrooms";
+import useDepartmentStore from "@/store/department.store";
 
 
 const FormaEntrega = ({
@@ -16,6 +17,7 @@ const FormaEntrega = ({
 }) => {
   const [formaEntrega, setFormaEntrega] = useState(""); // Estado para almacenar la forma de entrega seleccionada
   const setSelectedShowroom = useShowroomStore((state) => state.setSelectedShowroom);
+  const setSelectedDepartment = useDepartmentStore((state) => state.setSelectedDepartment);
 
   // Función para manejar el cambio de forma de entrega
   const handleFormaEntregaChange = (event) => {
@@ -100,6 +102,7 @@ const FormaEntrega = ({
           </div>
           {/*  Ciudades de Colombia*/}
           <CiudadesColombiaShowrooms
+            handleDepartmentSelection={setSelectedDepartment}
             inputValue={input?.CiudadesColombia}
             input={input}
             handleOnChange={handleOnChange}

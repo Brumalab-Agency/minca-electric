@@ -7,6 +7,7 @@ import { sendEmail } from "@/utils/email/sendEmail";
 import { getOrderStatus } from '@/utils/checkout/utilsCheckout';
 
 const GraciasCompraPage = () => {
+  // Delete this and prove the other way to send the amil from the request to webhook
   const [idOrder, setIdOrder] = useState();
   const [data, setData] = useState();
   const [products, setProducts] = useState();
