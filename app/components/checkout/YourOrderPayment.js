@@ -1,45 +1,20 @@
+
+import useShowroomStore from "@/store/orden.store";
 import CheckoutCartItem from "./fomr-elements/CheckoutCartItem";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 
-const YourOrder = ({ cart, department, showroom }) => {
-  // accessories list
-  const scooters = [
-    "Scooter Eléctrico Minca 350W",
-    "Scooter Eléctrico MINCA‎ 800W‎",
-    "Scooter Eléctrico MINCA 1600W‎"
-  ];
-  const [shippingAmount, setShippingAmount] = useState(0);
-  const [definitiveTotal, setTotal] = useState(cart.totalPrice);
-  useEffect(() => {
-    const applyShippingAmount = () => {
-      let total = cart.totalPrice;
-      let newShippingAmount = 0;
-      if (!department || showroom || cart.cartItems.some(item => scooters.includes(item.data.name))) {
-        newShippingAmount = 0;
-      } else if (department === "Bogotá") {
-        newShippingAmount = 10000;
-      } else {
-        newShippingAmount = 19000;
-      }
-      if (total < 1000000) {
-        total += newShippingAmount;
-      }
-      setShippingAmount(newShippingAmount);
-      setTotal(total);
-      department = ""
-    };
 
-    applyShippingAmount();
-  }, [cart, showroom, department, definitiveTotal]); // Add department as a dependency
+const YourOrderPayment = ({ cart }) => {
+
+  const shippingPrice = sessionStorage.getItem("shippingPrice");
 
   const separadorDeMiles = (numero) => {
     let partesNumero = numero.toString().split(".");
     partesNumero[0] = partesNumero[0].replace(/\B(?=(\d{3})+(?!\d))/g, ".");
     return partesNumero.join(".");
   };
+  
 
-  sessionStorage.setItem("price", definitiveTotal);
-  sessionStorage.setItem("shippingPrice", shippingAmount);
   return (
     <>
       {cart ? (
@@ -72,7 +47,7 @@ const YourOrder = ({ cart, department, showroom }) => {
                     item={item}
                   />
                 ))}
-              {/* Shipping */}
+                 {/* Shipping */}
               <td>
                 <br></br>
               </td>
@@ -84,7 +59,7 @@ const YourOrder = ({ cart, department, showroom }) => {
                 <td className="woo-next-checkout-total text-xl font-normal lg:hidden"></td>
                 <td className="woo-next-checkout-total text-right">
                   {separadorDeMiles(cart?.cartItems?.[0]?.currency ?? "")}
-                  {separadorDeMiles(shippingAmount)}
+                  {shippingPrice}
                 </td>
               </tr>
               {/*Total*/}
@@ -100,7 +75,7 @@ const YourOrder = ({ cart, department, showroom }) => {
                 <td className="woo-next-checkout-total text-xl font-normal lg:hidden"></td>
                 <td className="woo-next-checkout-total text-right text-xl font-bold">
                   {separadorDeMiles(cart?.cartItems?.[0]?.currency ?? "")}
-                  {separadorDeMiles(definitiveTotal ?? "")}
+                  {cart?.totalPrice}
                 </td>
               </tr>
               {/* 				<tr>
@@ -116,4 +91,4 @@ const YourOrder = ({ cart, department, showroom }) => {
   );
 };
 
-export default YourOrder;
+export default YourOrderPayment;

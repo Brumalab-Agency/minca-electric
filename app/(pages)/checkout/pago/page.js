@@ -1,9 +1,8 @@
 "use client";
 import Image from "next/image";
-import YourOrder from "@/components/checkout/YourOrder";
 import { AppContext } from "@/components/context/Context";
 import { useRouter, useSearchParams } from "next/navigation";
-import { useContext, useState } from "react";
+import { useContext, useState, useEffect } from "react";
 import cx from "classnames";
 import BtnMercadoPago from "../../../components/mercadopago/BtnMercadoPago";
 import Link from "next/link";
@@ -14,15 +13,27 @@ import MarqueeCheckout from "@/components/home/MarqueeCheckout";
 import { handleOtherPaymentMethodCheckout } from "@/utils/checkout/utilsCheckout";
 import { manrope } from "@/ui/fonts";
 import CardMercadoPago from "@/components/pagoPage/CardMercadoPago";
+import YourOrderPayment from "@/components/checkout/YourOrderPayment";
 
 const PagoMercadoPagoPage = () => {
-  const [cart, setCart] = useContext(AppContext);
   const [temporalCarrito, setTemporalCarrito] = useState(AppContext);
   const [isOrderProcessing, setIsOrderProcessing] = useState(false);
   const [requestError, setRequestError] = useState(null);
   const router = useRouter();
   const searchParams = useSearchParams();
   const idOrder = searchParams.get("idOrder");
+  const [cart, setCart] = useContext(AppContext);
+  const [definitivePrice, setDefinitivePrice] = useState(sessionStorage.getItem("price"));
+
+  // Update cart's totalPrice when definitivePrice changes
+  useEffect(() => {
+    if (definitivePrice !== null) {
+      setCart({...cart, totalPrice: definitivePrice})
+    }
+  }, [definitivePrice, setCart]);
+
+
+
 
   const limpiarLocalStorage = async () => {
     const cartCleared = await clearCart(setCart, () => {});
@@ -116,7 +127,7 @@ const PagoMercadoPagoPage = () => {
             <h2 className="mb-4 text-xl font-medium">Resumen del pedido</h2>
             <hr className="mb-3"></hr>
 
-            <YourOrder cart={cart ? cart : temporalCarrito} />
+            <YourOrderPayment cart={cart ? cart : temporalCarrito}/>
             {/*Metodo de envio*/}
           </div>
         </div>

@@ -8,6 +8,7 @@ import Link from "next/link"
 
 export const Mercadopago = ({preciopagar,idOrder}) => {
   const [preferenceId, setPreferenceId] = useState(null);
+  const [totalPrice, setDefinitivePrice] = useState(sessionStorage.getItem("price"));
   initMercadoPago(process.env.NEXT_PUBLIC_MERCADOPAGO_PUBLIC_KEY, {
     locale: "es-CO",
   });
@@ -27,15 +28,15 @@ export const Mercadopago = ({preciopagar,idOrder}) => {
   const createPreference = async (preciopagar, cantidad) => {
 
     try {
-      const price = preciopagar.preciopagar;
-      const qty = preciopagar.cantidad
+/*       const price = preciopagar.preciopagar;
+      const qty = preciopagar.cantidad */
 
       const response = await axios.post(
         `/api/apimercadopago`,
         {
           title: "Total a pagar",
           quantity: 1,
-          price: price,
+          price: Number(totalPrice),
           idComplete: idOrder
         },
       );

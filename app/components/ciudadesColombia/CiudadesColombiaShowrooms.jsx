@@ -41,6 +41,7 @@ import TipoViviendaSamsung from "./direccion/TipoViviendaSamsung";
 import RecogidaSelection from "../checkout/Recogida";
 import Envio from "../checkout/Envio";
 import useShowroomStore from "@/store/orden.store";
+import useDepartmentStore from "@/store/department.store";
 
 // El componete es el mismo de CiudadesColombia pero con el enfoque de solo a motivos de facturación
 // es decir no para aplicar cargos adicionales
@@ -53,9 +54,10 @@ const CiudadesColombiaShowrooms = ({
   errors,
 }) => {
   const [selectedCity, setSelectedCity] = useState("");
-  const [selectedDepartment, setSelectedDepartment] = useState("");
+  const [selectedDepartment, setSelectedDepartmentOption] = useState("");
   const [selectedPrefijo, setPrefijo] = useState("");
-  const setShippingCharge = useShowroomStore((state) => state.setShippingCharge);
+  const [selectedLivingType, setLivingType] = useState("");
+  const setSelectedDepartment = useDepartmentStore((state) => state.setSelectedDepartment);
 
   const cityDepartmentMapping = {
     Amazonas: "Amazonas",
@@ -96,8 +98,8 @@ const CiudadesColombiaShowrooms = ({
   const handleDepartmentChange = (event) => {
     const departmentValue = event.target.value;
     setSelectedCity(departmentValue);
+    setSelectedDepartmentOption(departmentValue)
     setSelectedDepartment(departmentValue)
-    
   };
 
   const handleCityChange = (event) => {
@@ -107,14 +109,19 @@ const CiudadesColombiaShowrooms = ({
 
   const handlePrefijoChange = (event) => {
     const prefijo = event.target.value;
-    console.log(prefijo);
-    setPrefijo(prefijo)
+    setPrefijo(prefijo);
 
+  }
+
+  const handleLivingType = (event) => {
+    const typeValue = event.target.value;
+    setLivingType(typeValue);
   }
 
   sessionStorage.setItem("City", selectedCity);
   sessionStorage.setItem("Department", selectedDepartment);
   sessionStorage.setItem("Prefijo", selectedPrefijo)
+  sessionStorage.setItem("LivingType", selectedLivingType)
 
   const departments = Object.keys(cityDepartmentMapping);
 ;
@@ -311,6 +318,7 @@ const CiudadesColombiaShowrooms = ({
               handleOnChange={handleOnChange}
               setFormIsValid={setFormIsValid}
               isShipping={isShipping}
+              onChange={handleLivingType}
             />
           </div>
         </div>

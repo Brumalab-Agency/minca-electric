@@ -197,6 +197,7 @@ export const getStates = async ( countryCode = '' ) => {
 	return data?.states ?? [];
 };
 
+// When you're done with restructure of the sending email delete this
 export async function getOrderDetails(orderId) {
     const url = `/api/get-order?orderId=${orderId}`;
 
