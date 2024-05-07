@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 
 const YourOrder = ({ cart, department, showroom }) => {
   // accessories list
+  // Change it for a reequest with the scotters name////////
   const scooters = [
     "Scooter Eléctrico Minca 350W",
     "Scooter Eléctrico MINCA‎ 800W‎",
@@ -14,16 +15,21 @@ const YourOrder = ({ cart, department, showroom }) => {
     const applyShippingAmount = () => {
       let total = cart.totalPrice;
       let newShippingAmount = 0;
-      if (!department || showroom || cart.cartItems.some(item => scooters.includes(item.data.name))) {
+      if (!department || showroom) {
         newShippingAmount = 0;
+      }
+      else if (cart.cartItems.some(item => scooters.includes(item.data.name))) {
+        if (department === "Bogotá") {
+          newShippingAmount = 30000;
+        } else {
+          newShippingAmount = 90000;
+        }
       } else if (department === "Bogotá") {
         newShippingAmount = 10000;
       } else {
-        newShippingAmount = 19000;
+        newShippingAmount = 30000;
       }
-      if (total < 1000000) {
-        total += newShippingAmount;
-      }
+      total += newShippingAmount;
       setShippingAmount(newShippingAmount);
       setTotal(total);
       department = ""
