@@ -1,49 +1,34 @@
-/* let dataObject;
-let products;
-export const getData = function(data) {
-    const dataString = data;
-    dataObject = JSON.parse(dataString);
-    console.log(dataObject)
-}
+import { getData } from "@/components/checkout/CheckoutForm";
+import { getProducts } from "@/components/checkout/CheckoutForm";
 
-export const getProducts = function(cart) {
-    const productsString = cart;
-    products = JSON.parse(productsString);
-    console.log(products)
-}
-
-console.log(dataObject)
-console.log(products) */
-
-export async function sendEmail(dataString, productsString) {
-    const url = `/api/send`;
-    let dataObject = JSON.parse(dataString);
-    let products = JSON.parse(productsString);
-    const data = {
-        ...dataObject,
+export async function sendEmail() {
+    const data = getData();
+    const products = getProducts(); 
+    console.log("data", data);
+    console.log("products", products);
+    const dataObject = {
+        ...data,
         ...products
     }
     try {
         const response = await fetch(url, {
             method: "POST",
             headers: {
-                "Content-Type": "application/json", // Correctly set Content-Type header
+                "Content-Type": "application/json",
             },
-            body: JSON.stringify(data), // Send merged data as the request body
+            body: JSON.stringify(dataObject),
         });
 
-        // Check if the request was successful
         if (!response.ok) {
             throw new Error('Failed to send email');
         }
 
-        // Optionally handle the response
         const responseData = await response.json();
         console.log('Email sent successfully:', responseData);
 
-        return responseData; // Return response data directly (not wrapped in a Promise)
+        return responseData;
     } catch (error) {
         console.error('Error sending email:', error);
-        throw error; // Re-throw the error to handle it upstream
+        throw error;
     }
 }

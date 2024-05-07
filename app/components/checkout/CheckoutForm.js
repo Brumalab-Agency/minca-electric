@@ -21,7 +21,6 @@ import InputCustomField from "./fomr-elements/InputCustomField";
 import { useRouter } from "next/router";
 import useShowroomStore from "@/store/orden.store";
 import useDepartmentStore from "@/store/department.store";
-import { getData, getProducts } from "@/utils/email/sendEmail";
 
 const defaultCustomerInfo = {
   Nombre: "",
@@ -54,6 +53,17 @@ const defaultCustomerInfo = {
   TelefonoDestinatario: "",
   errors: null,
 };
+let inputData;
+let products;
+console.log("data", inputData);
+console.log("products", products);
+export function getData() {
+  return input;
+}
+export function getProducts() {
+  return products;
+}
+
 
 // el state o estado del país es parte del componente Pais y este ya tiene sus campos predeterminados
 
@@ -196,7 +206,7 @@ const CheckoutForm = ({ countriesData, onFormSubmit }) => {
 
     setTemporalCarrito(cart);
     sessionStorage.setItem("products", JSON.stringify(cart))
-    //getProducts(JSON.stringify(cart));
+    products = cart;
 
     if (typeof onFormSubmit === "function") {
       onFormSubmit();
@@ -281,9 +291,8 @@ const CheckoutForm = ({ countriesData, onFormSubmit }) => {
       setCreatedOrderData,
     );
     setIdOrder(createdOrderData.orderId);
-    sessionStorage.setItem("idOrder", createdOrderData.orderId)
-    sessionStorage.setItem("data", JSON.stringify(input))
-    //getData(JSON.stringify(input));
+
+    inputData = input
 
 
     /* if ( createdOrderData.paymentUrl ) {

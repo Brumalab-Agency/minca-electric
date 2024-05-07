@@ -14,7 +14,7 @@ export const DescargaManual = () => {
 const minca1600 =
   "https://test.mincaelectric.com/wp-content/uploads/2024/03/Manual-500W-800W-1600W-FEB-2023.pdf";
 const politicas =
-  "https://test.mincaelectric.com/wp-content/uploads/2024/03/POLITICAS-DE-GARANTIA.pdf";
+  "https://test.mincaelectric.com/wp-content/uploads/2024/05/POLITICAS-DE-GARANTIA.pdf";
 const devoluciones =
   "/politicasDevoluciones";
   

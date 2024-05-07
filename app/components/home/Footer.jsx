@@ -230,7 +230,7 @@ export const Footer = () => {
                   </div>
                   <div>
                     <Link
-                      href="https://test.mincaelectric.com/wp-content/uploads/2024/03/POLITICAS-DE-GARANTIA.pdf"
+                      href="https://test.mincaelectric.com/wp-content/uploads/2024/05/POLITICAS-DE-GARANTIA.pdf"
                       className={`${ubuntu.className}  text-[16px] font-normal text-[#111]/60 hover:underline`}
                     >
                       Política de garantía{" "}

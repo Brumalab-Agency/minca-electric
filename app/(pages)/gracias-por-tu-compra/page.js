@@ -7,45 +7,7 @@ import { sendEmail } from "@/utils/email/sendEmail";
 import { getOrderStatus } from '@/utils/checkout/utilsCheckout';
 
 const GraciasCompraPage = () => {
-  // Delete this and prove the other way to send the amil from the request to webhook
-  const [idOrder, setIdOrder] = useState();
-  const [data, setData] = useState();
-  const [products, setProducts] = useState();
-
-  if (typeof window !== 'undefined') {
-    // Check if idOrder is not already set in sessionStorage
-    const storedData = sessionStorage.getItem("data")
-    const storedProducts = sessionStorage.getItem("products");
-    const storedIdOrder = sessionStorage.getItem("idOrder");
-    if (storedIdOrder && storedIdOrder !== idOrder) {
-      setIdOrder(storedIdOrder);
-      setData(storedData);
-      setProducts(storedProducts)
-    }
-  }
-  
-  
-
-  useEffect(() => {
-    const sendEmailFunction = async () => {
-      try {
-        if (idOrder) {
-          const status = await getOrderStatus(idOrder); // Await the result of getOrderStatus
-          if (status === "completed") {
-            await sendEmail(data, products);
-            sessionStorage.clear();
-          }
-        } else {
-          console.log("No order ID available yet.");
-        }
-      } catch (error) {
-        console.error('Error fetching order status: ', error);
-      }
-    };
-  
-    sendEmailFunction(); // Call sendEmailFunction once when the component mounts
-  }, []);
-
+  sessionStorage.clear();
   return (
     <div className="px-4 lg:px-[100px]">
       <div className="relative my-7 h-auto w-full">

@@ -34,7 +34,7 @@ export async function POST(request) {
         };
         const idOrderWoocomerce = payment.metadata.id_complete;
         await api.put(`orders/${idOrderWoocomerce}`, data);
-        //await sendEmail();
+        await sendEmail();
       }
     }
     return NextResponse.json({ ok: true }, { status: 200 });
