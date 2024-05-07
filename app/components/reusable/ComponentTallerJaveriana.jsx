@@ -81,7 +81,7 @@ export function ComponentTallerJaveriana() {
               </div>
             </div>
           </div>
-          <div className="grid h-full w-full place-items-center bg-[url(/talleres/TallerJaveriana.png)] bg-cover bg-bottom">
+          <div className="grid h-full w-full place-items-center bg-[url(/talleres/taller-javeriana.jpg)] bg-cover bg-bottom">
             {/* La imagen es un backGround */}
           </div>
         </section>

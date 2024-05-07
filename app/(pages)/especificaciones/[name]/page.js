@@ -20,6 +20,7 @@ export let metadata = {
 const Especificaciones = async ({ params }) => {
   const paths = [
     "Especificaciones_Scooter_Electrico_Minca_350W",
+    "Especificaciones_Scooter_Electrico_Minca_500W",
     "Especificaciones_Scooter_Electrico_Minca_800W",
     "Especificaciones_Scooter_Electrico_Minca_1600W"
   ];
@@ -30,15 +31,21 @@ const Especificaciones = async ({ params }) => {
   console.log(name)
 
   if (name === paths[0]) {
-    name = "Minca 350W";
+    name = "Scooter Eléctrico Minca 350W";
   }
 
   if (name === paths[1]) {
-    name = "Minca 800W";
+    name = "Scooter Eléctrico MINCA‎ 500W‎";
   }
+  console.log(name);
+
 
   if (name === paths[2]) {
-    name = "Minca 1600W"; 
+    name = "Scooter Eléctrico MINCA‎ 800W‎";
+  }
+
+  if (name === paths[3]) {
+    name = "Scooter Eléctrico MINCA 1600W‎"; 
   }
   metadata.title = `Especificaciones | ${name}`
 

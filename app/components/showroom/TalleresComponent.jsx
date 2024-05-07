@@ -8,7 +8,7 @@ import Link from "next/link";
 export const TalleresComponent = () => {
   return (
     <>
-      <div className="hidden carrusel w-full bg-[#F0F1EB] lg:h-[665px] lg:px-0">
+      <div className="carrusel hidden w-full bg-[#F0F1EB] lg:h-[665px] lg:px-0">
         {/* PC */}
         <Carousel
           autoplay={true}
@@ -183,7 +183,7 @@ export const TalleresComponent = () => {
       </div>
       <CardShowRoomMovil
         tipo="Taller"
-        src="/sedes/Servicio técnico Chicó - Minca electric.jpg"
+        src="/talleres/taller-chico.jpg"
         titulo="chicó"
         btn="Agendar Mantenimiento"
         icono="/showroom_icon.png"
@@ -195,13 +195,26 @@ export const TalleresComponent = () => {
       />
       <CardShowRoomMovil
         tipo="Taller"
-        src="/sedes/Servicio técnico Javeriana - Minca electric.jpg"
+        src="/talleres/taller-javeriana.jpg"
         titulo="javeriana"
         btn="Agendar Mantenimiento"
         icono="/showroom_icon.png"
         clase="bg-[#F0F1EB]"
         url="/talleres/tallerJaveriana"
         direccion="Carrera 7 # 45-10"
+        ciudad="Bogota, Colombia"
+        entreSemana="Lunes a viernes: 07:00 a.m. - 05:00 p.m."
+        sabado="Sábados: 08:00 a.m. - 03:00 p.m."
+      />
+      <CardShowRoomMovil
+        tipo="Taller"
+        src="/talleres/taller-cedritos.jpg"
+        titulo="Cedritos"
+        btn="Agendar Mantenimiento"
+        icono="/showroom_icon.png"
+        clase="bg-[#F0F1EB]"
+        url="/talleres/tallerJaveriana"
+        direccion="Av Carrera 19 # 143A - 08 Calle 95"
         ciudad="Bogota, Colombia"
         entreSemana="Lunes a viernes: 07:00 a.m. - 05:00 p.m."
         sabado="Sábados: 08:00 a.m. - 03:00 p.m."

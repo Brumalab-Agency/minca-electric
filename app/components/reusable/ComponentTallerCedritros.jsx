@@ -8,7 +8,7 @@ import { BotonRelativo } from "../botones/BotonRelativo";
 import { MultipleShowTalleres } from "./MultipleShowTalleres";
 import Link from "next/link";
 
-export function ComponentTallerChico() {
+export function ComponentTallerCedritos() {
   return (
     <div className="carrusel w-full bg-[#F0F1EB] lg:h-[665px] lg:px-0">
       <Suspense fallback={<SkeletonCarrusel />}>
@@ -16,7 +16,7 @@ export function ComponentTallerChico() {
 
         {/* Taller Chico */}
         <section className="flex h-full w-full">
-          <div className="grid h-full w-full place-items-center bg-[url(/talleres/taller-chico.jpg)] bg-cover bg-bottom">
+          <div className="grid h-full w-full place-items-center bg-[url(/talleres/taller-cedritos.jpg)] bg-cover bg-bottom">
             {/* La imagen es un backGround */}
           </div>
 
@@ -59,13 +59,14 @@ export function ComponentTallerChico() {
                     <h2
                       className={`${manrope.className} mb-[27px] text-left text-[26px] font-medium uppercase`}
                     >
-                      chicó
+                      Cedritos
                     </h2>
                   </div>
                   <div>
                     <div className="">
                       <p className={`${ubuntu.className} text-base`}>
-                        Calle 95 #13-55 <br></br>Bogotá, Colombia
+                        Av Carrera 19 # 143A - 08 Calle 95
+                        <br></br>Bogotá, Colombia
                       </p>
                     </div>
                     <div className="mt-6">
@@ -83,7 +84,12 @@ export function ComponentTallerChico() {
                 </div>
               </div>
               <div className="mx-auto ml-[60px] mt-6">
-                <Link href="/talleres/tallerChico" className="border-2 border-[#111] bg-[#111] lg:px-[52px] lg:py-[12px] rounded-[52px] text-white">Agendar Mantenimiento</Link>
+                <Link
+                  href="/talleres/tallerCedritos"
+                  className="rounded-[52px] border-2 border-[#111] bg-[#111] text-white lg:px-[52px] lg:py-[12px]"
+                >
+                  Agendar Mantenimiento
+                </Link>
               </div>
             </div>
           </div>

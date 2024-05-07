@@ -10,8 +10,9 @@ const Scooter = ({ scooter }) => {
 
   const paths = [
     "Minca%20350W",
+    "Minca%20500W",
     "Minca%20800W",
-    "Minca%201600W"
+    "Minca%201600W",
   ];
 
   if (item.slugDinamicoTemporal === paths[0]) {
@@ -19,12 +20,17 @@ const Scooter = ({ scooter }) => {
   }
 
   if (item.slugDinamicoTemporal === paths[1]) {
+    item.slugDinamicoTemporal = "Especificaciones_Scooter_Electrico_Minca_500W";
+  }
+  if (item.slugDinamicoTemporal === paths[2]) {
     item.slugDinamicoTemporal = "Especificaciones_Scooter_Electrico_Minca_800W";
   }
 
-  if (item.slugDinamicoTemporal === paths[2]) {
-    item.slugDinamicoTemporal = "Especificaciones_Scooter_Electrico_Minca_1600W"; 
+  if (item.slugDinamicoTemporal === paths[3]) {
+    item.slugDinamicoTemporal =
+      "Especificaciones_Scooter_Electrico_Minca_1600W";
   }
+  
 
   return (
     <div id="scooter" className="carrusel h-auto w-full">
