@@ -1,7 +1,7 @@
 export const fetchGraphQL = async (query) => {
   const res = await fetch(
     `${process.env.NEXT_PUBLIC_GRAPHQL_ENDPOINT}?query=${encodeURIComponent(
-      query
+      query,
     )}`,
     {
       method: "GET",
@@ -18,11 +18,10 @@ export const fetchGraphQL = async (query) => {
   return data;
 };
 
-
 const fetchScooters = async (query) => {
   const res = await fetch(
     `${process.env.NEXT_PUBLIC_GRAPHQL_ENDPOINT}?query=${encodeURIComponent(
-      query
+      query,
     )}`,
     {
       method: "GET",
@@ -31,7 +30,7 @@ const fetchScooters = async (query) => {
       },
       /* cache: "no-store", */
     },
-    { next: { revalidate: 60 } }
+    { next: { revalidate: 60 } },
   );
 
   const { data } = await res.json();
@@ -41,7 +40,7 @@ const fetchScooters = async (query) => {
 const fetchScootersSec = async (query) => {
   const res = await fetch(
     `${process.env.NEXT_PUBLIC_GRAPHQL_ENDPOINT}?query=${encodeURIComponent(
-      query
+      query,
     )}`,
     {
       method: "GET",
@@ -92,7 +91,6 @@ export const getBanner = async () => {
   }
 };
 
-
 /* Clientes Aliados */
 
 export const ClientesAliadosQuery = async () => {
@@ -115,14 +113,13 @@ export const ClientesAliadosQuery = async () => {
   try {
     const banner = await fetchGraphQL(query);
     const consultaBanner = banner.clientesAliados.nodes;
-    
+
     return consultaBanner;
   } catch (error) {
     console.error("Error fetching banner:", error);
-    throw new Error("Error fetching banner"); 
+    throw new Error("Error fetching banner");
   }
 };
-
 
 // Hero
 
@@ -224,7 +221,7 @@ export const Scooters = async () => {
     throw new Error("Error fetching scooters");
   }
 };
-Scooters()
+Scooters();
 
 // Single de Productos
 
@@ -351,12 +348,11 @@ export const SingleProductos = async (name) => {
     `;
 
   try {
-    const scooters = await  fetchScooters(query);
+    const scooters = await fetchScooters(query);
     console.log(scooters.edges[0]?.node.sliderProductos);
     return scooters;
   } catch (error) {
     console.error("Error fetching singleProductos:", error);
-    
   }
 };
 
@@ -455,8 +451,6 @@ export const MincaCity = async (name) => {
   }
 };
 
-
-
 // Single de Productos directo de Woocommerce
 
 export const SingleProductosWoocommerce = async (name) => {
@@ -524,6 +518,10 @@ export const SingleProductosWoocommerce = async (name) => {
                     velocidadMaxima
                     velocidadNum
                   }
+                  ... on SimpleProduct {
+            
+            stockStatus
+          }
                 }
               }
             }
@@ -532,14 +530,12 @@ export const SingleProductosWoocommerce = async (name) => {
     `;
 
   try {
-    const scooters = await  fetchGraphQL(query);
+    const scooters = await fetchGraphQL(query);
     return scooters;
   } catch (error) {
     console.error("Error fetching singleProductos:", error);
-    
   }
 };
-
 
 // Slider-carrusel productos secundario
 
@@ -615,7 +611,6 @@ export const Ebikes = async () => {
   }
 };
 
-
 /* Testimonios */
 
 export const TestimoniosQuery = async () => {
@@ -643,7 +638,6 @@ export const TestimoniosQuery = async () => {
   }
 };
 
-
 /* Consulta de prueba de productos SIMPLE */
 
 export const ProductosWoocommerce = async () => {
@@ -662,6 +656,7 @@ export const ProductosWoocommerce = async () => {
               ... on SimpleProduct {
                 id
                 name
+                stockStatus
                 galleryImages {
                   nodes {
                     altText
@@ -676,7 +671,7 @@ export const ProductosWoocommerce = async () => {
 
   try {
     const productos = await fetchGraphQL(query);
-    return productos
+    return productos;
   } catch (error) {
     console.error("Error fetching productosPrueba:", error);
     throw new Error("Error fetching productosPrueba");
@@ -737,13 +732,12 @@ export const ProductosWoocommerceVariable = async () => {
 
   try {
     const productosVariables = await fetchGraphQL(query);
-    return productosVariables
+    return productosVariables;
   } catch (error) {
     console.error("Error fetching productosVariables:", error);
     throw new Error("Error fetching productosVariables");
   }
 };
-
 
 /* Entradas */
 
@@ -774,7 +768,7 @@ export const Entradas = async () => {
 
   try {
     const entradas = await fetchGraphQL(query);
-    return entradas
+    return entradas;
   } catch (error) {
     console.error("Error fetching Entradas:", error);
     throw new Error("Error fetching Entradas");
@@ -813,7 +807,7 @@ export const SinglePost = async (id) => {
 
   try {
     const entradas = await fetchGraphQL(query);
-  
+
     return entradas;
   } catch (error) {
     console.error("Error fetching Entradas:", error);
@@ -839,6 +833,7 @@ export const AccesoriosWoocommerce = async (name) => {
                   altText
                   mediaItemUrl
                 }
+                stockStatus
                 galleryImages {
                   nodes {
                     altText
@@ -859,7 +854,7 @@ export const AccesoriosWoocommerce = async (name) => {
     throw new Error("Error fetching accesorios");
   }
 };
-AccesoriosWoocommerce("Casco")
+AccesoriosWoocommerce("Casco");
 
 /* Accesorios Page*/
 
