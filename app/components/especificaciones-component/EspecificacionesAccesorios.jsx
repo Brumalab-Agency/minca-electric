@@ -10,43 +10,31 @@ import ReactImagenGalleryLupa from "../react-image-gallery/ReactImagenGalleryLup
 import AccesorioDetailsBtnQty from "./AccesorioDetailsBtnQty";
 
 export const EspecificacionesAccesorios = async (accesorios) => {
-  
   let content;
   const esCascoMinca = accesorios.accesorios.products.nodes.some(
     (item) => item.name === "Casco Integral Minca",
-    );
-    
-    if (esCascoMinca) {
-      const itemsVariables = await ProductosWoocommerceVariable();
-      
-      
-      const items = itemsVariables.products.nodes;
-    
+  );
 
+  if (esCascoMinca) {
+    const itemsVariables = await ProductosWoocommerceVariable();
 
+    const items = itemsVariables.products.nodes;
 
-    content = (
-      <AccesorioVariable item={items} />
-    );
+    content = <AccesorioVariable item={items} />;
   } else {
     /* Aqui productos SIMPLE */
     const accesoriosWoocommerce = accesorios;
-   
 
     const items = accesoriosWoocommerce.accesorios.products.nodes;
-   
-    const item = items[0];
-    
-    const datosWoocommerce = await ProductosWoocommerce();
 
-  
+    const item = items[0];
+
+    const datosWoocommerce = await ProductosWoocommerce();
 
     const productoEncontrado = datosWoocommerce.products.nodes.find(
       (producto) => producto.databaseId === item?.productId,
     );
 
-    
-  
     const separadorDeMiles = (numero) => {
       let partesNumero = numero?.toString().split(".");
       partesNumero[0] = partesNumero[0].replace(/\B(?=(\d{3})+(?!\d))/g, ".");
@@ -55,7 +43,7 @@ export const EspecificacionesAccesorios = async (accesorios) => {
 
     content = (
       <div className="EspecificacionesAccesorios Productos-SIMPLES mb-8">
-        <div className=" justify-between lg:flex lg:justify-start lg:px-[100px] lg:py-[50px] p-4">
+        <div className=" justify-between p-4 lg:flex lg:justify-start lg:px-[100px] lg:py-[50px]">
           {/* Accesorios */}
           <ReactImagenGalleryLupa items={items[0]} />
           <div className="lg:w-[50%]">
@@ -70,13 +58,13 @@ export const EspecificacionesAccesorios = async (accesorios) => {
                 <div className="flex items-center gap-3 lg:mt-6 lg:gap-4">
                   <div
                     className={`${manrope.className} text-[24px] font-bold text-[#111111]  lg:text-[26px]`}
-                    >
+                  >
                     $ {separadorDeMiles(item?.price)}
                   </div>
                 </div>
                 <p
                   className={`${ubuntu.className} text-[14px] font-normal leading-[15px] text-[#42454A]  lg:mt-5 lg:w-[90%] lg:text-[16px] lg:leading-[25px]`}
-                  >
+                >
                   {item?.description}
                 </p>
                 <hr className="mt-5 lg:w-[70%]" />
