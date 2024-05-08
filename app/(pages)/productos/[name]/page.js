@@ -20,7 +20,6 @@ import { HeroVideoSingleCardProductTemporal } from "@/components/reusable/HeroVi
 import { Testimonios } from "@/components/testimonio/Testimonios";
 import Whatsapp from "@/components/whatsapp/Whatsapp";
 
-
 export let metadata = {
   title: `Productos`,
   description:
@@ -33,29 +32,35 @@ export let metadata = {
 const SingleProduct = async ({ params }) => {
   const paths = [
     "Scooter_Electrico_Minca_350W",
+    "Scooter_Electrico_Minca_500W",
     "Scooter_Electrico_Minca_800W",
-    "Scooter_Electrico_Minca_1600W"
-  ]
+    "Scooter_Electrico_Minca_1600W",
+  ];
 
   let { name } = params;
-  decodeURIComponent(name)
+  decodeURIComponent(name);
   if (name === paths[0]) {
     name = "Minca 350W";
   }
 
   if (name === paths[1]) {
-    name = "Minca 800W";
+    name = "Minca 500W";
   }
 
   if (name === paths[2]) {
-    name = "Minca 1600W"; 
+    name = "Minca 800W";
   }
 
-  metadata.title = `Productos | ${name}`
+  if (name === paths[3]) {
+    name = "Minca 1600W";
+  }
 
-  console.log(name)
+  metadata.title = `Productos | ${name}`;
 
+  console.log(name);
+  
   const scooters = await SingleProductos(name);
+  console.log(scooters);
   return (
     <div>
       <HeaderSingleProducts />
@@ -65,6 +70,7 @@ const SingleProduct = async ({ params }) => {
         urlVideo={scooters.edges[0]?.node.sliderProductos}
         scooters={scooters}
       />
+
       <SingleProductComponent scooters={scooters} />
       {/* <FinanciamientoFlexible/> */}
       <HeroVideoSingleCardProductTemporal
@@ -85,7 +91,7 @@ const SingleProduct = async ({ params }) => {
       <CarruselAccesorios />
       <AcordionSingleProduct />
       <Footer />
-      <Whatsapp/>
+      <Whatsapp />
     </div>
   );
 };

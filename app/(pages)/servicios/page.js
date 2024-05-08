@@ -10,6 +10,7 @@ import { ComponentTallerJaveriana } from "@/components/reusable/ComponentTallerJ
 import { Testimonios } from "@/components/testimonio/Testimonios";
 import Whatsapp from "@/components/whatsapp/Whatsapp";
 import { CambiaRuta } from "@/components/home/CambiaRuta";
+import { ComponentTallerCedritos } from "@/components/reusable/ComponentTallerCedritros";
 
 export const metadata = {
   title: "Minca Electric | Servicios",
@@ -28,6 +29,7 @@ const Servicios = () => {
       <Section5 />
       <ComponentTallerChico />
       <ComponentTallerJaveriana />
+      <ComponentTallerCedritos />
       <Separador clases="lg:px-[100px] px-4" clase2="mt-[80px]" clase3="lg:mb-[50px] lg:mt-[100px]" claseText="2xl:text-[28px]"/>
       <CambiaRuta />
       <SolucionesComodidad />

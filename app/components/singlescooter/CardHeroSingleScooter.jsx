@@ -13,6 +13,7 @@ const CardHeroSingleScooter = ({ scooters }) => {
 
   const paths = [
     "Minca 350W",
+    "Minca 500W",
     "Minca 800W",
     "Minca 1600W"
   ];
@@ -23,10 +24,13 @@ const CardHeroSingleScooter = ({ scooters }) => {
     }
   
     if (item.node.sliderProductos.nombreProducto === paths[1]) {
+      path = "Especificaciones_Scooter_Electrico_Minca_500W";
+    }
+    if (item.node.sliderProductos.nombreProducto === paths[2]) {
       path = "Especificaciones_Scooter_Electrico_Minca_800W";
     }
   
-    if (item.node.sliderProductos.nombreProducto === paths[2]) {
+    if (item.node.sliderProductos.nombreProducto === paths[3]) {
       path = "Especificaciones_Scooter_Electrico_Minca_1600W";
     }
   })

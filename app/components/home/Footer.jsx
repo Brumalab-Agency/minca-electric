@@ -77,12 +77,13 @@ export const Footer = () => {
                     Minca 350W
                   </Link>
                   <br />
-                  {/* <Link
-                    href="/productos/Minca%20500W"
+                  <Link
+                    href="/productos/Scooter_Electrico_Minca_500W"
                     className={`${ubuntu.className} text-[16px] font-normal text-[#111]/60 hover:underline`}
                   >
                     Minca 500W
-                  </Link> */}
+                  </Link>
+                  <br />
                   <Link
                     href="/productos/Scooter_Electrico_Minca_800W"
                     className={`${ubuntu.className} text-[16px] font-normal text-[#111]/60 hover:underline`}
@@ -151,7 +152,7 @@ export const Footer = () => {
                 </div>
               </div>
 
-              <div className="info-informacion-pc lg:hidden col-span-2 lg:col-span-1">
+              <div className="info-informacion-pc col-span-2 lg:col-span-1 lg:hidden">
                 <div className="informacion-minca leading-[45px] ">
                   <h2
                     className={`${manrope.className}  text-[16px] font-bold text-[#111] `}
@@ -261,28 +262,28 @@ export const Footer = () => {
                   <br/> */}
                   <Link
                     href="/servicios"
-                    className={`${ubuntu.className} text-[14px] lg:text-[16px] font-normal text-[#111]/60 hover:underline`}
+                    className={`${ubuntu.className} text-[14px] font-normal text-[#111]/60 hover:underline lg:text-[16px]`}
                   >
                     Servicio técnico
                   </Link>
                   <br />
                   <Link
                     href="/showrooms"
-                    className={`${ubuntu.className} text-[14px] lg:text-[16px] font-normal text-[#111]/60 hover:underline`}
+                    className={`${ubuntu.className} text-[14px] font-normal text-[#111]/60 hover:underline lg:text-[16px]`}
                   >
                     Showrooms
                   </Link>
                   <br />
                   <Link
                     href="/recursos"
-                    className={`${ubuntu.className} text-[14px] lg:text-[16px] font-normal text-[#111]/60 hover:underline`}
+                    className={`${ubuntu.className} text-[14px] font-normal text-[#111]/60 hover:underline lg:text-[16px]`}
                   >
                     Recursos
                   </Link>
                   <br />
                   <Link
                     href="/tendencias"
-                    className={`${ubuntu.className} text-[14px] lg:text-[16px] font-normal text-[#111]/60 hover:underline`}
+                    className={`${ubuntu.className} text-[14px] font-normal text-[#111]/60 hover:underline lg:text-[16px]`}
                   >
                     Tendencias
                   </Link>
@@ -292,7 +293,8 @@ export const Footer = () => {
             </div>
             <div className="agendar-footer-pc shrink lg:w-1/6 ">
               <div className="flex justify-end">
-                <Link href="/testdrive"
+                <Link
+                  href="/testdrive"
                   className={`${ubuntu.className}  mt-4 rounded-[8px] bg-[#111] px-[16px] py-[10px] text-[14px] font-bold text-white`}
                 >
                   ¡Agendar Test Drive!
@@ -306,7 +308,10 @@ export const Footer = () => {
                   servicioalcliente@mincaelectric.com
                 </a> */}
 
-                <EmailLink email="servicioalcliente@mincaelectric.com" subject="Solicitud"/>
+                <EmailLink
+                  email="servicioalcliente@mincaelectric.com"
+                  subject="Solicitud"
+                />
 
                 <br />
                 <Link
@@ -370,14 +375,13 @@ export const Footer = () => {
         </div>
         {/* ************* */}
         {/* Newstletter movilc */}
-        <div className="email mt-4 lg:hidden grow flex-col flex h-[80px]">
-            <p className="text-[12px] font-normal text-[#FFF]">
-              Suscríbete para conocer nuestras novedades y descuentos
-            </p>
-            <NewsletterMovil />
-          </div>
+        <div className="email mt-4 flex h-[80px] grow flex-col lg:hidden">
+          <p className="text-[12px] font-normal text-[#FFF]">
+            Suscríbete para conocer nuestras novedades y descuentos
+          </p>
+          <NewsletterMovil />
+        </div>
         <div className="next-footer flex lg:mt-[40px]">
-          
           <div className="w-[663px]">
             <h2
               className={`${manrope.className}  mt-4 text-[20px] font-normal  text-white lg:mt-0 lg:h-[40px] lg:w-[663px] lg:text-[30px] `}
@@ -403,9 +407,7 @@ export const Footer = () => {
         <p className="text-center text-[12px]">
           © 2024 Minca Electric | Todos los derechos reservados.{" "}
         </p>
-        <p className="text-center text-[12px] hidden lg:block">
-          |
-        </p>
+        <p className="hidden text-center text-[12px] lg:block">|</p>
         <Link
           href="https://www.brumalab.agency"
           target="_blank"

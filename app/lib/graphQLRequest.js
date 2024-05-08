@@ -352,7 +352,7 @@ export const SingleProductos = async (name) => {
 
   try {
     const scooters = await  fetchScooters(query);
-
+    console.log(scooters.edges[0]?.node.sliderProductos);
     return scooters;
   } catch (error) {
     console.error("Error fetching singleProductos:", error);
