@@ -27,7 +27,8 @@ export async function POST(request) {
         pending: "https://www.mincaelectric.com/intentalo-mas-tarde",
       },
       auto_return: "approved",
-      notification_url: "https://www.mincaelectric.com/api/webhooks",
+      //notification_url: "https://www.mincaelectric.com/api/webhooks",
+      notification_url: "https://1ee0-2800-e2-57f-f7fc-3125-cf24-9713-db7b.ngrok-free.app/api/webhooks",
       metadata: {
         id_complete: body.idComplete,
       },

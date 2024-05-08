@@ -21,6 +21,7 @@ import InputCustomField from "./fomr-elements/InputCustomField";
 import { useRouter } from "next/router";
 import useShowroomStore from "@/store/orden.store";
 import useDepartmentStore from "@/store/department.store";
+import axios from "axios";
 
 const defaultCustomerInfo = {
   Nombre: "",
@@ -53,17 +54,6 @@ const defaultCustomerInfo = {
   TelefonoDestinatario: "",
   errors: null,
 };
-let inputData;
-let products;
-console.log("data", inputData);
-console.log("products", products);
-export function getData() {
-  return input;
-}
-export function getProducts() {
-  return products;
-}
-
 
 // el state o estado del país es parte del componente Pais y este ya tiene sus campos predeterminados
 
@@ -205,8 +195,6 @@ const CheckoutForm = ({ countriesData, onFormSubmit }) => {
     event.preventDefault();
 
     setTemporalCarrito(cart);
-    sessionStorage.setItem("products", JSON.stringify(cart))
-    products = cart;
 
     if (typeof onFormSubmit === "function") {
       onFormSubmit();
@@ -292,7 +280,13 @@ const CheckoutForm = ({ countriesData, onFormSubmit }) => {
     );
     setIdOrder(createdOrderData.orderId);
 
-    inputData = input
+    // Make a POST request to the webhook route with the input and cart data
+    try {
+      const response = await axios.post('/api/webhooks', { input, cart });
+      console.log(response.data);
+    } catch (error) {
+      console.error('Error sending data to webhook route:', error);
+    }
 
 
     /* if ( createdOrderData.paymentUrl ) {

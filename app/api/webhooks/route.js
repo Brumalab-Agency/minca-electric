@@ -16,6 +16,14 @@ export async function GET(request) {
 
 export async function POST(request) {
   try {
+    const body = await request.json();
+    const { inputData, cartData } = body;
+
+    // Log the input and cart data received from the CheckoutForm
+    console.log("Input data:", inputData);
+    console.log("Cart data:", cartData);
+
+    // Your payment webhook logic here...
     const url = new URL(request.url);
     const topic = url.searchParams.get('topic');
     const id = url.searchParams.get('id');
@@ -34,12 +42,13 @@ export async function POST(request) {
         };
         const idOrderWoocomerce = payment.metadata.id_complete;
         await api.put(`orders/${idOrderWoocomerce}`, data);
-        await sendEmail();
+        await sendEmail(inputData, cartData); // Pass inputData and cartData to the sendEmail function
       }
     }
+
     return NextResponse.json({ ok: true }, { status: 200 });
   } catch (error) {
-    console.error('Error en el webhook:', error);
+    console.error('Error in webhook route:', error);
     return NextResponse.json({ error: 'Error' }, { status: 500 });
   }
 }

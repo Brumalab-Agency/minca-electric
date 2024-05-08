@@ -3,11 +3,10 @@ import { useEffect, useState } from "react";
 import Link from "next/link"
 import Image from "next/image"
 import PasoaPaso from "@/components/stepbystep/PasoaPaso";
-import { sendEmail } from "@/utils/email/sendEmail";
-import { getOrderStatus } from '@/utils/checkout/utilsCheckout';
 
 const GraciasCompraPage = () => {
   sessionStorage.clear();
+  localStorage.clear();
   return (
     <div className="px-4 lg:px-[100px]">
       <div className="relative my-7 h-auto w-full">

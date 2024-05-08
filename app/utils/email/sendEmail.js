@@ -1,9 +1,5 @@
-import { getData } from "@/components/checkout/CheckoutForm";
-import { getProducts } from "@/components/checkout/CheckoutForm";
-
-export async function sendEmail() {
-    const data = getData();
-    const products = getProducts(); 
+export default async function sendEmail(data, products) {
+    const url = "/api/send"
     console.log("data", data);
     console.log("products", products);
     const dataObject = {
