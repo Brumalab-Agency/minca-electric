@@ -83,7 +83,7 @@ export const InfiniteMovingCardsTestimonios = ({
           <li
             className="relative w-[350px] max-w-full flex-shrink-0 rounded-2xl border border-b-0  px-8 py-6 md:w-[450px] bg-[#111]"
             
-            key={item.name}
+            key={`infinite-moving-card-${idx}`}
           >
             <blockquote>
               <div
