@@ -12,11 +12,7 @@ export const SingleProductComponent = ({ scooters }) => {
 
   let path = "";
 
-  const paths = [
-    "Minca 350W",
-    "Minca 800W‎‎",
-    'Minca 1600W‎'
-  ];
+  const paths = ["Minca 350W", "Minca 500W‎", "Minca 800W‎‎", "Minca 1600W‎"];
 
   items.map((item) => {
     console.log(item.node.sliderProductos.nombreProducto)
@@ -25,11 +21,16 @@ export const SingleProductComponent = ({ scooters }) => {
     }
   
     if (item.node.sliderProductos.nombreProducto === paths[1]) {
+      console.log("500")
+      path = "Especificaciones_Scooter_Electrico_Minca_500W";
+    }
+
+    if (item.node.sliderProductos.nombreProducto === paths[2]) {
       console.log("800")
       path = "Especificaciones_Scooter_Electrico_Minca_800W";
     }
   
-    if (item.node.sliderProductos.nombreProducto === paths[2]) {
+    if (item.node.sliderProductos.nombreProducto === paths[3]) {
       console.log("1600")
       path = "Especificaciones_Scooter_Electrico_Minca_1600W";
     }

@@ -275,6 +275,95 @@ export const ShowRoomComponent = () => {
               </div>
             </div>
           </section>
+          {/* Showrrom  Gran Estación */}
+          <section className="flex h-full w-full">
+            <div className="ladoIzquierdo grid h-full w-full place-items-center">
+              {/* La imagen es un backGround */}
+              <img
+                className="h-[665px] w-full object-cover object-top"
+                src="/sedes/Showroom Gran Estación - Minca electric.jpg"
+                alt="icono de herramientas"
+              />
+            </div>
+            <div className="ladoDerecho hidden h-full w-full place-items-center bg-[#111] text-white lg:grid ">
+              <div className="">
+                <div className="flex gap-4 ">
+                  <div className="columna-img mb-[15px] flex h-auto w-[60px] flex-col justify-end gap-6">
+                    <div className="">
+                      <img
+                        className="h-[50px] w-[50px]"
+                        src="/map.png"
+                        alt="pointer map"
+                      />
+                    </div>
+                    <div className="">
+                      <img
+                        className="h-[50px] w-[50px]"
+                        src="/calendario.png"
+                        alt="icono calendario"
+                      />
+                    </div>
+                  </div>
+                  <div>
+                    <div className="">
+                      <p className={`${ubuntu.className} text-left text-base`}>
+                        Visita nuestras sedes Minca:
+                      </p>
+                      <h1
+                        className={`${manrope.className} mt-[50px] text-left text-[42px] font-bold uppercase`}
+                      >
+                        showroom
+                      </h1>
+                      <h2
+                        className={`${manrope.className} mb-[27px] text-left text-[26px] font-medium uppercase`}
+                      >
+                        Gran Estación
+                      </h2>
+                    </div>
+                    <div>
+                      <div className="">
+                        <p className={`${ubuntu.className} text-base`}>
+                          Centro Comercial Gran Estacion
+                        </p>
+                        <p className={`${ubuntu.className} text-base`}>
+                          Isla, 2-02, Bogotá
+                        </p>
+                      </div>
+                      <div className="mt-6">
+                        <p className={`${ubuntu.className} text-base`}>
+                          Lunes a viernes: 10:00 a.m. - 07:00 p.m.
+                        </p>
+                        <p className={`${ubuntu.className} text-base`}>
+                          Sábados: 10:00 a.m. - 06:00 p.m.
+                        </p>
+                        {
+                          <p className={`${ubuntu.className} text-base`}>
+                            Domingos: 11:00 a.m. - 05:00 p.m.
+                          </p>
+                        }
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div className="ml-[60px] mt-6 flex flex-col items-center justify-center">
+                  {/* <Link
+                    href="/talleres"
+                    className={`${ubuntu.className} border-1 my-3 grid h-[52px] w-full  place-items-center rounded-[62px] border border-white bg-[#111] text-[16px] text-white  lg:w-[290px]`}
+                  >
+                    Agendar Test Drive
+                  </Link> */}
+                  <div className="item flex w-full justify-center text-center text-[14px] underline">
+                    <Link
+                      target="_blank"
+                      href="https://maps.app.goo.gl/o2d6acjf9JMrWhmU6"
+                    >
+                      Ver ubicación en Google Maps
+                    </Link>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
         </Carousel>
       </div>
       <CardShowRoomMovil
@@ -313,6 +402,21 @@ export const ShowRoomComponent = () => {
         clase="bg-[#F0F1EB]"
         url="/testdrive/showroomcedritos"
         direccion="Av. Cra. 19#143A-08"
+        ciudad="Bogotá, Colombia"
+        entreSemana="Lunes a viernes: 10:00 a.m. - 7:00 p.m."
+        sabado="Sábados: 10:00 a.m. - 6:00 p.m."
+        domingo="Domingos: 11:00 a.m. - 5:00 p.m."
+      />
+      <CardShowRoomMovil
+        src="/sedes/Showroom Gran Estación - Minca electric.jpg"
+        tipo="Showroom"
+        titulo="Gran Estación"
+        btn="Agendar Test Drive"
+        icono="/showroom_icon.png"
+        clase="bg-[#F0F1EB]"
+        url="#"
+        // { url="/testdrive/showroomcedritos"*/}
+        direccion="Centro Comercial Gran Estacion Isla, 2-02, Bogotá"
         ciudad="Bogotá, Colombia"
         entreSemana="Lunes a viernes: 10:00 a.m. - 7:00 p.m."
         sabado="Sábados: 10:00 a.m. - 6:00 p.m."

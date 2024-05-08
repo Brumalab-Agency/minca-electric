@@ -11,7 +11,7 @@ export const MultipleShowTalleres = () => {
       sabado: "Sábados: 08:00 a.m. - 03:00 p.m.",
 
       url: "/talleres/tallerChico",
-      img: "/talleres/TallerChico.jpg",
+      img: "/talleres/taller-chico.jpg",
     },
     {
       id: 2,
@@ -22,7 +22,18 @@ export const MultipleShowTalleres = () => {
       sabado: "Sábados: 08:00 a.m. - 03:00 p.m.",
 
       url: "/talleres/tallerJaveriana",
-      img: "/talleres/TallerJaveriana.png",
+      img: "/talleres/taller-javeriana.jpg",
+    },
+    {
+      id: 3,
+      titulo: "cedritos",
+      direccion: "Av Carrera 19 # 143A - 08 Calle 95",
+      ciudad: "Bogotá, Colombia",
+      entreSemana: "Lunes a viernes: 07:00 a.m. - 05:00 p.m.",
+      sabado: "Sábados: 08:00 a.m. - 03:00 p.m.",
+
+      url: "/talleres/tallerCedritos",
+      img: "/talleres/taller-cedritos.jpg",
     },
   ];
 
