@@ -2,47 +2,43 @@ import { ubuntu, manrope } from "@/ui/fonts";
 import Link from "next/link";
 import TooltipScooter from "./TooltipScooter";
 
-
 const CardHeroSingleScooter = ({ scooters }) => {
   const singleScooter = scooters;
-  
 
   const items = singleScooter?.edges;
 
-  let path = '';
+  let path = "";
 
-  const paths = [
-    "Minca 350W",
-    "Minca 500W",
-    "Minca 800W",
-    "Minca 1600W"
-  ];
+  const paths = ["Minca 350W", "Minca 500W‎", "Minca 800W‎‎", "Minca 1600W‎"];
 
   items.map((item) => {
     if (item.node.sliderProductos.nombreProducto === paths[0]) {
       path = "Especificaciones_Scooter_Electrico_Minca_350W";
     }
-  
+
     if (item.node.sliderProductos.nombreProducto === paths[1]) {
       path = "Especificaciones_Scooter_Electrico_Minca_500W";
     }
     if (item.node.sliderProductos.nombreProducto === paths[2]) {
       path = "Especificaciones_Scooter_Electrico_Minca_800W";
     }
-  
+
     if (item.node.sliderProductos.nombreProducto === paths[3]) {
       path = "Especificaciones_Scooter_Electrico_Minca_1600W";
     }
-  })
- 
+  });
 
   return (
-    <div className="h-[100%] w-full lg:w-[500px] lg:rounded-[10px] rounded-none bg-[#111] py-5 lg:py-2 relative z-10">
+    <div className="relative z-10 h-[100%] w-full rounded-none bg-[#111] py-5 lg:w-[500px] lg:rounded-[10px] lg:py-2">
       {items?.map((item) => (
         <div className="relative p-4 lg:px-10 lg:py-3 2xl:p-14">
           <div className="slogan-dots mb-4 flex items-center justify-between">
             <div>
-            <small className={`${manrope.className} text-base text-white font-medium`}>{item.node.sliderProductos.anoVersion}</small>
+              <small
+                className={`${manrope.className} text-base font-medium text-white`}
+              >
+                {item.node.sliderProductos.anoVersion}
+              </small>
             </div>
           </div>
 
@@ -66,10 +62,14 @@ const CardHeroSingleScooter = ({ scooters }) => {
                 </p>
                 <div className="my-2 flex items-center gap-3 lg:mt-6 lg:gap-4">
                   <div
-                    className={`${manrope.className} text-[14px] font-bold text-[#fff] flex items-center gap-2`}
+                    className={`${manrope.className} flex items-center gap-2 text-[14px] font-bold text-[#fff]`}
                   >
                     Desde {item.node.sliderProductos.precioActual}*
-                    <div className="-mt-1 cursor-pointer"><TooltipScooter tooltips={item.node.sliderProductos.tooltips}/></div>
+                    <div className="-mt-1 cursor-pointer">
+                      <TooltipScooter
+                        tooltips={item.node.sliderProductos.tooltips}
+                      />
+                    </div>
                   </div>
                 </div>
               </div>
@@ -81,27 +81,39 @@ const CardHeroSingleScooter = ({ scooters }) => {
             </div>
           </div>
           {/* ********** */}
-          
+
           <Link
             href={`/especificaciones/${encodeURIComponent(path)}`}
             className="btn-scooter gird border-1 z-10 my-3 flex h-[52px] w-full place-items-center justify-center  rounded-[62px] border border-white bg-[#111] text-[16px] text-white   lg:h-[48px] lg:w-[191px] 2xl:w-[235px]"
           >
             Comprar Ahora
           </Link>
-          <div className="Cupon w-full h-[150px] bg-[#F0F1EB] rounded-[5px] flex mt-6">
-            <div className="w-[60%] h-[150px] border-r-2 border-dashed border-[#111] grid place-items-center">
-              <div className={`${manrope.className }`}>
-                <p className="text-base leading-[22px]">{item.node.sliderProductos.cuponTitulo1}</p>
-                <p className="text-[24px] font-bold">{item.node.sliderProductos.cuponIntermedia}</p>
-                <p className="text-base leading-[22px]">{item.node.sliderProductos.cuponTitulo2}</p>
-                <div className="w-full h-[24px] bg-[#D9D9D9] rounded-[2px] flex items-center justify-center">
-                  <p className="text-[12px] font-semibold text-center">Cupón: {item.node.sliderProductos.cuponNombre}</p>
+          <div className="Cupon mt-6 flex h-[150px] w-full rounded-[5px] bg-[#F0F1EB]">
+            <div className="grid h-[150px] w-[60%] place-items-center border-r-2 border-dashed border-[#111]">
+              <div className={`${manrope.className}`}>
+                <p className="text-base leading-[22px]">
+                  {item.node.sliderProductos.cuponTitulo1}
+                </p>
+                <p className="text-[24px] font-bold">
+                  {item.node.sliderProductos.cuponIntermedia}
+                </p>
+                <p className="text-base leading-[22px]">
+                  {item.node.sliderProductos.cuponTitulo2}
+                </p>
+                <div className="flex h-[24px] w-full items-center justify-center rounded-[2px] bg-[#D9D9D9]">
+                  <p className="text-center text-[12px] font-semibold">
+                    Cupón: {item.node.sliderProductos.cuponNombre}
+                  </p>
                 </div>
               </div>
             </div>
-            <div className="w-[40%] h-[150px] grid place-items-center">
-             
-              <img className="w-[100px] h-auto rounded-[15px] p-[7px]" src={item.node.sliderProductos.cuponImg?.mediaItemUrl} alt="producto de descuento" style={{boxShadow: '-1px 5px 0px -3px rgba(0,0,0,0.79)'}}/>
+            <div className="grid h-[150px] w-[40%] place-items-center">
+              <img
+                className="h-auto w-[100px] rounded-[15px] p-[7px]"
+                src={item.node.sliderProductos.cuponImg?.mediaItemUrl}
+                alt="producto de descuento"
+                style={{ boxShadow: "-1px 5px 0px -3px rgba(0,0,0,0.79)" }}
+              />
             </div>
           </div>
         </div>

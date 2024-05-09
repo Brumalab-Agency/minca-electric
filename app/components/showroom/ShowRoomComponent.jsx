@@ -86,7 +86,7 @@ export const ShowRoomComponent = () => {
                 </div>
                 <div className="ml-[60px] mt-6 flex flex-col items-center justify-center">
                   <Link
-                    href="/talleres"
+                    href="/testdrive/showroomchico"
                     className={`${ubuntu.className} border-1 my-3 grid h-[52px] w-full  place-items-center rounded-[62px] border border-white bg-[#111] text-[16px] text-white  lg:w-[290px]`}
                   >
                     Agendar Test Drive
@@ -94,7 +94,7 @@ export const ShowRoomComponent = () => {
                   <div className="item flex w-full justify-center text-center text-[14px] underline">
                     <Link
                       target="_blank"
-                      href="https://www.google.com/maps?ll=4.680087,-74.048458&z=15&t=m&hl=es&gl=US&mapclient=embed&q=Cl.+95+%2313+55,+Edif+Pavillon,+Bogot%C3%A1"
+                      href="https://maps.app.goo.gl/2wDShqWLvxBDL4fB9"
                     >
                       Ver ubicación en Google Maps
                     </Link>
@@ -172,7 +172,7 @@ export const ShowRoomComponent = () => {
                 </div>
                 <div className="ml-[60px] mt-6 flex flex-col items-center justify-center">
                   <Link
-                    href="/talleres"
+                    href="/testdrive/showroomjaveriana"
                     className={`${ubuntu.className} border-1 my-3 grid h-[52px] w-full  place-items-center rounded-[62px] border border-white bg-[#111] text-[16px] text-white  lg:w-[290px]`}
                   >
                     Agendar Test Drive
@@ -180,7 +180,7 @@ export const ShowRoomComponent = () => {
                   <div className="item flex w-full justify-center text-center text-[14px] underline">
                     <Link
                       target="_blank"
-                      href="https://www.google.com/maps?ll=4.631667,-74.064041&z=15&t=m&hl=es&gl=US&mapclient=embed&q=Cra.+7+%2345-10+Localidad+de+Chapinero+Bogot%C3%A1,+Cundinamarca"
+                      href="https://maps.app.goo.gl/9gKCxcucQG86NJFt6"
                     >
                       Ver ubicación en Google Maps
                     </Link>
@@ -258,7 +258,7 @@ export const ShowRoomComponent = () => {
                 </div>
                 <div className="ml-[60px] mt-6 flex flex-col items-center justify-center">
                   <Link
-                    href="/talleres"
+                    href="/testdrive/showroomcedritos"
                     className={`${ubuntu.className} border-1 my-3 grid h-[52px] w-full  place-items-center rounded-[62px] border border-white bg-[#111] text-[16px] text-white  lg:w-[290px]`}
                   >
                     Agendar Test Drive
@@ -266,7 +266,7 @@ export const ShowRoomComponent = () => {
                   <div className="item flex w-full justify-center text-center text-[14px] underline">
                     <Link
                       target="_blank"
-                      href="https://www.google.com/maps?ll=4.725377,-74.045735&z=15&t=m&hl=es&gl=US&mapclient=embed&q=Av.+Cra+19+%23143a-8+Bogot%C3%A1"
+                      href="https://maps.app.goo.gl/Jxb663iCvnFNSLg89"
                     >
                       Ver ubicación en Google Maps
                     </Link>
@@ -355,7 +355,7 @@ export const ShowRoomComponent = () => {
                   <div className="item flex w-full justify-center text-center text-[14px] underline">
                     <Link
                       target="_blank"
-                      href="https://maps.app.goo.gl/o2d6acjf9JMrWhmU6"
+                      href="https://maps.app.goo.gl/MWC7qMyC6tiivvEe7"
                     >
                       Ver ubicación en Google Maps
                     </Link>
