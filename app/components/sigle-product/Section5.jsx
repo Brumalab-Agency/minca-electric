@@ -16,7 +16,7 @@ export const Section5 = () => {
            </div>
            <div className="text-center flex justify-center items-center flex-col mt-[50px] lg:mt-0">
             <img className="w-[137px] h-[137px]" src="/sigleProduct/sostenibilidad-single-product.png" alt="icono sostenibilidad"/>
-            <h2 className={`${manrope.className} font-bold text-[26px] mt-[32px]`}>sostenibilidad</h2>
+            <h2 className={`${manrope.className} font-bold text-[26px] mt-[32px]`}>Sostenibilidad</h2>
             <p className={`${ubuntu.className} lg:w-[343px] h-auto text-[#42454A] text-base text-center lg:mt-[20px] mt-[11px]`}>Revela la ciudad de una manera única, descubre sus rincones y vibraciones desde una perspectiva más liviana.</p>
            </div>
         </section>

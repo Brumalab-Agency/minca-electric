@@ -4,11 +4,8 @@ import TooltipScooter from "./TooltipScooter";
 
 const CardHeroSingleScooter = ({ scooters }) => {
   const singleScooter = scooters;
-
   const items = singleScooter?.edges;
-
   let path = "";
-
   const paths = ["Minca 350W", "Minca 500W‎", "Minca 800W‎‎", "Minca 1600W‎"];
 
   items.map((item) => {
@@ -61,16 +58,27 @@ const CardHeroSingleScooter = ({ scooters }) => {
                   {item.node.sliderProductos.description}
                 </p>
                 <div className="my-2 flex items-center gap-3 lg:mt-6 lg:gap-4">
-                  <div
-                    className={`${manrope.className} flex items-center gap-2 text-[14px] font-bold text-[#fff]`}
-                  >
-                    Desde {item.node.sliderProductos.precioActual}*
-                    <div className="-mt-1 cursor-pointer">
-                      <TooltipScooter
-                        tooltips={item.node.sliderProductos.tooltips}
-                      />
+                  
+                  {items?.map((item) => (
+                    <div className="flex flex-col justify-center">
+                      <div className="my-2">
+                        <div className="flex items-center justify-around md:gap-x-8">
+                          <div>
+                            <p className="font-bold text-white">Antes:</p>
+                            <p className="text-xl text-white line-through">
+                              {item.node.sliderProductos.precioRebajado}
+                            </p>
+                          </div>
+                          <div>
+                            <p className="font-bold text-white">Ahora:</p>
+                            <p className="text-xl text-white">
+                              {item.node.sliderProductos.precioActual}
+                            </p>
+                          </div>
+                        </div>
+                      </div>
                     </div>
-                  </div>
+                  ))}
                 </div>
               </div>
 
