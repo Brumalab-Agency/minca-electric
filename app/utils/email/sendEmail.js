@@ -1,35 +1,29 @@
-export default async function sendEmail() {
-    const url = `/api/data-email`;
+import axios from 'axios';
 
+export async function sendEmail(input, cart) {
+    const url = `"https://www.mincaelectric.com/api/webhooks/api/send`;
+    const dataObject = JSON.parse(input);
+    const products = JSON.parse(cart);
+    const data = {
+        ...dataObject,
+        products: products,
+    }
     try {
-        // Make a GET request to fetch data and products
-        const response = await fetch(url);
-
-        if (!response.ok) {
-            throw new Error('Failed to fetch data and products');
-        }
-
-        const responseData = await response.json();
-
-        // Send a POST request with merged data to the /api/send route
-        const sendResponse = await fetch('/api/send', {
-            method: "POST",
+        const response = await axios.post(url, data, {
             headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify(responseData.data),
+                "Content-Type": "application/json", // Correctly set Content-Type header
+            }
         });
 
-        if (!sendResponse.ok) {
+        // Check if the request was successful
+        if (response.status !== 200) {
             throw new Error('Failed to send email');
         }
 
-        const sendResponseData = await sendResponse.json();
-        console.log('Email sent successfully:', sendResponseData);
+        // Optionally handle the response
+        console.log('Email sent successfully:', response.data);
 
-        return sendResponseData;
     } catch (error) {
         console.error('Error sending email:', error);
-        throw error;
     }
 }

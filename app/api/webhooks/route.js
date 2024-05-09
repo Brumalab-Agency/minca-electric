@@ -33,8 +33,10 @@ export async function POST(request) {
           status: "completed"
         };
         const idOrderWoocomerce = payment.metadata.id_complete;
+        const input = payment.metadata.input;
+        const cart = payment.metadata.cart;
         await api.put(`orders/${idOrderWoocomerce}`, data);
-        await sendEmail();
+        await sendEmail(input, cart);
       }
     }
     return NextResponse.json({ ok: true }, { status: 200 });

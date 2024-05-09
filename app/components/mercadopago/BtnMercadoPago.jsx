@@ -9,6 +9,8 @@ import Link from "next/link"
 export const Mercadopago = ({preciopagar,idOrder}) => {
   const [preferenceId, setPreferenceId] = useState(null);
   const [totalPrice, setDefinitivePrice] = useState(sessionStorage.getItem("price"));
+  const [input, setInput] = useState(sessionStorage.getItem("data"));
+  const [cart, setCarrt] = useState(sessionStorage.getItem("cart"));
   initMercadoPago(process.env.NEXT_PUBLIC_MERCADOPAGO_PUBLIC_KEY, {
     locale: "es-CO",
   });
@@ -37,7 +39,9 @@ export const Mercadopago = ({preciopagar,idOrder}) => {
           title: "Total a pagar",
           quantity: 1,
           price: Number(totalPrice),
-          idComplete: idOrder
+          idComplete: idOrder,
+          inputData: input,
+          cartData: cart,
         },
       );
       const { id } = response.data;

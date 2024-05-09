@@ -280,24 +280,27 @@ const CheckoutForm = ({ countriesData, onFormSubmit }) => {
     );
     setIdOrder(createdOrderData.orderId);
 
-    try {
-      const response = await fetch('/api/data-email', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({ input, cart })
-      });
-    
-      if (!response.ok) {
-        throw new Error('Network response was not ok');
-      }
-    
-      const responseData = await response.json();
-      console.log(responseData);
-    } catch (error) {
-      console.error('Error sending data to webhook route:', error);
-    }
+    // Initialize an empty array to store product objects
+    const productsObject = [];
+
+    // Iterate over each item in the cartItems array
+    cart.cartItems.forEach(item => {
+        // Extract relevant information for each product
+        const productObject = {
+            name: item.data.name,
+            quantity: item.quantity,
+            price: item.line_total,
+            totalPrice: sessionStorage.getItem("price"),
+            image: item.data.images[0].src,
+        };
+
+        // Push the product object into the productsObject array
+        productsObject.push(productObject);
+    });
+
+
+    sessionStorage.setItem("data", JSON.stringify(input));
+    sessionStorage.setItem("cart", JSON.stringify(productsObject));
 
 
     /* if ( createdOrderData.paymentUrl ) {

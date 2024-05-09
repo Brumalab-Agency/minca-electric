@@ -5,8 +5,6 @@ import Image from "next/image"
 import PasoaPaso from "@/components/stepbystep/PasoaPaso";
 
 const GraciasCompraPage = () => {
-  sessionStorage.clear();
-  localStorage.clear();
   return (
     <div className="px-4 lg:px-[100px]">
       <div className="relative my-7 h-auto w-full">

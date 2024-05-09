@@ -12,6 +12,14 @@ export async function GET(request) {
 export async function POST(request) {
   try {
     const body = await request.json();
+    const metadata = {
+      id_complete: body.idComplete,
+      input: body.inputData,
+      cart: body.cartData,
+    };
+
+    // Serialize metadata object to a string
+
     const preferenceData = {
       items: [
         {
@@ -27,11 +35,8 @@ export async function POST(request) {
         pending: "https://www.mincaelectric.com/intentalo-mas-tarde",
       },
       auto_return: "approved",
-      //notification_url: "https://www.mincaelectric.com/api/webhooks",
-      notification_url: "https://e371-2800-e2-57f-f7fc-341e-17da-8b64-7a82.ngrok-free.app/api/webhooks",
-      metadata: {
-        id_complete: body.idComplete,
-      },
+      notification_url: "https://www.mincaelectric.com/api/webhooks",
+      metadata: metadata,
     };
 
     const preference = new Preference(client);

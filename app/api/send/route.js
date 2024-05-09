@@ -22,8 +22,8 @@ export async function POST(req) {
       from: process.env.EMAIL_ADDRESS_CLIENT_SERVICEMINCA,
       to: [
         email,
-        //process.env.EMAIL_ADDRESS_CLIENT_SERVICEMINCA,
-        //process.env.EMAIL_ADDRESS_CLIENT_BRUMA,
+        process.env.EMAIL_ADDRESS_CLIENT_SERVICEMINCA,
+        process.env.EMAIL_ADDRESS_CLIENT_BRUMA,
       ],
       subject: "Thank you for buying with us",
       react: (
@@ -31,8 +31,7 @@ export async function POST(req) {
           firstName="MINCA"
           shipping={shipping}
           billing={billing}
-          cartItems={data.cartItems}
-          totalPrice={data.totalPrice}
+          products={data.products}
         />
       ),
     });

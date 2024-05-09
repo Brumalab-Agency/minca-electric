@@ -6,25 +6,22 @@ export const EmailTemplate = ({
   firstName,
   shipping,
   billing,
-  cartItems,
-  totalPrice
+  products,
 }) => (
   <div>
     <h1>Bienvenido a {firstName}</h1>
     <h2>Detalles de la orden</h2>
-    {/* Iterate over each item in cartItems */}
-    {cartItems.map(item => (
-      <div key={item.key}>
+    {/* Iterate over each item in products */}
+    {products.map((product, index) => (
+      <div key={index}>
         <h3>Detalles de producto:</h3>
-        <p>Nombre: {item.data.name}</p>
-        <p>Cantidad: {item.quantity}</p>
-        <p>Precio: {item.data.price}</p>
-        <p>SubPrecio: {item.line_total}</p>
-        <p>Imagen: <img src={item.data.images[0].src} alt={item.data.images[0].alt} /></p>
+        <p>Nombre: {product.name}</p>
+        <p>Cantidad: {product.quantity}</p>
+        <p>SubPrecio: {product.price}</p>
+        <p>Precio Total: {product.totalPrice}</p>
+        <p>Imagen: <img src={product.image} alt={product.name} /></p>
       </div>
     ))}
-
-    <h2>Precio total: {totalPrice}</h2>
     <h2>Información de envío:</h2>
     <p>Nombre Completo: {shipping.Nombre}</p>
     <p>Apellido Completo: {shipping.Apellido}</p>
