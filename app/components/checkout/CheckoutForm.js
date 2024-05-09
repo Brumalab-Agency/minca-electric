@@ -280,10 +280,21 @@ const CheckoutForm = ({ countriesData, onFormSubmit }) => {
     );
     setIdOrder(createdOrderData.orderId);
 
-    // Make a POST request to the webhook route with the input and cart data
     try {
-      const response = await axios.post('/api/webhooks', { input, cart });
-      console.log(response.data);
+      const response = await fetch('/api/data-email', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ input, cart })
+      });
+    
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+    
+      const responseData = await response.json();
+      console.log(responseData);
     } catch (error) {
       console.error('Error sending data to webhook route:', error);
     }
