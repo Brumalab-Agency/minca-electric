@@ -31,8 +31,7 @@ export async function POST(req) {
           firstName="MINCA"
           shipping={shipping}
           billing={billing}
-          cartItems={data.cartItems}
-          totalPrice={data.totalPrice}
+          products={data.products}
         />
       ),
     });

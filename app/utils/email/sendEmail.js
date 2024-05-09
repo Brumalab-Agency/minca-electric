@@ -1,49 +1,29 @@
-/* let dataObject;
-let products;
-export const getData = function(data) {
-    const dataString = data;
-    dataObject = JSON.parse(dataString);
-    console.log(dataObject)
-}
+import axios from 'axios';
 
-export const getProducts = function(cart) {
-    const productsString = cart;
-    products = JSON.parse(productsString);
-    console.log(products)
-}
-
-console.log(dataObject)
-console.log(products) */
-
-export async function sendEmail(dataString, productsString) {
-    const url = `/api/send`;
-    let dataObject = JSON.parse(dataString);
-    let products = JSON.parse(productsString);
+export async function sendEmail(input, cart) {
+    const url = `"https://www.mincaelectric.com/api/webhooks/api/send`;
+    const dataObject = JSON.parse(input);
+    const products = JSON.parse(cart);
     const data = {
         ...dataObject,
-        ...products
+        products: products,
     }
     try {
-        const response = await fetch(url, {
-            method: "POST",
+        const response = await axios.post(url, data, {
             headers: {
                 "Content-Type": "application/json", // Correctly set Content-Type header
-            },
-            body: JSON.stringify(data), // Send merged data as the request body
+            }
         });
 
         // Check if the request was successful
-        if (!response.ok) {
+        if (response.status !== 200) {
             throw new Error('Failed to send email');
         }
 
         // Optionally handle the response
-        const responseData = await response.json();
-        console.log('Email sent successfully:', responseData);
+        console.log('Email sent successfully:', response.data);
 
-        return responseData; // Return response data directly (not wrapped in a Promise)
     } catch (error) {
         console.error('Error sending email:', error);
-        throw error; // Re-throw the error to handle it upstream
     }
 }

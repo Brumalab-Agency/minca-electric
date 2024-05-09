@@ -12,6 +12,14 @@ export async function GET(request) {
 export async function POST(request) {
   try {
     const body = await request.json();
+    const metadata = {
+      id_complete: body.idComplete,
+      input: body.inputData,
+      cart: body.cartData,
+    };
+
+    // Serialize metadata object to a string
+
     const preferenceData = {
       items: [
         {
@@ -28,9 +36,7 @@ export async function POST(request) {
       },
       auto_return: "approved",
       notification_url: "https://www.mincaelectric.com/api/webhooks",
-      metadata: {
-        id_complete: body.idComplete,
-      },
+      metadata: metadata,
     };
 
     const preference = new Preference(client);

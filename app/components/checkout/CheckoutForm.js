@@ -21,7 +21,7 @@ import InputCustomField from "./fomr-elements/InputCustomField";
 import { useRouter } from "next/router";
 import useShowroomStore from "@/store/orden.store";
 import useDepartmentStore from "@/store/department.store";
-import { getData, getProducts } from "@/utils/email/sendEmail";
+import axios from "axios";
 
 const defaultCustomerInfo = {
   Nombre: "",
@@ -195,8 +195,6 @@ const CheckoutForm = ({ countriesData, onFormSubmit }) => {
     event.preventDefault();
 
     setTemporalCarrito(cart);
-    sessionStorage.setItem("products", JSON.stringify(cart))
-    //getProducts(JSON.stringify(cart));
 
     if (typeof onFormSubmit === "function") {
       onFormSubmit();
@@ -281,9 +279,28 @@ const CheckoutForm = ({ countriesData, onFormSubmit }) => {
       setCreatedOrderData,
     );
     setIdOrder(createdOrderData.orderId);
-    sessionStorage.setItem("idOrder", createdOrderData.orderId)
-    sessionStorage.setItem("data", JSON.stringify(input))
-    //getData(JSON.stringify(input));
+
+    // Initialize an empty array to store product objects
+    const productsObject = [];
+
+    // Iterate over each item in the cartItems array
+    cart.cartItems.forEach(item => {
+        // Extract relevant information for each product
+        const productObject = {
+            name: item.data.name,
+            quantity: item.quantity,
+            price: item.line_total,
+            totalPrice: sessionStorage.getItem("price"),
+            image: item.data.images[0].src,
+        };
+
+        // Push the product object into the productsObject array
+        productsObject.push(productObject);
+    });
+
+
+    sessionStorage.setItem("data", JSON.stringify(input));
+    sessionStorage.setItem("cart", JSON.stringify(productsObject));
 
 
     /* if ( createdOrderData.paymentUrl ) {
