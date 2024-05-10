@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 export async function sendEmail(input, cart) {
-    const url = `"https://www.mincaelectric.com/api/webhooks/api/send`;
+    const url = `https://www.mincaelectric.com/api/send`;
     const dataObject = JSON.parse(input);
     const products = JSON.parse(cart);
     const data = {
