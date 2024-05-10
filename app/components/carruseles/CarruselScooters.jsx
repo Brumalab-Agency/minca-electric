@@ -23,6 +23,7 @@ export function CarruselScooters() {
             data.edges[2],
             ...data.edges.slice(4),
           ];
+
           setScooters({ ...data, edges: reordered });
         } else {
           setScooters(data);
@@ -36,6 +37,9 @@ export function CarruselScooters() {
     };
     fetchData();
   }, []);
+
+  
+
 
   const handleMouseEnter = () => {
     setAutoplay(false);
