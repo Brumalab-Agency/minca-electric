@@ -57,7 +57,8 @@ const SingleProduct = async ({ params }) => {
 
   metadata.title = `Productos | ${name}`;
 
-  console.log(name);
+
+  
   
   const scooters = await SingleProductos(name);
   console.log(scooters);
