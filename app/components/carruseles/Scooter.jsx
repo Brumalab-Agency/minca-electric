@@ -2,7 +2,6 @@ import { CardEspecifications } from "./CardEspecifications";
 import Image from "next/image";
 import { manrope, ubuntu } from "@/ui/fonts";
 import { Boton } from "../botones/Boton";
-import Link from "next/link";
 import Modal3d from "../modal3d/Modal3d";
 
 const Scooter = ({ scooter }) => {

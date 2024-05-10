@@ -28,7 +28,7 @@ const fetchScooters = async (query) => {
       headers: {
         "Content-Type": "application/json",
       },
-      /* cache: "no-store", */
+      cache: "no-store",
     },
     { next: { revalidate: 60 } },
   );
