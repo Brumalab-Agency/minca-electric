@@ -25,7 +25,7 @@ export async function POST(req) {
         process.env.EMAIL_ADDRESS_CLIENT_SERVICEMINCA,
         process.env.EMAIL_ADDRESS_CLIENT_BRUMA,
       ],
-      subject: "Thank you for buying with us",
+      subject: "¡Muchas gracias por tu compra en Minca Electric!",
       react: (
         <EmailTemplate
           firstName="MINCA"
