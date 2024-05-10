@@ -102,34 +102,21 @@ const CarItemsContainer = () => {
                 </p>
               </div>
               {/* descuento */}
-              <div className="mb-4 mt-4 flex items-center justify-between">
-                <p
-                  className={`${ubuntu.className} col-span-2 mb-0 p-2 text-base text-black/60 lg:text-[20px]`}
-                >
-                  Descuento (-15%)
-                </p>
-                <p
-                  className={`${manrope.className} col-span-1 mb-0 p-2 text-base font-bold lg:text-[20px] text-[#F33]`}
-                >
-                  - {cartItems?.[0]?.currency ?? ""}
-                  {priceWithoutDiscount - totalPrice}
-                </p>
-              </div>
-              {/* envio */}
-              {/* <div className="mb-4 mt-4 flex items-center justify-between">
-                <p
-                  className={`${ubuntu.className} col-span-2 mb-0 p-2 text-base text-black/60 lg:text-[20px]`}
-                >
-                  Envio gratis
-                </p>
-                <p
-                  className={`${manrope.className} col-span-1 mb-0 p-2 text-base font-bold lg:text-[20px]`}
-                >
-                  {cartItems?.[0]?.currency ?? ""}
-                  {0}
-                </p>
-              </div>
-          <hr className="my-[20px]"></hr> */}
+              {uses !== 0 && (
+                <div className="mb-4 mt-4 flex items-center justify-between">
+                  <p
+                    className={`${ubuntu.className} col-span-2 mb-0 p-2 text-base text-black/60 lg:text-[20px]`}
+                  >
+                    Descuento (-15%)
+                  </p>
+                  <p
+                    className={`${manrope.className} col-span-1 mb-0 p-2 text-base font-bold lg:text-[20px] text-[#F33]`}
+                  >
+                    - {cartItems?.[0]?.currency ?? ""}
+                    {priceWithoutDiscount - totalPrice}
+                  </p>
+                </div>
+              )}
               {/* Total */}
               <div className="mb-4 mt-4 flex items-center justify-between">
                 <p
