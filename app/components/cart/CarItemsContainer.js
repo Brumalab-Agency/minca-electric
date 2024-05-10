@@ -16,6 +16,8 @@ const CarItemsContainer = () => {
   const [uses, setUses] = useState(0);
   const [priceWithoutDiscount, setPriceWithoutDiscount] = useState(totalPrice)
 
+  console.log(cart)
+
 
   const handleCouponsDiscount = async () => {
     const code = document.getElementById("code").value;
@@ -23,8 +25,8 @@ const CarItemsContainer = () => {
         if (uses === 0) {
           /* Calculo descuento  */
           setPriceWithoutDiscount(totalPrice)
-          const newTotal = await applyDiscount(totalPrice, code);
-          setCart({ ...cart, totalPrice: newTotal });
+          const newCart = await applyDiscount(code, cart);
+          setCart(newCart);
           setUses(1)
           setCouponError("Cupon aplicado")
         } else {
