@@ -1,12 +1,12 @@
 "use client";
 
-import { useContext, useState } from "react";
+import { useEffect, useContext, useState } from "react";
 import { AppContext } from "../context/Context";
 import Link from "next/link";
 import CartItem from "./CarItem";
 import { clearCart } from "@/utils/cart/cartUtils";
 import { manrope, ubuntu } from "@/ui/fonts";
-import { applyDiscount } from "@/utils/coupons/applyDiscount";
+import { applyDiscount, getDiscountRate } from "@/utils/coupons/applyDiscount";
 
 const CarItemsContainer = () => {
   const [cart, setCart] = useContext(AppContext);
@@ -15,29 +15,47 @@ const CarItemsContainer = () => {
   const [couponError, setCouponError] = useState(null);
   const [uses, setUses] = useState(0);
   const [priceWithoutDiscount, setPriceWithoutDiscount] = useState(totalPrice)
-
-  console.log(cart)
-
-
+  const [couponRate, setCouponRate] = useState("");
+  const difference = priceWithoutDiscount - totalPrice;
+  
+  
+  // Retrieve coupon usage state from localStorage
+  useEffect(() => {
+    const storedUses = localStorage.getItem('couponUses');
+    if (storedUses) {
+      setUses(parseInt(storedUses, 10));
+    }
+  }, []);
+  
+  
   const handleCouponsDiscount = async () => {
+    localStorage.setItem("difference", difference);
     const code = document.getElementById("code").value;
-      try {
-        if (uses === 0) {
-          /* Calculo descuento  */
-          setPriceWithoutDiscount(totalPrice)
-          const newCart = await applyDiscount(code, cart);
+    try {
+      if (uses === 0) {
+        /* Calculo descuento  */
+        const discountRate = await getDiscountRate(code);
+        setCouponRate(discountRate);
+        setPriceWithoutDiscount(totalPrice);
+        const newCart = await applyDiscount(code, cart);
+        if (newCart.cartItems) {
           setCart(newCart);
-          setUses(1)
-          setCouponError("Cupon aplicado")
+          setUses(1);
+          localStorage.setItem('couponUses', 1); // Save coupon usage state to localStorage
+          setCouponError("Cupon aplicado");
+          localStorage.setItem("couponRate", discountRate);
         } else {
-          setCouponError("Cupon ya utlizado");
+          setCouponError("Cupon solo valido para accesorios");
         }
-      } catch (error) {
-        setCouponError('Código de cupón no válido');
+      } else {
+        setCouponError("Cupon ya utlizado");
       }
-  }
+    } catch (error) {
+      setCouponError('Código de cupón no válido');
+    }
+  };
 
-  // Limpiar el carrito
+  // Clear the cart and reset coupon usage state
   const handleClearCart = async (event) => {
     event.stopPropagation();
 
@@ -46,6 +64,8 @@ const CarItemsContainer = () => {
     }
 
     await clearCart(setCart, setClearCartProcessing);
+    setUses(0); // Reset the coupon usage state
+    localStorage.removeItem('couponUses'); // Remove coupon usage state from localStorage
   };
 
   const separadorDeMiles = (numero) => {
@@ -99,23 +119,23 @@ const CarItemsContainer = () => {
                   className={`${manrope.className} col-span-1 mb-0 p-2 text-base font-bold lg:text-[20px]`}
                 >
                   {cartItems?.[0]?.currency ?? ""}
-                  {separadorDeMiles(priceWithoutDiscount)}
+                  {separadorDeMiles(uses === 1 ? priceWithoutDiscount : totalPrice)}
                 
                 </p>
               </div>
               {/* descuento */}
-              {uses !== 0 && (
+              {uses !== 0 && priceWithoutDiscount - totalPrice !== 0 && (
                 <div className="mb-4 mt-4 flex items-center justify-between">
                   <p
                     className={`${ubuntu.className} col-span-2 mb-0 p-2 text-base text-black/60 lg:text-[20px]`}
                   >
-                    Descuento (-15%)
+                    Descuento (-{parseInt(couponRate, 10)}%)
                   </p>
                   <p
                     className={`${manrope.className} col-span-1 mb-0 p-2 text-base font-bold lg:text-[20px] text-[#F33]`}
                   >
                     - {cartItems?.[0]?.currency ?? ""}
-                    {priceWithoutDiscount - totalPrice}
+                    {separadorDeMiles(difference)}
                   </p>
                 </div>
               )}

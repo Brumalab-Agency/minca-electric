@@ -6,11 +6,14 @@ const YourOrder = ({ cart, department, showroom }) => {
   // Change it for a reequest with the scotters name////////
   const scooters = [
     "Scooter Eléctrico Minca 350W",
+    "Scooter Eléctrico MINCA‎ 500W‎",
     "Scooter Eléctrico MINCA‎ 800W‎",
     "Scooter Eléctrico MINCA 1600W‎"
   ];
   const [shippingAmount, setShippingAmount] = useState(0);
   const [definitiveTotal, setTotal] = useState(cart.totalPrice);
+  const difference = localStorage.getItem("difference");
+  const discountRate = localStorage.getItem("couponRate");
   useEffect(() => {
     const applyShippingAmount = () => {
       let total = cart.totalPrice;
@@ -91,6 +94,21 @@ const YourOrder = ({ cart, department, showroom }) => {
                 <td className="woo-next-checkout-total text-right">
                   {separadorDeMiles(cart?.cartItems?.[0]?.currency ?? "")}
                   {separadorDeMiles(shippingAmount)}
+                </td>
+              </tr>
+              {/* Discount rate */}
+              <td>
+                <br></br>
+              </td>
+              <tr className="total">
+                <td className="hidden lg:table-cell	" />
+                <td className="woo-next-checkout-total text-xl font-normal">
+                  Descuento (-{parseInt(discountRate, 10)}%)
+                </td>
+                <td className="woo-next-checkout-total text-xl font-normal lg:hidden"></td>
+                <td className="woo-next-checkout-total text-right">
+                  -{separadorDeMiles(cart?.cartItems?.[0]?.currency ?? "")}
+                  {separadorDeMiles(difference)}
                 </td>
               </tr>
               {/*Total*/}
