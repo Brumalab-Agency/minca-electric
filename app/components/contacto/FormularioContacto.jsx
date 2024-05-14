@@ -16,20 +16,22 @@ export const FormularioContacto = () => {
     event.preventDefault();
 
     try {
-      const formData = new FormData();
-      formData.append("Nombre", nombre);
-      formData.append("Email", email);
-      formData.append("Cedula", cedula);
-      formData.append("FechaCompra", compra);
-      formData.append("NumeroFactura", factura);
-      formData.append("Asunto", asunto);
-      formData.append("Mensaje", mensaje);
+      const formData = {
+        "name": nombre,
+        "email": email,
+        "identification": cedula,
+        "purchaseDate": compra,
+        "billNumber": factura,
+        "subject": asunto,
+        "message": mensaje
+      }
+
 
       const response = await fetch(
-        "https://script.google.com/macros/s/AKfycbxmhKnjgcR7V6-iqzVipfFzw_WIGZDbSO_FiV9DcbJzWz8VEjRg3V8luKyFQEjDhH_znA/exec",
+        "/api/contact-send",
         {
           method: "POST",
-          body: formData,
+          body: JSON.stringify(formData),
         },
       );
 
@@ -45,6 +47,7 @@ export const FormularioContacto = () => {
       console.error("Error de red al enviar el formulario:", error);
     }
   };
+
   return (
     <div className="px-4">
       <form onSubmit={handleSubmit}>
@@ -63,7 +66,7 @@ export const FormularioContacto = () => {
               {/* Nombre */}
               <div className="w-full">
                 <label
-                  htmlForm="Nombre"
+                  htmlFor="Nombre"
                   className={`${manrope.className} text-base font-semibold text-[#111]`}
                 >
                   {" "}
@@ -84,7 +87,7 @@ export const FormularioContacto = () => {
               <div className="email mt-4">
                 <div className="w-full">
                   <label
-                    htmlForm="Email"
+                    htmlFor="Email"
                     className={`${manrope.className} text-base font-semibold text-[#111]`}
                   >
                     {" "}
@@ -106,7 +109,7 @@ export const FormularioContacto = () => {
               {/* Cedula */}
               <div className="w-full mt-4">
                 <label
-                  htmlForm="Cedula"
+                  htmlFor="Cedula"
                   className={`${manrope.className} text-base font-semibold text-[#111]`}
                 >
                   {" "}
@@ -126,7 +129,7 @@ export const FormularioContacto = () => {
               {/* Fecha de Compra */}
               <div className="w-full mt-4">
                 <label
-                  htmlForm="FechaCompra"
+                  htmlFor="FechaCompra"
                   className={`${manrope.className} text-base font-semibold text-[#111]`}
                 >
                   {" "}
@@ -146,7 +149,7 @@ export const FormularioContacto = () => {
               {/* Número de factura */}
               <div className="w-full mt-4">
                 <label
-                  htmlForm="NumeroFactura"
+                  htmlFor="NumeroFactura"
                   className={`${manrope.className} text-base font-semibold text-[#111]`}
                 >
                   {" "}
@@ -166,7 +169,7 @@ export const FormularioContacto = () => {
               {/* Asunto */}
               <div className="w-full mt-4">
                 <label
-                  htmlForm="Asunto"
+                  htmlFor="Asunto"
                   className={`${manrope.className} text-base font-semibold text-[#111]`}
                 >
                   {" "}
@@ -188,14 +191,14 @@ export const FormularioContacto = () => {
               <div className="email mt-[23px]">
                 <div className="w-full">
                   <label
-                    htmlForm="Mensaje"
+                    htmlFor="Mensaje"
                     className={`${manrope.className} text-base font-semibold text-[#111]`}
                   >
                     {" "}
                     Mensaje{" "}
                   </label>
                   <textarea
-                    id="textArea"
+                    id="Mensaje"
                     name="Mensaje"
                     placeholder="Escribe tu mensaje aquí"
                     className="border-1 mt-1 h-[136px] w-full border border-[#ECEEF0] p-4 text-[14px] shadow-sm"
@@ -221,4 +224,3 @@ export const FormularioContacto = () => {
     </div>
   );
 };
-
