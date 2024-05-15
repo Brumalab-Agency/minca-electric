@@ -6,9 +6,32 @@ import { Testimonios } from '@/components/testimonio/Testimonios'
 import Whatsapp from '@/components/whatsapp/Whatsapp'
 
 export const metadata = {
-  title: "Minca Electric | Tendencias",
+  title: {
+    template: "Minca Electric | %s",
+    default: "Minca Electric | Tendencias",
+  },
   description:
-    "Muévete sostenible, con estilo y eficiencia. Muévete con Minca.",
+    "Descubre un mundo electrizante: blog de Minca, noticias, consejos y aventuras sobre patinetas eléctricas.",
+  metadataBase: new URL("https://www.mincaelectric.com/tendencias"),
+  alternates: {
+    canonical: "/Tendencias",
+  },
+  openGraph: {
+    title: "Tendencias | Actualidad sobre la movilidad eléctrica",
+    description:
+      "Descubre un mundo electrizante: blog de Minca, noticias, consejos y aventuras sobre patinetas eléctricas.",
+    url: "/Tendencias",
+    siteName: "Minca Electric",
+    images: "/og/Tendencias  Actualidad sobre la movilidad eléctrica.jpg",
+    locale: "es_LA",
+    type: "website",
+  },
+  robots: {
+    index: true,
+    googleBot: {
+      index: true,
+    },
+  },
 };
 
 const Blog = () => {  

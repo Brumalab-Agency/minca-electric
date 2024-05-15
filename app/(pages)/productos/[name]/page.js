@@ -21,13 +21,14 @@ import { Testimonios } from "@/components/testimonio/Testimonios";
 import Whatsapp from "@/components/whatsapp/Whatsapp";
 
 export let metadata = {
-  title: `Productos`,
+  title: `Minca Electric | Productos`,
   description:
-    "Muévete sostenible, con estilo y eficiencia. Muévete con Minca.",
+    "Alto rendimiento en un vehículo liviano, suspensión delantera y trasera.",
   icons: {
     icon: "/favicon.png",
   },
 };
+
 
 const SingleProduct = async ({ params }) => {
   const paths = [
