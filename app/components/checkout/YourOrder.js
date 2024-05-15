@@ -93,7 +93,7 @@ const YourOrder = ({ cart, department, showroom }) => {
                 <td className="woo-next-checkout-total text-xl font-normal lg:hidden"></td>
                 <td className="woo-next-checkout-total text-right">
                   {separadorDeMiles(cart?.cartItems?.[0]?.currency ?? "")}
-                  {separadorDeMiles(shippingAmount)}
+                  {separadorDeMiles(shippingAmount ?? "")}
                 </td>
               </tr>
               {/* Discount rate */}
@@ -103,12 +103,12 @@ const YourOrder = ({ cart, department, showroom }) => {
               <tr className="total">
                 <td className="hidden lg:table-cell	" />
                 <td className="woo-next-checkout-total text-xl font-normal">
-                  Descuento (-{parseInt(discountRate, 10)}%)
+                  Descuento (-{parseInt(discountRate, 10) || 0}%)
                 </td>
                 <td className="woo-next-checkout-total text-xl font-normal lg:hidden"></td>
                 <td className="woo-next-checkout-total text-right">
                   -{separadorDeMiles(cart?.cartItems?.[0]?.currency ?? "")}
-                  {separadorDeMiles(difference)}
+                  {separadorDeMiles(difference ?? "") || 0}
                 </td>
               </tr>
               {/*Total*/}

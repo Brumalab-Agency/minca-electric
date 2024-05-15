@@ -213,7 +213,7 @@ export const TalleresComponent = () => {
         btn="Agendar Mantenimiento"
         icono="/showroom_icon.png"
         clase="bg-[#F0F1EB]"
-        url="/talleres/tallerJaveriana"
+        url="/talleres/tallerCedritos"
         direccion="Av Carrera 19 # 143A - 08 Calle 95"
         ciudad="Bogota, Colombia"
         entreSemana="Lunes a viernes: 07:00 a.m. - 05:00 p.m."
