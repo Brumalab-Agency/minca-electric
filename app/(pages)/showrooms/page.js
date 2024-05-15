@@ -10,10 +10,34 @@ import Whatsapp from "@/components/whatsapp/Whatsapp";
 import { ShowRoomComponent } from "@/components/showroom/ShowRoomComponent";
 
 
+
 export const metadata = {
-  title: "Minca Electric | Showrooms",
+  title: {
+    template: "Minca Electric | %s",
+    default: "Minca Electric | Showrooms",
+  },
   description:
-    "Muévete sostenible, con estilo y eficiencia. Muévete con Minca.",
+    "Encuentra tu showroom Minca más cercano y enamórate de nuestras patinetas eléctricas.",
+  metadataBase: new URL("https://www.mincaelectric.com/showrooms"),
+  alternates: {
+    canonical: "/Showrooms",
+  },
+  openGraph: {
+    title: "Showrooms | Visita nuestras sedes",
+    description:
+      "Encuentra tu showroom Minca más cercano y enamórate de nuestras patinetas eléctricas.",
+    url: "/Showrooms",
+    siteName: "Minca Electric",
+    images: "/og/Showrooms  Visita nuestras sedes .jpg",
+    locale: "es_LA",
+    type: "website",
+  },
+  robots: {
+    index: true,
+    googleBot: {
+      index: true,
+    },
+  },
 };
 
 const Sedes = () => {

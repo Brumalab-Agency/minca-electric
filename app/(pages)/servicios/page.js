@@ -13,9 +13,32 @@ import { CambiaRuta } from "@/components/home/CambiaRuta";
 import { ComponentTallerCedritos } from "@/components/reusable/ComponentTallerCedritros";
 
 export const metadata = {
-  title: "Minca Electric | Servicios",
+  title: {
+    template: "Minca Electric | %s",
+    default: "Minca Electric | Servicio técnico",
+  },
   description:
-    "Muévete sostenible, con estilo y eficiencia. Muévete con Minca.",
+    "Tu especialista en patinetas eléctricas. Servicio técnico y mantenimiento de calidad.",
+  metadataBase: new URL("https://www.mincaelectric.com/servicios"),
+  alternates: {
+    canonical: "/servicios",
+  },
+  openGraph: {
+    title: "Servicio técnico | Mantenimiento",
+    description:
+      "Tu especialista en patinetas eléctricas. Servicio técnico y mantenimiento de calidad.",
+    url: "/servicios",
+    siteName: "Minca Electric",
+    images: "/og/Servicio técnico  Mantenimiento .jpg",
+    locale: "es_LA",
+    type: "website",
+  },
+  robots: {
+    index: true,
+    googleBot: {
+      index: true,
+    },
+  },
 };
 
 const Servicios = () => {

@@ -6,9 +6,32 @@ import { Testimonios } from '@/components/testimonio/Testimonios'
 import Whatsapp from '@/components/whatsapp/Whatsapp'
 
 export const metadata = {
-  title: "Minca Electric | Test Drive",
+  title: {
+    template: "Minca Electric | %s",
+    default: "Minca Electric | Test Drive",
+  },
   description:
-    "Muévete sostenible, con estilo y eficiencia. Muévete con Minca.",
+    "¡Prueba la emoción! Reserva tu test drive de una patineta eléctrica Minca.",
+  metadataBase: new URL("https://www.mincaelectric.com/testdrive"),
+  alternates: {
+    canonical: "/TestDrive",
+  },
+  openGraph: {
+    title: "Test drive | Prueba tu patineta eléctrica favorita",
+    description:
+      "¡Prueba la emoción! Reserva tu test drive de una patineta eléctrica Minca.",
+    url: "/TestDrive",
+    siteName: "Minca Electric",
+    images: "/og/Test drive  Prueba tu patineta eléctrica favorita.jpg",
+    locale: "es_LA",
+    type: "website",
+  },
+  robots: {
+    index: true,
+    googleBot: {
+      index: true,
+    },
+  },
 };
 
 
