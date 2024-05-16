@@ -19,12 +19,8 @@ export async function POST(req) {
         process.env.EMAIL_ADDRESS_CLIENT_SERVICEMINCA,
         process.env.EMAIL_ADDRESS_CLIENT_BRUMA,
       ],
-      subject: "Contact delivery service",
-      react: (
-        <EmailTamplateContact
-            Data={data}
-        />
-      ),
+      subject: "Nueva solicitud de contacto",
+      react: <EmailTamplateContact Data={data} />,
     });
 
     return NextResponse.json(
