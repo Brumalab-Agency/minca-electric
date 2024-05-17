@@ -65,7 +65,7 @@ export function ComponentTallerCedritos() {
                   <div>
                     <div className="">
                       <p className={`${ubuntu.className} text-base`}>
-                        Av Carrera 19 # 143A - 08 Calle 95
+                        Av Carrera 19 # 143A - 08
                         <br></br>Bogotá, Colombia
                       </p>
                     </div>

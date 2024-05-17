@@ -90,7 +90,7 @@ export const CarruselAccesorios = () => {
                   key={`carrousel-accesorios-${index}`}
                     className="basis-1/2 md:basis-1/2 lg:basis-1/4 2xl:mx-1 2xl:basis-1/6 h-auto w-full"
                   >
-                     <Link href={`/accesorios/${accesorio.name}`}  >
+                    <Link href={`/accesorios/${accesorio.name}`}  >
                     <div className="p-1 w-full h-[430px]] card-height">
                       <Card className="h-auto w-[198px] rounded-[13px] bg-[#F0EEED] lg:h-[298px] lg:w-[295px] 2xl:w-[400px] 2xl:h-auto">
                         <CardContent className="flex aspect-square items-center justify-center p-2">
