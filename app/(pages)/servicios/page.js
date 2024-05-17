@@ -47,18 +47,23 @@ const Servicios = () => {
       <HeroContext titulo="Servicio" tituloNegrita="técnico" ocultar="hidden" />
       <HeroVideoSingleProduct
         ocultar="lg:hidden"
-        urlVideo="https://test.mincaelectric.com/wp-content/uploads/2024/03/Servicio-Tecnico-Minca-Electric.mp4"
+        urlVideo="https://test.mincaelectric.com/wp-content/uploads/2024/05/posventa-horizontal.mp4"
       />
       <Section5 />
       <ComponentTallerChico />
       <ComponentTallerJaveriana />
       <ComponentTallerCedritos />
-      <Separador clases="lg:px-[100px] px-4" clase2="mt-[80px]" clase3="lg:mb-[50px] lg:mt-[100px]" claseText="2xl:text-[28px]"/>
+      <Separador
+        clases="lg:px-[100px] px-4"
+        clase2="mt-[80px]"
+        clase3="lg:mb-[50px] lg:mt-[100px]"
+        claseText="2xl:text-[28px]"
+      />
       <CambiaRuta />
       <SolucionesComodidad />
-      <Testimonios/>
+      <Testimonios />
       <Footer />
-      <Whatsapp/>
+      <Whatsapp />
     </>
   );
 };

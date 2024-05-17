@@ -18,15 +18,6 @@ export const HeroVideoSingleCardProductTemporal = ({urlVideo, scooters, }) => {
           muted
           loop
         />
-
-       {/*  <img
-        className="top-0 hidden h-[700px] w-full object-cover  lg:block"
-        src={urlVideo.videoImgBannerPc.mediaItemUrl}
-        alt="Imagen"
-
-        /> */}
-
-
       {/* Movil */}
      
         <video
@@ -37,11 +28,11 @@ export const HeroVideoSingleCardProductTemporal = ({urlVideo, scooters, }) => {
           loop
         />
     
-        <img
+        {/* <img
           className="top-0 h-[700px] w-full object-cover  lg:hidden"
           src={urlVideo.videoImgBannerMovil.mediaItemUrl}
           alt="Imagen"
-        />
+        /> */}
      
     </div>
       {/* <div className="overlay absolute top-0 flex h-full w-full flex-col items-center justify-between bg-[#111]/50 p-4 lg:h-[700px] lg:flex-row lg:px-[100px]">
