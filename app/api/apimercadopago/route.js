@@ -39,6 +39,7 @@ export async function POST(request) {
       metadata: metadata,
     };
 
+    console.log(preferenceData)
     const preference = new Preference(client);
     const result = await preference.create({ body: preferenceData });
     return NextResponse.json({ id: result.id });
