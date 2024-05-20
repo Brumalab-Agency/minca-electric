@@ -41,12 +41,6 @@ const YourOrder = ({ cart, department, showroom }) => {
     applyShippingAmount();
   }, [cart, showroom, department, definitiveTotal]); // Add department as a dependency
 
-  const separadorDeMiles = (numero) => {
-    let partesNumero = numero.toString().split(".");
-    partesNumero[0] = partesNumero[0].replace(/\B(?=(\d{3})+(?!\d))/g, ".");
-    return partesNumero.join(".");
-  };
-
   sessionStorage.setItem("price", definitiveTotal);
   sessionStorage.setItem("shippingPrice", shippingAmount);
   return (
@@ -92,8 +86,10 @@ const YourOrder = ({ cart, department, showroom }) => {
                 </td>
                 <td className="woo-next-checkout-total text-xl font-normal lg:hidden"></td>
                 <td className="woo-next-checkout-total text-right">
-                  {separadorDeMiles(cart?.cartItems?.[0]?.currency ?? "")}
-                  {separadorDeMiles(shippingAmount ?? "")}
+                  {cart?.cartItems?.[0]?.currency ?? "$"}
+                  {shippingAmount !== undefined && shippingAmount !== null
+                    ? shippingAmount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".")
+                    : 0}
                 </td>
               </tr>
               {/* Discount rate */}
@@ -107,8 +103,10 @@ const YourOrder = ({ cart, department, showroom }) => {
                 </td>
                 <td className="woo-next-checkout-total text-xl font-normal lg:hidden"></td>
                 <td className="woo-next-checkout-total text-right">
-                  -{separadorDeMiles(cart?.cartItems?.[0]?.currency ?? "")}
-                  {separadorDeMiles(difference ?? "") || 0}
+                  -{cart?.cartItems?.[0]?.currency ?? "$"}
+                  {difference !== undefined && difference !== null
+                    ? difference.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".")
+                    : 0}
                 </td>
               </tr>
               {/*Total*/}
@@ -123,8 +121,10 @@ const YourOrder = ({ cart, department, showroom }) => {
                 
                 <td className="woo-next-checkout-total text-xl font-normal lg:hidden"></td>
                 <td className="woo-next-checkout-total text-right text-xl font-bold">
-                  {separadorDeMiles(cart?.cartItems?.[0]?.currency ?? "")}
-                  {separadorDeMiles(definitiveTotal ?? "")}
+                  {cart?.cartItems?.[0]?.currency ?? ""}
+                  {definitiveTotal !== undefined && definitiveTotal !== null
+                    ? definitiveTotal.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".")
+                    : 0}
                 </td>
               </tr>
               {/* 				<tr>
