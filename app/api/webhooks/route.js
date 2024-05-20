@@ -36,7 +36,7 @@ export async function POST(request) {
         const input = payment.metadata.input;
         const cart = payment.metadata.cart;
         await api.put(`orders/${idOrderWoocomerce}`, data);
-        await sendEmail(input, cart);
+        await sendEmail(input, cart, idOrderWoocomerce);
       }
     }
     return NextResponse.json({ ok: true }, { status: 200 });

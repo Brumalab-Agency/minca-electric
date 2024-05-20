@@ -63,33 +63,91 @@ const SkeletonFour = () => {
   );
 };
 
+// const cards = [
+//   {
+//     id: 1,
+//     content: <SkeletonOne />,
+//     className: "md:col-span-2 object-contain lg:object-cover",
+//     thumbnail:
+//       "/sigleProduct/layout2.png",
+//   },
+//   {
+//     id: 2,
+//     content: <SkeletonTwo />,
+//     className: "col-span-1 object-contain object-right",
+//     thumbnail:
+//       "/sigleProduct/scooter-single-product.png",
+//   },
+//   {
+//     id: 3,
+//     content: <SkeletonThree />,
+//     className: "col-span-1 object-contain",
+//     thumbnail:
+//       "/sigleProduct/layout1.png",
+//   },
+//   {
+//     id: 4,
+//     content: <SkeletonFour />,
+//     className: "md:col-span-2 object-contain",
+//     thumbnail:
+//       "/sigleProduct/scooter-single-product2.png",
+//   },
+// ];
+
 const cards = [
   {
     id: 1,
+    title: "Minca 350W",
+    thumbnails: [
+      "/sigleProduct/layout2.png",
+      "/sigleProduct/scooter-single-product.png",
+      "/sigleProduct/layout1.png",
+      "/sigleProduct/scooter-single-product2.png",
+    ],
     content: <SkeletonOne />,
     className: "md:col-span-2 object-contain lg:object-cover",
-    thumbnail:
-      "/sigleProduct/layout2.png",
   },
   {
     id: 2,
+    title: "Minca 500W",
+    thumbnails: [
+      "/sigleProduct/layout2.png",
+      "/sigleProduct/scooter-single-product.png",
+      "/sigleProduct/layout1.png",
+      "/sigleProduct/scooter-single-product2.png",
+    ],
     content: <SkeletonTwo />,
     className: "col-span-1 object-contain object-right",
-    thumbnail:
-      "/sigleProduct/scooter-single-product.png",
   },
   {
     id: 3,
+    title: "Minca 800W",
+    thumbnails: [
+      "/sigleProduct/layout2.png",
+      "/sigleProduct/scooter-single-product.png",
+      "/sigleProduct/layout1.png",
+      "/sigleProduct/scooter-single-product2.png",
+    ],
     content: <SkeletonThree />,
     className: "col-span-1 object-contain",
-    thumbnail:
-      "/sigleProduct/layout1.png",
   },
   {
     id: 4,
+    title: "Minca 1600W",
+    thumbnails: [
+      "/sigleProduct/layout2.png",
+      "/sigleProduct/scooter-single-product.png",
+      "/sigleProduct/layout1.png",
+      "/sigleProduct/scooter-single-product2.png",
+    ],
     content: <SkeletonFour />,
     className: "md:col-span-2 object-contain",
-    thumbnail:
-      "/sigleProduct/scooter-single-product2.png",
   },
 ];
+
+
+
+
+
+
+

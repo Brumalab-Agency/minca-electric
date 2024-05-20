@@ -22,8 +22,8 @@ export async function POST(req) {
       from: process.env.EMAIL_ADDRESS_CLIENT_SERVICEMINCA,
       to: [
         email,
-        process.env.EMAIL_ADDRESS_CLIENT_SERVICEMINCA,
-        process.env.EMAIL_ADDRESS_CLIENT_BRUMA,
+        // process.env.EMAIL_ADDRESS_CLIENT_SERVICEMINCA,
+        // process.env.EMAIL_ADDRESS_CLIENT_BRUMA,
       ],
       subject: "¡Muchas gracias por tu compra en Minca Electric!",
       react: (
@@ -32,6 +32,7 @@ export async function POST(req) {
           shipping={shipping}
           billing={billing}
           products={data.products}
+          id={data.id}
         />
       ),
     });

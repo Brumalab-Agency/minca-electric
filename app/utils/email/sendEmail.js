@@ -1,12 +1,14 @@
 import axios from 'axios';
 
-export async function sendEmail(input, cart) {
-    const url = `https://www.mincaelectric.com/api/send`;
+export async function sendEmail(input, cart, id) {
+    //NO SUBIR ESTOS CAMBIOS
+    const url = `https://g2ci6uygwogyqzngb42v4mtqzq.srv.us/api/send`;
     const dataObject = JSON.parse(input);
     const products = JSON.parse(cart);
     const data = {
         ...dataObject,
         products: products,
+        id: id,
     }
     try {
         const response = await axios.post(url, data, {
