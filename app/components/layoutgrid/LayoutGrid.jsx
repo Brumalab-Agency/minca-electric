@@ -61,7 +61,7 @@ const BlurImage = ({ card }) => {
   const [loaded, setLoaded] = useState(false);
   return (
     <Image
-      src={card.thumbnail}
+      src={card.thumbnails}
       height="500"
       width="500"
       onLoad={() => setLoaded(true)}
