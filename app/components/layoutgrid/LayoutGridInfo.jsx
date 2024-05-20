@@ -73,7 +73,7 @@ const cards = [
   {
     id: 1,
     title: "Minca 350W",
-    thumbnails: "/sigleProduct/minca-350/layout2.png",
+    thumbnails: "/sigleProduct/minca-350/minca electric patineta.png",
     content: <SkeletonOne />,
     className: "md:col-span-2 object-contain lg:object-cover",
   },
