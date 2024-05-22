@@ -287,11 +287,13 @@ const CheckoutForm = ({ countriesData, onFormSubmit }) => {
     cart.cartItems.forEach(item => {
         // Extract relevant information for each product
         const productObject = {
-            name: item.data.name,
-            quantity: item.quantity,
-            price: item.line_total,
-            totalPrice: sessionStorage.getItem("price"),
-            image: item.data.images[0].src,
+          name: item.data.name,
+          quantity: item.quantity,
+          price: item.line_total,
+          shippingPrice: sessionStorage.getItem("shippingPrice") || 0,
+          difference: localStorage.getItem("difference") || 0,
+          totalPrice: sessionStorage.getItem("price"),
+          image: item.data.images[0].src,
         };
 
         // Push the product object into the productsObject array
