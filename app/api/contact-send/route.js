@@ -15,7 +15,6 @@ export async function POST(req) {
     const emailResponse = await resend.emails.send({
       from: process.env.EMAIL_ADDRESS_CLIENT_SERVICEMINCA,
       to: [
-        data.email,
         process.env.EMAIL_ADDRESS_CLIENT_SERVICEMINCA,
         process.env.EMAIL_ADDRESS_CLIENT_BRUMA,
       ],

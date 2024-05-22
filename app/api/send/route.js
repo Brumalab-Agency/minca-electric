@@ -17,7 +17,7 @@ export async function POST(req) {
     const billing = data.billing;
 
     const email = shipping.Email || billing.Email;
-
+    
     const emailResponse = await resend.emails.send({
       from: process.env.EMAIL_ADDRESS_CLIENT_SERVICEMINCA,
       to: [
@@ -31,10 +31,13 @@ export async function POST(req) {
           firstName="MINCA"
           shipping={shipping}
           billing={billing}
-          products={data.products}
+          product={data.products}
+          id={data.id}
         />
       ),
     });
+
+    console.log(data);
 
     return NextResponse.json(
       { message: "Email sent", emailResponse },

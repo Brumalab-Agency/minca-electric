@@ -69,6 +69,37 @@ const SkeletonFour = () => {
   );
 };
 
+// const cards = [
+//   {
+//     id: 1,
+//     content: <SkeletonOne />,
+//     className: "md:col-span-2 object-contain lg:object-cover",
+//     thumbnail:
+//       "/sigleProduct/layout2.png",
+//   },
+//   {
+//     id: 2,
+//     content: <SkeletonTwo />,
+//     className: "col-span-1 object-contain object-right",
+//     thumbnail:
+//       "/sigleProduct/scooter-single-product.png",
+//   },
+//   {
+//     id: 3,
+//     content: <SkeletonThree />,
+//     className: "col-span-1 object-contain",
+//     thumbnail:
+//       "/sigleProduct/layout1.png",
+//   },
+//   {
+//     id: 4,
+//     content: <SkeletonFour />,
+//     className: "md:col-span-2 object-contain",
+//     thumbnail:
+//       "/sigleProduct/scooter-single-product2.png",
+//   },
+// ];
+
 const cards = [
   {
     id: 1,
