@@ -3,10 +3,16 @@ import React, { useState, useRef, useEffect } from "react";
 import { LayoutGrid } from "./LayoutGrid";
 
 export function LayoutGridInfo
-() {
+(scooter_name) {
+  const selected_cards = [];
+  cards.map((card) => {
+    if (scooter_name.scooter_name === card.title) {
+      selected_cards.push(card);
+    }
+  });
   return (
     <div className="lg:h-[750px] py-20 w-full relative">
-      <LayoutGrid cards={cards} />
+      <LayoutGrid cards={selected_cards} />
     </div>
   );
 }
@@ -98,56 +104,113 @@ const cards = [
   {
     id: 1,
     title: "Minca 350W",
-    thumbnails: [
-      "/sigleProduct/layout2.png",
-      "/sigleProduct/scooter-single-product.png",
-      "/sigleProduct/layout1.png",
-      "/sigleProduct/scooter-single-product2.png",
-    ],
+    thumbnails: "/sigleProduct/minca-350/minca electric patineta.png",
     content: <SkeletonOne />,
     className: "md:col-span-2 object-contain lg:object-cover",
   },
   {
     id: 2,
-    title: "Minca 500W",
-    thumbnails: [
-      "/sigleProduct/layout2.png",
-      "/sigleProduct/scooter-single-product.png",
-      "/sigleProduct/layout1.png",
-      "/sigleProduct/scooter-single-product2.png",
-    ],
+    title: "Minca 350W",
+    thumbnails: "/sigleProduct/minca-350/minca electric patineta llanta.png",
     content: <SkeletonTwo />,
     className: "col-span-1 object-contain object-right",
   },
   {
     id: 3,
-    title: "Minca 800W",
-    thumbnails: [
-      "/sigleProduct/layout2.png",
-      "/sigleProduct/scooter-single-product.png",
-      "/sigleProduct/layout1.png",
-      "/sigleProduct/scooter-single-product2.png",
-    ],
+    title: "Minca 350W",
+    thumbnails: "/sigleProduct/minca-350/minca electric patineta manubrio.png",
     content: <SkeletonThree />,
     className: "col-span-1 object-contain",
   },
   {
     id: 4,
-    title: "Minca 1600W",
-    thumbnails: [
-      "/sigleProduct/layout2.png",
-      "/sigleProduct/scooter-single-product.png",
-      "/sigleProduct/layout1.png",
-      "/sigleProduct/scooter-single-product2.png",
-    ],
+    title: "Minca 350W",
+    thumbnails: "/sigleProduct/minca-350/minca electric patineta plegada.png",
+    content: <SkeletonFour />,
+    className: "md:col-span-2 object-contain",
+  },
+  {
+    id: 1,
+    title: "Minca 500W‎",
+    thumbnails: "/sigleProduct/minca-500/minca electric patineta.png",
+    content: <SkeletonOne />,
+    className: "md:col-span-2 object-contain lg:object-cover",
+  },
+  {
+    id: 2,
+    title: "Minca 500W‎",
+    thumbnails: "/sigleProduct/minca-500/minca electric patineta llanta.png",
+    content: <SkeletonTwo />,
+    className: "col-span-1 object-contain object-right",
+  },
+  {
+    id: 3,
+    title: "Minca 500W‎",
+    thumbnails: "/sigleProduct/minca-500/minca electric patineta manubrio.png",
+    content: <SkeletonThree />,
+    className: "col-span-1 object-contain",
+  },
+  {
+    id: 4,
+    title: "Minca 500W‎",
+    thumbnails: "/sigleProduct/minca-500/minca electric patineta plegada.png",
+    content: <SkeletonFour />,
+    className: "md:col-span-2 object-contain",
+  },
+  {
+    id: 1,
+    title: "Minca 800W‎‎",
+    thumbnails: "/sigleProduct/minca-800/minca electric patineta.png",
+    content: <SkeletonOne />,
+    className: "md:col-span-2 object-contain lg:object-cover",
+  },
+  {
+    id: 2,
+    title: "Minca 800W‎‎",
+    thumbnails: "/sigleProduct/minca-800/minca electric patineta llanta.png",
+    content: <SkeletonTwo />,
+    className: "col-span-1 object-contain object-right",
+  },
+  {
+    id: 3,
+    title: "Minca 800W‎‎",
+    thumbnails: "/sigleProduct/minca-800/minca electric patineta manubrio.png",
+    content: <SkeletonThree />,
+    className: "col-span-1 object-contain",
+  },
+  {
+    id: 4,
+    title: "Minca 800W‎‎",
+    thumbnails: "/sigleProduct/minca-800/minca electric patineta plegada.png",
+    content: <SkeletonFour />,
+    className: "md:col-span-2 object-contain",
+  },
+  {
+    id: 1,
+    title: "Minca 1600W‎",
+    thumbnails: "/sigleProduct/minca-1600/minca electric patineta.png",
+    content: <SkeletonOne />,
+    className: "md:col-span-2 object-contain lg:object-cover",
+  },
+  {
+    id: 2,
+    title: "Minca 1600W‎",
+    thumbnails: "/sigleProduct/minca-1600/minca electric patineta llanta.png",
+    content: <SkeletonTwo />,
+    className: "col-span-1 object-contain object-right",
+  },
+  {
+    id: 3,
+    title: "Minca 1600W‎",
+    thumbnails: "/sigleProduct/minca-1600/minca electric patineta manubrio.png",
+    content: <SkeletonThree />,
+    className: "col-span-1 object-contain",
+  },
+  {
+    id: 4,
+    title: "Minca 1600W‎",
+    thumbnails: "/sigleProduct/minca-1600/minca electric patineta plegada.png",
     content: <SkeletonFour />,
     className: "md:col-span-2 object-contain",
   },
 ];
-
-
-
-
-
-
-

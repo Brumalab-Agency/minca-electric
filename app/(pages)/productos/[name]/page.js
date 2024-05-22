@@ -62,7 +62,6 @@ const SingleProduct = async ({ params }) => {
   
   
   const scooters = await SingleProductos(name);
-  console.log(scooters);
   return (
     <div>
       <HeaderSingleProducts />
@@ -83,7 +82,7 @@ const SingleProduct = async ({ params }) => {
       {/* <CarruselSingleProduct /> */}
       {/* <StickyScrollRevealDemo/> */}
       {/* <Section3 /> */}
-      <LayoutGridInfo />
+      <LayoutGridInfo scooter_name={scooters.edges[0]?.node.sliderProductos.nombreProducto}/>
       {/* <Section4 /> */}
       <CardHoverEffect />
       <ReactImagenGallery scooters={scooters} />

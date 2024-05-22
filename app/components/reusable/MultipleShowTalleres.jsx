@@ -17,7 +17,7 @@ export const MultipleShowTalleres = () => {
       id: 2,
       titulo: "javeriana",
       direccion: "Cra. 11a #94a-56",
-      ciudad: "Carrera 7 # 45-10",
+      ciudad: "Cra. 11a #94a-56",
       entreSemana: "Lunes a viernes: 07:00 a.m. - 05:00 p.m.",
       sabado: "Sábados: 08:00 a.m. - 03:00 p.m.",
 
@@ -28,7 +28,7 @@ export const MultipleShowTalleres = () => {
       id: 3,
       titulo: "cedritos",
       direccion: "Av Carrera 19 # 143A - 08 Calle 95",
-      ciudad: "Bogotá, Colombia",
+      ciudad: "Av Carrera 19 # 143A - 08",
       entreSemana: "Lunes a viernes: 07:00 a.m. - 05:00 p.m.",
       sabado: "Sábados: 08:00 a.m. - 03:00 p.m.",
 
