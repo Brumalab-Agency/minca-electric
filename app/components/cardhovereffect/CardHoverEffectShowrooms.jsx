@@ -19,7 +19,7 @@ export const projects = [
     title:
       "¡Siente la emoción en dos ruedas! Prueba gratis nuestros scooters en un test drive exclusivo.",
     img2: "/showrooms/1.png",
-    link: "/#",
+    link: "#",
   },
 
   {
