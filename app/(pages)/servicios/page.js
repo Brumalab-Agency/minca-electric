@@ -11,6 +11,7 @@ import { Testimonios } from "@/components/testimonio/Testimonios";
 import Whatsapp from "@/components/whatsapp/Whatsapp";
 import { CambiaRuta } from "@/components/home/CambiaRuta";
 import { ComponentTallerCedritos } from "@/components/reusable/ComponentTallerCedritros";
+import { ComponentAvenidaChile } from "@/components/reusable/ComponentAvenidaChile";
 
 export const metadata = {
   title: {
@@ -53,6 +54,7 @@ const Servicios = () => {
       <ComponentTallerChico />
       <ComponentTallerJaveriana />
       <ComponentTallerCedritos />
+      <ComponentAvenidaChile />
       <Separador
         clases="lg:px-[100px] px-4"
         clase2="mt-[80px]"

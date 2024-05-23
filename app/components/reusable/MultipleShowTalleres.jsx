@@ -31,9 +31,18 @@ export const MultipleShowTalleres = () => {
       ciudad: "Av Carrera 19 # 143A - 08",
       entreSemana: "Lunes a viernes: 07:00 a.m. - 05:00 p.m.",
       sabado: "Sábados: 08:00 a.m. - 03:00 p.m.",
-
       url: "/talleres/tallerCedritos",
       img: "/talleres/taller-cedritos.jpg",
+    },
+    {
+      id: 4,
+      titulo: "Avenida Chile",
+      direccion: "Calle 72 # 25-10",
+      ciudad: "Bogotá - Colombia",
+      entreSemana: "Lunes a viernes: 07:00 a.m. - 05:00 p.m.",
+      sabado: "Sábados: 08:00 a.m. - 03:00 p.m.",
+      url: "/talleres/tallerAvenidaChile",
+      img: "/talleres/Taller-avenida-chile.png",
     },
   ];
 
