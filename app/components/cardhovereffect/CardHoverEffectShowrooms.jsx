@@ -13,18 +13,18 @@ export function CardHoverEffectShowrooms() {
 export const projects = [
   {
     img: "/showrooms/showroom minca av chile.png",
-    link: "/testdrive/showroomchico",
+    link: "/testdrive/showroomavenidachile",
   },
   {
     title:
       "¡Siente la emoción en dos ruedas! Prueba gratis nuestros scooters en un test drive exclusivo.",
     img2: "/showrooms/1.png",
-    link: "http://localhost:3000/productos/Minca%20800W",
+    link: "/#",
   },
 
   {
     img: "/showrooms/showroom minca gran estacion.png",
-    link: "/testdrive/showroomchico",
+    link: "/testdrive",
   },
 
   {
