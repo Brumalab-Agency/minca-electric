@@ -46,22 +46,33 @@ export const MultipleShowRooms = () => {
       domingo: "Domingos: 11:00 a.m. - 5:00 p.m.",
       url: "/testdrive",
     },
+    {
+      id: 4,
+      src: "/sedes/Showroom Avenida Chile - Minca electric.png",
+      titulo: "Avenida Chile",
+      direccion: "Calle 72 # 25-10,",
+      ciudad: "Bogotá, Colombia",
+      entreSemana: "Lunes a viernes: 10:00 a.m. - 7:00 p.m.",
+      sabado: "Sábados: 10:00 a.m. - 6:00 p.m.",
+      domingo: "Domingos: 11:00 a.m. - 5:00 p.m.",
+      url: "/testdrive/showroomavenidachile",
+    },
   ];
 
   return (
     <div>
       {dataFromAPI.map((item, index) => (
-        <CardShowRoomMovil 
-          key={item.id} 
+        <CardShowRoomMovil
+          key={item.id}
           src={item.src}
           icono="/showroom_icon.png"
           titulo={item.titulo}
-          clase={index % 2 === 0 ? 'bg-[#FFFFFF]' : 'bg-[#F0F1EB]'} 
+          clase={index % 2 === 0 ? "bg-[#FFFFFF]" : "bg-[#F0F1EB]"}
           direccion={item.direccion}
           entreSemana={item.entreSemana}
           sabado={item.sabado}
           domingo={item.domingo}
-          url= {item.url}
+          url={item.url}
           btn="Agrendar TesDrive"
         />
       ))}

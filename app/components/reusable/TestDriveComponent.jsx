@@ -327,6 +327,84 @@ export const TestDriveComponent = () => {
             {/* La imagen es un backGround */}
           </div>
         </section>
+        {/* showroom 5 */}
+        <section className="flex h-full w-full lg:h-[665px]">
+          <div className="ladoIzquierdo grid h-full w-full place-items-center bg-[url(/showrooms/TestDriveAvenidaChile.png)] bg-cover bg-top"></div>
+          <div className="ladoDerecho hidden h-full w-full place-items-center bg-[#F0F1EB] text-[#111] lg:grid ">
+            <div className="">
+              <div className="flex gap-4 ">
+                <div className="columna-img mb-[25px] flex h-auto w-[60px] flex-col justify-end gap-6">
+                  <div className="mb-[40px]">
+                    <img
+                      className="h-[50px] w-[50px]"
+                      src="/showroom_icon.png"
+                      alt="icono de herramientas"
+                    />
+                  </div>
+                  <div className="">
+                    <img
+                      className="h-[50px] w-[50px]"
+                      src="/map.png"
+                      alt="pointer map"
+                    />
+                  </div>
+                  <div className="">
+                    <img
+                      className="h-[50px] w-[50px]"
+                      src="/calendario.png"
+                      alt="icono calendario"
+                    />
+                  </div>
+                </div>
+                <div>
+                  <div className="">
+                    <p className={`${ubuntu.className} text-left text-base`}>
+                      Visita nuestras sedes Minca:
+                    </p>
+                    <h1
+                      className={`${manrope.className} mt-[50px] text-left text-[42px] font-bold uppercase`}
+                    >
+                      showroom
+                    </h1>
+                    <h2
+                      className={`${manrope.className} mb-[27px] text-left text-[26px] font-medium uppercase`}
+                    >
+                      Avenida Chile
+                    </h2>
+                  </div>
+                  <div>
+                    <div className="">
+                      <p className={`${ubuntu.className} text-base`}>
+                        Calle 72 # 25-10, <br></br> Bogotá, Colombia
+                      </p>
+                    </div>
+                    <div className="mt-6">
+                      <p className={`${ubuntu.className} text-base`}>
+                        Lunes a viernes: 10:00 a.m. - 07:00 p.m.
+                      </p>
+                      <p className={`${ubuntu.className} text-base`}>
+                        Sábados: 10:00 a.m. - 06:00 p.m.
+                      </p>
+                      {
+                        <p className={`${ubuntu.className} text-base`}>
+                          Domingos: 11:00 a.m. - 05:00 p.m.
+                        </p>
+                      }
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div className="mx-auto ml-[60px] mt-6">
+                <BotonRelativo
+                  sitio="/showroomavenidachile"
+                  param="Agendar TestDrive"
+                  clases="border-2 border-[#111] bg-[#F0F1EB] lg:w-[342px] lg:h-[56px]"
+                />
+              </div>
+            </div>
+          </div>
+        </section>
+
         <div>
           <MultipleShowRooms />
         </div>
