@@ -483,7 +483,7 @@ export const ShowRoomComponent = () => {
         domingo="Domingos: 11:00 a.m. - 5:00 p.m."
       />
       <CardShowRoomMovil
-        src="/sedes/Showroom Cedritos - Minca electric.jpg"
+        src="/sedes/Showroom Cedritos - Minca electric.png"
         tipo="Showroom"
         titulo="cedritos"
         btn="Agendar TestDrive"

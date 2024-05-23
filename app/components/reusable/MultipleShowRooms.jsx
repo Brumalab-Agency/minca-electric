@@ -15,7 +15,7 @@ export const MultipleShowRooms = () => {
     },
     {
       id: 2,
-      src: "/sedes/Showroom Cedritos - Minca electric.jpg",
+      src: "/sedes/Showroom Cedritos - Minca electric.png",
       titulo: "Cedritos",
       direccion: "Av. Cra. 19#143A-08",
       ciudad: "Bogotá, Colombia",
