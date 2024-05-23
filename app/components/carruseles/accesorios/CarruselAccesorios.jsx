@@ -66,12 +66,11 @@ export const CarruselAccesorios = () => {
   })
 
   return (
-    <div className="MincaAccesorios h-auto w-full overflow-x-hidden bg-white lg:pl-[100px] pl-4 lg:mt-[80px] 2xl:mt-[100px] mb-[65] lg:mb-0">
+    <div className="MincaAccesorios mb-[65] h-auto w-full overflow-x-hidden bg-white pl-4 lg:mb-0 lg:mt-[80px] lg:pl-[100px] 2xl:mt-[100px]">
       <div className="py-4  lg:h-[710px] lg:w-auto">
         <div className="h-auto w-full">
-          <div className="flex w-full items-center justify-between px-4 lg:px-0 leading-[42px]">
+          <div className="flex w-full items-center justify-between px-4 leading-[42px] lg:px-0">
             <TProductVariant
-
               titulo="Accesorios MINCA,"
               subtitulo="estilo y seguridad..."
               flexion="lg:flex"
@@ -85,37 +84,42 @@ export const CarruselAccesorios = () => {
           >
             <CarouselContent className=" marcador 2">
               {accesorios.map((accesorio, index) => (
-               
-                  <CarouselItem
+                <CarouselItem
                   key={`carrousel-accesorios-${index}`}
-                    className="basis-1/2 md:basis-1/2 lg:basis-1/4 2xl:mx-1 2xl:basis-1/6 h-auto w-full"
-                  >
-                    <Link href={`/accesorios/${accesorio.name}`}  >
-                    <div className="p-1 w-full h-[430px]] card-height">
-                      <Card className="h-auto w-[198px] rounded-[13px] bg-[#F0EEED] lg:h-[298px] lg:w-[295px] 2xl:w-[400px] 2xl:h-auto">
+                  className={` h-auto w-full basis-1/2 md:basis-1/2 lg:basis-1/4 2xl:basis-1/6 ${index === 0 ? "2xl:mr-20" : "2xl:mx-20"}`}
+                >
+                  <Link href={`/accesorios/${accesorio.name}`}>
+                    <div className="h-[430px]] card-height w-full p-1  ">
+                      <Card className="h-auto w-auto rounded-[13px] bg-[#F0EEED] lg:h-[298px] lg:w-[295px] 2xl:h-auto 2xl:w-[400px]">
                         <CardContent className="flex aspect-square items-center justify-center p-2">
                           <img
                             className="h-auto w-[350px]"
                             src={accesorio.image.mediaItemUrl}
                             alt={accesorio.name.replace(/_/g, " ")}
                           />
-                         
                         </CardContent>
                       </Card>
                       <p className="mt-[10px] text-base font-bold lg:text-[20px] 2xl:text-[28px]">
                         {accesorio.name.replace(/_/g, " ")}
                       </p>
-                      <div className="btnCardAccesorios w-full h-[100px]">
-                        <p className="text-[20px] 2xl:text-[24px] font-bold mb-[10px] leading-[40px]">$ { separadorDeMiles(accesorio?.price.slice(0, 6))}</p>
-                        <Link href={`/accesorios/${accesorio.name}`} className="bg-[#111] px-[20px] py-[10px] rounded-[52px] text-white mt-4">Ver accesorio</Link>
+                      <div className="btnCardAccesorios h-[100px] w-full">
+                        <p className="mb-[10px] text-[20px] font-bold leading-[40px] 2xl:text-[24px]">
+                          $ {separadorDeMiles(accesorio?.price.slice(0, 6))}
+                        </p>
+                        <Link
+                          href={`/accesorios/${accesorio.name}`}
+                          className="mt-4 rounded-[52px] bg-[#111] px-[20px] py-[10px] text-white"
+                        >
+                          Ver accesorio
+                        </Link>
                       </div>
                     </div>
-                    </Link>
-                  </CarouselItem>
+                  </Link>
+                </CarouselItem>
               ))}
             </CarouselContent>
-            <CarouselPrevious  izquierda=" lg:top-[6%] lg:left-[85%] 2xl:left-[87%]"/>
-            <CarouselNext derecha=" lg:top-[6%] lg:right-[7%] 2xl:right-[5%]"/>
+            <CarouselPrevious izquierda=" lg:top-[6%] lg:left-[85%] 2xl:left-[87%]" />
+            <CarouselNext derecha=" lg:top-[6%] lg:right-[7%] 2xl:right-[5%]" />
           </Carousel>
         </div>
       </div>

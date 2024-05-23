@@ -3,11 +3,11 @@ import { ubuntu } from "../../ui/fonts";
 export function SpinningText({ children }) {
 
   return (
-    <div className="right-[-29px] top-[10px] hidden w-[250px] items-center justify-end lg:flex lg:mt-[10px]">
+    <div className="right-[-29px] top-[10px] hidden w-[250px] items-center justify-end lg:mt-[10px] lg:flex">
       <p
-        className={`${ubuntu.className} w-[47%] text-[18px] 2xl:text-[28px] 2xl:w-[70%]  font-medium leading-[22px] 2xl:leading-[30px]`}
+        className={`${ubuntu.className} w-[47%] text-[18px] font-medium leading-[22px]  2xl:w-[70%] 2xl:text-[26px] 2xl:leading-[30px]`}
       >
-        Transforma ya tu forma de moverte
+        Transforma <br></br> ya tu forma <br></br> de moverte
       </p>
       <div className="spinning-text-wrapper">
         <div className="spinning-text">
