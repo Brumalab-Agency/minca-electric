@@ -1,6 +1,5 @@
 "use client";
 import { manrope, ubuntu } from "../../ui/fonts";
-import { CardShowRoomMovil } from "./CardShowRoomMovil";
 import { Carousel } from "@material-tailwind/react";
 import Link from "next/link";
 import Image from "next/image";
