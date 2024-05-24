@@ -1,6 +1,7 @@
 import { ubuntu } from "@/ui/fonts";
 import Image from "next/image";
 import Link from "next/link";
+import { TalleresComponent } from "../showroom/TalleresComponent";
 
 const TalleresSingleComponents = () => {
   return (
@@ -13,7 +14,8 @@ const TalleresSingleComponents = () => {
           ¡Programa tu Mantenimiento Ahora!
         </p>
       </div>
-      <div className="hidden grid-cols-1 px-[100px] lg:my-10 lg:grid lg:grid-cols-3 2xl:my-28">
+      <TalleresComponent/>
+      {/* <div className="hidden grid-cols-1 px-[100px] lg:my-10 lg:grid lg:grid-cols-3 2xl:my-28">
         <div className="flex self-start">
           <div className="flex flex-col items-center justify-center">
             <Image
@@ -32,7 +34,7 @@ const TalleresSingleComponents = () => {
             </Link>
           </div>
         </div>
-        {/* ** */}
+        
         <div className="flex flex-col items-center justify-center">
           <Image
             alt="scooter"
@@ -44,12 +46,12 @@ const TalleresSingleComponents = () => {
           <h2 className="mt-4 text-[28px] font-bold">Taller Javeriana</h2>
           <Link
             href="/talleres/tallerJaveriana"
-            className={`${ubuntu.className} my-3 block grid  h-[52px] w-full place-items-center rounded-[62px]  bg-[#111] text-[16px] text-white lg:w-[210px]`}
+            className={`${ubuntu.className} my-3  grid  h-[52px] w-full place-items-center rounded-[62px]  bg-[#111] text-[16px] text-white lg:w-[210px]`}
           >
             Agendar
           </Link>
         </div>
-        {/* *** */}
+        
         <div className="flex justify-end">
           <div className="flex flex-col items-center justify-center">
             <Image
@@ -68,7 +70,7 @@ const TalleresSingleComponents = () => {
             </Link>
           </div>
         </div>
-      </div>
+      </div> */}
     </div>
   );
 };

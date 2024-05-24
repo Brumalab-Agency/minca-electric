@@ -81,10 +81,10 @@ const CarItemsContainer = () => {
       </h2>
       <div className="content-wrap-cart ">
         {cart ? (
-          <div className=" grid grid-cols-1 gap-4 lg:grid-cols-3">
+          <div className="grid grid-cols-1 gap-4  lg:grid-cols-8">
             {/*Cart Items*/}
             {
-              <div className="woo-next-cart-table mb-md-0 mb-5 w-full rounded-[20px] border border-black/10 p-5 lg:col-span-2 lg:w-[670px]">
+              <div className="woo-next-cart-table mb-md-0 mb-5 w-full rounded-[20px] border border-black/10 p-5 lg:col-span-5">
                 {cartItems.length &&
                   cartItems.map((item) => (
                     <div>
@@ -101,7 +101,7 @@ const CarItemsContainer = () => {
 
             {/*Cart Total*/}
             <div
-              className={`woo-next-cart-total-container border-1 rounded-[20px] border border-black/10 p-5 lg:w-[450px]`}
+              className={` woo-next-cart-total-container border-1 rounded-[20px] border border-black/10 p-5 lg:col-span-3 lg:min-w-max `}
             >
               <h2
                 className={`${manrope.className} text-base font-bold lg:text-[24px]`}

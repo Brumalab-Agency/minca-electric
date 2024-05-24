@@ -18,7 +18,7 @@ export const metadata = {
     canonical: "/",
   },
   openGraph: {
-    title: "Minca Electric | Empresa líder de movilidad eléctrica en Colombia",
+    title: "Minca Electric | Empresa líder de movilidad eléctrica",
     description:
       "Muévete sostenible, con estilo y eficiencia. Muévete con Minca.",
     url: "/",

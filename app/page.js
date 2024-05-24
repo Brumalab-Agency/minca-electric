@@ -13,6 +13,7 @@ import { CarruselAccesorios } from "./components/carruseles/accesorios/CarruselA
 import { TalleresComponent } from "./components/showroom/TalleresComponent";
 import TalleresSingleComponents from "./components/talleres/TalleresSingleComponents";
 import Whatsapp from "./components/whatsapp/Whatsapp";
+import { MovileCardTalleres } from "./components/showroom/movileCardTalleres";
 
 export default function Home() {
   return (
@@ -27,7 +28,8 @@ export default function Home() {
       <SolucionesComodidad />
       <Testimonios />
       <ShowRoomComponent />
-      <TalleresComponent/>
+      {/* <TalleresComponent/> */}
+      <MovileCardTalleres/>
       <TalleresSingleComponents/>
       <ClientesAliados />
       <Footer />

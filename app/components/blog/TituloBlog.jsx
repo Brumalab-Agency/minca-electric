@@ -23,12 +23,6 @@ export const TituloBlog = async () => {
         ))}
       </div>
       <div className="my-[58px] text-center lg:mb-[120px] lg:mt-[32px]">
-        <Link
-        href="#"
-          className={` ${ubuntu.className} border-1 h-[48px] w-[240px] rounded-[6px] border border-[#696A75] bg-opacity-30 text-base font-medium text-[#696A75] px-6 py-3`}
-        >
-          Ver todas las publicaciones
-        </Link>
       </div>
     </div>
   );
