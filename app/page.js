@@ -2,17 +2,15 @@ import { Hero } from "./components/home/Hero";
 import { ClientesAliados } from "./components/home/ClientesAliados";
 import { Footer } from "./components/home/Footer";
 import { CarruselScooters } from "./components/carruseles/CarruselScooters";
-import { CarruselEbikes } from "./components/carruseles/CarruselEbikes";
-import { HeroImagenSec } from "./components/home/HeroImagenSec";
 import { PruebaMinca } from "./components/home/PruebaMinca";
 import { CambiaRuta } from "./components/home/CambiaRuta";
 import { SolucionesComodidad } from "./components/home/SolucionesComodidad";
 import { Testimonios } from "./components/testimonio/Testimonios";
 import { ShowRoomComponent } from "./components/showroom/ShowRoomComponent";
 import { CarruselAccesorios } from "./components/carruseles/accesorios/CarruselAccesorios";
-import { TalleresComponent } from "./components/showroom/TalleresComponent";
 import TalleresSingleComponents from "./components/talleres/TalleresSingleComponents";
 import Whatsapp from "./components/whatsapp/Whatsapp";
+import { MovileCardTalleres } from "./components/showroom/movileCardTalleres";
 
 export default function Home() {
   return (
@@ -27,7 +25,8 @@ export default function Home() {
       <SolucionesComodidad />
       <Testimonios />
       <ShowRoomComponent />
-      <TalleresComponent/>
+      {/* <TalleresComponent/> */}
+      <MovileCardTalleres/>
       <TalleresSingleComponents/>
       <ClientesAliados />
       <Footer />

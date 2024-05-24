@@ -8,7 +8,7 @@ import OtrosPost from "@/components/blog/OtrosPost";
 import Whatsapp from "@/components/whatsapp/Whatsapp";
 
 export const metadata = {
-  title: "Minca Electric | Blog",
+  title: "Minca Electric | Tendencias",
   description:
     "Muévete sostenible, con estilo y eficiencia. Muévete con Minca.",
 };
@@ -32,7 +32,7 @@ const SIngleBlog = async ({ params }) => {
 
   return (
     <>
-      <HeroContext titulo="Blog" />
+      <HeroContext titulo="tendencias" />
       {posts.map((post) => (
         <div className="HeroBlog lg:mt-[45px] grid-cols-1 lg:grid  lg:w-full lg:px-[100px] 2xl:grid-cols-1">
           {/* <div className="h-[30px] lg:hidden block">
