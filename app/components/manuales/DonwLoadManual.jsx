@@ -1,30 +1,30 @@
-'use client'
+"use client";
 
-const DonwLoadManual = ({manualMinca, item}) => {
-  
-    const downLoad = (url) => {
-        const filename = url.split("/").pop();
-        const element = document.createElement("a");
-        element.href = url;
-        element.download = filename;
-        element.target = "_blank";
-        document.body.appendChild(element);
-        element.click();
-        element.remove();
-      };
+const DonwLoadManual = ({ manualMinca, item }) => {
+  const downLoad = (url) => {
+    const filename = url.split("/").pop();
+    const element = document.createElement("a");
+    element.href = url;
+    element.download = filename;
+    element.target = "_blank";
+    document.body.appendChild(element);
+    element.click();
+    element.remove();
+  };
+
   return (
     <>
-        <button
-            onClick={() => {
-              downLoad(manualMinca);
-            }}
-            value="download"
-            className="relative mb-4 flex h-[60px] w-full items-center justify-center rounded-[10px] border-[2px] border-[#111] text-[#111] px-[24px] py-[16px] lg:h-[60px] mt-8"
-          >
-            {`Manual de usuario ${item?.sliderProductos.nombreProducto}`}
-          </button>
+      <button
+        onClick={() => {
+          downLoad(manualMinca);
+        }}
+        value="download"
+        className="my-3 h-[52px] w-full rounded-[62px] bg-[#111] text-[16px] text-white lg:w-[210px]"
+      >
+        {`Manual de usuario `}
+      </button>
     </>
-  )
-}
+  );
+};
 
-export default DonwLoadManual
+export default DonwLoadManual;
