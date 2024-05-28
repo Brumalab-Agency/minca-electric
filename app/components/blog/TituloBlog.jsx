@@ -17,7 +17,7 @@ export const TituloBlog = async () => {
       </h2>
       <div className="grid-cols-3 gap-6 lg:grid">
         {posts.map((post) => (
-          <Link href={`/tendencias/${post.title.replace(/ /g, "_")}`}>
+          <Link href={`/tendencias/${encodeURIComponent(post.title.replace(/ /g, "_"))}`}>
             <CardBlog data={post} />
           </Link>
         ))}
