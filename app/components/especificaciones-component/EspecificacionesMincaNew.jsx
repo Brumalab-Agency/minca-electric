@@ -9,7 +9,7 @@ import { Acordion } from "../reusable/Acordion";
 import { Testimonios } from "../testimonio/Testimonios";
 import { useState } from "react";
 import TooltipEspecificaciones from "./TooltipEspecificaciones";
-import PoliticaGarantia from "../manuales/politicaGarantia";
+//import PoliticaGarantia from "../manuales/politicaGarantia";
 
 export const EspecificacionesMincaNew = async (scooters) => {
   const [codigoOC, setCodigoOC] = useState("");

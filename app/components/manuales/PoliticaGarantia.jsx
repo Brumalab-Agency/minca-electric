@@ -1,4 +1,4 @@
-"use client";
+/* "use client";
 
 import Link from "next/link";
 import { ubuntu } from "@/ui/fonts"; // Asegúrate de importar las fuentes correctamente
@@ -37,3 +37,4 @@ const PoliticaGarantia = ({ garantia }) => {
 };
 
 export default PoliticaGarantia;
+ */
