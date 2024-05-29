@@ -35,7 +35,7 @@ export const HeroBlog = async () => {
         </div>
 
         <div className="card-blog absolute bottom-0 top-[60%] h-[273px] w-[90%] rounded-[12px] bg-white p-[40px] shadow-md lg:top-[75%] lg:ml-[80px] lg:h-[263px] lg:w-[598px]">
-          <Link href={`/tendencias/${post.title.replace(/ /g, "_")}`}>
+          <Link href={`/tendencias/${encodeURIComponent(post.title.replace(/ /g, "_"))}`}>
             <button
               className={` ${ubuntu.className} h-[28px] w-[80px] rounded-[6px] bg-[#111] text-[12px] font-medium text-white`}
             >
