@@ -196,9 +196,13 @@ export const EspecificacionesMincaNew = async (scooters) => {
             muted
             loop
           />
-          <div className="mb-4 flex items-center justify-around  space-x-2">
-            <DonwLoadManual manualMinca={manualMinca} item={item} />
-            <PoliticasGarantia garantia={garantiaUrl} item={item} />
+          <div className="mb-4 flex flex-col items-center justify-center space-y-2  sm:flex-row sm:space-x-2 sm:space-y-0">
+            <div className="w-full justify-center sm:w-auto ">
+              <DonwLoadManual manualMinca={manualMinca} item={item} />
+            </div>
+            <div className="w-full justify-center sm:w-auto">
+              <PoliticasGarantia garantia={garantiaUrl} item={item} />
+            </div>
           </div>
         </div>
       </div>
