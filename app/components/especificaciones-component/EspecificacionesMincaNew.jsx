@@ -74,9 +74,10 @@ export const EspecificacionesMincaNew = async (scooters) => {
                 {item?.sliderProductos.description}
               </p>
 
-              <hr className="my-4 border-[#464646]" />
+              <hr className="mt-5 lg:w-[70%]" />
+              {/* <hr className="my-4 border-[#464646]" />
 
-              {/* Mostrar Preventa si no hay stock */}
+              
               {noStock && (
                 <>
                   <div className="mb-4 flex items-center space-x-2">
@@ -86,23 +87,7 @@ export const EspecificacionesMincaNew = async (scooters) => {
                     <TooltipEspecificaciones tooltips={"si"} />
                   </div>
 
-                  {/* <div className="mb-10 rounded-lg bg-[#F0F1EB] p-4 shadow-md">
-                    <h4 className="text-xl font-semibold">
-                      Fecha de entrega aproximada: última semana de junio del
-                      2024. Se te confirmará la entrega a través de nuestros
-                      medios de comunicación.
-                    </h4>
-                    <p className="text-gray-800">
-                      Nuestro sistema de preventa es sencillo y conveniente. Los
-                      clientes pueden asegurar su scooter eléctrica con un
-                      anticipo del 50% del valor final. El 50% restante se paga
-                      cuando las scooters estén disponibles para entrega. Así,
-                      garantizamos que tu scooter estará reservada y lista para
-                      ti en cuanto llegue al stock.
-                    </p>
-                  </div> */}
 
-                  {/* Pago parcial */}
                   <div className="mb-3 h-auto w-full rounded-[10px] border-[1px] border-[#464646] bg-[#F0F1EB]">
                     <div className="flex flex-col items-start">
                       <div className="ml-3 grid h-[50px] w-full place-items-center justify-start">
@@ -122,7 +107,7 @@ export const EspecificacionesMincaNew = async (scooters) => {
                     </div>
                   </div>
 
-                  {/* Segundo pago */}
+                  
                   <div className="mb-3 h-auto w-full rounded-[10px] border-[1px] border-[#464646] bg-[#F0F1EB]">
                     <div className="flex flex-col items-start">
                       <div className="ml-3 grid h-[50px] w-full place-items-center justify-start">
@@ -155,7 +140,7 @@ export const EspecificacionesMincaNew = async (scooters) => {
                     </div>
                   </div>
 
-                  {/* Pago completo */}
+                  
                   <div className="mb-3 h-auto w-full rounded-[10px] border-[1px] border-[#464646] bg-[#F0F1EB]">
                     <div className="flex flex-col items-start">
                       <div className="ml-3 grid h-[50px] w-full place-items-center justify-start">
@@ -176,6 +161,7 @@ export const EspecificacionesMincaNew = async (scooters) => {
                   </div>
                 </>
               )}
+            </div> */}
             </div>
           </div>
 
@@ -212,7 +198,7 @@ export const EspecificacionesMincaNew = async (scooters) => {
           />
           <div className="mb-4 flex items-center justify-around  space-x-2">
             <DonwLoadManual manualMinca={manualMinca} item={item} />
-            <PoliticaGarantia garantia={garantiaUrl} item={item} />
+            {/* <PoliticaGarantia garantia={garantiaUrl} item={item} /> */}
           </div>
         </div>
       </div>
