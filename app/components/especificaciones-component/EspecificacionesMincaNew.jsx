@@ -9,7 +9,7 @@ import { Acordion } from "../reusable/Acordion";
 import { Testimonios } from "../testimonio/Testimonios";
 import { useState } from "react";
 import TooltipEspecificaciones from "./TooltipEspecificaciones";
-//import PoliticaGarantia from "../manuales/politicaGarantia";
+import PoliticasGarantia from "../manuales/PoliticaGarantia";
 
 export const EspecificacionesMincaNew = async (scooters) => {
   const [codigoOC, setCodigoOC] = useState("");
@@ -198,7 +198,7 @@ export const EspecificacionesMincaNew = async (scooters) => {
           />
           <div className="mb-4 flex items-center justify-around  space-x-2">
             <DonwLoadManual manualMinca={manualMinca} item={item} />
-            {/* <PoliticaGarantia garantia={garantiaUrl} item={item} /> */}
+            <PoliticasGarantia garantia={garantiaUrl} item={item} />
           </div>
         </div>
       </div>
