@@ -38,6 +38,7 @@ export const HeroVideoSingleCarsProduct = ({ urlVideo, scooters }) => {
             preventivo*
           </p>
           {console.log(scooters?.edges[0]?.node.sliderProductos.tooltips)}
+          {/* <div className="bg-white cursor-pointer z-50"><TooltipScooter tooltips={scooters?.edges[0].node.sliderProductos.tooltips}/></div>  */}
         </div>
         <div className="hidden h-auto w-full place-items-end lg:grid lg:w-[50%]">
           <CardHeroSingleScooter scooters={scooters} />

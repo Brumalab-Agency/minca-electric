@@ -370,7 +370,7 @@ export const ShowRoomComponent = () => {
               {/* La imagen es un backGround */}
               <img
                 className="h-[665px] w-full object-cover object-top"
-                src="/sedes/Showroom Avenida Chile - Minca electric.png"
+                src="/sedes/Showroom Avenida Chile - Minca electric.jpg"
                 alt="icono de herramientas"
               />
             </div>
@@ -512,7 +512,7 @@ export const ShowRoomComponent = () => {
         domingo="Domingos: 11:00 a.m. - 5:00 p.m."
       />
       <CardShowRoomMovil
-        src="/sedes/Showroom Avenida Chile - Minca electric.png"
+        src="/sedes/Showroom Avenida Chile - Minca electric.jpg"
         tipo="Showroom"
         titulo="Avenida Chile"
         btn="Agendar Test Drive"

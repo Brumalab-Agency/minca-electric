@@ -58,7 +58,6 @@ const CardHeroSingleScooter = ({ scooters }) => {
                   {item.node.sliderProductos.description}
                 </p>
                 <div className="my-2 flex items-center gap-3 lg:mt-6 lg:gap-4">
-                  
                   {items?.map((item) => (
                     <div className="flex flex-col justify-center">
                       <div className="my-2">
@@ -69,11 +68,19 @@ const CardHeroSingleScooter = ({ scooters }) => {
                               {item.node.sliderProductos.precioRebajado}
                             </p>
                           </div>
+
                           <div>
                             <p className="font-bold text-white">Ahora:</p>
                             <p className="text-xl text-white">
                               {item.node.sliderProductos.precioActual}
                             </p>
+                          </div>
+                          <div className="z-50 cursor-pointer rounded-full  p-2">
+                            <TooltipScooter
+                              tooltips={
+                                scooters?.edges[0].node.sliderProductos.tooltips
+                              }
+                            />
                           </div>
                         </div>
                       </div>
