@@ -62,6 +62,8 @@ export default function RootLayout({ children }) {
              gtag('config', 'G-0J2S3K5ZR5');        
           `}
           </Script>
+          <Script src="https://s3.amazonaws.com/widgets.addi.com/bundle.min.js"></Script>
+
         </head>
         <body id="up" className={`${inter.className} m-auto max-w-[2560px]`}>
           <div id="scrollbar"></div>

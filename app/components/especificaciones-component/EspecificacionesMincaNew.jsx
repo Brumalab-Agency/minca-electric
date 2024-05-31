@@ -10,6 +10,7 @@ import { Testimonios } from "../testimonio/Testimonios";
 import { useState } from "react";
 import TooltipEspecificaciones from "./TooltipEspecificaciones";
 import PoliticasGarantia from "../manuales/PoliticaGarantia";
+import Image from "next/image";
 
 export const EspecificacionesMincaNew = async (scooters) => {
   const [codigoOC, setCodigoOC] = useState("");
@@ -20,6 +21,13 @@ export const EspecificacionesMincaNew = async (scooters) => {
   const handleCodigoOCChange = (e) => {
     setCodigoOC(e.target.value);
   };
+
+  const parsePrice = (price) => {
+    let priceStr = price.replace("$", "");
+    priceStr = priceStr.replace(/\./g, "");
+    let priceInt = parseInt(priceStr, 10);
+    return priceInt
+  }
 
   let content;
 
@@ -73,6 +81,8 @@ export const EspecificacionesMincaNew = async (scooters) => {
               >
                 {item?.sliderProductos.description}
               </p>
+
+              <addi-widget price={parsePrice(item?.sliderProductos.precioActual)} ally-slug="mincaelectric-ecommerce"></addi-widget>
 
               <hr className="mt-5 lg:w-[70%]" />
               {/* <hr className="my-4 border-[#464646]" />

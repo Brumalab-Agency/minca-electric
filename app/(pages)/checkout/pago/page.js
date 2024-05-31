@@ -4,7 +4,7 @@ import { AppContext } from "@/components/context/Context";
 import { useRouter, useSearchParams } from "next/navigation";
 import { useContext, useState, useEffect } from "react";
 import cx from "classnames";
-import BtnMercadoPago from "../../../components/mercadopago/BtnMercadoPago";
+import BtnMercadoPago from "@/components/payment-buttons/BtnMercadoPago";
 import Link from "next/link";
 import { clearCart } from "@/utils/cart/cartUtils";
 import PasoaPaso from "@/components/stepbystep/PasoaPaso";
@@ -14,9 +14,13 @@ import { handleOtherPaymentMethodCheckout } from "@/utils/checkout/utilsCheckout
 import { manrope } from "@/ui/fonts";
 import CardMercadoPago from "@/components/pagoPage/CardMercadoPago";
 import YourOrderPayment from "@/components/checkout/YourOrderPayment";
+import CardAddi from "@/components/pagoPage/CardAddi";
+import BtnAddi from "@/components/payment-buttons/BtnAddi";
 
 const PagoMercadoPagoPage = () => {
   const [temporalCarrito, setTemporalCarrito] = useState(AppContext);
+  const [addi, setAddi] = useState(false);
+  const [MP, setMP] = useState(false);
   const [isOrderProcessing, setIsOrderProcessing] = useState(false);
   const [requestError, setRequestError] = useState(null);
   const router = useRouter();
@@ -32,8 +36,19 @@ const PagoMercadoPagoPage = () => {
     }
   }, [definitivePrice, setCart]);
 
+  const handleOnChangeAddi = (event) => {
+    if (event.target.checked) {
+      setAddi(true);
+      setMP(false);
+    }
+  }
 
-
+  const handleOnChangeMP = (event) => {
+    if (event.target.checked) {
+      setMP(true);
+      setAddi(false);
+    }
+  }
 
   const limpiarLocalStorage = async () => {
     const cartCleared = await clearCart(setCart, () => {});
@@ -41,6 +56,7 @@ const PagoMercadoPagoPage = () => {
     setIsOrderProcessing(false);
 
     if (!cartCleared?.error) {
+      // Additional actions if needed
     } else {
       console.error("Error al limpiar el carrito:", cartCleared.error);
     }
@@ -98,7 +114,8 @@ const PagoMercadoPagoPage = () => {
             </p>
             <hr className="mb-10 border-[1px] border-[#111] stroke-black"></hr>
             <div>
-              <CardMercadoPago />
+              <CardMercadoPago onChange={handleOnChangeMP} isChecked={MP} />
+              <CardAddi onChange={handleOnChangeAddi} isChecked={addi} />
               <p
                 className={` ${manrope.className} my-9 h-auto text-base font-medium lg:w-[484px]`}
               >
@@ -106,16 +123,30 @@ const PagoMercadoPagoPage = () => {
                 Checkout Mercado Pago para completar tu compra de forma segura.
               </p>
             </div>
-            <button className="w-full h-auto lg:w-[300px]" onClick={limpiarLocalStorage}>
-              <BtnMercadoPago
-                preciopagar={
-                  cart?.totalPrice
-                    ? cart?.totalPrice
-                    : temporalCarrito?.totalPrice
-                }
-                idOrder={idOrder}
-              />
-            </button>
+            {MP && (
+              <button className="w-full h-auto lg:w-[300px]" onClick={limpiarLocalStorage}>
+                <BtnMercadoPago
+                  preciopagar={
+                    cart?.totalPrice
+                      ? cart?.totalPrice
+                      : temporalCarrito?.totalPrice
+                  }
+                  idOrder={idOrder}
+                />
+              </button>
+            )}
+            {addi && (
+              <button className="w-full h-auto lg:w-[300px]" onClick={limpiarLocalStorage}>
+                <BtnAddi
+                  preciopagar={
+                    cart?.totalPrice
+                      ? cart?.totalPrice
+                      : temporalCarrito?.totalPrice
+                  }
+                  idOrder={idOrder}
+                />
+              </button>
+            )}
             <div className="lg:mt-36 mt-6">
               <p>Tipos de pago admitidos:</p>
               <img src="/mercado pago .png" />
@@ -127,7 +158,7 @@ const PagoMercadoPagoPage = () => {
             <h2 className="mb-4 text-xl font-medium">Resumen del pedido</h2>
             <hr className="mb-3"></hr>
 
-            <YourOrderPayment cart={cart ? cart : temporalCarrito}/>
+            <YourOrderPayment cart={cart ? cart : temporalCarrito} />
             {/*Metodo de envio*/}
           </div>
         </div>

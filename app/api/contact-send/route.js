@@ -17,6 +17,7 @@ export async function POST(req) {
       to: [
         process.env.EMAIL_ADDRESS_CLIENT_SERVICEMINCA,
         process.env.EMAIL_ADDRESS_CLIENT_BRUMA,
+        process.env.EMAIL_ADDRESS_NICOLAS,
       ],
       subject: "Nueva solicitud de contacto",
       react: <EmailTamplateContact Data={data} />,
