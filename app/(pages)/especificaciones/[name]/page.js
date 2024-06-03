@@ -28,7 +28,6 @@ const Especificaciones = async ({ params }) => {
   let { name } = params;
   decodeURIComponent(name)
 
-  console.log(name)
 
   if (name === paths[0]) {
     name = "Scooter Eléctrico Minca 350W";
@@ -37,7 +36,6 @@ const Especificaciones = async ({ params }) => {
   if (name === paths[1]) {
     name = "Scooter Eléctrico MINCA‎ 500W‎";
   }
-  console.log(name);
 
 
   if (name === paths[2]) {
