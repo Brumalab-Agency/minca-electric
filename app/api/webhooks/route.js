@@ -39,10 +39,7 @@ export async function POST(request) {
         
         await api.put(`orders/${idOrderWoocomerce}`, data);
         await sendEmail(input, cart, idOrderWoocomerce);
-      } /* else {
-        await sendEmailAbandoned(input, cart)
-      } */
-      
+      }
     }
     return NextResponse.json({ ok: true }, { status: 200 });
   } catch (error) {

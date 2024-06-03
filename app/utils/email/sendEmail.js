@@ -29,9 +29,8 @@ export async function sendEmail(input, cart, id) {
 }
 
 export async function sendEmailAbandoned(input, cart) {
-  const url = "https://www.mincaelectric.com/api/send-abandoned-cart";
+  const url = "/api/send-abandoned-cart";
   const userData = JSON.parse(input);
-  console.log( userData )
   const products = JSON.parse(cart);
   const data = {
     email: userData.shipping.Email,
