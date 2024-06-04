@@ -32,6 +32,8 @@ const YourOrder = ({ cart, department, showroom }) => {
       } else {
         newShippingAmount = 30000;
       }
+      parseInt(total, 10);
+      parseInt(newShippingAmount, 10);
       total += newShippingAmount;
       setShippingAmount(newShippingAmount);
       setTotal(total);
