@@ -16,7 +16,7 @@ const YourOrder = ({ cart, department, showroom }) => {
   const discountRate = localStorage.getItem("couponRate");
   useEffect(() => {
     const applyShippingAmount = () => {
-      let total = cart.totalPrice;
+      let total = Number(cart.totalPrice);
       let newShippingAmount = 0;
       if (!department || showroom) {
         newShippingAmount = 0;
@@ -32,18 +32,19 @@ const YourOrder = ({ cart, department, showroom }) => {
       } else {
         newShippingAmount = 30000;
       }
-      parseInt(total, 10);
-      parseInt(newShippingAmount, 10);
+      Number(newShippingAmount)
+      Number(total)
       total += newShippingAmount;
-      setShippingAmount(newShippingAmount);
-      setTotal(total);
+      setShippingAmount(Number(newShippingAmount));
+      setTotal(Number(total));
       department = ""
     };
 
     applyShippingAmount();
-  }, [cart, showroom, department, definitiveTotal]); // Add department as a dependency
+  }, [cart, showroom, department, definitiveTotal]);
 
-  sessionStorage.setItem("price", definitiveTotal);
+
+  sessionStorage.setItem("price", Number(definitiveTotal));
   sessionStorage.setItem("shippingPrice", shippingAmount);
   return (
     <>

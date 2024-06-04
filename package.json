@@ -19,6 +19,7 @@
     "@material-tailwind/react": "^2.1.9",
     "@mercadopago/sdk-react": "^0.0.18",
     "@radix-ui/react-slot": "^1.0.2",
+    "@react-email/components": "^0.0.19",
     "@splinetool/react-spline": "^2.2.6",
     "@splinetool/runtime": "^1.2.5",
     "@studio-freight/react-lenis": "^0.0.46",

@@ -1,35 +1,15 @@
 "use client";
+import { sendEmailNewsLetter } from "@/utils/email/sendEmail";
 import { useState } from "react";
 
 function NewsletterMovil() {
   const [email, setEmail] = useState("");
+  console.log(email)
 
   const handleSubmit = async (event) => {
     event.preventDefault();
 
-    try {
-      const formData = new FormData();
-      formData.append("Email", email);
-
-      const response = await fetch(
-        "https://script.google.com/macros/s/AKfycbx6kJUJ9blRC3ywfiDpk7BYpYS_ZtqSNci5p7N_COeV1yZlrfKBxsnW2087PHnAkSi7hQ/exec",
-        {
-          method: "POST",
-          body: formData,
-        },
-      );
-
-      if (response.ok) {
-        // Redirigir a la página de éxito si la respuesta es exitosa
-        window.location.href = "/agradecimiento"; // Reemplazar 'ruta-de-exito' con la URL real de la página de éxito
-      } else {
-        // Manejar errores de envío aquí
-        console.error("Error al enviar el formulario:", response.statusText);
-      }
-    } catch (error) {
-      // Manejar errores de red aquí
-      console.error("Error de red al enviar el formulario:", error);
-    }
+    await sendEmailNewsLetter(email)
   };
 
   return (
