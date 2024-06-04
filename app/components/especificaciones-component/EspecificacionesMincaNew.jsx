@@ -19,6 +19,7 @@ export const EspecificacionesMincaNew = (scooters) => {
 
   const garantiaUrl = "https://test.mincaelectric.com/wp-content/uploads/2024/05/POLITICAS-DE-GARANTIA.pdf";
   const manualMinca = currentItem.sliderProductos.manualMinca.mediaItemUrl;
+  const on_back_order = currentItem.stockStatus === "ON_BACKORDER"
 
   useEffect(() => {
     const items = scooters.scooters.productTypes.nodes[0].products.nodes[0];
@@ -26,6 +27,7 @@ export const EspecificacionesMincaNew = (scooters) => {
   }, [scooters]);
 
   const handleCodigoOCChange = async (e) => {
+    e.preventDefault();
     setCodigoOC(e.target.value);
     if (e.target.value) {
       const status = await getOrderStatus(e.target.value);
@@ -44,6 +46,7 @@ export const EspecificacionesMincaNew = (scooters) => {
   };
 
   const handlePaymentOptionChange = (e) => {
+    e.preventDefault();
     setSelectedPaymentOption(e.target.value);
     setCurrentItem({
       ...currentItem,
@@ -104,7 +107,7 @@ export const EspecificacionesMincaNew = (scooters) => {
               <hr className="my-4 border-[#464646]" />
 
               {currentItem?.title === "Scooter Eléctrico Minca 350W" && (
-                <form>
+                <form onSubmit={(e) => e.preventDefault()}>
                   <div className="mb-4 flex items-center space-x-2">
                     <h4 className="inline-block text-xl font-semibold">
                       Preventa
@@ -117,6 +120,7 @@ export const EspecificacionesMincaNew = (scooters) => {
                       <div className="ml-3 grid h-[50px] w-full place-items-center justify-start">
                         <label className="radio-container mr-4">
                           <input
+                            onSubmit={(e) => e.preventDefault()}
                             type="radio"
                             name="paymentOption"
                             value="$1.125.000"
@@ -138,6 +142,7 @@ export const EspecificacionesMincaNew = (scooters) => {
                       <div className="ml-3 grid h-[50px] w-full place-items-center justify-start">
                         <label className="radio-container mr-4">
                           <input
+                            onSubmit={(e) => e.preventDefault()}
                             type="radio"
                             name="paymentOption"
                             value="$1.125.000"
@@ -156,6 +161,7 @@ export const EspecificacionesMincaNew = (scooters) => {
                         <div className="flex items-center justify-start gap-5">
                           <p>Número de O/C:</p>
                           <input
+                            onSubmit={(e) => e.preventDefault()}
                             type="text"
                             value={codigoOC}
                             onChange={handleCodigoOCChange}
@@ -172,16 +178,17 @@ export const EspecificacionesMincaNew = (scooters) => {
                       <div className="ml-3 grid h-[50px] w-full place-items-center justify-start">
                         <label className="radio-container mr-4">
                           <input
+                            onSubmit={(e) => e.preventDefault()}
                             type="radio"
                             name="paymentOption"
-                            value="$2.100.000"
-                            checked={selectedPaymentOption === "$2.100.000"}
+                            value="$2.250.000"
+                            checked={selectedPaymentOption === "$2.250.000"}
                             onChange={handlePaymentOptionChange}
                             className="radio-input mr-2"
                           />
                           <div className="flex items-center justify-start">
                             <span className="radio-custom"></span>
-                            <p>Pago completo $2.100.000</p>
+                            <p>Pago completo $2.250.000</p>
                           </div>
                         </label>
                       </div>
