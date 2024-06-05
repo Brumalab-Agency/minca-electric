@@ -5,15 +5,10 @@ import { AppContext } from "../context/Context";
 
 import cx from "classnames";
 
-export const AddToCart = ({ producto, clases }) => {
+export const AddToCart = ({ producto, clases, secondPayment }) => {
   const [cart, setCart] = useContext(AppContext);
   const [isAddedToCart, setIsAddedToCart] = useState(false);
   const [loading, setLoading] = useState(false);
-
-  console.log(producto)
-  console.log(cart)
-
-  //cart.totalPrice = producto.sliderProductos.precioActual;
 
   const noStock = producto.stockStatus === "OUT_OF_STOCK" || producto.stockStatus === "ON_BACKORDER";
 

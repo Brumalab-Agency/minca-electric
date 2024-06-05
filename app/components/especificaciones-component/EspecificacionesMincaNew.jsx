@@ -3,11 +3,11 @@ import { manrope, ubuntu } from "@/ui/fonts";
 import AddToCart from "../cart/AddToCart";
 import ReactImagenGalleryLupaEspecificaciones from "../react-image-gallery/ReactImagenGalleryLupaEspecificaciones";
 import { TablaEspecificaciones } from "./TablaEspecificaciones";
-import Link from "next/link";
 import DonwLoadManual from "../manuales/DonwLoadManual";
 import { Acordion } from "../reusable/Acordion";
 import { Testimonios } from "../testimonio/Testimonios";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
+import debounce from 'lodash.debounce';
 import TooltipEspecificaciones from "./TooltipEspecificaciones";
 import PoliticaGarantia from "../manuales/politicaGarantia";
 import { getOrderStatus } from "@/utils/checkout/utilsCheckout";
@@ -16,10 +16,12 @@ export const EspecificacionesMincaNew = (scooters) => {
   const [codigoOC, setCodigoOC] = useState("");
   const [selectedPaymentOption, setSelectedPaymentOption] = useState("");
   const [currentItem, setCurrentItem] = useState(scooters.scooters.productTypes.nodes[0].products.nodes[0]);
+  const [secondPayment, setSecondPayment] = useState(false);
+  const [message, setMessage] = useState("");
 
   const garantiaUrl = "https://test.mincaelectric.com/wp-content/uploads/2024/05/POLITICAS-DE-GARANTIA.pdf";
   const manualMinca = currentItem.sliderProductos.manualMinca.mediaItemUrl;
-  const on_back_order = currentItem.stockStatus === "ON_BACKORDER"
+  const on_back_order = currentItem.stockStatus === "ON_BACKORDER";
 
   useEffect(() => {
     const items = scooters.scooters.productTypes.nodes[0].products.nodes[0];
@@ -28,34 +30,63 @@ export const EspecificacionesMincaNew = (scooters) => {
 
   const handleCodigoOCChange = async (e) => {
     e.preventDefault();
-    setCodigoOC(e.target.value);
-    if (e.target.value) {
-      const status = await getOrderStatus(e.target.value);
-      console.log(status);
-      if (status && status === "completed") {
-        console.log(e.target.value);
-        setCurrentItem({
-          ...currentItem,
-          sliderProductos: {
-            ...currentItem.sliderProductos,
-            precioActual: selectedPaymentOption,
-          },
-        });
+    const code = e.target.value;
+    if (secondPayment) {
+      if (code) {
+        const status = await getOrderStatus(code);
+        console.log(status);
+        if (status && status === "completed") {
+          console.log(e.target.value);
+          setSecondPayment(true);
+          setCurrentItem((prevItem) => ({
+            ...prevItem,
+            sliderProductos: {
+              ...prevItem.sliderProductos,
+              precioActual: selectedPaymentOption.replace(" second", ""),
+            },
+            stockStatus: "IN_STOCK",
+          }));
+          setMessage("")
+        } else {
+          setMessage("Codigo no valido");
+        }
+      } else {
+        setMessage("Debes escribir el codigo de la factura");
       }
+    } else {
+      setMessage("Debes seleccionar el segundo pago");
     }
   };
 
+
   const handlePaymentOptionChange = (e) => {
     e.preventDefault();
-    setSelectedPaymentOption(e.target.value);
+    const paymentOption = e.target.value;
+    setSelectedPaymentOption(paymentOption);
     setCurrentItem({
       ...currentItem,
       sliderProductos: {
         ...currentItem.sliderProductos,
-        precioActual: e.target.value,
+        precioActual: paymentOption,
       },
       stockStatus: "IN_STOCK",
     });
+    setMessage("");
+  };
+
+  const handlePaymentSecondOption = (e) => {
+    e.preventDefault();
+    const secondPaymentOption = e.target.value;
+    setSecondPayment(true);
+    setSelectedPaymentOption(secondPaymentOption);
+    setCurrentItem({
+      ...currentItem,
+      sliderProductos: {
+        ...currentItem.sliderProductos,
+        precioActual: secondPaymentOption.replace(" second", ""),
+      },
+    });
+    setMessage("");
   };
 
   return (
@@ -120,17 +151,16 @@ export const EspecificacionesMincaNew = (scooters) => {
                       <div className="ml-3 grid h-[50px] w-full place-items-center justify-start">
                         <label className="radio-container mr-4">
                           <input
-                            onSubmit={(e) => e.preventDefault()}
                             type="radio"
                             name="paymentOption"
-                            value="$1.125.000"
-                            checked={selectedPaymentOption === "$1.125.000"}
+                            value="$1.050.000"
+                            checked={selectedPaymentOption === "$1.050.000"}
                             onChange={handlePaymentOptionChange}
                             className="radio-input mr-2"
                           />
                           <div className="flex items-center justify-start">
                             <span className="radio-custom"></span>
-                            <p>Pago parcial $1.125.000</p>
+                            <p>Pago parcial $1.050.000</p>
                           </div>
                         </label>
                       </div>
@@ -142,17 +172,16 @@ export const EspecificacionesMincaNew = (scooters) => {
                       <div className="ml-3 grid h-[50px] w-full place-items-center justify-start">
                         <label className="radio-container mr-4">
                           <input
-                            onSubmit={(e) => e.preventDefault()}
                             type="radio"
                             name="paymentOption"
-                            value="$1.125.000"
-                            checked={selectedPaymentOption === "$1.125.000"}
-                            onChange={handlePaymentOptionChange}
+                            value="$1.050.000 second"
+                            checked={selectedPaymentOption === "$1.050.000 second"}
+                            onChange={handlePaymentSecondOption}
                             className="radio-input mr-2"
                           />
                           <div className="flex items-center justify-start">
                             <span className="radio-custom"></span>
-                            <p>Segundo pago $1.125.000</p>
+                            <p>Segundo pago $1.050.000</p>
                           </div>
                         </label>
                       </div>
@@ -161,9 +190,7 @@ export const EspecificacionesMincaNew = (scooters) => {
                         <div className="flex items-center justify-start gap-5">
                           <p>Número de O/C:</p>
                           <input
-                            onSubmit={(e) => e.preventDefault()}
-                            type="text"
-                            value={codigoOC}
+                            type="number"
                             onChange={handleCodigoOCChange}
                             className="w-[50%] rounded-[5px] border-[1px] border-[#464646] p-2 text-[12px]"
                             placeholder="Añádelo aquí."
@@ -173,29 +200,30 @@ export const EspecificacionesMincaNew = (scooters) => {
                     </div>
                   </div>
 
-                  <div className="mb-3 h-auto w-full rounded-[10px] border-[1px] border-[#464646] bg-[#F0F1EB]">
+                  {/* <div className="mb-3 h-auto w-full rounded-[10px] border-[1px] border-[#464646] bg-[#F0F1EB]">
                     <div className="flex flex-col items-start">
                       <div className="ml-3 grid h-[50px] w-full place-items-center justify-start">
                         <label className="radio-container mr-4">
                           <input
-                            onSubmit={(e) => e.preventDefault()}
                             type="radio"
                             name="paymentOption"
-                            value="$2.250.000"
-                            checked={selectedPaymentOption === "$2.250.000"}
+                            value="$2.100.000"
+                            checked={selectedPaymentOption === "$2.100.000"}
                             onChange={handlePaymentOptionChange}
                             className="radio-input mr-2"
                           />
                           <div className="flex items-center justify-start">
                             <span className="radio-custom"></span>
-                            <p>Pago completo $2.250.000</p>
+                            <p>Pago completo $2.100.000</p>
                           </div>
                         </label>
                       </div>
                     </div>
-                  </div>
+                  </div> */}
                 </form>
               )}
+              {message && <p className="text-xs">{message}</p>}
+
             </div>
           </div>
 
