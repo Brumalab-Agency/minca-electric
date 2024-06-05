@@ -206,12 +206,12 @@ export async function getOrderDetails(orderId) {
 		const response = await axios.get(url)
 
         if (response.status !== 200) {
-            throw new Error('Failed to fetch order details');
+            return
         }
 
         return response.data.orderDetails;
     } catch (error) {
-        throw new Error('Error fetching order details');
+        return
     }
 }
 
@@ -229,7 +229,7 @@ export async function getOrderStatus(id) {
         const response = await getOrderDetails(orderId);
 		responseData = response.status;
     } catch (error) {
-        return error
+        return
     }
 
     return responseData;
