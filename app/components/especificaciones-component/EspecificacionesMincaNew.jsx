@@ -9,8 +9,8 @@ import { Testimonios } from "../testimonio/Testimonios";
 import { useState, useEffect, useCallback } from "react";
 import debounce from 'lodash.debounce';
 import TooltipEspecificaciones from "./TooltipEspecificaciones";
-import PoliticasGarantia from "../manuales/politicaGarantia";
 import { getOrderStatus } from "@/utils/checkout/utilsCheckout";
+import PoliticasGarantia from "../manuales/PoliticaGarantia";
 
 export const EspecificacionesMincaNew = (scooters) => {
   const [codigoOC, setCodigoOC] = useState("");
