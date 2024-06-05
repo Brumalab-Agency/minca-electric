@@ -7,12 +7,14 @@ import { useEffect } from "react";
 const YourOrderPayment = ({ cart }) => {
 
   const shippingPrice = sessionStorage.getItem("shippingPrice");
+  parseInt(shippingPrice, 10);
 
-  const separadorDeMiles = (numero) => {
+
+  /* const separadorDeMiles = (numero) => {
     let partesNumero = numero.toString().split(".");
     partesNumero[0] = partesNumero[0].replace(/\B(?=(\d{3})+(?!\d))/g, ".");
     return partesNumero.join(".");
-  };
+  }; */
   
 
   return (
@@ -58,8 +60,8 @@ const YourOrderPayment = ({ cart }) => {
                 </td>
                 <td className="woo-next-checkout-total text-xl font-normal lg:hidden"></td>
                 <td className="woo-next-checkout-total text-right">
-                  {separadorDeMiles(cart?.cartItems?.[0]?.currency ?? "")}
-                  {shippingPrice}
+                  {cart?.cartItems?.[0]?.currency ?? ""}
+                  {shippingPrice.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".")}
                 </td>
               </tr>
               {/*Total*/}
@@ -74,8 +76,8 @@ const YourOrderPayment = ({ cart }) => {
                 
                 <td className="woo-next-checkout-total text-xl font-normal lg:hidden"></td>
                 <td className="woo-next-checkout-total text-right text-xl font-bold">
-                  {separadorDeMiles(cart?.cartItems?.[0]?.currency ?? "")}
-                  {cart?.totalPrice}
+                  {cart?.cartItems?.[0]?.currency ?? ""}
+                  {cart?.totalPrice.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".")}
                 </td>
               </tr>
               {/* 				<tr>

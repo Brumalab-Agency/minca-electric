@@ -2,6 +2,7 @@ import axios from 'axios';
 import { NextResponse } from 'next/server';
 import WooCommerceRestApi from '@woocommerce/woocommerce-rest-api';
 import { sendEmail } from '@/utils/email/sendEmail';
+import { sendEmailAbandoned } from "@/utils/email/sendEmail";
 
 const api = new WooCommerceRestApi({
   url: process.env.NEXT_PUBLIC_WORDPRESS_SITE_URL,
@@ -27,14 +28,15 @@ export async function POST(request) {
         },
       });
       const payment = response.data;
+      const input = payment.metadata.input;
+      const cart = payment.metadata.cart;
 
       if(payment.status === 'approved') {
         const data = {
           status: "completed"
         };
         const idOrderWoocomerce = payment.metadata.id_complete;
-        const input = payment.metadata.input;
-        const cart = payment.metadata.cart;
+        
         await api.put(`orders/${idOrderWoocomerce}`, data);
         await sendEmail(input, cart, idOrderWoocomerce);
       }
