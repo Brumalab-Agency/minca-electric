@@ -1,13 +1,10 @@
-import { Img } from "@react-email/components";
+import React from 'react';
 
-function EmailNewsLetter() {
+export const EmailNewsLetter = () => {
     return (
         <div>
-            <Img src="/public/News-Letter/suscripcion.jpg" alt="Sub" />
-            <p>Gracias por suscribirse a nuestro boletin de noticias</p>
+            <img src="https://test.mincaelectric.com/wp-content/uploads/2024/06/suscripcion.jpg" alt="Subscription" />
         </div>
     )
-  }
-  
-  export default EmailNewsLetter
-  
+}
+

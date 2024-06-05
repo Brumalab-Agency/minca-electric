@@ -1,4 +1,4 @@
-import EmailNewsLetter from "@/components/resend/email-news-letter";
+import { EmailNewsLetter } from "@/components/resend/email-news-letter";
 import { NextResponse } from "next/server";
 import { Resend } from "resend";
 
