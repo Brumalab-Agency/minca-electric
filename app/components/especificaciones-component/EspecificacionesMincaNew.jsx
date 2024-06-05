@@ -17,6 +17,7 @@ export const EspecificacionesMincaNew = (scooters) => {
   const [selectedPaymentOption, setSelectedPaymentOption] = useState("");
   const [currentItem, setCurrentItem] = useState(scooters.scooters.productTypes.nodes[0].products.nodes[0]);
   const [secondPayment, setSecondPayment] = useState(false);
+  const [firstPayment, setFirstPayment] = useState(false)
   const [message, setMessage] = useState("");
 
   const garantiaUrl = "https://test.mincaelectric.com/wp-content/uploads/2024/05/POLITICAS-DE-GARANTIA.pdf";
@@ -31,10 +32,9 @@ export const EspecificacionesMincaNew = (scooters) => {
   const handleCodigoOCChange = async (e) => {
     e.preventDefault();
     const code = e.target.value;
-    if (secondPayment) {
+    if (selectedPaymentOption) {
       if (code) {
         const status = await getOrderStatus(code);
-        console.log(status);
         if (status && status === "completed") {
           console.log(e.target.value);
           setSecondPayment(true);
@@ -44,7 +44,6 @@ export const EspecificacionesMincaNew = (scooters) => {
               ...prevItem.sliderProductos,
               precioActual: selectedPaymentOption.replace(" second", ""),
             },
-            stockStatus: "IN_STOCK",
           }));
           setMessage("")
         } else {
@@ -62,6 +61,7 @@ export const EspecificacionesMincaNew = (scooters) => {
   const handlePaymentOptionChange = (e) => {
     e.preventDefault();
     const paymentOption = e.target.value;
+    setFirstPayment(true)
     setSelectedPaymentOption(paymentOption);
     setCurrentItem({
       ...currentItem,
@@ -69,7 +69,6 @@ export const EspecificacionesMincaNew = (scooters) => {
         ...currentItem.sliderProductos,
         precioActual: paymentOption,
       },
-      stockStatus: "IN_STOCK",
     });
     setMessage("");
   };
@@ -77,7 +76,6 @@ export const EspecificacionesMincaNew = (scooters) => {
   const handlePaymentSecondOption = (e) => {
     e.preventDefault();
     const secondPaymentOption = e.target.value;
-    setSecondPayment(true);
     setSelectedPaymentOption(secondPaymentOption);
     setCurrentItem({
       ...currentItem,
@@ -137,7 +135,7 @@ export const EspecificacionesMincaNew = (scooters) => {
 
               <hr className="my-4 border-[#464646]" />
 
-              {currentItem?.title === "Scooter Eléctrico Minca 350W" && (
+              {on_back_order && (
                 <form onSubmit={(e) => e.preventDefault()}>
                   <div className="mb-4 flex items-center space-x-2">
                     <h4 className="inline-block text-xl font-semibold">
@@ -234,6 +232,7 @@ export const EspecificacionesMincaNew = (scooters) => {
                 key={currentItem?.databaseId}
                 producto={currentItem}
                 clases="lg:w-[80%] w-full"
+                partialPayment={firstPayment || secondPayment}
               />
             </div>
           </div>
