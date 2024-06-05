@@ -9,7 +9,7 @@ import { Testimonios } from "../testimonio/Testimonios";
 import { useState, useEffect, useCallback } from "react";
 import debounce from 'lodash.debounce';
 import TooltipEspecificaciones from "./TooltipEspecificaciones";
-import PoliticaGarantia from "../manuales/politicaGarantia";
+import PoliticasGarantia from "../manuales/politicaGarantia";
 import { getOrderStatus } from "@/utils/checkout/utilsCheckout";
 
 export const EspecificacionesMincaNew = (scooters) => {
@@ -258,7 +258,7 @@ export const EspecificacionesMincaNew = (scooters) => {
           />
           <div className="mb-4 flex items-center justify-around space-x-2">
             <DonwLoadManual manualMinca={manualMinca} item={currentItem} />
-            <PoliticaGarantia garantia={garantiaUrl} item={currentItem} />
+            <PoliticasGarantia garantia={garantiaUrl} item={currentItem} />
           </div>
         </div>
       </div>
