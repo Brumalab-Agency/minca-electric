@@ -1,6 +1,7 @@
 import { ubuntu, manrope } from "@/ui/fonts";
 import Link from "next/link";
 import TooltipScooter from "./TooltipScooter";
+import TooltipEspecificaciones from "../especificaciones-component/TooltipEspecificaciones";
 
 const CardHeroSingleScooter = ({ scooters }) => {
   const singleScooter = scooters;
@@ -38,6 +39,15 @@ const CardHeroSingleScooter = ({ scooters }) => {
               </small>
             </div>
           </div>
+
+          {item.node.sliderProductos.nombreProducto === paths[0] &&
+          <div className="flex items-center space-x-2">
+            <h4 className="text-white inline-block text-xl font-semibold">
+              Preventa
+            </h4>
+            <TooltipEspecificaciones tooltips={"si"} />
+          </div>
+          }
 
           <div>
             <div className="flex justify-between">

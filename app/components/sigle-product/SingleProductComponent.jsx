@@ -4,6 +4,7 @@ import { CardEspecifications } from "app/components/carruseles/CardEspecificatio
 import { Boton } from "app/components/botones/Boton";
 import Link from "next/link";
 import Modal3d from "../modal3d/Modal3d";
+import TooltipEspecificaciones from "../especificaciones-component/TooltipEspecificaciones";
 
 export const SingleProductComponent = ({ scooters }) => {
   const productosScooters = scooters;
@@ -141,6 +142,12 @@ export const SingleProductComponent = ({ scooters }) => {
                   </p>
                   <p className="underline">Revisa si calificas</p>
                 </Link> */}
+                <div className="flex items-center space-x-2">
+                    <h4 className="inline-block text-xl font-semibold">
+                      Preventa
+                    </h4>
+                    <TooltipEspecificaciones tooltips={"si"} />
+                  </div>
                 <div className="pt-8 ">
                   <Modal3d url_3d={item.node.sliderProductos.url3d} />
                 </div>

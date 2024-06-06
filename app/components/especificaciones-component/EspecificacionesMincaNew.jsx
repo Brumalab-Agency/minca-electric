@@ -11,6 +11,7 @@ import debounce from 'lodash.debounce';
 import TooltipEspecificaciones from "./TooltipEspecificaciones";
 import { getOrderStatus } from "@/utils/checkout/utilsCheckout";
 import PoliticasGarantia from "../manuales/PoliticaGarantia";
+import TooltipPresale from "./TooltipPresale";
 
 export const EspecificacionesMincaNew = (scooters) => {
   const [codigoOC, setCodigoOC] = useState("");
@@ -117,7 +118,8 @@ export const EspecificacionesMincaNew = (scooters) => {
                   className={`${manrope.className} text-[24px] font-bold text-[#111111] lg:text-[26px]`}
                 >
                   <p className="text-[14px]">Ahora</p>
-                  {currentItem?.sliderProductos.precioActual}
+                  {/* {currentItem?.sliderProductos.precioActual} */}
+                  $2.100.000
                 </div>
                 <span className="items-center justify-center rounded-full bg-[#FF3333] bg-opacity-10 px-2.5 py-0.5 text-[#FF3333] lg:inline-flex lg:h-8 lg:px-[14px] lg:py-[6px]">
                   <p
@@ -193,12 +195,12 @@ export const EspecificacionesMincaNew = (scooters) => {
                             className="w-[50%] rounded-[5px] border-[1px] border-[#464646] p-2 text-[12px]"
                             placeholder="Añádelo aquí."
                           />
+                          <TooltipPresale tooltips="Si ya realizaste tu primer pago, ingresa tu orden de compra para pagar el 50% restante" />
                         </div>
                       </div>
                     </div>
                   </div>
-
-                  {/* <div className="mb-3 h-auto w-full rounded-[10px] border-[1px] border-[#464646] bg-[#F0F1EB]">
+                  <div className="mb-3 h-auto w-full rounded-[10px] border-[1px] border-[#464646] bg-[#F0F1EB]">
                     <div className="flex flex-col items-start">
                       <div className="ml-3 grid h-[50px] w-full place-items-center justify-start">
                         <label className="radio-container mr-4">
@@ -217,7 +219,7 @@ export const EspecificacionesMincaNew = (scooters) => {
                         </label>
                       </div>
                     </div>
-                  </div> */}
+                  </div>
                 </form>
               )}
               {message && <p className="text-xs">{message}</p>}
