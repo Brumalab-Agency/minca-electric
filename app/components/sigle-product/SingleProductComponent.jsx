@@ -142,12 +142,14 @@ export const SingleProductComponent = ({ scooters }) => {
                   </p>
                   <p className="underline">Revisa si calificas</p>
                 </Link> */}
+                {item.node.sliderProductos.nombreProducto === paths[0] &&
                 <div className="flex items-center space-x-2">
                     <h4 className="inline-block text-xl font-semibold">
                       Preventa
                     </h4>
                     <TooltipEspecificaciones tooltips={"si"} />
                   </div>
+                }
                 <div className="pt-8 ">
                   <Modal3d url_3d={item.node.sliderProductos.url3d} />
                 </div>
