@@ -154,7 +154,7 @@ const devoluciones =
             <div>
               <img
                 className="h-auto w-[310px] lg:h-auto lg:w-[512px]"
-                src="/sigleProduct/scooter-single-product2.png"
+                src="/sigleProduct/minca-800/minca electric patineta plegada.png"
                 alt="scooter minca 800w"
               />
             </div>

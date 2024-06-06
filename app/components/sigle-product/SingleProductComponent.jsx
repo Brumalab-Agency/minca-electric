@@ -4,6 +4,7 @@ import { CardEspecifications } from "app/components/carruseles/CardEspecificatio
 import { Boton } from "app/components/botones/Boton";
 import Link from "next/link";
 import Modal3d from "../modal3d/Modal3d";
+import TooltipEspecificaciones from "../especificaciones-component/TooltipEspecificaciones";
 
 export const SingleProductComponent = ({ scooters }) => {
   const productosScooters = scooters;

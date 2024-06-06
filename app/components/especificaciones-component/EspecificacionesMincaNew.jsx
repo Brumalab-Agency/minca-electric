@@ -3,20 +3,32 @@ import { manrope, ubuntu } from "@/ui/fonts";
 import AddToCart from "../cart/AddToCart";
 import ReactImagenGalleryLupaEspecificaciones from "../react-image-gallery/ReactImagenGalleryLupaEspecificaciones";
 import { TablaEspecificaciones } from "./TablaEspecificaciones";
-import Link from "next/link";
 import DonwLoadManual from "../manuales/DonwLoadManual";
 import { Acordion } from "../reusable/Acordion";
 import { Testimonios } from "../testimonio/Testimonios";
-import { useState } from "react";
+import { useState, useEffect, useCallback } from "react";
+import debounce from 'lodash.debounce';
 import TooltipEspecificaciones from "./TooltipEspecificaciones";
+import { getOrderStatus } from "@/utils/checkout/utilsCheckout";
 import PoliticasGarantia from "../manuales/PoliticaGarantia";
 import Image from "next/image";
 
-export const EspecificacionesMincaNew = async (scooters) => {
+export const EspecificacionesMincaNew = (scooters) => {
   const [codigoOC, setCodigoOC] = useState("");
+  const [selectedPaymentOption, setSelectedPaymentOption] = useState("");
+  const [currentItem, setCurrentItem] = useState(scooters.scooters.productTypes.nodes[0].products.nodes[0]);
+  const [secondPayment, setSecondPayment] = useState(false);
+  const [firstPayment, setFirstPayment] = useState(false)
+  const [message, setMessage] = useState("");
 
-  const garantiaUrl =
-    "https://test.mincaelectric.com/wp-content/uploads/2024/05/POLITICAS-DE-GARANTIA.pdf";
+  const garantiaUrl = "https://test.mincaelectric.com/wp-content/uploads/2024/05/POLITICAS-DE-GARANTIA.pdf";
+  const manualMinca = currentItem.sliderProductos.manualMinca.mediaItemUrl;
+  const on_back_order = currentItem.stockStatus === "ON_BACKORDER";
+
+  useEffect(() => {
+    const items = scooters.scooters.productTypes.nodes[0].products.nodes[0];
+    setCurrentItem(items);
+  }, [scooters]);
 
   const handleCodigoOCChange = (e) => {
     setCodigoOC(e.target.value);
@@ -40,7 +52,7 @@ export const EspecificacionesMincaNew = async (scooters) => {
     <div className="EspecificacionesAccesorios Productos-SIMPLES">
       <div className="justify-between p-4 lg:flex lg:justify-start lg:px-[100px] lg:py-[50px]">
         {/* Accesorios */}
-        <ReactImagenGalleryLupaEspecificaciones items={item} />
+        <ReactImagenGalleryLupaEspecificaciones items={currentItem} />
         <div className="lg:w-[50%]">
           {/* Título y descripción */}
           <div className="flex justify-between lg:ml-7">
@@ -48,38 +60,39 @@ export const EspecificacionesMincaNew = async (scooters) => {
               <h2
                 className={`${manrope.className} mb-1 text-[24px] font-bold uppercase text-[#111111] lg:text-[32px] lg:leading-[28px]`}
               >
-                {item?.title}
+                {currentItem?.title}
               </h2>
               <p
                 className={`${manrope.className} mb-1 text-[12px] font-normal uppercase text-[#111111] lg:mt-4 lg:text-[26px] lg:font-medium`}
               >
-                {item?.sliderProductos.subtitulo}
+                {currentItem?.sliderProductos.subtitulo}
               </p>
               <div className="flex items-center gap-3 lg:mt-6 lg:gap-4">
                 <div
                   className={`${manrope.className} text-[24px] font-bold text-[#111111]/60 lg:text-[26px]`}
                 >
                   <p className="text-[14px]">Antes</p>
-                  <del>{item?.sliderProductos.precioRebajado}</del>
+                  <del>{currentItem?.sliderProductos.precioRebajado}</del>
                 </div>
                 <div
                   className={`${manrope.className} text-[24px] font-bold text-[#111111] lg:text-[26px]`}
                 >
                   <p className="text-[14px]">Ahora</p>
-                  {item?.sliderProductos.precioActual}
+                  {/* {currentItem?.sliderProductos.precioActual} */}
+                  $2.100.000
                 </div>
                 <span className="items-center justify-center rounded-full bg-[#FF3333] bg-opacity-10 px-2.5 py-0.5 text-[#FF3333] lg:inline-flex lg:h-8 lg:px-[14px] lg:py-[6px]">
                   <p
                     className={`${manrope.className} whitespace-nowrap text-sm`}
                   >
-                    {item?.sliderProductos.descuento}
+                    {currentItem?.sliderProductos.descuento}
                   </p>
                 </span>
               </div>
               <p
                 className={`${ubuntu.className} text-[14px] font-normal leading-[15px] text-[#42454A] lg:mt-5 lg:w-[90%] lg:text-[16px] lg:leading-[25px]`}
               >
-                {item?.sliderProductos.description}
+                {currentItem?.sliderProductos.description}
               </p>
 
               <addi-widget price={parsePrice(item?.sliderProductos.precioActual)} ally-slug="mincaelectric-ecommerce"></addi-widget>
@@ -97,40 +110,42 @@ export const EspecificacionesMincaNew = async (scooters) => {
                     <TooltipEspecificaciones tooltips={"si"} />
                   </div>
 
-
                   <div className="mb-3 h-auto w-full rounded-[10px] border-[1px] border-[#464646] bg-[#F0F1EB]">
                     <div className="flex flex-col items-start">
                       <div className="ml-3 grid h-[50px] w-full place-items-center justify-start">
                         <label className="radio-container mr-4">
                           <input
                             type="radio"
-                            name="pagoParcial"
-                            value="1125000"
+                            name="paymentOption"
+                            value="$1.050.000"
+                            checked={selectedPaymentOption === "$1.050.000"}
+                            onChange={handlePaymentOptionChange}
                             className="radio-input mr-2"
                           />
                           <div className="flex items-center justify-start">
                             <span className="radio-custom"></span>
-                            <p>Pago parcial $1.125.000</p>
+                            <p>Pago parcial $1.050.000</p>
                           </div>
                         </label>
                       </div>
                     </div>
                   </div>
 
-                  
                   <div className="mb-3 h-auto w-full rounded-[10px] border-[1px] border-[#464646] bg-[#F0F1EB]">
                     <div className="flex flex-col items-start">
                       <div className="ml-3 grid h-[50px] w-full place-items-center justify-start">
                         <label className="radio-container mr-4">
                           <input
                             type="radio"
-                            name="segundoPago"
-                            value="1125000"
+                            name="paymentOption"
+                            value="$1.050.000 second"
+                            checked={selectedPaymentOption === "$1.050.000 second"}
+                            onChange={handlePaymentSecondOption}
                             className="radio-input mr-2"
                           />
                           <div className="flex items-center justify-start">
                             <span className="radio-custom"></span>
-                            <p>Segundo pago $1.125.000</p>
+                            <p>Segundo pago $1.050.000</p>
                           </div>
                         </label>
                       </div>
@@ -139,26 +154,26 @@ export const EspecificacionesMincaNew = async (scooters) => {
                         <div className="flex items-center justify-start gap-5">
                           <p>Número de O/C:</p>
                           <input
-                            type="text"
-                            value={codigoOC}
+                            type="number"
                             onChange={handleCodigoOCChange}
                             className="w-[50%] rounded-[5px] border-[1px] border-[#464646] p-2 text-[12px]"
                             placeholder="Añádelo aquí."
                           />
+                          <TooltipPresale tooltips="Si ya realizaste tu primer pago, ingresa tu orden de compra para pagar el 50% restante" />
                         </div>
                       </div>
                     </div>
                   </div>
-
-                  
                   <div className="mb-3 h-auto w-full rounded-[10px] border-[1px] border-[#464646] bg-[#F0F1EB]">
                     <div className="flex flex-col items-start">
                       <div className="ml-3 grid h-[50px] w-full place-items-center justify-start">
                         <label className="radio-container mr-4">
                           <input
                             type="radio"
-                            name="pagoCompleto"
-                            value="2100000"
+                            name="paymentOption"
+                            value="$2.100.000"
+                            checked={selectedPaymentOption === "$2.100.000"}
+                            onChange={handlePaymentOptionChange}
                             className="radio-input mr-2"
                           />
                           <div className="flex items-center justify-start">
@@ -169,9 +184,10 @@ export const EspecificacionesMincaNew = async (scooters) => {
                       </div>
                     </div>
                   </div>
-                </>
+                </form>
               )}
-            </div> */}
+              {message && <p className="text-xs">{message}</p>}
+
             </div>
           </div>
 
@@ -179,9 +195,10 @@ export const EspecificacionesMincaNew = async (scooters) => {
           <div className="contador-btnAddCart mt-4 flex w-full items-center gap-4 lg:ml-7 lg:w-[85%] 2xl:w-[70%]">
             <div className="w-full flex-col justify-center lg:flex">
               <AddToCart
-                key={item?.databaseId}
-                producto={item}
+                key={currentItem?.databaseId}
+                producto={currentItem}
                 clases="lg:w-[80%] w-full"
+                partialPayment={firstPayment || secondPayment}
               />
             </div>
           </div>
@@ -193,9 +210,7 @@ export const EspecificacionesMincaNew = async (scooters) => {
         <div className="h-auto w-full px-4 pb-10 lg:pl-[16px] lg:pr-[96px]">
           <div className="mt-16 flex items-center justify-between lg:mt-[80px]">
             <div className="lg:w-full">
-              <h2 className="border-b-2 border-[#111]">
-                Información adicional
-              </h2>
+              <h2 className="border-b-2 border-[#111]">Información adicional</h2>
             </div>
           </div>
           <video
@@ -206,72 +221,15 @@ export const EspecificacionesMincaNew = async (scooters) => {
             muted
             loop
           />
-          <div className="mb-4 flex flex-col items-center justify-center space-y-2  sm:flex-row sm:space-x-2 sm:space-y-0">
-            <div className="w-full justify-center sm:w-auto ">
-              <DonwLoadManual manualMinca={manualMinca} item={item} />
-            </div>
-            <div className="w-full justify-center sm:w-auto">
-              <PoliticasGarantia garantia={garantiaUrl} item={item} />
-            </div>
+          <div className="mb-4 flex items-center justify-around space-x-2">
+            <DonwLoadManual manualMinca={manualMinca} item={currentItem} />
+            <PoliticasGarantia garantia={garantiaUrl} item={currentItem} />
           </div>
         </div>
       </div>
-      {/* CardAgendaCita */}
-      {/* <div className="CardAgendaCita mb-[70px] bg-[#FAF6FF] p-4 lg:mx-[100px] lg:px-[100px] lg:py-8">
-        <h2
-          className={`${manrope.className} text-[24px] font-bold leading-[30px]`}
-        >
-          AGENDA TU CITA PARA SERVICIO TÉCNICO
-        </h2>
-        <p className={`${manrope.className} text-[20px] font-bold`}>
-          Para mantener tu Scooter en óptimas condiciones, es indispensable
-          realizar el mantenimiento preventivo cada 6 meses o cada 600
-          kilómetros.
-        </p>
-        <div>
-          <ul
-            className={`${manrope.className} ml-[20px] list-disc text-[20px] font-medium`}
-          >
-            <li>
-              Recuerda que durante el primer año es obligatorio dicho
-              mantenimiento para mantener tu garantía Minca.
-            </li>
-            <li>
-              Los Talleres de Minca Electric están a disposición únicamente para
-              los usuarios de las Scooter Minca, para así brindarles la mejor
-              calidad en el servicio post-venta.
-            </li>
-            <li>
-              Los servicios de despinche, ajuste de frenos y tornillería no
-              requieren de agenda previa.
-            </li>
-            <li>El cambio de piezas y repuestos no está incluido.</li>
-            <li>
-              Cualquier repuesto adicional que se requiera, será notificado
-              previamente al cliente vía telefónica o por medio de WhatsApp.
-            </li>
-          </ul>
-        </div>
-        <p className={`${manrope.className} text-[20px] font-medium`}>
-          El comprador debe hacer un mantenimiento semestral o cada 600
-          kilómetros en cualquiera de estos talleres para mantener la Scooter en
-          óptimas condiciones y vigente en garantía.
-          <b>
-            <br />
-            ES DE SUMA IMPORTANCIA MENCIONAR QUE SI NO SE REALIZAN DICHOS
-            MANTENIMIENTOS SEMESTRALES, NO SERÁ EFECTIVA NINGÚN TIPO DE
-            GARANTÍA.
-          </b>
-        </p>
-        <Link href="http://localhost:3000/servicios" className="underline">
-          Conoce nuestros talleres para realizar mantenimientos
-        </Link>
-      </div> */}
       {/* Review */}
       <Testimonios />
       <Acordion clase="mx-0 mb-0" />
     </div>
   );
-
-  return <div>{content}</div>;
 };

@@ -12,6 +12,7 @@ import { Header } from "@/components/home/Header";
 import MarqueeCheckout from "@/components/home/MarqueeCheckout";
 import { handleOtherPaymentMethodCheckout } from "@/utils/checkout/utilsCheckout";
 import { manrope } from "@/ui/fonts";
+import { useBeforeUnload } from "react-use";
 import CardMercadoPago from "@/components/pagoPage/CardMercadoPago";
 import YourOrderPayment from "@/components/checkout/YourOrderPayment";
 import CardAddi from "@/components/pagoPage/CardAddi";
@@ -28,6 +29,8 @@ const PagoMercadoPagoPage = () => {
   const idOrder = searchParams.get("idOrder");
   const [cart, setCart] = useContext(AppContext);
   const [definitivePrice, setDefinitivePrice] = useState(sessionStorage.getItem("price"));
+  const [userData, setData] = useState(sessionStorage.getItem("data"))
+  const [products, setProducts] = useState(sessionStorage.getItem("cart"))
 
   // Update cart's totalPrice when definitivePrice changes
   useEffect(() => {

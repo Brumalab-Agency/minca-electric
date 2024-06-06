@@ -36,7 +36,7 @@ export const PuedeInteresarte = () => {
               <p
                 className={`${manrope.className}text-[#111] text-left text-[20px] font-bold 2xl:text-[24px]`}
               >
-                $2.250.000
+                $2.100.000
               </p>
               <span className="h-[24px] w-[58px] items-center justify-center rounded-full bg-[#FF3333] bg-opacity-10 px-2.5 py-0.5 text-[#FF3333] lg:inline-flex lg:h-7 lg:px-[14px] lg:py-[0px]">
                 <p
@@ -101,13 +101,13 @@ export const PuedeInteresarte = () => {
               <p
                 className={`${manrope.className}text-[#111] text-left text-[20px]  font-bold  2xl:text-[24px]`}
               >
-                $4.275.000
+                $3.800.000
               </p>
               <span className="h-[24px] w-[58px] items-center justify-center rounded-full bg-[#FF3333] bg-opacity-10 px-2.5 py-0.5 text-[#FF3333] lg:inline-flex lg:h-7 lg:px-[14px] lg:py-[0px]">
                 <p
                   className={`${manrope.className} whitespace-nowrap text-[12px] font-semibold `}
                 >
-                  -16%
+                  -20%
                 </p>
               </span>
             </div>
@@ -137,13 +137,13 @@ export const PuedeInteresarte = () => {
               <p
                 className={`${manrope.className}text-[#111] text-left text-[20px]  font-bold  2xl:text-[24px]`}
               >
-                $4.770.000
+                $4.240.000
               </p>
               <span className="h-[24px] w-[58px] items-center justify-center rounded-full bg-[#FF3333] bg-opacity-10 px-2.5 py-0.5 text-[#FF3333] lg:inline-flex lg:h-7 lg:px-[14px] lg:py-[0px]">
                 <p
                   className={`${manrope.className} whitespace-nowrap text-[12px] font-semibold `}
                 >
-                  -16%
+                  -20%
                 </p>
               </span>
             </div>
