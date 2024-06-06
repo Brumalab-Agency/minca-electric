@@ -1,6 +1,6 @@
-import { getAccessToken, makePaymentRequest } from '@/utils/checkout/utilsCheckout';
+import { APP_ENDPOINT } from '@/utils/checkout/constants/endpoints';
+import { getAccessToken } from '@/utils/checkout/utilsCheckout';
 import { NextResponse } from 'next/server';
-
 
 const CLIENT_ID = process.env.CLIENT_ID;
 const CLIENT_SECRET = process.env.CLIENT_SECRET;
@@ -25,13 +25,21 @@ export async function POST(request) {
 
         // Get access token
         const accessToken = await getAccessToken(CLIENT_ID, CLIENT_SECRET);
-        console.log('Access Token:', accessToken);
 
         // Make payment request
-        const result = await makePaymentRequest(accessToken, paymentData);
-        console.log('Payment Response:', result);
+        const response = await fetch(APP_ENDPOINT, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${accessToken}`
+            },
+            body: JSON.stringify(paymentData)
+        });
 
-        return NextResponse.json({ id: result.id });
+        console.log(response)
+    
+
+        return NextResponse.redirect(response.url, 301);
     } catch (error) {
         console.error('Error creating payment request:', error);
         return NextResponse.json({ error: 'Error' }, { status: 500 });

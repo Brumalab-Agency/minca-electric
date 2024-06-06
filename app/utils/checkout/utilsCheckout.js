@@ -253,20 +253,3 @@ export async function getAccessToken(clientId, clientSecret) {
     const data = await response.json();
     return data.access_token;
 }
-
-export async function makePaymentRequest(accessToken, requestBody) {
-
-    const response = await fetch(APP_ENDPOINT, {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-            'Authorization': `Bearer ${accessToken}`
-        },
-        body: JSON.stringify(requestBody)
-    });
-
-	console.log(response.status)
-	console.log(response)
-    const data = await response.text();
-    return data;
-}
