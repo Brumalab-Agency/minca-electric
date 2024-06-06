@@ -119,7 +119,7 @@ export const EspecificacionesMincaNew = (scooters) => {
                 >
                   <p className="text-[14px]">Ahora</p>
                   {/* {currentItem?.sliderProductos.precioActual} */}
-                  $2.100.000
+                  {on_back_order ? "$2.100.000" : currentItem?.sliderProductos.precioActual}
                 </div>
                 <span className="items-center justify-center rounded-full bg-[#FF3333] bg-opacity-10 px-2.5 py-0.5 text-[#FF3333] lg:inline-flex lg:h-8 lg:px-[14px] lg:py-[6px]">
                   <p
