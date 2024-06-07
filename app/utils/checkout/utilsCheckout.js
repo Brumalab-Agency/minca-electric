@@ -253,3 +253,24 @@ export async function getAccessToken(clientId, clientSecret) {
     const data = await response.json();
     return data.access_token;
 }
+
+export async function sendAddiReq(data) {
+	console.log(data)
+	try {
+		console.log(data)
+		const response = await fetch('/api/addi', {
+			method: 'POST',
+			headers: {
+				'Content-Type': 'text/plain'
+			},
+			body: JSON.stringify(data)
+		})
+
+		const dataResponse = response.json()
+
+		return NextResponse({ data: dataResponse })
+	} catch (error) {
+		console.error('Error creating payment request:', error);
+		return error
+	}
+}

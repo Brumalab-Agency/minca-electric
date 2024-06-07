@@ -21,6 +21,7 @@ export async function POST(request) {
             items: body.items,
             client: body.client,
             allyUrlRedirection: body.allyUrlRedirection,
+            geoLocation: body.geoLocation,
         };
 
         // Get access token
@@ -28,16 +29,14 @@ export async function POST(request) {
 
         // Make payment request
         const response = await fetch(APP_ENDPOINT, {
+            mode: 'no-cors',
             method: 'POST',
             headers: {
-                'Content-Type': 'application/json',
+                'Content-Type': 'text/plain',
                 'Authorization': `Bearer ${accessToken}`
             },
             body: JSON.stringify(paymentData)
         });
-
-        console.log(response)
-    
 
         return NextResponse.redirect(response.url, 301);
     } catch (error) {

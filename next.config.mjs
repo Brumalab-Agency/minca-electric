@@ -7,9 +7,13 @@ const nextConfig = {
   async headers() {
     return [
       {
-        source: "/api/(.*)",
+        source: "/api/:path*", // Matches any request to /api/...
 
         headers: [
+          {
+            key: "Acces-Control-Allow-Credentials",
+            value: "true",
+          },
           {
             key: "Access-Control-Allow-Origin",
             value: "*",
@@ -22,7 +26,7 @@ const nextConfig = {
 
           {
             key: "Access-Control-Allow-Headers",
-            value: "Content-Type, Authorization",
+            value: "Authorization, X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version"
           },
         ],
       },

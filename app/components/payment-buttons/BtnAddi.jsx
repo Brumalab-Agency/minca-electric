@@ -1,5 +1,6 @@
 "use client";
 
+import { sendAddiReq } from "@/utils/checkout/utilsCheckout";
 import axios from "axios";
 import { useState, useEffect } from "react";
 
@@ -35,7 +36,7 @@ export const BtnAddi = ({ preciopagar, idOrder }) => {
         },
       },
       allyUrlRedirection: {
-        callbackUrl: "https://www.mincaelectric.com/api/webhooks",
+        callbackUrl: "https://www.mincaelectric.com/api/webhook-addi",
         redirectionUrl: "https://www.mincaelectric.com/gracias-por-tu-compra",
       },
       geoLocation: {
@@ -43,14 +44,7 @@ export const BtnAddi = ({ preciopagar, idOrder }) => {
         longitude: "0"
       }
     };
-
-    try {
-      const response = await axios.post('/api/addi', paymentData);
-      setMessage(`Payment successful: ${response.data.id}`);
-    } catch (error) {
-      console.error('Error creating payment request:', error);
-      setMessage('Error creating payment request');
-    }
+    await sendAddiReq(paymentData);
   };
 
   return (
@@ -63,7 +57,6 @@ export const BtnAddi = ({ preciopagar, idOrder }) => {
         />
         Pagar con Addi
       </button>
-      {message && <p>{message}</p>}
     </div>
   );
 };
