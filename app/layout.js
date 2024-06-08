@@ -62,6 +62,22 @@ export default function RootLayout({ children }) {
              gtag('config', 'G-0J2S3K5ZR5');        
           `}
           </Script>
+          <Script id="metricool-tracker">
+            {`
+              function loadScript(a){
+                var b=document.getElementsByTagName("head")[0],
+                c=document.createElement("script");
+                c.type="text/javascript";
+                c.src="https://tracker.metricool.com/resources/be.js";
+                c.onreadystatechange=a;
+                c.onload=a;
+                b.appendChild(c);
+              }
+              loadScript(function(){
+                beTracker.t({hash:"448e258bc7ec018aeec47365a097b036"});
+              });
+            `}
+          </Script>
         </head>
         <body id="up" className={`${inter.className} m-auto max-w-[2560px]`}>
           <div id="scrollbar"></div>

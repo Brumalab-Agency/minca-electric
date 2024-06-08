@@ -7,6 +7,7 @@ import { useEffect } from "react";
 const YourOrderPayment = ({ cart }) => {
 
   const shippingPrice = sessionStorage.getItem("shippingPrice");
+  const price = sessionStorage.getItem("price");
   parseInt(shippingPrice, 10);
 
 
@@ -77,7 +78,7 @@ const YourOrderPayment = ({ cart }) => {
                 <td className="woo-next-checkout-total text-xl font-normal lg:hidden"></td>
                 <td className="woo-next-checkout-total text-right text-xl font-bold">
                   {cart?.cartItems?.[0]?.currency ?? ""}
-                  {cart?.totalPrice.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".")}
+                  {price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".")}
                 </td>
               </tr>
               {/* 				<tr>
