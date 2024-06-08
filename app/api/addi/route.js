@@ -12,6 +12,8 @@ export async function GET(request) {
 export async function POST(request) {
     try {
         const body = await request.json();
+        console.log(body)
+        console.log(request.headers)
 
         const paymentData = {
             orderId: body.orderId,
@@ -26,17 +28,19 @@ export async function POST(request) {
 
         // Get access token
         const accessToken = await getAccessToken(CLIENT_ID, CLIENT_SECRET);
+        console.log(accessToken)
 
         // Make payment request
         const response = await fetch(APP_ENDPOINT, {
-            mode: 'no-cors',
             method: 'POST',
             headers: {
-                'Content-Type': 'text/plain',
+                'Content-Type': 'application/json',
                 'Authorization': `Bearer ${accessToken}`
             },
             body: JSON.stringify(paymentData)
         });
+
+        console.log(response)
 
         return NextResponse.redirect(response.url, 301);
     } catch (error) {

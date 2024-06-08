@@ -11,10 +11,6 @@ const nextConfig = {
 
         headers: [
           {
-            key: "Acces-Control-Allow-Credentials",
-            value: "true",
-          },
-          {
             key: "Access-Control-Allow-Origin",
             value: "*",
           },
@@ -26,7 +22,7 @@ const nextConfig = {
 
           {
             key: "Access-Control-Allow-Headers",
-            value: "Authorization, X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version"
+            value: "Authorization, Content-Type",
           },
         ],
       },

@@ -1,6 +1,4 @@
 "use client";
-
-import { sendAddiReq } from "@/utils/checkout/utilsCheckout";
 import axios from "axios";
 import { useState, useEffect } from "react";
 
@@ -8,7 +6,6 @@ export const BtnAddi = ({ preciopagar, idOrder }) => {
   const [totalPrice, setDefinitivePrice] = useState(sessionStorage.getItem("price"));
   const [input, setInput] = useState(sessionStorage.getItem("data"));
   const [cart, setCart] = useState(JSON.parse(sessionStorage.getItem("cart")));
-  const [message, setMessage] = useState(null);
 
   const handlePayment = async () => {
     const paymentData = {
@@ -44,7 +41,20 @@ export const BtnAddi = ({ preciopagar, idOrder }) => {
         longitude: "0"
       }
     };
-    await sendAddiReq(paymentData);
+
+    const response = await fetch('/api/addi', {
+      method: 'POST',
+      headers: {
+        'Access-Control-Allow-Origin': '*',
+        'Access-Control-Allow-Headers': 'Access-Control-Allow-Headers, Content-Type, Authorization',
+        'Access-Control-Allow-Methods': '*',
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(paymentData),
+    });
+    
+    const payment = await response.json();
+    console.log(payment);
   };
 
   return (

@@ -15,7 +15,7 @@ const CardAddi = ({ onChange, isChecked }) => {
           />
           <div className="flex items-center justify-start">
             <span className="radio-custom"></span>
-            <p className="grow">Paga a Credito o Debito con PSE con Addi</p>
+            <p className="grow">Paga con Addi</p>
           </div>
         </label>
         <img
