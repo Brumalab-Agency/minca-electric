@@ -11,7 +11,7 @@ import debounce from 'lodash.debounce';
 import TooltipEspecificaciones from "./TooltipEspecificaciones";
 import { getOrderStatus } from "@/utils/checkout/utilsCheckout";
 import PoliticasGarantia from "../manuales/PoliticaGarantia";
-import Image from "next/image";
+import TooltipPresale from "./TooltipPresale";
 
 export const EspecificacionesMincaNew = (scooters) => {
   const [codigoOC, setCodigoOC] = useState("");
@@ -30,25 +30,65 @@ export const EspecificacionesMincaNew = (scooters) => {
     setCurrentItem(items);
   }, [scooters]);
 
-  const handleCodigoOCChange = (e) => {
-    setCodigoOC(e.target.value);
+  const handleCodigoOCChange = async (e) => {
+    e.preventDefault();
+    const code = e.target.value;
+    if (selectedPaymentOption) {
+      if (code) {
+        const status = await getOrderStatus(code);
+        if (status && status === "completed") {
+          console.log(e.target.value);
+          setSecondPayment(true);
+          setCurrentItem((prevItem) => ({
+            ...prevItem,
+            sliderProductos: {
+              ...prevItem.sliderProductos,
+              precioActual: selectedPaymentOption.replace(" second", ""),
+            },
+          }));
+          setMessage("")
+        } else {
+          setMessage("Codigo no valido");
+        }
+      } else {
+        setMessage("Debes escribir el codigo de la factura");
+      }
+    } else {
+      setMessage("Debes seleccionar el segundo pago");
+    }
   };
 
-  const parsePrice = (price) => {
-    let priceStr = price.replace("$", "");
-    priceStr = priceStr.replace(/\./g, "");
-    let priceInt = parseInt(priceStr, 10);
-    return priceInt
-  }
 
-  let content;
+  const handlePaymentOptionChange = (e) => {
+    e.preventDefault();
+    const paymentOption = e.target.value;
+    setFirstPayment(true)
+    setSelectedPaymentOption(paymentOption);
+    setCurrentItem({
+      ...currentItem,
+      sliderProductos: {
+        ...currentItem.sliderProductos,
+        precioActual: paymentOption,
+      },
+    });
+    setMessage("");
+  };
 
-  const items = scooters.scooters.productTypes.nodes[0].products.nodes[0];
-  const item = items;
-  const manualMinca = item?.sliderProductos.manualMinca.mediaItemUrl;
-  const noStock = item?.stockStatus === "OUT_OF_STOCK";
+  const handlePaymentSecondOption = (e) => {
+    e.preventDefault();
+    const secondPaymentOption = e.target.value;
+    setSelectedPaymentOption(secondPaymentOption);
+    setCurrentItem({
+      ...currentItem,
+      sliderProductos: {
+        ...currentItem.sliderProductos,
+        precioActual: secondPaymentOption.replace(" second", ""),
+      },
+    });
+    setMessage("");
+  };
 
-  content = (
+  return (
     <div className="EspecificacionesAccesorios Productos-SIMPLES">
       <div className="justify-between p-4 lg:flex lg:justify-start lg:px-[100px] lg:py-[50px]">
         {/* Accesorios */}
@@ -79,7 +119,7 @@ export const EspecificacionesMincaNew = (scooters) => {
                 >
                   <p className="text-[14px]">Ahora</p>
                   {/* {currentItem?.sliderProductos.precioActual} */}
-                  $2.100.000
+                  {on_back_order ? "$2.100.000" : currentItem?.sliderProductos.precioActual}
                 </div>
                 <span className="items-center justify-center rounded-full bg-[#FF3333] bg-opacity-10 px-2.5 py-0.5 text-[#FF3333] lg:inline-flex lg:h-8 lg:px-[14px] lg:py-[6px]">
                   <p
@@ -95,14 +135,10 @@ export const EspecificacionesMincaNew = (scooters) => {
                 {currentItem?.sliderProductos.description}
               </p>
 
-              <addi-widget price={parsePrice(item?.sliderProductos.precioActual)} ally-slug="mincaelectric-ecommerce"></addi-widget>
+              <hr className="my-4 border-[#464646]" />
 
-              <hr className="mt-5 lg:w-[70%]" />
-              {/* <hr className="my-4 border-[#464646]" />
-
-              
-              {noStock && (
-                <>
+              {on_back_order && (
+                <form onSubmit={(e) => e.preventDefault()}>
                   <div className="mb-4 flex items-center space-x-2">
                     <h4 className="inline-block text-xl font-semibold">
                       Preventa

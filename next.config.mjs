@@ -7,7 +7,7 @@ const nextConfig = {
   async headers() {
     return [
       {
-        source: "/api/:path*", // Matches any request to /api/...
+        source: "/api/(.*)", // Matches any request to /api/...
 
         headers: [
           {

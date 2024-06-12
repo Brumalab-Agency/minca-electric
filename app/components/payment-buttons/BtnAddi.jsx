@@ -45,16 +45,17 @@ export const BtnAddi = ({ preciopagar, idOrder }) => {
     const response = await fetch('/api/addi', {
       method: 'POST',
       headers: {
-        'Access-Control-Allow-Origin': '*',
-        'Access-Control-Allow-Headers': 'Access-Control-Allow-Headers, Content-Type, Authorization',
-        'Access-Control-Allow-Methods': '*',
-        "Content-Type": "application/json"
+        "Content-Type": "text/html"
       },
       body: JSON.stringify(paymentData),
     });
     
-    const payment = await response.json();
-    console.log(payment);
+    const data = await response.json();
+    if (data.url) {
+        window.location.href = data.url;
+    } else {
+        console.error('Redirection URL not provided');
+    }
   };
 
   return (

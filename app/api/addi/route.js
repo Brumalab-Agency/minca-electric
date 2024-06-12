@@ -2,6 +2,7 @@ import { APP_ENDPOINT } from '@/utils/checkout/constants/endpoints';
 import { getAccessToken } from '@/utils/checkout/utilsCheckout';
 import { NextResponse } from 'next/server';
 
+
 const CLIENT_ID = process.env.CLIENT_ID;
 const CLIENT_SECRET = process.env.CLIENT_SECRET;
 
@@ -12,8 +13,6 @@ export async function GET(request) {
 export async function POST(request) {
     try {
         const body = await request.json();
-        console.log(body)
-        console.log(request.headers)
 
         const paymentData = {
             orderId: body.orderId,
@@ -28,21 +27,20 @@ export async function POST(request) {
 
         // Get access token
         const accessToken = await getAccessToken(CLIENT_ID, CLIENT_SECRET);
-        console.log(accessToken)
 
         // Make payment request
         const response = await fetch(APP_ENDPOINT, {
             method: 'POST',
             headers: {
-                'Content-Type': 'application/json',
+                'Content-Type': 'text/html',
                 'Authorization': `Bearer ${accessToken}`
             },
-            body: JSON.stringify(paymentData)
+            body: JSON.stringify(paymentData),
         });
 
-        console.log(response)
+        console.log(response.url)
 
-        return NextResponse.redirect(response.url, 301);
+        return NextResponse.json({ url: response.url })
     } catch (error) {
         console.error('Error creating payment request:', error);
         return NextResponse.json({ error: 'Error' }, { status: 500 });
