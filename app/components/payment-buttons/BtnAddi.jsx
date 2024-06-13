@@ -20,11 +20,11 @@ export const BtnAddi = ({ preciopagar, idOrder }) => {
       })),
       client: {
         idType: "CC",
-        idNumber: "354125896", // Example value, update as needed
+        idNumber: "1034916564", // Example value, update as needed
         firstName: "Juanes", // Example value, update as needed
         lastName: "hernandez", // Example value, update as needed
         email: "jehp01104006@gmail.com", // Example value, update as needed
-        cellphone: "3211236584",  // Example value, update as needed
+        cellphone: "3044245178",  // Example value, update as needed
         cellphoneCountryCode: "+57",
         address: {
           lineOne: "cr 48 156 25 25",
@@ -33,7 +33,7 @@ export const BtnAddi = ({ preciopagar, idOrder }) => {
         },
       },
       allyUrlRedirection: {
-        callbackUrl: "https://www.mincaelectric.com/api/webhook-addi",
+        callbackUrl: "https://35cf-2800-e2-57f-f643-a0de-6b88-6129-c1dc.ngrok-free.app/api/webhook-addi",
         redirectionUrl: "https://www.mincaelectric.com/gracias-por-tu-compra",
       },
       geoLocation: {
@@ -59,8 +59,8 @@ export const BtnAddi = ({ preciopagar, idOrder }) => {
   };
 
   return (
-    <div className="m-auto h-auto w-full lg:w-[300px]">
-      <button onClick={handlePayment} className="btn-addi">
+    <div className="m-auto h-auto w-full lg:w-[300px] ">
+      <button onClick={handlePayment}>
       <img
           className="h-auto w-[50px] mt-2 -ml-3 pr-3"
           src="/pagoPage/addi_checkout.png"

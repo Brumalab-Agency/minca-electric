@@ -3,6 +3,14 @@ import { NextResponse } from 'next/server';
 import WooCommerceRestApi from '@woocommerce/woocommerce-rest-api';
 import { sendEmail } from '@/utils/email/sendEmail';
 
+const api = new WooCommerceRestApi({
+  url: process.env.NEXT_PUBLIC_WORDPRESS_SITE_URL,
+  consumerKey: process.env.WC_CONSUMER_KEY,
+  consumerSecret: process.env.WC_CONSUMER_SECRET,
+  version: 'wc/v3',
+});
+
+
 
 export async function GET(request) {
   return NextResponse.json({ message: 'Soy el servidor webhook' });
@@ -10,35 +18,34 @@ export async function GET(request) {
 
 export async function POST(request) {
   try {
-    const data = request.json();
-    const AuthToken = data.AuthToken
+    console.log(request.headers)
+    const data = await request.json();
+    console.log(data)
     const body = {
         orderId: data.id_order,
         applicationId: data.applicationId,
-        approvedAmoun: approvedAmount,
+        approvedAmoun: data.approvedAmount,
         currency: "COP",
         status: data.status,
+        statusTimestamp: data.statusTimestamp,
       }
-    if (body.status === 'APPROVED' && id) {
+    if (body.status === 'APPROVED') {
       const response = await axios.post(process.env.SERVER_ADDI_URL, body, {
         headers: {
           "Content-type": "application/json",
-          "Authorization": `Bearer ${AuthToken}`,
         },
       });
-      const input = data.metadata.input;
-      const cart = data.metadata.cart;
+      // const input = data.metadata.input;
+      // const cart = data.metadata.cart;
 
-      if(response.status === 'APPROVED') {
-        const data = {
-          status: "completed"
-        };
-        const idOrderWoocomerce = payment.metadata.id_complete;
+      const dataWoocommerce = {
+        status: "completed"
+      };
+      const idOrderWoocomerce = body.orderId;
         
-        await api.put(`orders/${idOrderWoocomerce}`, data);
-        await sendEmail(input, cart, idOrderWoocomerce);
+      await api.put(`orders/${idOrderWoocomerce}`, dataWoocommerce);
+      // await sendEmail(input, cart, idOrderWoocomerce);
       }
-    }
     return NextResponse.json({ ok: true }, { status: 200 });
   } catch (error) {
     console.error('Error en el webhook:', error);
