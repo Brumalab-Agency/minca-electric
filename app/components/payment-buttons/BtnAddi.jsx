@@ -4,14 +4,15 @@ import { useState, useEffect } from "react";
 
 export const BtnAddi = ({ preciopagar, idOrder }) => {
   const [totalPrice, setDefinitivePrice] = useState(sessionStorage.getItem("price"));
-  const [input, setInput] = useState(sessionStorage.getItem("data"));
+  const [input, setInput] = useState(JSON.parse(sessionStorage.getItem("data")));
   const [cart, setCart] = useState(JSON.parse(sessionStorage.getItem("cart")));
+  const shiipinPrice = sessionStorage.getItem("shippingPrice")
 
   const handlePayment = async () => {
     const paymentData = {
       orderId: idOrder,
       totalAmount: totalPrice,
-      shippingAmount: "50000.0", // Example value, update as needed
+      shippingAmount: shiipinPrice,
       currency: "COP",
       items: cart.map(item => ({
         sku: item.sku,
@@ -20,15 +21,15 @@ export const BtnAddi = ({ preciopagar, idOrder }) => {
       })),
       client: {
         idType: "CC",
-        idNumber: "1034916564", // Example value, update as needed
-        firstName: "Juanes", // Example value, update as needed
-        lastName: "hernandez", // Example value, update as needed
-        email: "jehp01104006@gmail.com", // Example value, update as needed
-        cellphone: "3044245178",  // Example value, update as needed
+        idNumber: input.shipping.NumeroIdentificacion || input.billing.NumeroIdentificacion, 
+        firstName: input.shipping.Nombre || input.billing.Nombre, 
+        lastName: input.shipping.Apellido || input.billing.Apellido,
+        email: input.shipping.Email || input.billing.Email,
+        cellphone: input.shipping.Telefono || input.billing.Telefono,
         cellphoneCountryCode: "+57",
         address: {
-          lineOne: "cr 48 156 25 25",
-          city: "Bogotá D.C",
+          lineOne: input.shipping.Direccion1 || input.billing.Direccion1,
+          city: input.shipping.Ciudad || input.billing.Ciudad,
           country: "CO",
         },
       },
