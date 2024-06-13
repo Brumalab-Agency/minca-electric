@@ -250,7 +250,7 @@ export const SingleProductComponent = ({ scooters }) => {
               />
               <CardEspecifications
                 titulo={item.node.sliderProductos.pulgadas}
-                subtitulo={item.node.sliderProductos.tipo}
+                subtitulo={item.node.sliderProductos.tipoRodamiento}
                 tipo={item.node.sliderProductos.llanta}
               />
               <CardEspecifications
