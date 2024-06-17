@@ -1,12 +1,39 @@
 "use client";
-import axios from "axios";
-import { useState, useEffect } from "react";
+import useEmailData from "@/store/dataorder.store";
+import { useState } from "react";
+
 
 export const BtnAddi = ({ preciopagar, idOrder }) => {
   const [totalPrice, setDefinitivePrice] = useState(sessionStorage.getItem("price"));
   const [input, setInput] = useState(JSON.parse(sessionStorage.getItem("data")));
   const [cart, setCart] = useState(JSON.parse(sessionStorage.getItem("cart")));
+  const [status, setStatus] = useState("pending");
   const shiipinPrice = sessionStorage.getItem("shippingPrice")
+  const url = `/api/get-order-status?orderId=${idOrder}`
+
+  const setProducts = useEmailData((state) => state.setProducts);
+  setProducts(cart);
+
+  const setClientData = useEmailData((state) => state.setClientData);
+  setClientData(input);
+
+
+  fetch(url)
+    .then(
+      response => response.json(),
+      error => {
+        console.log("No! error occured.", error);
+        throw error;
+      }
+    )
+    .then(status => {
+      console.log("speakers success", status);
+      setStatus(status)
+    })
+    .catch(error => {
+      console.log("Return Error by throwing", error);
+      throw error;
+    });
 
   const handlePayment = async () => {
     const paymentData = {
@@ -34,14 +61,16 @@ export const BtnAddi = ({ preciopagar, idOrder }) => {
         },
       },
       allyUrlRedirection: {
-        callbackUrl: "https://35cf-2800-e2-57f-f643-a0de-6b88-6129-c1dc.ngrok-free.app/api/webhook-addi",
-        redirectionUrl: "https://www.mincaelectric.com/gracias-por-tu-compra",
+        callbackUrl: "https://e33c-2800-e2-57f-f643-6008-798b-1b9e-19ee.ngrok-free.app/api/webhook-addi",
+        redirectionUrl: `https://e33c-2800-e2-57f-f643-6008-798b-1b9e-19ee.ngrok-free.app/pagoaddi/${status}`,
       },
       geoLocation: {
         latitude: "0",
         longitude: "0"
       }
     };
+
+    console.log(paymentData)
 
     const response = await fetch('/api/addi', {
       method: 'POST',

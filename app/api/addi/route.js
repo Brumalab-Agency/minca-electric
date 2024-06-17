@@ -37,9 +37,6 @@ export async function POST(request) {
             },
             body: JSON.stringify(paymentData),
         });
-
-        console.log(response.url)
-
         return NextResponse.json({ url: response.url })
     } catch (error) {
         console.error('Error creating payment request:', error);
