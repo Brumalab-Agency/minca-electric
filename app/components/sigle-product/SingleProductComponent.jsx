@@ -107,6 +107,14 @@ export const SingleProductComponent = ({ scooters }) => {
                 </div>
                 {/* botones descuento oculto hasta su implementación y 3D PC */}
                 <addi-widget price={parsePrice(item.node.sliderProductos.precioActual)} ally-slug="mincaelectric-ecommerce"></addi-widget>
+                {item.node.sliderProductos.nombreProducto === paths[0] &&
+                <div className="flex items-center space-x-2">
+                    <h4 className="inline-block text-xl font-semibold">
+                      Preventa
+                    </h4>
+                    <TooltipEspecificaciones tooltips={"si"} />
+                  </div>
+                }
                 <div className="pt-8 ">
                   <Modal3d url_3d={item.node.sliderProductos.url3d} />
                 </div>
@@ -207,7 +215,7 @@ export const SingleProductComponent = ({ scooters }) => {
               />
               <CardEspecifications
                 titulo={item.node.sliderProductos.pulgadas}
-                subtitulo={item.node.sliderProductos.tipo}
+                subtitulo={item.node.sliderProductos.tipoRodamiento}
                 tipo={item.node.sliderProductos.llanta}
               />
               <CardEspecifications

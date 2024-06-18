@@ -21,6 +21,7 @@ export async function POST(req) {
       to: [
         email,
         process.env.EMAIL_ADDRESS_CLIENT_BRUMA,
+        process.env.EMAIL_ADDRESS_CLIENT_SERVICEMINCA,
       ],
       subject: "Aquí guardamos tu carrito👌",
       react: <EmailAbandoned products={data.products} />,

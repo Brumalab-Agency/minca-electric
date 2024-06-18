@@ -240,7 +240,7 @@ const Scooter = ({ scooter }) => {
             />
             <CardEspecifications
               titulo={item.pulgadas}
-              subtitulo={item.tipo}
+              subtitulo={item.tipoRodamiento}
               tipo={item.llanta}
             />
             <CardEspecifications

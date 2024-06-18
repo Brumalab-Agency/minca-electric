@@ -81,7 +81,7 @@ const CiudadesColombiaShowrooms = ({
     "La Guajira": "La Guajira",
     Magdalena: "Magdalena",
     Meta: "Meta",
-    Narino: "Nariño",
+    "Nariño": "Nariño",
     "Norte de Santander": "Norte de Santander",
     Putumayo: "Putumayo",
     Quindio: "Quindío",
