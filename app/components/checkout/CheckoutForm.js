@@ -22,6 +22,7 @@ import { useRouter } from "next/router";
 import useShowroomStore from "@/store/orden.store";
 import useDepartmentStore from "@/store/department.store";
 import axios from "axios";
+import { method } from "lodash";
 
 const defaultCustomerInfo = {
   Nombre: "",
@@ -304,6 +305,24 @@ const CheckoutForm = ({ countriesData, onFormSubmit }) => {
     sessionStorage.setItem("data", JSON.stringify(input));
     sessionStorage.setItem("cart", JSON.stringify(productsObject));
 
+    // object to send to google sheets
+    const data = {
+      "Fecha": new Date().toLocaleString(),
+      "Nombre": input.shipping.Nombre,
+      "Correo Electronico": input.shipping.Email,
+      "Telefono": input.shipping.Telefono,
+      "Producto": productsObject.map(product => product.name).join(", "),
+      "Ciudad": input.shipping.Ciudad,
+    }
+
+
+    // sent dataa to google sheets
+    fetch("https://docs.google.com/spreadsheets/d/1oOTOSSVdKcN7MdzYIJm0CQ1MimhFLQYuxWY-Lcp9XCY/edit#gid=0", {
+      method: "POST",
+      body: data,
+        }).then(response => response.json()
+      ).then(data => console.log(data)
+    ).catch(error => console.log(error));
 
     /* if ( createdOrderData.paymentUrl ) {
     
