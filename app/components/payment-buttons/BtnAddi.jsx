@@ -7,33 +7,13 @@ export const BtnAddi = ({ preciopagar, idOrder }) => {
   const [totalPrice, setDefinitivePrice] = useState(sessionStorage.getItem("price"));
   const [input, setInput] = useState(JSON.parse(sessionStorage.getItem("data")));
   const [cart, setCart] = useState(JSON.parse(sessionStorage.getItem("cart")));
-  const [status, setStatus] = useState("pending");
   const shiipinPrice = sessionStorage.getItem("shippingPrice")
-  const url = `/api/get-order-status?orderId=${idOrder}`
 
   const setProducts = useEmailData((state) => state.setProducts);
   setProducts(cart);
 
   const setClientData = useEmailData((state) => state.setClientData);
   setClientData(input);
-
-
-  fetch(url)
-    .then(
-      response => response.json(),
-      error => {
-        console.log("No! error occured.", error);
-        throw error;
-      }
-    )
-    .then(status => {
-      console.log("speakers success", status);
-      setStatus(status)
-    })
-    .catch(error => {
-      console.log("Return Error by throwing", error);
-      throw error;
-    });
 
   const handlePayment = async () => {
     const paymentData = {
@@ -62,7 +42,7 @@ export const BtnAddi = ({ preciopagar, idOrder }) => {
       },
       allyUrlRedirection: {
         callbackUrl: "https://e33c-2800-e2-57f-f643-6008-798b-1b9e-19ee.ngrok-free.app/api/webhook-addi",
-        redirectionUrl: `https://e33c-2800-e2-57f-f643-6008-798b-1b9e-19ee.ngrok-free.app/pagoaddi/${status}`,
+        redirectionUrl: `https://e33c-2800-e2-57f-f643-6008-798b-1b9e-19ee.ngrok-free.app/pagoAddi/${idOrder}`,
       },
       geoLocation: {
         latitude: "0",
@@ -70,12 +50,10 @@ export const BtnAddi = ({ preciopagar, idOrder }) => {
       }
     };
 
-    console.log(paymentData)
-
     const response = await fetch('/api/addi', {
       method: 'POST',
       headers: {
-        "Content-Type": "text/html"
+        "Content-Type": "application/json"
       },
       body: JSON.stringify(paymentData),
     });

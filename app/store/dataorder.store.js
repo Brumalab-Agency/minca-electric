@@ -1,16 +1,11 @@
-import create from "zustand";
+// store/dataorder.store.js
+import { create } from 'zustand';
 
 const useEmailData = create((set) => ({
-  products: [],
   clientData: {},
-  setProducts: (products) =>
-  set({
-    products: products,
-  }),
-  setClientData: (clientData) =>
-    set({
-        clientData: clientData,
-    }),
+  products: [],
+  setClientData: (data) => set({ clientData: data }),
+  setProducts: (data) => set({ products: data }),
 }));
 
 export default useEmailData;

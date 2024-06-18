@@ -1,4 +1,3 @@
-import axios from 'axios';
 import { NextResponse } from 'next/server';
 import WooCommerceRestApi from '@woocommerce/woocommerce-rest-api';
 import { sendEmail } from '@/utils/email/sendEmail';
@@ -26,17 +25,17 @@ export async function POST(request) {
         return NextResponse.json({ error: 'Invalid credentials, request not authorized' }, { status: 401 });
       }
 
-      const input = useEmailData((state) => state.clientData);
-      const cart = useEmailData((state) => state.products);
-      console.log(input)
-      console.log(cart)
-
+      
       const dataWoocommerce = {
         status: "completed"
       };
       const idOrderWoocomerce = data.orderId;
       await api.put(`orders/${idOrderWoocomerce}`, dataWoocommerce);
-      await sendEmail(input, cart, idOrderWoocomerce);
+      /* const input = useEmailData((state) => state.clientData);
+      const cart = useEmailData((state) => state.products);
+      console.log(input)
+      console.log(cart)
+      await sendEmail(input, cart, idOrderWoocomerce); */
       return NextResponse.json({ body: data }, { status: 200 });
     } else {
       return NextResponse.json({ error: 'Payment not approved' }, { status: 400 });

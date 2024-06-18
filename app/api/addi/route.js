@@ -31,15 +31,17 @@ export async function POST(request) {
         // Make payment request
         const response = await fetch(APP_ENDPOINT, {
             method: 'POST',
+            redirect: 'manual', // Ensure to follow redirects
             headers: {
-                'Content-Type': 'text/html',
+                'Content-Type': 'application/json',
                 'Authorization': `Bearer ${accessToken}`
             },
             body: JSON.stringify(paymentData),
         });
-        return NextResponse.json({ url: response.url })
+
+        return NextResponse.json({ url: response.headers.get('location') }, { status: response.status })
     } catch (error) {
         console.error('Error creating payment request:', error);
-        return NextResponse.json({ error: 'Error' }, { status: 500 });
+        return NextResponse.json({ error: "Request Failed" }, { status: 500 });
     }
 }
