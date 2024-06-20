@@ -70,14 +70,14 @@ export const ShowRoomComponent = () => {
                       </div>
                       <div className="mt-6">
                         <p className={`${ubuntu.className} text-base`}>
-                          Lunes a viernes: 10:00 a.m. - 07:00 p.m.
+                          Lunes a viernes: 11:00 a.m. - 08:00 p.m.
                         </p>
                         <p className={`${ubuntu.className} text-base`}>
-                          Sábados: 10:00 a.m. - 06:00 p.m.
+                          Sábados: 09:00 a.m. - 08:00 p.m.
                         </p>
                         {
                           <p className={`${ubuntu.className} text-base`}>
-                            Domingos: 11:00 a.m. - 05:00 p.m.
+                            Domingos: 11:00 a.m. - 06:00 p.m.
                           </p>
                         }
                       </div>
@@ -156,14 +156,14 @@ export const ShowRoomComponent = () => {
                       </div>
                       <div className="mt-6">
                         <p className={`${ubuntu.className} text-base`}>
-                          Lunes a viernes: 10:00 a.m. - 07:00 p.m.
+                          Lunes a viernes: 11:00 a.m. - 08:00 p.m.
                         </p>
                         <p className={`${ubuntu.className} text-base`}>
-                          Sábados: 10:00 a.m. - 06:00 p.m.
+                          Sábados: 09:00 a.m. - 08:00 p.m.
                         </p>
                         {
                           <p className={`${ubuntu.className} text-base`}>
-                            Domingos: 11:00 a.m. - 05:00 p.m.
+                            Domingos: 11:00 a.m. - 06:00 p.m.
                           </p>
                         }
                       </div>
@@ -242,14 +242,14 @@ export const ShowRoomComponent = () => {
                       </div>
                       <div className="mt-6">
                         <p className={`${ubuntu.className} text-base`}>
-                          Lunes a viernes: 10:00 a.m. - 07:00 p.m.
+                          Lunes a viernes: 11:00 a.m. - 08:00 p.m.
                         </p>
                         <p className={`${ubuntu.className} text-base`}>
-                          Sábados: 10:00 a.m. - 06:00 p.m.
+                          Sábados: 09:00 a.m. - 08:00 p.m.
                         </p>
                         {
                           <p className={`${ubuntu.className} text-base`}>
-                            Domingos: 11:00 a.m. - 05:00 p.m.
+                            Domingos: 11:00 a.m. - 06:00 p.m.
                           </p>
                         }
                       </div>
@@ -331,14 +331,14 @@ export const ShowRoomComponent = () => {
                       </div>
                       <div className="mt-6">
                         <p className={`${ubuntu.className} text-base`}>
-                          Lunes a viernes: 10:00 a.m. - 07:00 p.m.
+                          Lunes a viernes: 11:00 a.m. - 08:00 p.m.
                         </p>
                         <p className={`${ubuntu.className} text-base`}>
-                          Sábados: 10:00 a.m. - 06:00 p.m.
+                          Sábados: 09:00 a.m. - 08:00 p.m.
                         </p>
                         {
                           <p className={`${ubuntu.className} text-base`}>
-                            Domingos: 11:00 a.m. - 05:00 p.m.
+                            Domingos: 11:00 a.m. - 06:00 p.m.
                           </p>
                         }
                       </div>
@@ -420,14 +420,14 @@ export const ShowRoomComponent = () => {
                       </div>
                       <div className="mt-6">
                         <p className={`${ubuntu.className} text-base`}>
-                          Lunes a viernes: 10:00 a.m. - 07:00 p.m.
+                          Lunes a viernes: 11:00 a.m. - 08:00 p.m.
                         </p>
                         <p className={`${ubuntu.className} text-base`}>
-                          Sábados: 10:00 a.m. - 06:00 p.m.
+                          Sábados: 09:00 a.m. - 08:00 p.m.
                         </p>
                         {
                           <p className={`${ubuntu.className} text-base`}>
-                            Domingos: 11:00 a.m. - 05:00 p.m.
+                            Domingos: 11:00 a.m. - 06:00 p.m.
                           </p>
                         }
                       </div>
