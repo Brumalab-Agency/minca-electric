@@ -1,7 +1,6 @@
 import { NextResponse } from 'next/server';
 import WooCommerceRestApi from '@woocommerce/woocommerce-rest-api';
-import { sendEmail } from '@/utils/email/sendEmail';
-import useEmailData from '@/store/dataorder.store';
+import { sendEmailAddi } from '@/utils/email/sendEmail';
 
 const api = new WooCommerceRestApi({
   url: process.env.NEXT_PUBLIC_WORDPRESS_SITE_URL,
@@ -10,17 +9,15 @@ const api = new WooCommerceRestApi({
   version: 'wc/v3',
 });
 
-
-
 export async function GET(request) {
   return NextResponse.json({ message: 'Soy el servidor webhook' });
 }
 
 export async function POST(request) {
   try {
-    const data = await request.json();
+    const body = await request.json();
     const authorizationHeader = request.headers.get('authorization');
-    if (data.status === 'APPROVED') {
+    if (body.status === 'APPROVED') {
       if (authorizationHeader !== process.env.AUTH_ADDI_WEBHOOK) {
         return NextResponse.json({ error: 'Invalid credentials, request not authorized' }, { status: 401 });
       }
@@ -29,14 +26,10 @@ export async function POST(request) {
       const dataWoocommerce = {
         status: "completed"
       };
-      const idOrderWoocomerce = data.orderId;
+      const idOrderWoocomerce = body.orderId;
       await api.put(`orders/${idOrderWoocomerce}`, dataWoocommerce);
-      /* const input = useEmailData((state) => state.clientData);
-      const cart = useEmailData((state) => state.products);
-      console.log(input)
-      console.log(cart)
-      await sendEmail(input, cart, idOrderWoocomerce); */
-      return NextResponse.json({ body: data }, { status: 200 });
+      await sendEmailAddi(idOrderWoocomerce);
+      return NextResponse.json({ body: body }, { status: 200 });
     } else {
       return NextResponse.json({ error: 'Payment not approved' }, { status: 400 });
     }

@@ -10,10 +10,10 @@ export const BtnAddi = ({ preciopagar, idOrder }) => {
   const shiipinPrice = sessionStorage.getItem("shippingPrice")
 
   const setProducts = useEmailData((state) => state.setProducts);
-  setProducts(cart);
+  setProducts(JSON.stringify(cart));
 
   const setClientData = useEmailData((state) => state.setClientData);
-  setClientData(input);
+  setClientData(JSON.stringify(input));
 
   const handlePayment = async () => {
     const paymentData = {
@@ -41,8 +41,8 @@ export const BtnAddi = ({ preciopagar, idOrder }) => {
         },
       },
       allyUrlRedirection: {
-        callbackUrl: "https://e33c-2800-e2-57f-f643-6008-798b-1b9e-19ee.ngrok-free.app/api/webhook-addi",
-        redirectionUrl: `https://e33c-2800-e2-57f-f643-6008-798b-1b9e-19ee.ngrok-free.app/pagoAddi/${idOrder}`,
+        callbackUrl: "https://ba1f-2800-e2-57f-f643-dd2c-a869-27cb-1c7c.ngrok-free.app/api/webhook-addi",
+        redirectionUrl: `https://ba1f-2800-e2-57f-f643-dd2c-a869-27cb-1c7c.ngrok-free.app/pagoAddi/${idOrder}`,
       },
       geoLocation: {
         latitude: "0",
