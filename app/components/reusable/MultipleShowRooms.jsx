@@ -48,7 +48,7 @@ export const MultipleShowRooms = () => {
     },
     {
       id: 4,
-      src: "/sedes/Showroom Avenida Chile - Minca electric.png",
+      src: "/sedes/Showroom Avenida Chile - Minca electric.jpg",
       titulo: "Avenida Chile",
       direccion: "Calle 72 # 25-10,",
       ciudad: "Bogotá, Colombia",
