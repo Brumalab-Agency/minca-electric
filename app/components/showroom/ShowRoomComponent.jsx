@@ -464,9 +464,9 @@ export const ShowRoomComponent = () => {
         url="/testdrive/showroomchico"
         direccion="Cra. 11a #94a-56"
         ciudad="Bogotá, Colombia"
-        entreSemana="Lunes a viernes: 10:00 a.m. - 7:00 p.m."
-        sabado="Sábados: 10:00 a.m. - 6:00 p.m."
-        domingo="Domingos: 11:00 a.m. - 5:00 p.m."
+        entreSemana="Lunes a viernes: 11:00 a.m. - 08:00 p.m."
+        sabado="Sábados: 09:00 a.m. - 08:00 p.m."
+        domingo="Domingos: 11:00 a.m. - 06:00 p.m."
       />
       <CardShowRoomMovil
         src="/sedes/Showroom Javeriana - Minca electric.jpg"
@@ -478,9 +478,9 @@ export const ShowRoomComponent = () => {
         url="/testdrive/showroomjaveriana"
         direccion="Carrera 7 # 45-10"
         ciudad="Bogotá, Colombia"
-        entreSemana="Lunes a viernes: 10:00 a.m. - 7:00 p.m."
-        sabado="Sábados: 10:00 a.m. - 6:00 p.m."
-        domingo="Domingos: 11:00 a.m. - 5:00 p.m."
+        entreSemana="Lunes a viernes: 11:00 a.m. - 08:00 p.m."
+        sabado="Sábados: 09:00 a.m. - 08:00 p.m."
+        domingo="Domingos: 11:00 a.m. - 06:00 p.m."
       />
       <CardShowRoomMovil
         src="/sedes/Showroom Cedritos - Minca electric.png"
@@ -492,9 +492,9 @@ export const ShowRoomComponent = () => {
         url="/testdrive/showroomcedritos"
         direccion="Av. Cra. 19#143A-08"
         ciudad="Bogotá, Colombia"
-        entreSemana="Lunes a viernes: 10:00 a.m. - 7:00 p.m."
-        sabado="Sábados: 10:00 a.m. - 6:00 p.m."
-        domingo="Domingos: 11:00 a.m. - 5:00 p.m."
+        entreSemana="Lunes a viernes: 11:00 a.m. - 08:00 p.m."
+        sabado="Sábados: 09:00 a.m. - 08:00 p.m."
+        domingo="Domingos: 11:00 a.m. - 06:00 p.m."
       />
       <CardShowRoomMovil
         src="/sedes/Showroom Gran Estación - Minca electric.jpg"
@@ -507,9 +507,9 @@ export const ShowRoomComponent = () => {
         // { url="/testdrive/showroomcedritos"*/}
         direccion="Centro Comercial Gran Estacion Isla, 2-02,"
         ciudad="Bogotá, Colombia"
-        entreSemana="Lunes a viernes: 10:00 a.m. - 7:00 p.m."
-        sabado="Sábados: 10:00 a.m. - 6:00 p.m."
-        domingo="Domingos: 11:00 a.m. - 5:00 p.m."
+        entreSemana="Lunes a viernes: 11:00 a.m. - 08:00 p.m."
+        sabado="Sábados: 09:00 a.m. - 08:00 p.m."
+        domingo="Domingos: 11:00 a.m. - 06:00 p.m."
       />
       <CardShowRoomMovil
         src="/sedes/Showroom Avenida Chile - Minca electric.jpg"
@@ -521,9 +521,9 @@ export const ShowRoomComponent = () => {
         url="/testdrive/showroomavenidachile"
         direccion="Calle 72 # 25-10,"
         ciudad="Bogotá, Colombia"
-        entreSemana="Lunes a viernes: 10:00 a.m. - 7:00 p.m."
-        sabado="Sábados: 10:00 a.m. - 6:00 p.m."
-        domingo="Domingos: 11:00 a.m. - 5:00 p.m."
+        entreSemana="Lunes a viernes: 11:00 a.m. - 08:00 p.m."
+        sabado="Sábados: 09:00 a.m. - 08:00 p.m."
+        domingo="Domingos: 11:00 a.m. - 06:00 p.m."
       />
       {/* <CardShowRoomMovil btn="Agendar TestDrive" icono="/showroom_icon.png" url="#"/> */}
     </>
