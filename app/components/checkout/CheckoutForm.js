@@ -304,20 +304,33 @@ const CheckoutForm = ({ countriesData, onFormSubmit }) => {
     sessionStorage.setItem("data", JSON.stringify(input));
     sessionStorage.setItem("cart", JSON.stringify(productsObject));
 
+    /* console.log(input);
+    console.log(productsObject)
+
     const dataOrder = {
-      ...input,
-      cart: productsObject,
+      order_id: idOrder,
+      first_name: input.shipping.Nombre || input.billing.Nombre,
+      last_name: input.shipping.Apellido || input.billing.Apellido,
+      principal_address: input.shipping.Direccion1 || input.billing.Direccion1,
+      showroom_address: input.shipping.Direccion2 || input.billing.Direccion2,
+      city: input.shipping.Ciudad || input.billing.Ciudad,
+      region: input.shipping.Departamento || input.billing.Departamento,
+      type_of_housing: input.shipping.TipoVivienda || input.billing.TipoVivienda,
+      coutry: "CO",
+      email: input.shipping.Email || input.billing.Email,
+      phone: input.shipping.Telefono || input.billing.Telefono,
+      identification: input.shipping.NumeroIdentificacion || input.billing.NumeroIdentificacion,
+      neighborhood: input.shipping.Barrio || input.billing.Barrio,
+      addressee: input.shipping.Destinatario || input.billing.Destinatario,
+      recipient_phone: input.shipping.TelefonoDestinatario || input.billing.TelefonoDestinatario,
+      company: input.shipping.Empresa || input.billing.Empresa,
+      email_company: input.shipping.EmailEmpresa || input.billing.EmailEmpresa,
+      nit: input.shipping.Nit || input.billing.Nit,
+      phone_company: input.shipping.TelefonoTrabajo || input.billing.TelefonoTrabajo,
+      business_name: input.shipping.RazonSocial || input.billing.RazonSocial,
     }
 
-    console.log(dataOrder);
-
-
-    /* if ( createdOrderData.paymentUrl ) {
-    
-
-			window.location.href = createdOrderData.paymentUrl;
-
-		} */
+    console.log(dataOrder); */
 
     setRequestError(null);
   };

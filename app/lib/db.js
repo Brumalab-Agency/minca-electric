@@ -5,15 +5,14 @@ const sshClient = new Client();
 
 export async function query({ query, values = [] }) {
   const DBConfig = {
-    host: process.env.DB_HOST,
-    port: process.env.DB_PORT,
+    host: '127.0.0.1',
+    port: 8888,
     user: process.env.DB_USERNAME,
     password: process.env.DB_PASSWORD,
-    database: process.env.DB_DATABASE
+    database: process.env.DB_DATABASE,
+    connectTimeout: 240000,
   };
 
-  console.log(fs.readFileSync(process.env.KEY_PATH_PEM_FILE))
-  
   const tunnelConfig = {
     host: process.env.DB_SSH_HOST,
     port: 22,
@@ -22,10 +21,10 @@ export async function query({ query, values = [] }) {
   };
   
   const forwardConfig = {
-    srcHost: process.env.DB_SSH_HOST,
+    srcHost: '127.0.0.1',
     srcPort: 8888,
     dstHost: '127.0.0.1',
-    dstPort: 80
+    dstPort: 3306
   };
 
   const SSHConnection = new Promise((resolve, reject) => {
@@ -36,25 +35,29 @@ export async function query({ query, values = [] }) {
         forwardConfig.dstHost,
         forwardConfig.dstPort,
         (err, stream) => {
-          if (err) reject(err);
-          const updatedDbServer = {
-            ...DBConfig,
-            stream
-          };
-          resolve(mysql.createConnection(updatedDbServer));
+          if (err) {
+            console.log(err)
+            reject(err);
+          } else {
+            const updatedDbServer = {
+              ...DBConfig,
+              stream
+            };
+            resolve(mysql.createConnection(updatedDbServer));
+            console.log('Connected to SSH')
+          }
         }
       );
     }).connect(tunnelConfig);
   });
 
   try {
-    console.log(SSHConnection)
     const connection = await SSHConnection;
-    console.log('Connected to DB');
-    const [results] = await connection.execute(query, values);
+    const results = await connection.execute(query, values);
     connection.end();
     return results;
   } catch (error) {
-    throw new Error(error.message);
+    console.log(error)
+    throw new Error(error);
   }
 }

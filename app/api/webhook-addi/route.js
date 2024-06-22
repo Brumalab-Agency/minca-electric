@@ -1,6 +1,7 @@
 import { NextResponse } from 'next/server';
 import WooCommerceRestApi from '@woocommerce/woocommerce-rest-api';
-import { sendEmailAddi } from '@/utils/email/sendEmail';
+import { sendEmail } from '@/utils/email/sendEmail';
+import axios from 'axios';
 
 const api = new WooCommerceRestApi({
   url: process.env.NEXT_PUBLIC_WORDPRESS_SITE_URL,
@@ -21,14 +22,15 @@ export async function POST(request) {
       if (authorizationHeader !== process.env.AUTH_ADDI_WEBHOOK) {
         return NextResponse.json({ error: 'Invalid credentials, request not authorized' }, { status: 401 });
       }
-
       
       const dataWoocommerce = {
         status: "completed"
       };
       const idOrderWoocomerce = body.orderId;
       await api.put(`orders/${idOrderWoocomerce}`, dataWoocommerce);
-      await sendEmailAddi(idOrderWoocomerce);
+      const dataOrder = await axios.get(`/api/orders-complete?order_id=${idOrderWoocomerce}`);
+      console.log(dataOrder)
+      //await sendEmail(idOrderWoocomerce);
       return NextResponse.json({ body: body }, { status: 200 });
     } else {
       return NextResponse.json({ error: 'Payment not approved' }, { status: 400 });

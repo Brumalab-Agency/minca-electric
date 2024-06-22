@@ -28,24 +28,19 @@ export async function GET(request) {
 
 export async function POST(request) {
     try {
-        const order = await request.json();
-        const updateOrder = await query({
-            query: `INSERT INTO orders_minca (
-                order_id, first_name, last_name, principal_address, showroom_address, 
-                city, region, type_of_housing, coutry, email, phone, identification, 
-                neighborhood, addressee, recipient_phone, company, email_company, nit, 
-                phone_company, business_name
-            ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+        const product = await request.json();
+        const updateProduct = await query({
+            query: `INSERT INTO order_products (
+                product_id, order_id, pruduct_id, order_id, product_name, quantity, subtotal, shipping_price, discount, total, image	
+ 
+            ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
             values: [
-                order.order_id, order.first_name, order.last_name, order.principal_address, 
-                order.showroom_address, order.city, order.region, order.type_of_housing, 
-                order.coutry, order.email, order.phone, order.identification, order.neighborhood, 
-                order.addressee, order.recipient_phone, order.company, order.email_company, 
-                order.nit, order.phone_company, order.business_name
+                product.product_id, product.order_id, product.product_name, product.quantity, product.subtotal,
+                product.shipping_price, product.discount, product.total, product.image 
             ],
         });
-        console.log(updateOrder)
-        const result = updateOrder.affectedRows;
+        console.log(updateProduct)
+        const result = updateProduct.affectedRows;
         let message = "";
         if (result) {
             message = "success";

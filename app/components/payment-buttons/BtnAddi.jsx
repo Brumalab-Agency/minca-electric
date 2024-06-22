@@ -1,5 +1,4 @@
 "use client";
-import useEmailData from "@/store/dataorder.store";
 import { useState } from "react";
 
 
@@ -9,13 +8,38 @@ export const BtnAddi = ({ preciopagar, idOrder }) => {
   const [cart, setCart] = useState(JSON.parse(sessionStorage.getItem("cart")));
   const shiipinPrice = sessionStorage.getItem("shippingPrice")
 
-  const setProducts = useEmailData((state) => state.setProducts);
-  setProducts(JSON.stringify(cart));
+  const dataOrder = {
+    order_id: idOrder,
+    first_name: input.shipping.Nombre || input.billing.Nombre,
+    last_name: input.shipping.Apellido || input.billing.Apellido,
+    principal_address: input.shipping.Direccion1 || input.billing.Direccion1,
+    showroom_address: input.shipping.Direccion2 || input.billing.Direccion2,
+    city: input.shipping.Ciudad || input.billing.Ciudad,
+    region: input.shipping.Departamento || input.billing.Departamento,
+    type_of_housing: input.shipping.TipoVivienda || input.billing.TipoVivienda,
+    coutry: "CO",
+    email: input.shipping.Email || input.billing.Email,
+    phone: input.shipping.Telefono || input.billing.Telefono,
+    identification: input.shipping.NumeroIdentificacion || input.billing.NumeroIdentificacion,
+    neighborhood: input.shipping.Barrio || input.billing.Barrio,
+    addressee: input.shipping.Destinatario || input.billing.Destinatario,
+    recipient_phone: input.shipping.TelefonoDestinatario || input.billing.TelefonoDestinatario,
+    company: input.shipping.Empresa || input.billing.Empresa,
+    email_company: input.shipping.EmailEmpresa || input.billing.EmailEmpresa,
+    nit: input.shipping.Nit || input.billing.Nit,
+    phone_company: input.shipping.TelefonoTrabajo || input.billing.TelefonoTrabajo,
+    business_name: input.shipping.RazonSocial || input.billing.RazonSocial,
+  }
 
-  const setClientData = useEmailData((state) => state.setClientData);
-  setClientData(JSON.stringify(input));
-
+  
   const handlePayment = async () => {
+    await fetch('/api/orders-complete', {
+      method: 'POST',
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(dataOrder),
+    });
     const paymentData = {
       orderId: idOrder,
       totalAmount: totalPrice,
@@ -41,8 +65,8 @@ export const BtnAddi = ({ preciopagar, idOrder }) => {
         },
       },
       allyUrlRedirection: {
-        callbackUrl: "https://ba1f-2800-e2-57f-f643-dd2c-a869-27cb-1c7c.ngrok-free.app/api/webhook-addi",
-        redirectionUrl: `https://ba1f-2800-e2-57f-f643-dd2c-a869-27cb-1c7c.ngrok-free.app/pagoAddi/${idOrder}`,
+        callbackUrl: "https://4e6a-2800-e2-57f-f643-cb-c1fb-7a09-a89f.ngrok-free.app/api/webhook-addi",
+        redirectionUrl: `https://4e6a-2800-e2-57f-f643-cb-c1fb-7a09-a89f.ngrok-free.app/pagoAddi/${idOrder}`,
       },
       geoLocation: {
         latitude: "0",
