@@ -304,6 +304,13 @@ const CheckoutForm = ({ countriesData, onFormSubmit }) => {
     sessionStorage.setItem("data", JSON.stringify(input));
     sessionStorage.setItem("cart", JSON.stringify(productsObject));
 
+    const dataOrder = {
+      ...input,
+      cart: productsObject,
+    }
+
+    console.log(dataOrder);
+
 
     /* if ( createdOrderData.paymentUrl ) {
     

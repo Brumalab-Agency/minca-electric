@@ -1,4 +1,3 @@
-import useEmailData from "@/store/dataorder.store";
 import axios from "axios";
 
 export async function sendEmail(input, cart, id) {
@@ -81,10 +80,6 @@ export async function sendEmailNewsLetter(email) {
 }
 
 export async function sendEmailAddi(id) {
-  const input = useEmailData((state) => state.clientData);
-  const cart = useEmailData((state) => state.products);
-  console.log(input)
-  console.log(cart)
   const url = `https://ba1f-2800-e2-57f-f643-dd2c-a869-27cb-1c7c.ngrok-free.app/api/send`;
   const dataObject = JSON.parse(input);
   const products = JSON.parse(cart);
