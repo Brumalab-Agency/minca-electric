@@ -31,7 +31,17 @@ export const BtnAddi = ({ preciopagar, idOrder }) => {
     business_name: input.shipping.RazonSocial || input.billing.RazonSocial,
   }
 
-  
+  const products = cart.map(item => ({
+    order_id: idOrder,
+    name: item.name,
+    quantity: item.quantity.toString(),
+    price: item.price.toString(),
+    shippingPrice: item.shippingPrice,
+    difference: item.difference.toString(),
+    totalPrice: item.totalPrice,
+    image: item.image,
+  }));
+
   const handlePayment = async () => {
     await fetch('/api/orders-complete', {
       method: 'POST',
@@ -40,6 +50,17 @@ export const BtnAddi = ({ preciopagar, idOrder }) => {
       },
       body: JSON.stringify(dataOrder),
     });
+
+    for (let i = 0; i < products.length; i++) {
+      await fetch('/api/products-complete', {
+        method: 'POST',
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(products[i]),
+      });
+    }
+
     const paymentData = {
       orderId: idOrder,
       totalAmount: totalPrice,
@@ -65,8 +86,8 @@ export const BtnAddi = ({ preciopagar, idOrder }) => {
         },
       },
       allyUrlRedirection: {
-        callbackUrl: "https://4e6a-2800-e2-57f-f643-cb-c1fb-7a09-a89f.ngrok-free.app/api/webhook-addi",
-        redirectionUrl: `https://4e6a-2800-e2-57f-f643-cb-c1fb-7a09-a89f.ngrok-free.app/pagoAddi/${idOrder}`,
+        callbackUrl: "https://4be1-2800-e2-57f-f643-813b-4807-943d-368.ngrok-free.app/api/webhook-addi",
+        redirectionUrl: `https://4be1-2800-e2-57f-f643-813b-4807-943d-368.ngrok-free.app/pagoAddi/${idOrder}`,
       },
       geoLocation: {
         latitude: "0",

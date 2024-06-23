@@ -1,8 +1,10 @@
 import { query } from "@/lib/db";
+import { NextResponse } from "next/server";
 
 export async function GET(request) {
     const { searchParams } = new URL(request.url);
     const orderId = searchParams.get('order_id');
+    console.log(orderId)
 
     if (!orderId) {
         responseData.error = 'Order ID is required';
@@ -10,15 +12,13 @@ export async function GET(request) {
     }
     try {
 
-        const order = await query({
-            query: "SELECT * FROM orders_minca WHERE order_id = ?",
+        const [products] = await query({
+            query: "SELECT * FROM order_products WHERE order_id = ?",
             values: [orderId],
         });
-        
-        let data = JSON.stringify(order);
-        return new Response(data, {
-            status: 200,
-        });
+        console.log(products)
+        let data = JSON.stringify(products);
+        return NextResponse.json({ data: products }, { status: 200 });
     } catch (error) {
         return new Response(JSON.stringify({
             error: error
@@ -31,15 +31,13 @@ export async function POST(request) {
         const product = await request.json();
         const updateProduct = await query({
             query: `INSERT INTO order_products (
-                product_id, order_id, pruduct_id, order_id, product_name, quantity, subtotal, shipping_price, discount, total, image	
- 
-            ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+                order_id, name, quantity, price, shippingPrice, difference, totalPrice, image
+            ) VALUES (?, ?, ?, ?, ?, ?, ?, ?)`,
             values: [
-                product.product_id, product.order_id, product.product_name, product.quantity, product.subtotal,
-                product.shipping_price, product.discount, product.total, product.image 
+                product.order_id, product.name, product.quantity, product.price,
+                product.shippingPrice, product.difference, product.totalPrice, product.image 
             ],
         });
-        console.log(updateProduct)
         const result = updateProduct.affectedRows;
         let message = "";
         if (result) {
@@ -47,11 +45,7 @@ export async function POST(request) {
         } else {
             message = "error";
         }
-        return new Response({
-            message: message,
-            status: 200,
-            order: order
-        });
+        return NextResponse.json({ body: result }, { status: 200 });
     } catch (error) {
         return new Response(JSON.stringify({
             error: error

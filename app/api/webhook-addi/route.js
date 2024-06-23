@@ -28,9 +28,75 @@ export async function POST(request) {
       };
       const idOrderWoocomerce = body.orderId;
       await api.put(`orders/${idOrderWoocomerce}`, dataWoocommerce);
-      const dataOrder = await axios.get(`/api/orders-complete?order_id=${idOrderWoocomerce}`);
-      console.log(dataOrder)
-      //await sendEmail(idOrderWoocomerce);
+      /* const dataOrder = await axios.get(`/api/orders-complete?order_id=${idOrderWoocomerce}`);
+      const [products] = await axios.get(`/api/products-complete?order_id=${idOrderWoocomerce}`); */
+      const dataOrder = await fetch(`https://4be1-2800-e2-57f-f643-813b-4807-943d-368.ngrok-free.app/api/orders-complete?order_id=${idOrderWoocomerce}`, {
+        method: 'GET',
+      });
+      const products = await fetch(`https://4be1-2800-e2-57f-f643-813b-4807-943d-368.ngrok-free.app/api/products-complete?order_id=${idOrderWoocomerce}`, {
+        method: 'GET',
+      });
+      const clientData = await dataOrder.json();
+      const productsData = await products.json();
+
+      const filledData = clientData.data[0][0];
+      const dataClient = {
+        billing: {
+          Nombre: filledData.first_name,
+          Apellido: filledData.last_name,
+          Direccion1: filledData.principal_address,
+          Direccion2: filledData.showroom_address,
+          Ciudad: filledData.city,
+          Departamento: filledData.region,
+          TipoVivienda: filledData.type_of_housing,
+          Pais: filledData.coutry,
+          Email: filledData.email,
+          Telefono: filledData.phone,
+          Empresa: filledData.company,
+          EmailEmpresa: filledData.email_company,
+          RazonSocial: filledData.business_name,
+          Nit: filledData.nit,
+          TelefonoTrabajo: filledData.phone_company,
+          NumeroIdentificacion: filledData.identification,
+          Barrio: filledData.neighborhood,
+          Destinatario: filledData.addressee,
+          TelefonoDestinatario: filledData.recipient_phone,
+          errors: null,
+          numeroIdentificacion: filledData.identification,
+        },
+        shipping: {
+          Nombre: filledData.first_name,
+          Apellido: filledData.last_name,
+          Direccion1: filledData.principal_address,
+          Direccion2: filledData.showroom_address,
+          Ciudad: filledData.city,
+          Departamento: filledData.region,
+          TipoVivienda: filledData.type_of_housing,
+          Pais: filledData.coutry,
+          Email: filledData.email,
+          Telefono: filledData.phone,
+          Empresa: filledData.company,
+          EmailEmpresa: filledData.email_company,
+          RazonSocial: filledData.business_name,
+          Nit: filledData.nit,
+          TelefonoTrabajo: filledData.phone_company,
+          NumeroIdentificacion: filledData.identification,
+          Barrio: filledData.neighborhood,
+          Destinatario: filledData.addressee,
+          TelefonoDestinatario: filledData.recipient_phone,
+          errors: null,
+          numeroIdentificacion: filledData.identification,
+        }
+      };
+      productsData.data.forEach(product => {
+        product.difference = product.difference.toString();
+        product.price = product.price.toString();
+        product.quantity = product.quantity.toString();
+        product.shippingPrice = product.shippingPrice.toString();
+        product.totalPrice = product.totalPrice.toString();
+      });
+      console.log(productsData.data)
+      await sendEmail(JSON.stringify(dataClient), JSON.stringify(productsData.data), idOrderWoocomerce);
       return NextResponse.json({ body: body }, { status: 200 });
     } else {
       return NextResponse.json({ error: 'Payment not approved' }, { status: 400 });

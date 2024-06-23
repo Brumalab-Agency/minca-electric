@@ -1,8 +1,10 @@
 import { query } from "@/lib/db";
+import { NextResponse } from "next/server";
 
 export async function GET(request) {
     const { searchParams } = new URL(request.url);
     const orderId = searchParams.get('order_id');
+    console.log(orderId)
 
     if (!orderId) {
         responseData.error = 'Order ID is required';
@@ -15,12 +17,10 @@ export async function GET(request) {
             values: [orderId],
         });
         
-        let data = JSON.stringify(order);
-        return new Response(data, {
-            status: 200,
-        });
+        //let data = JSON.stringify(order);
+        return NextResponse.json({ data: order }, { status: 200 });
     } catch (error) {
-        return new Response(JSON.stringify({
+        return new NextResponse(JSON.stringify({
             error: error
         }), { status: 500});
     }
@@ -44,19 +44,15 @@ export async function POST(request) {
                 order.nit, order.phone_company, order.business_name
             ],
         });
-        console.log(updateOrder)
         const result = updateOrder.affectedRows;
+        console.log(result)
         let message = "";
         if (result) {
             message = "success";
         } else {
             message = "error";
         }
-        return new Response({
-            message: message,
-            status: 200,
-            order: order
-        });
+        return NextResponse.json({ body: result }, { status: 200 });
     } catch (error) {
         return new Response(JSON.stringify({
             error: error

@@ -1,7 +1,7 @@
 import axios from "axios";
 
 export async function sendEmail(input, cart, id) {
-  const url = `/api/send`;
+  const url = `https://4be1-2800-e2-57f-f643-813b-4807-943d-368.ngrok-free.app/api/send`;
   const dataObject = JSON.parse(input);
   const products = JSON.parse(cart);
   const data = {

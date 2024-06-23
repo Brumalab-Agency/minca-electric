@@ -44,7 +44,6 @@ export async function query({ query, values = [] }) {
               stream
             };
             resolve(mysql.createConnection(updatedDbServer));
-            console.log('Connected to SSH')
           }
         }
       );
@@ -58,6 +57,7 @@ export async function query({ query, values = [] }) {
     return results;
   } catch (error) {
     console.log(error)
+
     throw new Error(error);
   }
 }
