@@ -106,7 +106,7 @@ export const SingleProductComponent = ({ scooters }) => {
                   </span>
                 </div>
                 {/* botones descuento oculto hasta su implementación y 3D PC */}
-                <addi-widget price={parsePrice(item.node.sliderProductos.precioActual)} ally-slug="mincaelectric-ecommerce"></addi-widget>
+                <addi-widget price={parsePrice(item.node.sliderProductos.precioRebajado)} ally-slug="mincaelectric-ecommerce"></addi-widget>
                 {item.node.sliderProductos.nombreProducto === paths[0] &&
                 <div className="flex items-center space-x-2">
                     <h4 className="inline-block text-xl font-semibold">
