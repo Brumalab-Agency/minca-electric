@@ -76,19 +76,14 @@ const Scooter = ({ scooter }) => {
               >
                 {item.description}
               </p>
-              {/* Modelo 3D Movil/PC */}
-              <addi-widget price={parsePrice(item.precioRebajado)} ally-slug="mincaelectric-ecommerce"></addi-widget>
-              <div className="pt-8">
-                <Modal3d url_3d={item.url3d} />
-              </div>
               {item.nombreProducto === "Minca 350W" && 
-              <div className="mt-5 mb-2 flex items-center space-x-2">
+              <div className="mt-5 flex items-center space-x-2">
                 <h4 className="inline-block text-xl font-semibold">
                   Preventa
                 </h4>
                 <TooltipEspecificaciones tooltips={"si"} />
               </div>}
-              <div className="my-2 flex items-center gap-3 lg:mt-6 lg:gap-4">
+              <div className="my-2 flex items-center gap-3 lg:mt-2 lg:gap-4">
                 <div
                   className={`${manrope.className} text-[14px] font-bold text-[#111111]  opacity-50 lg:text-[26px]`}
                 >
@@ -108,6 +103,11 @@ const Scooter = ({ scooter }) => {
                     {item.descuento}
                   </p>
                 </span>
+              </div>
+              {/* Modelo 3D Movil/PC */}
+              <addi-widget price={parsePrice(item.precioRebajado)} ally-slug="mincaelectric-ecommerce"></addi-widget>
+              <div className="pt-2">
+                <Modal3d url_3d={item.url3d} />
               </div>
               <div className="hidden lg:block">
                 <Boton slug={item.slugDinamicoTemporal} param="Comprar Ahora" />
