@@ -31,7 +31,12 @@ const Scooter = ({ scooter }) => {
       "Especificaciones_Scooter_Electrico_Minca_1600W";
   }
   
-
+  const parsePrice = (price) => {
+    let priceStr = price.replace("$", "");
+    priceStr = priceStr.replace(/\./g, "");
+    let priceInt = parseInt(priceStr, 10);
+    return priceInt
+  }
   return (
     <div id="scooter" className="carrusel h-auto w-full">
       <div className="relative p-4 lg:px-[100px] lg:py-14">
@@ -72,6 +77,7 @@ const Scooter = ({ scooter }) => {
                 {item.description}
               </p>
               {/* Modelo 3D Movil/PC */}
+              <addi-widget price={parsePrice(item.precioRebajado)} ally-slug="mincaelectric-ecommerce"></addi-widget>
               <div className="pt-8">
                 <Modal3d url_3d={item.url3d} />
               </div>
@@ -107,45 +113,6 @@ const Scooter = ({ scooter }) => {
                 <Boton slug={item.slugDinamicoTemporal} param="Comprar Ahora" />
               </div>
               {/* botones descuento oculto hasta su implementación y 3D PC*/}
-              {/* <Link
-                href="#"
-                className="relative mt-4 flex h-[44px] w-[355px] items-center justify-center gap-1 rounded-[5px] bg-[#F0EEED] text-[10px]"
-              >
-                <Image
-                  placeholder="empty"
-                  className="logoCircular"
-                  src="/addicirculo.svg"
-                  width={33}
-                  height={33}
-                  alt="publicidad"
-                  style={{
-                    maxWidth: "100%",
-                    height: "auto",
-                    objectFit: "contain",
-                  }}
-                />
-                <p className="ml-2">Paga a crédito con</p>
-                <Image
-                  placeholder="empty"
-                  className="logoADDI"
-                  src="/addilogo.svg"
-                  width={23}
-                  height={9}
-                  alt="publicidad"
-                  style={{
-                    maxWidth: "100%",
-                    height: "auto",
-                    objectFit: "contain",
-                  }}
-                />
-                <p>
-                  <strong>hasta 6 cuotas.</strong>
-                </p>
-                <p className="underline">Revisa si calificas</p>
-              </Link> */}
-              {/* <div className="hidden pt-8 lg:block">
-                <Modal3d url_3d={item.url3d} />
-              </div> */}
             </div>
             <Image
               placeholder="empty"

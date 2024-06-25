@@ -88,6 +88,13 @@ export const EspecificacionesMincaNew = (scooters) => {
     setMessage("");
   };
 
+  const parsePrice = (price) => {
+    let priceStr = price.replace("$", "");
+    priceStr = priceStr.replace(/\./g, "");
+    let priceInt = parseInt(priceStr, 10);
+    return priceInt
+  }
+
   return (
     <div className="EspecificacionesAccesorios Productos-SIMPLES">
       <div className="justify-between p-4 lg:flex lg:justify-start lg:px-[100px] lg:py-[50px]">
@@ -134,7 +141,8 @@ export const EspecificacionesMincaNew = (scooters) => {
               >
                 {currentItem?.sliderProductos.description}
               </p>
-
+              {/* <addi-widget price={currentItem?.sliderProductos.precioActual} ally-slug="mincaelectric-ecommerce"></addi-widget> */}
+              <addi-widget price={parsePrice(currentItem?.sliderProductos.precioRebajado)} ally-slug="mincaelectric-ecommerce"></addi-widget>
               <hr className="my-4 border-[#464646]" />
 
               {on_back_order && (
