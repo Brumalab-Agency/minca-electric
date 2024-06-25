@@ -115,7 +115,7 @@ export const SingleProductComponent = ({ scooters }) => {
                 </div>
                 {/* botones descuento oculto hasta su implementación y 3D PC */}
                 <addi-widget price={parsePrice(item.node.sliderProductos.precioRebajado)} ally-slug="mincaelectric-ecommerce"></addi-widget>
-                <div className="pt-8 ">
+                <div className="pt-4 ">
                   <Modal3d url_3d={item.node.sliderProductos.url3d} />
                 </div>
               </div>
@@ -229,7 +229,7 @@ export const SingleProductComponent = ({ scooters }) => {
 
           <Link
             href={`/especificaciones/${(path)}`} // La expresión regular es por que por algún motivo se estaba colando un caracter especial desconocido el [U+200E]
-            className="btn-scooter gird z-10 my-3 flex h-[52px] w-full place-items-center justify-center rounded-[62px]  bg-[#111] text-[16px] text-white lg:absolute lg:right-[100px]  lg:top-[59.2%]  lg:h-[48px] lg:w-[191px] 2xl:w-[235px]"
+            className="btn-scooter gird z-10 my-3 flex h-[40px] w-full place-items-center justify-center rounded-[62px]  bg-[#111] text-[16px] text-white lg:absolute lg:right-[100px]  lg:top-[59.2%]  lg:h-[48px] lg:w-[191px] 2xl:w-[235px] mt-12"
           >
             Comprar Ahora!
           </Link>
