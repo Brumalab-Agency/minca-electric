@@ -70,42 +70,7 @@ export const MincaCityComponent = ({ mincacity }) => {
                   </span>
                 </div>
                 {/* botones descuento y 3D PC */}
-                <Link
-                  href="#"
-                  className="relative mt-4 flex h-[44px] w-[355px] items-center justify-center gap-1 rounded-[5px] bg-[#F0EEED] text-[10px]"
-                >
-                  <Image
-                    placeholder="empty"
-                    className="logoCircular"
-                    src="/addicirculo.svg"
-                    width={33}
-                    height={33}
-                    alt="publicidad"
-                    style={{
-                      maxWidth: "100%",
-                      height: "auto",
-                      objectFit: "contain",
-                    }}
-                  />
-                  <p className="ml-2">Paga a crédito con</p>
-                  <Image
-                    placeholder="empty"
-                    className="logoADDI"
-                    src="/addilogo.svg"
-                    width={23}
-                    height={9}
-                    alt="publicidad"
-                    style={{
-                      maxWidth: "100%",
-                      height: "auto",
-                      objectFit: "contain",
-                    }}
-                  />
-                  <p>
-                    <strong>hasta 6 cuotas.</strong>
-                  </p>
-                  <p className="underline">Revisa si calificas</p>
-                </Link>
+                <addi-widget price={item?.price} ally-slug="mincaelectric-ecommerce"></addi-widget>
                 {/* <div className="pt-8 ">
                   <Modal3d url_3d={item.node.sliderProductos.url3d} />
                 </div> */}

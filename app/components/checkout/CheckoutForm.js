@@ -304,14 +304,6 @@ const CheckoutForm = ({ countriesData, onFormSubmit }) => {
     sessionStorage.setItem("data", JSON.stringify(input));
     sessionStorage.setItem("cart", JSON.stringify(productsObject));
 
-
-    /* if ( createdOrderData.paymentUrl ) {
-    
-
-			window.location.href = createdOrderData.paymentUrl;
-
-		} */
-
     setRequestError(null);
   };
 

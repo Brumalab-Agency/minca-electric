@@ -4,6 +4,7 @@ import { clearCart } from '../cart/cartUtils';
 import axios from 'axios';
 import { WOOCOMMERCE_STATES_ENDPOINT } from '../cart/constants/endpoint';
 import { NextResponse } from 'next/server';
+import { APP_ENDPOINT, AUTH_ENDPOINT } from './constants/endpoints';
 
 /**
  * Handle Other Payment Method checkout.
@@ -233,4 +234,22 @@ export async function getOrderStatus(id) {
     }
 
     return responseData;
+}
+
+export async function getAccessToken(clientId, clientSecret) {
+    const response = await fetch(AUTH_ENDPOINT, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+			audience: process.env.AUTH0_AUDIENCE,
+            client_id: clientId,
+            client_secret: clientSecret,
+            grant_type: 'client_credentials'
+        })
+    });
+
+    const data = await response.json();
+    return data.access_token;
 }

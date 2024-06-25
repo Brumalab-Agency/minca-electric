@@ -2,7 +2,6 @@ import axios from 'axios';
 import { NextResponse } from 'next/server';
 import WooCommerceRestApi from '@woocommerce/woocommerce-rest-api';
 import { sendEmail } from '@/utils/email/sendEmail';
-import { sendEmailAbandoned } from "@/utils/email/sendEmail";
 
 const api = new WooCommerceRestApi({
   url: process.env.NEXT_PUBLIC_WORDPRESS_SITE_URL,
@@ -17,6 +16,7 @@ export async function GET(request) {
 
 export async function POST(request) {
   try {
+    console.log("Execution made", request.url)
     const url = new URL(request.url);
     const topic = url.searchParams.get('topic');
     const id = url.searchParams.get('id');
