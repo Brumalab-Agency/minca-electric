@@ -243,7 +243,7 @@ export async function getAccessToken(clientId, clientSecret) {
             'Content-Type': 'application/json'
         },
         body: JSON.stringify({
-			audience: "https://api.staging.addi.com",
+			audience: process.env.AUTH0_AUDIENCE,
             client_id: clientId,
             client_secret: clientSecret,
             grant_type: 'client_credentials'
