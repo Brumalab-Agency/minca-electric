@@ -83,6 +83,14 @@ export const SingleProductComponent = ({ scooters }) => {
                 >
                   {item.node.sliderProductos.description}
                 </p>
+                  {item.node.sliderProductos.nombreProducto === paths[0] &&
+                  <div className="flex items-center space-x-2">
+                      <h4 className="inline-block text-xl font-semibold">
+                        Preventa
+                      </h4>
+                      <TooltipEspecificaciones tooltips={"si"} />
+                    </div>
+                  }
                 <div className="my-2 flex items-center gap-3 lg:mt-6 lg:gap-4">
                   <div
                     className={`${manrope.className} text-[14px] font-bold text-[#111111]  opacity-50 lg:text-[26px]`}
@@ -107,14 +115,6 @@ export const SingleProductComponent = ({ scooters }) => {
                 </div>
                 {/* botones descuento oculto hasta su implementación y 3D PC */}
                 <addi-widget price={parsePrice(item.node.sliderProductos.precioRebajado)} ally-slug="mincaelectric-ecommerce"></addi-widget>
-                {item.node.sliderProductos.nombreProducto === paths[0] &&
-                <div className="flex items-center space-x-2">
-                    <h4 className="inline-block text-xl font-semibold">
-                      Preventa
-                    </h4>
-                    <TooltipEspecificaciones tooltips={"si"} />
-                  </div>
-                }
                 <div className="pt-8 ">
                   <Modal3d url_3d={item.node.sliderProductos.url3d} />
                 </div>
