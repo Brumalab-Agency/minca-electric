@@ -1,6 +1,6 @@
 "use client";
 
-import PaymentBrick from "@/components/mercadopago/PaymentBrik";
+import PaymentBrick from "@/components/payment-buttons/PaymentBrik";
 import { initMercadoPago, Wallet } from "@mercadopago/sdk-react";
 import axios from "axios";
 import { useState, useEffect } from "react";

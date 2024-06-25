@@ -16,29 +16,29 @@ export const SingleProductComponent = ({ scooters }) => {
   const paths = ["Minca 350W", "Minca 500W‎", "Minca 800W‎‎", "Minca 1600W‎"];
 
   items.map((item) => {
-    console.log(item.node.sliderProductos.nombreProducto)
     if (item.node.sliderProductos.nombreProducto === paths[0]) {
       path = "Especificaciones_Scooter_Electrico_Minca_350W";
     }
   
     if (item.node.sliderProductos.nombreProducto === paths[1]) {
-      console.log("500")
       path = "Especificaciones_Scooter_Electrico_Minca_500W";
     }
 
     if (item.node.sliderProductos.nombreProducto === paths[2]) {
-      console.log("800")
       path = "Especificaciones_Scooter_Electrico_Minca_800W";
     }
   
     if (item.node.sliderProductos.nombreProducto === paths[3]) {
-      console.log("1600")
       path = "Especificaciones_Scooter_Electrico_Minca_1600W";
     }
-    console.log(path)
   })
 
-  console.log(path)
+  const parsePrice = (price) => {
+    let priceStr = price.replace("$", "");
+    priceStr = priceStr.replace(/\./g, "");
+    let priceInt = parseInt(priceStr, 10);
+    return priceInt
+  }
 
   return (
     <div className="carrusel h-auto w-full">
@@ -106,42 +106,7 @@ export const SingleProductComponent = ({ scooters }) => {
                   </span>
                 </div>
                 {/* botones descuento oculto hasta su implementación y 3D PC */}
-                {/* <Link
-                  href="#"
-                  className="relative mt-4 flex h-[44px] w-[355px] items-center justify-center gap-1 rounded-[5px] bg-[#F0EEED] text-[10px]"
-                >
-                  <Image
-                    placeholder="empty"
-                    className="logoCircular"
-                    src="/addicirculo.svg"
-                    width={33}
-                    height={33}
-                    alt="publicidad"
-                    style={{
-                      maxWidth: "100%",
-                      height: "auto",
-                      objectFit: "contain",
-                    }}
-                  />
-                  <p className="ml-2">Paga a crédito con</p>
-                  <Image
-                    placeholder="empty"
-                    className="logoADDI"
-                    src="/addilogo.svg"
-                    width={23}
-                    height={9}
-                    alt="publicidad"
-                    style={{
-                      maxWidth: "100%",
-                      height: "auto",
-                      objectFit: "contain",
-                    }}
-                  />
-                  <p>
-                    <strong>hasta 6 cuotas.</strong>
-                  </p>
-                  <p className="underline">Revisa si calificas</p>
-                </Link> */}
+                <addi-widget price={parsePrice(item.node.sliderProductos.precioActual)} ally-slug="mincaelectric-ecommerce"></addi-widget>
                 {item.node.sliderProductos.nombreProducto === paths[0] &&
                 <div className="flex items-center space-x-2">
                     <h4 className="inline-block text-xl font-semibold">

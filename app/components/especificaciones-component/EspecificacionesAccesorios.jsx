@@ -67,6 +67,8 @@ export const EspecificacionesAccesorios = async (accesorios) => {
                 >
                   {item?.description}
                 </p>
+                <addi-widget price={item?.price} ally-slug="mincaelectric-ecommerce"></addi-widget>
+
                 <hr className="mt-5 lg:w-[70%]" />
               </div>
               {/* /Scooter/btn-slider-left-pc.png */}
