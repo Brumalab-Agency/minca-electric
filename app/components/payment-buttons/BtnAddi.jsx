@@ -2,7 +2,7 @@
 import { useState } from "react";
 
 
-export const BtnAddi = ({ preciopagar, idOrder }) => {
+export const BtnAddi = ({ idOrder }) => {
   const [totalPrice, setDefinitivePrice] = useState(sessionStorage.getItem("price"));
   const [input, setInput] = useState(JSON.parse(sessionStorage.getItem("data")));
   const [cart, setCart] = useState(JSON.parse(sessionStorage.getItem("cart")));
@@ -29,6 +29,7 @@ export const BtnAddi = ({ preciopagar, idOrder }) => {
     nit: input.shipping.Nit || input.billing.Nit,
     phone_company: input.shipping.TelefonoTrabajo || input.billing.TelefonoTrabajo,
     business_name: input.shipping.RazonSocial || input.billing.RazonSocial,
+    payment_method: "Addi",
   }
 
   const products = cart.map(item => ({
@@ -86,8 +87,8 @@ export const BtnAddi = ({ preciopagar, idOrder }) => {
         },
       },
       allyUrlRedirection: {
-        callbackUrl: "https://4be1-2800-e2-57f-f643-813b-4807-943d-368.ngrok-free.app/api/webhook-addi",
-        redirectionUrl: `https://4be1-2800-e2-57f-f643-813b-4807-943d-368.ngrok-free.app/pagoAddi/${idOrder}`,
+        callbackUrl: "https://www.mincaelectric.com/api/webhook-addi",
+        redirectionUrl: `https://www.mincaelectric.com/pagoAddi/${idOrder}`,
       },
       geoLocation: {
         latitude: "0",
@@ -112,10 +113,10 @@ export const BtnAddi = ({ preciopagar, idOrder }) => {
   };
 
   return (
-    <div className="m-auto h-auto w-full lg:w-[300px] ">
-      <button onClick={handlePayment}>
+    <div className="bg-black text-white rounded-lg items-center m-auto h-auto w-full lg:h-[50px] lg:w-[230px] ">
+      <button onClick={handlePayment} className="flex items-center justify-center ml-8 pt-3 font-bold">
       <img
-          className="h-auto w-[50px] mt-2 -ml-3 pr-3"
+          className="h-auto w-[50px] mt-1 -ml-3 pr-3"
           src="/pagoPage/addi_checkout.png"
           alt="store"
         />

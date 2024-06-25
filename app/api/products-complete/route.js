@@ -4,7 +4,6 @@ import { NextResponse } from "next/server";
 export async function GET(request) {
     const { searchParams } = new URL(request.url);
     const orderId = searchParams.get('order_id');
-    console.log(orderId)
 
     if (!orderId) {
         responseData.error = 'Order ID is required';
@@ -16,8 +15,6 @@ export async function GET(request) {
             query: "SELECT * FROM order_products WHERE order_id = ?",
             values: [orderId],
         });
-        console.log(products)
-        let data = JSON.stringify(products);
         return NextResponse.json({ data: products }, { status: 200 });
     } catch (error) {
         return new Response(JSON.stringify({

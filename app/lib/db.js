@@ -1,6 +1,5 @@
 const mysql = require('mysql2/promise');
 const { Client } = require('ssh2');
-const fs = require('fs');
 const sshClient = new Client();
 
 export async function query({ query, values = [] }) {
@@ -10,14 +9,13 @@ export async function query({ query, values = [] }) {
     user: process.env.DB_USERNAME,
     password: process.env.DB_PASSWORD,
     database: process.env.DB_DATABASE,
-    connectTimeout: 240000,
   };
 
   const tunnelConfig = {
     host: process.env.DB_SSH_HOST,
     port: 22,
     username: process.env.DB_SSH_USER,
-    privateKey: fs.readFileSync(process.env.KEY_PATH_PEM_FILE)
+    privateKey: process.env.KEY_PATH_PEM_FILE
   };
   
   const forwardConfig = {

@@ -28,12 +28,10 @@ export async function POST(request) {
       };
       const idOrderWoocomerce = body.orderId;
       await api.put(`orders/${idOrderWoocomerce}`, dataWoocommerce);
-      /* const dataOrder = await axios.get(`/api/orders-complete?order_id=${idOrderWoocomerce}`);
-      const [products] = await axios.get(`/api/products-complete?order_id=${idOrderWoocomerce}`); */
-      const dataOrder = await fetch(`https://4be1-2800-e2-57f-f643-813b-4807-943d-368.ngrok-free.app/api/orders-complete?order_id=${idOrderWoocomerce}`, {
+      const dataOrder = await fetch(`https://www.mincaelectric.com/api/orders-complete?order_id=${idOrderWoocomerce}`, {
         method: 'GET',
       });
-      const products = await fetch(`https://4be1-2800-e2-57f-f643-813b-4807-943d-368.ngrok-free.app/api/products-complete?order_id=${idOrderWoocomerce}`, {
+      const products = await fetch(`https://www.mincaelectric.com/api/products-complete?order_id=${idOrderWoocomerce}`, {
         method: 'GET',
       });
       const clientData = await dataOrder.json();
@@ -63,6 +61,7 @@ export async function POST(request) {
           TelefonoDestinatario: filledData.recipient_phone,
           errors: null,
           numeroIdentificacion: filledData.identification,
+          metodo_de_pago: filledData.payment_method,
         },
         shipping: {
           Nombre: filledData.first_name,
@@ -86,6 +85,7 @@ export async function POST(request) {
           TelefonoDestinatario: filledData.recipient_phone,
           errors: null,
           numeroIdentificacion: filledData.identification,
+          metodo_de_pago: filledData.payment_method,
         }
       };
       productsData.data.forEach(product => {
@@ -95,7 +95,6 @@ export async function POST(request) {
         product.shippingPrice = product.shippingPrice.toString();
         product.totalPrice = product.totalPrice.toString();
       });
-      console.log(productsData.data)
       await sendEmail(JSON.stringify(dataClient), JSON.stringify(productsData.data), idOrderWoocomerce);
       return NextResponse.json({ body: body }, { status: 200 });
     } else {

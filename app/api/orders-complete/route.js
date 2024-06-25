@@ -4,7 +4,6 @@ import { NextResponse } from "next/server";
 export async function GET(request) {
     const { searchParams } = new URL(request.url);
     const orderId = searchParams.get('order_id');
-    console.log(orderId)
 
     if (!orderId) {
         responseData.error = 'Order ID is required';
@@ -34,18 +33,17 @@ export async function POST(request) {
                 order_id, first_name, last_name, principal_address, showroom_address, 
                 city, region, type_of_housing, coutry, email, phone, identification, 
                 neighborhood, addressee, recipient_phone, company, email_company, nit, 
-                phone_company, business_name
-            ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+                phone_company, business_name, payment_method
+            ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
             values: [
                 order.order_id, order.first_name, order.last_name, order.principal_address, 
                 order.showroom_address, order.city, order.region, order.type_of_housing, 
                 order.coutry, order.email, order.phone, order.identification, order.neighborhood, 
                 order.addressee, order.recipient_phone, order.company, order.email_company, 
-                order.nit, order.phone_company, order.business_name
+                order.nit, order.phone_company, order.business_name, order.payment_method,
             ],
         });
         const result = updateOrder.affectedRows;
-        console.log(result)
         let message = "";
         if (result) {
             message = "success";
