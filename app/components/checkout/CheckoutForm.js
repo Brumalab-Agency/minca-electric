@@ -22,6 +22,7 @@ import { useRouter } from "next/router";
 import useShowroomStore from "@/store/orden.store";
 import useDepartmentStore from "@/store/department.store";
 import axios from "axios";
+import { method } from "lodash";
 
 const defaultCustomerInfo = {
   Nombre: "",
@@ -303,6 +304,53 @@ const CheckoutForm = ({ countriesData, onFormSubmit }) => {
 
     sessionStorage.setItem("data", JSON.stringify(input));
     sessionStorage.setItem("cart", JSON.stringify(productsObject));
+
+    let presaleType = ""
+
+    if (productsObject.map(product => product.name).join(", ") === "Scooter Eléctrico Minca 350W") {
+      if (productsObject.map(product => product.price) === 2100000) {
+        presaleType = "Pago total"
+      } else if (productsObject.map(product => product.price) === 1050000) {
+        presaleType = "Pago parcial"
+      }
+    } else {
+      presaleType = "No aplica"
+    }
+
+    console.log(createdOrderData.orderId)
+
+    // Object to send to Google Sheets
+    const data = {
+      data: [{
+        "OC": createdOrderData.orderId,
+        "Fecha": new Date().toLocaleString(),
+        "Nombre": input.shipping.Nombre + " " + input.shipping.Apellido,
+        "Correo electrónico": input.shipping.Email,
+        "Teléfono": input.shipping.Telefono,
+        "Producto": productsObject.map(product => product.name).join(", "),
+        "Ciudad": input.shipping.Ciudad,
+        "Total": productsObject.map(product => product.totalPrice).reduce((a, b) => a + b, 0),
+        "Cupón": localStorage.getItem("difference") === null ? "No aplica" : "#Minca15",
+        "Preventa": presaleType,
+        "Metodo de Pago": "",
+        "Estado": "Pendiente",
+      }]
+    };
+
+    // Log data to make sure it is correct before sending
+
+    // Send data to Google Sheets
+    fetch("https://sheetdb.io/api/v1/zimjq5k5azwjz", {
+      method: "POST",
+      headers: {
+        'Accept': 'application/json',
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(data)
+    })
+    .then(response => response.json())
+    .then(data => console.log("Response from SheetDB:", data))
+    .catch(error => console.error("Error:", error));
 
     setRequestError(null);
   };
