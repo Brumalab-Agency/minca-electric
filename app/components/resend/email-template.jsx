@@ -663,6 +663,17 @@ export const EmailTemplate = ({
 															</td>
 														</tr>
 													</table>
+													<table class="text_block block-7" width="100%" border="0" cellpadding="10" cellspacing="0" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; word-break: break-word;">
+														<tr>
+															<td class="pad">
+																<div style="font-family: sans-serif">
+																	<div class style="font-size: 12px; font-family: Arial, Helvetica Neue, Helvetica, sans-serif; mso-line-height-alt: 14.399999999999999px; color: #000000; line-height: 1.2;">
+																		<p style="margin: 0; font-size: 16px; text-align: left; mso-line-height-alt: 19.2px;"><strong>Metodo de pago:</strong> ${billing.metodo_de_pago || "Mercado Pago"}</p>
+																	</div>
+																</div>
+															</td>
+														</tr>
+													</table>
 													<table class="text_block mobile_hide block-8" width="100%" border="0" cellpadding="10" cellspacing="0" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; word-break: break-word;">
 														<tr>
 															<td class="pad">

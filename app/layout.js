@@ -62,6 +62,7 @@ export default function RootLayout({ children }) {
              gtag('config', 'G-0J2S3K5ZR5');        
           `}
           </Script>
+          <Script src="https://s3.amazonaws.com/widgets.addi.com/bundle.min.js"></Script>
           <Script id="metricool-tracker">
             {`
               function loadScript(a){
@@ -78,6 +79,47 @@ export default function RootLayout({ children }) {
               });
             `}
           </Script>
+          <Script async src="https://www.googletagmanager.com/gtag/js?id=G-0J2S3K5ZR5"></Script>
+          <Script id="google-analytics">
+            {`
+              function gtag_report_conversion(url) {
+                var callback = function () {
+                  if (typeof(url) != 'undefined') {
+                    window.location = url;
+                  }
+                };
+                gtag('event', 'conversion', {
+                    'send_to': 'AW-802491717/LpWFCJy61b0ZEMWa1P4C',
+                    'event_callback': callback
+                });
+                return false;
+              }
+            `}
+            </Script>
+          <Script>
+            {`
+              !function(f,b,e,v,n,t,s) {
+                if(f.fbq) return;
+                n = f.fb
+                q=function() { 
+                n.callMethod ? n.callMethod.apply(n,arguments) : n.queue.push(arguments)};
+                  if(!f._fbq) f._fbq = n;
+                  n.push = n;
+                  n.loaded = !0;
+                  n.version='2.0';
+                  n.queue = [];
+                  t = b.createElement(e);
+                  t.async = !0;
+                  t.src = v;
+                  s = b.getElementsByTagName(e)[0];
+                  s.parentNode.insertBefore(t,s)
+              }
+              (window, document,'script', 'https://connect.facebook.net/en_US/fbevents.js');
+              fbq('init', '618423798896056');
+              fbq('track', 'PageView');
+            `}
+          </Script>
+          <noscript><img height="1" width="1" style={{display: "none"}} src="https://www.facebook.com/tr?id=618423798896056&ev=PageView&noscript=1"/></noscript>
         </head>
         <body id="up" className={`${inter.className} m-auto max-w-[2560px]`}>
           <div id="scrollbar"></div>

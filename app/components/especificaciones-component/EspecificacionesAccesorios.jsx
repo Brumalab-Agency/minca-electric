@@ -55,6 +55,11 @@ export const EspecificacionesAccesorios = async (accesorios) => {
                 >
                   {item?.name}
                 </h2>
+                <p
+                  className={`${ubuntu.className} text-[14px] font-normal leading-[15px] text-[#42454A]  lg:mt-5 lg:w-[90%] lg:text-[16px] lg:leading-[25px]`}
+                >
+                  {item?.description}
+                </p>
                 <div className="flex items-center gap-3 lg:mt-6 lg:gap-4">
                   <div
                     className={`${manrope.className} text-[24px] font-bold text-[#111111]  lg:text-[26px]`}
@@ -62,11 +67,8 @@ export const EspecificacionesAccesorios = async (accesorios) => {
                     $ {separadorDeMiles(item?.price)}
                   </div>
                 </div>
-                <p
-                  className={`${ubuntu.className} text-[14px] font-normal leading-[15px] text-[#42454A]  lg:mt-5 lg:w-[90%] lg:text-[16px] lg:leading-[25px]`}
-                >
-                  {item?.description}
-                </p>
+                <addi-widget price={item?.price} ally-slug="mincaelectric-ecommerce"></addi-widget>
+
                 <hr className="mt-5 lg:w-[70%]" />
               </div>
               {/* /Scooter/btn-slider-left-pc.png */}

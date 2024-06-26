@@ -62,7 +62,7 @@ const YourOrderPayment = ({ cart }) => {
                 <td className="woo-next-checkout-total text-xl font-normal lg:hidden"></td>
                 <td className="woo-next-checkout-total text-right">
                   {cart?.cartItems?.[0]?.currency ?? ""}
-                  {shippingPrice.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".")}
+                  {shippingPrice.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".") ?? 0}
                 </td>
               </tr>
               {/*Total*/}

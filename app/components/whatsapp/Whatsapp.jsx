@@ -25,7 +25,7 @@ const Whatsapp = ({ message }) => {
         isVisible ? "visible" : "hidden"
       }`}
     >
-      <Link href={generateWhatsAppLink()} passHref target="_blank">
+      <Link /* onClick={"gtag('event', 'conversion', {'send_to': 'AW-802491717/VGmeCIzh-bsZEMWa1P4C'})"} */ href={generateWhatsAppLink()} passHref target="_blank">
         <Image
           alt="scooter"
           className="rounded-[10px] fixed lg:bottom-6 bottom-2 lg:right-6 right-4 lg:w-[50px] 2xl:w-[70px] w-[40px] h-auto transition-opacity duration-1000"

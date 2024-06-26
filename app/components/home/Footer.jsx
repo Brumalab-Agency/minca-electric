@@ -4,6 +4,7 @@ import Newsletter from "../newsletter/Newsletter";
 import Link from "next/link";
 import EmailLink from "../emaillink/EmailLink";
 import NewsletterMovil from "../newsletter/NewsletterMovil";
+import DownloadPdfFooter from "../manuales/PolitiesFooter";
 
 export const Footer = () => {
   return (
@@ -173,19 +174,9 @@ export const Footer = () => {
                     Declaración de privacidad
                   </Link>
                   <br />
-                  <Link
-                    href="#"
-                    className={`${ubuntu.className} text-[16px] font-normal text-[#111]/60 hover:underline`}
-                  >
-                    Términos y condiciones
-                  </Link>
+                  <DownloadPdfFooter garantia={"https://test.mincaelectric.com/wp-content/uploads/2024/03/TERMINOS-Y-CONDICIONES.pdf"} name={"Términos y condiciones"}></DownloadPdfFooter>
                   <br />
-                  <Link
-                    href="#"
-                    className={`${ubuntu.className} text-[16px] font-normal text-[#111]/60 hover:underline`}
-                  >
-                    Política de garantía{" "}
-                  </Link>
+                  <DownloadPdfFooter garantia={"https://test.mincaelectric.com/wp-content/uploads/2024/05/POLITICAS-DE-GARANTIA.pdf"} name={"Política de garantía"}></DownloadPdfFooter>
                   <br />
                   <Link
                     href="/contacto"

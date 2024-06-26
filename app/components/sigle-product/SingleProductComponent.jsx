@@ -16,29 +16,29 @@ export const SingleProductComponent = ({ scooters }) => {
   const paths = ["Minca 350W", "Minca 500W‎", "Minca 800W‎‎", "Minca 1600W‎"];
 
   items.map((item) => {
-    console.log(item.node.sliderProductos.nombreProducto)
     if (item.node.sliderProductos.nombreProducto === paths[0]) {
       path = "Especificaciones_Scooter_Electrico_Minca_350W";
     }
   
     if (item.node.sliderProductos.nombreProducto === paths[1]) {
-      console.log("500")
       path = "Especificaciones_Scooter_Electrico_Minca_500W";
     }
 
     if (item.node.sliderProductos.nombreProducto === paths[2]) {
-      console.log("800")
       path = "Especificaciones_Scooter_Electrico_Minca_800W";
     }
   
     if (item.node.sliderProductos.nombreProducto === paths[3]) {
-      console.log("1600")
       path = "Especificaciones_Scooter_Electrico_Minca_1600W";
     }
-    console.log(path)
   })
 
-  console.log(path)
+  const parsePrice = (price) => {
+    let priceStr = price.replace("$", "");
+    priceStr = priceStr.replace(/\./g, "");
+    let priceInt = parseInt(priceStr, 10);
+    return priceInt
+  }
 
   return (
     <div className="carrusel h-auto w-full">
@@ -83,6 +83,14 @@ export const SingleProductComponent = ({ scooters }) => {
                 >
                   {item.node.sliderProductos.description}
                 </p>
+                  {item.node.sliderProductos.nombreProducto === paths[0] &&
+                  <div className="flex items-center space-x-2">
+                      <h4 className="inline-block text-xl font-semibold">
+                        Preventa
+                      </h4>
+                      <TooltipEspecificaciones tooltips={"si"} />
+                    </div>
+                  }
                 <div className="my-2 flex items-center gap-3 lg:mt-6 lg:gap-4">
                   <div
                     className={`${manrope.className} text-[14px] font-bold text-[#111111]  opacity-50 lg:text-[26px]`}
@@ -106,51 +114,8 @@ export const SingleProductComponent = ({ scooters }) => {
                   </span>
                 </div>
                 {/* botones descuento oculto hasta su implementación y 3D PC */}
-                {/* <Link
-                  href="#"
-                  className="relative mt-4 flex h-[44px] w-[355px] items-center justify-center gap-1 rounded-[5px] bg-[#F0EEED] text-[10px]"
-                >
-                  <Image
-                    placeholder="empty"
-                    className="logoCircular"
-                    src="/addicirculo.svg"
-                    width={33}
-                    height={33}
-                    alt="publicidad"
-                    style={{
-                      maxWidth: "100%",
-                      height: "auto",
-                      objectFit: "contain",
-                    }}
-                  />
-                  <p className="ml-2">Paga a crédito con</p>
-                  <Image
-                    placeholder="empty"
-                    className="logoADDI"
-                    src="/addilogo.svg"
-                    width={23}
-                    height={9}
-                    alt="publicidad"
-                    style={{
-                      maxWidth: "100%",
-                      height: "auto",
-                      objectFit: "contain",
-                    }}
-                  />
-                  <p>
-                    <strong>hasta 6 cuotas.</strong>
-                  </p>
-                  <p className="underline">Revisa si calificas</p>
-                </Link> */}
-                {item.node.sliderProductos.nombreProducto === paths[0] &&
-                <div className="flex items-center space-x-2">
-                    <h4 className="inline-block text-xl font-semibold">
-                      Preventa
-                    </h4>
-                    <TooltipEspecificaciones tooltips={"si"} />
-                  </div>
-                }
-                <div className="pt-8 ">
+                <addi-widget price={parsePrice(item.node.sliderProductos.precioRebajado)} ally-slug="mincaelectric-ecommerce"></addi-widget>
+                <div className="pt-4 ">
                   <Modal3d url_3d={item.node.sliderProductos.url3d} />
                 </div>
               </div>
@@ -264,7 +229,7 @@ export const SingleProductComponent = ({ scooters }) => {
 
           <Link
             href={`/especificaciones/${(path)}`} // La expresión regular es por que por algún motivo se estaba colando un caracter especial desconocido el [U+200E]
-            className="btn-scooter gird z-10 my-3 flex h-[52px] w-full place-items-center justify-center rounded-[62px]  bg-[#111] text-[16px] text-white lg:absolute lg:right-[100px]  lg:top-[59.2%]  lg:h-[48px] lg:w-[191px] 2xl:w-[235px]"
+            className="btn-scooter gird z-10 my-3 flex h-[40px] w-full place-items-center justify-center rounded-[62px]  bg-[#111] text-[16px] text-white lg:absolute lg:right-[100px]  lg:top-[59.2%]  lg:h-[48px] lg:w-[191px] 2xl:w-[235px] mt-12"
           >
             Comprar Ahora!
           </Link>
