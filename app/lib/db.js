@@ -15,7 +15,7 @@ export async function query({ query, values = [] }) {
     host: process.env.DB_SSH_HOST,
     port: 22,
     username: process.env.DB_SSH_USER,
-    privateKey: JSON.parse(process.env.KEY_PATH_PEM_FILE)
+    privateKey: process.env.KEY_PATH_PEM_FILE
   };
   
   const forwardConfig = {
