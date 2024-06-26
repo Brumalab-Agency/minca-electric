@@ -27,6 +27,24 @@ export async function POST(request) {
         status: "completed"
       };
       const idOrderWoocomerce = body.orderId;
+
+      const sheets = {
+        "Metodo de pago": "Addi",
+        "Estado": "Aprobado",
+      }
+
+      fetch(`https://sheetdb.io/api/v1/zimjq5k5azwjz/OC/${idOrderWoocomerce}`, {
+        method: "PATCH",
+        headers: {
+          'Accept': 'application/json',
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(sheets)
+      })
+      .then(response => response.json())
+      .then(data => console.log("Response from SheetDB:", data))
+      .catch(error => console.error("Error:", error));
+
       await api.put(`orders/${idOrderWoocomerce}`, dataWoocommerce);
       const dataOrder = await fetch(`https://www.mincaelectric.com/api/orders-complete?order_id=${idOrderWoocomerce}`, {
         method: 'GET',

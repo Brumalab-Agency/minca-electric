@@ -305,28 +305,32 @@ const CheckoutForm = ({ countriesData, onFormSubmit }) => {
     sessionStorage.setItem("data", JSON.stringify(input));
     sessionStorage.setItem("cart", JSON.stringify(productsObject));
 
-    console.log("Products Object:", productsObject)
-
     let presaleType = ""
 
-    if (productsObject.map(product => product.price) === "2100000") {
-      presaleType = "Pago total"
+    if (productsObject.map(product => product.name).join(", ") === "Scooter Eléctrico Minca 350W") {
+      if (productsObject.map(product => product.price) === 2100000) {
+        presaleType = "Pago total"
+      } else if (productsObject.map(product => product.price) === 1050000) {
+        presaleType = "Pago parcial"
+      }
     } else {
-      presaleType = "Pago parcial"
+      presaleType = "No aplica"
     }
+
+    console.log(createdOrderData.orderId)
 
     // Object to send to Google Sheets
     const data = {
       data: [{
-        "O/C": createdOrderData.orderId,
+        "OC": createdOrderData.orderId,
         "Fecha": new Date().toLocaleString(),
-        "Nombre": input.shipping.Nombre + input.shipping.Apellido,
+        "Nombre": input.shipping.Nombre + " " + input.shipping.Apellido,
         "Correo electrónico": input.shipping.Email,
         "Teléfono": input.shipping.Telefono,
         "Producto": productsObject.map(product => product.name).join(", "),
         "Ciudad": input.shipping.Ciudad,
-        "Valor": productsObject.map(product => product.totalPrice).reduce((a, b) => a + b, 0),
-        "Cupon": "#Minca15" ? productsObject.map(product => product.difference) : "No aplica",
+        "Total": productsObject.map(product => product.totalPrice).reduce((a, b) => a + b, 0),
+        "Cupón": localStorage.getItem("difference") === null ? "No aplica" : "#Minca15",
         "Preventa": presaleType,
         "Metodo de Pago": "",
         "Estado": "Pendiente",
@@ -334,12 +338,12 @@ const CheckoutForm = ({ countriesData, onFormSubmit }) => {
     };
 
     // Log data to make sure it is correct before sending
-    console.log("Data to be sent:", JSON.stringify(data));
 
     // Send data to Google Sheets
     fetch("https://sheetdb.io/api/v1/zimjq5k5azwjz", {
       method: "POST",
       headers: {
+        'Accept': 'application/json',
         "Content-Type": "application/json"
       },
       body: JSON.stringify(data)
@@ -347,13 +351,6 @@ const CheckoutForm = ({ countriesData, onFormSubmit }) => {
     .then(response => response.json())
     .then(data => console.log("Response from SheetDB:", data))
     .catch(error => console.error("Error:", error));
-
-    /* if ( createdOrderData.paymentUrl ) {
-    
-
-			window.location.href = createdOrderData.paymentUrl;
-
-		} */
 
     setRequestError(null);
   };

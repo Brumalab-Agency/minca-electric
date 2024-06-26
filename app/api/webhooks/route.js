@@ -35,7 +35,25 @@ export async function POST(request) {
         const data = {
           status: "completed"
         };
+
         const idOrderWoocomerce = payment.metadata.id_complete;
+
+        const sheets = {
+          "Metodo de pago": "Mercado Pago",
+          "Estado": "Aprobado",
+        }
+
+        fetch(`https://sheetdb.io/api/v1/zimjq5k5azwjz/OC/${idOrderWoocomerce}`, {
+          method: "PATCH",
+          headers: {
+            'Accept': 'application/json',
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify(sheets)
+        })
+        .then(response => response.json())
+        .then(data => console.log("Response from SheetDB:", data))
+        .catch(error => console.error("Error:", error));
         
         await api.put(`orders/${idOrderWoocomerce}`, data);
         await sendEmail(input, cart, idOrderWoocomerce);
