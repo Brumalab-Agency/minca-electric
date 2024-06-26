@@ -305,11 +305,17 @@ const CheckoutForm = ({ countriesData, onFormSubmit }) => {
     sessionStorage.setItem("data", JSON.stringify(input));
     sessionStorage.setItem("cart", JSON.stringify(productsObject));
 
+    console.log("Products Object:", productsObject)
+
     let presaleType = ""
 
-    if (productsObject.map(product => product.price) === "")
+    if (productsObject.map(product => product.price) === "2100000") {
+      presaleType = "Pago total"
+    } else {
+      presaleType = "Pago parcial"
+    }
 
-    /* // Object to send to Google Sheets
+    // Object to send to Google Sheets
     const data = {
       data: [{
         "O/C": createdOrderData.orderId,
@@ -320,10 +326,12 @@ const CheckoutForm = ({ countriesData, onFormSubmit }) => {
         "Producto": productsObject.map(product => product.name).join(", "),
         "Ciudad": input.shipping.Ciudad,
         "Valor": productsObject.map(product => product.totalPrice).reduce((a, b) => a + b, 0),
-        "Cupon": "#Minca15" ? productsObject.map(product => product.difference) : 0,
-        "Prevcenta": presaleType
+        "Cupon": "#Minca15" ? productsObject.map(product => product.difference) : "No aplica",
+        "Preventa": presaleType,
+        "Metodo de Pago": "",
+        "Estado": "Pendiente",
       }]
-    }; */
+    };
 
     // Log data to make sure it is correct before sending
     console.log("Data to be sent:", JSON.stringify(data));
