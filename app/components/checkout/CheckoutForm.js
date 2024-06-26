@@ -305,24 +305,40 @@ const CheckoutForm = ({ countriesData, onFormSubmit }) => {
     sessionStorage.setItem("data", JSON.stringify(input));
     sessionStorage.setItem("cart", JSON.stringify(productsObject));
 
-    // object to send to google sheets
+    let presaleType = ""
+
+    if (productsObject.map(product => product.price) === "")
+
+    /* // Object to send to Google Sheets
     const data = {
-      "Fecha": new Date().toLocaleString(),
-      "Nombre": input.shipping.Nombre,
-      "Correo Electronico": input.shipping.Email,
-      "Telefono": input.shipping.Telefono,
-      "Producto": productsObject.map(product => product.name).join(", "),
-      "Ciudad": input.shipping.Ciudad,
-    }
+      data: [{
+        "O/C": createdOrderData.orderId,
+        "Fecha": new Date().toLocaleString(),
+        "Nombre": input.shipping.Nombre + input.shipping.Apellido,
+        "Correo electrónico": input.shipping.Email,
+        "Teléfono": input.shipping.Telefono,
+        "Producto": productsObject.map(product => product.name).join(", "),
+        "Ciudad": input.shipping.Ciudad,
+        "Valor": productsObject.map(product => product.totalPrice).reduce((a, b) => a + b, 0),
+        "Cupon": "#Minca15" ? productsObject.map(product => product.difference) : 0,
+        "Prevcenta": presaleType
+      }]
+    }; */
 
+    // Log data to make sure it is correct before sending
+    console.log("Data to be sent:", JSON.stringify(data));
 
-    // sent dataa to google sheets
-    fetch("https://docs.google.com/spreadsheets/d/1oOTOSSVdKcN7MdzYIJm0CQ1MimhFLQYuxWY-Lcp9XCY/edit#gid=0", {
+    // Send data to Google Sheets
+    fetch("https://sheetdb.io/api/v1/zimjq5k5azwjz", {
       method: "POST",
-      body: data,
-        }).then(response => response.json()
-      ).then(data => console.log(data)
-    ).catch(error => console.log(error));
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(data)
+    })
+    .then(response => response.json())
+    .then(data => console.log("Response from SheetDB:", data))
+    .catch(error => console.error("Error:", error));
 
     /* if ( createdOrderData.paymentUrl ) {
     
