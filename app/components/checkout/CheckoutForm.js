@@ -329,7 +329,7 @@ const CheckoutForm = ({ countriesData, onFormSubmit }) => {
         "Teléfono": input.shipping.Telefono,
         "Producto": productsObject.map(product => product.name).join(", "),
         "Ciudad": input.shipping.Ciudad,
-        "Total": productsObject.map(product => product.totalPrice).reduce((a, b) => a + b, 0),
+        "Total": Number(productsObject[0].totalPrice),
         "Cupón": localStorage.getItem("difference") === null ? "No aplica" : "#Minca15",
         "Preventa": presaleType,
         "Metodo de Pago": "",
