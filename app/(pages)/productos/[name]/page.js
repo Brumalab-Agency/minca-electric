@@ -62,7 +62,6 @@ const SingleProduct = async ({ params }) => {
   
   
   const scooters = await SingleProductos(name);
-  
   return (
     <div>
       <HeaderSingleProducts />

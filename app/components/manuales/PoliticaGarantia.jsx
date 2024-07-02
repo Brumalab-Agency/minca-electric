@@ -27,7 +27,7 @@ const PoliticasGarantia = ({ garantia }) => {
       >
         <button
           type="button"
-          className={` my-3 h-[52px] w-full rounded-[62px] bg-[#111] text-[16px] text-white  lg:w-[210px]`}
+          className={`${ubuntu.className} bg-[#111] text-white my-3 h-[52px] w-full rounded-[62px] text-[16px] lg:w-[210px]`}
         >
           {`Política de garantías`}
         </button>
