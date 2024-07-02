@@ -1,6 +1,5 @@
 "use client";
-import { useState, useEffect, Suspense } from "react";
-import { Carousel, IconButton } from "@material-tailwind/react";
+import { useState, useEffect, useRef } from "react";
 import { Scooters } from "../../lib/graphQLRequest";
 import Scooter from "./Scooter";
 import { SkeletonCarrusel } from "./SkeletonCarrusel";
@@ -10,6 +9,11 @@ export function CarruselScooters() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [autoplay, setAutoplay] = useState(true);
+  const carouselRef = useRef(null);
+  const isDragging = useRef(false);
+  const startX = useRef(0);
+  const scrollLeft = useRef(0);
+  const autoplayInterval = useRef(null);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -23,7 +27,6 @@ export function CarruselScooters() {
             data.edges[2],
             ...data.edges.slice(4),
           ];
-
           setScooters({ ...data, edges: reordered });
         } else {
           setScooters(data);
@@ -36,39 +39,101 @@ export function CarruselScooters() {
       }
     };
     fetchData();
+
+    startAutoplay();
+
+    return () => {
+      stopAutoplay();
+    };
   }, []);
+
+  const startAutoplay = () => {
+    autoplayInterval.current = setInterval(() => {
+      if (!isDragging.current) {
+        scrollNext();
+      }
+    }, 8000);
+  };
+
+
 
   
 
+  const stopAutoplay = () => {
+    clearInterval(autoplayInterval.current);
+  };
 
-  const handleMouseEnter = () => {
-    setAutoplay(false);
+  const scrollNext = () => {
+    const cardWidth = carouselRef.current.offsetWidth;
+    carouselRef.current.scrollBy({
+      left: cardWidth,
+      behavior: "smooth",
+    });
+    if (
+      carouselRef.current.scrollLeft >=
+      carouselRef.current.scrollWidth - carouselRef.current.offsetWidth
+    ) {
+      carouselRef.current.scrollTo({ left: 0, behavior: "smooth" });
+    }
+  };
+
+  const handleMouseDown = (e) => {
+    isDragging.current = true;
+    stopAutoplay();
+    startX.current = e.pageX - carouselRef.current.offsetLeft;
+    scrollLeft.current = carouselRef.current.scrollLeft;
   };
 
   const handleMouseLeave = () => {
-    setAutoplay(true);
+    if (isDragging.current) {
+      isDragging.current = false;
+      alignToCard();
+    }
+    startAutoplay();
   };
 
-  const handleTouchStart = () => {
-    setAutoplay(false);
+  const handleMouseUp = () => {
+    isDragging.current = false;
+    alignToCard();
+    startAutoplay();
+  };
+
+  const handleMouseMove = (e) => {
+    if (!isDragging.current) return;
+    const x = e.pageX - carouselRef.current.offsetLeft;
+    const walk = (x - startX.current) * 2;
+    carouselRef.current.scrollLeft = scrollLeft.current - walk;
+  };
+
+  const handleTouchStart = (e) => {
+    isDragging.current = true;
+    stopAutoplay();
+    startX.current = e.touches[0].pageX - carouselRef.current.offsetLeft;
+    scrollLeft.current = carouselRef.current.scrollLeft;
   };
 
   const handleTouchEnd = () => {
-    setAutoplay(true);
+    isDragging.current = false;
+    alignToCard();
+    startAutoplay();
   };
 
-  function useIsMobile() {
-    const [isMobile, setIsMobile] = useState("");
+  const handleTouchMove = (e) => {
+    if (!isDragging.current) return;
+    const x = e.touches[0].pageX - carouselRef.current.offsetLeft;
+    const walk = (x - startX.current) * 2; // Ajustar la velocidad del scroll
+    carouselRef.current.scrollLeft = scrollLeft.current - walk;
+  };
 
-    useEffect(() => {
-      const mediaQuery = window.matchMedia("(max-width: 768px)");
-      const handleResize = (e) => setIsMobile(e.matches);
-      mediaQuery.addListener(handleResize);
-      return () => mediaQuery.removeListener(handleResize);
-    }, []);
-
-    return isMobile;
-  }
+  const alignToCard = () => {
+    const cardWidth = carouselRef.current.offsetWidth;
+    const scrollLeft = carouselRef.current.scrollLeft;
+    const cardIndex = Math.round(scrollLeft / cardWidth);
+    carouselRef.current.scrollTo({
+      left: cardIndex * cardWidth,
+      behavior: "smooth",
+    });
+  };
 
   if (loading) {
     return <SkeletonCarrusel />;
@@ -80,25 +145,23 @@ export function CarruselScooters() {
 
   return (
     <div
-      className="carrusel h-auto w-full"
-      onMouseEnter={handleMouseEnter}
+      className="carrusel relative h-auto w-full overflow-hidden"
+      ref={carouselRef}
+      onMouseDown={handleMouseDown}
       onMouseLeave={handleMouseLeave}
+      onMouseUp={handleMouseUp}
+      onMouseMove={handleMouseMove}
       onTouchStart={handleTouchStart}
       onTouchEnd={handleTouchEnd}
+      onTouchMove={handleTouchMove}
     >
-      <Suspense fallback={<SkeletonCarrusel />}>
-        <Carousel
-          autoplay={autoplay}
-          loop={true}
-          className="carrusel-padre relative overflow-x-hidden rounded-xl"
-        >
-          {scooters.edges.map((scooter, index) => (
-            <div key={index}>
-              <Scooter scooter={scooter} />
-            </div>
-          ))}
-        </Carousel>
-      </Suspense>
+      <div className="carrusel-padre flex">
+        {scooters.edges.map((scooter, index) => (
+          <div key={index} className="min-w-full">
+            <Scooter scooter={scooter} />
+          </div>
+        ))}
+      </div>
     </div>
   );
 }

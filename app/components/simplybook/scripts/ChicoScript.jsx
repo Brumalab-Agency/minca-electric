@@ -19,7 +19,7 @@ function BookingWidget() {
     }, []);
 
     return (
-       <div id="sbw_n2w64k" ref={widgetContainerRef}></div>
+      <div  id="sbw_n2w64k" ref={widgetContainerRef}></div>
     );
 }
 
