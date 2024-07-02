@@ -64,7 +64,7 @@ export function ComponentAvenidaChile() {
                     </div>
                     <div className="mt-6">
                       <p className={`${ubuntu.className} text-base`}>
-                        Lunes a viernes: 07:00 a.m. - 05:00 p.m.
+                        Lunes a viernes: 08:00 a.m. - 05:00 p.m.
                       </p>
                       <p className={`${ubuntu.className} text-base`}>
                         Sábados: 08:00 a.m. - 03:00 p.m.
