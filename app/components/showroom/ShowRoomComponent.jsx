@@ -1,9 +1,9 @@
 "use client";
-
 import { manrope, ubuntu } from "../../ui/fonts";
+import { CardShowRoomMovil } from "./CardShowRoomMovil";
+import { BotonRelativo } from "../botones/BotonRelativo";
 import { Carousel } from "@material-tailwind/react";
 import Link from "next/link";
-import { CarrouselMovileShowroom } from "../home/CarrouselMovileShowroom";
 
 export const ShowRoomComponent = () => {
   return (
@@ -17,7 +17,7 @@ export const ShowRoomComponent = () => {
           navigation={false}
           className="carrusel-showRoom-home relative hidden overflow-x-hidden bg-[#111] lg:flex"
         >
-          {/* Showroom Chico */}
+          {/* Showrrom Chico */}
           <section className="flex h-full w-full">
             <div className="ladoIzquierdo grid h-full w-full place-items-center">
               {/* La imagen es un backGround */}
@@ -28,17 +28,17 @@ export const ShowRoomComponent = () => {
               />
             </div>
             <div className="ladoDerecho hidden h-full w-full place-items-center bg-[#111] text-white lg:grid ">
-              <div>
-                <div className="flex gap-4">
+              <div className="">
+                <div className="flex gap-4 ">
                   <div className="columna-img mb-[15px] flex h-auto w-[60px] flex-col justify-end gap-6">
-                    <div>
+                    <div className="">
                       <img
                         className="h-[50px] w-[50px]"
                         src="/map.png"
                         alt="pointer map"
                       />
                     </div>
-                    <div>
+                    <div className="">
                       <img
                         className="h-[50px] w-[50px]"
                         src="/calendario.png"
@@ -47,7 +47,7 @@ export const ShowRoomComponent = () => {
                     </div>
                   </div>
                   <div>
-                    <div>
+                    <div className="">
                       <p className={`${ubuntu.className} text-left text-base`}>
                         Visita nuestras sedes Minca:
                       </p>
@@ -63,7 +63,7 @@ export const ShowRoomComponent = () => {
                       </h2>
                     </div>
                     <div>
-                      <div>
+                      <div className="">
                         <p className={`${ubuntu.className} text-base`}>
                           Cra. 11a #94a-56
                         </p>
@@ -75,9 +75,11 @@ export const ShowRoomComponent = () => {
                         <p className={`${ubuntu.className} text-base`}>
                           Sábados: 09:00 a.m. - 08:00 p.m.
                         </p>
-                        <p className={`${ubuntu.className} text-base`}>
-                          Domingos: 11:00 a.m. - 06:00 p.m.
-                        </p>
+                        {
+                          <p className={`${ubuntu.className} text-base`}>
+                            Domingos: 11:00 a.m. - 06:00 p.m.
+                          </p>
+                        }
                       </div>
                     </div>
                   </div>
@@ -85,7 +87,7 @@ export const ShowRoomComponent = () => {
                 <div className="ml-[60px] mt-6 flex flex-col items-center justify-center">
                   <Link
                     href="/testdrive/showroomchico"
-                    className={`${ubuntu.className} border-1 my-3 grid h-[52px] w-full  place-items-center rounded-[62px] border border-white bg-[#111] text-[16px] text-white lg:w-[290px]`}
+                    className={`${ubuntu.className} border-1 my-3 grid h-[52px] w-full  place-items-center rounded-[62px] border border-white bg-[#111] text-[16px] text-white  lg:w-[290px]`}
                   >
                     Agendar Test Drive
                   </Link>
@@ -453,10 +455,77 @@ export const ShowRoomComponent = () => {
           </section>
         </Carousel>
       </div>
-      {/* Mobile */}
-      <div className="lg:hidden">
-        <CarrouselMovileShowroom />
-      </div>
+      <CardShowRoomMovil
+        src="/sedes/Showroom Chicó - Minca electric.jpg"
+        tipo="Showroom"
+        titulo="chicó"
+        btn="Agendar TestDrive"
+        icono="/showroom_icon.png"
+        url="/testdrive/showroomchico"
+        direccion="Cra. 11a #94a-56"
+        ciudad="Bogotá, Colombia"
+        entreSemana="Lunes a viernes: 11:00 a.m. - 08:00 p.m."
+        sabado="Sábados: 09:00 a.m. - 08:00 p.m."
+        domingo="Domingos: 11:00 a.m. - 06:00 p.m."
+      />
+      <CardShowRoomMovil
+        src="/sedes/Showroom Javeriana - Minca electric.jpg"
+        tipo="Showroom"
+        titulo="javeriana"
+        btn="Agendar TestDrive"
+        icono="/showroom_icon.png"
+        clase="bg-[#F0F1EB]"
+        url="/testdrive/showroomjaveriana"
+        direccion="Carrera 7 # 45-10"
+        ciudad="Bogotá, Colombia"
+        entreSemana="Lunes a viernes: 11:00 a.m. - 08:00 p.m."
+        sabado="Sábados: 09:00 a.m. - 08:00 p.m."
+        domingo="Domingos: 11:00 a.m. - 06:00 p.m."
+      />
+      <CardShowRoomMovil
+        src="/sedes/Showroom Cedritos - Minca electric.png"
+        tipo="Showroom"
+        titulo="cedritos"
+        btn="Agendar TestDrive"
+        icono="/showroom_icon.png"
+        clase="bg-[#F0F1EB]"
+        url="/testdrive/showroomcedritos"
+        direccion="Av. Cra. 19#143A-08"
+        ciudad="Bogotá, Colombia"
+        entreSemana="Lunes a viernes: 11:00 a.m. - 08:00 p.m."
+        sabado="Sábados: 09:00 a.m. - 08:00 p.m."
+        domingo="Domingos: 11:00 a.m. - 06:00 p.m."
+      />
+      <CardShowRoomMovil
+        src="/sedes/Showroom Gran Estación - Minca electric.jpg"
+        tipo="Showroom"
+        titulo="Gran Estación"
+        btn="Agendar Test Drive"
+        icono="/showroom_icon.png"
+        clase="bg-[#F0F1EB]"
+        url="#"
+        // { url="/testdrive/showroomcedritos"*/}
+        direccion="Centro Comercial Gran Estacion Isla, 2-02,"
+        ciudad="Bogotá, Colombia"
+        entreSemana="Lunes a viernes: 11:00 a.m. - 08:00 p.m."
+        sabado="Sábados: 09:00 a.m. - 08:00 p.m."
+        domingo="Domingos: 11:00 a.m. - 06:00 p.m."
+      />
+      <CardShowRoomMovil
+        src="/sedes/Showroom Avenida Chile - Minca electric.jpg"
+        tipo="Showroom"
+        titulo="Avenida Chile"
+        btn="Agendar Test Drive"
+        icono="/showroom_icon.png"
+        clase="bg-[#F0F1EB]"
+        url="/testdrive/showroomavenidachile"
+        direccion="Calle 72 # 25-10,"
+        ciudad="Bogotá, Colombia"
+        entreSemana="Lunes a viernes: 11:00 a.m. - 08:00 p.m."
+        sabado="Sábados: 09:00 a.m. - 08:00 p.m."
+        domingo="Domingos: 11:00 a.m. - 06:00 p.m."
+      />
+      {/* <CardShowRoomMovil btn="Agendar TestDrive" icono="/showroom_icon.png" url="#"/> */}
     </>
   );
 };

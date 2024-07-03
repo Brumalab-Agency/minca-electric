@@ -45,7 +45,7 @@ export const MovileCardTalleres = () => {
       />
       <CardShowRoomMovil
         tipo="Taller"
-        src="/talleres/javeriana.png"
+        src="/talleres/Taller-avenida-chile.png"
         titulo="Avenida Chile"
         btn="Agendar Mantenimiento"
         icono="/showroom_icon.png"

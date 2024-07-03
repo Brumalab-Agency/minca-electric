@@ -6,6 +6,7 @@ export const CarrouselMovileShowroom = () => {
   const [activeIndex, setActiveIndex] = useState(0);
   const [isDragging, setIsDragging] = useState(false);
   const [startX, setStartX] = useState(0);
+  const [isPaused, setIsPaused] = useState(false);
   const carouselRef = useRef(null);
   const slides = [
     {
@@ -70,38 +71,40 @@ export const CarrouselMovileShowroom = () => {
     },
   ];
 
-  useEffect(() => {
-    const handleAutoSlide = () => {
-      setActiveIndex((prevIndex) => (prevIndex + 1) % slides.length);
-    };
-
-    const intervalId = setInterval(handleAutoSlide, 3000);
-    return () => clearInterval(intervalId);
-  }, [slides.length]);
-
   const handleTouchStart = (e) => {
     setIsDragging(true);
     setStartX(e.touches[0].clientX);
+    setIsPaused(true);
   };
 
   const handleTouchMove = (e) => {
     if (!isDragging) return;
     const touchX = e.touches[0].clientX;
     const moveX = startX - touchX;
-    if (moveX > 50) {
-      setActiveIndex((prevIndex) => (prevIndex + 1) % slides.length);
+
+    if (moveX > 50 && activeIndex < slides.length - 1) {
+      setActiveIndex((prevIndex) => Math.min(prevIndex + 1, slides.length - 1));
       setIsDragging(false);
+      setIsPaused(false);
     }
-    if (moveX < -50) {
-      setActiveIndex(
-        (prevIndex) => (prevIndex - 1 + slides.length) % slides.length,
-      );
+    if (moveX < -50 && activeIndex > 0) {
+      setActiveIndex((prevIndex) => Math.max(prevIndex - 1, 0));
       setIsDragging(false);
+      setIsPaused(false);
     }
   };
 
   const handleTouchEnd = () => {
     setIsDragging(false);
+    setIsPaused(false);
+  };
+
+  const handleMouseEnter = () => {
+    setIsPaused(true);
+  };
+
+  const handleMouseLeave = () => {
+    setIsPaused(false);
   };
 
   return (
@@ -113,6 +116,8 @@ export const CarrouselMovileShowroom = () => {
         onTouchStart={handleTouchStart}
         onTouchMove={handleTouchMove}
         onTouchEnd={handleTouchEnd}
+        onMouseEnter={handleMouseEnter}
+        onMouseLeave={handleMouseLeave}
       >
         <div
           className="flex transition-transform duration-700 ease-in-out"
@@ -176,6 +181,7 @@ export const CarrouselMovileShowroom = () => {
                       Agendar Test Drive
                     </button>
                   </Link>
+                  <div className="scroll-indicator m-auto "></div>
                 </div>
               </section>
             </div>

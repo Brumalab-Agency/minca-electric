@@ -30,14 +30,13 @@ const Scooter = ({ scooter }) => {
     item.slugDinamicoTemporal =
       "Especificaciones_Scooter_Electrico_Minca_1600W";
   }
-
+  
   const parsePrice = (price) => {
     let priceStr = price.replace("$", "");
     priceStr = priceStr.replace(/\./g, "");
     let priceInt = parseInt(priceStr, 10);
-    return priceInt;
-  };
-
+    return priceInt
+  }
   return (
     <div id="scooter" className="carrusel h-auto w-full">
       <div className="relative p-4 lg:px-[100px] lg:py-14">
@@ -77,14 +76,14 @@ const Scooter = ({ scooter }) => {
               >
                 {item.description}
               </p>
-              {item.nombreProducto === "Minca 350W" && (
+              {/* {item.nombreProducto === "Minca 350W" && (
                 <div className="mt-5 flex items-center space-x-2">
                   <h4 className="inline-block text-xl font-semibold">
                     Preventa
                   </h4>
                   <TooltipEspecificaciones tooltips={"si"} />
                 </div>
-              )}
+              )} */}
               <div className="my-2 flex items-center gap-3 lg:mt-2 lg:gap-4">
                 <div
                   className={`${manrope.className} text-[14px] font-bold text-[#111111]  opacity-50 lg:text-[26px]`}
@@ -107,10 +106,7 @@ const Scooter = ({ scooter }) => {
                 </span>
               </div>
               {/* Modelo 3D Movil/PC */}
-              <addi-widget
-                price={parsePrice(item.precioRebajado)}
-                ally-slug="mincaelectric-ecommerce"
-              ></addi-widget>
+              <addi-widget price={parsePrice(item.precioRebajado)} ally-slug="mincaelectric-ecommerce"></addi-widget>
               <div className="pt-2">
                 <Modal3d url_3d={item.url3d} />
               </div>
@@ -179,7 +175,7 @@ const Scooter = ({ scooter }) => {
             />
           </div>
           {/* ******************* */}
-          <div className="carusel-movil mt-4 flex h-full w-full justify-center items-center gap-5 overflow-y-hidden overflow-x-scroll p-[5px] lg:hidden">
+          <div className="carusel-movil mt-4 flex h-full w-full items-center justify-center gap-5 overflow-y-hidden overflow-x-scroll p-[5px] lg:hidden">
             <CardEspecifications
               titulo={item.motor}
               subtitulo={item.vatios}
@@ -200,10 +196,32 @@ const Scooter = ({ scooter }) => {
               subtitulo={item.kmh}
               tipo={item.velocidadMaxima}
             />
+            <CardEspecifications
+              titulo={item.peso}
+              subtitulo={item.kg}
+              tipo={item.pesoMaximo}
+            />
+            <CardEspecifications
+              titulo={item.frenos}
+              subtitulo={item.frenosNulo}
+              tipo={item.tipofrenos}
+            />
+            <CardEspecifications
+              titulo={item.pulgadas}
+              subtitulo={item.tipoRodamiento}
+              tipo={item.llanta}
+            />
+            <CardEspecifications
+              titulo={item.pesoSc}
+              subtitulo={item.kg}
+              tipo={item.tpeso}
+            />
           </div>
+          <div className="scroll-indicator m-auto"></div>
           <div className="block lg:hidden">
             <Boton slug={item.slugDinamicoTemporal} param="Comprar Ahora" />
           </div>
+          {/* <div className="scroll-indicator m-auto "></div> */}
         </div>
       </div>
     </div>

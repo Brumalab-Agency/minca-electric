@@ -206,4 +206,4 @@ const Minca350hs = () => {
   );
 }
 
-export default Minca350hs;
+export default Minca350hs

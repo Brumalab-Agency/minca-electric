@@ -6,6 +6,7 @@ export const CarrouselMovileTalleres = () => {
   const [activeIndex, setActiveIndex] = useState(0);
   const [isDragging, setIsDragging] = useState(false);
   const [startX, setStartX] = useState(0);
+  const [isPaused, setIsPaused] = useState(false);
   const carouselRef = useRef(null);
   const slides = [
     {
@@ -15,7 +16,7 @@ export const CarrouselMovileTalleres = () => {
       location: "Calle 95 #13-55",
       location2: "Bogotá, Colombia",
       schedule: [
-        "Lunes a viernes: 11:00 a.m. - 08:00 p.m.",
+        "Lunes a viernes: 07:00 a.m. - 05:00 p.m.",
         "Sábados: 08:00 a.m. - 03:00 p.m.",
       ],
     },
@@ -54,38 +55,40 @@ export const CarrouselMovileTalleres = () => {
     },
   ];
 
-  useEffect(() => {
-    const handleAutoSlide = () => {
-      setActiveIndex((prevIndex) => (prevIndex + 1) % slides.length);
-    };
-
-    const intervalId = setInterval(handleAutoSlide, 3000);
-    return () => clearInterval(intervalId);
-  }, [slides.length]);
-
   const handleTouchStart = (e) => {
     setIsDragging(true);
     setStartX(e.touches[0].clientX);
+    setIsPaused(true);
   };
 
   const handleTouchMove = (e) => {
     if (!isDragging) return;
     const touchX = e.touches[0].clientX;
     const moveX = startX - touchX;
-    if (moveX > 50) {
-      setActiveIndex((prevIndex) => (prevIndex + 1) % slides.length);
+
+    if (moveX > 50 && activeIndex < slides.length - 1) {
+      setActiveIndex((prevIndex) => Math.min(prevIndex + 1, slides.length - 1));
       setIsDragging(false);
+      setIsPaused(false);
     }
-    if (moveX < -50) {
-      setActiveIndex(
-        (prevIndex) => (prevIndex - 1 + slides.length) % slides.length,
-      );
+    if (moveX < -50 && activeIndex > 0) {
+      setActiveIndex((prevIndex) => Math.max(prevIndex - 1, 0));
       setIsDragging(false);
+      setIsPaused(false);
     }
   };
 
   const handleTouchEnd = () => {
     setIsDragging(false);
+    setIsPaused(false);
+  };
+
+  const handleMouseEnter = () => {
+    setIsPaused(true);
+  };
+
+  const handleMouseLeave = () => {
+    setIsPaused(false);
   };
 
   return (
@@ -93,13 +96,15 @@ export const CarrouselMovileTalleres = () => {
       <h1 className="mt-50 mb-5 ml-5 text-[32px] font-bold">TALLERES</h1>
       <div
         ref={carouselRef}
-        className="relative w-[100%] overflow-hidden"
+        className="relative w-[100%] overflow-hidden "
         onTouchStart={handleTouchStart}
         onTouchMove={handleTouchMove}
         onTouchEnd={handleTouchEnd}
+        onMouseEnter={handleMouseEnter}
+        onMouseLeave={handleMouseLeave}
       >
         <div
-          className="flex transition-transform duration-700 ease-in-out"
+          className="flex  transition-transform duration-700 ease-in-out"
           style={{ transform: `translateX(-${activeIndex * 100}%)` }}
         >
           {slides.map((slide, index) => (
@@ -147,7 +152,7 @@ export const CarrouselMovileTalleres = () => {
                       <path
                         fill="#F0EEED"
                         fillRule="evenodd"
-                        d="M15.75 11.511a.95.95 0 0 1 .95.95v.95h7.6v-.95a.95.95 0 1 1 1.9 0v.95c.436 0 .816.004 1.135.03.376.03.75.098 1.109.281.536.273.972.71 1.245 1.246.183.36.251.733.282 1.108.029.356.029.788.029 1.289v9.193c0 .5 0 .933-.029 1.289-.03.375-.099.749-.282 1.108a2.85 2.85 0 0 1-1.245 1.246c-.36.183-.733.25-1.109.281-.356.03-.788.03-1.288.03H14.953c-.5 0-.932 0-1.288-.03-.376-.03-.75-.098-1.109-.281a2.85 2.85 0 0 1-1.245-1.246c-.184-.36-.251-.733-.282-1.108C11 27.49 11 27.059 11 26.558v-9.193c0-.5 0-.933.029-1.289.03-.375.098-.749.282-1.108M12.9 19.11v7.41c0 .548 0 .902.023 1.171.02.258.057.354.08.4a.95.95 0 0 0 .416.416c.047.024.142.06.4.08.27.023.623.023 1.171.023h11.02c.548 0 .901 0 1.17-.022.259-.021.354-.057.401-.081a.95.95 0 0 0 .415-.415c.024-.047.06-.143.081-.401.022-.27.023-.623.023-1.17v-7.41H12.9Zm15.2-1.9H12.9c0-.441.003-.743.023-.98.02-.258.057-.354.08-.4a.95.95 0 0 1 .416-.416c.047-.024.142-.06.4-.08.27-.023.623-.024 1.171-.024h11.02c.548 0 .901.001 1.17.023.259.021.354.057.401.081a.95.95 0 0 1 .415.415c.024.047.06.143.081.4.02.238.022.54.023.982Zm-13.3-3.8v-.95a.95.95 0 0 1 .95-.95m-.95 1.9c-.436 0-.816.004-1.135.03-.376.03-.75.098-1.109.281m0 0a2.85 2.85 0 0 0-1.245 1.246l1.245-1.246Zm1.294 8.24a.95.95 0 0 1 .95-.95h1.9a.95.95 0 1 1 0 1.9h-1.9a.95.95 0 0 1-.95-.95Zm4.75 0a.95.95 0 0 1 .95-.95h1.9a.95.95 0 1 1 0 1.9h-1.9a.95.95 0 0 1-.95-.95Zm4.75 0a.95.95 0 0 1 .95-.95h1.9a.95.95 0 1 1 0 1.9h-1.9a.95.95 0 0 1-.95-.95Zm-9.5 3.8a.95.95 0 0 1 .95-.95h1.9a.95.95 0 1 1 0 1.9h-1.9a.95.95 0 0 1-.95-.95Zm4.75 0a.95.95 0 0 1 .95-.95h1.9a.95.95 0 1 1 0 1.9h-1.9a.95.95 0 0 1-.95-.95Zm4.75 0a.95.95 0 0 1 .95-.95h1.9a.95.95 0 1 1 0 1.9h-1.9a.95.95 0 0 1-.95-.95Z"
+                        d="M15.75 11.511a.95.95 0 0 1 .95.95v.95h7.6v-.95a.95.95 0 1 1 1.9 0v.95c.436 0 .816.004 1.135.03.376.03.75.098 1.109.281.536.273.972.71 1.245 1.246.183.36.251.733.282 1.108.029.356.029.788.029 1.289v9.193c0 .5 0 .933-.029 1.289-.03.375-.099.749-.282 1.108a2.85 2.85 0 0 1-1.245 1.246c-.36.183-.733.25-1.109.281-.356.03-.788.03-1.288.03H14.953c-.5 0-.932 0-1.288-.03-.376-.03-.75-.098-1.109-.281a2.85 2.85 0 0 1-1.245-1.246c-.184-.36-.251-.733-.282-1.108C11 27.49 11 27.059 11 26.558v-9.193c0-.5 0-.933.029-1.289.03-.375.098-.749.282-1.108M12.9 19.11v7.41c0 .548 0 .902.023 1.171.02.258.057.354.08.4a.95.95 0 0 0 .416.416c.047.024.142.06.4.08.27.023.623.023 1.171.023h11.02c.548 0 .901 0 1.17-.022.259-.021.354-.057.401-.081a.95.95 0 0 0 .415-.415c.024-.047.06-.143.081-.401.022-.27.023-.623.023-1.17v-7.41H12.9Zm15.2-1.9H12.9c0-.441.003-.743.023-.98.02-.258.057-.354.08-.4a.95.95 0 0 1 .416-.416c.047-.024.142-.06.4-.08.27-.023.623-.024 1.171-.024h11.02c.548 0 .901.001 1.17.023.259.021.354.057.401.081a.95.95 0 0 1 .415.415c.024.047.06.143.081.4.02.238.022.54.023.982Zm-13.3-3.8v-.95a.95.95 0 0 1 .95-.95m-.95 1.9c-.436 0-.816.004-1.135.03-.376.03-.75.098-1.109.281m0 0a2.85 2.85 0 0 0-1.245 1.246l1.245-1.246Zm1.294 8.24a.95.95 0 0 1 .95-.95h1.9a.95.95 0 1 1 0 1.9h-1.9a.95.95 0 0 1-.95-.95Zm4.75 0a.95.95 0 0 1 .95-.95h1.9a.95.95 0 1 1 0 1.9h-1.9a.95.95 0 0 1-.95-.95Zm4.75 0a.95.95 0 0 1 .95-.95h1.9a.95.95 0 1 1 0 1.9h-1.9a.95.95 0 0 1-.95-.95Z"
                         clipRule="evenodd"
                       />
                     </svg>
@@ -162,6 +167,7 @@ export const CarrouselMovileTalleres = () => {
                       Agendar Mantenimiento
                     </button>
                   </Link>
+                  <div className="scroll-indicator m-auto "></div>
                 </div>
               </section>
             </div>
