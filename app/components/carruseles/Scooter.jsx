@@ -76,14 +76,14 @@ const Scooter = ({ scooter }) => {
               >
                 {item.description}
               </p>
-              {item.nombreProducto === "Minca 350W" && (
+              {/* {item.nombreProducto === "Minca 350W" && (
                 <div className="mt-5 flex items-center space-x-2">
                   <h4 className="inline-block text-xl font-semibold">
                     Preventa
                   </h4>
                   <TooltipEspecificaciones tooltips={"si"} />
                 </div>
-              )}
+              )} */}
               <div className="my-2 flex items-center gap-3 lg:mt-2 lg:gap-4">
                 <div
                   className={`${manrope.className} text-[14px] font-bold text-[#111111]  opacity-50 lg:text-[26px]`}
