@@ -76,13 +76,14 @@ const Scooter = ({ scooter }) => {
               >
                 {item.description}
               </p>
-              {item.nombreProducto === "Minca 350W" && 
-              <div className="mt-5 flex items-center space-x-2">
-                <h4 className="inline-block text-xl font-semibold">
-                  Preventa
-                </h4>
-                <TooltipEspecificaciones tooltips={"si"} />
-              </div>}
+              {/* {item.nombreProducto === "Minca 350W" && (
+                <div className="mt-5 flex items-center space-x-2">
+                  <h4 className="inline-block text-xl font-semibold">
+                    Preventa
+                  </h4>
+                  <TooltipEspecificaciones tooltips={"si"} />
+                </div>
+              )} */}
               <div className="my-2 flex items-center gap-3 lg:mt-2 lg:gap-4">
                 <div
                   className={`${manrope.className} text-[14px] font-bold text-[#111111]  opacity-50 lg:text-[26px]`}
@@ -174,7 +175,7 @@ const Scooter = ({ scooter }) => {
             />
           </div>
           {/* ******************* */}
-          <div className="carusel-movil mt-4 flex h-full gap-1 overflow-y-hidden overflow-x-scroll p-[5px] lg:hidden">
+          <div className="carusel-movil mt-4 flex h-full w-full items-center justify-center gap-5 overflow-y-hidden overflow-x-scroll p-[5px] lg:hidden">
             <CardEspecifications
               titulo={item.motor}
               subtitulo={item.vatios}
@@ -220,6 +221,7 @@ const Scooter = ({ scooter }) => {
           <div className="block lg:hidden">
             <Boton slug={item.slugDinamicoTemporal} param="Comprar Ahora" />
           </div>
+          <div className="scroll-indicator m-auto "></div>
         </div>
       </div>
     </div>
