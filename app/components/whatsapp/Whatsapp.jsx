@@ -45,7 +45,7 @@ const Whatsapp = ({ message }) => {
           onClick={handleClick(whatsappLink)}
         />
       </Link>
-    </div>
+  </div>
   );
 };
 

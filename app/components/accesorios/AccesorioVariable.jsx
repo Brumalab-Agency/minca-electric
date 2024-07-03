@@ -13,7 +13,11 @@ const AccesorioVariable = (item) => {
     colors: [],
   });
 
+  console.log(selectedOptions)
+
   const [currentVariation, setCurrentVariation] = useState(null);
+
+  console.log(currentVariation)
 
   const [isColorSelected, setIsColorSelected] = useState(false);
 
@@ -30,17 +34,14 @@ const AccesorioVariable = (item) => {
 
     const [currentProductIndex, setCurrentProductIndex] = useState(1);
 
-    const getSelectedVariation = (items, sizes, colors) => {
+    const getSelectedVariation = (items, sizes) => {
       return (
         items.variations.nodes.find((variation) => {
           const variationSize = variation.attributes.nodes.find(
             (attr) => attr.name === "talla",
           )?.value;
-          const variationColor = variation.attributes.nodes.find(
-            (attr) => attr.name === "color",
-          )?.value;
           return (
-            sizes.includes(variationSize) && colors.includes(variationColor)
+            sizes.includes(variationSize)
           );
         }) || null
       );
@@ -48,7 +49,7 @@ const AccesorioVariable = (item) => {
 
     const handleSizeSelection = (size) => {
       setSelectedOptions((prevOptions) => {
-        const { sizes, colors } = prevOptions;
+        const { sizes } = prevOptions;
         let updatedSizes;
 
         if (sizes.includes(size)) {
@@ -57,17 +58,18 @@ const AccesorioVariable = (item) => {
           updatedSizes = [size];
         }
 
+        console.log(updatedSizes)
         const selectedVariation = getSelectedVariation(
           items,
           updatedSizes,
-          colors,
         );
+        console.log(selectedVariation)
         setCurrentVariation(selectedVariation);
         return { ...prevOptions, sizes: updatedSizes };
       });
     };
 
-    const handleColorSelection = (color) => {
+    /* const handleColorSelection = (color) => {
       setSelectedOptions((prevOptions) => {
         const { sizes, colors } = prevOptions;
         let updatedColors;
@@ -87,7 +89,7 @@ const AccesorioVariable = (item) => {
         setIsColorSelected(updatedColors.length > 0);
         return { ...prevOptions, colors: updatedColors };
       });
-    };
+    }; */
 
     const separadorDeMiles = (numero) => {
       let partesNumero = numero.toString().split(".");
@@ -130,16 +132,15 @@ const AccesorioVariable = (item) => {
                         </div>
                       </div>
                       <addi-widget price={item?.price} ally-slug="mincaelectric-ecommerce"></addi-widget>
-                      <hr className="mt-5 lg:w-[70%]" />
                       <div className="selector-color mt-2">
-                        <p
+                        {/* <p
                           className={`${ubuntu.className} text-base text-[#111]/60`}
                         >
                           Color
-                        </p>
-                        {/* Btn colores */}
+                        </p> */}
+                        {/* {/* Btn colores 
                         <div className="flex gap-2 pt-1">
-                          {/* color negro L */}
+                          {/* color negro L 
                           <div>
                             <button
                               onClick={() => handleColorSelection("Negro")}
@@ -151,7 +152,7 @@ const AccesorioVariable = (item) => {
                             </button>
                             <p className="text-[12px] text-[#111]/60 mt-1">Negro</p>
                           </div>
-                          {/* color azul M */}
+                          {/* color azul M 
                           <div className="flex flex-col items-center">
                             <button
                               onClick={() => handleColorSelection("Azul")}
@@ -163,7 +164,7 @@ const AccesorioVariable = (item) => {
                             </button>
                             <p className="text-[12px] text-[#111]/60 mt-1">Azul</p>
                           </div>
-                        </div>
+                        </div> */}
                       </div>
 
                       <hr className="mt-5" />
@@ -178,7 +179,6 @@ const AccesorioVariable = (item) => {
                           <button
                             onClick={() => handleSizeSelection("L")}
                             className="colores grid h-[42px] w-[58px] place-items-center rounded-[62px] bg-[#F0F0F0] text-[#111]/60"
-                            disabled={!isColorSelected}
                           >
                             {selectedOptions.sizes.includes("L") && (
                               <XIcon className="absolute right-0 top-0" />
@@ -188,7 +188,6 @@ const AccesorioVariable = (item) => {
                           <button
                             onClick={() => handleSizeSelection("M")}
                             className="colores grid h-[42px] w-[58px] place-items-center rounded-[62px] bg-[#111] text-base text-white"
-                            disabled={!isColorSelected}
                           >
                             {selectedOptions.sizes.includes("M") && (
                               <XIcon className="absolute right-0 top-0" />
