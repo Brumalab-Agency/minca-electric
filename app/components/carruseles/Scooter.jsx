@@ -221,7 +221,7 @@ const Scooter = ({ scooter }) => {
           <div className="block lg:hidden">
             <Boton slug={item.slugDinamicoTemporal} param="Comprar Ahora" />
           </div>
-          <div className="scroll-indicator m-auto "></div>
+          {/* <div className="scroll-indicator m-auto "></div> */}
         </div>
       </div>
     </div>
