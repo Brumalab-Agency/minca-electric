@@ -80,7 +80,7 @@ export default function RootLayout({ children }) {
             `}
           </Script>
           <Script async src="https://www.googletagmanager.com/gtag/js?id=G-0J2S3K5ZR5"></Script>
-          <Script id="google-analytics">
+          <Script>
             {`
               function gtag_report_conversion(url) {
                 var callback = function () {
