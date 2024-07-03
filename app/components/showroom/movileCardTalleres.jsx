@@ -27,7 +27,7 @@ export const MovileCardTalleres = () => {
         url="/talleres/tallerJaveriana"
         direccion="Carrera 7 # 45-10"
         ciudad="Bogota, Colombia"
-        entreSemana="Lunes a viernes: 07:00 a.m. - 05:00 p.m."
+        entreSemana="Lunes a viernes: 08:00 a.m. - 05:00 p.m."
         sabado="Sábados: 08:00 a.m. - 03:00 p.m."
       />
       <CardShowRoomMovil
@@ -40,7 +40,7 @@ export const MovileCardTalleres = () => {
         url="/talleres/tallerCedritos"
         direccion="Av Carrera 19 # 143A - 08 Calle 95"
         ciudad="Bogota, Colombia"
-        entreSemana="Lunes a viernes: 07:00 a.m. - 05:00 p.m."
+        entreSemana="Lunes a viernes: 08:00 a.m. - 05:00 p.m."
         sabado="Sábados: 08:00 a.m. - 03:00 p.m."
       />
       <CardShowRoomMovil
@@ -53,7 +53,7 @@ export const MovileCardTalleres = () => {
         url="/talleres/tallerAvenidaChile"
         direccion="Calle 72 # 25-10,"
         ciudad="Bogota, Colombia"
-        entreSemana="Lunes a viernes: 07:00 a.m. - 05:00 p.m."
+        entreSemana="Lunes a viernes: 08:00 a.m. - 05:00 p.m."
         sabado="Sábados: 08:00 a.m. - 03:00 p.m."
       />
     </>
