@@ -8,12 +8,31 @@ export function CarruselScooters() {
   const [scooters, setScooters] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  const [autoplay, setAutoplay] = useState(true);
+  const [autoplay, setAutoplay] = useState(false); // Inicia sin autoplay
   const carouselRef = useRef(null);
   const isDragging = useRef(false);
   const startX = useRef(0);
   const scrollLeft = useRef(0);
   const autoplayInterval = useRef(null);
+
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth >= 768) {
+        setAutoplay(true);
+      } else {
+        setAutoplay(false);
+        stopAutoplay();
+      }
+    };
+
+    window.addEventListener("resize", handleResize);
+    handleResize();
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+      stopAutoplay();
+    };
+  }, []);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -40,12 +59,14 @@ export function CarruselScooters() {
     };
     fetchData();
 
-    startAutoplay();
+    if (autoplay) {
+      startAutoplay();
+    }
 
     return () => {
       stopAutoplay();
     };
-  }, []);
+  }, [autoplay]);
 
   const startAutoplay = () => {
     autoplayInterval.current = setInterval(() => {
@@ -54,10 +75,6 @@ export function CarruselScooters() {
       }
     }, 8000);
   };
-
-
-
-  
 
   const stopAutoplay = () => {
     clearInterval(autoplayInterval.current);
@@ -89,13 +106,17 @@ export function CarruselScooters() {
       isDragging.current = false;
       alignToCard();
     }
-    startAutoplay();
+    if (autoplay) {
+      startAutoplay();
+    }
   };
 
   const handleMouseUp = () => {
     isDragging.current = false;
     alignToCard();
-    startAutoplay();
+    if (autoplay) {
+      startAutoplay();
+    }
   };
 
   const handleMouseMove = (e) => {
@@ -115,7 +136,9 @@ export function CarruselScooters() {
   const handleTouchEnd = () => {
     isDragging.current = false;
     alignToCard();
-    startAutoplay();
+    if (autoplay) {
+      startAutoplay();
+    }
   };
 
   const handleTouchMove = (e) => {
