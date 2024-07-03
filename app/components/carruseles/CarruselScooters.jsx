@@ -10,7 +10,6 @@ export function CarruselScooters() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [autoplay, setAutoplay] = useState(true);
-  const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -37,17 +36,6 @@ export function CarruselScooters() {
       }
     };
     fetchData();
-
-    const handleResize = () => {
-      setIsMobile(window.innerWidth <= 768);
-    };
-
-    window.addEventListener("resize", handleResize);
-    handleResize(); // Initial check
-
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
   }, []);
 
   const handleMouseEnter = () => {
@@ -66,6 +54,19 @@ export function CarruselScooters() {
     setAutoplay(true);
   };
 
+  function useIsMobile() {
+    const [isMobile, setIsMobile] = useState("");
+
+    useEffect(() => {
+      const mediaQuery = window.matchMedia("(max-width: 768px)");
+      const handleResize = (e) => setIsMobile(e.matches);
+      mediaQuery.addListener(handleResize);
+      return () => mediaQuery.removeListener(handleResize);
+    }, []);
+
+    return isMobile;
+  }
+
   if (loading) {
     return <SkeletonCarrusel />;
   }
@@ -73,12 +74,6 @@ export function CarruselScooters() {
   if (error) {
     return <div>Error: {error.message}</div>;
   }
-
-  const carouselProps = {
-    autoplay,
-    loop: true,
-    className: "carrusel-padre relative overflow-x-hidden rounded-xl",
-  };
 
   return (
     <div
@@ -89,18 +84,16 @@ export function CarruselScooters() {
       onTouchEnd={handleTouchEnd}
     >
       <Suspense fallback={<SkeletonCarrusel />}>
-        <Carousel {...carouselProps}>
+        <Carousel
+          autoplay={autoplay}
+          loop={true}
+          className="carrusel-padre relative overflow-x-hidden rounded-xl"
+        >
           {scooters.edges.map((scooter, index) => (
             <div key={index}>
               <Scooter scooter={scooter} />
             </div>
           ))}
-          {!isMobile && (
-            <>
-              <IconButton className="carousel-control-prev" />
-              <IconButton className="carousel-control-next" />
-            </>
-          )}
         </Carousel>
       </Suspense>
     </div>
