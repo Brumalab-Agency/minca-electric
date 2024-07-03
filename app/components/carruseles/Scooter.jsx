@@ -30,14 +30,13 @@ const Scooter = ({ scooter }) => {
     item.slugDinamicoTemporal =
       "Especificaciones_Scooter_Electrico_Minca_1600W";
   }
-
+  
   const parsePrice = (price) => {
     let priceStr = price.replace("$", "");
     priceStr = priceStr.replace(/\./g, "");
     let priceInt = parseInt(priceStr, 10);
-    return priceInt;
-  };
-
+    return priceInt
+  }
   return (
     <div id="scooter" className="carrusel h-auto w-full">
       <div className="relative p-4 lg:px-[100px] lg:py-14">
@@ -107,10 +106,7 @@ const Scooter = ({ scooter }) => {
                 </span>
               </div>
               {/* Modelo 3D Movil/PC */}
-              <addi-widget
-                price={parsePrice(item.precioRebajado)}
-                ally-slug="mincaelectric-ecommerce"
-              ></addi-widget>
+              <addi-widget price={parsePrice(item.precioRebajado)} ally-slug="mincaelectric-ecommerce"></addi-widget>
               <div className="pt-2">
                 <Modal3d url_3d={item.url3d} />
               </div>
@@ -200,7 +196,28 @@ const Scooter = ({ scooter }) => {
               subtitulo={item.kmh}
               tipo={item.velocidadMaxima}
             />
+            <CardEspecifications
+              titulo={item.peso}
+              subtitulo={item.kg}
+              tipo={item.pesoMaximo}
+            />
+            <CardEspecifications
+              titulo={item.frenos}
+              subtitulo={item.frenosNulo}
+              tipo={item.tipofrenos}
+            />
+            <CardEspecifications
+              titulo={item.pulgadas}
+              subtitulo={item.tipoRodamiento}
+              tipo={item.llanta}
+            />
+            <CardEspecifications
+              titulo={item.pesoSc}
+              subtitulo={item.kg}
+              tipo={item.tpeso}
+            />
           </div>
+          <div className="scroll-indicator m-auto"></div>
           <div className="block lg:hidden">
             <Boton slug={item.slugDinamicoTemporal} param="Comprar Ahora" />
           </div>
