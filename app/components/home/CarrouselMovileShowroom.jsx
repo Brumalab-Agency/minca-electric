@@ -109,7 +109,7 @@ export const CarrouselMovileShowroom = () => {
 
   return (
     <>
-      <h1 className="mt-50 mb-5 ml-5 text-[32px] font-bold">SHOWROOM</h1>
+      <h1 className="mt-50 mb-5 ml-5 text-[32px] font-bold">SHOWROOMS</h1>
       <div
         ref={carouselRef}
         className="relative w-[100%] overflow-hidden"

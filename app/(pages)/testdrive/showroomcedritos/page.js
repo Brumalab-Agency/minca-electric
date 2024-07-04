@@ -9,19 +9,27 @@ export const TallerCedritos = () => {
   return (
     <div>
       <Header />
-      <div className="lg:px-[100px] text-center p-4">
-        <h1 className="lg:text-[62px] text-[32px] font-bold lg:mt-[155px] text-left">
-        Showroom Cedritos
+      <div className="p-4 text-center lg:px-[100px]">
+        <h1 className="text-left text-[32px] font-semibold lg:mt-[155px] lg:text-[48px]">
+          Showroom Cedritos
         </h1>
-        <p className="m-auto lg:text-[20px] text-base text-[#111] text-left">
-        Bienvenido a Nuestro Rincón de la Movilidad Sostenible! Experimenta la Elegancia de la Electricidad en Minca Electric Showroom Cedritos. Tu Oportunidad de Descubrir el Futuro de la Conducción Está a Solo un Paso. ¡Agenda Tu Test Drive Hoy y Vive el Encanto de los Scooters Eléctricos!
-        </p>
+        <div className="pb-100 lg:max-w-[70%]">
+          <p className="m-auto  text-left text-base font-light text-[#111]  lg:text-[20px]">
+            ¡Bienvenido a Nuestro Rincón de la Movilidad Sostenible! Tu
+            Oportunidad de Descubrir el Futuro de la Conducción Está a Solo un
+            Paso.
+          </p>
+          <br />
+          <p className="m-auto text-left text-base font-light text-[#111]  lg:text-[20px]">
+            ¡Agenda Tu Test Drive!
+          </p>
+        </div>
       </div>
-      <Suspense fallback={<Loading/>}>
+      <Suspense fallback={<Loading />}>
         <CedritosWidget />
       </Suspense>
-      <Footer/>
-      <Whatsapp/>
+      <Footer />
+      <Whatsapp />
     </div>
   );
 };

@@ -7,6 +7,7 @@ export const HeroImagen = async () => {
 
   return (
     <div className="heroImagen relative lg:mt-4">
+      
       <div className="mt-4">
         
         {/* PC */}
@@ -16,6 +17,7 @@ export const HeroImagen = async () => {
         <video className="lg:hidden w-full h-[400px] object-cover  top-0" src={(`${banner[1].node.banner.videoBannerPc.mediaItemUrl}`)} autoPlay muted loop />
         
       </div>
+
       <div className="overlay h-[400px] w-full bg-[#111]/50 absolute top-0 flex flex-col items-start justify-center p-4 lg:h-[663px] lg:px-[100px]">
         <div className="lg:flex lg:justify-between lg:w-full">
           <div

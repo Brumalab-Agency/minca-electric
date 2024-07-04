@@ -1,97 +1,147 @@
 "use client";
-import { manrope, ubuntu } from "../../ui/fonts";
-import { Carousel } from "@material-tailwind/react";
+import React, { useState, useEffect, useRef } from "react";
+import { Separador } from "@/(pages)/separador/Separador";
+import { TProductVariant } from "@/components/titulos/TProductVariant";
+import { Card, CardContent } from "@/components/ui/card";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
 import Link from "next/link";
 import Image from "next/image";
+import { CarrouselMovileTalleres } from "../home/CarrouselTalleres";
 
 export const TalleresComponent = () => {
+  const [carouselApi, setCarouselApi] = useState(null);
+  const intervalRef = useRef(null);
+
+  const talleres = [
+    {
+      name: "Taller Chicó",
+      image: "/talleres/taller-chico.jpg",
+      link: "/talleres/tallerChico",
+    },
+    {
+      name: "Taller Javeriana",
+      image: "/talleres/taller-javeriana.jpg",
+      link: "/talleres/tallerJaveriana",
+    },
+    {
+      name: "Taller Cedritos",
+      image: "/talleres/taller-cedritos.jpg",
+      link: "/talleres/tallerCedritos",
+    },
+    {
+      name: "Taller Avenida Chile",
+      image: "/talleres/Taller-avenida-chile.png",
+      link: "/talleres/tallerAvenidaChile",
+    },
+  ];
+
+  useEffect(() => {
+    const handleAutoSlide = () => {
+      if (carouselApi) {
+        if (carouselApi.canScrollNext()) {
+          carouselApi.scrollNext();
+        } else {
+          carouselApi.scrollTo(0);
+        }
+      }
+    };
+
+    intervalRef.current = setInterval(handleAutoSlide, 5000);
+
+    return () => clearInterval(intervalRef.current);
+  }, [carouselApi]);
+
+  const handleMouseEnter = () => {
+    clearInterval(intervalRef.current);
+  };
+
+  const handleMouseLeave = () => {
+    intervalRef.current = setInterval(() => {
+      if (carouselApi) {
+        if (carouselApi.canScrollNext()) {
+          carouselApi.scrollNext();
+        } else {
+          carouselApi.scrollTo(0);
+        }
+      }
+    }, 9000);
+  };
+
   return (
-    <>
-      <div className="carrusel w-full bg-[#F0F1EB] lg:h-[665px] lg:px-0">
-        {/* PC */}
-        <Carousel
-          autoplay={true}
-          loop={true}
-          autoplayDelay={5000}
-          navigation={false}
-          className="carrusel-showRoom-home relative overflow-x-hidden bg-[#fff] lg:flex"
-        >
-          {/* Slide 1 */}
-          <div className="flex h-full w-full justify-center gap-6">
-            {/* Taller Chico */}
-            <div className="flex flex-col items-center justify-center 2xl:w-[500px]">
-              <Image
-                alt="scooter"
-                className="h-auto rounded-[10px] lg:w-[360px] 2xl:w-[500px]"
-                src="/talleres/taller-chico.jpg"
-                width={300}
-                height={300}
-              />
-              <h2 className="mt-4 text-[28px] font-bold">Taller Chicó</h2>
-              <Link
-                href="/talleres/tallerChico"
-                className={`${ubuntu.className} my-3 grid h-[52px] w-full place-items-center rounded-[62px] bg-[#111] text-[16px] text-white lg:w-[210px]`}
+    <div className="carrusel w-full lg:h-[665px] lg:px-0">
+      <div
+        className="carrusel mb-[65px] hidden w-full px-40 lg:block lg:h-[665px] lg:px-0"
+        onMouseEnter={handleMouseEnter}
+        onMouseLeave={handleMouseLeave}
+      >
+        <div className="hidden px-[100px] text-center lg:block">
+          <h1 className="mt-[55px] text-left text-[62px] font-bold">
+            Talleres
+          </h1>
+          <p className="m-auto text-left text-[20px] text-[#111] 2xl:text-[28px]">
+            Encuentra el Mantenimiento Perfecto para Tu Scooter y Garantiza su
+            Rendimiento. <br />
+            ¡Programa tu Mantenimiento Ahora!
+          </p>
+        </div>
+        <div className="">
+          <div className="py-4 lg:h-[710px] lg:w-auto">
+            <div className="relative h-auto w-full">
+              <Carousel
+                setApi={setCarouselApi}
+                opts={{
+                  align: "start",
+                  loop: "true",
+                }}
+                className="marcador -mt-[100px] w-full px-[100px] pt-[120px]"
               >
-                Agendar
-              </Link>
-            </div>
-            {/* Taller Javeriana */}
-            <div className="flex flex-col items-center justify-center">
-              <Image
-                alt="scooter"
-                className="h-auto rounded-[10px] lg:w-[360px] 2xl:w-[500px]"
-                src="/talleres/taller-javeriana.jpg"
-                width={300}
-                height={300}
-              />
-              <h2 className="mt-4 text-[28px] font-bold">Taller Javeriana</h2>
-              <Link
-                href="/talleres/tallerJaveriana"
-                className={`${ubuntu.className} my-3  grid h-[52px] w-full place-items-center rounded-[62px] bg-[#111] text-[16px] text-white lg:w-[210px]`}
-              >
-                Agendar
-              </Link>
-            </div>
-            {/* Taller Cedritos */}
-            <div className="flex flex-col items-center justify-center">
-              <Image
-                alt="scooter"
-                className="h-auto rounded-[10px] lg:w-[360px] 2xl:w-[500px]"
-                src="/talleres/taller-cedritos.jpg"
-                width={300}
-                height={300}
-              />
-              <h2 className="mt-4 text-[28px] font-bold">Taller Cedritos</h2>
-              <Link
-                href="/talleres/tallerCedritos"
-                className={`${ubuntu.className} my-3 block h-[52px] w-full place-items-center rounded-[62px] bg-[#111] text-[16px] text-white lg:grid lg:w-[210px]`}
-              >
-                Agendar
-              </Link>
+                <CarouselContent className="marcador 2">
+                  {talleres.map((taller, index) => (
+                    <CarouselItem
+                      key={`carrousel-talleres-${index}`}
+                      className={`h-auto w-full basis-1/3 md:basis-1/3 lg:basis-1/3 2xl:basis-1/6 ${
+                        index === 0 ? "2xl:mr-20" : "2xl:mx-20"
+                      }`}
+                    >
+                      <div className="flex flex-col items-center justify-center 2xl:w-[500px]">
+                        <Image
+                          alt={taller.name}
+                          className="h-auto rounded-[10px] lg:w-[360px] 2xl:w-[500px]"
+                          src={taller.image}
+                          width={300}
+                          height={300}
+                        />
+                        <h2 className="mt-4 text-[28px] font-bold">
+                          {taller.name}
+                        </h2>
+                        <Link
+                          href={taller.link}
+                          className={`my-3 grid h-[52px] w-full place-items-center rounded-[62px] bg-[#111] text-[16px] text-white lg:w-[230px]`}
+                        >
+                          Agendar Mantenimiento
+                        </Link>
+                      </div>
+                    </CarouselItem>
+                  ))}
+                </CarouselContent>
+
+                <CarouselPrevious className="absolute left-2 top-1/2 ml-5 -translate-y-1/2 lg:left-5" />
+                <CarouselNext className="absolute right-2 top-1/2 mr-5 -translate-y-1/2 lg:right-5" />
+              </Carousel>
             </div>
           </div>
-          {/* Slide 2 */}
-          <div className="flex h-full w-full justify-center gap-6">
-            {/* Taller Chico */}
-            <div className="flex flex-col items-center justify-center 2xl:w-[500px]">
-              <Image
-                alt="scooter"
-                className="h-auto rounded-[10px] lg:w-[360px] 2xl:w-[500px]"
-                src="/talleres/Taller-avenida-chile.png"
-                width={300}
-                height={300}
-              />
-              <h2 className="mt-4 text-[28px] font-bold">Avenida Chile</h2>
-              <Link
-                href="/talleres/tallerAvenidaChile"
-                className={`${ubuntu.className} my-3 grid h-[52px] w-full place-items-center rounded-[62px] bg-[#111] text-[16px] text-white lg:w-[210px]`}
-              >
-                Agendar
-              </Link>
-            </div>
-          </div>
-        </Carousel>
+        </div>
       </div>
-    </>
+      {/* Mobile */}
+      <div className="mt-55 lg:hidden">
+        <CarrouselMovileTalleres />
+      </div>
+    </div>
   );
 };
