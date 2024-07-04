@@ -21,23 +21,6 @@ const CarItemsContainer = () => {
 
   // Retrieve coupon usage state from localStorage
   useEffect(() => {
-    //cartItems.data.name = cartItems.data.name.replace(/ Azul,| Negro,/, '');
-    if (!isClearCartProcessing && cartItems) {
-      const updatedCartItems = cartItems.map(item => {
-        return {
-          ...item,
-          data: {
-            ...item.data,
-            name: item.data.name.replace(' Azul,', '')
-          }
-        };
-      });
-      
-      setCart(prevCart => ({
-        ...prevCart,
-        cartItems: updatedCartItems
-      }));
-    }
     const storedUses = localStorage.getItem("couponUses");
     if (storedUses) {
       setUses(parseInt(storedUses, 10));
