@@ -16,15 +16,33 @@ const CarItemsContainer = () => {
   const [uses, setUses] = useState(0);
   const [priceWithoutDiscount, setPriceWithoutDiscount] = useState(totalPrice);
   const [couponRate, setCouponRate] = useState("");
-  const difference = priceWithoutDiscount - totalPrice;
+  const difference = priceWithoutDiscount - totalPrice || undefined;
+
 
   // Retrieve coupon usage state from localStorage
   useEffect(() => {
+    //cartItems.data.name = cartItems.data.name.replace(/ Azul,| Negro,/, '');
+    if (!isClearCartProcessing && cartItems) {
+      const updatedCartItems = cartItems.map(item => {
+        return {
+          ...item,
+          data: {
+            ...item.data,
+            name: item.data.name.replace(' Azul,', '')
+          }
+        };
+      });
+      
+      setCart(prevCart => ({
+        ...prevCart,
+        cartItems: updatedCartItems
+      }));
+    }
     const storedUses = localStorage.getItem("couponUses");
     if (storedUses) {
       setUses(parseInt(storedUses, 10));
     }
-  }, []);
+  }, [cartItems, setCart]);
 
   const handleCouponsDiscount = async () => {
     const code = document.getElementById("code").value;

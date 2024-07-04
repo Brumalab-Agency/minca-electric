@@ -13,11 +13,9 @@ const AccesorioVariable = (item) => {
     colors: [],
   });
 
-  console.log(selectedOptions)
 
   const [currentVariation, setCurrentVariation] = useState(null);
 
-  console.log(currentVariation)
 
   const [isColorSelected, setIsColorSelected] = useState(false);
 
@@ -35,15 +33,17 @@ const AccesorioVariable = (item) => {
     const [currentProductIndex, setCurrentProductIndex] = useState(1);
 
     const getSelectedVariation = (items, sizes) => {
+      const variation = items.variations.nodes.find((variation) => {
+        const variationSize = variation.attributes.nodes.find(
+          (attr) => attr.name === "talla",
+        )?.value;
+        return (
+          sizes.includes(variationSize)
+        );
+      })
+
       return (
-        items.variations.nodes.find((variation) => {
-          const variationSize = variation.attributes.nodes.find(
-            (attr) => attr.name === "talla",
-          )?.value;
-          return (
-            sizes.includes(variationSize)
-          );
-        }) || null
+        variation || null
       );
     };
 
@@ -58,12 +58,10 @@ const AccesorioVariable = (item) => {
           updatedSizes = [size];
         }
 
-        console.log(updatedSizes)
         const selectedVariation = getSelectedVariation(
           items,
           updatedSizes,
-        );
-        console.log(selectedVariation)
+        );   
         setCurrentVariation(selectedVariation);
         return { ...prevOptions, sizes: updatedSizes };
       });
