@@ -19,7 +19,7 @@ const DonwLoadManual = ({ manualMinca, item }) => {
           downLoad(manualMinca);
         }}
         value="download"
-        className="my-3 h-[52px] w-full rounded-[62px] bg-[#111] text-[16px] text-white lg:w-[210px]"
+        className="my-3 h-[52px] w-full rounded-[62px] bg-[#111] text-[16px] text-white  lg:w-[210px]"
       >
         {`Manual de usuario `}
       </button>

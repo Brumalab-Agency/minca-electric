@@ -7,21 +7,25 @@ import DonwLoadManual from "../manuales/DonwLoadManual";
 import { Acordion } from "../reusable/Acordion";
 import { Testimonios } from "../testimonio/Testimonios";
 import { useState, useEffect, useCallback } from "react";
-import debounce from 'lodash.debounce';
+import debounce from "lodash.debounce";
 import TooltipEspecificaciones from "./TooltipEspecificaciones";
 import { getOrderStatus } from "@/utils/checkout/utilsCheckout";
 import PoliticasGarantia from "../manuales/PoliticaGarantia";
 import TooltipPresale from "./TooltipPresale";
+import { HotSpotEspecificaciones } from "../sigle-product/HotSpotEspecificaciones";
 
 export const EspecificacionesMincaNew = (scooters) => {
   const [codigoOC, setCodigoOC] = useState("");
   const [selectedPaymentOption, setSelectedPaymentOption] = useState("");
-  const [currentItem, setCurrentItem] = useState(scooters.scooters.productTypes.nodes[0].products.nodes[0]);
+  const [currentItem, setCurrentItem] = useState(
+    scooters.scooters.productTypes.nodes[0].products.nodes[0],
+  );
   const [secondPayment, setSecondPayment] = useState(false);
-  const [firstPayment, setFirstPayment] = useState(false)
+  const [firstPayment, setFirstPayment] = useState(false);
   const [message, setMessage] = useState("");
 
-  const garantiaUrl = "https://test.mincaelectric.com/wp-content/uploads/2024/05/POLITICAS-DE-GARANTIA.pdf";
+  const garantiaUrl =
+    "https://test.mincaelectric.com/wp-content/uploads/2024/05/POLITICAS-DE-GARANTIA.pdf";
   const manualMinca = currentItem.sliderProductos.manualMinca.mediaItemUrl;
   const on_back_order = currentItem.stockStatus === "ON_BACKORDER";
 
@@ -46,7 +50,7 @@ export const EspecificacionesMincaNew = (scooters) => {
               precioActual: selectedPaymentOption.replace(" second", ""),
             },
           }));
-          setMessage("")
+          setMessage("");
         } else {
           setMessage("Codigo no valido");
         }
@@ -58,11 +62,10 @@ export const EspecificacionesMincaNew = (scooters) => {
     }
   };
 
-
   const handlePaymentOptionChange = (e) => {
     e.preventDefault();
     const paymentOption = e.target.value;
-    setFirstPayment(true)
+    setFirstPayment(true);
     setSelectedPaymentOption(paymentOption);
     setCurrentItem({
       ...currentItem,
@@ -92,8 +95,14 @@ export const EspecificacionesMincaNew = (scooters) => {
     let priceStr = price.replace("$", "");
     priceStr = priceStr.replace(/\./g, "");
     let priceInt = parseInt(priceStr, 10);
-    return priceInt
-  }
+    return priceInt;
+  };
+
+  console.log(
+    scooters.scooters.productTypes.nodes[0].products.nodes[0].sliderProductos
+      .nombreProducto,
+  );
+  console.log(scooters);
 
   return (
     <div className="EspecificacionesAccesorios Productos-SIMPLES">
@@ -126,7 +135,9 @@ export const EspecificacionesMincaNew = (scooters) => {
                 >
                   <p className="text-[14px]">Ahora</p>
                   {/* {currentItem?.sliderProductos.precioActual} */}
-                  {on_back_order ? "$2.100.000" : currentItem?.sliderProductos.precioActual}
+                  {on_back_order
+                    ? "$2.100.000"
+                    : currentItem?.sliderProductos.precioActual}
                 </div>
                 <span className="items-center justify-center rounded-full bg-[#FF3333] bg-opacity-10 px-2.5 py-0.5 text-[#FF3333] lg:inline-flex lg:h-8 lg:px-[14px] lg:py-[6px]">
                   <p
@@ -136,7 +147,10 @@ export const EspecificacionesMincaNew = (scooters) => {
                   </p>
                 </span>
               </div>
-              <addi-widget price={parsePrice(currentItem?.sliderProductos.precioRebajado)} ally-slug="mincaelectric-ecommerce"></addi-widget>
+              <addi-widget
+                price={parsePrice(currentItem?.sliderProductos.precioRebajado)}
+                ally-slug="mincaelectric-ecommerce"
+              ></addi-widget>
               <p
                 className={`${ubuntu.className} text-[14px] font-normal leading-[15px] text-[#42454A] lg:mt-5 lg:w-[90%] lg:text-[16px] lg:leading-[25px]`}
               >
@@ -183,7 +197,9 @@ export const EspecificacionesMincaNew = (scooters) => {
                             type="radio"
                             name="paymentOption"
                             value="$1.050.000 second"
-                            checked={selectedPaymentOption === "$1.050.000 second"}
+                            checked={
+                              selectedPaymentOption === "$1.050.000 second"
+                            }
                             onChange={handlePaymentSecondOption}
                             className="radio-input mr-2"
                           />
@@ -231,7 +247,6 @@ export const EspecificacionesMincaNew = (scooters) => {
                 </form>
               )}
               {message && <p className="text-xs">{message}</p>}
-
             </div>
           </div>
 
@@ -254,7 +269,9 @@ export const EspecificacionesMincaNew = (scooters) => {
         <div className="h-auto w-full px-4 pb-10 lg:pl-[16px] lg:pr-[96px]">
           <div className="mt-16 flex items-center justify-between lg:mt-[80px]">
             <div className="lg:w-full">
-              <h2 className="border-b-2 border-[#111]">Información adicional</h2>
+              <h2 className="border-b-2 border-[#111]">
+                Información adicional
+              </h2>
             </div>
           </div>
           <video
@@ -265,15 +282,12 @@ export const EspecificacionesMincaNew = (scooters) => {
             muted
             loop
           />
-          <div className="mb-4 flex items-center justify-around space-x-2">
+          <div className="md:mb-4 md:flex md:items-center md:justify-around md:space-x-2">
             <DonwLoadManual manualMinca={manualMinca} item={currentItem} />
             <PoliticasGarantia garantia={garantiaUrl} item={currentItem} />
           </div>
         </div>
       </div>
-      {/* Review */}
-      <Testimonios />
-      <Acordion clase="mx-0 mb-0" />
     </div>
   );
 };

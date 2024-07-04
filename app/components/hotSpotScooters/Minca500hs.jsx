@@ -1,7 +1,7 @@
 import Image from "next/image";
 import React from "react";
 
-const Minca800hs = () => {
+const Minca500hs = () => {
   const markers = {
     casco1: {
       title: "Freno de Banda Trasero ",
@@ -42,9 +42,12 @@ const Minca800hs = () => {
       title: "Llanta Antipinchazos de 8 Pulgadas",
     },
   };
+  {
+    console.log(markers.casco1.title);
+  }
   return (
     <div className="carrusel relative grid h-[494px] grid-cols-12 grid-rows-12 overflow-hidden bg-[#878D8F] px-4 lg:h-[663px] lg:grid-cols-12 lg:grid-rows-12 lg:px-[48px] 2xl:h-[850px]">
-      <div className="pointer-events-none col-span-full row-span-full grid h-auto w-full place-items-center overflow-hidden bg-[url('/scooterHotsSpot/800W.png')] bg-[length:77%] bg-center bg-no-repeat lg:bg-[length:32%] 2xl:bg-[length:23%]">
+      <div className="pointer-events-none col-span-full row-span-full grid h-auto w-full place-items-center overflow-hidden bg-[url('/scooterHotsSpot/500W.png')] bg-[length:77%] bg-center bg-no-repeat lg:bg-[length:32%] 2xl:bg-[length:23%]">
         <Image
           className="lg:w-[40%] 2xl:w-[30%]"
           placeholder="empty"
@@ -235,4 +238,4 @@ const Minca800hs = () => {
   );
 };
 
-export default Minca800hs;
+export default Minca500hs;

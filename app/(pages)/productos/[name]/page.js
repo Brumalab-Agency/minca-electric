@@ -29,7 +29,6 @@ export let metadata = {
   },
 };
 
-
 const SingleProduct = async ({ params }) => {
   const paths = [
     "Scooter_Electrico_Minca_350W",
@@ -58,10 +57,8 @@ const SingleProduct = async ({ params }) => {
 
   metadata.title = `Productos | ${name}`;
 
-
-  
-  
   const scooters = await SingleProductos(name);
+
   return (
     <div>
       <HeaderSingleProducts />
@@ -82,7 +79,9 @@ const SingleProduct = async ({ params }) => {
       {/* <CarruselSingleProduct /> */}
       {/* <StickyScrollRevealDemo/> */}
       {/* <Section3 /> */}
-      <LayoutGridInfo scooter_name={scooters.edges[0]?.node.sliderProductos.nombreProducto}/>
+      <LayoutGridInfo
+        scooter_name={scooters.edges[0]?.node.sliderProductos.nombreProducto}
+      />
       {/* <Section4 /> */}
       <CardHoverEffect />
       <ReactImagenGallery scooters={scooters} />

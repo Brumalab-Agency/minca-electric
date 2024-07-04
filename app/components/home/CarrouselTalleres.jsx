@@ -44,7 +44,7 @@ export const CarrouselMovileTalleres = () => {
     },
     {
       img: "/talleres/av-chile.png",
-      title: "Avenida Chile",
+      title: "Taller Avenida Chile",
       link: "/talleres/tallerAvenidaChile",
       location: "Calle 72 # 25-10,",
       location2: "Bogotá, Colombia",

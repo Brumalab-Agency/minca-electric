@@ -9,15 +9,19 @@ export const TallerJaveriana = () => {
     <div>
       <Header />
       <Suspense fallback={<Loading />}>
-      <div className="lg:px-[100px] px-4 mb-20">
-        <h1 className="lg:text-[62px] text-[32px] font-bold lg:mt-[155px] text-left">Taller Javeriana</h1>
-          <p className="m-auto lg:text-[20px] text-base text-[#111] text-left">
-          Encuentra el Mantenimiento Perfecto para Tu Scooter y Garantiza su Rendimiento. <br/>¡Programa tu Mantenimiento Ahora!
+        <div className="mb-20 px-4 lg:px-[100px]">
+          <h1 className="text-left text-[32px] font-bold lg:mt-[155px] lg:text-[42px]">
+            Taller Javeriana
+          </h1>
+          <p className="m-auto text-left text-base text-[#111] lg:text-[20px]">
+            Encuentra el Mantenimiento Perfecto para Tu Scooter y Garantiza su
+            Rendimiento. <br />
+            ¡Programa tu Mantenimiento Ahora!
           </p>
-      </div>
+        </div>
         <SimplyAgendamientoJaveriana />
       </Suspense>
-      <Whatsapp/>
+      <Whatsapp />
     </div>
   );
 };
