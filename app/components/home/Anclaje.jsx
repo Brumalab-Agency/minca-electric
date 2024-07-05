@@ -12,13 +12,12 @@ export const Anclaje = ({ hero }) => {
       >
         {hero.ancla1}
       </button>
-      {/* <button
+      <button
         onClick={() => lenis.scrollTo("#city", { lerp: 0.07 })}
-        className="lg:font-regular text-[15px] text-[#42454A] underline decoration-1 lg:mt-2 lg:text-base lg:leading-[25px] 2xl:text-[24px] ml-4"
+        className="lg:font-regular ml-4 text-[15px] text-[#42454A] underline decoration-1 lg:mt-2 lg:text-base lg:leading-[25px] 2xl:text-[24px]"
       >
         Minca Motos Eléctricas
-
-      </button> */}
+      </button>
 
       {/* <button
         onClick={() => lenis.scrollTo("#ebike", { lerp: 0.07 })}
