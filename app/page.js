@@ -25,7 +25,7 @@ export default function Home() {
       <CarruselScooters />
 
       {/* <CarruselEbikes /> */}
-      {/* <CarruselMincaCity /> */}
+      <CarruselMincaCity />
       <PruebaMinca />
       <CarruselAccesorios />
       <CambiaRuta />

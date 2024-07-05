@@ -24,16 +24,16 @@ export const City = () => {
             placeholder="empty"
             alt="publicidad"
             className="top-0 hidden h-[663px] w-full object-cover  lg:block"
-            src="/city/city-desktop.jpg" 
+            src="https://test.mincaelectric.com/wp-content/uploads/2024/07/city-desktop.jpg"
             width={1200}
-             height={663}
+            height={663}
           />
           {/* Movil */}
           <Image
             placeholder="empty"
             alt="publicidad"
             className="top-0 h-[400px] w-full object-cover  lg:hidden"
-            src="/city/city-mobile.png"
+            src="https://test.mincaelectric.com/wp-content/uploads/2024/07/city-mobile.png"
             width={390}
             height={400}
           />
@@ -92,7 +92,11 @@ export const City = () => {
             placeholder="empty"
             alt={`Minca city ${selectedColor}`}
             className="lg:hidden"
-            src={`/city/city-${selectedColor === "red" ? "roja" : "gris"}.png`}
+            src={
+              selectedColor === "red"
+                ? "https://test.mincaelectric.com/wp-content/uploads/2024/07/city-roja.png"
+                : "https://test.mincaelectric.com/wp-content/uploads/2024/07/city-gris.png"
+            }
             priority={true}
             width={390}
             height={400}
@@ -212,7 +216,11 @@ export const City = () => {
                 placeholder="empty"
                 alt={`Minca city ${selectedColor}`}
                 className="hidden lg:block"
-                src={`/city/city-${selectedColor === "red" ? "roja" : "gris"}.png`}
+                src={
+                  selectedColor === "red"
+                    ? "https://test.mincaelectric.com/wp-content/uploads/2024/07/city-roja.png"
+                    : "https://test.mincaelectric.com/wp-content/uploads/2024/07/city-gris.png"
+                }
                 width={600}
                 height={499}
               />
